@@ -31,6 +31,8 @@ export default function HomePage() {
             alt=""
             fill
             priority
+            quality={100}
+            unoptimized
             sizes="100vw"
             className="hero__bg-img"
           />
