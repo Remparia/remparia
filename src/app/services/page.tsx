@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import ServicesPage from "@/components/pages/ServicesPage";
-import { createPageMetadata } from "@/lib/seo";
+import { createPageMetadata, servicesItemListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Services IA souveraine",
@@ -10,5 +11,10 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Page() {
-  return <ServicesPage />;
+  return (
+    <>
+      <JsonLd data={servicesItemListJsonLd()} />
+      <ServicesPage />
+    </>
+  );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import SecteursPage from "@/components/pages/SecteursPage";
-import { createPageMetadata } from "@/lib/seo";
+import { createPageMetadata, secteursItemListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Secteurs & industries",
@@ -10,5 +11,10 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Page() {
-  return <SecteursPage />;
+  return (
+    <>
+      <JsonLd data={secteursItemListJsonLd()} />
+      <SecteursPage />
+    </>
+  );
 }

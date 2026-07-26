@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import MethodePage from "@/components/pages/MethodePage";
-import { createPageMetadata } from "@/lib/seo";
+import { createPageMetadata, signalHowToJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Méthode SIGNAL",
@@ -10,5 +11,10 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Page() {
-  return <MethodePage />;
+  return (
+    <>
+      <JsonLd data={signalHowToJsonLd()} />
+      <MethodePage />
+    </>
+  );
 }

@@ -140,6 +140,126 @@ export function websiteJsonLd() {
   };
 }
 
+export function professionalServiceJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: SITE.name,
+    url: SITE.url,
+    image: absoluteUrl(SITE.ogImage),
+    description: SITE.description,
+    email: SITE.email,
+    priceRange: "$$",
+    areaServed: {
+      "@type": "Country",
+      name: "France",
+    },
+    serviceType: [
+      "IA souveraine",
+      "Agents IA métier",
+      "Stratégie IA",
+      "Infrastructure souveraine",
+    ],
+  };
+}
+
+export function servicesItemListJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Services Remparia",
+    itemListElement: SERVICE_SLUGS.map((slug, index) => {
+      const item = getService(slug, "fr");
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item?.title ?? slug,
+        url: absoluteUrl(`/services/${slug}`),
+        description: item?.desc,
+      };
+    }),
+  };
+}
+
+export function secteursItemListJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Secteurs Remparia",
+    itemListElement: SECTEUR_SLUGS.map((slug, index) => {
+      const item = getSecteur(slug, "fr");
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item?.title ?? slug,
+        url: absoluteUrl(`/secteurs/${slug}`),
+        description: item?.desc,
+      };
+    }),
+  };
+}
+
+export function signalHowToJsonLd() {
+  const steps = [
+    {
+      name: "Scoper",
+      text: "Cibler les cas d'usage à ROI réel, pas les gadgets.",
+    },
+    {
+      name: "Intégrer",
+      text: "Brancher les agents sur vos outils et données existants.",
+    },
+    {
+      name: "Garantir",
+      text: "Conformité, traçabilité, souveraineté par défaut.",
+    },
+    {
+      name: "Normaliser",
+      text: "Industrialiser du POC jusqu'à la production quotidienne.",
+    },
+    {
+      name: "Augmenter",
+      text: "L'humain garde la main ; l'agent porte la charge.",
+    },
+    {
+      name: "Livrer",
+      text: "Mesurer les gains, itérer, prouver la valeur.",
+    },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "Protocole SIGNAL — Remparia",
+    description:
+      "Méthode Remparia pour passer de l'idée IA à la production quotidienne.",
+    step: steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      url: absoluteUrl("/methode"),
+    })),
+  };
+}
+
+export function contactPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Remparia",
+    url: absoluteUrl("/contact"),
+    description:
+      "Contactez Remparia pour un diagnostic SIGNAL ou une discussion sur vos cas d'usage IA.",
+    mainEntity: {
+      "@type": "Organization",
+      name: SITE.name,
+      email: SITE.email,
+      url: SITE.url,
+    },
+  };
+}
+
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",

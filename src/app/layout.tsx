@@ -8,6 +8,7 @@ import {
   SITE,
   absoluteUrl,
   organizationJsonLd,
+  professionalServiceJsonLd,
   websiteJsonLd,
 } from "@/lib/seo";
 import "./globals.css";
@@ -91,6 +92,10 @@ export const metadata: Metadata = {
       "x-default": SITE.url,
     },
   },
+  other: {
+    "theme-color": "#0a0a0a",
+    "color-scheme": "dark",
+  },
 };
 
 export default function RootLayout({
@@ -101,7 +106,13 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${archivo.variable} ${spaceMono.variable}`}>
       <body>
-        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+        <JsonLd
+          data={[
+            organizationJsonLd(),
+            websiteJsonLd(),
+            professionalServiceJsonLd(),
+          ]}
+        />
         <a href="#contenu" className="skip-link">
           Aller au contenu
         </a>
