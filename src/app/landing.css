@@ -140,7 +140,7 @@
   border-bottom: none;
 }
 
-/* ??? HERO ??? */
+/* ——— HERO ——— */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -148,6 +148,42 @@
   flex-direction: column;
   overflow: hidden;
   padding-top: 57px;
+  background: #0a0a0a;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__bg-img {
+  object-fit: cover;
+  object-position: center right;
+  opacity: 0.55;
+}
+
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 10, 10, 0.92) 0%,
+      rgba(10, 10, 10, 0.78) 42%,
+      rgba(10, 10, 10, 0.45) 70%,
+      rgba(10, 10, 10, 0.55) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.55) 0%,
+      transparent 28%,
+      rgba(10, 10, 10, 0.35) 72%,
+      rgba(10, 10, 10, 0.85) 100%
+    );
 }
 
 .hero__orb {
@@ -160,6 +196,7 @@
   border-radius: 50%;
   animation: rmp-float 9s ease-in-out infinite;
   pointer-events: none;
+  z-index: 2;
 }
 
 .hero__star {
@@ -168,6 +205,7 @@
 
 .hero__grid {
   position: relative;
+  z-index: 3;
   flex: 1;
   display: grid;
   grid-template-columns: 1fr;
@@ -249,6 +287,7 @@
 
 .hero__pillars {
   position: relative;
+  z-index: 3;
   background: #c8ff00;
   color: #0a0a0a;
   display: flex;

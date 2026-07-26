@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
 import {
@@ -24,9 +25,17 @@ export default function HomePage() {
   return (
     <div className="page">
       <header className="hero">
-        <div className="hero__star" aria-hidden>
-          ✳
+        <div className="hero__bg" aria-hidden>
+          <Image
+            src="/hero-temporal.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero__bg-img"
+          />
         </div>
+        <div className="hero__veil" aria-hidden />
         <div className="hero__orb" aria-hidden />
 
         <div className="hero__grid">
@@ -122,7 +131,7 @@ export default function HomePage() {
         </div>
         <div className="card-grid">
           {services.map((s) => (
-            <Link key={s.tag} href="/services" className="info-card">
+            <Link key={s.slug} href={`/services/${s.slug}`} className="info-card">
               <div className="info-card__tag">{s.tag}</div>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
