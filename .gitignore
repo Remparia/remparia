@@ -1,0 +1,23 @@
+# Dependencies & build
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Env & secrets
+.env
+.env.*
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local / design scratch
+.thumbnail/
+scraps/
+
+# Large reference captures (optional local assets)
+uploads/*.pdf

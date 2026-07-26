@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#0a0a0a;color:#fff;font-family:'Archivo',system-ui,sans-serif;overflow-x:hidden}
+  a{color:#c8ff00;text-decoration:none}
+  a:hover{color:#e4ff7a}
+  @keyframes rmp-spin{to{transform:rotate(360deg)}}
+  @keyframes rmp-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}
+  .reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}
+  .clip{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.16,1,.3,1)}
+  .clip.in{clip-path:inset(0 0 0 0)}
+</style>
+</helmet>
+
+<div style="max-width:100vw">
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 44px;background:{{ navBg }};backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);transition:background .3s">
+    <img src="./logo7-mrz2b8cz-cg9u.png" alt="Remparia" style="height:24px;width:auto;display:block">
+    <div style="display:flex;gap:26px;font:700 11px 'Space Mono',monospace;letter-spacing:.04em;color:rgba(255,255,255,.7)">
+      <a href="#constat" style="color:inherit">[ CONSTAT ]</a>
+      <a href="#signal" style="color:inherit">[ MÉTHODE ]</a>
+      <a href="#position" style="color:inherit">[ POSITION ]</a>
+      <a href="#video" style="color:inherit">[ DÉMO ]</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <button onClick="{{ toggleLang }}" style="font:700 11px 'Space Mono',monospace;color:#c8ff00;background:none;border:none;cursor:pointer;padding:0">{{ langLabel }}</button>
+      <a href="#cta" style="font:800 11px 'Archivo';font-stretch:112%;letter-spacing:.02em;text-transform:uppercase;color:#0a0a0a;background:#c8ff00;padding:11px 18px">{{ t.demo }} →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;padding-top:62px">
+    <div style="position:absolute;right:-160px;top:-120px;font-size:660px;line-height:1;color:rgba(200,255,0,.045);font-family:'Archivo';font-weight:900;animation:rmp-spin 120s linear infinite;transform-origin:center">✳</div>
+    <div style="position:absolute;left:-360px;bottom:-360px;width:900px;height:900px;border:1px solid rgba(255,255,255,.05);border-radius:50%;animation:rmp-float 9s ease-in-out infinite"></div>
+    <div style="position:relative;flex:1;display:grid;grid-template-columns:1fr 400px;gap:0;align-items:stretch">
+      <div style="padding:0 40px;display:flex;flex-direction:column;justify-content:center">
+        <div class="reveal in" style="font:700 11px 'Space Mono',monospace;color:#c8ff00;margin-bottom:18px">// {{ t.eyebrow }}</div>
+        <div style="font-family:'Archivo';font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(64px,9vw,132px);line-height:.82;letter-spacing:-.02em">
+          <div class="clip in">{{ t.h1a }}</div>
+          <div class="clip in" style="transition-delay:.18s;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.85)">{{ t.h1b }}</div>
+        </div>
+        <p class="reveal in" data-d="2" style="margin:26px 0 0;max-width:540px;font:400 14px/1.6 'Space Mono',monospace;color:rgba(255,255,255,.6)">{{ t.heroSub }}</p>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,.12);padding:0 34px;display:flex;flex-direction:column;justify-content:center">
+        <div class="reveal in" style="font:700 11px 'Space Mono',monospace;color:rgba(255,255,255,.5);margin-bottom:18px">// {{ t.constat }}_</div>
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+          <div class="reveal in" style="padding:18px 0;border-top:1px solid rgba(255,255,255,.14)">
+            <div style="font-family:'Archivo';font-stretch:118%;font-weight:800;font-size:54px;line-height:1;color:{{ s.color }}">{{ s.value }}</div>
+            <div style="font:400 11.5px/1.45 'Space Mono',monospace;color:rgba(255,255,255,.55);margin-top:7px">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="position:relative;background:#c8ff00;color:#0a0a0a;display:flex;align-items:stretch">
+      <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+        <div style="flex:1;padding:22px 40px;border-right:1px solid rgba(10,10,10,.16)">
+          <div style="font:700 10.5px 'Space Mono',monospace;opacity:.6;margin-bottom:7px">/ {{ p.tag }}</div>
+          <div style="font-family:'Archivo';font-stretch:112%;font-weight:800;font-size:17px;text-transform:uppercase;line-height:1.05">{{ p.title }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </header>
+
+  <!-- CONSTAT -->
+  <section id="constat" style="padding:120px 40px;border-top:1px solid rgba(255,255,255,.08);position:relative">
+    <div class="reveal" style="font:700 11px 'Space Mono',monospace;color:#c8ff00;margin-bottom:26px">// 01 — {{ t.constat }}</div>
+    <h2 class="reveal" data-d="1" style="margin:0;max-width:1100px;font-family:'Archivo';font-stretch:118%;font-weight:800;text-transform:uppercase;font-size:clamp(40px,5.5vw,80px);line-height:.95;letter-spacing:-.01em">{{ t.constatH }}</h2>
+    <p class="reveal" data-d="2" style="margin:34px 0 0;max-width:620px;font:400 15px/1.7 'Space Mono',monospace;color:rgba(255,255,255,.6)">{{ t.constatP }}</p>
+  </section>
+
+  <!-- CONVICTION -->
+  <section style="padding:120px 40px;background:#0e0d0b;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div>
+        <div class="reveal" style="font:700 11px 'Space Mono',monospace;color:#c8ff00;margin-bottom:22px">// 02 — {{ t.conviction }}</div>
+        <h2 class="reveal" data-d="1" style="margin:0;font-family:'Archivo';font-stretch:120%;font-weight:800;text-transform:uppercase;font-size:clamp(40px,5vw,72px);line-height:.94">{{ t.convH1 }} <span style="color:transparent;-webkit-text-stroke:2px #c8ff00">{{ t.convH2 }}</span></h2>
+      </div>
+      <div class="reveal" data-d="2" style="border-left:2px solid #c8ff00;padding-left:28px">
+        <p style="margin:0;font:400 16px/1.7 'Space Mono',monospace;color:rgba(255,255,255,.72)">{{ t.convP }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNAL METHOD -->
+  <section id="signal" style="padding:120px 40px;border-top:1px solid rgba(255,255,255,.08)">
+    <div class="reveal" style="font:700 11px 'Space Mono',monospace;color:#c8ff00;margin-bottom:26px">// 03 — {{ t.method }}</div>
+    <h2 class="reveal" data-d="1" style="margin:0 0 50px;font-family:'Archivo';font-stretch:118%;font-weight:800;text-transform:uppercase;font-size:clamp(40px,5.5vw,80px);line-height:.94">{{ t.methodH }}</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1)">
+      <sc-for list="{{ signal }}" as="step" hint-placeholder-count="6">
+        <div class="reveal" style="background:#0a0a0a;padding:32px 28px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font-family:'Archivo';font-stretch:118%;font-weight:900;font-size:44px;color:#c8ff00;line-height:1">{{ step.letter }}</div>
+          <div>
+            <div style="font-family:'Archivo';font-stretch:112%;font-weight:800;font-size:20px;text-transform:uppercase;margin-bottom:8px">{{ step.title }}</div>
+            <div style="font:400 12px/1.5 'Space Mono',monospace;color:rgba(255,255,255,.55)">{{ step.desc }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- POSITIONNEMENT -->
+  <section id="position" style="padding:120px 40px;background:#0e0d0b;border-top:1px solid rgba(255,255,255,.08)">
+    <div class="reveal" style="font:700 11px 'Space Mono',monospace;color:#c8ff00;margin-bottom:26px">// 04 — {{ t.position }}</div>
+    <h2 class="reveal" data-d="1" style="margin:0 0 50px;max-width:1000px;font-family:'Archivo';font-stretch:118%;font-weight:800;text-transform:uppercase;font-size:clamp(38px,5vw,72px);line-height:.95">{{ t.positionH }}</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <sc-for list="{{ positions }}" as="p" hint-placeholder-count="3">
+        <div class="reveal" style="padding:34px 30px;border:1px solid {{ p.border }};background:{{ p.bg }};min-height:240px;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font:700 11px 'Space Mono',monospace;color:{{ p.tagColor }}">{{ p.tag }}</div>
+          <div>
+            <div style="font-family:'Archivo';font-stretch:114%;font-weight:800;font-size:24px;text-transform:uppercase;line-height:1.02;margin-bottom:12px;color:{{ p.titleColor }}">{{ p.title }}</div>
+            <div style="font:400 12.5px/1.55 'Space Mono',monospace;color:{{ p.descColor }}">{{ p.desc }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" style="padding:120px 40px;border-top:1px solid rgba(255,255,255,.08)">
+    <div class="reveal" style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:30px">
+      <div style="font:700 11px 'Space Mono',monospace;color:#c8ff00">// 05 — {{ t.filmTag }}</div>
+      <div style="font:700 11px 'Space Mono',monospace;color:rgba(255,255,255,.4)">[ VIMEO ]</div>
+    </div>
+    <h2 class="reveal" data-d="1" style="margin:0 0 40px;font-family:'Archivo';font-stretch:118%;font-weight:800;text-transform:uppercase;font-size:clamp(40px,5.5vw,80px);line-height:.94">{{ t.filmH }}</h2>
+    <div class="reveal" data-d="2" style="position:relative;width:100%;padding-top:56.25%;border:1px solid rgba(255,255,255,.14);overflow:hidden;background:#000">
+      <iframe src="https://player.vimeo.com/video/1178879262?title=0&amp;byline=0&amp;portrait=0" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" style="position:relative;padding:140px 40px;background:#c8ff00;color:#0a0a0a;overflow:hidden">
+    <div style="position:absolute;right:-120px;bottom:-200px;font-size:520px;line-height:1;color:rgba(10,10,10,.06);font-family:'Archivo';font-weight:900;animation:rmp-spin 90s linear infinite;transform-origin:center">✳</div>
+    <div style="position:relative">
+      <div class="reveal" style="font:700 11px 'Space Mono',monospace;opacity:.6;margin-bottom:24px">// {{ t.ctaTag }}</div>
+      <h2 class="reveal" data-d="1" style="margin:0;max-width:1100px;font-family:'Archivo';font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(48px,7vw,110px);line-height:.86;letter-spacing:-.02em">{{ t.ctaH }}</h2>
+      <div class="reveal" data-d="2" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:44px">
+        <a href="mailto:contact@remparia.fr" style="font:800 14px 'Archivo';font-stretch:112%;letter-spacing:.02em;text-transform:uppercase;color:#c8ff00;background:#0a0a0a;padding:18px 30px">{{ t.demo }} →</a>
+        <span style="font:700 12px 'Space Mono',monospace;color:rgba(10,10,10,.7)">contact@remparia.fr</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:44px 40px;background:#0a0a0a;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08)">
+    <img src="assets/remparia-logo-dark.png" alt="Remparia" style="height:20px;width:auto;display:block">
+    <div style="font:400 11px 'Space Mono',monospace;color:rgba(255,255,255,.4)">© 2026 REMPARIA · {{ t.footNote }}</div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1360,&quot;height&quot;:860}}">
+const COPY = {
+  fr: {
+    demo:"Réserver une démo", eyebrow:"L'IA SOUVERAINE QUI AUGMENTE VOS ÉQUIPES",
+    h1a:"Souverain.", h1b:"Augmenté.",
+    heroSub:"Entre le POC qui impressionne et l'agent qui travaille tous les jours : le fossé de l'intégration métier et de la conformité. Nous le comblons.",
+    constat:"LE CONSTAT",
+    constatH:"Tout le monde a testé l'IA. Peu en ont tiré des gains durables.",
+    constatP:"Les démos impressionnent, les pilotes s'enlisent. Le vrai enjeu n'est pas le modèle — c'est l'intégration dans vos process réels, sous contrainte de conformité. C'est là que la valeur se crée, ou se perd.",
+    conviction:"NOTRE CONVICTION",
+    convH1:"L'humain décide,", convH2:"l'agent exécute.",
+    convP:"L'IA n'est pas là pour remplacer. Elle est là pour vous libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.\n\nEN — AI isn't here to replace. It's here to give your teams time back. Humans keep control; agents carry the load.",
+    method:"LA MÉTHODE", methodH:"Le protocole SIGNAL",
+    position:"LE POSITIONNEMENT",
+    positionH:"Trois façons de faire de l'IA en France. Une seule va jusqu'au bout.",
+    filmTag:"LE FILM", filmH:"Voir Remparia en mouvement",
+    ctaTag:"PRÊT À COMMENCER", ctaH:"Passons du bruit au signal.",
+    footNote:"Collectif IA souveraine · France"
+  },
+  en: {
+    demo:"Book a demo", eyebrow:"SOVEREIGN AI THAT AUGMENTS YOUR TEAMS",
+    h1a:"Sovereign.", h1b:"Augmented.",
+    heroSub:"Between the POC that dazzles and the agent that works every day lies a gap: business integration and compliance. We close it.",
+    constat:"THE REALITY",
+    constatH:"Everyone tried AI. Few turned it into lasting gains.",
+    constatP:"Demos impress, pilots stall. The real challenge isn't the model — it's integration into your actual workflows under compliance constraints. That's where value is made, or lost.",
+    conviction:"OUR CONVICTION",
+    convH1:"Humans decide,", convH2:"agents execute.",
+    convP:"AI isn't here to replace. It's here to free up time for what matters. Your teams keep control, decisions and accountability — agents carry the repetitive load.\n\nFR — L'IA n'est pas là pour remplacer, mais pour vous libérer du temps.",
+    method:"THE METHOD", methodH:"The SIGNAL protocol",
+    position:"POSITIONING",
+    positionH:"Three ways to do AI in France. Only one goes all the way.",
+    filmTag:"THE FILM", filmH:"See Remparia in motion",
+    ctaTag:"READY TO START", ctaH:"From noise to signal.",
+    footNote:"Sovereign AI collective · France"
+  }
+};
+const SIGNAL = {
+  fr:[
+    {letter:"S",title:"Scoper",desc:"Cibler les cas d'usage à ROI réel, pas les gadgets."},
+    {letter:"I",title:"Intégrer",desc:"Brancher les agents sur vos outils et données existants."},
+    {letter:"G",title:"Garantir",desc:"Conformité, traçabilité, souveraineté par défaut."},
+    {letter:"N",title:"Normaliser",desc:"Industrialiser du POC jusqu'à la production quotidienne."},
+    {letter:"A",title:"Augmenter",desc:"L'humain garde la main ; l'agent porte la charge."},
+    {letter:"L",title:"Livrer",desc:"Mesurer les gains, itérer, prouver la valeur."}
+  ],
+  en:[
+    {letter:"S",title:"Scope",desc:"Target real-ROI use cases, not gadgets."},
+    {letter:"I",title:"Integrate",desc:"Plug agents into your existing tools and data."},
+    {letter:"G",title:"Guarantee",desc:"Compliance, traceability, sovereignty by default."},
+    {letter:"N",title:"Normalize",desc:"Industrialize from POC to daily production."},
+    {letter:"A",title:"Augment",desc:"Humans keep control; agents carry the load."},
+    {letter:"L",title:"Land",desc:"Measure gains, iterate, prove the value."}
+  ]
+};
+const STATS = {
+  fr:[
+    {value:"80%",label:"des projets IA n'atteignent jamais la production",color:"#c8ff00"},
+    {value:"x3",label:"l'écart d'adoption entre grands groupes et PME",color:"#fff"},
+    {value:"0",label:"outil grand public conforme par défaut aux professions réglementées",color:"#fff"}
+  ],
+  en:[
+    {value:"80%",label:"of AI projects never reach production",color:"#c8ff00"},
+    {value:"x3",label:"the adoption gap between large firms and SMBs",color:"#fff"},
+    {value:"0",label:"consumer tools compliant by default for regulated professions",color:"#fff"}
+  ]
+};
+const PILLARS = {
+  fr:[
+    {tag:"AGENTS IA MÉTIER",title:"Conçus pour vos process réels"},
+    {tag:"INFRA SOUVERAINE",title:"Vos données restent en France"},
+    {tag:"AGNOSTIQUE LLM",title:"Le meilleur modèle par tâche"}
+  ],
+  en:[
+    {tag:"BUSINESS AI AGENTS",title:"Built for your real workflows"},
+    {tag:"SOVEREIGN INFRA",title:"Your data stays in France"},
+    {tag:"LLM-AGNOSTIC",title:"The best model per task"}
+  ]
+};
+const POSITIONS = {
+  fr:[
+    {tag:"[ 01 ] LES CABINETS DE FORMATION",title:"Ils expliquent",desc:"Excellents pour comprendre l'IA. Mais la formation seule ne transforme pas vos opérations.",border:"rgba(255,255,255,.12)",bg:"transparent",tagColor:"rgba(255,255,255,.5)",titleColor:"#fff",descColor:"rgba(255,255,255,.55)"},
+    {tag:"[ 02 ] LES INTÉGRATEURS GÉNÉRALISTES",title:"Ils outillent",desc:"Ils déploient des outils. La conformité métier et la souveraineté restent des angles morts.",border:"rgba(255,255,255,.12)",bg:"transparent",tagColor:"rgba(255,255,255,.5)",titleColor:"#fff",descColor:"rgba(255,255,255,.55)"},
+    {tag:"[ 03 ] REMPARIA",title:"Nous augmentons",desc:"Des agents intégrés, conformes et souverains — jusqu'à la production quotidienne. Le bout du chemin.",border:"#c8ff00",bg:"rgba(200,255,0,.07)",tagColor:"#0a0a0a",titleColor:"#c8ff00",descColor:"rgba(255,255,255,.75)"}
+  ],
+  en:[
+    {tag:"[ 01 ] TRAINING FIRMS",title:"They explain",desc:"Great for understanding AI. But training alone won't transform your operations.",border:"rgba(255,255,255,.12)",bg:"transparent",tagColor:"rgba(255,255,255,.5)",titleColor:"#fff",descColor:"rgba(255,255,255,.55)"},
+    {tag:"[ 02 ] GENERALIST INTEGRATORS",title:"They tool up",desc:"They deploy tools. Business compliance and sovereignty stay blind spots.",border:"rgba(255,255,255,.12)",bg:"transparent",tagColor:"rgba(255,255,255,.5)",titleColor:"#fff",descColor:"rgba(255,255,255,.55)"},
+    {tag:"[ 03 ] REMPARIA",title:"We augment",desc:"Integrated, compliant, sovereign agents — all the way to daily production. The full distance.",border:"#c8ff00",bg:"rgba(200,255,0,.07)",tagColor:"#0a0a0a",titleColor:"#c8ff00",descColor:"rgba(255,255,255,.75)"}
+  ]
+};
+
+class Component extends DCLogic {
+  state = { lang:"fr", navBg:"rgba(10,10,10,0)" };
+  componentDidMount(){
+    const io = new IntersectionObserver((es)=>{
+      es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    },{threshold:.15});
+    const scan = ()=>{ document.querySelectorAll(".reveal:not(.in),.clip:not(.in)").forEach(el=>io.observe(el)); };
+    scan(); this._scan = scan;
+    this._onScroll = ()=>{ const y=window.scrollY; this.setState({navBg:`rgba(10,10,10,${Math.min(y/300,.9)})`}); };
+    window.addEventListener("scroll",this._onScroll,{passive:true});
+  }
+  componentDidUpdate(){ if(this._scan) requestAnimationFrame(this._scan); }
+  componentWillUnmount(){ window.removeEventListener("scroll",this._onScroll); }
+  renderVals(){
+    const lang=this.state.lang;
+    return {
+      t:COPY[lang], signal:SIGNAL[lang], stats:STATS[lang], pillars:PILLARS[lang], positions:POSITIONS[lang],
+      navBg:this.state.navBg,
+      langLabel: lang==="fr" ? "FR / en" : "fr / EN",
+      toggleLang: ()=>this.setState(s=>({lang:s.lang==="fr"?"en":"fr"}))
+    };
+  }
+}
+</script>
+</body>
+</html>
