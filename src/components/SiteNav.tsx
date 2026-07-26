@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import LocaleLink from "@/components/LocaleLink";
 import { NAV, SERVICES } from "@/lib/content";
+import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
 
 export default function SiteNav() {
@@ -12,6 +13,7 @@ export default function SiteNav() {
   const t = NAV[lang];
   const services = SERVICES[lang];
   const pathname = usePathname();
+  const logical = stripLocale(pathname || "/");
   const [navBg, setNavBg] = useState("rgba(10,10,10,0)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -38,7 +40,7 @@ export default function SiteNav() {
     };
   }, [menuOpen]);
 
-  const isServices = pathname.startsWith("/services");
+  const isServices = logical.startsWith("/services");
 
   return (
     <>
@@ -47,7 +49,7 @@ export default function SiteNav() {
         style={{ background: navBg }}
         aria-label="Navigation principale"
       >
-        <Link href="/" aria-label="Remparia">
+        <LocaleLink href="/" aria-label="Remparia">
           <Image
             src="/logo-remparia.png"
             alt="Remparia"
@@ -56,11 +58,11 @@ export default function SiteNav() {
             className="nav__logo"
             priority
           />
-        </Link>
+        </LocaleLink>
 
         <div className="nav__links">
           <div className="nav__item">
-            <Link
+            <LocaleLink
               href="/services"
               className={isServices ? "is-active" : undefined}
             >
@@ -68,57 +70,63 @@ export default function SiteNav() {
               <span className="nav__caret" aria-hidden>
                 ▾
               </span>
-            </Link>
+            </LocaleLink>
             <div className="nav__dropdown">
-              <Link href="/services">{services.overview}</Link>
+              <LocaleLink href="/services">{services.overview}</LocaleLink>
               {services.items.map((item) => (
-                <Link
+                <LocaleLink
                   key={item.slug}
                   href={`/services/${item.slug}`}
                   className={
-                    pathname === `/services/${item.slug}` ? "is-active" : undefined
+                    logical === `/services/${item.slug}` ? "is-active" : undefined
                   }
                 >
                   {item.title}
-                </Link>
+                </LocaleLink>
               ))}
             </div>
           </div>
 
-          <Link
+          <LocaleLink
             href="/methode"
-            className={pathname === "/methode" ? "is-active" : undefined}
+            className={logical === "/methode" ? "is-active" : undefined}
           >
             {t.methode}
-          </Link>
-          <Link
+          </LocaleLink>
+          <LocaleLink
             href="/realisations"
-            className={pathname === "/realisations" ? "is-active" : undefined}
+            className={logical === "/realisations" ? "is-active" : undefined}
           >
             {t.realisations}
-          </Link>
-          <Link
+          </LocaleLink>
+          <LocaleLink
             href="/a-propos"
-            className={pathname === "/a-propos" ? "is-active" : undefined}
+            className={logical === "/a-propos" ? "is-active" : undefined}
           >
             {t.aPropos}
-          </Link>
-          <Link
+          </LocaleLink>
+          <LocaleLink
+            href="/carrieres"
+            className={logical === "/carrieres" ? "is-active" : undefined}
+          >
+            {t.carrieres}
+          </LocaleLink>
+          <LocaleLink
             href="/ressources"
-            className={pathname === "/ressources" ? "is-active" : undefined}
+            className={logical === "/ressources" ? "is-active" : undefined}
           >
             {t.ressources}
-          </Link>
+          </LocaleLink>
         </div>
 
         <div className="nav__actions">
           <button type="button" className="nav__lang" onClick={toggleLang}>
             {lang === "fr" ? "FR / en" : "fr / EN"}
           </button>
-          <Link href="/contact" className="nav__cta">
+          <LocaleLink href="/contact" className="nav__cta">
             <span className="nav__cta-short">{t.demoShort}</span>
             <span className="nav__cta-full">{t.demo} →</span>
-          </Link>
+          </LocaleLink>
           <button
             type="button"
             className={`nav__menu-btn${menuOpen ? " is-open" : ""}`}
@@ -144,21 +152,26 @@ export default function SiteNav() {
           </button>
           {servicesOpen ? (
             <div className="nav__drawer-sub">
-              <Link href="/services">{services.overview}</Link>
+              <LocaleLink href="/services">{services.overview}</LocaleLink>
               {services.items.map((item) => (
-                <Link key={item.slug} href={`/services/${item.slug}`}>
+                <LocaleLink key={item.slug} href={`/services/${item.slug}`}>
                   {item.title}
-                </Link>
+                </LocaleLink>
               ))}
             </div>
           ) : null}
         </div>
 
-        <Link href="/methode">[ {t.methode.toUpperCase()} ]</Link>
-        <Link href="/realisations">[ {t.realisations.toUpperCase()} ]</Link>
-        <Link href="/a-propos">[ {t.aPropos.toUpperCase()} ]</Link>
-        <Link href="/ressources">[ {t.ressources.toUpperCase()} ]</Link>
-        <Link href="/contact">[ {t.contact.toUpperCase()} ]</Link>
+        <LocaleLink href="/methode">[ {t.methode.toUpperCase()} ]</LocaleLink>
+        <LocaleLink href="/realisations">
+          [ {t.realisations.toUpperCase()} ]
+        </LocaleLink>
+        <LocaleLink href="/a-propos">[ {t.aPropos.toUpperCase()} ]</LocaleLink>
+        <LocaleLink href="/carrieres">[ {t.carrieres.toUpperCase()} ]</LocaleLink>
+        <LocaleLink href="/ressources">
+          [ {t.ressources.toUpperCase()} ]
+        </LocaleLink>
+        <LocaleLink href="/contact">[ {t.contact.toUpperCase()} ]</LocaleLink>
       </div>
     </>
   );

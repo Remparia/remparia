@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, getSecteurImage, getService } from "@/lib/content";
+import type { Lang } from "@/lib/content";
+import { SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, getSecteurImage, getService, getServiceImage } from "@/lib/content";
+import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
 
 export const SITE = {
   name: "Remparia",
@@ -34,6 +36,7 @@ type PageSeoInput = {
   path?: string;
   image?: string;
   noIndex?: boolean;
+  lang?: Lang | Locale;
 };
 
 export function absoluteUrl(path = "/") {
@@ -47,9 +50,18 @@ export function createPageMetadata({
   path = "/",
   image = SITE.ogImage,
   noIndex = false,
+  lang = DEFAULT_LOCALE,
 }: PageSeoInput): Metadata {
-  const url = absoluteUrl(path);
+  const locale = lang as Locale;
+  const localizedPath = withLocale(locale, path);
+  const url = absoluteUrl(localizedPath);
   const imageUrl = absoluteUrl(image);
+  const languages: Record<string, string> = {
+    "fr-FR": absoluteUrl(withLocale("fr", path)),
+    en: absoluteUrl(withLocale("en", path)),
+    "en-US": absoluteUrl(withLocale("en", path)),
+    "x-default": absoluteUrl(withLocale("fr", path)),
+  };
 
   return {
     title,
@@ -57,15 +69,13 @@ export function createPageMetadata({
     keywords: [...SITE.keywords],
     alternates: {
       canonical: url,
-      languages: {
-        "fr-FR": url,
-        "x-default": url,
-      },
+      languages,
     },
     openGraph: {
       type: "website",
-      locale: SITE.locale,
-      alternateLocale: [SITE.localeAlternate],
+      locale: locale === "en" ? SITE.localeAlternate : SITE.locale,
+      alternateLocale:
+        locale === "en" ? [SITE.locale] : [SITE.localeAlternate],
       url,
       siteName: SITE.name,
       title: `${title} · ${SITE.name}`,
@@ -174,7 +184,7 @@ export function servicesItemListJsonLd() {
         "@type": "ListItem",
         position: index + 1,
         name: item?.title ?? slug,
-        url: absoluteUrl(`/services/${slug}`),
+        url: absoluteUrl(withLocale("fr", `/services/${slug}`)),
         description: item?.desc,
       };
     }),
@@ -192,7 +202,7 @@ export function secteursItemListJsonLd() {
         "@type": "ListItem",
         position: index + 1,
         name: item?.title ?? slug,
-        url: absoluteUrl(`/secteurs/${slug}`),
+        url: absoluteUrl(withLocale("fr", `/secteurs/${slug}`)),
         description: item?.desc,
       };
     }),
@@ -238,7 +248,7 @@ export function signalHowToJsonLd() {
       position: index + 1,
       name: step.name,
       text: step.text,
-      url: absoluteUrl("/methode"),
+      url: absoluteUrl(withLocale("fr", "/methode")),
     })),
   };
 }
@@ -248,7 +258,7 @@ export function contactPageJsonLd() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Contact Remparia",
-    url: absoluteUrl("/contact"),
+    url: absoluteUrl(withLocale("fr", "/contact")),
     description:
       "Contactez Remparia pour un diagnostic SIGNAL ou une discussion sur vos cas d'usage IA.",
     mainEntity: {
@@ -260,7 +270,10 @@ export function contactPageJsonLd() {
   };
 }
 
-export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+export function breadcrumbJsonLd(
+  items: { name: string; path: string }[],
+  lang: Lang | Locale = "fr",
+) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -268,13 +281,13 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: absoluteUrl(item.path),
+      item: absoluteUrl(withLocale(lang as Locale, item.path)),
     })),
   };
 }
 
-export function serviceJsonLd(slug: string) {
-  const item = getService(slug, "fr");
+export function serviceJsonLd(slug: string, lang: Lang | Locale = "fr") {
+  const item = getService(slug, lang === "en" ? "en" : "fr");
   if (!item) return null;
   return {
     "@context": "https://schema.org",
@@ -287,7 +300,7 @@ export function serviceJsonLd(slug: string) {
       url: SITE.url,
     },
     areaServed: "FR",
-    url: absoluteUrl(`/services/${slug}`),
+    url: absoluteUrl(withLocale(lang as Locale, `/services/${slug}`)),
   };
 }
 
@@ -316,12 +329,22 @@ export function getAllContentPaths() {
     "/secteurs",
     "/realisations",
     "/a-propos",
+    "/carrieres",
+    "/carrieres/candidature/1",
+    "/carrieres/candidature/2",
+    "/carrieres/candidature/3",
     "/ressources",
     "/contact",
+    "/mentions-legales",
+    "/confidentialite",
+    "/cookies",
   ];
   const servicePaths = SERVICE_SLUGS.map((slug) => `/services/${slug}`);
   const secteurPaths = SECTEUR_SLUGS.map((slug) => `/secteurs/${slug}`);
-  return [...staticPaths, ...servicePaths, ...secteurPaths];
+  const bare = [...staticPaths, ...servicePaths, ...secteurPaths];
+  return LOCALES.flatMap((locale) =>
+    bare.map((path) => withLocale(locale, path)),
+  );
 }
 
 export function secteurMeta(slug: string) {
@@ -344,5 +367,6 @@ export function serviceMeta(slug: string) {
     description:
       item?.desc ??
       "Service Remparia pour déployer l'IA souveraine jusqu'à la production.",
+    image: getServiceImage(slug),
   };
 }

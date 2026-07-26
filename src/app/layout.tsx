@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Space_Mono } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
-import SiteFooter from "@/components/SiteFooter";
-import SiteNav from "@/components/SiteNav";
-import { LangProvider } from "@/lib/lang";
+import MatomoProvider from "@/components/MatomoProvider";
 import {
   SITE,
   absoluteUrl,
@@ -85,13 +83,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  alternates: {
-    canonical: SITE.url,
-    languages: {
-      "fr-FR": SITE.url,
-      "x-default": SITE.url,
-    },
-  },
   other: {
     "theme-color": "#0a0a0a",
     "color-scheme": "dark",
@@ -116,11 +107,8 @@ export default function RootLayout({
         <a href="#contenu" className="skip-link">
           Aller au contenu
         </a>
-        <LangProvider>
-          <SiteNav />
-          <main id="contenu">{children}</main>
-          <SiteFooter />
-        </LangProvider>
+        {children}
+        <MatomoProvider />
       </body>
     </html>
   );

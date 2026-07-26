@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import LocaleLink from "@/components/LocaleLink";
 import { Breadcrumbs, type Crumb } from "@/components/PageBits";
 import { getSecteurMeta } from "@/lib/secteurs-meta";
 
@@ -31,20 +31,26 @@ export function SecteurHero({
   return (
     <header className="secteur-hero">
       <div className="secteur-hero__copy">
-        <Breadcrumbs items={crumbs} />
-        <div className="page-hero__eyebrow">// {eyebrow}</div>
-        <h1 className="secteur-hero__title">{title}</h1>
-        <p className="secteur-hero__sub">{sub}</p>
-        <div className="secteur-hero-cta">
-          <Link href={ctaHref} className="btn-primary">
+        <div className="reveal">
+          <Breadcrumbs items={crumbs} />
+        </div>
+        <div className="page-hero__eyebrow reveal" data-d="1">
+          // {eyebrow}
+        </div>
+        <h1 className="secteur-hero__title clip">{title}</h1>
+        <p className="secteur-hero__sub reveal" data-d="2">
+          {sub}
+        </p>
+        <div className="secteur-hero-cta reveal" data-d="3">
+          <LocaleLink href={ctaHref} className="btn-primary">
             {ctaLabel}
-          </Link>
-          <Link href={secondaryHref} className="text-link">
+          </LocaleLink>
+          <LocaleLink href={secondaryHref} className="text-link">
             {secondaryLabel} →
-          </Link>
+          </LocaleLink>
         </div>
       </div>
-      <div className="secteur-hero__media">
+      <div className="secteur-hero__media media-reveal">
         <Image
           src={meta.image}
           alt=""

@@ -81,27 +81,38 @@ a:hover {
 @media (prefers-reduced-motion: no-preference) {
   html.is-ready .reveal:not(.in) {
     opacity: 0;
-    transform: translateY(34px);
+    transform: translateY(28px);
     transition:
-      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   html.is-ready .reveal.in {
     opacity: 1;
     transform: none;
   }
+
+  html.is-ready .reveal--left:not(.in) {
+    transform: translateX(-24px);
+  }
+
+  html.is-ready .reveal--scale:not(.in) {
+    transform: scale(1.03);
+  }
 }
 
-.reveal[data-d="1"] {
+.reveal[data-d="1"],
+.clip[data-d="1"] {
   transition-delay: 0.08s;
 }
 
-.reveal[data-d="2"] {
+.reveal[data-d="2"],
+.clip[data-d="2"] {
   transition-delay: 0.16s;
 }
 
-.reveal[data-d="3"] {
+.reveal[data-d="3"],
+.clip[data-d="3"] {
   transition-delay: 0.24s;
 }
 
@@ -112,10 +123,44 @@ a:hover {
 @media (prefers-reduced-motion: no-preference) {
   html.is-ready .clip:not(.in) {
     clip-path: inset(0 100% 0 0);
-    transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: clip-path 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   html.is-ready .clip.in {
     clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Image media reveal (services / secteurs) */
+.media-reveal {
+  overflow: hidden;
+}
+
+.media-reveal img,
+.media-reveal .stack-card__img,
+.media-reveal .service-detail__img,
+.media-reveal .secteur-hero__img,
+.media-reveal .secteur-card__img {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.is-ready .media-reveal:not(.in) img,
+  html.is-ready .media-reveal:not(.in) .stack-card__img,
+  html.is-ready .media-reveal:not(.in) .service-detail__img,
+  html.is-ready .media-reveal:not(.in) .secteur-hero__img,
+  html.is-ready .media-reveal:not(.in) .secteur-card__img {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  html.is-ready .media-reveal.in img,
+  html.is-ready .media-reveal.in .stack-card__img,
+  html.is-ready .media-reveal.in .service-detail__img,
+  html.is-ready .media-reveal.in .secteur-hero__img,
+  html.is-ready .media-reveal.in .secteur-card__img {
+    opacity: 1;
+    transform: scale(1);
   }
 }

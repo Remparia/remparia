@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import LocaleLink from "@/components/LocaleLink";
 import { notFound } from "next/navigation";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
 import { SecteurHero } from "@/components/SecteurHero";
@@ -52,11 +52,15 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
       />
 
       <section className="section secteur-signals-wrap">
-        <div className="secteur-readable">
+        <div className="secteur-readable reveal">
           <SectionLabel>{labels.signals}</SectionLabel>
           <div className="secteur-signals">
-            {detail.signals.map((signal) => (
-              <div key={signal.label} className="secteur-signal">
+            {detail.signals.map((signal, i) => (
+              <div
+                key={signal.label}
+                className="secteur-signal reveal"
+                data-d={String(Math.min(i + 1, 3))}
+              >
                 <div className="secteur-signal__value">{signal.value}</div>
                 <div className="secteur-signal__label">{signal.label}</div>
               </div>
@@ -66,12 +70,16 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
       </section>
 
       <section className="section section--alt">
-        <div className="secteur-readable">
+        <div className="secteur-readable reveal">
           <SectionLabel>{labels.pains}</SectionLabel>
           <h2 className="secteur-section-title">{labels.painsH}</h2>
           <ol className="pain-list">
             {detail.pains.map((pain, index) => (
-              <li key={pain.title} className="pain-list__item">
+              <li
+                key={pain.title}
+                className="pain-list__item reveal"
+                data-d={String(Math.min(index + 1, 3))}
+              >
                 <span className="pain-list__num" aria-hidden>
                   {index + 1}
                 </span>
@@ -86,7 +94,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
       </section>
 
       <section className="section">
-        <div className="secteur-readable">
+        <div className="secteur-readable reveal">
           <SectionLabel>{labels.deliver}</SectionLabel>
           <h2 className="secteur-section-title">{labels.deliverH}</h2>
           <ul className="detail-points">
@@ -98,12 +106,16 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
       </section>
 
       <section className="section section--alt">
-        <div className="secteur-readable">
+        <div className="secteur-readable reveal">
           <SectionLabel>{labels.scenarios}</SectionLabel>
           <h2 className="secteur-section-title">{labels.scenariosH}</h2>
           <div className="scenario-stack">
-            {detail.scenarios.slice(0, 2).map((scenario) => (
-              <article key={scenario.who} className="scenario-card">
+            {detail.scenarios.slice(0, 2).map((scenario, i) => (
+              <article
+                key={scenario.who}
+                className="scenario-card reveal"
+                data-d={String(Math.min(i + 1, 3))}
+              >
                 <div className="scenario-card__who">{scenario.who}</div>
                 <div className="scenario-card__block">
                   <span className="scenario-card__tag">{labels.need}</span>
@@ -120,32 +132,37 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
       </section>
 
       <section className="section">
-        <div className="secteur-readable">
+        <div className="secteur-readable reveal">
           <SectionLabel>{labels.services}</SectionLabel>
           <h2 className="secteur-section-title">{labels.servicesH}</h2>
           <div className="secteur-services">
-            {relatedServices.map((service) => (
-              <Link
+            {relatedServices.map((service, i) => (
+              <LocaleLink
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="secteur-service-link"
+                className="secteur-service-link reveal"
+                data-d={String(Math.min(i + 1, 3))}
               >
                 <span className="secteur-service-link__tag">{service.tag}</span>
                 <strong>{service.title}</strong>
                 <span aria-hidden>→</span>
-              </Link>
+              </LocaleLink>
             ))}
           </div>
         </div>
       </section>
 
       <section className="section section--alt">
-        <div className="secteur-readable">
+        <div className="secteur-readable reveal">
           <SectionLabel>{labels.faq}</SectionLabel>
           <h2 className="secteur-section-title">{labels.faqH}</h2>
           <div className="faq-list">
-            {detail.faqs.map((faq) => (
-              <details key={faq.q} className="faq-item">
+            {detail.faqs.map((faq, i) => (
+              <details
+                key={faq.q}
+                className="faq-item reveal"
+                data-d={String(Math.min((i % 3) + 1, 3))}
+              >
                 <summary>{faq.q}</summary>
                 <p>{faq.a}</p>
               </details>
@@ -155,20 +172,20 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
       </section>
 
       <section className="section">
-        <div className="secteur-readable">
+        <div className="secteur-readable reveal">
           <SectionLabel>{labels.more}</SectionLabel>
           <h2 className="secteur-section-title">{labels.moreH}</h2>
           <div className="detail-siblings secteur-more">
             {siblings.map((s) => (
-              <Link key={s.slug} href={`/secteurs/${s.slug}`}>
+              <LocaleLink key={s.slug} href={`/secteurs/${s.slug}`}>
                 {s.title}
-              </Link>
+              </LocaleLink>
             ))}
           </div>
           <div className="detail-nav" style={{ marginTop: 24 }}>
-            <Link href="/secteurs" className="text-link">
+            <LocaleLink href="/secteurs" className="text-link">
               ← {all.overview}
-            </Link>
+            </LocaleLink>
           </div>
         </div>
       </section>

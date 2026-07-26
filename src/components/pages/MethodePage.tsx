@@ -24,8 +24,12 @@ export default function MethodePage() {
       />
       <section className="section">
         <div className="signal-grid">
-          {t.steps.map((step) => (
-            <div key={step.letter} className="signal-card">
+          {t.steps.map((step, i) => (
+            <div
+              key={step.letter}
+              className="signal-card reveal"
+              data-d={String(Math.min(i + 1, 3))}
+            >
               <div className="signal-card__letter">{step.letter}</div>
               <div>
                 <div className="signal-card__title">{step.title}</div>
@@ -36,12 +40,18 @@ export default function MethodePage() {
         </div>
       </section>
       <section className="section section--alt">
-        <SectionLabel>{t.acceleratorsTitle}</SectionLabel>
-        <h2 className="section__title">{t.acceleratorsTitle}</h2>
-        <p className="section__body">{t.acceleratorsSub}</p>
+        <div className="reveal">
+          <SectionLabel>{t.acceleratorsTitle}</SectionLabel>
+          <h2 className="section__title">{t.acceleratorsTitle}</h2>
+          <p className="section__body">{t.acceleratorsSub}</p>
+        </div>
         <div className="card-grid" style={{ marginTop: 32 }}>
-          {t.accelerators.map((a) => (
-            <article key={a.title} className="info-card">
+          {t.accelerators.map((a, i) => (
+            <article
+              key={a.title}
+              className="info-card reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
               <h3>{a.title}</h3>
               <p>{a.desc}</p>
             </article>

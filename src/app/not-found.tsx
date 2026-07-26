@@ -6,6 +6,7 @@ export const metadata = createPageMetadata({
   description: "La page demandée n'existe pas ou a été déplacée.",
   path: "/404",
   noIndex: true,
+  lang: "fr",
 });
 
 export default function NotFound() {
@@ -19,10 +20,10 @@ export default function NotFound() {
           services.
         </p>
         <div className="hero__actions" style={{ marginTop: 28 }}>
-          <Link href="/" className="btn-primary">
+          <Link href="/fr" className="btn-primary">
             Accueil →
           </Link>
-          <Link href="/contact" className="btn-ghost">
+          <Link href="/fr/contact" className="btn-ghost">
             Contact →
           </Link>
         </div>

@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
+import StatCount from "@/components/StatCount";
 import {
   APROPOS,
   HOME,
@@ -42,29 +43,35 @@ export default function HomePage() {
 
         <div className="hero__grid">
           <div className="hero__main">
-            <div className="hero__eyebrow">// {t.eyebrow}</div>
+            <div className="hero__eyebrow reveal">// {t.eyebrow}</div>
             <div className="hero__title">
-              <div className="clip in">{t.h1a}</div>
-              <div className="clip in hero__title-outline">{t.h1b}</div>
+              <div className="clip">{t.h1a}</div>
+              <div className="clip hero__title-outline" data-d="1">
+                {t.h1b}
+              </div>
             </div>
-            <p className="hero__sub">{t.sub}</p>
-            <div className="hero__actions">
-              <Link href="/contact" className="btn-primary">
+            <p className="hero__sub reveal" data-d="2">
+              {t.sub}
+            </p>
+            <div className="hero__actions reveal" data-d="3">
+              <LocaleLink href="/contact" className="btn-primary">
                 {t.cta} →
-              </Link>
-              <Link href="/methode" className="btn-ghost">
+              </LocaleLink>
+              <LocaleLink href="/methode" className="btn-ghost">
                 SIGNAL →
-              </Link>
+              </LocaleLink>
             </div>
           </div>
 
-          <div className="hero__stats">
+          <div className="hero__stats reveal" data-d="2">
             <div className="hero__stats-label">// {t.constat}_</div>
             {stats.map((s) => (
               <div key={s.value + s.label} className="hero__stat">
-                <div className="hero__stat-value" style={{ color: s.color }}>
-                  {s.value}
-                </div>
+                <StatCount
+                  value={s.value}
+                  color={s.color}
+                  className="hero__stat-value"
+                />
                 <div className="hero__stat-label">{s.label}</div>
               </div>
             ))}
@@ -72,8 +79,12 @@ export default function HomePage() {
         </div>
 
         <div className="hero__pillars">
-          {pillars.map((p) => (
-            <div key={p.tag} className="hero__pillar">
+          {pillars.map((p, i) => (
+            <div
+              key={p.tag}
+              className="hero__pillar reveal"
+              data-d={String(Math.min(i + 1, 3))}
+            >
               <div className="hero__pillar-tag">/ {p.tag}</div>
               <div className="hero__pillar-title">{p.title}</div>
             </div>
@@ -82,37 +93,49 @@ export default function HomePage() {
       </header>
 
       <section id="constat" className="section">
-        <SectionLabel>01 — {t.constat}</SectionLabel>
-        <h2 className="section__title">{t.constatH}</h2>
-        <p className="section__body">{t.constatP}</p>
+        <div className="reveal">
+          <SectionLabel>01 — {t.constat}</SectionLabel>
+        </div>
+        <h2 className="section__title reveal" data-d="1">
+          {t.constatH}
+        </h2>
+        <p className="section__body reveal" data-d="2">
+          {t.constatP}
+        </p>
       </section>
 
       <section className="section section--alt">
         <div className="conviction">
-          <div>
+          <div className="reveal">
             <SectionLabel>02 — {t.conviction}</SectionLabel>
             <h2 className="section__title">
               {t.convH1}{" "}
               <span className="conviction__accent">{t.convH2}</span>
             </h2>
           </div>
-          <div className="conviction__quote">
+          <div className="conviction__quote reveal" data-d="2">
             <p>{t.convP}</p>
           </div>
         </div>
       </section>
 
       <section id="signal" className="section">
-        <SectionLabel>03 — {t.method}</SectionLabel>
-        <div className="section__head">
+        <div className="reveal">
+          <SectionLabel>03 — {t.method}</SectionLabel>
+        </div>
+        <div className="section__head reveal" data-d="1">
           <h2 className="section__title">{t.methodH}</h2>
-          <Link href="/methode" className="text-link">
+          <LocaleLink href="/methode" className="text-link">
             {t.methodCta} →
-          </Link>
+          </LocaleLink>
         </div>
         <div className="signal-grid">
-          {signal.map((step) => (
-            <div key={step.letter} className="signal-card">
+          {signal.map((step, i) => (
+            <div
+              key={step.letter}
+              className="signal-card reveal"
+              data-d={String(Math.min(i + 1, 3))}
+            >
               <div className="signal-card__letter">{step.letter}</div>
               <div>
                 <div className="signal-card__title">{step.title}</div>
@@ -124,32 +147,44 @@ export default function HomePage() {
       </section>
 
       <section className="section section--alt">
-        <SectionLabel>{t.servicesEyebrow}</SectionLabel>
-        <div className="section__head">
+        <div className="reveal">
+          <SectionLabel>{t.servicesEyebrow}</SectionLabel>
+        </div>
+        <div className="section__head reveal" data-d="1">
           <h2 className="section__title">{t.servicesH}</h2>
-          <Link href="/services" className="text-link">
+          <LocaleLink href="/services" className="text-link">
             {t.servicesCta} →
-          </Link>
+          </LocaleLink>
         </div>
         <div className="card-grid">
-          {services.map((s) => (
-            <Link key={s.slug} href={`/services/${s.slug}`} className="info-card">
+          {services.map((s, i) => (
+            <LocaleLink
+              key={s.slug}
+              href={`/services/${s.slug}`}
+              className="info-card reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
               <div className="info-card__tag">{s.tag}</div>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
-            </Link>
+            </LocaleLink>
           ))}
         </div>
       </section>
 
       <section id="position" className="section">
-        <SectionLabel>04 — {t.position}</SectionLabel>
-        <h2 className="section__title">{t.positionH}</h2>
+        <div className="reveal">
+          <SectionLabel>04 — {t.position}</SectionLabel>
+        </div>
+        <h2 className="section__title reveal" data-d="1">
+          {t.positionH}
+        </h2>
         <div className="position-grid">
-          {positions.map((p) => (
+          {positions.map((p, i) => (
             <div
               key={p.tag}
-              className="position-card"
+              className="position-card reveal"
+              data-d={String(Math.min(i + 1, 3))}
               style={{
                 border: `1px solid ${p.highlight ? "#c8ff00" : "rgba(255,255,255,.12)"}`,
                 background: p.highlight ? "rgba(200,255,0,.07)" : "transparent",

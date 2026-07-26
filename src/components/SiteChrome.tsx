@@ -1,0 +1,30 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import CookieBanner from "@/components/CookieBanner";
+import SiteFooter from "@/components/SiteFooter";
+import SiteNav from "@/components/SiteNav";
+
+function isCareersApplyPath(pathname: string | null) {
+  if (!pathname) return false;
+  return /\/carrieres\/candidature(\/|$)/.test(pathname);
+}
+
+/** Masque nav/footer/cookies sur le parcours candidature isolé. */
+export default function SiteChrome({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isolated = isCareersApplyPath(pathname);
+
+  if (isolated) {
+    return <main id="contenu">{children}</main>;
+  }
+
+  return (
+    <>
+      <SiteNav />
+      <main id="contenu">{children}</main>
+      <SiteFooter />
+      <CookieBanner />
+    </>
+  );
+}

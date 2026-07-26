@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import LocaleLink from "@/components/LocaleLink";
 import { NAV } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
@@ -23,9 +23,9 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
           return (
             <li key={`${item.name}-${index}`} className="breadcrumbs__item">
               {item.href && !isLast ? (
-                <Link href={item.href} className="breadcrumbs__link">
+                <LocaleLink href={item.href} className="breadcrumbs__link">
                   {item.name}
-                </Link>
+                </LocaleLink>
               ) : (
                 <span className="breadcrumbs__current" aria-current="page">
                   {item.name}
@@ -57,10 +57,18 @@ export function PageHero({
 }) {
   return (
     <header className="page-hero">
-      {crumbs?.length ? <Breadcrumbs items={crumbs} /> : null}
-      <div className="page-hero__eyebrow">// {eyebrow}</div>
-      <h1 className="page-hero__title">{title}</h1>
-      <p className="page-hero__sub">{sub}</p>
+      {crumbs?.length ? (
+        <div className="reveal">
+          <Breadcrumbs items={crumbs} />
+        </div>
+      ) : null}
+      <div className="page-hero__eyebrow reveal" data-d="1">
+        // {eyebrow}
+      </div>
+      <h1 className="page-hero__title clip">{title}</h1>
+      <p className="page-hero__sub reveal" data-d="2">
+        {sub}
+      </p>
     </header>
   );
 }
@@ -82,14 +90,14 @@ export function CtaBand({
       <div className="cta__star" aria-hidden>
         ✳
       </div>
-      <div className="cta__inner">
+      <div className="cta__inner reveal">
         <div className="cta__tag">// {tag}</div>
         <h2 className="section__title section__title--lg">{title}</h2>
         {text ? <p className="cta__text">{text}</p> : null}
         <div className="cta__actions">
-          <Link href="/contact" className="cta__btn">
+          <LocaleLink href="/contact" className="cta__btn">
             {demo} →
-          </Link>
+          </LocaleLink>
           <span className="cta__mail">contact@remparia.fr</span>
         </div>
       </div>

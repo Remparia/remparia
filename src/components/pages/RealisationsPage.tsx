@@ -1,6 +1,6 @@
 "use client";
 
-import { CtaBand, PageHero } from "@/components/PageBits";
+import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
 import { HOME, REALISATIONS } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
@@ -23,20 +23,59 @@ export default function RealisationsPage() {
           { name: label },
         ]}
       />
+
+      <section className="section section--alt">
+        <div className="reveal">
+          <SectionLabel>{t.proofsTitle}</SectionLabel>
+        </div>
+        <ul className="proof-badges">
+          {t.proofs.map((p, i) => (
+            <li
+              key={p}
+              className="proof-badges__item reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
+              {p}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <section className="section">
         <div className="stack-cards">
-          {t.items.map((item) => (
-            <article key={item.tag} className="stack-card stack-card--case">
+          {t.items.map((item, i) => (
+            <article
+              key={item.tag}
+              className="stack-card stack-card--case reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
               <div className="stack-card__tag">{item.tag}</div>
               <div>
                 <div className="case-metric">{item.metric}</div>
                 <h2>{item.title}</h2>
-                <p>{item.desc}</p>
+                <dl className="case-meta">
+                  <div>
+                    <dt>{t.labels.context}</dt>
+                    <dd>{item.context}</dd>
+                  </div>
+                  <div>
+                    <dt>{t.labels.problem}</dt>
+                    <dd>{item.problem}</dd>
+                  </div>
+                  <div>
+                    <dt>{t.labels.approach}</dt>
+                    <dd>{item.approach}</dd>
+                  </div>
+                  <div>
+                    <dt>{t.labels.result}</dt>
+                    <dd>{item.result}</dd>
+                  </div>
+                </dl>
               </div>
             </article>
           ))}
         </div>
-        <p className="section__body" style={{ marginTop: 28 }}>
+        <p className="section__body reveal" style={{ marginTop: 28 }}>
           {t.note}
         </p>
       </section>

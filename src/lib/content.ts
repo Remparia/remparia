@@ -10,6 +10,7 @@ export const NAV = {
     realisations: "Réalisations",
     aPropos: "À propos",
     ressources: "Ressources",
+    carrieres: "Carrières",
     contact: "Contact",
     demo: "Let's connect",
     demoShort: "Connect →",
@@ -21,6 +22,7 @@ export const NAV = {
     realisations: "Our Work",
     aPropos: "About",
     ressources: "Resources",
+    carrieres: "Careers",
     contact: "Contact",
     demo: "Let's connect",
     demoShort: "Connect →",
@@ -35,6 +37,12 @@ export const FOOTER = {
     secteursAll: "Voir plus",
     ressourcesTitle: "Ressources",
     contactTitle: "Contact",
+    socialTitle: "Réseaux",
+    legalTitle: "Légal",
+    mentions: "Mentions légales",
+    privacy: "Confidentialité",
+    cookies: "Cookies",
+    cookiePrefs: "Gérer les cookies",
     rights: "© 2026 REMPARIA. Tous droits réservés.",
   },
   en: {
@@ -44,9 +52,36 @@ export const FOOTER = {
     secteursAll: "See more",
     ressourcesTitle: "Resources",
     contactTitle: "Contact",
+    socialTitle: "Social",
+    legalTitle: "Legal",
+    mentions: "Legal notice",
+    privacy: "Privacy",
+    cookies: "Cookies",
+    cookiePrefs: "Cookie settings",
     rights: "© 2026 REMPARIA. All rights reserved.",
   },
 } as const;
+
+/** Profils sociaux Remparia — URLs publiques */
+export const SOCIAL_LINKS = [
+  { id: "x", label: "X", href: "https://x.com/remparia" },
+  { id: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@remparia" },
+  {
+    id: "youtube",
+    label: "YouTube",
+    href: "https://www.youtube.com/@remparia",
+  },
+  {
+    id: "instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/remparia",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/remparia",
+  },
+] as const;
 
 export const HOME = {
   fr: {
@@ -493,6 +528,17 @@ export const SECTEURS = {
 export const SERVICE_SLUGS = SERVICES.fr.items.map((i) => i.slug);
 export const SECTEUR_SLUGS = SECTEURS.fr.items.map((i) => i.slug);
 
+export const SERVICE_IMAGES: Record<string, string> = {
+  "strategie-ia": "/services/strategie-ia.png",
+  "agents-metier": "/services/agents-metier.png",
+  "infra-souveraine": "/services/infra-souveraine.png",
+  "equipes-embarquees": "/services/equipes-embarquees.png",
+};
+
+export function getServiceImage(slug: string) {
+  return SERVICE_IMAGES[slug] ?? "/services/strategie-ia.png";
+}
+
 export function getService(slug: string, lang: Lang = "fr") {
   return SERVICES[lang].items.find((i) => i.slug === slug) ?? null;
 }
@@ -515,54 +561,116 @@ export const REALISATIONS = {
   fr: {
     eyebrow: "NOTRE TRAVAIL",
     title: "Comment nos clients passent de la promesse à la valeur",
-    sub: "Des résultats mesurables — pas des démos isolées.",
+    sub: "Des résultats mesurables — pas des démos isolées. Cas anonymisés, méthode SIGNAL.",
+    proofsTitle: "Ce que nous garantissons sur chaque mission",
+    proofs: [
+      "Données hébergées / traitées en France quand le cadre l’exige",
+      "Human-in-the-loop sur les sorties sensibles",
+      "Mesure des gains avant de scaler",
+      "Traçabilité et gouvernance dès le cadrage",
+    ],
     items: [
       {
         tag: "CAS 01",
         title: "Du POC bloqué à l'agent en production",
-        desc: "Industrialisation d'un agent métier intégré aux outils existants, avec gouvernance et mesure des gains.",
+        context: "PME industrielle — back-office saturé par des exceptions documentaires.",
+        problem:
+          "Un POC impressionnait en démo mais n’était branché ni aux outils métier ni à la validation humaine.",
+        approach:
+          "Cadrage SIGNAL → intégration ERP / messagerie → règles d’escalade → KPIs de throughput.",
+        result:
+          "Agent en production quotidienne ; file d’attente traitée sans sortie de données hors cadre.",
         metric: "Production quotidienne",
       },
       {
         tag: "CAS 02",
         title: "RAG souverain sur données critiques",
-        desc: "Connexion des connaissances internes à l'IA sans sortie de données hors France.",
+        context: "Cabinet / métier réglementé — base documentaire sensible.",
+        problem:
+          "Les outils grand public ne passaient pas la revue conformité ; la connaissance restait silotée.",
+        approach:
+          "Index souverain, périmètre de sources validées, droits d’accès, journalisation des requêtes.",
+        result:
+          "Réponses utiles pour les équipes sans exposition hors France ; adoption interne progressive.",
         metric: "Données en France",
       },
       {
         tag: "CAS 03",
         title: "Automatisation documentaire réglementée",
-        desc: "Réduction du temps de traitement tout en conservant la validation humaine.",
+        context: "Opérations à fort volume de dossiers à contrôler.",
+        problem:
+          "Temps de traitement trop long ; risque d’erreur et fatigue des équipes sur le répétitif.",
+        approach:
+          "Pipeline de pré-analyse + validation humaine obligatoire sur les décisions critiques.",
+        result:
+          "Réduction nette du temps de cycle ; responsabilité humaine conservée et auditable.",
         metric: "Human-in-the-loop",
       },
     ],
-    note: "Des études de cas détaillées seront publiées au fil des déploiements.",
+    labels: {
+      context: "Contexte",
+      problem: "Problème",
+      approach: "Approche SIGNAL",
+      result: "Résultat",
+    },
+    note: "Les clients ne sont pas nommés ici. Des études de cas détaillées seront publiées avec leur accord.",
   },
   en: {
     eyebrow: "OUR WORK",
     title: "How clients turn AI promise into real value",
-    sub: "Measurable outcomes — not isolated demos.",
+    sub: "Measurable outcomes — not isolated demos. Anonymized cases, SIGNAL method.",
+    proofsTitle: "What we hold on every engagement",
+    proofs: [
+      "Data hosted / processed in France when the frame requires it",
+      "Human-in-the-loop on sensitive outputs",
+      "Outcome measurement before scaling",
+      "Traceability and governance from day one",
+    ],
     items: [
       {
         tag: "CASE 01",
         title: "From stuck POC to production agent",
-        desc: "Industrialized a business agent into existing tools, with governance and outcome tracking.",
+        context: "Industrial SMB — back-office saturated by document exceptions.",
+        problem:
+          "A POC looked great in demos but wasn’t wired to business tools or human validation.",
+        approach:
+          "SIGNAL scoping → ERP / messaging integration → escalation rules → throughput KPIs.",
+        result:
+          "Agent in daily production; queue handled without data leaving the agreed frame.",
         metric: "Daily production",
       },
       {
         tag: "CASE 02",
         title: "Sovereign RAG on critical data",
-        desc: "Connected internal knowledge to AI without data leaving France.",
+        context: "Regulated practice — sensitive document base.",
+        problem:
+          "Consumer tools failed compliance review; knowledge stayed siloed.",
+        approach:
+          "Sovereign index, approved sources, access rights, query logging.",
+        result:
+          "Useful answers for teams without exposure outside France; gradual internal adoption.",
         metric: "Data in France",
       },
       {
         tag: "CASE 03",
         title: "Regulated document automation",
-        desc: "Cut processing time while keeping human validation in the loop.",
+        context: "High-volume dossier operations.",
+        problem:
+          "Cycle times too long; error risk and team fatigue on repetitive work.",
+        approach:
+          "Pre-analysis pipeline + mandatory human validation on critical decisions.",
+        result:
+          "Clear cycle-time reduction; human accountability kept and auditable.",
         metric: "Human-in-the-loop",
       },
     ],
-    note: "Detailed case studies will be published as deployments go live.",
+    labels: {
+      context: "Context",
+      problem: "Problem",
+      approach: "SIGNAL approach",
+      result: "Outcome",
+    },
+    note: "Clients are not named here. Detailed case studies will be published with their consent.",
   },
 } as const;
 
@@ -574,6 +682,34 @@ export const APROPOS = {
     convictionH: "L'humain décide, l'agent exécute.",
     convictionP:
       "L'IA n'est pas là pour remplacer. Elle est là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
+    collectiveTitle: "Le collectif",
+    collectiveSub:
+      "Pas une usine à slides : des profils qui livrent jusqu’à la production.",
+    collective: [
+      {
+        tag: "STRATÉGIE",
+        title: "Feuille de route & gouvernance",
+        desc: "Prioriser les cas à ROI réel, cadrer conformité et ownership métier.",
+      },
+      {
+        tag: "AGENTS",
+        title: "Conception & intégration",
+        desc: "Agents branchés sur vos outils, avec human-in-the-loop et mesure.",
+      },
+      {
+        tag: "INFRA",
+        title: "Souveraineté & données",
+        desc: "Hébergement, accès, traçabilité — le cadre technique de la confiance.",
+      },
+    ],
+    engagementTitle: "Nos engagements",
+    engagement: [
+      "Souveraineté des données quand le métier l’exige",
+      "Conformité intégrée dès le cadrage SIGNAL",
+      "Production quotidienne avant le discours",
+      "Transfert de compétences — pas de boîte noire",
+    ],
+    contactLine: "Écrire à l’équipe",
     pillars: [
       {
         tag: "AGENTS IA MÉTIER",
@@ -617,6 +753,34 @@ export const APROPOS = {
     convictionH: "Humans decide, agents execute.",
     convictionP:
       "AI isn't here to replace. It's here to free up time for what matters. Your teams keep control, decisions and accountability — agents carry the repetitive load.",
+    collectiveTitle: "The collective",
+    collectiveSub:
+      "Not a slide factory: people who ship through to production.",
+    collective: [
+      {
+        tag: "STRATEGY",
+        title: "Roadmap & governance",
+        desc: "Prioritize real-ROI cases; frame compliance and business ownership.",
+      },
+      {
+        tag: "AGENTS",
+        title: "Design & integration",
+        desc: "Agents wired into your tools, with human-in-the-loop and measurement.",
+      },
+      {
+        tag: "INFRA",
+        title: "Sovereignty & data",
+        desc: "Hosting, access, traceability — the technical frame for trust.",
+      },
+    ],
+    engagementTitle: "Our commitments",
+    engagement: [
+      "Data sovereignty when the business requires it",
+      "Compliance built into SIGNAL scoping",
+      "Daily production before the pitch",
+      "Skills transfer — no black box",
+    ],
+    contactLine: "Email the team",
     pillars: [
       {
         tag: "BUSINESS AI AGENTS",
@@ -709,7 +873,15 @@ export const CONTACT = {
       email: "Email",
       message: "Message",
       submit: "Envoyer",
+      sending: "Envoi…",
     },
+    success:
+      "Message envoyé. Nous vous répondons sous peu à l’adresse indiquée.",
+    error:
+      "Envoi impossible pour le moment. Réessayez ou écrivez-nous directement.",
+    errorConfig:
+      "Le formulaire n’est pas encore configuré côté serveur. Écrivez-nous par e-mail.",
+    errorRate: "Trop de tentatives. Réessayez dans une minute.",
   },
   en: {
     eyebrow: "CONTACT",
@@ -723,7 +895,13 @@ export const CONTACT = {
       email: "Email",
       message: "Message",
       submit: "Send",
+      sending: "Sending…",
     },
+    success: "Message sent. We’ll get back to you shortly at the address you provided.",
+    error: "Couldn’t send right now. Try again or email us directly.",
+    errorConfig:
+      "The form isn’t configured on the server yet. Please email us instead.",
+    errorRate: "Too many attempts. Please try again in a minute.",
   },
 } as const;
 

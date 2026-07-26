@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
+import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, PageHero } from "@/components/PageBits";
-import { HOME, SERVICES } from "@/lib/content";
+import { getServiceImage, HOME, SERVICES } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function ServicesPage() {
@@ -24,29 +25,43 @@ export default function ServicesPage() {
       />
       <section className="section">
         <div className="stack-cards">
-          {t.items.map((item) => (
-            <Link
+          {t.items.map((item, index) => (
+            <LocaleLink
               key={item.slug}
               href={`/services/${item.slug}`}
-              className="stack-card stack-card--link"
+              className={`stack-card stack-card--link stack-card--media reveal${
+                index % 2 === 1 ? " stack-card--media-flip" : ""
+              }`}
+              data-d={String(Math.min((index % 3) + 1, 3))}
             >
-              <div className="stack-card__tag">{item.tag}</div>
-              <div>
-                <h2>{item.title}</h2>
-                <p>{item.desc}</p>
-                <ul>
-                  {item.points.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-                <span
-                  className="text-link"
-                  style={{ marginTop: 16, display: "inline-block" }}
-                >
-                  →
-                </span>
+              <div className="stack-card__media media-reveal">
+                <Image
+                  src={getServiceImage(item.slug)}
+                  alt=""
+                  fill
+                  sizes="(max-width: 960px) 100vw, 680px"
+                  className="stack-card__img"
+                />
               </div>
-            </Link>
+              <div className="stack-card__body">
+                <div className="stack-card__tag">{item.tag}</div>
+                <div>
+                  <h2>{item.title}</h2>
+                  <p>{item.desc}</p>
+                  <ul>
+                    {item.points.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                  <span
+                    className="text-link"
+                    style={{ marginTop: 16, display: "inline-block" }}
+                  >
+                    →
+                  </span>
+                </div>
+              </div>
+            </LocaleLink>
           ))}
         </div>
       </section>

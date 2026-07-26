@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
 import { SecteurCard } from "@/components/SecteurCard";
 import { HOME, SECTEURS } from "@/lib/content";
@@ -60,7 +60,7 @@ export default function SecteursPage() {
       />
 
       <section className="section secteur-hub">
-        <div className="secteur-hub__toolbar">
+        <div className="secteur-hub__toolbar reveal">
           <div
             className="secteur-filters"
             role="tablist"
@@ -94,30 +94,33 @@ export default function SecteursPage() {
           </label>
         </div>
 
-        <p className="secteur-hub__count">
+        <p className="secteur-hub__count reveal" data-d="1">
           {filtered.length} {t.results}
         </p>
 
         <div className="secteur-hub-grid">
-          {filtered.map((item) => (
+          {filtered.map((item, i) => (
             <SecteurCard
               key={item.slug}
               slug={item.slug}
               title={item.title}
               desc={item.desc}
               discover={t.discover}
+              delay={((i % 3) + 1) as 1 | 2 | 3}
             />
           ))}
         </div>
       </section>
 
       <section className="section section--alt">
-        <SectionLabel>{t.hubMoreTitle}</SectionLabel>
-        <div className="secteur-hub-links">
+        <div className="reveal">
+          <SectionLabel>{t.hubMoreTitle}</SectionLabel>
+        </div>
+        <div className="secteur-hub-links reveal" data-d="1">
           {t.hubLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-link">
+            <LocaleLink key={link.href} href={link.href} className="text-link">
               {link.label} →
-            </Link>
+            </LocaleLink>
           ))}
         </div>
       </section>
