@@ -4,6 +4,7 @@ node_modules/
 out/
 build/
 dist/
+web/
 
 # Env & secrets
 .env
@@ -19,5 +20,14 @@ Thumbs.db
 .thumbnail/
 scraps/
 
-# Large reference captures (optional local assets)
+# Large reference captures
 uploads/*.pdf
+
+# Next / Vercel
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*

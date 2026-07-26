@@ -1,21 +1,18 @@
 # Remparia
 
-Site Next.js dans le dossier `web/`.
+Site Next.js (App Router).
 
-## Dev local
+## Local
 
 ```bash
-cd web
 npm install
 npm run dev
 ```
 
+Ouvre http://localhost:3000
+
 ## Vercel
 
-Dans **Project Settings → General → Root Directory**, définir :
+Le projet est à la **racine** du repo. Pas besoin de Root Directory custom.
 
-```
-web
-```
-
-Puis **Redeploy** le dernier commit de `main`.
+Connecte le repo et déploie `main`.
