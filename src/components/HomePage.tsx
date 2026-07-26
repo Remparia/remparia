@@ -171,22 +171,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="film" className="section section--alt">
-        <div className="video-head">
-          <SectionLabel>05 — {t.filmTag}</SectionLabel>
-          <div className="video-head__meta">[ VIMEO ]</div>
-        </div>
-        <h2 className="section__title">{t.filmH}</h2>
-        <div className="video-frame">
-          <iframe
-            src="https://player.vimeo.com/video/1178879262?title=0&byline=0&portrait=0"
-            title="Remparia film"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
-      </section>
-
       <CtaBand tag={t.ctaTag} title={t.ctaH} text={t.ctaP} />
     </div>
   );

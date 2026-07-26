@@ -66,8 +66,6 @@ export const HOME = {
     position: "LE POSITIONNEMENT",
     positionH:
       "Trois façons de faire de l'IA en France. Une seule va jusqu'au bout.",
-    filmTag: "LE FILM",
-    filmH: "Voir Remparia en mouvement",
     servicesEyebrow: "SERVICES",
     servicesH: "Mettre l'IA au travail dans votre métier.",
     servicesCta: "Voir tous les services",
@@ -96,8 +94,6 @@ export const HOME = {
     methodCta: "Explore SIGNAL",
     position: "POSITIONING",
     positionH: "Three ways to do AI in France. Only one goes all the way.",
-    filmTag: "THE FILM",
-    filmH: "See Remparia in motion",
     servicesEyebrow: "SERVICES",
     servicesH: "Put AI to work in your business.",
     servicesCta: "See all services",
@@ -600,12 +596,6 @@ export const RESSOURCES = {
         href: "/methode",
       },
       {
-        tag: "FILM",
-        title: "Voir Remparia en mouvement",
-        desc: "La démo vidéo pour comprendre l'approche.",
-        href: "/#film",
-      },
-      {
         tag: "CONTACT",
         title: "Diagnostic SIGNAL",
         desc: "Identifiez où les agents créent le plus d'impact chez vous.",
@@ -623,12 +613,6 @@ export const RESSOURCES = {
         title: "The SIGNAL protocol",
         desc: "Our repeatable path from idea to production.",
         href: "/methode",
-      },
-      {
-        tag: "FILM",
-        title: "See Remparia in motion",
-        desc: "The video demo to understand the approach.",
-        href: "/#film",
       },
       {
         tag: "CONTACT",
