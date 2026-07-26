@@ -39,6 +39,24 @@ a:hover {
   color: #e4ff7a;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 12px 18px;
+  background: #c8ff00;
+  color: #0a0a0a;
+  font: 800 13px var(--font-archivo), sans-serif;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  color: #0a0a0a;
+}
+
 @keyframes rmp-spin {
   to {
     transform: rotate(360deg);

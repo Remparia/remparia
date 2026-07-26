@@ -46,7 +46,11 @@ export default function SiteNav() {
 
   return (
     <>
-      <nav className="nav" style={{ background: navBg }}>
+      <nav
+        className="nav"
+        style={{ background: navBg }}
+        aria-label="Navigation principale"
+      >
         <Link href="/" aria-label="Remparia">
           <Image
             src="/logo-remparia.png"

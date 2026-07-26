@@ -11,35 +11,35 @@ export default function SiteFooter() {
   const n = NAV[lang];
 
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" role="contentinfo">
       <div className="site-footer__grid">
         <div className="site-footer__brand">
           <Image
             src="/logo-remparia.png"
-            alt="Remparia"
+            alt="Remparia — IA souveraine"
             width={160}
             height={28}
             className="footer__logo"
           />
           <p>{f.tagline}</p>
         </div>
-        <div>
+        <nav aria-label={f.servicesTitle}>
           <div className="site-footer__title">{f.servicesTitle}</div>
           <Link href="/services">{n.services}</Link>
           <Link href="/methode">{n.methode}</Link>
           <Link href="/secteurs">{n.secteurs}</Link>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label={f.ressourcesTitle}>
           <div className="site-footer__title">{f.ressourcesTitle}</div>
           <Link href="/realisations">{n.realisations}</Link>
           <Link href="/ressources">{n.ressources}</Link>
           <Link href="/a-propos">{n.aPropos}</Link>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label={f.contactTitle}>
           <div className="site-footer__title">{f.contactTitle}</div>
           <Link href="/contact">{n.contact}</Link>
           <a href="mailto:contact@remparia.fr">contact@remparia.fr</a>
-        </div>
+        </nav>
       </div>
       <div className="site-footer__bottom">{f.rights}</div>
     </footer>
