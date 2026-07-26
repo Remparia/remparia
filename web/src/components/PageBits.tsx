@@ -54,6 +54,6 @@ export function CtaBand({
   );
 }
 
-export function SectionLabel({ children }: { children: string }) {
+export function SectionLabel({ children }: { children: React.ReactNode }) {
   return <div className="section__tag">// {children}</div>;
 }
