@@ -9,9 +9,20 @@ export default function RealisationsPage() {
   const t = REALISATIONS[lang];
   const cta = HOME[lang];
 
+  const home = lang === "fr" ? "Accueil" : "Home";
+  const label = lang === "fr" ? "Réalisations" : "Our Work";
+
   return (
     <div className="page page--inner">
-      <PageHero eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
+      <PageHero
+        eyebrow={t.eyebrow}
+        title={t.title}
+        sub={t.sub}
+        crumbs={[
+          { name: home, href: "/" },
+          { name: label },
+        ]}
+      />
       <section className="section">
         <div className="stack-cards">
           {t.items.map((item) => (

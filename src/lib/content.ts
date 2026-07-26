@@ -1,3 +1,5 @@
+import { EXTRA_SECTEUR_ITEMS } from "./secteurs-extra";
+
 export type Lang = "fr" | "en";
 
 export const NAV = {
@@ -29,7 +31,8 @@ export const FOOTER = {
   fr: {
     tagline: "Collectif IA souveraine · France",
     servicesTitle: "Services",
-    methodeTitle: "Méthode",
+    secteursTitle: "Solutions par secteur",
+    secteursAll: "Voir plus",
     ressourcesTitle: "Ressources",
     contactTitle: "Contact",
     rights: "© 2026 REMPARIA. Tous droits réservés.",
@@ -37,7 +40,8 @@ export const FOOTER = {
   en: {
     tagline: "Sovereign AI collective · France",
     servicesTitle: "Services",
-    methodeTitle: "Method",
+    secteursTitle: "Solutions by industry",
+    secteursAll: "See more",
     ressourcesTitle: "Resources",
     contactTitle: "Contact",
     rights: "© 2026 REMPARIA. All rights reserved.",
@@ -351,10 +355,38 @@ export const METHODE = {
 
 export const SECTEURS = {
   fr: {
-    eyebrow: "INDUSTRIES",
-    title: "Des secteurs où la conformité n'est pas optionnelle",
-    sub: "Nous travaillons là où l'IA doit s'intégrer aux process réels — sous contrainte réglementaire.",
+    eyebrow: "SECTEURS",
+    title: "Une approche IA adaptée à votre métier",
+    sub: "Remparia comprend les contraintes de votre secteur. Choisissez le vôtre pour découvrir douleurs, livrables et scénarios d'accompagnement.",
     overview: "Tous les secteurs",
+    discover: "Découvrir →",
+    filterLabel: "Filtrer",
+    searchPlaceholder: "Rechercher un secteur…",
+    results: "secteurs",
+    hubMoreTitle: "Pour aller plus loin",
+    hubLinks: [
+      { label: "Le protocole SIGNAL", href: "/methode" },
+      { label: "Nos services", href: "/services" },
+      { label: "Diagnostic SIGNAL", href: "/contact" },
+    ],
+    labels: {
+      signals: "Ce qui guide nos missions",
+      pains: "Le problème",
+      painsH: "Les douleurs qu'on connaît trop bien",
+      deliver: "La solution",
+      deliverH: "Ce que Remparia livre pour vous",
+      scenarios: "En pratique",
+      scenariosH: "Comment Remparia intervient, concrètement",
+      services: "Services liés",
+      servicesH: "Missions utiles pour ce secteur",
+      faq: "FAQ",
+      faqH: "Questions fréquentes",
+      more: "Autres secteurs",
+      moreH: "Explorer d'autres industries",
+      cta: "Let's connect",
+      need: "Besoin",
+      remparia: "Remparia",
+    },
     items: [
       {
         slug: "finance-assurance",
@@ -386,13 +418,42 @@ export const SECTEURS = {
         title: "Secteur public",
         desc: "Souveraineté, traçabilité et gains opérationnels pour les missions d'intérêt général.",
       },
+      ...EXTRA_SECTEUR_ITEMS.fr,
     ],
   },
   en: {
     eyebrow: "INDUSTRIES",
-    title: "Sectors where compliance is non-negotiable",
-    sub: "We work where AI must plug into real workflows — under regulatory constraints.",
+    title: "An AI approach shaped to your industry",
+    sub: "Remparia understands your sector constraints. Pick yours to explore pains, deliverables and engagement scenarios.",
     overview: "All industries",
+    discover: "Discover →",
+    filterLabel: "Filter",
+    searchPlaceholder: "Search an industry…",
+    results: "industries",
+    hubMoreTitle: "Go further",
+    hubLinks: [
+      { label: "The SIGNAL protocol", href: "/methode" },
+      { label: "Our services", href: "/services" },
+      { label: "SIGNAL diagnostic", href: "/contact" },
+    ],
+    labels: {
+      signals: "What guides our engagements",
+      pains: "The problem",
+      painsH: "Pains we know too well",
+      deliver: "The solution",
+      deliverH: "What Remparia delivers for you",
+      scenarios: "In practice",
+      scenariosH: "How Remparia engages, concretely",
+      services: "Related services",
+      servicesH: "Missions that fit this industry",
+      faq: "FAQ",
+      faqH: "Frequently asked questions",
+      more: "Other industries",
+      moreH: "Explore other sectors",
+      cta: "Let's connect",
+      need: "Need",
+      remparia: "Remparia",
+    },
     items: [
       {
         slug: "finance-assurance",
@@ -424,6 +485,7 @@ export const SECTEURS = {
         title: "Public sector",
         desc: "Sovereignty, traceability and operational gains for public-interest missions.",
       },
+      ...EXTRA_SECTEUR_ITEMS.en,
     ],
   },
 } as const;
@@ -438,6 +500,16 @@ export function getService(slug: string, lang: Lang = "fr") {
 export function getSecteur(slug: string, lang: Lang = "fr") {
   return SECTEURS[lang].items.find((i) => i.slug === slug) ?? null;
 }
+
+export { getSecteurDetail } from "./secteurs-details";
+export type { SecteurDetail } from "./secteurs-details";
+export {
+  getSecteurImage,
+  getSecteurMeta,
+  SECTEUR_CATEGORY_LABELS,
+  SECTEUR_META,
+  type SecteurCategory,
+} from "./secteurs-meta";
 
 export const REALISATIONS = {
   fr: {

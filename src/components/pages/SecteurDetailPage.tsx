@@ -2,46 +2,177 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CtaBand, PageHero } from "@/components/PageBits";
-import { getSecteur, HOME, SECTEURS } from "@/lib/content";
+import { CtaBand, SectionLabel } from "@/components/PageBits";
+import { SecteurHero } from "@/components/SecteurHero";
+import {
+  getSecteur,
+  getSecteurDetail,
+  getService,
+  HOME,
+  SECTEURS,
+} from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function SecteurDetailPage({ slug }: { slug: string }) {
   const { lang } = useLang();
   const item = getSecteur(slug, lang);
+  const detail = getSecteurDetail(slug, lang);
   const all = SECTEURS[lang];
+  const labels = all.labels;
   const cta = HOME[lang];
+  const home = lang === "fr" ? "Accueil" : "Home";
+  const label = lang === "fr" ? "Secteurs" : "Industries";
 
-  if (!item) {
+  if (!item || !detail) {
     notFound();
   }
 
+  const relatedServices = detail.serviceSlugs
+    .map((s) => getService(s, lang))
+    .filter((s): s is NonNullable<typeof s> => Boolean(s));
+
+  const siblings = all.items.filter((s) => s.slug !== slug).slice(0, 6);
+
   return (
-    <div className="page page--inner">
-      <PageHero eyebrow={all.eyebrow} title={item.title} sub={item.desc} />
+    <div className="page page--inner page--secteur">
+      <SecteurHero
+        slug={slug}
+        title={detail.heroH}
+        eyebrow={all.eyebrow}
+        sub={detail.heroP}
+        crumbs={[
+          { name: home, href: "/" },
+          { name: label, href: "/secteurs" },
+          { name: item.title },
+        ]}
+        ctaLabel={labels.cta}
+        secondaryLabel={
+          lang === "fr" ? "Voir le protocole SIGNAL" : "See the SIGNAL protocol"
+        }
+      />
+
+      <section className="section secteur-signals-wrap">
+        <div className="secteur-readable">
+          <SectionLabel>{labels.signals}</SectionLabel>
+          <div className="secteur-signals">
+            {detail.signals.map((signal) => (
+              <div key={signal.label} className="secteur-signal">
+                <div className="secteur-signal__value">{signal.value}</div>
+                <div className="secteur-signal__label">{signal.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--alt">
+        <div className="secteur-readable">
+          <SectionLabel>{labels.pains}</SectionLabel>
+          <h2 className="secteur-section-title">{labels.painsH}</h2>
+          <ol className="pain-list">
+            {detail.pains.map((pain, index) => (
+              <li key={pain.title} className="pain-list__item">
+                <span className="pain-list__num" aria-hidden>
+                  {index + 1}
+                </span>
+                <div>
+                  <h3>{pain.title}</h3>
+                  <p>{pain.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <section className="section">
-        <p className="section__body">
-          {lang === "fr"
-            ? "Cette page dédiée accueillera bientôt le détail des cas d'usage, contraintes et approches Remparia pour ce secteur."
-            : "This dedicated page will soon host detailed use cases, constraints and Remparia approaches for this industry."}
-        </p>
-        <div className="detail-nav">
-          <Link href="/secteurs" className="text-link">
-            ← {all.overview}
-          </Link>
-          <div className="detail-siblings">
-            {all.items.map((s) => (
+        <div className="secteur-readable">
+          <SectionLabel>{labels.deliver}</SectionLabel>
+          <h2 className="secteur-section-title">{labels.deliverH}</h2>
+          <ul className="detail-points">
+            {detail.deliverables.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section section--alt">
+        <div className="secteur-readable">
+          <SectionLabel>{labels.scenarios}</SectionLabel>
+          <h2 className="secteur-section-title">{labels.scenariosH}</h2>
+          <div className="scenario-stack">
+            {detail.scenarios.slice(0, 2).map((scenario) => (
+              <article key={scenario.who} className="scenario-card">
+                <div className="scenario-card__who">{scenario.who}</div>
+                <div className="scenario-card__block">
+                  <span className="scenario-card__tag">{labels.need}</span>
+                  <p>{scenario.need}</p>
+                </div>
+                <div className="scenario-card__block scenario-card__block--accent">
+                  <span className="scenario-card__tag">{labels.remparia}</span>
+                  <p>{scenario.remparia}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="secteur-readable">
+          <SectionLabel>{labels.services}</SectionLabel>
+          <h2 className="secteur-section-title">{labels.servicesH}</h2>
+          <div className="secteur-services">
+            {relatedServices.map((service) => (
               <Link
-                key={s.slug}
-                href={`/secteurs/${s.slug}`}
-                className={s.slug === slug ? "is-active" : undefined}
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="secteur-service-link"
               >
-                {s.title}
+                <span className="secteur-service-link__tag">{service.tag}</span>
+                <strong>{service.title}</strong>
+                <span aria-hidden>→</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
+
+      <section className="section section--alt">
+        <div className="secteur-readable">
+          <SectionLabel>{labels.faq}</SectionLabel>
+          <h2 className="secteur-section-title">{labels.faqH}</h2>
+          <div className="faq-list">
+            {detail.faqs.map((faq) => (
+              <details key={faq.q} className="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="secteur-readable">
+          <SectionLabel>{labels.more}</SectionLabel>
+          <h2 className="secteur-section-title">{labels.moreH}</h2>
+          <div className="detail-siblings secteur-more">
+            {siblings.map((s) => (
+              <Link key={s.slug} href={`/secteurs/${s.slug}`}>
+                {s.title}
+              </Link>
+            ))}
+          </div>
+          <div className="detail-nav" style={{ marginTop: 24 }}>
+            <Link href="/secteurs" className="text-link">
+              ← {all.overview}
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
     </div>
   );

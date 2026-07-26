@@ -9,10 +9,19 @@ export default function ServicesPage() {
   const { lang } = useLang();
   const t = SERVICES[lang];
   const cta = HOME[lang];
+  const home = lang === "fr" ? "Accueil" : "Home";
 
   return (
     <div className="page page--inner">
-      <PageHero eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
+      <PageHero
+        eyebrow={t.eyebrow}
+        title={t.title}
+        sub={t.sub}
+        crumbs={[
+          { name: home, href: "/" },
+          { name: t.title },
+        ]}
+      />
       <section className="section">
         <div className="stack-cards">
           {t.items.map((item) => (
@@ -30,7 +39,10 @@ export default function ServicesPage() {
                     <li key={p}>{p}</li>
                   ))}
                 </ul>
-                <span className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
+                <span
+                  className="text-link"
+                  style={{ marginTop: 16, display: "inline-block" }}
+                >
                   →
                 </span>
               </div>

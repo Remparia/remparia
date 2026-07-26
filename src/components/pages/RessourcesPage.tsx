@@ -10,9 +10,19 @@ export default function RessourcesPage() {
   const t = RESSOURCES[lang];
   const cta = HOME[lang];
 
+  const home = lang === "fr" ? "Accueil" : "Home";
+
   return (
     <div className="page page--inner">
-      <PageHero eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
+      <PageHero
+        eyebrow={t.eyebrow}
+        title={t.title}
+        sub={t.sub}
+        crumbs={[
+          { name: home, href: "/" },
+          { name: t.title },
+        ]}
+      />
       <section className="section">
         <div className="card-grid">
           {t.items.map((item) => (

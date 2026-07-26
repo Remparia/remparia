@@ -4,17 +4,60 @@ import Link from "next/link";
 import { NAV } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
+export type Crumb = {
+  name: string;
+  href?: string;
+};
+
+export function Breadcrumbs({ items }: { items: Crumb[] }) {
+  const { lang } = useLang();
+  const label = lang === "fr" ? "Fil d'Ariane" : "Breadcrumb";
+
+  if (!items.length) return null;
+
+  return (
+    <nav className="breadcrumbs" aria-label={label}>
+      <ol className="breadcrumbs__list">
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1;
+          return (
+            <li key={`${item.name}-${index}`} className="breadcrumbs__item">
+              {item.href && !isLast ? (
+                <Link href={item.href} className="breadcrumbs__link">
+                  {item.name}
+                </Link>
+              ) : (
+                <span className="breadcrumbs__current" aria-current="page">
+                  {item.name}
+                </span>
+              )}
+              {!isLast ? (
+                <span className="breadcrumbs__sep" aria-hidden>
+                  /
+                </span>
+              ) : null}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
 export function PageHero({
   eyebrow,
   title,
   sub,
+  crumbs,
 }: {
   eyebrow: string;
   title: string;
   sub: string;
+  crumbs?: Crumb[];
 }) {
   return (
     <header className="page-hero">
+      {crumbs?.length ? <Breadcrumbs items={crumbs} /> : null}
       <div className="page-hero__eyebrow">// {eyebrow}</div>
       <h1 className="page-hero__title">{title}</h1>
       <p className="page-hero__sub">{sub}</p>

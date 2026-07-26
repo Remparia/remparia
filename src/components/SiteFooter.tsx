@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FOOTER, NAV } from "@/lib/content";
+import { FOOTER, NAV, SECTEURS } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function SiteFooter() {
   const { lang } = useLang();
   const f = FOOTER[lang];
   const n = NAV[lang];
+  const secteurs = SECTEURS[lang];
 
   return (
     <footer className="site-footer" role="contentinfo">
@@ -27,7 +28,17 @@ export default function SiteFooter() {
           <div className="site-footer__title">{f.servicesTitle}</div>
           <Link href="/services">{n.services}</Link>
           <Link href="/methode">{n.methode}</Link>
-          <Link href="/secteurs">{n.secteurs}</Link>
+        </nav>
+        <nav aria-label={f.secteursTitle} className="site-footer__secteurs">
+          <div className="site-footer__title">{f.secteursTitle}</div>
+          {secteurs.items.slice(0, 4).map((item) => (
+            <Link key={item.slug} href={`/secteurs/${item.slug}`}>
+              {item.title}
+            </Link>
+          ))}
+          <Link href="/secteurs" className="site-footer__all">
+            {f.secteursAll} →
+          </Link>
         </nav>
         <nav aria-label={f.ressourcesTitle}>
           <div className="site-footer__title">{f.ressourcesTitle}</div>

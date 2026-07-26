@@ -5,6 +5,7 @@ import { SECTEUR_SLUGS } from "@/lib/content";
 import {
   breadcrumbJsonLd,
   createPageMetadata,
+  secteurFaqJsonLd,
   secteurMeta,
 } from "@/lib/seo";
 
@@ -21,21 +22,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: meta.title,
     description: meta.description,
     path: `/secteurs/${slug}`,
+    image: meta.image,
   });
 }
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
   const meta = secteurMeta(slug);
+  const faqLd = secteurFaqJsonLd(slug);
 
   return (
     <>
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Accueil", path: "/" },
-          { name: "Secteurs", path: "/secteurs" },
-          { name: meta.title, path: `/secteurs/${slug}` },
-        ])}
+        data={[
+          breadcrumbJsonLd([
+            { name: "Accueil", path: "/" },
+            { name: "Secteurs", path: "/secteurs" },
+            { name: meta.title, path: `/secteurs/${slug}` },
+          ]),
+          ...(faqLd ? [faqLd] : []),
+        ]}
       />
       <SecteurDetailPage slug={slug} />
     </>

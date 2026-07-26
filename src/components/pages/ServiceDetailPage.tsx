@@ -11,6 +11,7 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
   const item = getService(slug, lang);
   const all = SERVICES[lang];
   const cta = HOME[lang];
+  const home = lang === "fr" ? "Accueil" : "Home";
 
   if (!item) {
     notFound();
@@ -22,6 +23,11 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
         eyebrow={`${all.title} / ${item.tag}`}
         title={item.title}
         sub={item.desc}
+        crumbs={[
+          { name: home, href: "/" },
+          { name: all.title, href: "/services" },
+          { name: item.title },
+        ]}
       />
       <section className="section">
         <ul className="detail-points">

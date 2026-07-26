@@ -4,20 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV, SECTEURS, SERVICES } from "@/lib/content";
+import { NAV, SERVICES } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();
   const t = NAV[lang];
   const services = SERVICES[lang];
-  const secteurs = SECTEURS[lang];
   const pathname = usePathname();
   const [navBg, setNavBg] = useState("rgba(10,10,10,0)");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openGroup, setOpenGroup] = useState<"services" | "secteurs" | null>(
-    null,
-  );
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,7 +28,7 @@ export default function SiteNav() {
 
   useEffect(() => {
     setMenuOpen(false);
-    setOpenGroup(null);
+    setServicesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -42,7 +39,6 @@ export default function SiteNav() {
   }, [menuOpen]);
 
   const isServices = pathname.startsWith("/services");
-  const isSecteurs = pathname.startsWith("/secteurs");
 
   return (
     <>
@@ -95,33 +91,6 @@ export default function SiteNav() {
           >
             {t.methode}
           </Link>
-
-          <div className="nav__item">
-            <Link
-              href="/secteurs"
-              className={isSecteurs ? "is-active" : undefined}
-            >
-              {t.secteurs}
-              <span className="nav__caret" aria-hidden>
-                ▾
-              </span>
-            </Link>
-            <div className="nav__dropdown">
-              <Link href="/secteurs">{secteurs.overview}</Link>
-              {secteurs.items.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={`/secteurs/${item.slug}`}
-                  className={
-                    pathname === `/secteurs/${item.slug}` ? "is-active" : undefined
-                  }
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-
           <Link
             href="/realisations"
             className={pathname === "/realisations" ? "is-active" : undefined}
@@ -167,15 +136,13 @@ export default function SiteNav() {
           <button
             type="button"
             className="nav__drawer-toggle"
-            aria-expanded={openGroup === "services"}
-            onClick={() =>
-              setOpenGroup((g) => (g === "services" ? null : "services"))
-            }
+            aria-expanded={servicesOpen}
+            onClick={() => setServicesOpen((o) => !o)}
           >
             [ {t.services.toUpperCase()} ]
-            <span aria-hidden>{openGroup === "services" ? "−" : "+"}</span>
+            <span aria-hidden>{servicesOpen ? "−" : "+"}</span>
           </button>
-          {openGroup === "services" ? (
+          {servicesOpen ? (
             <div className="nav__drawer-sub">
               <Link href="/services">{services.overview}</Link>
               {services.items.map((item) => (
@@ -188,31 +155,6 @@ export default function SiteNav() {
         </div>
 
         <Link href="/methode">[ {t.methode.toUpperCase()} ]</Link>
-
-        <div className="nav__drawer-group">
-          <button
-            type="button"
-            className="nav__drawer-toggle"
-            aria-expanded={openGroup === "secteurs"}
-            onClick={() =>
-              setOpenGroup((g) => (g === "secteurs" ? null : "secteurs"))
-            }
-          >
-            [ {t.secteurs.toUpperCase()} ]
-            <span aria-hidden>{openGroup === "secteurs" ? "−" : "+"}</span>
-          </button>
-          {openGroup === "secteurs" ? (
-            <div className="nav__drawer-sub">
-              <Link href="/secteurs">{secteurs.overview}</Link>
-              {secteurs.items.map((item) => (
-                <Link key={item.slug} href={`/secteurs/${item.slug}`}>
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-          ) : null}
-        </div>
-
         <Link href="/realisations">[ {t.realisations.toUpperCase()} ]</Link>
         <Link href="/a-propos">[ {t.aPropos.toUpperCase()} ]</Link>
         <Link href="/ressources">[ {t.ressources.toUpperCase()} ]</Link>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getService } from "@/lib/content";
+import { SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, getSecteurImage, getService } from "@/lib/content";
 
 export const SITE = {
   name: "Remparia",
@@ -291,6 +291,23 @@ export function serviceJsonLd(slug: string) {
   };
 }
 
+export function secteurFaqJsonLd(slug: string) {
+  const detail = getSecteurDetail(slug, "fr");
+  if (!detail?.faqs.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: detail.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+}
+
 export function getAllContentPaths() {
   const staticPaths = [
     "/",
@@ -309,11 +326,14 @@ export function getAllContentPaths() {
 
 export function secteurMeta(slug: string) {
   const item = getSecteur(slug, "fr");
+  const detail = getSecteurDetail(slug, "fr");
   return {
-    title: item?.title ?? "Secteur",
+    title: detail?.heroH ?? item?.title ?? "Secteur",
     description:
+      detail?.heroP ??
       item?.desc ??
       "Approche Remparia pour intégrer l'IA souveraine dans votre secteur.",
+    image: getSecteurImage(slug),
   };
 }
 

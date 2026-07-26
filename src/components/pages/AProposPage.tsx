@@ -9,9 +9,20 @@ export default function AProposPage() {
   const t = APROPOS[lang];
   const cta = HOME[lang];
 
+  const home = lang === "fr" ? "Accueil" : "Home";
+  const label = lang === "fr" ? "À propos" : "About";
+
   return (
     <div className="page page--inner">
-      <PageHero eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
+      <PageHero
+        eyebrow={t.eyebrow}
+        title={t.title}
+        sub={t.sub}
+        crumbs={[
+          { name: home, href: "/" },
+          { name: label },
+        ]}
+      />
       <section className="section section--alt">
         <SectionLabel>{lang === "fr" ? "CONVICTION" : "CONVICTION"}</SectionLabel>
         <h2 className="section__title">{t.convictionH}</h2>
