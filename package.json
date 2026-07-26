@@ -5,5 +5,8 @@
     "build": "npm install --prefix web && npm run build --prefix web",
     "start": "npm run start --prefix web",
     "vercel-build": "npm install --prefix web && npm run build --prefix web"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
