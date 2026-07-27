@@ -106,12 +106,6 @@ export default function SiteNav() {
             {t.aPropos}
           </LocaleLink>
           <LocaleLink
-            href="/carrieres"
-            className={logical === "/carrieres" ? "is-active" : undefined}
-          >
-            {t.carrieres}
-          </LocaleLink>
-          <LocaleLink
             href="/ressources"
             className={logical === "/ressources" ? "is-active" : undefined}
           >
@@ -123,6 +117,12 @@ export default function SiteNav() {
           <button type="button" className="nav__lang" onClick={toggleLang}>
             {lang === "fr" ? "FR / en" : "fr / EN"}
           </button>
+          <LocaleLink
+            href="/carrieres"
+            className={`nav__hiring${logical === "/carrieres" || logical.startsWith("/carrieres/") ? " is-active" : ""}`}
+          >
+            {t.hiring}
+          </LocaleLink>
           <LocaleLink href="/contact" className="nav__cta">
             <span className="nav__cta-short">{t.demoShort}</span>
             <span className="nav__cta-full">{t.demo} →</span>
@@ -167,9 +167,11 @@ export default function SiteNav() {
           [ {t.realisations.toUpperCase()} ]
         </LocaleLink>
         <LocaleLink href="/a-propos">[ {t.aPropos.toUpperCase()} ]</LocaleLink>
-        <LocaleLink href="/carrieres">[ {t.carrieres.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/ressources">
           [ {t.ressources.toUpperCase()} ]
+        </LocaleLink>
+        <LocaleLink href="/carrieres" className="nav__drawer-hiring">
+          [ {t.hiring.toUpperCase()} ]
         </LocaleLink>
         <LocaleLink href="/contact">[ {t.contact.toUpperCase()} ]</LocaleLink>
       </div>

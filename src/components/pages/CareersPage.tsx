@@ -12,7 +12,7 @@ export default function CareersPage() {
   const label = lang === "fr" ? "Carrières" : "Careers";
 
   return (
-    <div className="page page--inner">
+    <div className="page page--inner page--careers">
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}
@@ -21,11 +21,28 @@ export default function CareersPage() {
           { name: home, href: "/" },
           { name: label },
         ]}
+        actions={
+          <>
+            <ul className="careers-hero__meta" aria-label={t.processTitle}>
+              {t.heroMeta.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className="careers-hero__cta">
+              <LocaleLink href="/carrieres/candidature/1" className="btn-primary">
+                {t.heroCta} →
+              </LocaleLink>
+              <a href="#profils" className="btn-ghost">
+                {t.heroSecondary} →
+              </a>
+            </div>
+          </>
+        }
       />
 
-      <section className="section">
+      <section id="profils" className="section">
         <div className="reveal">
-          <SectionLabel>{t.rolesTitle}</SectionLabel>
+          <SectionLabel>{t.rolesTag}</SectionLabel>
           <h2 className="section__title">{t.rolesTitle}</h2>
           <p className="section__body">{t.rolesSub}</p>
         </div>
@@ -50,7 +67,28 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="section careers-process">
+      <section id="philo" className="section section--alt careers-phil">
+        <div className="reveal">
+          <SectionLabel>{t.philTag}</SectionLabel>
+          <h2 className="section__title">{t.philTitle}</h2>
+          <p className="section__body">{t.philSub}</p>
+        </div>
+        <div className="careers-phil__grid">
+          {t.phil.map((item, i) => (
+            <article
+              key={item.tag}
+              className="careers-phil__item reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
+              <div className="careers-phil__tag">{item.tag}</div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="parcours" className="section careers-process">
         <div className="careers-launch reveal">
           <div className="section__tag">// {t.applyTitle}</div>
           <h2 className="section__title">{t.processTitle}</h2>
@@ -74,7 +112,10 @@ export default function CareersPage() {
           ))}
         </div>
         <div className="careers-launch__actions reveal">
-          <LocaleLink href="/carrieres/candidature/1" className="btn-primary careers-process__cta">
+          <LocaleLink
+            href="/carrieres/candidature/1"
+            className="btn-primary careers-process__cta"
+          >
             {t.applyCta} →
           </LocaleLink>
           <LocaleLink

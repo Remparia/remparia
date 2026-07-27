@@ -90,11 +90,13 @@ export default function SiteFooter() {
           <LocaleLink href="/realisations">{n.realisations}</LocaleLink>
           <LocaleLink href="/ressources">{n.ressources}</LocaleLink>
           <LocaleLink href="/a-propos">{n.aPropos}</LocaleLink>
-          <LocaleLink href="/carrieres">{n.carrieres}</LocaleLink>
         </nav>
         <nav aria-label={f.contactTitle}>
           <div className="site-footer__title">{f.contactTitle}</div>
           <LocaleLink href="/contact">{n.contact}</LocaleLink>
+          <LocaleLink href="/carrieres" className="site-footer__hiring">
+            {n.hiring}
+          </LocaleLink>
           <a href="mailto:contact@remparia.fr">contact@remparia.fr</a>
         </nav>
       </div>

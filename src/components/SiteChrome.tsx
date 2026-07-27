@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import BackToTop from "@/components/BackToTop";
 import CookieBanner from "@/components/CookieBanner";
 import SiteFooter from "@/components/SiteFooter";
 import SiteNav from "@/components/SiteNav";
@@ -25,6 +26,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
       <main id="contenu">{children}</main>
       <SiteFooter />
       <CookieBanner />
+      <BackToTop />
     </>
   );
 }

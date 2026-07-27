@@ -22,6 +22,11 @@ function isNearViewport(el: Element) {
 /**
  * Active le système CSS `.reveal` / `.clip` (gate `html.is-ready`).
  * Ne mute jamais le DOM pendant l’hydratation React (évite mismatch `.in`).
+ *
+ * Important : les `.clip` non révélés ont `clip-path: inset(0 100% 0 0)`.
+ * L’IntersectionObserver peut alors rapporter un ratio 0 → jamais de `.in`.
+ * Il faut donc toujours eager-reveal les éléments déjà dans le viewport
+ * (mount initial ET navigations client).
  */
 export function useScrollReveal() {
   useEffect(() => {
@@ -46,10 +51,10 @@ export function useScrollReveal() {
       { threshold: 0.12, rootMargin: "0px 0px -4% 0px" },
     );
 
-    /** @param eager Révéler tout de suite les éléments already in view (mount initial only) */
-    const scan = (eager: boolean) => {
+    const scan = () => {
       document.querySelectorAll(SELECTOR).forEach((el) => {
-        if (eager && isNearViewport(el)) {
+        // getBoundingClientRect ignore le clip-path → OK pour le above-the-fold
+        if (isNearViewport(el)) {
           el.classList.add("in");
           return;
         }
@@ -60,15 +65,14 @@ export function useScrollReveal() {
     // Après hydratation (useEffect) : gate + reveal above-the-fold
     const raf = requestAnimationFrame(() => {
       root.classList.add("is-ready");
-      requestAnimationFrame(() => scan(true));
+      requestAnimationFrame(scan);
     });
 
-    // Navigation client : observer seulement — ne pas ajouter `.in` sync
-    // (sinon React hydrate un HTML déjà muté → hydration mismatch)
+    // Navigations client (ex. Quitter → /carrieres) : re-scan eager
     let moTimer: number | undefined;
     const mo = new MutationObserver(() => {
       window.clearTimeout(moTimer);
-      moTimer = window.setTimeout(() => scan(false), 50);
+      moTimer = window.setTimeout(scan, 50);
     });
     mo.observe(document.body, { childList: true, subtree: true });
 

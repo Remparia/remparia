@@ -49,11 +49,13 @@ export function PageHero({
   title,
   sub,
   crumbs,
+  actions,
 }: {
   eyebrow: string;
   title: string;
   sub: string;
   crumbs?: Crumb[];
+  actions?: React.ReactNode;
 }) {
   return (
     <header className="page-hero">
@@ -69,6 +71,11 @@ export function PageHero({
       <p className="page-hero__sub reveal" data-d="2">
         {sub}
       </p>
+      {actions ? (
+        <div className="page-hero__actions reveal" data-d="3">
+          {actions}
+        </div>
+      ) : null}
     </header>
   );
 }
