@@ -22,7 +22,11 @@ export function proxy(request: NextRequest) {
   const segment = pathname.split("/")[1];
 
   if (isLocale(segment ?? "")) {
-    return NextResponse.next();
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-locale", segment!);
+    return NextResponse.next({
+      request: { headers: requestHeaders },
+    });
   }
 
   const url = request.nextUrl.clone();

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, Suspense, useEffect, useState } from "react";
+import { FormEvent, Suspense, useEffect, useId, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import CareersApplyShell from "@/components/careers/CareersApplyShell";
 import { getCareers, type CareerRoleId } from "@/lib/careers";
@@ -31,12 +31,14 @@ function Step1Inner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const preset = searchParams.get("role") ?? "";
+  const errorId = useId();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [city, setCity] = useState("");
   const [role, setRole] = useState<CareerRoleId | "">("");
+  const [formError, setFormError] = useState("");
 
   useEffect(() => {
     const s = loadCareersSession();
@@ -50,7 +52,11 @@ function Step1Inner() {
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!name.trim() || !email.includes("@") || !city.trim() || !role) return;
+    if (!name.trim() || !email.includes("@") || !city.trim() || !role) {
+      setFormError(t.fields.formIncomplete);
+      return;
+    }
+    setFormError("");
     saveCareersSession({
       name: name.trim(),
       email: email.trim(),
@@ -62,37 +68,84 @@ function Step1Inner() {
     router.push(withLocale(lang, "/carrieres/candidature/2"));
   }
 
+  const describedBy = formError ? errorId : undefined;
+
   return (
     <CareersApplyShell step={1}>
-      <form className="careers-iso-form" onSubmit={onSubmit}>
+      <form className="careers-iso-form" onSubmit={onSubmit} noValidate>
         <h1>{t.steps[0].title}</h1>
         <p>{t.steps[0].desc}</p>
         <label>
           <span>{t.fields.name}</span>
-          <input value={name} onChange={(e) => setName(e.target.value)} required maxLength={120} />
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            maxLength={120}
+            aria-invalid={formError && !name.trim() ? true : undefined}
+            aria-describedby={describedBy}
+          />
         </label>
         <label>
           <span>{t.fields.email}</span>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={200} />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            maxLength={200}
+            aria-invalid={formError && !email.includes("@") ? true : undefined}
+            aria-describedby={describedBy}
+          />
         </label>
         <label>
           <span>{t.fields.linkedin}</span>
-          <input value={linkedin} onChange={(e) => setLinkedin(e.target.value)} maxLength={300} />
+          <input
+            value={linkedin}
+            onChange={(e) => setLinkedin(e.target.value)}
+            maxLength={300}
+          />
         </label>
         <label>
           <span>{t.fields.city}</span>
-          <input value={city} onChange={(e) => setCity(e.target.value)} required maxLength={120} />
+          <input
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            required
+            maxLength={120}
+            aria-invalid={formError && !city.trim() ? true : undefined}
+            aria-describedby={describedBy}
+          />
         </label>
         <label>
           <span>{t.fields.role}</span>
-          <select value={role} onChange={(e) => setRole(e.target.value as CareerRoleId)} required>
-            <option value="" disabled>—</option>
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value as CareerRoleId)}
+            required
+            aria-invalid={formError && !role ? true : undefined}
+            aria-describedby={describedBy}
+          >
+            <option value="" disabled>
+              —
+            </option>
             {t.roles.map((r) => (
-              <option key={r.id} value={r.id}>{r.title}</option>
+              <option key={r.id} value={r.id}>
+                {r.title}
+              </option>
             ))}
             <option value="spontaneous">{t.fields.roleSpontaneous}</option>
           </select>
         </label>
+        {formError ? (
+          <p
+            id={errorId}
+            className="contact-feedback contact-feedback--err"
+            role="alert"
+          >
+            {formError}
+          </p>
+        ) : null}
         <button type="submit" className="btn-primary">
           {t.fields.next} →
         </button>
@@ -103,7 +156,13 @@ function Step1Inner() {
 
 export default function CareersApplyStep1() {
   return (
-    <Suspense fallback={null}>
+    <Suspense
+      fallback={
+        <CareersApplyShell step={1}>
+          <p className="sr-only">…</p>
+        </CareersApplyShell>
+      }
+    >
       <Step1Inner />
     </Suspense>
   );

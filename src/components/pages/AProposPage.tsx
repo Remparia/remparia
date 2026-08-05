@@ -80,54 +80,6 @@ export default function AProposPage() {
         </p>
       </section>
 
-      <section className="section">
-        <div className="hero__pillars" style={{ borderTop: "none" }}>
-          {t.pillars.map((p, i) => (
-            <div
-              key={p.tag}
-              className="hero__pillar reveal"
-              data-d={String(Math.min(i + 1, 3))}
-            >
-              <div className="hero__pillar-tag">/ {p.tag}</div>
-              <div className="hero__pillar-title">{p.title}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-      <section className="section section--alt">
-        <h2 className="section__title reveal">{t.positionH}</h2>
-        <div className="position-grid" style={{ marginTop: 32 }}>
-          {t.positions.map((p, i) => (
-            <div
-              key={p.tag}
-              className="position-card reveal"
-              data-d={String(Math.min(i + 1, 3))}
-              style={{
-                border: `1px solid ${p.highlight ? "#c8ff00" : "rgba(255,255,255,.12)"}`,
-                background: p.highlight ? "rgba(200,255,0,.07)" : "transparent",
-              }}
-            >
-              <div
-                className="position-card__tag"
-                style={{ color: p.highlight ? "#c8ff00" : "rgba(255,255,255,.5)" }}
-              >
-                {p.tag}
-              </div>
-              <div>
-                <div
-                  className="position-card__title"
-                  style={{ color: p.highlight ? "#c8ff00" : "#fff" }}
-                >
-                  {p.title}
-                </div>
-                <div className="position-card__desc" style={{ color: "rgba(255,255,255,.55)" }}>
-                  {p.desc}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
       <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
     </div>
   );

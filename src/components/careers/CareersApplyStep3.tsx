@@ -147,7 +147,9 @@ export default function CareersApplyStep3() {
           </button>
         </div>
         {feedback ? (
-          <p className="contact-feedback contact-feedback--err">{feedback}</p>
+          <p className="contact-feedback contact-feedback--err" role="alert">
+            {feedback}
+          </p>
         ) : null}
         <p className="contact-privacy">{t.privacyNote}</p>
       </div>

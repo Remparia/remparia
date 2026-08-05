@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
 import { PageHero } from "@/components/PageBits";
 import { CONTACT } from "@/lib/content";
@@ -12,6 +12,7 @@ export default function ContactPage() {
   const { lang } = useLang();
   const t = CONTACT[lang];
   const home = lang === "fr" ? "Accueil" : "Home";
+  const feedbackId = useId();
   const [status, setStatus] = useState<Status>("idle");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -67,6 +68,9 @@ export default function ContactPage() {
             ? t.error
             : null;
 
+  const isError = status === "error" || status === "config" || status === "rate";
+  const describedBy = feedback ? feedbackId : undefined;
+
   return (
     <div className="page page--inner">
       <PageHero
@@ -81,13 +85,19 @@ export default function ContactPage() {
       <section className="section">
         <div className="contact-grid">
           <form className="contact-form reveal" onSubmit={onSubmit}>
-            <label className="contact-hp" aria-hidden="true">
+            <label className="contact-hp">
               <span>Website</span>
               <input name="website" tabIndex={-1} autoComplete="off" />
             </label>
             <label>
               <span>{t.fields.name}</span>
-              <input name="name" required maxLength={120} />
+              <input
+                name="name"
+                required
+                maxLength={120}
+                aria-describedby={describedBy}
+                aria-invalid={isError || undefined}
+              />
             </label>
             <label>
               <span>{t.fields.company}</span>
@@ -95,11 +105,26 @@ export default function ContactPage() {
             </label>
             <label>
               <span>{t.fields.email}</span>
-              <input type="email" name="email" required maxLength={200} />
+              <input
+                type="email"
+                name="email"
+                required
+                maxLength={200}
+                aria-describedby={describedBy}
+                aria-invalid={isError || undefined}
+              />
             </label>
             <label>
               <span>{t.fields.message}</span>
-              <textarea name="message" rows={5} required minLength={10} maxLength={5000} />
+              <textarea
+                name="message"
+                rows={5}
+                required
+                minLength={10}
+                maxLength={5000}
+                aria-describedby={describedBy}
+                aria-invalid={isError || undefined}
+              />
             </label>
             <button
               type="submit"
@@ -110,19 +135,22 @@ export default function ContactPage() {
             </button>
             {feedback ? (
               <p
+                id={feedbackId}
                 className={
                   status === "success"
                     ? "contact-feedback contact-feedback--ok"
                     : "contact-feedback contact-feedback--err"
                 }
-                role="status"
+                role={status === "success" ? "status" : "alert"}
               >
                 {feedback}
               </p>
             ) : null}
             <p className="contact-privacy">
               <LocaleLink href="/confidentialite">
-                {lang === "fr" ? "Politique de confidentialité" : "Privacy policy"}
+                {lang === "fr"
+                  ? "Politique de confidentialité"
+                  : "Privacy policy"}
               </LocaleLink>
             </p>
           </form>

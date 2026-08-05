@@ -105,7 +105,9 @@ export function CtaBand({
           <LocaleLink href="/contact" className="cta__btn">
             {demo} →
           </LocaleLink>
-          <span className="cta__mail">contact@remparia.fr</span>
+          <a href="mailto:contact@remparia.fr" className="cta__mail">
+            contact@remparia.fr
+          </a>
         </div>
       </div>
     </section>

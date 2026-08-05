@@ -33,7 +33,7 @@ export default function RessourcesPage() {
               data-d={String(Math.min((i % 3) + 1, 3))}
             >
               <div className="info-card__tag">{item.tag}</div>
-              <h3>{item.title}</h3>
+              <h2>{item.title}</h2>
               <p>{item.desc}</p>
             </LocaleLink>
           ))}

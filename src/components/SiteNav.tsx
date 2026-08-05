@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
 import { NAV, SERVICES } from "@/lib/content";
 import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
+
+const FOCUSABLE =
+  'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();
@@ -17,6 +20,12 @@ export default function SiteNav() {
   const [navBg, setNavBg] = useState("rgba(10,10,10,0)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [deskServicesOpen, setDeskServicesOpen] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const deskItemRef = useRef<HTMLDivElement>(null);
+  const drawerId = useId();
+  const deskMenuId = useId();
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,6 +40,7 @@ export default function SiteNav() {
   useEffect(() => {
     setMenuOpen(false);
     setServicesOpen(false);
+    setDeskServicesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -40,19 +50,72 @@ export default function SiteNav() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const drawer = drawerRef.current;
+    drawer?.querySelectorAll<HTMLElement>(FOCUSABLE)[0]?.focus();
+
+    function getFocusables() {
+      return Array.from(
+        drawerRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? [],
+      );
+    }
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        menuBtnRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const list = getFocusables();
+      if (!list.length) return;
+      const first = list[0];
+      const last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen, servicesOpen]);
+
+  useEffect(() => {
+    if (!deskServicesOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setDeskServicesOpen(false);
+        deskItemRef.current
+          ?.querySelector<HTMLElement>("button.nav__caret-btn")
+          ?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [deskServicesOpen]);
+
   const isServices = logical.startsWith("/services");
+  const navCurrent = (path: string) =>
+    logical === path || (path !== "/" && logical.startsWith(path + "/"))
+      ? ("page" as const)
+      : undefined;
 
   return (
     <>
       <nav
         className="nav"
         style={{ background: navBg }}
-        aria-label="Navigation principale"
+        aria-label={t.navLabel}
       >
         <LocaleLink href="/" aria-label="Remparia">
           <Image
             src="/logo-remparia.png"
-            alt="Remparia"
+            alt=""
             width={180}
             height={32}
             className="nav__logo"
@@ -61,17 +124,42 @@ export default function SiteNav() {
         </LocaleLink>
 
         <div className="nav__links">
-          <div className="nav__item">
+          <div
+            ref={deskItemRef}
+            className={`nav__item${deskServicesOpen ? " is-open" : ""}`}
+            onMouseEnter={() => setDeskServicesOpen(true)}
+            onMouseLeave={() => setDeskServicesOpen(false)}
+            onFocus={() => setDeskServicesOpen(true)}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                setDeskServicesOpen(false);
+              }
+            }}
+          >
             <LocaleLink
               href="/services"
               className={isServices ? "is-active" : undefined}
+              aria-current={logical === "/services" ? "page" : undefined}
             >
               {t.services}
+            </LocaleLink>
+            <button
+              type="button"
+              className="nav__caret-btn"
+              aria-expanded={deskServicesOpen}
+              aria-controls={deskMenuId}
+              aria-label={t.servicesMenu}
+              onClick={() => setDeskServicesOpen((o) => !o)}
+            >
               <span className="nav__caret" aria-hidden>
                 ▾
               </span>
-            </LocaleLink>
-            <div className="nav__dropdown">
+            </button>
+            <div
+              id={deskMenuId}
+              className="nav__dropdown"
+              hidden={!deskServicesOpen}
+            >
               <LocaleLink href="/services">{services.overview}</LocaleLink>
               {services.items.map((item) => (
                 <LocaleLink
@@ -79,6 +167,9 @@ export default function SiteNav() {
                   href={`/services/${item.slug}`}
                   className={
                     logical === `/services/${item.slug}` ? "is-active" : undefined
+                  }
+                  aria-current={
+                    logical === `/services/${item.slug}` ? "page" : undefined
                   }
                 >
                   {item.title}
@@ -90,36 +181,46 @@ export default function SiteNav() {
           <LocaleLink
             href="/methode"
             className={logical === "/methode" ? "is-active" : undefined}
+            aria-current={navCurrent("/methode")}
           >
             {t.methode}
           </LocaleLink>
           <LocaleLink
             href="/realisations"
             className={logical === "/realisations" ? "is-active" : undefined}
+            aria-current={navCurrent("/realisations")}
           >
             {t.realisations}
           </LocaleLink>
           <LocaleLink
             href="/a-propos"
             className={logical === "/a-propos" ? "is-active" : undefined}
+            aria-current={navCurrent("/a-propos")}
           >
             {t.aPropos}
           </LocaleLink>
           <LocaleLink
             href="/ressources"
             className={logical === "/ressources" ? "is-active" : undefined}
+            aria-current={navCurrent("/ressources")}
           >
             {t.ressources}
           </LocaleLink>
         </div>
 
         <div className="nav__actions">
-          <button type="button" className="nav__lang" onClick={toggleLang}>
+          <button
+            type="button"
+            className="nav__lang"
+            onClick={toggleLang}
+            aria-label={t.switchLang}
+          >
             {lang === "fr" ? "FR / en" : "fr / EN"}
           </button>
           <LocaleLink
             href="/carrieres"
             className={`nav__hiring${logical === "/carrieres" || logical.startsWith("/carrieres/") ? " is-active" : ""}`}
+            aria-current={navCurrent("/carrieres")}
           >
             {t.hiring}
           </LocaleLink>
@@ -128,10 +229,12 @@ export default function SiteNav() {
             <span className="nav__cta-full">{t.demo} →</span>
           </LocaleLink>
           <button
+            ref={menuBtnRef}
             type="button"
             className={`nav__menu-btn${menuOpen ? " is-open" : ""}`}
-            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-label={menuOpen ? t.closeMenu : t.openMenu}
             aria-expanded={menuOpen}
+            aria-controls={drawerId}
             onClick={() => setMenuOpen((o) => !o)}
           >
             <span />
@@ -139,7 +242,12 @@ export default function SiteNav() {
         </div>
       </nav>
 
-      <div className={`nav__drawer${menuOpen ? " is-open" : ""}`}>
+      <div
+        id={drawerId}
+        ref={drawerRef}
+        className={`nav__drawer${menuOpen ? " is-open" : ""}`}
+        hidden={!menuOpen}
+      >
         <div className="nav__drawer-group">
           <button
             type="button"

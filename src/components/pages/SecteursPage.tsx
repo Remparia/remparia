@@ -63,15 +63,14 @@ export default function SecteursPage() {
         <div className="secteur-hub__toolbar reveal">
           <div
             className="secteur-filters"
-            role="tablist"
+            role="group"
             aria-label={t.filterLabel}
           >
             {filters.map((f) => (
               <button
                 key={f.key}
                 type="button"
-                role="tab"
-                aria-selected={filter === f.key}
+                aria-pressed={filter === f.key}
                 className={
                   filter === f.key
                     ? "secteur-filters__btn is-active"

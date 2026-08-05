@@ -62,7 +62,7 @@ export default function SiteFooter() {
         <div className="site-footer__brand">
           <Image
             src="/logo-remparia.png"
-            alt="Remparia — IA souveraine"
+            alt={f.logoAlt}
             width={160}
             height={28}
             className="footer__logo"

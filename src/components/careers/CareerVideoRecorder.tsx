@@ -30,6 +30,7 @@ export default function CareerVideoRecorder({ onUploaded, existingUrl }: Props) 
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
   const [blob, setBlob] = useState<Blob | null>(null);
   const [uploadedUrl, setUploadedUrl] = useState(existingUrl ?? "");
+  const [phaseAnnounce, setPhaseAnnounce] = useState("");
 
   useEffect(() => {
     return () => {
@@ -37,6 +38,18 @@ export default function CareerVideoRecorder({ onUploaded, existingUrl }: Props) 
       if (blobUrl) URL.revokeObjectURL(blobUrl);
     };
   }, [blobUrl]);
+
+  useEffect(() => {
+    if (phase === "recording") {
+      setPhaseAnnounce(
+        lang === "fr" ? "Enregistrement démarré" : "Recording started",
+      );
+    } else if (phase === "review") {
+      setPhaseAnnounce(
+        lang === "fr" ? "Enregistrement terminé" : "Recording stopped",
+      );
+    }
+  }, [phase, lang]);
 
   useEffect(() => {
     if (phase !== "recording") return;
@@ -224,12 +237,28 @@ export default function CareerVideoRecorder({ onUploaded, existingUrl }: Props) 
           playsInline
           muted={phase === "preview" || phase === "recording"}
           controls={phase === "review" || phase === "done"}
+          aria-label={
+            phase === "review" || phase === "done"
+              ? lang === "fr"
+                ? "Lecture de votre enregistrement"
+                : "Playback of your recording"
+              : phase === "recording"
+                ? lang === "fr"
+                  ? "Enregistrement en cours"
+                  : "Recording in progress"
+                : lang === "fr"
+                  ? "Aperçu caméra"
+                  : "Camera preview"
+          }
         />
         {phase === "recording" ? (
-          <div className="careers-video__rec">
+          <div className="careers-video__rec" aria-hidden="true">
             REC {elapsedLabel}
           </div>
         ) : null}
+        <span className="sr-only" aria-live="polite" aria-atomic="true">
+          {phaseAnnounce}
+        </span>
       </div>
 
       <div className="careers-video__actions">

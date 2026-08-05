@@ -15,6 +15,12 @@ export const NAV = {
     contact: "Contact",
     demo: "Let's connect",
     demoShort: "Connect →",
+    navLabel: "Navigation principale",
+    openMenu: "Ouvrir le menu",
+    closeMenu: "Fermer le menu",
+    servicesMenu: "Sous-menu services",
+    switchLang: "Passer en anglais",
+    skipToContent: "Aller au contenu",
   },
   en: {
     services: "Services",
@@ -28,6 +34,12 @@ export const NAV = {
     contact: "Contact",
     demo: "Let's connect",
     demoShort: "Connect →",
+    navLabel: "Main navigation",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    servicesMenu: "Services submenu",
+    switchLang: "Switch to French",
+    skipToContent: "Skip to content",
   },
 } as const;
 
@@ -46,6 +58,7 @@ export const FOOTER = {
     cookies: "Cookies",
     cookiePrefs: "Gérer les cookies",
     rights: "© 2026 REMPARIA. Tous droits réservés.",
+    logoAlt: "Remparia — Agents IA métier",
   },
   en: {
     tagline: "Sovereign AI collective · France",
@@ -61,6 +74,7 @@ export const FOOTER = {
     cookies: "Cookies",
     cookiePrefs: "Cookie settings",
     rights: "© 2026 REMPARIA. All rights reserved.",
+    logoAlt: "Remparia — Business AI agents",
   },
 } as const;
 
@@ -87,9 +101,9 @@ export const SOCIAL_LINKS = [
 
 export const HOME = {
   fr: {
-    eyebrow: "L'IA SOUVERAINE QUI AUGMENTE VOS ÉQUIPES",
-    h1a: "Souverain.",
-    h1b: "Augmenté.",
+    eyebrow: "DU POC À L'AGENT EN PRODUCTION",
+    h1a: "Agents.",
+    h1b: "Production.",
     sub: "Entre le POC qui impressionne et l'agent qui travaille tous les jours : le fossé de l'intégration métier et de la conformité. Nous le comblons.",
     cta: "Let's connect",
     constat: "LE CONSTAT",
@@ -116,9 +130,9 @@ export const HOME = {
       "On sait ce qui marche en IA — et ce qui n'aboutit pas. Parlons de ce qui est possible chez vous.",
   },
   en: {
-    eyebrow: "SOVEREIGN AI THAT AUGMENTS YOUR TEAMS",
-    h1a: "Sovereign.",
-    h1b: "Augmented.",
+    eyebrow: "FROM POC TO THE AGENT IN PRODUCTION",
+    h1a: "Agents.",
+    h1b: "Production.",
     sub: "Between the POC that dazzles and the agent that works every day lies a gap: business integration and compliance. We close it.",
     cta: "Let's connect",
     constat: "THE REALITY",
@@ -148,12 +162,12 @@ export const HOME = {
 export const PILLARS = {
   fr: [
     { tag: "AGENTS IA MÉTIER", title: "Conçus pour vos process réels" },
-    { tag: "INFRA SOUVERAINE", title: "Vos données restent en France" },
+    { tag: "DONNÉES SOUS CONTRÔLE", title: "Hébergement FR ou on-prem" },
     { tag: "AGNOSTIQUE LLM", title: "Le meilleur modèle par tâche" },
   ],
   en: [
     { tag: "BUSINESS AI AGENTS", title: "Built for your real workflows" },
-    { tag: "SOVEREIGN INFRA", title: "Your data stays in France" },
+    { tag: "DATA UNDER CONTROL", title: "Hosted in France or on-prem" },
     { tag: "LLM-AGNOSTIC", title: "The best model per task" },
   ],
 } as const;

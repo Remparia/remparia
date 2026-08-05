@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import CareersApplyShell from "@/components/careers/CareersApplyShell";
 import { getCareers } from "@/lib/careers";
@@ -15,8 +15,10 @@ export default function CareersApplyStep2() {
   const { lang } = useLang();
   const t = getCareers(lang);
   const router = useRouter();
+  const errorId = useId();
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [ready, setReady] = useState(false);
+  const [formError, setFormError] = useState("");
 
   useEffect(() => {
     const s = loadCareersSession();
@@ -33,16 +35,22 @@ export default function CareersApplyStep2() {
     const ok = t.questions.every(
       (q) => (answers[q.id] ?? "").trim().length >= q.min,
     );
-    if (!ok) return;
+    if (!ok) {
+      setFormError(t.fields.formIncomplete);
+      return;
+    }
+    setFormError("");
     saveCareersSession({ answers });
     router.push(withLocale(lang, "/carrieres/candidature/3"));
   }
 
   if (!ready) return null;
 
+  const describedBy = formError ? errorId : undefined;
+
   return (
     <CareersApplyShell step={2}>
-      <form className="careers-iso-form" onSubmit={onSubmit}>
+      <form className="careers-iso-form" onSubmit={onSubmit} noValidate>
         <h1>{t.steps[1].title}</h1>
         <p>{t.steps[1].desc}</p>
         {t.questions.map((q) => (
@@ -58,14 +66,31 @@ export default function CareersApplyStep2() {
               required
               minLength={q.min}
               maxLength={4000}
+              aria-invalid={
+                formError && (answers[q.id] ?? "").trim().length < q.min
+                  ? true
+                  : undefined
+              }
+              aria-describedby={describedBy}
             />
           </label>
         ))}
+        {formError ? (
+          <p
+            id={errorId}
+            className="contact-feedback contact-feedback--err"
+            role="alert"
+          >
+            {formError}
+          </p>
+        ) : null}
         <div className="careers-iso-actions">
           <button
             type="button"
             className="btn-ghost"
-            onClick={() => router.push(withLocale(lang, "/carrieres/candidature/1"))}
+            onClick={() =>
+              router.push(withLocale(lang, "/carrieres/candidature/1"))
+            }
           >
             ← {t.fields.back}
           </button>

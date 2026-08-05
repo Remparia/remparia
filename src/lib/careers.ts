@@ -159,6 +159,8 @@ export const CAREERS = {
       next: "Continuer",
       back: "Retour",
       stepOf: "Étape",
+      formIncomplete:
+        "Merci de remplir tous les champs obligatoires avant de continuer.",
     },
     questions: [
       {
@@ -353,6 +355,7 @@ export const CAREERS = {
       next: "Continue",
       back: "Back",
       stepOf: "Step",
+      formIncomplete: "Please complete all required fields before continuing.",
     },
     questions: [
       {

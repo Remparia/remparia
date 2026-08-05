@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
 import {
   getCookieConsent,
@@ -13,14 +13,14 @@ import { useLang } from "@/lib/lang";
 const COPY = {
   fr: {
     title: "Cookies",
-    text: "Nous utilisons Matomo pour mesurer l’audience du site. Vous pouvez accepter ou refuser. Aucun tracking publicitaire.",
+    text: "Nous utilisons Matomo pour mesurer l’audience du site. Vous pouvez accepter ou refuser. Aucun tracking publicitaire. Échap refuse.",
     accept: "Accepter",
     refuse: "Refuser",
     more: "En savoir plus",
   },
   en: {
     title: "Cookies",
-    text: "We use Matomo to measure site traffic. You can accept or refuse. No advertising tracking.",
+    text: "We use Matomo to measure site traffic. You can accept or refuse. No advertising tracking. Escape declines.",
     accept: "Accept",
     refuse: "Refuse",
     more: "Learn more",
@@ -31,6 +31,14 @@ export default function CookieBanner() {
   const { lang } = useLang();
   const t = COPY[lang];
   const [visible, setVisible] = useState(false);
+  const regionRef = useRef<HTMLDivElement>(null);
+  const titleId = useId();
+  const textId = useId();
+
+  const choose = useCallback((value: CookieConsent) => {
+    setCookieConsent(value);
+    setVisible(false);
+  }, []);
 
   useEffect(() => {
     const sync = () => setVisible(getCookieConsent() === null);
@@ -40,26 +48,34 @@ export default function CookieBanner() {
     return () => window.removeEventListener(COOKIE_CONSENT_EVENT, onChange);
   }, []);
 
-  function choose(value: CookieConsent) {
-    setCookieConsent(value);
-    setVisible(false);
-  }
+  useEffect(() => {
+    if (!visible) return;
+    const btn = regionRef.current?.querySelector<HTMLButtonElement>("button");
+    btn?.focus();
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") choose("refused");
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [visible, choose]);
 
   if (!visible) return null;
 
   return (
     <div
+      ref={regionRef}
       className="cookie-banner"
-      role="dialog"
-      aria-labelledby="cookie-banner-title"
-      aria-describedby="cookie-banner-text"
+      role="region"
+      aria-labelledby={titleId}
+      aria-describedby={textId}
     >
       <div className="cookie-banner__inner">
         <div className="cookie-banner__copy">
-          <div id="cookie-banner-title" className="cookie-banner__title">
+          <h2 id={titleId} className="cookie-banner__title">
             // {t.title}
-          </div>
-          <p id="cookie-banner-text" className="cookie-banner__text">
+          </h2>
+          <p id={textId} className="cookie-banner__text">
             {t.text}{" "}
             <LocaleLink href="/cookies" className="cookie-banner__link">
               {t.more}

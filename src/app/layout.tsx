@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Archivo, Space_Mono } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
 import MatomoProvider from "@/components/MatomoProvider";
@@ -9,6 +10,7 @@ import {
   professionalServiceJsonLd,
   websiteJsonLd,
 } from "@/lib/seo";
+import { DEFAULT_LOCALE, isLocale } from "@/lib/i18n";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -27,7 +29,7 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Remparia — IA souveraine qui augmente vos équipes",
+    default: "Remparia — Agents IA métier jusqu'à la production",
     template: "%s · Remparia",
   },
   description: SITE.description,
@@ -55,20 +57,20 @@ export const metadata: Metadata = {
     alternateLocale: [SITE.localeAlternate],
     url: SITE.url,
     siteName: SITE.name,
-    title: "Remparia — IA souveraine qui augmente vos équipes",
+    title: "Remparia — Agents IA métier jusqu'à la production",
     description: SITE.description,
     images: [
       {
         url: absoluteUrl(SITE.ogImage),
         width: 1200,
         height: 630,
-        alt: "Remparia — IA souveraine",
+        alt: "Remparia — Agents IA métier",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Remparia — IA souveraine qui augmente vos équipes",
+    title: "Remparia — Agents IA métier jusqu'à la production",
     description: SITE.description,
     images: [absoluteUrl(SITE.ogImage)],
   },
@@ -89,13 +91,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const h = await headers();
+  const headerLocale = h.get("x-locale");
+  const lang =
+    headerLocale && isLocale(headerLocale) ? headerLocale : DEFAULT_LOCALE;
+
   return (
-    <html lang="fr" className={`${archivo.variable} ${spaceMono.variable}`}>
+    <html
+      lang={lang}
+      suppressHydrationWarning
+      className={`${archivo.variable} ${spaceMono.variable}`}
+    >
       <body>
         <JsonLd
           data={[
@@ -104,9 +115,6 @@ export default function RootLayout({
             professionalServiceJsonLd(),
           ]}
         />
-        <a href="#contenu" className="skip-link">
-          Aller au contenu
-        </a>
         {children}
         <MatomoProvider />
       </body>

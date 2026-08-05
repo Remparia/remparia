@@ -28,7 +28,10 @@ export default function BackToTop() {
       aria-label={label}
       title={label}
       onClick={() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        const reduce = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
       }}
     >
       ↑

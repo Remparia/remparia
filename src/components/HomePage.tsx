@@ -4,14 +4,7 @@ import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
 import StatCount from "@/components/StatCount";
-import {
-  APROPOS,
-  HOME,
-  METHODE,
-  PILLARS,
-  SERVICES,
-  STATS,
-} from "@/lib/content";
+import { APROPOS, HOME, PILLARS, STATS } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function HomePage() {
@@ -19,9 +12,7 @@ export default function HomePage() {
   const t = HOME[lang];
   const stats = STATS[lang];
   const pillars = PILLARS[lang];
-  const signal = METHODE[lang].steps;
   const positions = APROPOS[lang].positions;
-  const services = SERVICES[lang].items.slice(0, 4);
 
   return (
     <div className="page">
@@ -44,12 +35,12 @@ export default function HomePage() {
         <div className="hero__grid">
           <div className="hero__main">
             <div className="hero__eyebrow reveal">// {t.eyebrow}</div>
-            <div className="hero__title">
-              <div className="clip">{t.h1a}</div>
-              <div className="clip hero__title-outline" data-d="1">
+            <h1 className="hero__title">
+              <span className="clip">{t.h1a}</span>
+              <span className="clip hero__title-outline" data-d="1">
                 {t.h1b}
-              </div>
-            </div>
+              </span>
+            </h1>
             <p className="hero__sub reveal" data-d="2">
               {t.sub}
             </p>
@@ -119,62 +110,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="signal" className="section">
-        <div className="reveal">
-          <SectionLabel>03 — {t.method}</SectionLabel>
-        </div>
-        <div className="section__head reveal" data-d="1">
-          <h2 className="section__title">{t.methodH}</h2>
-          <LocaleLink href="/methode" className="text-link">
-            {t.methodCta} →
-          </LocaleLink>
-        </div>
-        <div className="signal-grid">
-          {signal.map((step, i) => (
-            <div
-              key={step.letter}
-              className="signal-card reveal"
-              data-d={String(Math.min(i + 1, 3))}
-            >
-              <div className="signal-card__letter">{step.letter}</div>
-              <div>
-                <div className="signal-card__title">{step.title}</div>
-                <div className="signal-card__desc">{step.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>{t.servicesEyebrow}</SectionLabel>
-        </div>
-        <div className="section__head reveal" data-d="1">
-          <h2 className="section__title">{t.servicesH}</h2>
-          <LocaleLink href="/services" className="text-link">
-            {t.servicesCta} →
-          </LocaleLink>
-        </div>
-        <div className="card-grid">
-          {services.map((s, i) => (
-            <LocaleLink
-              key={s.slug}
-              href={`/services/${s.slug}`}
-              className="info-card reveal"
-              data-d={String(Math.min((i % 3) + 1, 3))}
-            >
-              <div className="info-card__tag">{s.tag}</div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-            </LocaleLink>
-          ))}
-        </div>
-      </section>
-
       <section id="position" className="section">
         <div className="reveal">
-          <SectionLabel>04 — {t.position}</SectionLabel>
+          <SectionLabel>03 — {t.position}</SectionLabel>
         </div>
         <h2 className="section__title reveal" data-d="1">
           {t.positionH}
