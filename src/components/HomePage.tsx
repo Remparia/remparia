@@ -5,24 +5,59 @@ import Image from "next/image";
 import HeroIntro from "@/components/HeroIntro";
 import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
-import StatCount from "@/components/StatCount";
 import {
   APROPOS,
   BRAND,
   HOME,
   METHODE,
-  PILLARS,
   SERVICES,
-  STATS,
 } from "@/lib/content";
 import { useLang } from "@/lib/lang";
+
+type AdvantageIconName = (typeof HOME.fr.advantages)[number]["icon"];
+
+function AdvantageIcon({ name }: { name: AdvantageIconName }) {
+  if (name === "security") {
+    return (
+      <svg viewBox="0 0 48 48" aria-hidden>
+        <path d="M24 5 39 11v11c0 10-6.2 17.2-15 21-8.8-3.8-15-11-15-21V11Z" />
+        <path d="m17 24 5 5 10-11" />
+      </svg>
+    );
+  }
+
+  if (name === "performance") {
+    return (
+      <svg viewBox="0 0 48 48" aria-hidden>
+        <path d="M7 40h35M10 35l9-10 7 5 13-17" />
+        <path d="M31 13h8v8M14 40V31M24 40V26M34 40V20" />
+      </svg>
+    );
+  }
+
+  if (name === "partnership") {
+    return (
+      <svg viewBox="0 0 48 48" aria-hidden>
+        <circle cx="16" cy="16" r="6" />
+        <circle cx="32" cy="16" r="6" />
+        <path d="M5 40c1-8 5-12 11-12s10 4 11 12M21 40c1-8 5-12 11-12s10 4 11 12" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 48 48" aria-hidden>
+      <circle cx="24" cy="24" r="14" />
+      <circle cx="24" cy="24" r="5" />
+      <path d="M24 3v9M24 36v9M3 24h9M36 24h9" />
+    </svg>
+  );
+}
 
 export default function HomePage() {
   const { lang } = useLang();
   const t = HOME[lang];
   const brand = BRAND[lang];
-  const stats = STATS[lang];
-  const pillars = PILLARS[lang];
   const signal = METHODE[lang].steps;
   const services = SERVICES[lang].items;
   const positions = APROPOS[lang].positions;
@@ -31,7 +66,9 @@ export default function HomePage() {
   return (
     <div className="page">
       <HeroIntro lang={lang} onComplete={() => setHolding(false)} />
-      <header className={`hero${holding ? " is-holding" : ""}`}>
+      <header
+        className={`hero hero--advantage${holding ? " is-holding" : ""}`}
+      >
         <div className="hero__bg" aria-hidden>
           <Image
             src="/hero-temporal.png"
@@ -48,32 +85,24 @@ export default function HomePage() {
         <div className="hero__orb" aria-hidden />
 
         <div className="hero__grid">
-          <div className="hero__main">
+          <div className="hero__main hero__main--advantage">
             <div className="hero__eyebrow reveal">
               {"// "}
               {t.eyebrow}
             </div>
-            <h1 className="hero__title">
-              <span className="clip">{t.h1a}</span>
-              <span className="clip hero__title-outline" data-d="1">
+            <h1 className="hero__title hero__title--advantage">
+              <span className="clip">
+                {t.h1a}
+                {" "}
+              </span>
+              <span className="clip hero__title-accent" data-d="1">
                 {t.h1b}
               </span>
             </h1>
-            <LocaleLink
-              href="/methode"
-              className="hero__protocol reveal"
-              data-d="1"
-              aria-label={t.protocolAria}
-            >
-              {signal.map((step) => (
-                <span key={step.letter} title={step.title}>
-                  {step.letter}
-                </span>
-              ))}
-            </LocaleLink>
-            <p className="hero__sub reveal" data-d="2">
-              <strong className="hero__promise">{brand.promiseGuard}</strong>
-              <span>{t.sub}</span>
+            <p className="hero__lead reveal" data-d="2">
+              {t.subBefore}
+              <strong>{t.subAccent}</strong>
+              {t.subAfter}
             </p>
             <div className="hero__actions reveal" data-d="3">
               <LocaleLink href="/contact" className="btn-primary">
@@ -83,37 +112,28 @@ export default function HomePage() {
                 SIGNAL →
               </LocaleLink>
             </div>
-          </div>
 
-          <div className="hero__stats reveal" data-d="2">
-            <div className="hero__stats-label">
-              {"// "}
-              {t.constat}_
+            <div className="hero__advantage-grid">
+              {t.advantages.map((advantage, index) => (
+                <article
+                  key={advantage.title}
+                  className="hero__advantage-card reveal"
+                  data-d={String(Math.min(index + 1, 3))}
+                >
+                  <div className="hero__advantage-icon">
+                    <AdvantageIcon name={advantage.icon} />
+                  </div>
+                  <h2>{advantage.title}</h2>
+                  <p>{advantage.desc}</p>
+                </article>
+              ))}
             </div>
-            {stats.map((s) => (
-              <div key={s.value + s.label} className="hero__stat">
-                <StatCount
-                  value={s.value}
-                  color={s.color}
-                  className="hero__stat-value"
-                />
-                <div className="hero__stat-label">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="hero__pillars">
-          {pillars.map((p, i) => (
-            <div
-              key={p.tag}
-              className="hero__pillar reveal"
-              data-d={String(Math.min(i + 1, 3))}
-            >
-              <div className="hero__pillar-tag">/ {p.tag}</div>
-              <div className="hero__pillar-title">{p.title}</div>
+            <div className="hero__closing reveal" data-d="3">
+              <span>{t.closingBefore}</span>
+              <strong>{t.closingAccent}</strong>
             </div>
-          ))}
+          </div>
         </div>
       </header>
 
