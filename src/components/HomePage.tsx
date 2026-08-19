@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import HeroIntro from "@/components/HeroIntro";
 import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
 import StatCount from "@/components/StatCount";
-import { APROPOS, HOME, PILLARS, STATS } from "@/lib/content";
+import { APROPOS, HOME, METHODE, PILLARS, STATS } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function HomePage() {
@@ -12,11 +14,14 @@ export default function HomePage() {
   const t = HOME[lang];
   const stats = STATS[lang];
   const pillars = PILLARS[lang];
+  const signal = METHODE[lang].steps;
   const positions = APROPOS[lang].positions;
+  const [holding, setHolding] = useState(true);
 
   return (
     <div className="page">
-      <header className="hero">
+      <HeroIntro lang={lang} onComplete={() => setHolding(false)} />
+      <header className={`hero${holding ? " is-holding" : ""}`}>
         <div className="hero__bg" aria-hidden>
           <Image
             src="/hero-temporal.png"
@@ -41,6 +46,18 @@ export default function HomePage() {
                 {t.h1b}
               </span>
             </h1>
+            <LocaleLink
+              href="/methode"
+              className="hero__protocol reveal"
+              data-d="1"
+              aria-label={t.protocolAria}
+            >
+              {signal.map((step) => (
+                <span key={step.letter} title={step.title}>
+                  {step.letter}
+                </span>
+              ))}
+            </LocaleLink>
             <p className="hero__sub reveal" data-d="2">
               {t.sub}
             </p>
