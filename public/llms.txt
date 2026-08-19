@@ -1,0 +1,32 @@
+# Remparia
+
+> Remparia helps specialized professions deploy supervised business agents: measurable time returned, human decisions preserved, data under control.
+
+Remparia is a French operator partner for regulated and trust-based professions (legal, finance, health, notarial, consulting). We use the SIGNAL protocol — six stages from fieldwork to production — to integrate agents into existing tools without black-box dependency.
+
+## Key pages
+
+- Home (FR): https://www.remparia.com/fr
+- Home (EN): https://www.remparia.com/en
+- SIGNAL method: https://www.remparia.com/fr/methode
+- Services: https://www.remparia.com/fr/services
+- Sectors (29 professions): https://www.remparia.com/fr/secteurs
+- About / team: https://www.remparia.com/fr/a-propos
+- Contact / SIGNAL diagnostic: https://www.remparia.com/fr/contact
+- Careers: https://www.remparia.com/fr/carrieres
+- Resources: https://www.remparia.com/fr/ressources
+
+## Contact
+
+- Email: contact@remparia.com
+- LinkedIn: https://www.linkedin.com/company/remparia
+
+## What we do not do
+
+- We do not replace professional judgment or accountability.
+- We do not deploy unmanaged automation on sensitive data.
+- We do not sell generic tools without field integration and governance.
+
+## Last updated
+
+2026-08-19

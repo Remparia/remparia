@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
-import { CtaBand, PageHero } from "@/components/PageBits";
+import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
 import { getServiceImage, HOME, SERVICES } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
@@ -24,6 +24,29 @@ export default function ServicesPage() {
         ]}
       />
       <section className="section">
+        <p className="section__body reveal">{t.intro}</p>
+        <div className="reveal" style={{ marginTop: 40 }}>
+          <SectionLabel>{t.commitmentTitle}</SectionLabel>
+          <ul className="proof-badges" style={{ marginTop: 20 }}>
+            {t.commitments.map((line, i) => (
+              <li
+                key={line}
+                className="proof-badges__item"
+                data-d={String(Math.min((i % 3) + 1, 3))}
+              >
+                {line}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="reveal" style={{ marginTop: 40 }}>
+          <SectionLabel>{t.scopeTitle}</SectionLabel>
+          <p className="section__body" style={{ marginTop: 16 }}>
+            {t.scopeBody}
+          </p>
+        </div>
+      </section>
+      <section className="section section--alt">
         <div className="stack-cards">
           {t.items.map((item, index) => (
             <LocaleLink

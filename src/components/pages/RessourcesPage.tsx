@@ -1,13 +1,14 @@
 "use client";
 
 import LocaleLink from "@/components/LocaleLink";
-import { CtaBand, PageHero } from "@/components/PageBits";
-import { HOME, RESSOURCES } from "@/lib/content";
+import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
+import { HOME, PROOF_STATS, RESSOURCES } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function RessourcesPage() {
   const { lang } = useLang();
   const t = RESSOURCES[lang];
+  const stats = PROOF_STATS[lang];
   const cta = HOME[lang];
 
   const home = lang === "fr" ? "Accueil" : "Home";
@@ -24,7 +25,10 @@ export default function RessourcesPage() {
         ]}
       />
       <section className="section">
-        <div className="card-grid">
+        <div className="reveal">
+          <SectionLabel>{t.guidesTitle}</SectionLabel>
+        </div>
+        <div className="card-grid" style={{ marginTop: 24 }}>
           {t.items.map((item, i) => (
             <LocaleLink
               key={item.title}
@@ -36,6 +40,19 @@ export default function RessourcesPage() {
               <h2>{item.title}</h2>
               <p>{item.desc}</p>
             </LocaleLink>
+          ))}
+        </div>
+      </section>
+      <section className="section section--alt">
+        <div className="reveal">
+          <SectionLabel>{t.statsTitle}</SectionLabel>
+        </div>
+        <div className="proof-stats reveal" data-d="2" style={{ marginTop: 24 }}>
+          {stats.map((stat) => (
+            <div key={stat.label} className="proof-stats__item">
+              <div className="proof-stats__value">{stat.value}</div>
+              <div className="proof-stats__label">{stat.label}</div>
+            </div>
           ))}
         </div>
       </section>

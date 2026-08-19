@@ -4,6 +4,7 @@ import { SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, getSecteurI
 import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
 
 import { CONTACT_EMAIL } from "./contact-email";
+import { getTeamMembers } from "./team";
 
 const DEFAULT_SITE_ORIGIN = "https://www.remparia.com";
 
@@ -144,15 +145,24 @@ export function createPageMetadata({
 }
 
 export function organizationJsonLd() {
+  const founders = getTeamMembers("fr").map((person) => ({
+    "@type": "Person" as const,
+    name: person.name,
+    jobTitle: person.role,
+    ...(person.linkedin ? { sameAs: person.linkedin } : {}),
+  }));
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE.name,
     legalName: SITE.legalName,
-    url: SITE.url,
+    url: getSiteUrl(),
     logo: absoluteUrl("/logo-remparia.png"),
     email: SITE.email,
     description: SITE.description,
+    founder: founders,
+    employee: founders,
     areaServed: {
       "@type": "Country",
       name: "France",

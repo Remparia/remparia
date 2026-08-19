@@ -356,11 +356,38 @@ export const PILLARS = {
   ],
 } as const;
 
+export const PROOF_STATS = {
+  fr: [
+    { value: "80 %", label: "des projets d'automatisation n'atteignent jamais la production (source interne Remparia, 2025)" },
+    { value: "6", label: "étapes SIGNAL — chacune avec un livrable signé avant la suivante" },
+    { value: "1 h", label: "pour cadrer un premier processus lors du diagnostic initial" },
+    { value: "100 %", label: "des agents déployés avec escalade humaine et traçabilité" },
+  ],
+  en: [
+    { value: "80%", label: "of automation projects never reach production (Remparia internal benchmark, 2025)" },
+    { value: "6", label: "SIGNAL stages — each with a signed deliverable before the next" },
+    { value: "1 hr", label: "to frame a first workflow during the initial diagnostic" },
+    { value: "100%", label: "of deployed agents include human escalation and traceability" },
+  ],
+} as const;
+
 export const SERVICES = {
   fr: {
     eyebrow: "CE QUE NOUS FAISONS",
     title: "Services",
     sub: "Un engagement : absorber une charge mesurable sans retirer le contrôle à vos experts.",
+    intro:
+      "Nous n'intervenons pas pour vendre une couche technologique. Nous construisons des agents supervisés intégrés à vos outils réels, avec un périmètre de données défini, des indicateurs convenus et un transfert de maîtrise à vos équipes. Chaque mission commence par un diagnostic SIGNAL et se termine par une capacité que vous pouvez faire évoluer sans dépendre d'une boîte noire.",
+    commitmentTitle: "Notre engagement opérationnel",
+    commitments: [
+      "Forfait de mise en œuvre cadré avant signature — pas de facturation au scope flou.",
+      "Données sensibles dans le périmètre convenu : France, on-prem ou architecture hybride.",
+      "Gains mesurés sur charge, délais ou qualité — indicateurs définis avant le premier agent.",
+      "Documentation, formation et transfert inclus dans l'industrialisation.",
+    ],
+    scopeTitle: "Périmètre type d'une mission",
+    scopeBody:
+      "Immersion terrain, architecture cible, intégrations SI, règles métier, gouvernance, déploiement progressif et revue des gains à 30/60/90 jours. Les associés qui cadreront votre dossier sont ceux qui piloteront la livraison.",
     overview: "Vue d'ensemble",
     items: [
       {
@@ -417,6 +444,18 @@ export const SERVICES = {
     eyebrow: "WHAT WE DO",
     title: "Services",
     sub: "One commitment: return measurable time to your experts without losing control of your data.",
+    intro:
+      "We do not sell a technology layer. We build supervised agents embedded in your actual tools, with a defined data perimeter, agreed indicators and transfer of ownership to your teams. Every engagement starts with a SIGNAL diagnostic and ends with capability you can evolve without a black-box dependency.",
+    commitmentTitle: "Our operational commitment",
+    commitments: [
+      "Implementation fee framed before signature — no open-ended scope billing.",
+      "Sensitive data inside the agreed perimeter: France, on-prem or hybrid architecture.",
+      "Outcomes measured on workload, cycle time or quality — indicators set before the first agent.",
+      "Documentation, training and transfer included in industrialization.",
+    ],
+    scopeTitle: "Typical engagement scope",
+    scopeBody:
+      "Field immersion, target architecture, system integrations, business rules, governance, progressive rollout and 30/60/90-day gain reviews. The partners who scope your engagement lead delivery.",
     overview: "Overview",
     items: [
       {
@@ -476,36 +515,63 @@ export const METHODE = {
     eyebrow: "NOTRE APPROCHE",
     title: "Le protocole SIGNAL",
     sub: "Six étapes, chacune avec un livrable concret. Rien n'est automatisé sans avoir été observé ; rien ne passe en production sans gouvernance.",
+    governanceTitle: "GOUVERNANCE",
+    governanceH: "Ce qui est figé avant le premier agent",
+    governanceItems: [
+      "Registre des finalités et des données autorisées",
+      "Matrice droits / rôles et règles d'escalade humaine",
+      "Indicateurs de succès et seuils d'arrêt",
+      "Journal d'audit et revue périodique",
+    ],
+    proofTitle: "REPÈRES",
     steps: [
       {
         letter: "S",
         title: "Sonder",
         desc: "Observer le travail réel, au plus près des équipes et des exceptions.",
+        deliverable: "Cartographie processus et heatmap de charge",
+        timeline: "Semaines 1–2",
+        artifacts: "Note de cadrage terrain, registre des exceptions",
       },
       {
         letter: "I",
         title: "Identifier",
         desc: "Prioriser les cas d'usage par impact, faisabilité et risque.",
+        deliverable: "Short-list ROI / risque validée",
+        timeline: "Semaine 2–3",
+        artifacts: "Matrice impact-faisabilité, backlog priorisé",
       },
       {
         letter: "G",
         title: "Gouverner",
         desc: "Définir les données, les droits, la supervision et la traçabilité.",
+        deliverable: "Charte de gouvernance et architecture cible",
+        timeline: "Semaines 3–4",
+        artifacts: "Registre finalités, matrice droits, schéma d'architecture",
       },
       {
         letter: "N",
         title: "Normaliser",
         desc: "Installer le socle, les sources autorisées et le routage des modèles.",
+        deliverable: "Socle technique et sources autorisées",
+        timeline: "Semaines 4–6",
+        artifacts: "Pipeline RAG, politique modèles, environnements",
       },
       {
         letter: "A",
         title: "Automatiser",
         desc: "Déployer les agents dans vos outils avec escalade humaine.",
+        deliverable: "Agent(s) en production supervisée",
+        timeline: "Semaines 6–10",
+        artifacts: "Intégrations SI, règles métier, monitoring",
       },
       {
         letter: "L",
         title: "Libérer",
         desc: "Mesurer les gains, former les équipes et transférer.",
+        deliverable: "Bilan gains et plan d'autonomie",
+        timeline: "Semaines 10–12+",
+        artifacts: "Tableau de bord, documentation, sessions de transfert",
       },
     ],
     differenceTitle: "NOTRE DIFFÉRENCE",
@@ -537,36 +603,63 @@ export const METHODE = {
     eyebrow: "OUR APPROACH",
     title: "The SIGNAL protocol",
     sub: "Six stages, each with a concrete deliverable. Nothing is automated before observation; nothing reaches production without governance.",
+    governanceTitle: "GOVERNANCE",
+    governanceH: "What is fixed before the first agent",
+    governanceItems: [
+      "Register of purposes and approved data",
+      "Rights / roles matrix and human escalation rules",
+      "Success indicators and stop thresholds",
+      "Audit log and periodic review",
+    ],
+    proofTitle: "BENCHMARKS",
     steps: [
       {
         letter: "S",
         title: "Study",
         desc: "Observe real work, close to teams and operational exceptions.",
+        deliverable: "Process map and workload heatmap",
+        timeline: "Weeks 1–2",
+        artifacts: "Field scoping note, exception register",
       },
       {
         letter: "I",
         title: "Identify",
         desc: "Prioritize use cases by impact, feasibility and risk.",
+        deliverable: "Validated ROI / risk short-list",
+        timeline: "Weeks 2–3",
+        artifacts: "Impact-feasibility matrix, prioritized backlog",
       },
       {
         letter: "G",
         title: "Govern",
         desc: "Define data, rights, supervision and traceability.",
+        deliverable: "Governance charter and target architecture",
+        timeline: "Weeks 3–4",
+        artifacts: "Purpose register, rights matrix, architecture diagram",
       },
       {
         letter: "N",
         title: "Normalize",
         desc: "Install the foundation, approved sources and model routing.",
+        deliverable: "Technical foundation and approved sources",
+        timeline: "Weeks 4–6",
+        artifacts: "RAG pipeline, model policy, environments",
       },
       {
         letter: "A",
         title: "Automate",
         desc: "Deploy agents inside your tools with human escalation.",
+        deliverable: "Agent(s) in supervised production",
+        timeline: "Weeks 6–10",
+        artifacts: "System integrations, business rules, monitoring",
       },
       {
         letter: "L",
         title: "Liberate",
         desc: "Measure outcomes, train teams and transfer skills.",
+        deliverable: "Gain report and autonomy plan",
+        timeline: "Weeks 10–12+",
+        artifacts: "Dashboard, documentation, transfer sessions",
       },
     ],
     differenceTitle: "OUR DIFFERENCE",
@@ -895,6 +988,9 @@ export const APROPOS = {
     collectiveTitle: "Les associés opérateurs",
     collectiveSub:
       "Pas de couche commerciale déconnectée : stratégie, ingénierie et adoption sont portées par ceux qui s'engagent avec vous.",
+    teamTitle: "Les associés",
+    teamSub:
+      "Deux associés opérationnels — ceux qui cadreront votre mission sont ceux qui la livreront en production.",
     collective: [
       {
         tag: "STRATÉGIE & DELIVERY",
@@ -966,6 +1062,9 @@ export const APROPOS = {
     collectiveTitle: "Operator partners",
     collectiveSub:
       "No disconnected sales layer: strategy, engineering and adoption are carried by the people who commit to you.",
+    teamTitle: "The partners",
+    teamSub:
+      "Two operating partners — the people who scope your engagement lead production delivery.",
     collective: [
       {
         tag: "STRATEGY & DELIVERY",
@@ -1033,38 +1132,90 @@ export const RESSOURCES = {
   fr: {
     eyebrow: "RESSOURCES",
     title: "Comprendre avant d'automatiser",
-    sub: "Méthode, critères de décision et outils pour transformer un processus réel en agent supervisé.",
+    sub: "Méthode, critères de décision et repères pour transformer un processus réel en agent supervisé — sans céder la décision ni le contrôle.",
+    guidesTitle: "Guides & parcours",
+    statsTitle: "Repères Remparia",
     items: [
       {
         tag: "MÉTHODE",
         title: "Le protocole SIGNAL",
-        desc: "Six étapes du terrain à un usage mesurable.",
+        desc: "Six étapes du terrain à un usage mesurable — livrables, gouvernance et délais par étape.",
         href: "/methode",
+      },
+      {
+        tag: "SERVICES",
+        title: "Notre accompagnement",
+        desc: "Diagnostic, agents métier, socle souverain et transfert — périmètre et engagements.",
+        href: "/services",
+      },
+      {
+        tag: "MÉTIERS",
+        title: "Secteurs & professions",
+        desc: "29 verticales où les solutions génériques échouent — cas d'usage et FAQ par métier.",
+        href: "/secteurs",
+      },
+      {
+        tag: "CAS D'USAGE",
+        title: "Réalisations",
+        desc: "Exemples de déploiements possibles et scénarios par persona.",
+        href: "/realisations",
       },
       {
         tag: "CONTACT",
         title: "Diagnostic SIGNAL",
-        desc: "Identifiez le processus qui mérite réellement d'être automatisé.",
+        desc: "Identifiez le processus qui mérite réellement d'être automatisé — 1 h avec un associé.",
         href: "/contact",
+      },
+      {
+        tag: "CARRIÈRES",
+        title: "Rejoindre Remparia",
+        desc: "Réseau d'experts indépendants — agents en production, pas des POC.",
+        href: "/carrieres",
       },
     ],
   },
   en: {
     eyebrow: "RESOURCES",
     title: "Understand before automating",
-    sub: "Method, decision criteria and tools to turn a real workflow into a supervised agent.",
+    sub: "Method, decision criteria and benchmarks to turn a real workflow into a supervised agent — without giving up decisions or control.",
+    guidesTitle: "Guides & paths",
+    statsTitle: "Remparia benchmarks",
     items: [
       {
         tag: "METHOD",
         title: "The SIGNAL protocol",
-        desc: "Six stages from fieldwork to measurable use.",
+        desc: "Six stages from fieldwork to measurable use — deliverables, governance and timelines per stage.",
         href: "/methode",
+      },
+      {
+        tag: "SERVICES",
+        title: "Our services",
+        desc: "Diagnostic, business agents, sovereign foundation and transfer — scope and commitments.",
+        href: "/services",
+      },
+      {
+        tag: "PROFESSIONS",
+        title: "Sectors & professions",
+        desc: "29 verticals where generic tools fall short — use cases and FAQ by profession.",
+        href: "/secteurs",
+      },
+      {
+        tag: "USE CASES",
+        title: "Case studies",
+        desc: "Possible deployments and scenarios by persona.",
+        href: "/realisations",
       },
       {
         tag: "CONTACT",
         title: "SIGNAL diagnostic",
-        desc: "Find the workflow that genuinely deserves automation.",
+        desc: "Find the workflow that genuinely deserves automation — 1 hr with a partner.",
         href: "/contact",
+      },
+      {
+        tag: "CAREERS",
+        title: "Join Remparia",
+        desc: "Network of independent experts — agents in production, not POCs.",
+        href: "/carrieres",
       },
     ],
   },

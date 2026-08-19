@@ -2,15 +2,17 @@
 
 import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
-import { APROPOS, BRAND, HOME } from "@/lib/content";
+import { APROPOS, BRAND, HOME, PROOF_STATS, RESSOURCES } from "@/lib/content";
 import { LEGAL_ENTITY } from "@/lib/legal";
 import { useLang } from "@/lib/lang";
+import { getTeamMembers } from "@/lib/team";
 
 export default function AProposPage() {
   const { lang } = useLang();
   const t = APROPOS[lang];
   const brand = BRAND[lang];
   const cta = HOME[lang];
+  const team = getTeamMembers(lang);
 
   const home = lang === "fr" ? "Accueil" : "Home";
   const label = lang === "fr" ? "À propos" : "About";
@@ -53,6 +55,46 @@ export default function AProposPage() {
 
       <section className="section section--alt">
         <div className="reveal">
+          <SectionLabel>{t.teamTitle}</SectionLabel>
+          <h2 className="section__title">{t.teamTitle}</h2>
+          <p className="section__body">{t.teamSub}</p>
+        </div>
+        <div className="team-grid" style={{ marginTop: 32 }}>
+          {team.map((person, i) => (
+            <article
+              key={person.id}
+              className="team-card reveal"
+              data-d={String(Math.min(i + 1, 3))}
+            >
+              <div className="team-card__initial" aria-hidden>
+                {person.name
+                  .split(/\s+/)
+                  .map((part) => part[0])
+                  .join("")
+                  .slice(0, 2)
+                  .toUpperCase()}
+              </div>
+              <h3 className="team-card__name">{person.name}</h3>
+              <div className="team-card__role">{person.role}</div>
+              <p className="team-card__bio">{person.bio}</p>
+              <p className="team-card__cred">{person.credentials}</p>
+              {person.linkedin ? (
+                <a
+                  href={person.linkedin}
+                  className="text-link team-card__link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn →
+                </a>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="reveal">
           <SectionLabel>{brand.valuesTag}</SectionLabel>
           <h2 className="section__title">{brand.valuesH}</h2>
         </div>
@@ -74,7 +116,7 @@ export default function AProposPage() {
         </p>
       </section>
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="reveal">
           <SectionLabel>{t.collectiveTitle}</SectionLabel>
           <h2 className="section__title">{t.collectiveTitle}</h2>
@@ -95,7 +137,7 @@ export default function AProposPage() {
         </div>
       </section>
 
-      <section className="section section--alt">
+      <section className="section">
         <div className="reveal">
           <SectionLabel>{t.engagementTitle}</SectionLabel>
           <h2 className="section__title">{t.engagementTitle}</h2>

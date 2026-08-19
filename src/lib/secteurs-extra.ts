@@ -1,3 +1,5 @@
+import { getAutonomyFaq } from "./secteurs-autonomy-faq";
+
 type SecteurDetail = {
   slug: string;
   heroH: string;
@@ -183,18 +185,7 @@ function toDetail(
     ],
     scenarios: c.scenarios,
     serviceSlugs: [...(input.serviceSlugs ?? DEFAULT_SERVICES)],
-    faqs: [
-      ...c.faqs,
-      lang === "fr"
-        ? {
-            q: "Restons-nous autonomes après le déploiement ?",
-            a: "Oui. Les règles métier, la documentation et les compétences sont transférées à vos équipes. Le système ne doit pas devenir une boîte noire dont vous dépendez.",
-          }
-        : {
-            q: "Do we remain autonomous after deployment?",
-            a: "Yes. Business rules, documentation and skills are transferred to your teams. The system must not become a black box you depend on.",
-          },
-    ],
+    faqs: [...c.faqs, getAutonomyFaq(input.slug, lang)],
   };
 }
 
@@ -2139,6 +2130,12 @@ const EXTRAS: ExtraInput[] = [
           remparia:
             "Agent L1 + escalade, logs d'audit.",
         },
+        {
+          who: "Responsable conformité",
+          need: "Prouver la gouvernance des agents auprès des autorités.",
+          remparia:
+            "Registre des finalités, journaux d'accès et revue trimestrielle — cadre documenté dès le SIGNAL.",
+        },
       ],
       faqs: [
         {
@@ -2189,6 +2186,12 @@ const EXTRAS: ExtraInput[] = [
           need: "Absorb L1 without losing compliance.",
           remparia:
             "L1 agent + escalation, audit logs.",
+        },
+        {
+          who: "Compliance lead",
+          need: "Prove agent governance to regulators.",
+          remparia:
+            "Purpose register, access logs and quarterly review — documented frame from SIGNAL onward.",
         },
       ],
       faqs: [
@@ -2561,6 +2564,12 @@ const EXTRAS: ExtraInput[] = [
           remparia:
             "RAG terrain + assistant consignes pour les équipes.",
         },
+        {
+          who: "Responsable supply / filière",
+          need: "Préparer un audit traçabilité sans mobiliser toute l'usine.",
+          remparia:
+            "Agent de consolidation lot + checklist audit, export signé par la qualité — délai moyen visé : −40 % sur la préparation dossier.",
+        },
       ],
       faqs: [
         {
@@ -2611,6 +2620,12 @@ const EXTRAS: ExtraInput[] = [
           need: "Capitalize operating procedures.",
           remparia:
             "Field RAG + instruction assistant for teams.",
+        },
+        {
+          who: "Supply / chain lead",
+          need: "Prepare a traceability audit without mobilizing the whole plant.",
+          remparia:
+            "Lot consolidation agent + audit checklist, quality-signed export — target: −40% dossier prep time.",
         },
       ],
       faqs: [

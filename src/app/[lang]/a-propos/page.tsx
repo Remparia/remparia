@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import AProposPage from "@/components/pages/AProposPage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
+import { teamPeopleJsonLd } from "@/lib/team";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -19,6 +21,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default function Page() {
-  return <AProposPage />;
+export default async function Page({ params }: Props) {
+  const { lang: langParam } = await params;
+  const lang = toLang(langParam);
+  return (
+    <>
+      <JsonLd data={teamPeopleJsonLd(lang)} />
+      <AProposPage />
+    </>
+  );
 }
