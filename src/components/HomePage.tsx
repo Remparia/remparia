@@ -87,8 +87,7 @@ export default function HomePage() {
   const services = SERVICES[lang].items;
   const positions = APROPOS[lang].positions;
   const sectors = SECTEURS[lang];
-  const sectorsCtaLabel =
-    sectors.discoverAll?.trim() || (lang === "fr" ? "Voir les secteurs" : "View sectors");
+  const sectorsCtaLabel = sectors.discoverAll;
   const [holding, setHolding] = useState(true);
 
   return (
