@@ -388,6 +388,74 @@ export const SERVICES = {
     scopeTitle: "Périmètre type d'une mission",
     scopeBody:
       "Immersion terrain, architecture cible, intégrations SI, règles métier, gouvernance, déploiement progressif et revue des gains à 30/60/90 jours. Les associés qui cadreront votre dossier sont ceux qui piloteront la livraison.",
+    serviceSections: [
+      {
+        tag: "01",
+        title: "DIAGNOSTIC & GOUVERNANCE",
+        desc: "Observer le terrain, prioriser les processus à fort impact et poser le cadre avant d'automatiser.",
+        points: [
+          { icon: "immersion", label: "Immersion dans les processus" },
+          { icon: "prioritize", label: "Priorisation ROI / faisabilité" },
+          { icon: "governance", label: "Cadre données, risques et supervision" },
+          { icon: "roadmap", label: "Feuille de route avec indicateurs" },
+        ],
+        steps: ["Analyser", "Structurer", "Sécuriser", "Piloter"],
+        image: "/services/diagnostic-governance-hub.png",
+        imageAlt:
+          "Schéma isométrique : diagnostic, priorisation, gouvernance et pilotage autour d’un socle sécurisé.",
+        ctaHref: "/services/strategie-ia",
+      },
+      {
+        tag: "02",
+        title: "AGENTS MÉTIER",
+        desc: "Des agents intégrés à vos outils pour porter la collecte, les contrôles, les relances et la préparation.",
+        points: [
+          { icon: "integration", label: "Intégration CRM, ERP et messagerie" },
+          { icon: "rules", label: "Règles métier et escalade humaine" },
+          { icon: "trace", label: "Traçabilité des actions et des sources" },
+          { icon: "metrics", label: "Mesure du temps et des délais" },
+        ],
+        steps: ["Intégrer", "Configurer", "Superviser", "Mesurer"],
+        image: "/services/agents-metier-hub.png",
+        imageAlt:
+          "Schéma isométrique : agents métier connectés aux outils, règles et supervision.",
+        ctaHref: "/services/agents-metier",
+        flip: true,
+      },
+      {
+        tag: "03",
+        title: "SOCLE SOUVERAIN & ROUTAGE",
+        desc: "La donnée sensible reste dans le périmètre défini. Le modèle est choisi selon la tâche et la sensibilité.",
+        points: [
+          { icon: "hosting", label: "Hébergement France, on-prem ou hybride" },
+          { icon: "rag", label: "RAG sur sources autorisées" },
+          { icon: "routing", label: "Routage agnostique par sensibilité" },
+          { icon: "audit", label: "Droits d'accès, logs et audit" },
+        ],
+        steps: ["Héberger", "Indexer", "Router", "Auditer"],
+        image: "/services/infra-souveraine-hub.png",
+        imageAlt:
+          "Schéma isométrique : hébergement souverain, index documentaire et routage des modèles.",
+        ctaHref: "/services/infra-souveraine",
+      },
+      {
+        tag: "04",
+        title: "ADOPTION & TRANSFERT",
+        desc: "Un agent utile doit être adopté. Nous embarquons les équipes et transférons les compétences nécessaires.",
+        points: [
+          { icon: "training", label: "Formation sur les usages réels" },
+          { icon: "rollout", label: "Déploiement progressif" },
+          { icon: "docs", label: "Documentation et transfert" },
+          { icon: "improve", label: "Suivi des gains et amélioration" },
+        ],
+        steps: ["Former", "Déployer", "Transférer", "Améliorer"],
+        image: "/services/adoption-transfert-hub.png",
+        imageAlt:
+          "Schéma isométrique : formation, déploiement progressif et transfert de compétences.",
+        ctaHref: "/services/equipes-embarquees",
+        flip: true,
+      },
+    ],
     overview: "Vue d'ensemble",
     items: [
       {
@@ -456,6 +524,74 @@ export const SERVICES = {
     scopeTitle: "Typical engagement scope",
     scopeBody:
       "Field immersion, target architecture, system integrations, business rules, governance, progressive rollout and 30/60/90-day gain reviews. The partners who scope your engagement lead delivery.",
+    serviceSections: [
+      {
+        tag: "01",
+        title: "DIAGNOSTIC & GOVERNANCE",
+        desc: "Observe fieldwork, prioritize high-impact workflows and set the frame before automating.",
+        points: [
+          { icon: "immersion", label: "Workflow immersion" },
+          { icon: "prioritize", label: "ROI / feasibility prioritization" },
+          { icon: "governance", label: "Data, risk and supervision frame" },
+          { icon: "roadmap", label: "Roadmap with agreed indicators" },
+        ],
+        steps: ["Analyze", "Structure", "Secure", "Steer"],
+        image: "/services/diagnostic-governance-hub.png",
+        imageAlt:
+          "Isometric diagram: diagnostic, prioritization, governance and steering around a secure core.",
+        ctaHref: "/services/strategie-ia",
+      },
+      {
+        tag: "02",
+        title: "BUSINESS AGENTS",
+        desc: "Agents embedded in your tools to carry collection, checks, follow-ups and preparation.",
+        points: [
+          { icon: "integration", label: "CRM, ERP and messaging integration" },
+          { icon: "rules", label: "Business rules and human escalation" },
+          { icon: "trace", label: "Action and source traceability" },
+          { icon: "metrics", label: "Time and cycle measurement" },
+        ],
+        steps: ["Integrate", "Configure", "Supervise", "Measure"],
+        image: "/services/agents-metier-hub.png",
+        imageAlt:
+          "Isometric diagram: business agents connected to tools, rules and supervision.",
+        ctaHref: "/services/agents-metier",
+        flip: true,
+      },
+      {
+        tag: "03",
+        title: "SOVEREIGN FOUNDATION & ROUTING",
+        desc: "Sensitive data stays inside the agreed perimeter. Models are selected by task and sensitivity.",
+        points: [
+          { icon: "hosting", label: "France, on-prem or hybrid hosting" },
+          { icon: "rag", label: "RAG on approved sources" },
+          { icon: "routing", label: "Model-agnostic sensitivity routing" },
+          { icon: "audit", label: "Access rights, logs and audit" },
+        ],
+        steps: ["Host", "Index", "Route", "Audit"],
+        image: "/services/infra-souveraine-hub.png",
+        imageAlt:
+          "Isometric diagram: sovereign hosting, document index and model routing.",
+        ctaHref: "/services/infra-souveraine",
+      },
+      {
+        tag: "04",
+        title: "ADOPTION & TRANSFER",
+        desc: "A useful agent must be adopted. We onboard teams and transfer the skills they need.",
+        points: [
+          { icon: "training", label: "Training on actual use cases" },
+          { icon: "rollout", label: "Progressive rollout" },
+          { icon: "docs", label: "Documentation and transfer" },
+          { icon: "improve", label: "Outcome tracking and improvement" },
+        ],
+        steps: ["Train", "Roll out", "Transfer", "Improve"],
+        image: "/services/adoption-transfert-hub.png",
+        imageAlt:
+          "Isometric diagram: training, progressive rollout and skills transfer.",
+        ctaHref: "/services/equipes-embarquees",
+        flip: true,
+      },
+    ],
     overview: "Overview",
     items: [
       {
