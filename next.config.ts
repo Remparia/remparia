@@ -10,9 +10,10 @@ const nextConfig: NextConfig = {
   compress: true,
   images: {
     formats: ["image/avif", "image/webp"],
+    qualities: [75, 80, 85, 100],
   },
   async headers() {
-    return [
+    const securityHeaders = [
       {
         source: "/(.*)",
         headers: [
@@ -35,6 +36,24 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/:lang(fr|en)/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/:lang(fr|en)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
         source: "/(.*)\\.(jpg|jpeg|png|webp|avif|svg|ico|woff2)",
         headers: [
           {
@@ -44,6 +63,7 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+    return securityHeaders;
   },
 };
 

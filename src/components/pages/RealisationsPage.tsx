@@ -24,6 +24,10 @@ export default function RealisationsPage() {
         ]}
       />
 
+      <div className="content-notice reveal" role="note">
+        {t.disclaimer}
+      </div>
+
       <section className="section section--alt">
         <div className="reveal">
           <SectionLabel>{t.proofsTitle}</SectionLabel>

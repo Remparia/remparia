@@ -1142,6 +1142,21 @@
   font-family: "Satoshi", var(--font-archivo), sans-serif !important;
 }
 
+.content-notice {
+  max-width: var(--content-max, 1100px);
+  margin: 0 auto 32px;
+  padding: 16px 20px;
+  border: 1px solid rgba(200, 255, 0, 0.35);
+  border-radius: 8px;
+  background: rgba(200, 255, 0, 0.06);
+  font: 500 15px/1.55 "Satoshi", var(--font-archivo), sans-serif;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.page--inner .content-notice {
+  margin-top: -8px;
+}
+
 .section__tag {
   font: 700 15px var(--font-space-mono), monospace;
   color: #c8ff00;

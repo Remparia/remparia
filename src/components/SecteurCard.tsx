@@ -35,7 +35,7 @@ export function SecteurCard({
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw"
           className="secteur-card__img"
-          unoptimized
+          quality={80}
         />
         <span className="secteur-card__cat">{catLabel}</span>
       </div>

@@ -865,6 +865,8 @@ export const REALISATIONS = {
     eyebrow: "CAS D'USAGE",
     title: "Ce que des agents peuvent changer, concrètement",
     sub: "Des scénarios de déploiement pour comprendre le chemin du processus actuel au résultat mesurable.",
+    disclaimer:
+      "Scénarios illustratifs — pas des résultats clients. Chaque déploiement est cadré avec des KPIs signés avant mise en production.",
     proofsTitle: "Le cadre appliqué à chaque déploiement",
     proofs: [
       "Données hébergées / traitées en France quand le cadre l’exige",
@@ -922,6 +924,8 @@ export const REALISATIONS = {
     eyebrow: "USE CASES",
     title: "What agents can change, concretely",
     sub: "Deployment scenarios that show the path from today's workflow to a measurable outcome.",
+    disclaimer:
+      "Illustrative scenarios — not client results. Every deployment is scoped with signed KPIs before production.",
     proofsTitle: "The frame applied to every deployment",
     proofs: [
       "Data hosted / processed in France when the frame requires it",

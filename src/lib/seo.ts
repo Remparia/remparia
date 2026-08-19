@@ -35,22 +35,8 @@ export const SITE = {
   email: CONTACT_EMAIL,
   description:
     "Remparia renforce les métiers spécialisés avec des agents supervisés : du temps rendu, la décision préservée et les données sous contrôle.",
-  keywords: [
-    "agents métier",
-    "automatisation professions réglementées",
-    "automatisation notariat",
-    "automatisation expertise comptable",
-    "agents en production",
-    "intégration métier",
-    "conformité agents",
-    "automatisation supervisée France",
-    "infrastructure souveraine",
-    "Remparia",
-    "protocole SIGNAL",
-    "automatisation agentique",
-  ],
   twitter: "@remparia",
-  ogImage: "/hero-temporal.png",
+  ogImage: "/4a7fe64c-880c-4c2d-b5ff-451c58be4fc0.png",
 } as const;
 
 type PageSeoInput = {
@@ -181,7 +167,7 @@ export function websiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE.name,
-    url: SITE.url,
+    url: getSiteUrl(),
     description: SITE.description,
     inLanguage: ["fr-FR", "en"],
     publisher: {
@@ -197,7 +183,7 @@ export function professionalServiceJsonLd() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: SITE.name,
-    url: SITE.url,
+    url: getSiteUrl(),
     image: absoluteUrl(SITE.ogImage),
     description: SITE.description,
     email: SITE.email,
@@ -207,10 +193,10 @@ export function professionalServiceJsonLd() {
       name: "France",
     },
     serviceType: [
-      "infrastructure souveraine",
       "Agents métier",
       "Stratégie & gouvernance",
       "Infrastructure souveraine",
+      "Adoption & transfert",
     ],
   };
 }
@@ -294,7 +280,7 @@ export function contactPageJsonLd() {
       "@type": "Organization",
       name: SITE.name,
       email: SITE.email,
-      url: SITE.url,
+      url: getSiteUrl(),
     },
   };
 }
@@ -326,7 +312,7 @@ export function serviceJsonLd(slug: string, lang: Lang | Locale = "fr") {
     provider: {
       "@type": "Organization",
       name: SITE.name,
-      url: SITE.url,
+      url: getSiteUrl(),
     },
     areaServed: "FR",
     url: absoluteUrl(withLocale(lang as Locale, `/services/${slug}`)),

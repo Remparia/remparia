@@ -37,7 +37,6 @@ export const metadata: Metadata = {
   authors: [{ name: SITE.name, url: SITE.url }],
   creator: SITE.name,
   publisher: SITE.name,
-  keywords: [...SITE.keywords],
   category: "technology",
   referrer: "origin-when-cross-origin",
   formatDetection: {
