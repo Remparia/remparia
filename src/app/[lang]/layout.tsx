@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import HtmlLang from "@/components/HtmlLang";
 import ScrollRevealRoot from "@/components/ScrollRevealRoot";
 import SiteChrome from "@/components/SiteChrome";
 import { LangProvider } from "@/lib/lang";
@@ -23,6 +24,7 @@ export default async function LangLayout({
 
   return (
     <LangProvider initialLang={lang}>
+      <HtmlLang />
       <ScrollRevealRoot />
       <SiteChrome>{children}</SiteChrome>
     </LangProvider>

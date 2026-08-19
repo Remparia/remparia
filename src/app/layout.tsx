@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Archivo, Space_Mono } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
 import MatomoProvider from "@/components/MatomoProvider";
@@ -10,7 +9,7 @@ import {
   professionalServiceJsonLd,
   websiteJsonLd,
 } from "@/lib/seo";
-import { DEFAULT_LOCALE, isLocale } from "@/lib/i18n";
+import { DEFAULT_LOCALE } from "@/lib/i18n";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -90,22 +89,29 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const h = await headers();
-  const headerLocale = h.get("x-locale");
-  const lang =
-    headerLocale && isLocale(headerLocale) ? headerLocale : DEFAULT_LOCALE;
-
   return (
     <html
-      lang={lang}
+      lang={DEFAULT_LOCALE}
       suppressHydrationWarning
       className={`${archivo.variable} ${spaceMono.variable}`}
     >
+      <head>
+        <link
+          rel="preconnect"
+          href="https://api.fontshare.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://api.fontshare.com" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
+        />
+      </head>
       <body>
         <JsonLd
           data={[

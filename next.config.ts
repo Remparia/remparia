@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: root,
   poweredByHeader: false,
   compress: true,
+  reactStrictMode: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 80, 85, 100],

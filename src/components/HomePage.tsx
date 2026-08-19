@@ -88,11 +88,15 @@ export default function HomePage() {
   const positions = APROPOS[lang].positions;
   const sectors = SECTEURS[lang];
   const sectorsCtaLabel = sectors.discoverAll;
-  const [holding, setHolding] = useState(true);
+  const [holding, setHolding] = useState(false);
 
   return (
     <div className="page">
-      <HeroIntro lang={lang} onComplete={() => setHolding(false)} />
+      <HeroIntro
+        lang={lang}
+        onHoldStart={() => setHolding(true)}
+        onComplete={() => setHolding(false)}
+      />
       <header
         className={`hero hero--advantage${holding ? " is-holding" : ""}`}
       >

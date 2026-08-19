@@ -41,11 +41,43 @@ export default function CookieBanner() {
   }, []);
 
   useEffect(() => {
-    const sync = () => setVisible(getCookieConsent() === null);
-    sync();
-    const onChange = () => sync();
+    let delayTimer: number | undefined;
+    let idleId: number | undefined;
+
+    const hide = () => {
+      window.clearTimeout(delayTimer);
+      if (idleId !== undefined && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
+      }
+      setVisible(false);
+    };
+
+    const maybeShow = () => {
+      if (getCookieConsent() !== null) {
+        hide();
+        return;
+      }
+      const reveal = () => setVisible(true);
+      // Defer until after LCP — cookie UI must not become the largest paint.
+      delayTimer = window.setTimeout(() => {
+        if ("requestIdleCallback" in window) {
+          idleId = window.requestIdleCallback(reveal, { timeout: 2000 });
+        } else {
+          reveal();
+        }
+      }, 2800);
+    };
+
+    maybeShow();
+    const onChange = () => {
+      if (getCookieConsent() === null) maybeShow();
+      else hide();
+    };
     window.addEventListener(COOKIE_CONSENT_EVENT, onChange);
-    return () => window.removeEventListener(COOKIE_CONSENT_EVENT, onChange);
+    return () => {
+      window.removeEventListener(COOKIE_CONSENT_EVENT, onChange);
+      hide();
+    };
   }, []);
 
   useEffect(() => {

@@ -1,11 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import BackToTop from "@/components/BackToTop";
-import CookieBanner from "@/components/CookieBanner";
 import SiteFooter from "@/components/SiteFooter";
 import SiteNav from "@/components/SiteNav";
 import SkipLink from "@/components/SkipLink";
+
+const CookieBanner = dynamic(() => import("@/components/CookieBanner"), {
+  ssr: false,
+});
 
 function isCareersApplyPath(pathname: string | null) {
   if (!pathname) return false;
