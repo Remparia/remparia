@@ -58,7 +58,7 @@ export function SecteurHero({
           sizes="(max-width: 960px) 100vw, 48vw"
           className="secteur-hero__img"
           priority
-          unoptimized
+          quality={85}
         />
       </div>
     </header>

@@ -1,20 +1,29 @@
 import type { Lang } from "@/lib/content";
-import { SITE } from "@/lib/seo";
+import { CONTACT_EMAIL } from "@/lib/contact-email";
+import { getSiteUrl } from "@/lib/seo";
+
+function legalEnv(key: string, placeholder: string) {
+  const value = process.env[key]?.trim();
+  return value || placeholder;
+}
 
 /**
- * Infos société — remplacer les placeholders dès que l’immatriculation est connue.
+ * Infos société — renseigner les variables LEGAL_* dans Vercel / .env.local.
  */
 export const LEGAL_ENTITY = {
-  name: "Remparia",
-  legalForm: "[Forme juridique à compléter — ex. SAS]",
-  shareCapital: "[Capital social à compléter]",
-  siret: "[SIRET à compléter]",
-  rcs: "[RCS / ville à compléter]",
-  vat: "[N° TVA intracommunautaire à compléter]",
-  address: "[Adresse du siège à compléter]",
+  name: legalEnv("LEGAL_NAME", "Remparia"),
+  legalForm: legalEnv("LEGAL_FORM", "[Forme juridique à compléter — ex. SAS]"),
+  shareCapital: legalEnv("LEGAL_SHARE_CAPITAL", "[Capital social à compléter]"),
+  siret: legalEnv("LEGAL_SIRET", "[SIRET à compléter]"),
+  rcs: legalEnv("LEGAL_RCS", "[RCS / ville à compléter]"),
+  vat: legalEnv("LEGAL_VAT", "[N° TVA intracommunautaire à compléter]"),
+  address: legalEnv("LEGAL_ADDRESS", "[Adresse du siège à compléter]"),
   country: "France",
-  email: SITE.email,
-  publicationDirector: "[Directeur de la publication à compléter]",
+  email: CONTACT_EMAIL,
+  publicationDirector: legalEnv(
+    "LEGAL_PUBLICATION_DIRECTOR",
+    "[Directeur de la publication à compléter]",
+  ),
   host: {
     name: "Vercel Inc.",
     address: "440 N Barranca Ave #4133, Covina, CA 91723, United States",
@@ -244,7 +253,7 @@ export const LEGAL_PAGES = {
         {
           title: "Éditeur du site",
           paragraphs: [
-            `Le site ${SITE.url} est édité par ${LEGAL_ENTITY.name}, ${LEGAL_ENTITY.legalForm}, au capital de ${LEGAL_ENTITY.shareCapital}.`,
+            `Le site ${getSiteUrl()} est édité par ${LEGAL_ENTITY.name}, ${LEGAL_ENTITY.legalForm}, au capital de ${LEGAL_ENTITY.shareCapital}.`,
             `Siège social : ${LEGAL_ENTITY.address}, ${LEGAL_ENTITY.country}.`,
             `SIRET : ${LEGAL_ENTITY.siret} — ${LEGAL_ENTITY.rcs}.`,
             `N° TVA : ${LEGAL_ENTITY.vat}.`,
@@ -288,7 +297,7 @@ export const LEGAL_PAGES = {
         {
           title: "Publisher",
           paragraphs: [
-            `The website ${SITE.url} is published by ${LEGAL_ENTITY.name}, ${LEGAL_ENTITY.legalForm}, with share capital of ${LEGAL_ENTITY.shareCapital}.`,
+            `The website ${getSiteUrl()} is published by ${LEGAL_ENTITY.name}, ${LEGAL_ENTITY.legalForm}, with share capital of ${LEGAL_ENTITY.shareCapital}.`,
             `Registered office: ${LEGAL_ENTITY.address}, ${LEGAL_ENTITY.country}.`,
             `SIRET: ${LEGAL_ENTITY.siret} — ${LEGAL_ENTITY.rcs}.`,
             `VAT number: ${LEGAL_ENTITY.vat}.`,
@@ -334,7 +343,7 @@ export const LEGAL_PAGES = {
         {
           title: "Responsable du traitement",
           paragraphs: [
-            `${LEGAL_ENTITY.name} est responsable du traitement des données collectées via le site ${SITE.url}.`,
+            `${LEGAL_ENTITY.name} est responsable du traitement des données collectées via le site ${getSiteUrl()}.`,
             `Contact : ${LEGAL_ENTITY.email}.`,
           ],
         },
@@ -387,7 +396,7 @@ export const LEGAL_PAGES = {
         {
           title: "Data controller",
           paragraphs: [
-            `${LEGAL_ENTITY.name} is the controller for personal data collected via ${SITE.url}.`,
+            `${LEGAL_ENTITY.name} is the controller for personal data collected via ${getSiteUrl()}.`,
             `Contact: ${LEGAL_ENTITY.email}.`,
           ],
         },

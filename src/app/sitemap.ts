@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
-import { getAllContentPaths, SITE } from "@/lib/seo";
+import { getAllContentPaths, getSiteUrl, hreflangAlternates } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  const siteUrl = getSiteUrl();
 
   return getAllContentPaths().map((path) => {
     const logical = path.replace(/^\/(fr|en)/, "") || "/";
     return {
-      url: `${SITE.url}${path}`,
+      url: `${siteUrl}${path}`,
       lastModified: now,
       changeFrequency: logical === "/" ? "weekly" : "monthly",
       priority:
@@ -22,10 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
               ? 0.7
               : 0.8,
       alternates: {
-        languages: {
-          fr: `${SITE.url}/fr${logical === "/" ? "" : logical}`,
-          en: `${SITE.url}/en${logical === "/" ? "" : logical}`,
-        },
+        languages: hreflangAlternates(logical),
       },
     };
   });

@@ -5,20 +5,36 @@ import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
 
 import { CONTACT_EMAIL } from "./contact-email";
 
+const DEFAULT_SITE_ORIGIN = "https://www.remparia.com";
+
+/** Canonical public origin — always www when the apex is remparia.com. */
+export function getSiteUrl() {
+  const raw = (
+    process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_ORIGIN
+  ).replace(/\/$/, "");
+  try {
+    const url = new URL(raw);
+    if (url.hostname === "remparia.com") {
+      url.hostname = "www.remparia.com";
+    }
+    return url.origin;
+  } catch {
+    return DEFAULT_SITE_ORIGIN;
+  }
+}
+
 export const SITE = {
   name: "Remparia",
   legalName: "Remparia",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://remparia.vercel.app").replace(
-    /\/$/,
-    "",
-  ),
+  get url() {
+    return getSiteUrl();
+  },
   locale: "fr_FR",
   localeAlternate: "en_US",
   email: CONTACT_EMAIL,
   description:
     "Remparia renforce les métiers spécialisés avec des agents supervisés : du temps rendu, la décision préservée et les données sous contrôle.",
   keywords: [
-    "agents métier",
     "agents métier",
     "automatisation professions réglementées",
     "automatisation notariat",
@@ -47,8 +63,24 @@ type PageSeoInput = {
 
 export function absoluteUrl(path = "/") {
   if (path.startsWith("http")) return path;
-  return `${SITE.url}${path.startsWith("/") ? path : `/${path}`}`;
+  return `${getSiteUrl()}${path.startsWith("/") ? path : `/${path}`}`;
 }
+
+/** Shared hreflang set for HTML metadata and sitemap alternates. */
+export function hreflangAlternates(path = "/") {
+  const logical = path.startsWith("/") ? path : `/${path}`;
+  return {
+    "fr-FR": absoluteUrl(withLocale("fr", logical)),
+    "en-US": absoluteUrl(withLocale("en", logical)),
+    "x-default": absoluteUrl(withLocale("fr", logical)),
+  } as const;
+}
+
+const SITEMAP_EXCLUDED = new Set([
+  "/carrieres/candidature/1",
+  "/carrieres/candidature/2",
+  "/carrieres/candidature/3",
+]);
 
 export function createPageMetadata({
   title,
@@ -62,17 +94,11 @@ export function createPageMetadata({
   const localizedPath = withLocale(locale, path);
   const url = absoluteUrl(localizedPath);
   const imageUrl = absoluteUrl(image);
-  const languages: Record<string, string> = {
-    "fr-FR": absoluteUrl(withLocale("fr", path)),
-    en: absoluteUrl(withLocale("en", path)),
-    "en-US": absoluteUrl(withLocale("en", path)),
-    "x-default": absoluteUrl(withLocale("fr", path)),
-  };
+  const languages = { ...hreflangAlternates(path) };
 
   return {
     title,
     description,
-    keywords: [...SITE.keywords],
     alternates: {
       canonical: url,
       languages,
@@ -215,47 +241,34 @@ export function secteursItemListJsonLd() {
   };
 }
 
-export function signalHowToJsonLd() {
-  const steps = [
-    {
-      name: "Sonder",
-      text: "Observer le travail réel, au plus près des équipes et des exceptions.",
-    },
-    {
-      name: "Identifier",
-      text: "Prioriser les cas d'usage par impact, faisabilité et risque.",
-    },
-    {
-      name: "Gouverner",
-      text: "Définir les données, les droits, la supervision et la traçabilité.",
-    },
-    {
-      name: "Normaliser",
-      text: "Installer le socle, les sources autorisées et le routage des modèles.",
-    },
-    {
-      name: "Automatiser",
-      text: "Déployer les agents dans les outils avec escalade humaine.",
-    },
-    {
-      name: "Libérer",
-      text: "Mesurer les gains, former les équipes et transférer.",
-    },
-  ];
+export function signalArticleJsonLd(lang: Lang | Locale = "fr") {
+  const locale = lang === "en" ? "en" : "fr";
+  const path = withLocale(locale, "/methode");
+  const isEn = locale === "en";
 
   return {
     "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "Protocole SIGNAL — Remparia",
-    description:
-      "Méthode Remparia en six étapes, du terrain à un usage mesurable.",
-    step: steps.map((step, index) => ({
-      "@type": "HowToStep",
-      position: index + 1,
-      name: step.name,
-      text: step.text,
-      url: absoluteUrl(withLocale("fr", "/methode")),
-    })),
+    "@type": "Article",
+    headline: isEn ? "SIGNAL protocol — Remparia" : "Protocole SIGNAL — Remparia",
+    description: isEn
+      ? "Remparia's six-stage method from fieldwork to measurable agent deployment."
+      : "Méthode Remparia en six étapes, du terrain à un usage mesurable.",
+    author: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: getSiteUrl(),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/logo-remparia.png"),
+      },
+    },
+    mainEntityOfPage: absoluteUrl(path),
+    url: absoluteUrl(path),
+    inLanguage: isEn ? "en-US" : "fr-FR",
   };
 }
 
@@ -336,9 +349,6 @@ export function getAllContentPaths() {
     "/realisations",
     "/a-propos",
     "/carrieres",
-    "/carrieres/candidature/1",
-    "/carrieres/candidature/2",
-    "/carrieres/candidature/3",
     "/ressources",
     "/contact",
     "/mentions-legales",
@@ -347,7 +357,9 @@ export function getAllContentPaths() {
   ];
   const servicePaths = SERVICE_SLUGS.map((slug) => `/services/${slug}`);
   const secteurPaths = SECTEUR_SLUGS.map((slug) => `/secteurs/${slug}`);
-  const bare = [...staticPaths, ...servicePaths, ...secteurPaths];
+  const bare = [...staticPaths, ...servicePaths, ...secteurPaths].filter(
+    (path) => !SITEMAP_EXCLUDED.has(path),
+  );
   return LOCALES.flatMap((locale) =>
     bare.map((path) => withLocale(locale, path)),
   );

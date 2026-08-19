@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import MethodePage from "@/components/pages/MethodePage";
 import { toLang } from "@/lib/i18n";
-import { createPageMetadata, signalHowToJsonLd } from "@/lib/seo";
+import { createPageMetadata, signalArticleJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -20,10 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default function Page() {
+export default async function Page({ params }: Props) {
+  const { lang: langParam } = await params;
+  const lang = toLang(langParam);
   return (
     <>
-      <JsonLd data={signalHowToJsonLd()} />
+      <JsonLd data={signalArticleJsonLd(lang)} />
       <MethodePage />
     </>
   );

@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
+          {
+            key: "Content-Security-Policy-Report-Only",
+            value:
+              "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://api.fontshare.com; font-src 'self' https://api.fontshare.com data:; img-src 'self' data: blob: https:; connect-src 'self' https:; media-src 'self' blob:; worker-src 'self' blob:",
+          },
         ],
       },
       {

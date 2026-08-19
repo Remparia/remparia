@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/seo";
+import { getSiteUrl } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
+  const siteUrl = getSiteUrl();
   return {
     rules: [
       {
@@ -9,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: `${SITE.url}/sitemap.xml`,
-    host: SITE.url,
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }

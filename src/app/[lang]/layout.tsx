@@ -4,6 +4,8 @@ import SiteChrome from "@/components/SiteChrome";
 import { LangProvider } from "@/lib/lang";
 import { isLocale, LOCALES, toLang, type Locale } from "@/lib/i18n";
 
+export const revalidate = 86_400;
+
 export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
 }
