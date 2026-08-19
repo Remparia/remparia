@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Space_Mono } from "next/font/google";
+import { Archivo } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
 import MatomoProvider from "@/components/MatomoProvider";
 import {
@@ -16,13 +16,7 @@ const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",
   display: "swap",
-});
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space-mono",
-  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -98,20 +92,9 @@ export default function RootLayout({
     <html
       lang={DEFAULT_LOCALE}
       suppressHydrationWarning
-      className={`${archivo.variable} ${spaceMono.variable}`}
+      className={archivo.variable}
     >
-      <head>
-        <link
-          rel="preconnect"
-          href="https://api.fontshare.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="https://api.fontshare.com" />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
-        />
-      </head>
+      <head />
       <body>
         <JsonLd
           data={[

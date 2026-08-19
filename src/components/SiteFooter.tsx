@@ -88,7 +88,7 @@ export default function SiteFooter() {
         </nav>
         <nav aria-label={f.ressourcesTitle}>
           <div className="site-footer__title">{f.ressourcesTitle}</div>
-          <LocaleLink href="/realisations">{n.realisations}</LocaleLink>
+          <LocaleLink href="/secteurs">{n.secteurs}</LocaleLink>
           <LocaleLink href="/ressources">{n.ressources}</LocaleLink>
           <LocaleLink href="/a-propos">{n.aPropos}</LocaleLink>
         </nav>

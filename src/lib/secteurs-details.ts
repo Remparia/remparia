@@ -944,6 +944,7 @@ import {
   EXTRA_DETAILS_EN,
   EXTRA_DETAILS_FR,
 } from "./secteurs-extra";
+import { THIRD_SCENARIOS } from "./secteurs-third-scenarios";
 
 const BY_LANG = {
   fr: { ...FR, ...EXTRA_DETAILS_FR },
@@ -962,9 +963,15 @@ export function getSecteurDetail(
   const objectiveLabel =
     lang === "fr" ? "Objectif à cadrer" : "Target to define";
 
+  const third = THIRD_SCENARIOS[slug]?.[lang];
+  const scenarios =
+    detail.scenarios.length >= 3 || !third
+      ? detail.scenarios
+      : [...detail.scenarios, third];
+
   return {
     ...detail,
-    scenarios: detail.scenarios.map((scenario) => ({
+    scenarios: scenarios.map((scenario) => ({
       ...scenario,
       need: `${objectiveLabel} — ${scenario.need}`,
       remparia: `${scenarioLabel} — ${scenario.remparia}`,

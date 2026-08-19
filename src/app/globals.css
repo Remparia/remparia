@@ -11,7 +11,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-archivo);
-  --font-mono: var(--font-space-mono);
+  --font-mono: var(--font-archivo);
 }
 
 * {
@@ -38,6 +38,13 @@ body {
   color: #fff;
   font-family: var(--font-archivo), system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 a {

@@ -186,13 +186,6 @@ export default function SiteNav() {
             {t.methode}
           </LocaleLink>
           <LocaleLink
-            href="/realisations"
-            className={logical === "/realisations" ? "is-active" : undefined}
-            aria-current={navCurrent("/realisations")}
-          >
-            {t.realisations}
-          </LocaleLink>
-          <LocaleLink
             href="/a-propos"
             className={logical === "/a-propos" ? "is-active" : undefined}
             aria-current={navCurrent("/a-propos")}
@@ -271,9 +264,6 @@ export default function SiteNav() {
         </div>
 
         <LocaleLink href="/methode">[ {t.methode.toUpperCase()} ]</LocaleLink>
-        <LocaleLink href="/realisations">
-          [ {t.realisations.toUpperCase()} ]
-        </LocaleLink>
         <LocaleLink href="/a-propos">[ {t.aPropos.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/ressources">
           [ {t.ressources.toUpperCase()} ]

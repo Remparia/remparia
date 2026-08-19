@@ -39,7 +39,7 @@
 }
 
 .nav__lang {
-  font: 700 13px "Satoshi", var(--font-archivo), sans-serif;
+  font: 700 13px var(--font-archivo), sans-serif;
   color: #c8ff00;
   background: none;
   border: none;
@@ -48,7 +48,7 @@
 }
 
 .nav__cta {
-  font: 700 12px "Satoshi", var(--font-archivo), sans-serif;
+  font: 700 12px var(--font-archivo), sans-serif;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #0a0a0a;
@@ -69,7 +69,7 @@
   border: 1px solid rgba(200, 255, 0, 0.45);
   background: rgba(10, 10, 10, 0.92);
   color: #c8ff00;
-  font: 700 18px var(--font-space-mono), monospace;
+  font: 700 18px var(--font-archivo), sans-serif;
   cursor: pointer;
   backdrop-filter: blur(10px);
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
@@ -95,7 +95,7 @@
 
 .nav__hiring {
   display: inline-block;
-  font: 700 11px "Satoshi", var(--font-archivo), sans-serif;
+  font: 700 11px var(--font-archivo), sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #c8ff00 !important;
@@ -206,7 +206,7 @@
 }
 
 .nav__drawer a {
-  font: 700 16px "Satoshi", var(--font-archivo), sans-serif;
+  font: 700 16px var(--font-archivo), sans-serif;
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.8);
   padding: 16px 8px;
@@ -299,7 +299,7 @@
 }
 
 .hero__eyebrow {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: #c8ff00;
   margin-bottom: 14px;
   letter-spacing: 0.02em;
@@ -332,7 +332,7 @@
   gap: 0;
   width: fit-content;
   margin: 18px 0 0;
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   letter-spacing: 0.22em;
   color: #c8ff00;
   text-decoration: none;
@@ -473,7 +473,7 @@
 .hero-intro__line,
 .hero-intro__hint {
   margin: 0;
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #c8ff00;
@@ -597,7 +597,7 @@
   border: 0;
   padding: 8px;
   cursor: pointer;
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(200, 255, 0, 0.7);
@@ -657,7 +657,7 @@
 .hero__sub {
   margin: 20px 0 0;
   max-width: 540px;
-  font: 400 13px/1.6 var(--font-space-mono), monospace;
+  font: 400 13px/1.6 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -768,7 +768,7 @@
 .hero__advantage-card p {
   max-width: 360px;
   margin: 14px 0 0;
-  font: 400 15px/1.55 var(--font-space-mono), monospace;
+  font: 400 15px/1.55 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -779,7 +779,7 @@
   margin-top: 22px;
   padding-left: 12px;
   border-left: 2px solid #c8ff00;
-  font: 700 11px/1.45 var(--font-space-mono), monospace;
+  font: 700 11px/1.45 var(--font-archivo), sans-serif;
   text-transform: uppercase;
 }
 
@@ -859,7 +859,7 @@
 }
 
 .hero__stats-label {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.72);
   margin-bottom: 12px;
 }
@@ -878,7 +878,7 @@
 }
 
 .hero__stat-label {
-  font: 400 11px/1.45 var(--font-space-mono), monospace;
+  font: 400 11px/1.45 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
   margin-top: 6px;
 }
@@ -905,7 +905,7 @@
 }
 
 .hero__pillar-tag {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   opacity: 0.6;
   margin-bottom: 6px;
 }
@@ -1060,7 +1060,7 @@
   top: 16px;
   left: 16px;
   right: 16px;
-  font: 700 18px/1.2 "Satoshi", var(--font-archivo), sans-serif;
+  font: 700 18px/1.2 var(--font-archivo), sans-serif;
   color: #fff;
 }
 
@@ -1126,7 +1126,7 @@
   }
 }
 
-/* Force Satoshi on descriptive body copy across landing sections/cards */
+/* Body copy uses Archivo across landing sections/cards */
 .hero__lead,
 .hero__advantage-card p,
 .section__body,
@@ -1139,7 +1139,7 @@
 .timeline-card__desc,
 .faq-answer,
 .legal-doc__block p {
-  font-family: "Satoshi", var(--font-archivo), sans-serif !important;
+  font-family: var(--font-archivo), sans-serif !important;
 }
 
 .content-notice {
@@ -1149,7 +1149,7 @@
   border: 1px solid rgba(200, 255, 0, 0.35);
   border-radius: 8px;
   background: rgba(200, 255, 0, 0.06);
-  font: 500 15px/1.55 "Satoshi", var(--font-archivo), sans-serif;
+  font: 500 15px/1.55 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.88);
 }
 
@@ -1158,7 +1158,7 @@
 }
 
 .section__tag {
-  font: 700 15px var(--font-space-mono), monospace;
+  font: 700 15px var(--font-archivo), sans-serif;
   color: #c8ff00;
   margin-bottom: 18px;
 }
@@ -1186,7 +1186,7 @@
 .section__body {
   margin: 22px 0 0;
   max-width: 620px;
-  font: 400 14px/1.7 var(--font-space-mono), monospace;
+  font: 400 14px/1.7 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -1204,7 +1204,7 @@
 
 .conviction__quote p {
   margin: 0;
-  font: 400 14px/1.7 var(--font-space-mono), monospace;
+  font: 400 14px/1.7 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.72);
   white-space: pre-line;
 }
@@ -1261,7 +1261,7 @@
 }
 
 .signal-card__desc {
-  font: 400 12px/1.5 var(--font-space-mono), monospace;
+  font: 400 12px/1.5 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
 }
 
@@ -1289,7 +1289,7 @@
 }
 
 .position-card__tag {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
 }
 
 .position-card__title {
@@ -1303,7 +1303,7 @@
 }
 
 .position-card__desc {
-  font: 400 12px/1.55 var(--font-space-mono), monospace;
+  font: 400 12px/1.55 var(--font-archivo), sans-serif;
 }
 
 .video-head {
@@ -1315,7 +1315,7 @@
 }
 
 .video-head__meta {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
   flex-shrink: 0;
 }
@@ -1356,7 +1356,7 @@
 }
 
 .cta__tag {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   opacity: 0.6;
   margin-bottom: 16px;
 }
@@ -1380,7 +1380,7 @@
 }
 
 .cta__mail {
-  font: 700 12px var(--font-space-mono), monospace;
+  font: 700 12px var(--font-archivo), sans-serif;
   color: rgba(10, 10, 10, 0.75) !important;
 }
 
@@ -1407,7 +1407,7 @@
 }
 
 .footer__note {
-  font: 400 10px var(--font-space-mono), monospace;
+  font: 400 10px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -1495,7 +1495,7 @@
     display: flex;
     align-items: center;
     gap: 22px;
-    font: 700 13px "Satoshi", var(--font-archivo), sans-serif;
+    font: 700 13px var(--font-archivo), sans-serif;
     letter-spacing: 0.04em;
     color: rgba(255, 255, 255, 0.7);
   }
@@ -1817,7 +1817,7 @@
 .breadcrumbs__item {
   display: inline-flex;
   align-items: center;
-  font: 600 11px var(--font-space-mono), monospace;
+  font: 600 11px var(--font-archivo), sans-serif;
   letter-spacing: 0.02em;
 }
 
@@ -1839,7 +1839,7 @@
 }
 
 .page-hero__eyebrow {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: #c8ff00;
   margin-bottom: 14px;
 }
@@ -1859,7 +1859,7 @@
 .page-hero__sub {
   margin: 18px 0 0;
   max-width: 520px;
-  font: 400 14px/1.65 var(--font-space-mono), monospace;
+  font: 400 14px/1.65 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -1876,7 +1876,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #c8ff00;
@@ -1917,7 +1917,7 @@
 
 .btn-primary {
   display: inline-block;
-  font: 700 12px "Satoshi", var(--font-archivo), sans-serif;
+  font: 700 12px var(--font-archivo), sans-serif;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #0a0a0a !important;
@@ -1935,7 +1935,7 @@
 
 .btn-ghost {
   display: inline-block;
-  font: 700 12px "Satoshi", var(--font-archivo), sans-serif;
+  font: 700 12px var(--font-archivo), sans-serif;
   color: #c8ff00 !important;
   border: 1px solid rgba(200, 255, 0, 0.35);
   padding: 13px 18px;
@@ -1951,7 +1951,7 @@
 }
 
 .text-link {
-  font: 700 12px var(--font-space-mono), monospace;
+  font: 700 12px var(--font-archivo), sans-serif;
   color: #c8ff00 !important;
   white-space: nowrap;
 }
@@ -2013,12 +2013,12 @@
 .diff-card p,
 .info-card p {
   margin: 0;
-  font: 400 13px/1.55 var(--font-space-mono), monospace;
+  font: 400 13px/1.55 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
 }
 
 .info-card__tag {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: #c8ff00;
   margin-bottom: 14px;
 }
@@ -2085,7 +2085,7 @@
 
 .stack-card p {
   margin: 0 0 18px;
-  font: 400 15px/1.6 var(--font-space-mono), monospace;
+  font: 400 15px/1.6 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -2098,7 +2098,7 @@
 }
 
 .stack-card li {
-  font: 400 14px/1.45 var(--font-space-mono), monospace;
+  font: 400 14px/1.45 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.75);
   padding-left: 16px;
   position: relative;
@@ -2112,7 +2112,7 @@
 }
 
 .case-metric {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: #c8ff00;
   margin-bottom: 10px;
 }
@@ -2120,7 +2120,7 @@
 .cta__text {
   margin: 18px 0 0;
   max-width: 560px;
-  font: 400 14px/1.6 var(--font-space-mono), monospace;
+  font: 400 14px/1.6 var(--font-archivo), sans-serif;
   color: rgba(10, 10, 10, 0.7);
 }
 
@@ -2141,7 +2141,7 @@
 }
 
 .contact-form span {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
 }
 
@@ -2152,7 +2152,7 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: #fff;
   padding: 14px 14px;
-  font: 400 14px/1.4 var(--font-space-mono), monospace;
+  font: 400 14px/1.4 var(--font-archivo), sans-serif;
   border-radius: 0;
 }
 
@@ -2176,7 +2176,7 @@
 
 .contact-field-error {
   margin: 0;
-  font: 400 11px/1.45 var(--font-space-mono), monospace;
+  font: 400 11px/1.45 var(--font-archivo), sans-serif;
   color: #ff8a8a;
 }
 
@@ -2190,7 +2190,7 @@
 
 .contact-feedback {
   margin: 12px 0 0;
-  font: 400 12px/1.5 var(--font-space-mono), monospace;
+  font: 400 12px/1.5 var(--font-archivo), sans-serif;
 }
 
 .contact-feedback--ok {
@@ -2203,7 +2203,7 @@
 
 .contact-privacy {
   margin: 14px 0 0;
-  font: 400 11px var(--font-space-mono), monospace;
+  font: 400 11px var(--font-archivo), sans-serif;
 }
 
 .contact-privacy a {
@@ -2243,12 +2243,12 @@
 
 .site-footer__brand p {
   margin: 12px 0 0;
-  font: 400 11px/1.5 var(--font-space-mono), monospace;
+  font: 400 11px/1.5 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .site-footer__title {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
   margin-bottom: 12px;
   letter-spacing: 0.04em;
@@ -2256,7 +2256,7 @@
 
 .site-footer a {
   display: block;
-  font: 400 12px/1.8 var(--font-space-mono), monospace;
+  font: 400 12px/1.8 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.75) !important;
 }
 
@@ -2289,7 +2289,7 @@
   gap: 8px;
   padding: 8px 12px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  font: 700 11px var(--font-space-mono), monospace !important;
+  font: 700 11px var(--font-archivo), sans-serif !important;
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.7) !important;
   transition:
@@ -2320,7 +2320,7 @@
 
 .site-footer__legal a {
   display: inline !important;
-  font: 400 11px/1.4 var(--font-space-mono), monospace !important;
+  font: 400 11px/1.4 var(--font-archivo), sans-serif !important;
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
@@ -2334,7 +2334,7 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  font: 400 11px/1.4 var(--font-space-mono), monospace;
+  font: 400 11px/1.4 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -2371,7 +2371,7 @@
 }
 
 .cookie-banner__title {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: #c8ff00;
   letter-spacing: 0.04em;
   margin: 0 0 8px;
@@ -2379,7 +2379,7 @@
 
 .cookie-banner__text {
   margin: 0;
-  font: 400 12px/1.5 var(--font-space-mono), monospace;
+  font: 400 12px/1.5 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -2446,7 +2446,7 @@
   margin-top: 24px;
   padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font: 400 10px var(--font-space-mono), monospace;
+  font: 400 10px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -2482,7 +2482,7 @@
   width: 100%;
   border-collapse: collapse;
   min-width: 720px;
-  font: 400 11px/1.45 var(--font-space-mono), monospace;
+  font: 400 11px/1.45 var(--font-archivo), sans-serif;
 }
 
 .cookie-table th,
@@ -2530,14 +2530,14 @@
 }
 
 .cookie-data-list strong {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: #c8ff00;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
 .cookie-data-list span {
-  font: 400 12px/1.5 var(--font-space-mono), monospace;
+  font: 400 12px/1.5 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -2553,7 +2553,7 @@
   border: 1px solid rgba(200, 255, 0, 0.28);
   background: rgba(200, 255, 0, 0.04);
   padding: 14px 16px;
-  font: 400 13px/1.45 var(--font-space-mono), monospace;
+  font: 400 13px/1.45 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -2570,7 +2570,7 @@
 }
 
 .case-meta dt {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: #c8ff00;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2579,7 +2579,7 @@
 
 .case-meta dd {
   margin: 0;
-  font: 400 13px/1.5 var(--font-space-mono), monospace;
+  font: 400 13px/1.5 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -2767,7 +2767,7 @@
 .nav__dropdown a {
   display: block;
   padding: 10px 16px;
-  font: 600 12px var(--font-space-mono), monospace;
+  font: 600 12px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.78) !important;
   white-space: nowrap;
 }
@@ -2795,7 +2795,7 @@
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.8);
-  font: 700 16px var(--font-space-mono), monospace;
+  font: 700 16px var(--font-archivo), sans-serif;
   letter-spacing: 0.04em;
   padding: 16px 8px;
   cursor: pointer;
@@ -2810,7 +2810,7 @@
 }
 
 .nav__drawer-sub a {
-  font: 600 13px var(--font-space-mono), monospace !important;
+  font: 600 13px var(--font-archivo), sans-serif !important;
   color: rgba(255, 255, 255, 0.75) !important;
   padding: 10px 8px !important;
   border-bottom: none !important;
@@ -2846,7 +2846,7 @@
 }
 
 .detail-points li {
-  font: 400 14px/1.5 var(--font-space-mono), monospace;
+  font: 400 14px/1.5 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.75);
   padding-left: 18px;
   position: relative;
@@ -2928,7 +2928,7 @@
 }
 
 .detail-siblings a {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74) !important;
   border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 8px 12px;
@@ -2976,7 +2976,7 @@
 }
 
 .secteur-filters__btn {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.65);
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -2994,7 +2994,7 @@
 .secteur-search input {
   width: 100%;
   max-width: 360px;
-  font: 400 13px var(--font-space-mono), monospace;
+  font: 400 13px var(--font-archivo), sans-serif;
   color: #fff;
   background: #111;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -3012,7 +3012,7 @@
 
 .secteur-hub__count {
   margin: 0 0 18px;
-  font: 400 12px var(--font-space-mono), monospace;
+  font: 400 12px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -3050,7 +3050,7 @@
   position: absolute;
   left: 12px;
   bottom: 12px;
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #0a0a0a;
@@ -3074,13 +3074,13 @@
 
 .secteur-card__body p {
   margin: 0 0 16px;
-  font: 400 13px/1.55 var(--font-space-mono), monospace;
+  font: 400 13px/1.55 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.62);
   flex: 1;
 }
 
 .secteur-card__cta {
-  font: 700 12px var(--font-space-mono), monospace;
+  font: 700 12px var(--font-archivo), sans-serif;
   color: #c8ff00;
 }
 
@@ -3111,7 +3111,7 @@
 
 .secteur-hero__sub {
   margin: 18px 0 0;
-  font: 400 14px/1.65 var(--font-space-mono), monospace;
+  font: 400 14px/1.65 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.7);
   max-width: 42rem;
 }
@@ -3161,7 +3161,7 @@
 }
 
 .secteur-signal__label {
-  font: 400 11px/1.4 var(--font-space-mono), monospace;
+  font: 400 11px/1.4 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
 }
 
@@ -3211,13 +3211,24 @@
 
 .pain-list__item p {
   margin: 0;
-  font: 400 14px/1.65 var(--font-space-mono), monospace;
+  font: 400 14px/1.65 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
 }
 
 .scenario-stack {
   display: grid;
   gap: 20px;
+}
+
+.secteur-scenarios-note {
+  margin: 0 0 24px;
+  max-width: 52ch;
+  font: 400 14px/1.65 var(--font-archivo), sans-serif;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.section--alt .secteur-scenarios-note {
+  color: rgba(10, 10, 10, 0.55);
 }
 
 .scenario-card {
@@ -3228,7 +3239,7 @@
 }
 
 .scenario-card__who {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: #c8ff00;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -3236,12 +3247,12 @@
 
 .scenario-card__block p {
   margin: 6px 0 0;
-  font: 400 14px/1.65 var(--font-space-mono), monospace;
+  font: 400 14px/1.65 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.72);
 }
 
 .scenario-card__tag {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -3279,7 +3290,7 @@
 }
 
 .secteur-service-link__tag {
-  font: 700 12px var(--font-space-mono), monospace;
+  font: 700 12px var(--font-archivo), sans-serif;
   color: #c8ff00;
 }
 
@@ -3314,7 +3325,7 @@
   content: "+";
   float: right;
   color: #c8ff00;
-  font: 700 16px var(--font-space-mono), monospace;
+  font: 700 16px var(--font-archivo), sans-serif;
 }
 
 .faq-item[open] summary::after {
@@ -3324,7 +3335,7 @@
 .faq-item p {
   margin: 0;
   padding: 0 18px 18px;
-  font: 400 14px/1.7 var(--font-space-mono), monospace;
+  font: 400 14px/1.7 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -3342,7 +3353,7 @@
   color: #c8ff00 !important;
 }
 
-/* Use Satoshi across footer text blocks */
+/* Footer text blocks */
 .site-footer__brand p,
 .site-footer__title,
 .site-footer a,
@@ -3350,7 +3361,7 @@
 .site-footer__legal a,
 .site-footer__cookie-prefs,
 .site-footer__bottom {
-  font-family: "Satoshi", var(--font-archivo), sans-serif !important;
+  font-family: var(--font-archivo), sans-serif !important;
 }
 
 .site-footer__secteurs {
@@ -3425,7 +3436,7 @@
 }
 
 .careers-phil__tag {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: #c8ff00;
   letter-spacing: 0.06em;
   margin-bottom: 10px;
@@ -3443,7 +3454,7 @@
 .careers-phil__item p {
   margin: 0;
   max-width: 420px;
-  font: 400 13px/1.55 var(--font-space-mono), monospace;
+  font: 400 13px/1.55 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
 }
 
@@ -3526,7 +3537,7 @@
 }
 
 .careers-step__time {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: #0a0a0a;
   margin-bottom: 0;
   letter-spacing: 0.04em;
@@ -3545,7 +3556,7 @@
 
 .careers-step p {
   margin: 0;
-  font: 400 13px/1.5 var(--font-space-mono), monospace;
+  font: 400 13px/1.5 var(--font-archivo), sans-serif;
   color: rgba(10, 10, 10, 0.7);
 }
 
@@ -3576,7 +3587,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px;
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
 }
 
@@ -3586,7 +3597,7 @@
 
 .careers-timer-note {
   margin: 0;
-  font: 400 11px/1.4 var(--font-space-mono), monospace;
+  font: 400 11px/1.4 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -3602,12 +3613,12 @@
 }
 
 .careers-panel label span {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.65);
 }
 
 .careers-panel label small {
-  font: 400 11px/1.4 var(--font-space-mono), monospace;
+  font: 400 11px/1.4 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -3619,7 +3630,7 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: #fff;
   padding: 12px 12px;
-  font: 400 13px/1.45 var(--font-space-mono), monospace;
+  font: 400 13px/1.45 var(--font-archivo), sans-serif;
 }
 
 .careers-panel input:focus,
@@ -3649,7 +3660,7 @@
 .careers-video-rules {
   margin: 0;
   padding-left: 18px;
-  font: 400 12px/1.5 var(--font-space-mono), monospace;
+  font: 400 12px/1.5 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -3719,7 +3730,7 @@
 
 .careers-iso__eyebrow {
   display: block;
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   color: #c8ff00;
   margin-bottom: 4px;
 }
@@ -3737,7 +3748,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 16px;
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
 }
 
@@ -3793,7 +3804,7 @@
 
 .careers-iso-form > p {
   margin: 0 0 8px;
-  font: 400 13px/1.5 var(--font-space-mono), monospace;
+  font: 400 13px/1.5 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.74);
 }
 
@@ -3803,12 +3814,12 @@
 }
 
 .careers-iso-form label span {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.65);
 }
 
 .careers-iso-form label small {
-  font: 400 11px/1.4 var(--font-space-mono), monospace;
+  font: 400 11px/1.4 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -3820,7 +3831,7 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: #fff;
   padding: 12px;
-  font: 400 13px/1.45 var(--font-space-mono), monospace;
+  font: 400 13px/1.45 var(--font-archivo), sans-serif;
 }
 
 .careers-iso-form input:focus,
@@ -3857,7 +3868,7 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   color: #0a0a0a;
   background: #c8ff00;
   padding: 6px 10px;
@@ -3879,7 +3890,7 @@
 }
 
 .careers-video__status {
-  font: 700 12px var(--font-space-mono), monospace;
+  font: 700 12px var(--font-archivo), sans-serif;
   color: #c8ff00;
 }
 
@@ -3937,7 +3948,7 @@
 }
 
 .team-card__role {
-  font: 700 11px var(--font-space-mono), monospace;
+  font: 700 11px var(--font-archivo), sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.55);
@@ -3950,7 +3961,7 @@
 
 .team-card__bio,
 .team-card__cred {
-  font-family: var(--font-satoshi), system-ui, sans-serif;
+  font-family: var(--font-archivo), sans-serif;
   font-size: 0.95rem;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.72);
@@ -4012,7 +4023,7 @@
 }
 
 .proof-stats__label {
-  font-family: var(--font-satoshi), system-ui, sans-serif;
+  font-family: var(--font-archivo), sans-serif;
   font-size: 0.875rem;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.68);
@@ -4035,7 +4046,7 @@
 }
 
 .signal-card__meta dt {
-  font: 700 10px var(--font-space-mono), monospace;
+  font: 700 10px var(--font-archivo), sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.45);
@@ -4048,7 +4059,7 @@
 
 .signal-card__meta dd {
   margin: 0;
-  font-family: var(--font-satoshi), system-ui, sans-serif;
+  font-family: var(--font-archivo), sans-serif;
   font-size: 0.875rem;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.78);
@@ -4095,7 +4106,7 @@
 .service-diag__desc {
   margin: 0 0 28px;
   max-width: 42ch;
-  font: 400 15px/1.65 "Satoshi", var(--font-archivo), sans-serif;
+  font: 400 15px/1.65 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.72);
 }
 
@@ -4111,7 +4122,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  font: 700 11px/1.35 var(--font-space-mono), monospace;
+  font: 700 11px/1.35 var(--font-archivo), sans-serif;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.88);
@@ -4140,7 +4151,7 @@
 .service-diag__cta {
   display: inline-flex;
   margin-top: 28px;
-  font: 700 22px var(--font-space-mono), monospace;
+  font: 700 22px var(--font-archivo), sans-serif;
   color: #c8ff00;
   text-decoration: none;
 }
@@ -4256,7 +4267,7 @@
 }
 
 .service-diag__step {
-  font: 700 10px/1.2 var(--font-space-mono), monospace;
+  font: 700 10px/1.2 var(--font-archivo), sans-serif;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.38);
@@ -4274,7 +4285,7 @@
   right: 0;
   bottom: 0;
   transform: translateX(50%);
-  font: 400 13px/1 var(--font-space-mono), monospace;
+  font: 400 13px/1 var(--font-archivo), sans-serif;
   color: rgba(255, 255, 255, 0.28);
   pointer-events: none;
 }

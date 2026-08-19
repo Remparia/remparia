@@ -109,8 +109,11 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
         <div className="secteur-readable reveal">
           <SectionLabel>{labels.scenarios}</SectionLabel>
           <h2 className="secteur-section-title">{labels.scenariosH}</h2>
+          {labels.scenariosNote ? (
+            <p className="secteur-scenarios-note">{labels.scenariosNote}</p>
+          ) : null}
           <div className="scenario-stack">
-            {detail.scenarios.slice(0, 2).map((scenario, i) => (
+            {detail.scenarios.map((scenario, i) => (
               <article
                 key={scenario.who}
                 className="scenario-card reveal"

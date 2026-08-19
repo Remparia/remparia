@@ -8,6 +8,21 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (
+    pathname === "/realisations" ||
+    pathname === "/fr/realisations" ||
+    pathname === "/en/realisations"
+  ) {
+    const locale = pathname.startsWith("/en")
+      ? "en"
+      : pathname.startsWith("/fr")
+        ? "fr"
+        : DEFAULT_LOCALE;
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}/secteurs`;
+    return NextResponse.redirect(url, 301);
+  }
+
+  if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/icon") ||

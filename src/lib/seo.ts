@@ -342,7 +342,6 @@ export function getAllContentPaths() {
     "/services",
     "/methode",
     "/secteurs",
-    "/realisations",
     "/a-propos",
     "/carrieres",
     "/ressources",

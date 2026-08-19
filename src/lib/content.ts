@@ -8,7 +8,6 @@ export const NAV = {
     services: "Services",
     methode: "Méthode",
     secteurs: "Métiers",
-    realisations: "Cas d'usage",
     aPropos: "À propos",
     ressources: "Ressources",
     carrieres: "Carrières",
@@ -27,7 +26,6 @@ export const NAV = {
     services: "Services",
     methode: "Method",
     secteurs: "Professions",
-    realisations: "Use cases",
     aPropos: "About",
     ressources: "Resources",
     carrieres: "Careers",
@@ -848,8 +846,10 @@ export const SECTEURS = {
       painsH: "Les douleurs qu'on connaît trop bien",
       deliver: "La solution",
       deliverH: "Ce que Remparia peut construire pour vous",
-      scenarios: "Scénarios",
-      scenariosH: "Exemples de déploiement possibles",
+      scenarios: "Cas d'usage",
+      scenariosH: "Trois cas d'usage concrets",
+      scenariosNote:
+        "Scénarios illustratifs — chaque déploiement est cadré avec des KPIs signés avant mise en production.",
       services: "Services liés",
       servicesH: "Missions utiles pour ce secteur",
       faq: "FAQ",
@@ -916,8 +916,10 @@ export const SECTEURS = {
       painsH: "Pains we know too well",
       deliver: "The solution",
       deliverH: "What Remparia can build for you",
-      scenarios: "Scenarios",
-      scenariosH: "Examples of possible deployments",
+      scenarios: "Use cases",
+      scenariosH: "Three concrete use cases",
+      scenariosNote:
+        "Illustrative scenarios — every deployment is scoped with signed KPIs before production.",
       services: "Related services",
       servicesH: "Missions that fit this industry",
       faq: "FAQ",
@@ -995,127 +997,6 @@ export {
   SECTEUR_META,
   type SecteurCategory,
 } from "./secteurs-meta";
-
-export const REALISATIONS = {
-  fr: {
-    eyebrow: "CAS D'USAGE",
-    title: "Ce que des agents peuvent changer, concrètement",
-    sub: "Des scénarios de déploiement pour comprendre le chemin du processus actuel au résultat mesurable.",
-    disclaimer:
-      "Scénarios illustratifs — pas des résultats clients. Chaque déploiement est cadré avec des KPIs signés avant mise en production.",
-    proofsTitle: "Le cadre appliqué à chaque déploiement",
-    proofs: [
-      "Données hébergées / traitées en France quand le cadre l’exige",
-      "Human-in-the-loop sur les sorties sensibles",
-      "Mesure des gains avant de scaler",
-      "Traçabilité et gouvernance dès le cadrage",
-    ],
-    items: [
-      {
-        tag: "SCÉNARIO 01",
-        title: "Du POC bloqué à l'agent en production",
-        context: "PME industrielle — back-office saturé par des exceptions documentaires.",
-        problem:
-          "Un POC impressionnait en démo mais n’était branché ni aux outils métier ni à la validation humaine.",
-        approach:
-          "Cadrage SIGNAL → intégration ERP / messagerie → règles d’escalade → KPIs de throughput.",
-        result:
-          "Objectif : traiter la file au quotidien sans sortie de données hors du cadre défini.",
-        metric: "Objectif · production",
-      },
-      {
-        tag: "SCÉNARIO 02",
-        title: "RAG souverain sur données critiques",
-        context: "Cabinet / métier réglementé — base documentaire sensible.",
-        problem:
-          "Les outils grand public ne passaient pas la revue conformité ; la connaissance restait silotée.",
-        approach:
-          "Index souverain, périmètre de sources validées, droits d’accès, journalisation des requêtes.",
-        result:
-          "Objectif : rendre la connaissance exploitable sans exposer les sources sensibles hors du périmètre.",
-        metric: "Objectif · contrôle",
-      },
-      {
-        tag: "SCÉNARIO 03",
-        title: "Automatisation documentaire réglementée",
-        context: "Opérations à fort volume de dossiers à contrôler.",
-        problem:
-          "Temps de traitement trop long ; risque d’erreur et fatigue des équipes sur le répétitif.",
-        approach:
-          "Pipeline de pré-analyse + validation humaine obligatoire sur les décisions critiques.",
-        result:
-          "Objectif : réduire le temps de cycle tout en gardant une responsabilité humaine vérifiable.",
-        metric: "Objectif · cycle réduit",
-      },
-    ],
-    labels: {
-      context: "Contexte",
-      problem: "Problème",
-      approach: "Approche SIGNAL",
-      result: "Résultat visé",
-    },
-    note: "Ces scénarios illustrent notre approche et ne sont pas présentés comme des résultats clients. Les preuves chiffrées seront publiées mission par mission, avec accord.",
-  },
-  en: {
-    eyebrow: "USE CASES",
-    title: "What agents can change, concretely",
-    sub: "Deployment scenarios that show the path from today's workflow to a measurable outcome.",
-    disclaimer:
-      "Illustrative scenarios — not client results. Every deployment is scoped with signed KPIs before production.",
-    proofsTitle: "The frame applied to every deployment",
-    proofs: [
-      "Data hosted / processed in France when the frame requires it",
-      "Human-in-the-loop on sensitive outputs",
-      "Outcome measurement before scaling",
-      "Traceability and governance from day one",
-    ],
-    items: [
-      {
-        tag: "SCENARIO 01",
-        title: "From stuck POC to production agent",
-        context: "Industrial SMB — back-office saturated by document exceptions.",
-        problem:
-          "A POC looked great in demos but wasn’t wired to business tools or human validation.",
-        approach:
-          "SIGNAL scoping → ERP / messaging integration → escalation rules → throughput KPIs.",
-        result:
-          "Objective: handle the queue daily without data leaving the agreed perimeter.",
-        metric: "Objective · production",
-      },
-      {
-        tag: "SCENARIO 02",
-        title: "Sovereign RAG on critical data",
-        context: "Regulated practice — sensitive document base.",
-        problem:
-          "Consumer tools failed compliance review; knowledge stayed siloed.",
-        approach:
-          "Sovereign index, approved sources, access rights, query logging.",
-        result:
-          "Objective: make knowledge usable without exposing sensitive sources outside the perimeter.",
-        metric: "Objective · control",
-      },
-      {
-        tag: "SCENARIO 03",
-        title: "Regulated document automation",
-        context: "High-volume dossier operations.",
-        problem:
-          "Cycle times too long; error risk and team fatigue on repetitive work.",
-        approach:
-          "Pre-analysis pipeline + mandatory human validation on critical decisions.",
-        result:
-          "Objective: reduce cycle time while keeping human accountability verifiable.",
-        metric: "Objective · shorter cycle",
-      },
-    ],
-    labels: {
-      context: "Context",
-      problem: "Problem",
-      approach: "SIGNAL approach",
-      result: "Target outcome",
-    },
-    note: "These scenarios illustrate our approach and are not presented as client results. Quantified evidence will be published engagement by engagement, with consent.",
-  },
-} as const;
 
 export const APROPOS = {
   fr: {
@@ -1291,14 +1172,8 @@ export const RESSOURCES = {
       {
         tag: "MÉTIERS",
         title: "Secteurs & professions",
-        desc: "29 verticales où les solutions génériques échouent — cas d'usage et FAQ par métier.",
+        desc: "29 verticales — trois cas d'usage concrets et FAQ par métier.",
         href: "/secteurs",
-      },
-      {
-        tag: "CAS D'USAGE",
-        title: "Réalisations",
-        desc: "Exemples de déploiements possibles et scénarios par persona.",
-        href: "/realisations",
       },
       {
         tag: "CONTACT",
@@ -1336,14 +1211,8 @@ export const RESSOURCES = {
       {
         tag: "PROFESSIONS",
         title: "Sectors & professions",
-        desc: "29 verticals where generic tools fall short — use cases and FAQ by profession.",
+        desc: "29 verticals — three concrete use cases and FAQ per profession.",
         href: "/secteurs",
-      },
-      {
-        tag: "USE CASES",
-        title: "Case studies",
-        desc: "Possible deployments and scenarios by persona.",
-        href: "/realisations",
       },
       {
         tag: "CONTACT",
