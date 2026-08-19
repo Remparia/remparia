@@ -74,7 +74,7 @@ export const COOKIE_TABLE: Record<Lang, CookieTableCopy> = {
   fr: {
     title: "Inventaire des cookies et stockages",
     intro:
-      "Liste des traceurs utilisés sur ce site. Les cookies Matomo ne sont déposés qu’après votre acceptation via le bandeau.",
+      "Liste des stockages utilisés sur ce site. Vercel Web Analytics ne dépose pas de cookie : la mesure d’audience ne démarre qu’après votre acceptation via le bandeau.",
     headers: {
       name: "Nom",
       purpose: "Finalité",
@@ -92,44 +92,12 @@ export const COOKIE_TABLE: Record<Lang, CookieTableCopy> = {
         provider: "Remparia",
         basis: "Strictement nécessaire",
       },
-      {
-        name: "_pk_id.*",
-        purpose: "Identifier un visiteur unique pour les statistiques Matomo",
-        duration: "13 mois (défaut Matomo)",
-        type: "Cookie",
-        provider: "Matomo (instance Remparia)",
-        basis: "Consentement",
-      },
-      {
-        name: "_pk_ses.*",
-        purpose: "Conserver les données de session de visite Matomo",
-        duration: "30 minutes (défaut Matomo)",
-        type: "Cookie",
-        provider: "Matomo (instance Remparia)",
-        basis: "Consentement",
-      },
-      {
-        name: "_pk_ref.*",
-        purpose: "Stocker l’information d’attribution / referrer (si activé)",
-        duration: "6 mois (défaut Matomo)",
-        type: "Cookie",
-        provider: "Matomo (instance Remparia)",
-        basis: "Consentement",
-      },
-      {
-        name: "mtm_consent / mtm_consent_removed",
-        purpose: "État de consentement Matomo (si utilisé par l’instance)",
-        duration: "30 ans / selon config Matomo",
-        type: "Cookie",
-        provider: "Matomo (instance Remparia)",
-        basis: "Consentement",
-      },
     ],
   },
   en: {
     title: "Cookie and storage inventory",
     intro:
-      "Trackers used on this site. Matomo cookies are set only after you accept via the banner.",
+      "Storage used on this site. Vercel Web Analytics does not set cookies: audience measurement starts only after you accept via the banner.",
     headers: {
       name: "Name",
       purpose: "Purpose",
@@ -147,48 +115,16 @@ export const COOKIE_TABLE: Record<Lang, CookieTableCopy> = {
         provider: "Remparia",
         basis: "Strictly necessary",
       },
-      {
-        name: "_pk_id.*",
-        purpose: "Identify a unique visitor for Matomo statistics",
-        duration: "13 months (Matomo default)",
-        type: "Cookie",
-        provider: "Matomo (Remparia instance)",
-        basis: "Consent",
-      },
-      {
-        name: "_pk_ses.*",
-        purpose: "Keep Matomo visit session data",
-        duration: "30 minutes (Matomo default)",
-        type: "Cookie",
-        provider: "Matomo (Remparia instance)",
-        basis: "Consent",
-      },
-      {
-        name: "_pk_ref.*",
-        purpose: "Store attribution / referrer info (if enabled)",
-        duration: "6 months (Matomo default)",
-        type: "Cookie",
-        provider: "Matomo (Remparia instance)",
-        basis: "Consent",
-      },
-      {
-        name: "mtm_consent / mtm_consent_removed",
-        purpose: "Matomo consent state (if used by the instance)",
-        duration: "30 years / per Matomo config",
-        type: "Cookie",
-        provider: "Matomo (Remparia instance)",
-        basis: "Consent",
-      },
     ],
   },
 };
 
-/** Données collectées par Matomo (hors cookies) */
-export const MATOMO_DATA: Record<Lang, DataTableCopy> = {
+/** Données collectées par Vercel Web Analytics (si accepté) */
+export const ANALYTICS_DATA: Record<Lang, DataTableCopy> = {
   fr: {
-    title: "Données collectées par Matomo (si accepté)",
+    title: "Données collectées par Vercel Web Analytics (si accepté)",
     intro:
-      "En plus des cookies ci-dessus, Matomo peut enregistrer les événements suivants pour la mesure d’audience :",
+      "Service cookieless hébergé par Vercel. Aucun cookie n’est déposé ; les événements suivants peuvent être enregistrés après consentement :",
     items: [
       {
         label: "Pages vues",
@@ -196,27 +132,27 @@ export const MATOMO_DATA: Record<Lang, DataTableCopy> = {
       },
       {
         label: "Navigation",
-        detail: "Parcours, referrer / provenance, liens sortants cliqués",
+        detail: "Referrer / provenance, type de navigation",
       },
       {
         label: "Technique",
-        detail: "Type d’appareil, navigateur, résolution d’écran approximative, langue",
+        detail: "Type d’appareil, navigateur, pays (approximatif), langue",
       },
       {
         label: "Adresse IP",
         detail:
-          "Traitée par Matomo ; anonymisation recommandée côté instance (troncature)",
+          "Traitée par Vercel de manière anonymisée pour la mesure d’audience (voir politique Vercel)",
       },
       {
         label: "Identifiant visiteur",
-        detail: "Associé au cookie _pk_id tant que le consentement est actif",
+        detail: "Aucun cookie ; agrégats anonymes côté Vercel",
       },
     ],
   },
   en: {
-    title: "Data collected by Matomo (if accepted)",
+    title: "Data collected by Vercel Web Analytics (if accepted)",
     intro:
-      "In addition to the cookies above, Matomo may record the following for audience measurement:",
+      "Cookieless service hosted by Vercel. No cookies are set; after consent the following may be recorded:",
     items: [
       {
         label: "Page views",
@@ -224,20 +160,20 @@ export const MATOMO_DATA: Record<Lang, DataTableCopy> = {
       },
       {
         label: "Navigation",
-        detail: "Journeys, referrer / source, outbound link clicks",
+        detail: "Referrer / source, navigation type",
       },
       {
         label: "Technical",
-        detail: "Device type, browser, approximate screen size, language",
+        detail: "Device type, browser, country (approximate), language",
       },
       {
         label: "IP address",
         detail:
-          "Processed by Matomo; IP anonymization (truncation) is recommended on the instance",
+          "Processed by Vercel in anonymized form for audience measurement (see Vercel policy)",
       },
       {
         label: "Visitor ID",
-        detail: "Tied to the _pk_id cookie while consent is active",
+        detail: "No cookie; anonymized aggregates on Vercel’s side",
       },
     ],
   },
@@ -353,7 +289,7 @@ export const LEGAL_PAGES = {
             "Via le formulaire de contact : nom, société (optionnel), adresse e-mail, message.",
             "Via le parcours Carrières : identité, réponses aux questions, vidéo de présentation enregistrée sur la plateforme (stockage objet), éventuellement LinkedIn.",
             "Données techniques de navigation : logs serveur.",
-            "Si vous acceptez les cookies d’audience : statistiques Matomo (pages vues, parcours, données techniques — détail sur la page Cookies).",
+            "Si vous acceptez la mesure d’audience : statistiques Vercel Web Analytics (pages vues, parcours, données techniques — détail sur la page Cookies).",
           ],
         },
         {
@@ -362,14 +298,14 @@ export const LEGAL_PAGES = {
             "Répondre à vos demandes de contact (intérêt légitime / mesures précontractuelles).",
             "Traiter les candidatures spontanées reçues via /carrieres (mesures précontractuelles / intérêt légitime de recrutement).",
             "Assurer la sécurité et la performance du site (intérêt légitime).",
-            "Mesurer l’audience via Matomo uniquement après consentement (bandeau cookies).",
+            "Mesurer l’audience via Vercel Web Analytics uniquement après consentement (bandeau cookies).",
           ],
         },
         {
           title: "Destinataires et sous-traitants",
           paragraphs: [
             "Les données de contact sont destinées à Remparia et, le cas échéant, à notre prestataire d’envoi d’e-mails (Resend) pour acheminer votre message.",
-            "L’hébergement du site est assuré par Vercel. La mesure d’audience est réalisée avec Matomo. Aucune revente de données à des tiers à des fins publicitaires.",
+            "L’hébergement et la mesure d’audience sont assurés par Vercel (Web Analytics, sans cookie publicitaire). Aucune revente de données à des tiers à des fins publicitaires.",
           ],
         },
         {
@@ -406,7 +342,7 @@ export const LEGAL_PAGES = {
             "Via the contact form: name, company (optional), email address, message.",
             "Via the Careers journey: identity, written answers, intro video recorded on the platform (object storage), optionally LinkedIn.",
             "Technical browsing data: server logs.",
-            "If you accept audience cookies: Matomo statistics (page views, journeys, technical data — see the Cookies page for details).",
+            "If you accept audience measurement: Vercel Web Analytics (page views, journeys, technical data — see the Cookies page).",
           ],
         },
         {
@@ -415,14 +351,14 @@ export const LEGAL_PAGES = {
             "Responding to contact requests (legitimate interest / pre-contractual steps).",
             "Processing spontaneous applications via /carrieres (pre-contractual steps / legitimate interest in recruitment).",
             "Ensuring site security and performance (legitimate interest).",
-            "Audience measurement via Matomo only after consent (cookie banner).",
+            "Audience measurement via Vercel Web Analytics only after consent (cookie banner).",
           ],
         },
         {
           title: "Recipients and processors",
           paragraphs: [
             "Contact data is processed by Remparia and, where applicable, our email delivery provider (Resend) to route your message.",
-            "The site is hosted by Vercel. Audience measurement uses Matomo. We do not sell data to third parties for advertising.",
+            "The site is hosted by Vercel. Audience measurement uses Vercel Web Analytics (no advertising cookies). We do not sell data to third parties for advertising.",
           ],
         },
         {
@@ -463,17 +399,17 @@ export const LEGAL_PAGES = {
           ],
         },
         {
-          title: "Mesure d’audience (Matomo)",
+          title: "Mesure d’audience (Vercel Web Analytics)",
           paragraphs: [
-            "Nous utilisons Matomo pour des statistiques de fréquentation (pages vues, parcours, provenances).",
-            "Matomo peut déposer des cookies techniques de mesure (_pk_id, _pk_ses, etc.) ou fonctionner en mode cookieless selon la configuration de l’instance.",
+            "Nous utilisons Vercel Web Analytics pour des statistiques de fréquentation (pages vues, parcours, provenances).",
+            "Ce service ne dépose pas de cookie sur votre terminal : la mesure est activée uniquement si vous acceptez via le bandeau.",
             "Ces données servent uniquement à améliorer le site ; elles ne sont pas utilisées pour du ciblage publicitaire.",
           ],
         },
         {
           title: "Gérer vos préférences",
           paragraphs: [
-            "Un bandeau vous permet d’accepter ou de refuser la mesure d’audience Matomo. Votre choix est mémorisé localement (localStorage) et peut être modifié via « Gérer les cookies ».",
+            "Un bandeau vous permet d’accepter ou de refuser la mesure d’audience Vercel Web Analytics. Votre choix est mémorisé localement (localStorage) et peut être modifié via « Gérer les cookies ».",
             `Pour toute question : ${LEGAL_ENTITY.email}. Voir aussi notre politique de confidentialité.`,
           ],
         },
@@ -499,17 +435,17 @@ export const LEGAL_PAGES = {
           ],
         },
         {
-          title: "Audience measurement (Matomo)",
+          title: "Audience measurement (Vercel Web Analytics)",
           paragraphs: [
-            "We use Matomo for traffic statistics (page views, journeys, sources).",
-            "Matomo may set measurement cookies (_pk_id, _pk_ses, etc.) or run in cookieless mode depending on instance settings.",
+            "We use Vercel Web Analytics for traffic statistics (page views, journeys, sources).",
+            "This service does not set cookies on your device: measurement runs only if you accept via the banner.",
             "Data is used only to improve the site; it is not used for advertising targeting.",
           ],
         },
         {
           title: "Managing preferences",
           paragraphs: [
-            "A banner lets you accept or refuse Matomo audience measurement. Your choice is stored locally (localStorage) and can be changed via “Cookie settings”.",
+            "A banner lets you accept or refuse Vercel Web Analytics. Your choice is stored locally (localStorage) and can be changed via “Cookie settings”.",
             `Questions: ${LEGAL_ENTITY.email}. See also our privacy policy.`,
           ],
         },

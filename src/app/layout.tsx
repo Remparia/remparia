@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
-import MatomoProvider from "@/components/MatomoProvider";
+import VercelAnalyticsProvider from "@/components/VercelAnalyticsProvider";
 import {
   SITE,
   absoluteUrl,
@@ -104,7 +104,7 @@ export default function RootLayout({
           ]}
         />
         {children}
-        <MatomoProvider />
+        <VercelAnalyticsProvider />
       </body>
     </html>
   );

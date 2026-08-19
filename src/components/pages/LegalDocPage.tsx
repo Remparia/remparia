@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageBits";
 import { resetCookieConsent } from "@/lib/cookie-consent";
 import {
   COOKIE_TABLE,
-  MATOMO_DATA,
+  ANALYTICS_DATA,
   getLegalPage,
   type LegalPageKey,
 } from "@/lib/legal";
@@ -23,7 +23,7 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
   const home = lang === "fr" ? "Accueil" : "Home";
   const crumb = TITLES[page][lang];
   const cookieTable = page === "cookies" ? COOKIE_TABLE[lang] : null;
-  const matomoData = page === "cookies" ? MATOMO_DATA[lang] : null;
+  const analyticsData = page === "cookies" ? ANALYTICS_DATA[lang] : null;
 
   return (
     <div className="page page--inner">
@@ -83,12 +83,12 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
           </article>
         ) : null}
 
-        {matomoData ? (
+        {analyticsData ? (
           <article className="legal-doc__block reveal">
-            <h2 className="legal-doc__title">{matomoData.title}</h2>
-            <p className="section__body">{matomoData.intro}</p>
+            <h2 className="legal-doc__title">{analyticsData.title}</h2>
+            <p className="section__body">{analyticsData.intro}</p>
             <ul className="cookie-data-list">
-              {matomoData.items.map((item) => (
+              {analyticsData.items.map((item) => (
                 <li key={item.label}>
                   <strong>{item.label}</strong>
                   <span>{item.detail}</span>

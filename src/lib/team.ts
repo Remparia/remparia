@@ -51,28 +51,32 @@ function member(
 
 const MEMBERS = [
   member("1", {
-    name: "Prénom Nom",
-    roleFr: "Associé — Stratégie & delivery",
-    roleEn: "Partner — Strategy & delivery",
+    name: "Tannous Mekari",
+    roleFr: "Cofondateur · Stratégie, business & partenariats",
+    roleEn: "Cofounder · Strategy, business & partnerships",
     bioFr:
-      "Cadrage SIGNAL, gouvernance données et pilotage des gains jusqu'à l'adoption terrain. Parcours conseil et métiers réglementés.",
+      "Entrepreneur : connaissance métier et business, sensibilisation growth, développement d’affaires et alliances jusqu’au passage en production. Parcours transformation digitale, retail et innovation, exécution terrain.",
     bioEn:
-      "SIGNAL scoping, data governance and outcome steering through to field adoption. Consulting and regulated professions background.",
-    credFr: "15+ ans conseil · Finance & assurance · Production d'agents supervisés",
-    credEn: "15+ years consulting · Finance & insurance · Supervised agents in production",
-    linkedin: "https://www.linkedin.com/in/",
+      "Entrepreneur: domain and business knowledge, growth awareness, business development and partnerships through to production launch. Digital transformation, retail and innovation, field execution.",
+    credFr:
+      "Transformation digitale · Partenariats & retail · Delivery solutions · Agents supervisés en production",
+    credEn:
+      "Digital transformation · Partnerships & retail · Solution delivery · Supervised agents in production",
+    linkedin: "https://www.linkedin.com/in/tannous-mekari-90098569/",
   }),
   member("2", {
-    name: "Prénom Nom",
-    roleFr: "Associé — Ingénierie & solutions",
-    roleEn: "Partner — Engineering & solutions",
+    name: "Sébastien Houzet",
+    roleFr: "Cofondateur · Architecture & delivery solutions",
+    roleEn: "Cofounder · Architecture & solution delivery",
     bioFr:
-      "Architecture agentique, intégrations SI et passage en production avec observabilité. Sécurité by design et transfert aux équipes client.",
+      "Forward Development Engineer (FDE) et architecte solutions : conception agentique, intégrations SI et industrialisation avec observabilité. Socle souverain, sécurité by design et transfert aux équipes client.",
     bioEn:
-      "Agent architecture, system integration and production launch with observability. Security by design and client team transfer.",
-    credFr: "Lead tech & produit · Infra souveraine · Intégrations CRM/ERP",
-    credEn: "Lead tech & product · Sovereign infra · CRM/ERP integrations",
-    linkedin: "https://www.linkedin.com/in/",
+      "Forward Development Engineer (FDE) and solutions architect: agent design, system integration and industrialization with observability. Sovereign foundation, security by design and client team transfer.",
+    credFr:
+      "Architecture technique · Forward Development Engineer · Intégration · Infra souveraine · Mise en production",
+    credEn:
+      "Technical architecture · Forward Development Engineer · Integration · Sovereign infra · Production rollout",
+    linkedin: "https://www.linkedin.com/in/sebastienhouzet/",
   }),
 ];
 
@@ -90,6 +94,7 @@ export function teamPeopleJsonLd(lang: Lang = "fr") {
     worksFor: {
       "@type": "Organization",
       name: "Remparia",
+      url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://www.remparia.com",
     },
     ...(person.linkedin ? { sameAs: [person.linkedin] } : {}),
   }));

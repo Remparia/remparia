@@ -13,14 +13,14 @@ import { useLang } from "@/lib/lang";
 const COPY = {
   fr: {
     title: "Cookies",
-    text: "Nous utilisons Matomo pour mesurer l’audience du site. Vous pouvez accepter ou refuser. Aucun tracking publicitaire. Échap refuse.",
+    text: "Nous mesurons l’audience avec Vercel Web Analytics (sans cookie publicitaire). Acceptez ou refusez cette mesure — votre choix est mémorisé localement. Échap refuse.",
     accept: "Accepter",
     refuse: "Refuser",
     more: "En savoir plus",
   },
   en: {
     title: "Cookies",
-    text: "We use Matomo to measure site traffic. You can accept or refuse. No advertising tracking. Escape declines.",
+    text: "We measure traffic with Vercel Web Analytics (no advertising cookies). Accept or refuse — your choice is stored locally. Escape declines.",
     accept: "Accept",
     refuse: "Refuse",
     more: "Learn more",

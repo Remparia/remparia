@@ -5,15 +5,7 @@ import Image from "next/image";
 import HeroIntro from "@/components/HeroIntro";
 import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
-import {
-  APROPOS,
-  BRAND,
-  HOME,
-  METHODE,
-  SECTEURS,
-  SERVICES,
-  getSecteurImage,
-} from "@/lib/content";
+import { HOME, SECTEURS, SERVICES, getSecteurImage } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 type AdvantageIconName = (typeof HOME.fr.advantages)[number]["icon"];
@@ -82,10 +74,7 @@ function AdvantageIcon({ name }: { name: AdvantageIconName }) {
 export default function HomePage() {
   const { lang } = useLang();
   const t = HOME[lang];
-  const brand = BRAND[lang];
-  const signal = METHODE[lang].steps;
   const services = SERVICES[lang].items;
-  const positions = APROPOS[lang].positions;
   const sectors = SECTEURS[lang];
   const sectorsCtaLabel = sectors.discoverAll;
   const [holding, setHolding] = useState(false);
@@ -158,11 +147,6 @@ export default function HomePage() {
                 </article>
               ))}
             </div>
-
-            <div className="hero__closing reveal" data-d="3">
-              <span>{t.closingBefore}</span>
-              <strong>{t.closingAccent}</strong>
-            </div>
           </div>
         </div>
       </header>
@@ -174,68 +158,18 @@ export default function HomePage() {
         <h2 className="section__title reveal" data-d="1">
           {t.constatH}
         </h2>
+        <p className="section__body reveal conviction__accent" data-d="1">
+          {t.convH1}{" "}
+          <span className="conviction__accent">{t.convH2}</span>
+        </p>
         <p className="section__body reveal" data-d="2">
           {t.constatP}
         </p>
       </section>
 
       <section className="section section--alt">
-        <div className="conviction">
-          <div className="reveal">
-            <SectionLabel>02 — {t.conviction}</SectionLabel>
-            <h2 className="section__title">
-              {t.convH1}{" "}
-              <span className="conviction__accent">{t.convH2}</span>
-            </h2>
-          </div>
-          <div className="conviction__quote reveal" data-d="2">
-            <p>{t.convP}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="conviction">
-          <div className="reveal">
-            <SectionLabel>03 — {brand.visionTag}</SectionLabel>
-            <h2 className="section__title">{brand.visionH}</h2>
-          </div>
-          <div className="conviction__quote reveal" data-d="2">
-            <p>{brand.visionP}</p>
-          </div>
-        </div>
-        <div className="reveal section-breakout section-breakout--light">
-          <div className="section-breakout__inner">
-            <SectionLabel>{brand.missionTag}</SectionLabel>
-            <h2 className="section__title">{brand.missionH}</h2>
-            <p className="section__body">{brand.missionP}</p>
-          </div>
-        </div>
-        <div className="reveal" style={{ marginTop: 64 }}>
-          <SectionLabel>{brand.valuesTag}</SectionLabel>
-          <h2 className="section__title">{brand.valuesH}</h2>
-        </div>
-        <div className="card-grid" style={{ marginTop: 40 }}>
-          {brand.values.map((value, i) => (
-            <article
-              key={value.tag}
-              className="info-card reveal"
-              data-d={String(Math.min((i % 3) + 1, 3))}
-            >
-              <div className="info-card__tag">{value.tag}</div>
-              <h3>{value.title}</h3>
-              <p>{value.desc}</p>
-            </article>
-          ))}
-        </div>
-        <p className="section__body reveal" style={{ marginTop: 32 }}>
-          {brand.guarantee}
-        </p>
-      </section>
-
-      <section className="section section--alt">
         <div className="reveal">
-          <SectionLabel>04 — {t.audience}</SectionLabel>
+          <SectionLabel>02 — {t.audience}</SectionLabel>
         </div>
         <h2 className="section__title reveal" data-d="1">
           {t.audienceH}
@@ -273,36 +207,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="signal" className="section">
+      <section className="section">
         <div className="reveal">
-          <SectionLabel>05 — {t.method}</SectionLabel>
-        </div>
-        <div className="section__head reveal" data-d="1">
-          <h2 className="section__title">{t.methodH}</h2>
-          <LocaleLink href="/methode" className="text-link">
-            {t.methodCta} →
-          </LocaleLink>
-        </div>
-        <div className="signal-grid">
-          {signal.map((step, i) => (
-            <div
-              key={step.letter}
-              className="signal-card reveal"
-              data-d={String(Math.min((i % 3) + 1, 3))}
-            >
-              <div className="signal-card__letter">{step.letter}</div>
-              <div>
-                <div className="signal-card__title">{step.title}</div>
-                <div className="signal-card__desc">{step.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>06 — {t.servicesEyebrow}</SectionLabel>
+          <SectionLabel>03 — {t.servicesEyebrow}</SectionLabel>
         </div>
         <div className="section__head reveal" data-d="1">
           <h2 className="section__title">{t.servicesH}</h2>
@@ -326,49 +233,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="position" className="section">
+      <section id="signal" className="section section--alt">
         <div className="reveal">
-          <SectionLabel>07 — {t.position}</SectionLabel>
+          <SectionLabel>04 — {t.method}</SectionLabel>
         </div>
-        <h2 className="section__title reveal" data-d="1">
-          {t.positionH}
-        </h2>
-        <div className="position-grid">
-          {positions.map((p, i) => (
-            <div
-              key={p.tag}
-              className="position-card reveal"
-              data-d={String(Math.min(i + 1, 3))}
-              style={{
-                border: `1px solid ${p.highlight ? "#c8ff00" : "rgba(255,255,255,.12)"}`,
-                background: p.highlight ? "rgba(200,255,0,.07)" : "transparent",
-              }}
-            >
-              <div
-                className="position-card__tag"
-                style={{
-                  color: p.highlight ? "#c8ff00" : "rgba(255,255,255,.5)",
-                }}
-              >
-                {p.tag}
-              </div>
-              <div>
-                <div
-                  className="position-card__title"
-                  style={{ color: p.highlight ? "#c8ff00" : "#fff" }}
-                >
-                  {p.title}
-                </div>
-                <div
-                  className="position-card__desc"
-                  style={{ color: "rgba(255,255,255,.55)" }}
-                >
-                  {p.desc}
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="section__head reveal" data-d="1">
+          <h2 className="section__title">{t.methodH}</h2>
+          <LocaleLink href="/methode" className="text-link">
+            {t.methodCta} →
+          </LocaleLink>
         </div>
+        <p className="section__body reveal" data-d="2">
+          {t.methodTeaser}
+        </p>
       </section>
 
       <CtaBand tag={t.ctaTag} title={t.ctaH} text={t.ctaP} />

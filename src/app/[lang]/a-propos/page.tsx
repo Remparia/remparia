@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import AProposPage from "@/components/pages/AProposPage";
 import { toLang } from "@/lib/i18n";
-import { createPageMetadata } from "@/lib/seo";
+import { aboutPageJsonLd, breadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 import { teamPeopleJsonLd } from "@/lib/team";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -24,9 +24,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { lang: langParam } = await params;
   const lang = toLang(langParam);
+  const isEn = lang === "en";
+  const home = isEn ? "Home" : "Accueil";
+  const label = isEn ? "About" : "À propos";
+
   return (
     <>
-      <JsonLd data={teamPeopleJsonLd(lang)} />
+      <JsonLd
+        data={[
+          aboutPageJsonLd(lang),
+          breadcrumbJsonLd(
+            [
+              { name: home, path: "/" },
+              { name: label, path: "/a-propos" },
+            ],
+            lang,
+          ),
+          ...teamPeopleJsonLd(lang),
+        ]}
+      />
       <AProposPage />
     </>
   );

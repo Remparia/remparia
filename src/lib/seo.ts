@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Lang } from "@/lib/content";
-import { SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, getSecteurImage, getService, getServiceImage } from "@/lib/content";
+import { APROPOS, SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, getSecteurImage, getService, getServiceImage } from "@/lib/content";
 import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
 
 import { CONTACT_EMAIL } from "./contact-email";
@@ -130,25 +130,51 @@ export function createPageMetadata({
   };
 }
 
-export function organizationJsonLd() {
-  const founders = getTeamMembers("fr").map((person) => ({
+function orgLegalField(envKey: string): string | undefined {
+  const value = process.env[envKey]?.trim();
+  if (!value || /\[.*(à compléter|to complete)/i.test(value)) return undefined;
+  return value;
+}
+
+function buildOrganizationJsonLd(lang: Lang = "fr") {
+  const founders = getTeamMembers(lang).map((person) => ({
     "@type": "Person" as const,
     name: person.name,
     jobTitle: person.role,
     ...(person.linkedin ? { sameAs: person.linkedin } : {}),
   }));
 
+  const address = orgLegalField("LEGAL_ADDRESS");
+  const vatId = orgLegalField("LEGAL_VAT");
+  const legalName = orgLegalField("LEGAL_NAME") ?? SITE.legalName;
+
   return {
-    "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${getSiteUrl()}/#organization`,
     name: SITE.name,
-    legalName: SITE.legalName,
+    legalName,
     url: getSiteUrl(),
     logo: absoluteUrl("/logo-remparia.png"),
     email: SITE.email,
-    description: SITE.description,
+    description: APROPOS[lang].sub,
     founder: founders,
     employee: founders,
+    knowsAbout: [
+      lang === "en" ? "Supervised business agents" : "Agents métier supervisés",
+      lang === "en" ? "Sovereign AI infrastructure" : "Infrastructure IA souveraine",
+      lang === "en" ? "Data governance" : "Gouvernance des données",
+      "SIGNAL",
+    ],
+    ...(address
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: address,
+            addressCountry: "FR",
+          },
+        }
+      : {}),
+    ...(vatId ? { vatID: vatId } : {}),
     areaServed: {
       "@type": "Country",
       name: "France",
@@ -159,6 +185,29 @@ export function organizationJsonLd() {
       email: SITE.email,
       availableLanguage: ["French", "English"],
     },
+  };
+}
+
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    ...buildOrganizationJsonLd("fr"),
+  };
+}
+
+export function aboutPageJsonLd(lang: Lang = "fr") {
+  const locale = lang === "en" ? "en" : "fr";
+  const path = withLocale(locale, "/a-propos");
+  const isEn = lang === "en";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: isEn ? "About Remparia" : "À propos de Remparia",
+    url: absoluteUrl(path),
+    inLanguage: isEn ? "en-US" : "fr-FR",
+    description: APROPOS[lang].sub,
+    mainEntity: buildOrganizationJsonLd(lang),
   };
 }
 

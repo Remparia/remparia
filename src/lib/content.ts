@@ -180,7 +180,7 @@ export const HOME = {
   fr: {
     eyebrow: "AGENTS POUR MÉTIERS SPÉCIALISÉS",
     h1a: "Nous transformons",
-    h1b: "l’IA en avantage concurrentiel.",
+    h1b: "l IA en avantage concurrentiel.",
     protocolAria: "Protocole SIGNAL",
     introSkip: "Passer",
     introLine: "rempart + agents",
@@ -189,27 +189,27 @@ export const HOME = {
     subBefore: "Remparia aide les métiers spécialisés à ",
     subAccent: "intégrer des agents supervisés",
     subAfter:
-      " de manière concrète, sécurisée et mesurable — sans céder la décision ni le contrôle de leurs données.",
+      " de manière concrète, souveraine, sécurisée et mesurable — sans céder la décision ni le contrôle de leurs données.",
     advantages: [
       {
         icon: "strategy",
         title: "Stratégie & gouvernance",
-        desc: "Une vision claire des usages où l’automatisation crée un impact vérifiable.",
+        desc: "Une vision claire des usages où l’automatisation crée un impact vérifiable, dans un cadre souverain.",
       },
       {
         icon: "security",
         title: "Intégration sécurisée",
-        desc: "Des agents supervisés, intégrés à vos outils et conformes à vos règles.",
+        desc: "Des agents supervisés, hébergés dans un périmètre souverain et intégrés à vos outils.",
       },
       {
         icon: "performance",
         title: "Performance mesurable",
-        desc: "Des gains définis avant le déploiement : charge, délais et qualité.",
+        desc: "Des gains définis avant le déploiement sur un socle souverain : charge, délais et qualité.",
       },
       {
         icon: "partnership",
         title: "Partenaire de confiance",
-        desc: "Un accompagnement de bout en bout par les associés qui livrent.",
+        desc: "Un accompagnement souverain de bout en bout par les associés qui livrent.",
       },
     ],
     closingBefore: "L’automatisation n’est pas qu’une technologie.",
@@ -247,11 +247,13 @@ export const HOME = {
     ],
     method: "DU TERRAIN AUX GAINS",
     methodH: "SIGNAL : six étapes, six livrables.",
+    methodTeaser:
+      "Du terrain aux gains mesurés — livrables, gouvernance et délais à chaque étape. Le détail sur la page Méthode.",
     methodCta: "Explorer SIGNAL",
     position: "LE POSITIONNEMENT",
     positionH: "Ni formation seule, ni outil générique. Un partenaire qui livre.",
     servicesEyebrow: "CE QUE NOUS LIVRONS",
-    servicesH: "Du terrain à la capacité retrouvée.",
+    servicesH: "De l’audit à l’adoption.",
     servicesCta: "Voir notre accompagnement",
     ctaTag: "PRÊT À COMMENCER",
     ctaH: "Montrez-nous le processus qui vous coûte du temps.",
@@ -270,27 +272,27 @@ export const HOME = {
     subBefore: "Remparia helps specialized professions ",
     subAccent: "integrate supervised agents",
     subAfter:
-      " in a concrete, secure and measurable way — without giving up decisions or control of their data.",
+      " in a concrete, sovereign, secure and measurable way — without giving up decisions or control of their data.",
     advantages: [
       {
         icon: "strategy",
         title: "Agent strategy",
-        desc: "A clear view of the uses where automation can create verifiable impact.",
+        desc: "A clear view of the uses where automation creates verifiable impact, within a sovereign framework.",
       },
       {
         icon: "security",
         title: "Secure integration",
-        desc: "Supervised agents embedded in your tools and compliant with your rules.",
+        desc: "Supervised agents hosted in a sovereign perimeter and embedded in your tools.",
       },
       {
         icon: "performance",
         title: "Measurable performance",
-        desc: "Outcomes defined before deployment: workload, lead times and quality.",
+        desc: "Outcomes defined before deployment on a sovereign foundation: workload, lead times and quality.",
       },
       {
         icon: "partnership",
         title: "Trusted partner",
-        desc: "End-to-end support from the partners who actually deliver.",
+        desc: "End-to-end sovereign support from the partners who actually deliver.",
       },
     ],
     closingBefore: "Agents are more than technology.",
@@ -328,11 +330,13 @@ export const HOME = {
     ],
     method: "FROM FIELDWORK TO GAINS",
     methodH: "SIGNAL: six stages, six deliverables.",
+    methodTeaser:
+      "From fieldwork to measured outcomes — deliverables, governance and timelines at every stage. Full detail on the Method page.",
     methodCta: "Explore SIGNAL",
     position: "POSITIONING",
     positionH: "Not training alone. Not a generic tool. A partner that ships.",
     servicesEyebrow: "WHAT WE DELIVER",
-    servicesH: "From fieldwork to recovered capacity.",
+    servicesH: "From audit to adoption.",
     servicesCta: "See how we engage",
     ctaTag: "READY TO START",
     ctaH: "Show us the workflow costing you time.",
@@ -449,7 +453,7 @@ export const SERVICES = {
         steps: ["Former", "Déployer", "Transférer", "Améliorer"],
         image: "/services/adoption-transfert-hub.png",
         imageAlt:
-          "Schéma isométrique : formation, déploiement progressif et transfert de compétences.",
+          "Schéma isométrique : formation, déploiement, documentation, transfert de compétences et pilotage des gains.",
         ctaHref: "/services/equipes-embarquees",
         flip: true,
       },
@@ -585,7 +589,7 @@ export const SERVICES = {
         steps: ["Train", "Roll out", "Transfer", "Improve"],
         image: "/services/adoption-transfert-hub.png",
         imageAlt:
-          "Isometric diagram: training, progressive rollout and skills transfer.",
+          "Isometric diagram: training, rollout, documentation, skills transfer and outcome steering.",
         ctaHref: "/services/equipes-embarquees",
         flip: true,
       },
@@ -1001,17 +1005,17 @@ export {
 export const APROPOS = {
   fr: {
     eyebrow: "QUI NOUS SOMMES",
-    title: "Deux associés. Ceux qui vendent livrent.",
-    sub: "Remparia est fondé et opéré par ses associés, du premier échange au passage en production.",
+    title: "Deux cofondateurs. Ceux qui vendent livrent.",
+    sub: "Remparia est fondé et opéré par Tannous Mekari et Sébastien Houzet — du premier échange au passage en production.",
     convictionH: "L'humain décide, l'agent exécute.",
     convictionP:
       "Les agents ne sont pas là pour remplacer. Elle est là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
     collectiveTitle: "Les associés opérateurs",
     collectiveSub:
       "Pas de couche commerciale déconnectée : stratégie, ingénierie et adoption sont portées par ceux qui s'engagent avec vous.",
-    teamTitle: "Les associés",
+    teamTitle: "Les cofondateurs",
     teamSub:
-      "Deux associés opérationnels — ceux qui cadreront votre mission sont ceux qui la livreront en production.",
+      "Tannous Mekari et Sébastien Houzet — ceux qui cadreront votre mission sont ceux qui la livreront en production.",
     collective: [
       {
         tag: "STRATÉGIE & DELIVERY",
@@ -1075,17 +1079,17 @@ export const APROPOS = {
   },
   en: {
     eyebrow: "WHO WE ARE",
-    title: "Two partners. The people who sell also ship.",
-    sub: "Remparia is founded and operated by its partners, from the first conversation to production.",
+    title: "Two cofounders. The people who sell also ship.",
+    sub: "Remparia is founded and operated by Tannous Mekari and Sébastien Houzet — from the first conversation to production.",
     convictionH: "Humans decide, agents execute.",
     convictionP:
       "Agents aren't here to replace. It's here to free up time for what matters. Your teams keep control, decisions and accountability — agents carry the repetitive load.",
     collectiveTitle: "Operator partners",
     collectiveSub:
       "No disconnected sales layer: strategy, engineering and adoption are carried by the people who commit to you.",
-    teamTitle: "The partners",
+    teamTitle: "The cofounders",
     teamSub:
-      "Two operating partners — the people who scope your engagement lead production delivery.",
+      "Tannous Mekari and Sébastien Houzet — the people who scope your engagement lead production delivery.",
     collective: [
       {
         tag: "STRATEGY & DELIVERY",
