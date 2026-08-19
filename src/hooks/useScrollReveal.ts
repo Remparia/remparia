@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 
 const SELECTOR = ".reveal:not(.in), .clip:not(.in), .media-reveal:not(.in)";
 
@@ -29,7 +29,7 @@ function isNearViewport(el: Element) {
  * (mount initial ET navigations client).
  */
 export function useScrollReveal() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = document.documentElement;
 
     if (prefersReducedMotion()) {

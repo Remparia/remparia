@@ -148,6 +148,11 @@ summary:focus-visible {
     transition: clip-path 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Hero H1 is LCP — never clip-hide after hydration */
+  html.is-ready .hero__title .clip:not(.in) {
+    clip-path: inset(0 0 0 0);
+  }
+
   html.is-ready .clip.in {
     clip-path: inset(0 0 0 0);
   }

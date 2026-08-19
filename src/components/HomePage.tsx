@@ -121,11 +121,11 @@ export default function HomePage() {
               {t.eyebrow}
             </div>
             <h1 className="hero__title hero__title--advantage">
-              <span className="clip">
+              <span className="clip in">
                 {t.h1a}
                 {" "}
               </span>
-              <span className="clip hero__title-accent" data-d="1">
+              <span className="clip in hero__title-accent" data-d="1">
                 {t.h1b}
               </span>
             </h1>
