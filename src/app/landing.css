@@ -662,6 +662,15 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
+.hero__promise {
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .hero__stats {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-left: none;

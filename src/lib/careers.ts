@@ -13,14 +13,14 @@ export const CAREERS = {
   fr: {
     eyebrow: "CARRIÈRES",
     title: "Rejoindre Remparia",
-    sub: "IA souveraine, agents métier, jusqu’à la prod. On mandate des indépendants sur nos missions clients — TJ ou heure.",
+    sub: "Agents IA pour métiers spécialisés, supervision humaine et données sous contrôle. Nous constituons un réseau d'indépendants mobilisables selon les déploiements.",
     heroMeta: ["≈ 30 min", "3 étapes", "Écrit + vidéo"],
     heroCta: "Lancer le parcours",
     heroSecondary: "Voir les profils",
     rolesTag: "OUVERTS",
     rolesTitle: "Profils que l’on cherche",
     rolesSub:
-      "Des indépendants qui livrent sur nos missions clients — pas des titres fantaisie.",
+      "Des indépendants capables de sonder, gouverner, construire et transférer — pas des titres fantaisie.",
     roles: [
       {
         id: "agent-engineer" as const,
@@ -62,7 +62,7 @@ export const CAREERS = {
     philTag: "PHILO",
     philTitle: "Comment on travaille",
     philSub:
-      "Remparia vend et cadre la mission. Tu livres chez le client, en indépendant — au TJ ou à l’heure.",
+      "Quand un déploiement requiert ton expertise, Remparia cadre l'engagement et tu interviens en indépendant — au TJ ou à l'heure.",
     phil: [
       {
         tag: "LIVRER",
@@ -82,7 +82,7 @@ export const CAREERS = {
       {
         tag: "COLLABORER",
         title: "Freelance · TJ ou heure",
-        desc: "Tu interviens sur nos missions clients en indépendant. Remparia te mandate ; tu factures au jour ou à l’heure.",
+        desc: "Tu rejoins un vivier d'experts mobilisé selon les besoins. Remparia te mandate ; tu factures au jour ou à l'heure.",
       },
     ],
     processTitle: "Le parcours candidature (≈ 30 min)",
@@ -210,14 +210,14 @@ export const CAREERS = {
   en: {
     eyebrow: "CAREERS",
     title: "Join Remparia",
-    sub: "Sovereign AI, business agents, through to production. We staff freelancers on our client missions — day rate or hourly.",
+    sub: "AI agents for specialized professions, human supervision and data under control. We are building a network of independents available for deployments.",
     heroMeta: ["≈ 30 min", "3 steps", "Written + video"],
     heroCta: "Start the journey",
     heroSecondary: "See open roles",
     rolesTag: "OPEN",
     rolesTitle: "Profiles we’re looking for",
     rolesSub:
-      "Independents who ship on our client missions — no vanity titles.",
+      "Independents who can study, govern, build and transfer — no vanity titles.",
     roles: [
       {
         id: "agent-engineer" as const,
@@ -259,7 +259,7 @@ export const CAREERS = {
     philTag: "ETHOS",
     philTitle: "How we work",
     philSub:
-      "Remparia sells and scopes the mission. You deliver at the client, as an independent — day rate or hourly.",
+      "When a deployment needs your expertise, Remparia frames the engagement and you contribute as an independent — day rate or hourly.",
     phil: [
       {
         tag: "SHIP",
@@ -279,7 +279,7 @@ export const CAREERS = {
       {
         tag: "COLLABORATE",
         title: "Freelance · day or hour",
-        desc: "You join our client missions as an independent. Remparia mandates you; you bill by the day or by the hour.",
+        desc: "You join an expert pool activated as needed. Remparia mandates you; you bill by the day or by the hour.",
       },
     ],
     processTitle: "Application journey (≈ 30 min)",

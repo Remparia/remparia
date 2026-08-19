@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "Resources" : "Ressources",
     description: isEn
-      ? "SIGNAL method, insights and Remparia tools to go from noise to signal in AI."
-      : "Méthode SIGNAL, insights et outils Remparia pour passer du bruit au signal en IA.",
+      ? "The SIGNAL method and practical tools to turn a real workflow into a supervised AI agent."
+      : "La méthode SIGNAL et des outils pratiques pour transformer un processus réel en agent IA supervisé.",
     path: "/ressources",
     lang,
   });

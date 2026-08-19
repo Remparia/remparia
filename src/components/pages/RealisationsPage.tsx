@@ -10,7 +10,7 @@ export default function RealisationsPage() {
   const cta = HOME[lang];
 
   const home = lang === "fr" ? "Accueil" : "Home";
-  const label = lang === "fr" ? "Réalisations" : "Our Work";
+  const label = lang === "fr" ? "Cas d'usage" : "Use cases";
 
   return (
     <div className="page page--inner">

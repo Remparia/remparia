@@ -10,10 +10,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "Our work" : "Réalisations",
+    title: isEn ? "AI agent use cases" : "Cas d'usage agents IA",
     description: isEn
-      ? "How Remparia takes AI projects from POC to measurable value: production agents, sovereign RAG, regulated automation."
-      : "Comment Remparia fait passer les projets IA du POC à la valeur mesurable : agents en production, RAG souverain, automatisation réglementée.",
+      ? "Concrete deployment scenarios for production agents, controlled RAG and supervised document automation."
+      : "Scénarios concrets de déploiement : agents en production, RAG sous contrôle et automatisation documentaire supervisée.",
     path: "/realisations",
     lang,
   });

@@ -15,7 +15,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "finance-assurance",
     heroH: "IA souveraine pour la finance & l'assurance",
     heroP:
-      "Nous aidons banques, assureurs et mutuelles à passer des POC bloqués à des agents métier en production — conformité, traçabilité et données sous contrôle.",
+      "Des agents supervisés pour absorber le documentaire et les contrôles, pendant que vos équipes gardent le jugement, la responsabilité et la relation client.",
     signals: [
       { value: "SIGNAL", label: "Protocole de bout en bout" },
       { value: "FR", label: "Données en France" },
@@ -93,7 +93,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "sante",
     heroH: "IA pour la santé & les professions réglementées",
     heroP:
-      "Automatisation et agents métier qui respectent le secret professionnel, les cadres légaux et la réalité de vos process cliniques ou administratifs.",
+      "Alléger la charge administrative sans déléguer la décision clinique : secret professionnel, validation humaine et outils existants structurent chaque usage.",
     signals: [
       { value: "Secret", label: "Professionnel respecté" },
       { value: "FR", label: "Hébergement souverain" },
@@ -170,7 +170,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "industrie",
     heroH: "IA pour l'industrie & les opérations",
     heroP:
-      "Des agents branchés sur la maintenance, la qualité et la supply — intégrés à vos systèmes, mesurables, et prêts pour le terrain.",
+      "Donner aux techniciens un accès plus rapide au savoir opérationnel et absorber les exceptions répétitives — sans contourner vos systèmes ni leur expertise.",
     signals: [
       { value: "OT/IT", label: "Intégration systèmes" },
       { value: "Prod", label: "Jusqu'à la production" },
@@ -248,7 +248,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "services-conseil",
     heroH: "IA pour les services & le conseil",
     heroP:
-      "Accélérer la production de livrables et la capitalisation du savoir — sans diluer l'expertise humaine ni exposer la confidentialité client.",
+      "Retrouver de la capacité sur la recherche, la synthèse et les livrables — sans standardiser le jugement ni exposer la confidentialité client.",
     signals: [
       { value: "Expert", label: "Humain au centre" },
       { value: "Conf.", label: "Confidentialité client" },
@@ -325,7 +325,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "tech-produit",
     heroH: "IA pour la tech & le produit",
     heroP:
-      "Industrialiser l'IA dans vos produits et process internes — de la stratégie modèle à la production fiable, mesurable et gouvernée.",
+      "Fiabiliser les fonctions IA et les processus internes avec des garde-fous, des preuves et un transfert progressif vers vos équipes produit et engineering.",
     signals: [
       { value: "LLM", label: "Agnostique modèles" },
       { value: "Prod", label: "Fiabilité produit" },
@@ -403,7 +403,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "secteur-public",
     heroH: "IA pour le secteur public",
     heroP:
-      "Souveraineté, traçabilité et gains opérationnels pour les missions d'intérêt général — de l'idée à la production, sous contrainte réglementaire.",
+      "Réduire les délais administratifs tout en préservant la décision publique, la traçabilité et la maîtrise des données d'intérêt général.",
     signals: [
       { value: "Souverain", label: "Données & hébergement" },
       { value: "Audit", label: "Traçabilité" },
@@ -484,7 +484,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "finance-assurance",
     heroH: "Sovereign AI for finance & insurance",
     heroP:
-      "We help banks, insurers and mutuals move from stuck POCs to production business agents — compliance, traceability and data under control.",
+      "Supervised agents absorb document work and controls while your teams keep judgment, accountability and client relationships.",
     signals: [
       { value: "SIGNAL", label: "End-to-end protocol" },
       { value: "FR", label: "Data in France" },
@@ -562,7 +562,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "sante",
     heroH: "AI for healthcare & regulated professions",
     heroP:
-      "Automation and business agents that respect professional secrecy, legal frameworks and the reality of clinical or administrative workflows.",
+      "Ease administrative load without delegating clinical decisions: professional secrecy, human validation and existing tools shape every use.",
     signals: [
       { value: "Secrecy", label: "Professional respect" },
       { value: "FR", label: "Sovereign hosting" },
@@ -635,7 +635,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "industrie",
     heroH: "AI for industry & operations",
     heroP:
-      "Agents plugged into maintenance, quality and supply — integrated with your systems, measurable, and ready for the floor.",
+      "Give technicians faster access to operational knowledge and absorb repetitive exceptions — without bypassing your systems or their expertise.",
     signals: [
       { value: "OT/IT", label: "Systems integration" },
       { value: "Prod", label: "Through to production" },
@@ -713,7 +713,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "services-conseil",
     heroH: "AI for services & consulting",
     heroP:
-      "Accelerate deliverables and knowledge reuse — without diluting human expertise or exposing client confidentiality.",
+      "Recover capacity across research, synthesis and deliverables — without standardizing judgment or exposing client confidentiality.",
     signals: [
       { value: "Expert", label: "Humans at the center" },
       { value: "Conf.", label: "Client confidentiality" },
@@ -786,7 +786,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "tech-produit",
     heroH: "AI for tech & product",
     heroP:
-      "Industrialize AI in your products and internal processes — from model strategy to reliable, measurable, governed production.",
+      "Make AI features and internal workflows reliable through guardrails, evidence and progressive transfer to product and engineering teams.",
     signals: [
       { value: "LLM", label: "Model-agnostic" },
       { value: "Prod", label: "Product reliability" },
@@ -864,7 +864,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "secteur-public",
     heroH: "AI for the public sector",
     heroP:
-      "Sovereignty, traceability and operational gains for public-interest missions — from idea to production under regulatory constraint.",
+      "Shorten administrative lead times while preserving public decisions, traceability and control of public-interest data.",
     signals: [
       { value: "Sovereign", label: "Data & hosting" },
       { value: "Audit", label: "Traceability" },
@@ -954,5 +954,20 @@ export function getSecteurDetail(
   slug: string,
   lang: "fr" | "en" = "fr",
 ): SecteurDetail | null {
-  return BY_LANG[lang][slug] ?? null;
+  const detail = BY_LANG[lang][slug];
+  if (!detail) return null;
+
+  const scenarioLabel =
+    lang === "fr" ? "Déploiement possible" : "Possible deployment";
+  const objectiveLabel =
+    lang === "fr" ? "Objectif à cadrer" : "Target to define";
+
+  return {
+    ...detail,
+    scenarios: detail.scenarios.map((scenario) => ({
+      ...scenario,
+      need: `${objectiveLabel} — ${scenario.need}`,
+      remparia: `${scenarioLabel} — ${scenario.remparia}`,
+    })),
+  };
 }

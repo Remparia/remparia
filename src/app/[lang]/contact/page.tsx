@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: "Contact",
     description: isEn
-      ? "Let's talk about what's possible. Contact Remparia for a SIGNAL diagnostic or a discussion on sovereign AI agents."
-      : "Parlons de ce qui est possible. Contactez Remparia pour un diagnostic SIGNAL ou une discussion sur vos agents IA souverains.",
+      ? "Bring Remparia the workflow costing your experts time. Frame repetitive work, data constraints and measurable outcomes with a partner."
+      : "Présentez à Remparia le processus qui coûte du temps à vos experts. Cadrez le répétitif, les données et les gains avec un associé.",
     path: "/contact",
     lang,
   });

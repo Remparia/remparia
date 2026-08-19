@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "About" : "À propos",
     description: isEn
-      ? "Remparia is a sovereign AI collective. Humans decide, agents execute — through to daily production."
-      : "Remparia est un collectif IA souveraine. L'humain décide, l'agent exécute — jusqu'à la production quotidienne.",
+      ? "Remparia's vision and values: AI that strengthens professions built on trust, preserves human decisions and transfers control."
+      : "La vision et les valeurs de Remparia : une IA qui renforce les métiers de confiance, préserve la décision humaine et transfère la maîtrise.",
     path: "/a-propos",
     lang,
   });

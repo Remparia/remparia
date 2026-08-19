@@ -40,6 +40,17 @@ export default function MethodePage() {
         </div>
       </section>
       <section className="section section--alt">
+        <div className="conviction">
+          <div className="reveal">
+            <SectionLabel>{t.differenceTitle}</SectionLabel>
+            <h2 className="section__title">{t.differenceH}</h2>
+          </div>
+          <div className="conviction__quote reveal" data-d="2">
+            <p>{t.differenceP}</p>
+          </div>
+        </div>
+      </section>
+      <section className="section">
         <div className="reveal">
           <SectionLabel>{t.acceleratorsTitle}</SectionLabel>
           <h2 className="section__title">{t.acceleratorsTitle}</h2>

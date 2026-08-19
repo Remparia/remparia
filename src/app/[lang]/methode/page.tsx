@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "SIGNAL method" : "Méthode SIGNAL",
     description: isEn
-      ? "The SIGNAL protocol: scope, integrate, guarantee, normalize, augment, land. Remparia's path from idea to production."
-      : "Le protocole SIGNAL : scoper, intégrer, garantir, normaliser, augmenter, livrer. La méthode Remparia de l'idée à la production.",
+      ? "The SIGNAL protocol: study, identify, govern, normalize, automate, liberate. Six stages from fieldwork to measurable use."
+      : "Le protocole SIGNAL : sonder, identifier, gouverner, normaliser, automatiser, libérer. Six étapes du terrain à un usage mesurable.",
     path: "/methode",
     lang,
   });

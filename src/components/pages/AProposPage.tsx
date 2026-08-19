@@ -2,13 +2,14 @@
 
 import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
-import { APROPOS, HOME } from "@/lib/content";
+import { APROPOS, BRAND, HOME } from "@/lib/content";
 import { LEGAL_ENTITY } from "@/lib/legal";
 import { useLang } from "@/lib/lang";
 
 export default function AProposPage() {
   const { lang } = useLang();
   const t = APROPOS[lang];
+  const brand = BRAND[lang];
   const cta = HOME[lang];
 
   const home = lang === "fr" ? "Accueil" : "Home";
@@ -31,6 +32,46 @@ export default function AProposPage() {
           <h2 className="section__title">{t.convictionH}</h2>
           <p className="section__body">{t.convictionP}</p>
         </div>
+      </section>
+
+      <section className="section">
+        <div className="conviction">
+          <div className="reveal">
+            <SectionLabel>{brand.visionTag}</SectionLabel>
+            <h2 className="section__title">{brand.visionH}</h2>
+          </div>
+          <div className="conviction__quote reveal" data-d="2">
+            <p>{brand.visionP}</p>
+          </div>
+        </div>
+        <div className="reveal" style={{ marginTop: 64 }}>
+          <SectionLabel>{brand.missionTag}</SectionLabel>
+          <h2 className="section__title">{brand.missionH}</h2>
+          <p className="section__body">{brand.missionP}</p>
+        </div>
+      </section>
+
+      <section className="section section--alt">
+        <div className="reveal">
+          <SectionLabel>{brand.valuesTag}</SectionLabel>
+          <h2 className="section__title">{brand.valuesH}</h2>
+        </div>
+        <div className="card-grid" style={{ marginTop: 32 }}>
+          {brand.values.map((value, i) => (
+            <article
+              key={value.tag}
+              className="info-card reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
+              <div className="info-card__tag">{value.tag}</div>
+              <h3>{value.title}</h3>
+              <p>{value.desc}</p>
+            </article>
+          ))}
+        </div>
+        <p className="section__body reveal" style={{ marginTop: 28 }}>
+          {brand.guarantee}
+        </p>
       </section>
 
       <section className="section">

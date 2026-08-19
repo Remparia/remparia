@@ -14,10 +14,13 @@ export const SITE = {
   localeAlternate: "en_US",
   email: "contact@remparia.fr",
   description:
-    "Remparia — agents IA métier jusqu'à la production. Intégration process, conformité, données sous contrôle.",
+    "Remparia renforce les métiers spécialisés avec des agents IA supervisés : du temps rendu, la décision préservée et les données sous contrôle.",
   keywords: [
     "agents IA métier",
     "agents IA",
+    "automatisation professions réglementées",
+    "IA notariat",
+    "IA expertise comptable",
     "IA en production",
     "intégration métier",
     "conformité IA",
@@ -213,28 +216,28 @@ export function secteursItemListJsonLd() {
 export function signalHowToJsonLd() {
   const steps = [
     {
-      name: "Scoper",
-      text: "Cibler les cas d'usage à ROI réel, pas les gadgets.",
+      name: "Sonder",
+      text: "Observer le travail réel, au plus près des équipes et des exceptions.",
     },
     {
-      name: "Intégrer",
-      text: "Brancher les agents sur vos outils et données existants.",
+      name: "Identifier",
+      text: "Prioriser les cas d'usage par impact, faisabilité et risque.",
     },
     {
-      name: "Garantir",
-      text: "Conformité, traçabilité, souveraineté par défaut.",
+      name: "Gouverner",
+      text: "Définir les données, les droits, la supervision et la traçabilité.",
     },
     {
       name: "Normaliser",
-      text: "Industrialiser du POC jusqu'à la production quotidienne.",
+      text: "Installer le socle, les sources autorisées et le routage des modèles.",
     },
     {
-      name: "Augmenter",
-      text: "L'humain garde la main ; l'agent porte la charge.",
+      name: "Automatiser",
+      text: "Déployer les agents dans les outils avec escalade humaine.",
     },
     {
-      name: "Livrer",
-      text: "Mesurer les gains, itérer, prouver la valeur.",
+      name: "Libérer",
+      text: "Mesurer les gains, former les équipes et transférer.",
     },
   ];
 
@@ -243,7 +246,7 @@ export function signalHowToJsonLd() {
     "@type": "HowTo",
     name: "Protocole SIGNAL — Remparia",
     description:
-      "Méthode Remparia pour passer de l'idée IA à la production quotidienne.",
+      "Méthode Remparia en six étapes, du terrain à un usage mesurable.",
     step: steps.map((step, index) => ({
       "@type": "HowToStep",
       position: index + 1,

@@ -11,11 +11,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isEn = lang === "en";
   return createPageMetadata({
     title: isEn
-      ? "Business AI agents — through to production"
-      : "Agents IA métier — jusqu'à la production",
+      ? "AI agents: time returned, decision preserved"
+      : "Agents IA : du temps rendu, la décision préservée",
     description: isEn
-      ? "Less hype. More results. Remparia deploys business AI agents into your real workflows — from POC to daily production. Data stays under your control."
-      : "Moins de hype. Plus de résultats. Remparia déploie des agents IA métier dans vos process réels — du POC à la production quotidienne. Données sous votre contrôle.",
+      ? "Remparia strengthens specialized professions with supervised AI agents: time returned, decision preserved and data under control."
+      : "Remparia renforce les métiers spécialisés avec des agents IA supervisés : du temps rendu, la décision préservée et les données sous contrôle.",
     path: "/",
     lang,
   });

@@ -11,10 +11,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "Industries & sectors" : "Secteurs & industries",
+    title: isEn ? "Specialized professions" : "Métiers spécialisés",
     description: isEn
-      ? "Finance, healthcare, industry, consulting, tech and public sector: Remparia AI tailored to your business — compliance, agents and production."
-      : "Finance, santé, industrie, conseil, tech et secteur public : approche IA Remparia adaptée à votre métier — conformité, agents et production.",
+      ? "AI agents for professions where data is sensitive, accountability is high and expert time is scarce."
+      : "Des agents IA pour les métiers où la donnée est sensible, la responsabilité forte et le temps expert rare.",
     path: "/secteurs",
     lang,
   });

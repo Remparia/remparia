@@ -3,7 +3,7 @@ import { SITE } from "@/lib/seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Remparia — Agents IA métier",
+    name: "Remparia — Du temps rendu, la décision préservée",
     short_name: "Remparia",
     description: SITE.description,
     start_url: "/",

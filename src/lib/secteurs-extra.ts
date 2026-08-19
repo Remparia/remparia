@@ -47,36 +47,154 @@ const DEFAULT_SERVICES = [
 
 const SIGNALS_FR = [
   { value: "SIGNAL", label: "Méthode de bout en bout" },
-  { value: "FR", label: "Données sous contrôle" },
+  { value: "PÉRIM.", label: "Données dans le cadre défini" },
   { value: "HITL", label: "Humain dans la boucle" },
-  { value: "Prod", label: "Jusqu'à la production" },
+  { value: "Preuve", label: "Gains définis avant déploiement" },
 ];
 
 const SIGNALS_EN = [
   { value: "SIGNAL", label: "End-to-end method" },
-  { value: "FR", label: "Data under control" },
+  { value: "SCOPE", label: "Data inside the agreed frame" },
   { value: "HITL", label: "Human in the loop" },
-  { value: "Prod", label: "Through to production" },
+  { value: "Evidence", label: "Outcomes defined before deployment" },
 ];
+
+const SECTOR_SIGNAL: Record<
+  string,
+  {
+    fr: { value: string; label: string };
+    en: { value: string; label: string };
+  }
+> = {
+  "cabinet-paramedical": {
+    fr: { value: "SOIN", label: "Temps clinique préservé" },
+    en: { value: "CARE", label: "Clinical time preserved" },
+  },
+  "cabinet-avocat": {
+    fr: { value: "SECRET", label: "Responsabilité professionnelle" },
+    en: { value: "PRIV.", label: "Professional responsibility" },
+  },
+  "agence-immobiliere": {
+    fr: { value: "MANDAT", label: "Conseil et suivi client" },
+    en: { value: "MANDATE", label: "Advice and client follow-up" },
+  },
+  "salon-beaute": {
+    fr: { value: "ACCUEIL", label: "Relation client préservée" },
+    en: { value: "WELCOME", label: "Client relationship preserved" },
+  },
+  "artisan-btp": {
+    fr: { value: "CHANTIER", label: "Réalité du terrain" },
+    en: { value: "SITE", label: "Field reality first" },
+  },
+  restaurant: {
+    fr: { value: "SERVICE", label: "Équipe recentrée en salle" },
+    en: { value: "SERVICE", label: "Team focused on guests" },
+  },
+  "garage-automobile": {
+    fr: { value: "DIAG.", label: "Diagnostic sous contrôle" },
+    en: { value: "DIAG.", label: "Controlled diagnostics" },
+  },
+  "e-commerce": {
+    fr: { value: "CLIENT", label: "Escalade humaine claire" },
+    en: { value: "CLIENT", label: "Clear human escalation" },
+  },
+  "cabinet-dentaire": {
+    fr: { value: "SOINS", label: "Décision clinique préservée" },
+    en: { value: "CARE", label: "Clinical decision preserved" },
+  },
+  "plombier-chauffagiste": {
+    fr: { value: "ASTREINTE", label: "Urgences qualifiées" },
+    en: { value: "ON-CALL", label: "Qualified emergencies" },
+  },
+  "etude-notariale": {
+    fr: { value: "ACTE", label: "Responsabilité du notaire" },
+    en: { value: "DEED", label: "Notarial responsibility" },
+  },
+  "expertise-comptable": {
+    fr: { value: "CLÔTURE", label: "Révision sous supervision" },
+    en: { value: "CLOSE", label: "Supervised review" },
+  },
+  "clinique-veterinaire": {
+    fr: { value: "CLINIQUE", label: "Vétérinaire décisionnaire" },
+    en: { value: "CLINICAL", label: "Veterinarian decides" },
+  },
+  "courtier-assurance": {
+    fr: { value: "CONSEIL", label: "Devoir de conseil préservé" },
+    en: { value: "ADVICE", label: "Duty of advice preserved" },
+  },
+  "logistique-transport": {
+    fr: { value: "FLUX", label: "Exceptions opérationnelles" },
+    en: { value: "FLOW", label: "Operational exceptions" },
+  },
+  "retail-distribution": {
+    fr: { value: "RAYON", label: "Arbitrage métier maintenu" },
+    en: { value: "RANGE", label: "Business arbitration retained" },
+  },
+  "rh-recrutement": {
+    fr: { value: "ÉQUITÉ", label: "Recruteur décisionnaire" },
+    en: { value: "FAIR", label: "Recruiter remains decisive" },
+  },
+  "education-formation": {
+    fr: { value: "PÉDAGO.", label: "Enseignant aux commandes" },
+    en: { value: "TEACH", label: "Educator stays in control" },
+  },
+  "energie-utilities": {
+    fr: { value: "RÉSEAU", label: "Opérations critiques tracées" },
+    en: { value: "GRID", label: "Critical operations traced" },
+  },
+  "media-contenu": {
+    fr: { value: "LIGNE", label: "Choix éditorial humain" },
+    en: { value: "VOICE", label: "Human editorial choice" },
+  },
+  "pharma-sciences-vie": {
+    fr: { value: "GxP", label: "Validation réglementée" },
+    en: { value: "GxP", label: "Regulated validation" },
+  },
+  "hotel-tourisme": {
+    fr: { value: "SÉJOUR", label: "Hospitalité avant volume" },
+    en: { value: "STAY", label: "Hospitality before volume" },
+  },
+  "agriculture-agroalimentaire": {
+    fr: { value: "TRAÇ.", label: "Décision terrain traçable" },
+    en: { value: "TRACE", label: "Traceable field decisions" },
+  },
+};
 
 function toDetail(
   lang: "fr" | "en",
   input: ExtraInput,
 ): SecteurDetail {
   const c = input[lang];
+  const sectorSignal = SECTOR_SIGNAL[input.slug][lang];
   return {
     slug: input.slug,
     heroH: c.heroH,
     heroP: c.heroP,
     signals:
       lang === "fr"
-        ? (input.signalsFr ?? SIGNALS_FR)
-        : (input.signalsEn ?? SIGNALS_EN),
+        ? (input.signalsFr ?? [sectorSignal, ...SIGNALS_FR.slice(1)])
+        : (input.signalsEn ?? [sectorSignal, ...SIGNALS_EN.slice(1)]),
     pains: c.pains,
-    deliverables: c.deliverables,
+    deliverables: [
+      ...c.deliverables,
+      lang === "fr"
+        ? "Documentation, formation et transfert de maîtrise vers vos équipes"
+        : "Documentation, training and transfer of ownership to your teams",
+    ],
     scenarios: c.scenarios,
     serviceSlugs: [...(input.serviceSlugs ?? DEFAULT_SERVICES)],
-    faqs: c.faqs,
+    faqs: [
+      ...c.faqs,
+      lang === "fr"
+        ? {
+            q: "Restons-nous autonomes après le déploiement ?",
+            a: "Oui. Les règles métier, la documentation et les compétences sont transférées à vos équipes. Le système ne doit pas devenir une boîte noire dont vous dépendez.",
+          }
+        : {
+            q: "Do we remain autonomous after deployment?",
+            a: "Yes. Business rules, documentation and skills are transferred to your teams. The system must not become a black box you depend on.",
+          },
+    ],
   };
 }
 
@@ -303,7 +421,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour agences immo. Leads vendeurs et acheteurs qualifiés.",
       heroH: "IA pour les agences immobilières",
       heroP:
-        "Qualifier leads, accélérer les dossiers et libérer les agents sur la relation — intégration à vos outils métier.",
+        "Entre appels entrants, pièces manquantes et suivi des mandats, l'agent prépare et oriente ; le conseiller garde la qualification et la relation.",
       pains: [
         {
           title: "Leads non qualifiés qui saturent",
@@ -355,7 +473,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For agencies. Qualified buyer and seller leads.",
       heroH: "AI for real-estate agencies",
       heroP:
-        "Qualify leads, speed dossiers and free agents for relationships — wired into your business tools.",
+        "Across inbound calls, missing documents and mandate follow-up, the agent prepares and routes; the adviser keeps qualification and relationships.",
       pains: [
         {
           title: "Unqualified leads overload",
@@ -410,7 +528,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour salons et instituts. Multi-praticien, durée variable.",
       heroH: "IA pour salons & instituts",
       heroP:
-        "Optimiser planning, relation client et relances — sans transformer votre salon en usine à tickets SaaS.",
+        "Quand retards, durées variables et annulations désorganisent la journée, l'agent prépare le planning ; l'équipe garde l'accueil et l'arbitrage.",
       pains: [
         {
           title: "Planning multi-praticien chaotique",
@@ -461,7 +579,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For salons and institutes. Multi-staff, variable duration.",
       heroH: "AI for salons & institutes",
       heroP:
-        "Optimize scheduling, client relationships and follow-ups — without turning your salon into a SaaS ticket factory.",
+        "When delays, variable durations and cancellations disrupt the day, the agent prepares the schedule; the team keeps hospitality and arbitration.",
       pains: [
         {
           title: "Chaotic multi-staff scheduling",
@@ -620,7 +738,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour restaurants. Réservations, allergies, modifications.",
       heroH: "IA pour la restauration",
       heroP:
-        "Fluidifier réservations, allergies et modifications — tout en gardant le service humain au centre.",
+        "Quand le téléphone coupe le service en salle, l'agent collecte réservations et contraintes ; l'équipe confirme les exceptions et garde l'hospitalité.",
       pains: [
         {
           title: "Réservations et modifications chronophages",
@@ -671,7 +789,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For restaurants. Reservations, allergies, changes.",
       heroH: "AI for restaurants",
       heroP:
-        "Smooth reservations, allergies and changes — while keeping human service at the center.",
+        "When the phone interrupts floor service, the agent collects bookings and constraints; the team confirms exceptions and keeps hospitality human.",
       pains: [
         {
           title: "Reservations and changes eat time",
@@ -830,7 +948,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour boutiques en ligne. Suivi commande, retours, FAQ produit.",
       heroH: "IA pour e-commerce & boutiques",
       heroP:
-        "Industrialiser support, retours et connaissance produit — sans perdre la voix de marque ni le contrôle data.",
+        "Quand suivi de commande et retours saturent le support, l'agent traite le répétitif ; l'équipe reprend les cas sensibles et la voix de marque.",
       pains: [
         {
           title: "Support saturé par le répétitif",
@@ -881,7 +999,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For online stores. Order tracking, returns, product FAQ.",
       heroH: "AI for e-commerce & stores",
       heroP:
-        "Industrialize support, returns and product knowledge — without losing brand voice or data control.",
+        "When order tracking and returns saturate support, the agent handles repetition; the team takes over sensitive cases and brand voice.",
       pains: [
         {
           title: "Support saturated by repetitive work",
@@ -1250,7 +1368,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour experts-comptables. Saisie, dossiers, conformité, livrables.",
       heroH: "IA pour l'expertise comptable",
       heroP:
-        "Accélérer saisie, dossiers et livrables clients — sans diluer le jugement de l'expert ni la conformité.",
+        "Entre collecte, saisie et contrôles, l'agent prépare les dossiers ; l'expert conserve la révision, le conseil et la responsabilité.",
       pains: [
         {
           title: "Saisie et contrôles répétitifs",
@@ -1301,7 +1419,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For accountants. Entry, files, compliance, deliverables.",
       heroH: "AI for accounting firms",
       heroP:
-        "Speed entry, files and client deliverables — without diluting expert judgment or compliance.",
+        "Across collection, entry and controls, the agent prepares files; the accountant retains review, advice and accountability.",
       pains: [
         {
           title: "Repetitive entry and checks",
@@ -1460,7 +1578,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour courtiers. Qualification leads, dossiers, conformité.",
       heroH: "IA pour courtiers en assurance",
       heroP:
-        "Qualifier les leads, accélérer les dossiers et sécuriser la conformité — jusqu'à la production quotidienne.",
+        "Face aux demandes incomplètes et aux pièces dispersées, l'agent prépare le dossier ; le courtier garde le devoir de conseil et la recommandation.",
       pains: [
         {
           title: "Leads mal qualifiés",
@@ -1511,7 +1629,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For brokers. Lead qualification, files, compliance.",
       heroH: "AI for insurance brokers",
       heroP:
-        "Qualify leads, speed files and secure compliance — through to daily production.",
+        "With incomplete requests and scattered documents, the agent prepares the file; the broker keeps the duty of advice and recommendation.",
       pains: [
         {
           title: "Poorly qualified leads",
@@ -2304,7 +2422,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour hôtels et acteurs touristiques. Résa, conciergerie, upsells.",
       heroH: "IA pour l'hôtellerie & le tourisme",
       heroP:
-        "Conciergerie, réservations et relation voyageur — service augmenté, hospitalité humaine.",
+        "Quand les demandes répétitives saturent la réception, l'agent prépare les réponses ; l'équipe garde les situations sensibles et l'attention au séjour.",
       pains: [
         {
           title: "Demandes voyageurs 24/7",
@@ -2355,7 +2473,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For hotels and tourism players. Booking, concierge, upsells.",
       heroH: "AI for hospitality & tourism",
       heroP:
-        "Concierge, bookings and guest relationships — augmented service, human hospitality.",
+        "When repetitive requests saturate reception, the agent prepares responses; the team keeps sensitive situations and attention to the stay.",
       pains: [
         {
           title: "24/7 guest requests",

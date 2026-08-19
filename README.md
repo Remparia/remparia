@@ -1,6 +1,8 @@
 # Remparia
 
-Site Next.js (App Router) — IA souveraine.
+Site Next.js (App Router) — agents IA pour métiers spécialisés.
+
+Promesse : rendre du temps mesurable aux experts, avec supervision humaine et données sous contrôle.
 
 ## Local
 

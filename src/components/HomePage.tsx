@@ -6,15 +6,25 @@ import HeroIntro from "@/components/HeroIntro";
 import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
 import StatCount from "@/components/StatCount";
-import { APROPOS, HOME, METHODE, PILLARS, STATS } from "@/lib/content";
+import {
+  APROPOS,
+  BRAND,
+  HOME,
+  METHODE,
+  PILLARS,
+  SERVICES,
+  STATS,
+} from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function HomePage() {
   const { lang } = useLang();
   const t = HOME[lang];
+  const brand = BRAND[lang];
   const stats = STATS[lang];
   const pillars = PILLARS[lang];
   const signal = METHODE[lang].steps;
+  const services = SERVICES[lang].items;
   const positions = APROPOS[lang].positions;
   const [holding, setHolding] = useState(true);
 
@@ -39,7 +49,10 @@ export default function HomePage() {
 
         <div className="hero__grid">
           <div className="hero__main">
-            <div className="hero__eyebrow reveal">// {t.eyebrow}</div>
+            <div className="hero__eyebrow reveal">
+              {"// "}
+              {t.eyebrow}
+            </div>
             <h1 className="hero__title">
               <span className="clip">{t.h1a}</span>
               <span className="clip hero__title-outline" data-d="1">
@@ -59,7 +72,8 @@ export default function HomePage() {
               ))}
             </LocaleLink>
             <p className="hero__sub reveal" data-d="2">
-              {t.sub}
+              <strong className="hero__promise">{brand.promiseGuard}</strong>
+              <span>{t.sub}</span>
             </p>
             <div className="hero__actions reveal" data-d="3">
               <LocaleLink href="/contact" className="btn-primary">
@@ -72,7 +86,10 @@ export default function HomePage() {
           </div>
 
           <div className="hero__stats reveal" data-d="2">
-            <div className="hero__stats-label">// {t.constat}_</div>
+            <div className="hero__stats-label">
+              {"// "}
+              {t.constat}_
+            </div>
             {stats.map((s) => (
               <div key={s.value + s.label} className="hero__stat">
                 <StatCount
@@ -127,9 +144,124 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="conviction">
+          <div className="reveal">
+            <SectionLabel>03 — {brand.visionTag}</SectionLabel>
+            <h2 className="section__title">{brand.visionH}</h2>
+          </div>
+          <div className="conviction__quote reveal" data-d="2">
+            <p>{brand.visionP}</p>
+          </div>
+        </div>
+        <div className="reveal" style={{ marginTop: 64 }}>
+          <SectionLabel>{brand.missionTag}</SectionLabel>
+          <h2 className="section__title">{brand.missionH}</h2>
+          <p className="section__body">{brand.missionP}</p>
+        </div>
+        <div className="reveal" style={{ marginTop: 64 }}>
+          <SectionLabel>{brand.valuesTag}</SectionLabel>
+          <h2 className="section__title">{brand.valuesH}</h2>
+        </div>
+        <div className="card-grid" style={{ marginTop: 40 }}>
+          {brand.values.map((value, i) => (
+            <article
+              key={value.tag}
+              className="info-card reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
+              <div className="info-card__tag">{value.tag}</div>
+              <h3>{value.title}</h3>
+              <p>{value.desc}</p>
+            </article>
+          ))}
+        </div>
+        <p className="section__body reveal" style={{ marginTop: 32 }}>
+          {brand.guarantee}
+        </p>
+      </section>
+
+      <section className="section section--alt">
+        <div className="reveal">
+          <SectionLabel>04 — {t.audience}</SectionLabel>
+        </div>
+        <h2 className="section__title reveal" data-d="1">
+          {t.audienceH}
+        </h2>
+        <p className="section__body reveal" data-d="2">
+          {t.audienceP}
+        </p>
+        <div className="card-grid" style={{ marginTop: 40 }}>
+          {t.audiences.map((audience, i) => (
+            <article
+              key={audience.tag}
+              className="info-card reveal"
+              data-d={String(Math.min(i + 1, 3))}
+            >
+              <div className="info-card__tag">{audience.tag}</div>
+              <h3>{audience.title}</h3>
+              <p>{audience.desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="signal" className="section">
+        <div className="reveal">
+          <SectionLabel>05 — {t.method}</SectionLabel>
+        </div>
+        <div className="section__head reveal" data-d="1">
+          <h2 className="section__title">{t.methodH}</h2>
+          <LocaleLink href="/methode" className="text-link">
+            {t.methodCta} →
+          </LocaleLink>
+        </div>
+        <div className="signal-grid">
+          {signal.map((step, i) => (
+            <div
+              key={step.letter}
+              className="signal-card reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
+              <div className="signal-card__letter">{step.letter}</div>
+              <div>
+                <div className="signal-card__title">{step.title}</div>
+                <div className="signal-card__desc">{step.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section section--alt">
+        <div className="reveal">
+          <SectionLabel>06 — {t.servicesEyebrow}</SectionLabel>
+        </div>
+        <div className="section__head reveal" data-d="1">
+          <h2 className="section__title">{t.servicesH}</h2>
+          <LocaleLink href="/services" className="text-link">
+            {t.servicesCta} →
+          </LocaleLink>
+        </div>
+        <div className="card-grid">
+          {services.map((service, i) => (
+            <LocaleLink
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              className="info-card reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
+            >
+              <div className="info-card__tag">{service.tag}</div>
+              <h3>{service.title}</h3>
+              <p>{service.desc}</p>
+            </LocaleLink>
+          ))}
+        </div>
+      </section>
+
       <section id="position" className="section">
         <div className="reveal">
-          <SectionLabel>03 — {t.position}</SectionLabel>
+          <SectionLabel>07 — {t.position}</SectionLabel>
         </div>
         <h2 className="section__title reveal" data-d="1">
           {t.positionH}
