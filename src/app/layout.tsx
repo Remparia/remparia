@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/JsonLd";
 import MatomoProvider from "@/components/MatomoProvider";
 import {
@@ -105,6 +106,7 @@ export default function RootLayout({
         />
         {children}
         <MatomoProvider />
+        <Analytics />
       </body>
     </html>
   );
