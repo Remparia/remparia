@@ -182,7 +182,7 @@ export const HOME = {
   fr: {
     eyebrow: "AGENTS POUR MÉTIERS SPÉCIALISÉS",
     h1a: "Nous transformons",
-    h1b: "l’automatisation en avantage concurrentiel.",
+    h1b: "l’IA en avantage concurrentiel.",
     protocolAria: "Protocole SIGNAL",
     introSkip: "Passer",
     introLine: "rempart + agents",
@@ -262,7 +262,7 @@ export const HOME = {
   },
   en: {
     eyebrow: "AGENTS FOR SPECIALIZED PROFESSIONS",
-    h1a: "We turn automation",
+    h1a: "We turn AI",
     h1b: "into a competitive advantage.",
     protocolAria: "SIGNAL protocol",
     introSkip: "Skip",
