@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import {
+  getContactFormApiError,
+  normalizeContactInput,
+} from "@/lib/contact-form-validation";
 import { getContactFromEmail, getContactToEmail } from "@/lib/contact-email";
 
 export const runtime = "nodejs";
@@ -24,10 +28,6 @@ function rateLimit(ip: string) {
   if (entry.count >= MAX_PER_WINDOW) return false;
   entry.count += 1;
   return true;
-}
-
-function isEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 export async function POST(req: Request) {
@@ -58,29 +58,21 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  const name = String(body.name ?? "").trim();
-  const company = String(body.company ?? "").trim();
-  const email = String(body.email ?? "").trim();
-  const message = String(body.message ?? "").trim();
+  const raw = {
+    name: String(body.name ?? ""),
+    company: String(body.company ?? ""),
+    email: String(body.email ?? ""),
+    message: String(body.message ?? ""),
+  };
+  const validationError = getContactFormApiError(raw);
+  if (validationError) {
+    return NextResponse.json(
+      { ok: false, error: validationError },
+      { status: 400 },
+    );
+  }
 
-  if (!name || name.length > 120) {
-    return NextResponse.json({ ok: false, error: "invalid_name" }, { status: 400 });
-  }
-  if (!email || !isEmail(email) || email.length > 200) {
-    return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
-  }
-  if (!message || message.length < 10 || message.length > 5000) {
-    return NextResponse.json(
-      { ok: false, error: "invalid_message" },
-      { status: 400 },
-    );
-  }
-  if (company.length > 160) {
-    return NextResponse.json(
-      { ok: false, error: "invalid_company" },
-      { status: 400 },
-    );
-  }
+  const { name, company, email, message } = normalizeContactInput(raw);
 
   const from = getContactFromEmail();
   const resend = new Resend(apiKey);
@@ -89,10 +81,10 @@ export async function POST(req: Request) {
     from,
     to: [getContactToEmail()],
     replyTo: email,
-    subject: `[Contact Remparia] ${name}${company ? ` — ${company}` : ""}`,
+    subject: `[Contact Remparia] ${name} — ${company}`,
     text: [
       `Nom: ${name}`,
-      `Entreprise: ${company || "—"}`,
+      `Entreprise: ${company}`,
       `Email: ${email}`,
       "",
       message,

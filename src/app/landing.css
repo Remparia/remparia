@@ -2163,6 +2163,23 @@
   border-color: #c8ff00;
 }
 
+.contact-form input[aria-invalid="true"],
+.contact-form textarea[aria-invalid="true"] {
+  border-color: #ff6b6b;
+}
+
+.contact-form input[aria-invalid="true"]:focus,
+.contact-form textarea[aria-invalid="true"]:focus {
+  outline-color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.contact-field-error {
+  margin: 0;
+  font: 400 11px/1.45 var(--font-space-mono), monospace;
+  color: #ff8a8a;
+}
+
 .contact-hp {
   position: absolute !important;
   left: -9999px !important;

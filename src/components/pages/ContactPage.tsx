@@ -3,10 +3,28 @@
 import { FormEvent, useId, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
 import { PageHero } from "@/components/PageBits";
+import {
+  apiErrorToField,
+  type ContactField,
+  type ContactFormErrors,
+  validateContactForm,
+} from "@/lib/contact-form-validation";
 import { CONTACT } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 type Status = "idle" | "loading" | "success" | "error" | "config" | "rate";
+
+const FIELD_ORDER: ContactField[] = ["name", "company", "email", "message"];
+
+function readForm(form: HTMLFormElement) {
+  const data = new FormData(form);
+  return {
+    name: String(data.get("name") ?? ""),
+    company: String(data.get("company") ?? ""),
+    email: String(data.get("email") ?? ""),
+    message: String(data.get("message") ?? ""),
+  };
+}
 
 export default function ContactPage() {
   const { lang } = useLang();
@@ -14,11 +32,36 @@ export default function ContactPage() {
   const home = lang === "fr" ? "Accueil" : "Home";
   const feedbackId = useId();
   const [status, setStatus] = useState<Status>("idle");
+  const [fieldErrors, setFieldErrors] = useState<ContactFormErrors>({});
+
+  function validate(form: HTMLFormElement) {
+    const result = validateContactForm(readForm(form), t.validation);
+    setFieldErrors(result.errors);
+    return result;
+  }
+
+  function validateField(form: HTMLFormElement, field: ContactField) {
+    const result = validateContactForm(readForm(form), t.validation);
+    setFieldErrors((prev) => ({
+      ...prev,
+      [field]: result.errors[field],
+    }));
+  }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = new FormData(form);
+    const result = validate(form);
+
+    if (!result.valid) {
+      setStatus("idle");
+      const errKey = FIELD_ORDER.find((field) => result.errors[field]);
+      if (errKey) {
+        form.querySelector<HTMLElement>(`[name="${errKey}"]`)?.focus();
+      }
+      return;
+    }
+
     setStatus("loading");
 
     try {
@@ -26,11 +69,8 @@ export default function ContactPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: data.get("name"),
-          company: data.get("company"),
-          email: data.get("email"),
-          message: data.get("message"),
-          website: data.get("website"),
+          ...result.values,
+          website: new FormData(form).get("website"),
         }),
       });
       const json = (await res.json().catch(() => ({}))) as {
@@ -40,6 +80,7 @@ export default function ContactPage() {
 
       if (res.ok && json.ok) {
         setStatus("success");
+        setFieldErrors({});
         form.reset();
         return;
       }
@@ -50,6 +91,15 @@ export default function ContactPage() {
       if (res.status === 429 || json.error === "rate_limited") {
         setStatus("rate");
         return;
+      }
+
+      const apiField = apiErrorToField(json.error);
+      if (apiField) {
+        const fallback = validateContactForm(result.values, t.validation);
+        setFieldErrors({
+          [apiField]: fallback.errors[apiField] ?? t.error,
+        });
+        form.querySelector<HTMLElement>(`[name="${apiField}"]`)?.focus();
       }
       setStatus("error");
     } catch {
@@ -64,12 +114,25 @@ export default function ContactPage() {
         ? t.errorConfig
         : status === "rate"
           ? t.errorRate
-          : status === "error"
+          : status === "error" && Object.keys(fieldErrors).length === 0
             ? t.error
             : null;
 
-  const isError = status === "error" || status === "config" || status === "rate";
-  const describedBy = feedback ? feedbackId : undefined;
+  function fieldProps(field: ContactField) {
+    const err = fieldErrors[field];
+    const errId = `${field}-error`;
+    return {
+      error: err,
+      describedBy: err ? errId : undefined,
+      invalid: Boolean(err) || undefined,
+      errId,
+    };
+  }
+
+  const name = fieldProps("name");
+  const company = fieldProps("company");
+  const email = fieldProps("email");
+  const message = fieldProps("message");
 
   return (
     <div className="page page--inner">
@@ -84,7 +147,11 @@ export default function ContactPage() {
       />
       <section className="section">
         <div className="contact-grid">
-          <form className="contact-form reveal" onSubmit={onSubmit}>
+          <form
+            className="contact-form reveal"
+            onSubmit={onSubmit}
+            noValidate
+          >
             <label className="contact-hp">
               <span>Website</span>
               <input name="website" tabIndex={-1} autoComplete="off" />
@@ -94,14 +161,40 @@ export default function ContactPage() {
               <input
                 name="name"
                 required
+                minLength={2}
                 maxLength={120}
-                aria-describedby={describedBy}
-                aria-invalid={isError || undefined}
+                autoComplete="name"
+                aria-describedby={name.describedBy}
+                aria-invalid={name.invalid}
+                onBlur={(e) =>
+                  validateField(e.currentTarget.form!, "name")
+                }
               />
+              {name.error ? (
+                <span id={name.errId} className="contact-field-error" role="alert">
+                  {name.error}
+                </span>
+              ) : null}
             </label>
             <label>
               <span>{t.fields.company}</span>
-              <input name="company" maxLength={160} />
+              <input
+                name="company"
+                required
+                minLength={2}
+                maxLength={160}
+                autoComplete="organization"
+                aria-describedby={company.describedBy}
+                aria-invalid={company.invalid}
+                onBlur={(e) =>
+                  validateField(e.currentTarget.form!, "company")
+                }
+              />
+              {company.error ? (
+                <span id={company.errId} className="contact-field-error" role="alert">
+                  {company.error}
+                </span>
+              ) : null}
             </label>
             <label>
               <span>{t.fields.email}</span>
@@ -110,9 +203,20 @@ export default function ContactPage() {
                 name="email"
                 required
                 maxLength={200}
-                aria-describedby={describedBy}
-                aria-invalid={isError || undefined}
+                autoComplete="work email"
+                inputMode="email"
+                spellCheck={false}
+                aria-describedby={email.describedBy}
+                aria-invalid={email.invalid}
+                onBlur={(e) =>
+                  validateField(e.currentTarget.form!, "email")
+                }
               />
+              {email.error ? (
+                <span id={email.errId} className="contact-field-error" role="alert">
+                  {email.error}
+                </span>
+              ) : null}
             </label>
             <label>
               <span>{t.fields.message}</span>
@@ -120,11 +224,19 @@ export default function ContactPage() {
                 name="message"
                 rows={5}
                 required
-                minLength={10}
+                minLength={20}
                 maxLength={5000}
-                aria-describedby={describedBy}
-                aria-invalid={isError || undefined}
+                aria-describedby={message.describedBy}
+                aria-invalid={message.invalid}
+                onBlur={(e) =>
+                  validateField(e.currentTarget.form!, "message")
+                }
               />
+              {message.error ? (
+                <span id={message.errId} className="contact-field-error" role="alert">
+                  {message.error}
+                </span>
+              ) : null}
             </label>
             <button
               type="submit"
