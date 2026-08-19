@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "AI agent use cases" : "Cas d'usage agents IA",
+    title: isEn ? "Agent use cases" : "Cas d'usage agents métier",
     description: isEn
       ? "Concrete deployment scenarios for production agents, controlled RAG and supervised document automation."
       : "Scénarios concrets de déploiement : agents en production, RAG sous contrôle et automatisation documentaire supervisée.",

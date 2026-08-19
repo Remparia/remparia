@@ -13,7 +13,7 @@ export type SecteurDetail = {
 const FR: Record<string, SecteurDetail> = {
   "finance-assurance": {
     slug: "finance-assurance",
-    heroH: "IA souveraine pour la finance & l'assurance",
+    heroH: "Solutions souveraines pour la finance & l'assurance",
     heroP:
       "Des agents supervisés pour absorber le documentaire et les contrôles, pendant que vos équipes gardent le jugement, la responsabilité et la relation client.",
     signals: [
@@ -29,7 +29,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         title: "La conformité freine plus qu'elle n'oriente",
-        desc: "RGPD, secret bancaire, exigences ACPR : sans gouvernance IA dès le cadrage, chaque cas d'usage devient un projet de risque.",
+        desc: "RGPD, secret bancaire, exigences ACPR : sans gouvernance des agents dès le cadrage, chaque cas d'usage devient un projet de risque.",
       },
       {
         title: "Back-office saturé, expertise sous-exploitée",
@@ -55,7 +55,7 @@ const FR: Record<string, SecteurDetail> = {
         who: "Conformité / risque",
         need: "Accélérer les contrôles documentaires tout en restant auditables.",
         remparia:
-          "Nous concevons un pipeline IA gouverné : règles métier explicites, logs d'audit, hébergement souverain et critères de sortie humaine.",
+          "Nous concevons un pipeline agent gouverné : règles métier explicites, logs d'audit, hébergement souverain et critères de sortie humaine.",
       },
       {
         who: "Innovation / DSI",
@@ -91,7 +91,7 @@ const FR: Record<string, SecteurDetail> = {
   },
   sante: {
     slug: "sante",
-    heroH: "IA pour la santé & les professions réglementées",
+    heroH: "Agents pour la santé & les professions réglementées",
     heroP:
       "Alléger la charge administrative sans déléguer la décision clinique : secret professionnel, validation humaine et outils existants structurent chaque usage.",
     signals: [
@@ -106,12 +106,12 @@ const FR: Record<string, SecteurDetail> = {
         desc: "Comptes-rendus, planification, parcours documentaires : le temps clinique se dilue dans le process.",
       },
       {
-        title: "Outils IA grand public incompatibles",
+        title: "Outils génériques du marché incompatibles",
         desc: "Les assistants génériques ne tiennent ni le secret professionnel ni les exigences d'hébergement des données de santé.",
       },
       {
         title: "Pilotes isolés sans adoption terrain",
-        desc: "Sans intégration aux logiciels métier et sans gouvernance, l'IA reste une expérimentation hors du quotidien.",
+        desc: "Sans intégration aux logiciels métier et sans gouvernance, l'automatisation reste une expérimentation hors du quotidien.",
       },
     ],
     deliverables: [
@@ -137,7 +137,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         who: "DSI / DPO santé",
-        need: "Encadrer l'usage de l'IA au-delà des shadow IT.",
+        need: "Encadrer l'usage des agents au-delà des shadow IT.",
         remparia:
           "Nous posons une feuille de route SIGNAL : cas autorisés, modèles, données, audit — et un premier cas en production contrôlée.",
       },
@@ -157,7 +157,7 @@ const FR: Record<string, SecteurDetail> = {
         a: "Nous concevons des architectures souveraines adaptées à votre contexte (y compris exigences HDS quand pertinent) et travaillons avec vos contraintes d'infra existantes.",
       },
       {
-        q: "L'IA décide-t-elle à la place du professionnel ?",
+        q: "L'agent décide-t-elle à la place du professionnel ?",
         a: "Non. Remparia augmente : l'agent prépare, synthétise, oriente ; le professionnel décide et reste responsable.",
       },
       {
@@ -168,7 +168,7 @@ const FR: Record<string, SecteurDetail> = {
   },
   industrie: {
     slug: "industrie",
-    heroH: "IA pour l'industrie & les opérations",
+    heroH: "Agents pour l'industrie & les opérations",
     heroP:
       "Donner aux techniciens un accès plus rapide au savoir opérationnel et absorber les exceptions répétitives — sans contourner vos systèmes ni leur expertise.",
     signals: [
@@ -183,8 +183,8 @@ const FR: Record<string, SecteurDetail> = {
         desc: "Procédures, retours d'expérience, historiques machines : la connaissance critique vit dans des têtes et des fichiers.",
       },
       {
-        title: "POC IA déconnectés du shopfloor",
-        desc: "Sans branchement MES/ERP/GMAO et sans adoption opérateurs, l'IA reste un slide.",
+        title: "POC technologiques déconnectés du shopfloor",
+        desc: "Sans branchement MES/ERP/GMAO et sans adoption opérateurs, l'automatisation reste un slide.",
       },
       {
         title: "Qualité et maintenance sous pression",
@@ -228,7 +228,7 @@ const FR: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Travaillez-vous avec nos contraintes OT / cybersécurité ?",
-        a: "Oui. Nous concevons des architectures qui respectent la segmentation des réseaux et les politiques sécurité — l'IA ne contourne pas votre SI.",
+        a: "Oui. Nous concevons des architectures qui respectent la segmentation des réseaux et les politiques sécurité — les agents ne contournent pas votre SI.",
       },
       {
         q: "Faut-il tout migrer vers le cloud ?",
@@ -246,7 +246,7 @@ const FR: Record<string, SecteurDetail> = {
   },
   "services-conseil": {
     slug: "services-conseil",
-    heroH: "IA pour les services & le conseil",
+    heroH: "Agents pour les services & le conseil",
     heroP:
       "Retrouver de la capacité sur la recherche, la synthèse et les livrables — sans standardiser le jugement ni exposer la confidentialité client.",
     signals: [
@@ -292,7 +292,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         who: "Direction innovation",
-        need: "Encadrer l'usage IA des consultants au-delà du shadow ChatGPT.",
+        need: "Encadrer l'usage des agents des consultants au-delà du shadow ChatGPT.",
         remparia:
           "Feuille de route SIGNAL + premier cas en production contrôlée + charte d'usage alignée sur vos engagements clients.",
       },
@@ -305,10 +305,10 @@ const FR: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Les données clients sont-elles isolées ?",
-        a: "Oui. Nous concevons cloisonnement, droits et politiques d'usage pour que l'IA respecte vos engagements contractuels — pas un pot commun opaque.",
+        a: "Oui. Nous concevons cloisonnement, droits et politiques d'usage pour que les agents respectent vos engagements contractuels — pas un pot commun opaque.",
       },
       {
-        q: "L'IA va-t-elle standardiser nos livrables au point de les uniformiser ?",
+        q: "L'automatisation va-t-elle standardiser nos livrables au point de les uniformiser ?",
         a: "Elle accélère le socle ; vos experts apportent le jugement et la différenciation. C'est précisément le modèle « humain décide, agent exécute ».",
       },
       {
@@ -323,9 +323,9 @@ const FR: Record<string, SecteurDetail> = {
   },
   "tech-produit": {
     slug: "tech-produit",
-    heroH: "IA pour la tech & le produit",
+    heroH: "Agents pour la tech & le produit",
     heroP:
-      "Fiabiliser les fonctions IA et les processus internes avec des garde-fous, des preuves et un transfert progressif vers vos équipes produit et engineering.",
+      "Fiabiliser les fonctions agentiques et les processus internes avec des garde-fous, des preuves et un transfert progressif vers vos équipes produit et engineering.",
     signals: [
       { value: "LLM", label: "Agnostique modèles" },
       { value: "Prod", label: "Fiabilité produit" },
@@ -334,7 +334,7 @@ const FR: Record<string, SecteurDetail> = {
     ],
     pains: [
       {
-        title: "Features IA fragiles en production",
+        title: "Fonctionnalités agent fragiles en production",
         desc: "Latence, hallucinations, coûts tokens, dérive : le POC produit ne survit pas au trafic réel.",
       },
       {
@@ -343,11 +343,11 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         title: "Écart produit / plateforme / métier",
-        desc: "Sans cadrage commun, chaque squad réinvente une stack IA incompatible.",
+        desc: "Sans cadrage commun, chaque squad réinvente une stack agent incompatible.",
       },
     ],
     deliverables: [
-      "Stratégie IA produit : cas d'usage, architecture, choix de modèles",
+      "Stratégie produit : cas d'usage, architecture, choix de modèles",
       "Industrialisation d'agents et features (eval, monitoring, coûts)",
       "RAG et data readiness sur vos données propriétaires",
       "Infra et patterns souverains ou hybrides selon votre politique",
@@ -356,14 +356,14 @@ const FR: Record<string, SecteurDetail> = {
     ],
     scenarios: [
       {
-        who: "Head of Product / AI",
+        who: "Head of Product",
         need: "Passer d'une démo impressionnante à une feature stable.",
         remparia:
           "Nous posons evals, garde-fous, observabilité et critères de sortie — puis industrialisons avec vos squads.",
       },
       {
         who: "CTO / plateforme",
-        need: "Éviter la jungle de stacks IA par équipe.",
+        need: "Éviter la jungle de stacks agentiques par équipe.",
         remparia:
           "Nous définissons une architecture de référence, des patterns d'agents et une gouvernance data/modèles réutilisable.",
       },
@@ -394,14 +394,14 @@ const FR: Record<string, SecteurDetail> = {
         a: "Dès le design : routing de modèles, cache, truncation, evals de régression et budgets — pas après la facture cloud.",
       },
       {
-        q: "Pouvez-vous auditer un stack IA existant ?",
+        q: "Pouvez-vous auditer un stack agent existant ?",
         a: "Oui. Diagnostic SIGNAL : risques, dette, quick wins, puis feuille de route d'industrialisation.",
       },
     ],
   },
   "secteur-public": {
     slug: "secteur-public",
-    heroH: "IA pour le secteur public",
+    heroH: "Agents pour le secteur public",
     heroP:
       "Réduire les délais administratifs tout en préservant la décision publique, la traçabilité et la maîtrise des données d'intérêt général.",
     signals: [
@@ -420,7 +420,7 @@ const FR: Record<string, SecteurDetail> = {
         desc: "Cloud public opaque, modèles hors cadre, absence de piste d'audit : les expérimentations s'arrêtent au juridique.",
       },
       {
-        title: "Projets IA sans industrialisation",
+        title: "Projets agents sans industrialisation",
         desc: "Appels à projets et POC s'enchaînent ; peu atteignent un usage quotidien mesurable.",
       },
     ],
@@ -447,7 +447,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         who: "DPO / juridique",
-        need: "Encadrer l'expérimentation IA dans l'administration.",
+        need: "Encadrer l'expérimentation technologique dans l'administration.",
         remparia:
           "Cadre SIGNAL : finalités, bases légales, minimisation, audit — puis premier cas contrôlé en production.",
       },
@@ -468,7 +468,7 @@ const FR: Record<string, SecteurDetail> = {
         a: "Nous adaptons le mode d'engagement à votre cadre (prestation, assistance à maîtrise d'ouvrage, équipes embarquées). Parlons-en dès le diagnostic.",
       },
       {
-        q: "L'IA remplace-t-elle des agents publics ?",
+        q: "L'agent remplace-t-elle des agents publics ?",
         a: "Non. Elle absorbe le répétitif pour libérer du temps sur le jugement et la relation usager. La responsabilité reste humaine.",
       },
       {
@@ -482,7 +482,7 @@ const FR: Record<string, SecteurDetail> = {
 const EN: Record<string, SecteurDetail> = {
   "finance-assurance": {
     slug: "finance-assurance",
-    heroH: "Sovereign AI for finance & insurance",
+    heroH: "Sovereign agents for finance & insurance",
     heroP:
       "Supervised agents absorb document work and controls while your teams keep judgment, accountability and client relationships.",
     signals: [
@@ -498,7 +498,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         title: "Compliance slows more than it guides",
-        desc: "GDPR, banking secrecy, supervisory expectations: without AI governance from day one, every use case becomes a risk project.",
+        desc: "GDPR, banking secrecy, supervisory expectations: without agent governance from day one, every use case becomes a risk project.",
       },
       {
         title: "Back-office overload, expertise underused",
@@ -524,7 +524,7 @@ const EN: Record<string, SecteurDetail> = {
         who: "Compliance / risk",
         need: "Speed up document controls while staying auditable.",
         remparia:
-          "We design a governed AI pipeline: explicit business rules, audit logs, sovereign hosting and human exit criteria.",
+          "We design a governed agent pipeline: explicit business rules, audit logs, sovereign hosting and human exit criteria.",
       },
       {
         who: "Innovation / IT",
@@ -560,7 +560,7 @@ const EN: Record<string, SecteurDetail> = {
   },
   sante: {
     slug: "sante",
-    heroH: "AI for healthcare & regulated professions",
+    heroH: "Agents for healthcare & regulated professions",
     heroP:
       "Ease administrative load without delegating clinical decisions: professional secrecy, human validation and existing tools shape every use.",
     signals: [
@@ -575,12 +575,12 @@ const EN: Record<string, SecteurDetail> = {
         desc: "Reports, scheduling, document pathways: clinical time dissolves into process.",
       },
       {
-        title: "Consumer AI tools are incompatible",
+        title: "Generic consumer tools are incompatible",
         desc: "Generic assistants fail professional secrecy and health-data hosting requirements.",
       },
       {
         title: "Isolated pilots without field adoption",
-        desc: "Without integration into clinical software and governance, AI stays an experiment outside daily work.",
+        desc: "Without integration into clinical software and governance, Automation stays an experiment outside daily work.",
       },
     ],
     deliverables: [
@@ -606,7 +606,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         who: "Health IT / DPO",
-        need: "Govern AI usage beyond shadow IT.",
+        need: "Govern agent usage beyond shadow IT.",
         remparia:
           "We set a SIGNAL roadmap: allowed cases, models, data, audit — then a first controlled production case.",
       },
@@ -622,7 +622,7 @@ const EN: Record<string, SecteurDetail> = {
         a: "We design sovereign architectures suited to your context (including health-data hosting requirements when relevant) and work with your existing infra constraints.",
       },
       {
-        q: "Does AI decide instead of the professional?",
+        q: "Does the agent decide instead of the professional?",
         a: "No. Remparia augments: the agent prepares, synthesizes, routes; the professional decides and remains accountable.",
       },
       {
@@ -633,7 +633,7 @@ const EN: Record<string, SecteurDetail> = {
   },
   industrie: {
     slug: "industrie",
-    heroH: "AI for industry & operations",
+    heroH: "Agents for industry & operations",
     heroP:
       "Give technicians faster access to operational knowledge and absorb repetitive exceptions — without bypassing your systems or their expertise.",
     signals: [
@@ -648,8 +648,8 @@ const EN: Record<string, SecteurDetail> = {
         desc: "Procedures, field experience, machine history: critical know-how lives in heads and files.",
       },
       {
-        title: "AI POCs disconnected from the shopfloor",
-        desc: "Without MES/ERP/CMMS wiring and operator adoption, AI stays a slide.",
+        title: "Technology POCs disconnected from the shopfloor",
+        desc: "Without MES/ERP/CMMS wiring and operator adoption, Automation stays a slide.",
       },
       {
         title: "Quality and maintenance under pressure",
@@ -693,7 +693,7 @@ const EN: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Do you work with OT / cyber constraints?",
-        a: "Yes. We design architectures that respect network segmentation and security policy — AI does not bypass your stack.",
+        a: "Yes. We design architectures that respect network segmentation and security policy — Agents do not bypass your stack.",
       },
       {
         q: "Must everything move to the cloud?",
@@ -711,7 +711,7 @@ const EN: Record<string, SecteurDetail> = {
   },
   "services-conseil": {
     slug: "services-conseil",
-    heroH: "AI for services & consulting",
+    heroH: "Agents for services & consulting",
     heroP:
       "Recover capacity across research, synthesis and deliverables — without standardizing judgment or exposing client confidentiality.",
     signals: [
@@ -757,7 +757,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         who: "Innovation leadership",
-        need: "Govern consultant AI use beyond shadow ChatGPT.",
+        need: "Govern consultant agent use beyond shadow ChatGPT.",
         remparia:
           "SIGNAL roadmap + first controlled production case + usage charter aligned to client commitments.",
       },
@@ -766,10 +766,10 @@ const EN: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Are client data isolated?",
-        a: "Yes. We design isolation, rights and usage policies so AI respects your contractual commitments — not an opaque shared pot.",
+        a: "Yes. We design isolation, rights and usage policies so Agents respect your contractual commitments — not an opaque shared pot.",
       },
       {
-        q: "Will AI flatten our deliverables?",
+        q: "Will automation flatten our deliverables?",
         a: "It accelerates the base layer; your experts bring judgment and differentiation. That is “humans decide, agents execute”.",
       },
       {
@@ -784,9 +784,9 @@ const EN: Record<string, SecteurDetail> = {
   },
   "tech-produit": {
     slug: "tech-produit",
-    heroH: "AI for tech & product",
+    heroH: "Agents for tech & product",
     heroP:
-      "Make AI features and internal workflows reliable through guardrails, evidence and progressive transfer to product and engineering teams.",
+      "Make agent features and internal workflows reliable through guardrails, evidence and progressive transfer to product and engineering teams.",
     signals: [
       { value: "LLM", label: "Model-agnostic" },
       { value: "Prod", label: "Product reliability" },
@@ -795,7 +795,7 @@ const EN: Record<string, SecteurDetail> = {
     ],
     pains: [
       {
-        title: "Fragile AI features in production",
+        title: "Fragile agent features in production",
         desc: "Latency, hallucinations, token cost, drift: the product POC does not survive real traffic.",
       },
       {
@@ -804,11 +804,11 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         title: "Product / platform / business gap",
-        desc: "Without shared framing, every squad reinvents an incompatible AI stack.",
+        desc: "Without shared framing, every squad reinvents an incompatible agent stack.",
       },
     ],
     deliverables: [
-      "Product AI strategy: use cases, architecture, model choices",
+      "Product Agent strategy: use cases, architecture, model choices",
       "Industrialization of agents and features (eval, monitoring, cost)",
       "RAG and data readiness on proprietary data",
       "Sovereign or hybrid infra patterns by policy",
@@ -817,14 +817,14 @@ const EN: Record<string, SecteurDetail> = {
     ],
     scenarios: [
       {
-        who: "Head of Product / AI",
+        who: "Head of Product",
         need: "Move from impressive demo to stable feature.",
         remparia:
           "We set evals, guardrails, observability and exit criteria — then industrialize with your squads.",
       },
       {
         who: "CTO / platform",
-        need: "Avoid an AI stack jungle per team.",
+        need: "Avoid an agent stack jungle per team.",
         remparia:
           "We define a reference architecture, agent patterns and reusable data/model governance.",
       },
@@ -855,14 +855,14 @@ const EN: Record<string, SecteurDetail> = {
         a: "From design: model routing, cache, truncation, regression evals and budgets — not after the cloud bill.",
       },
       {
-        q: "Can you audit an existing AI stack?",
+        q: "Can you audit an existing agent stack?",
         a: "Yes. SIGNAL diagnostic: risks, debt, quick wins, then an industrialization roadmap.",
       },
     ],
   },
   "secteur-public": {
     slug: "secteur-public",
-    heroH: "AI for the public sector",
+    heroH: "Agents for the public sector",
     heroP:
       "Shorten administrative lead times while preserving public decisions, traceability and control of public-interest data.",
     signals: [
@@ -881,7 +881,7 @@ const EN: Record<string, SecteurDetail> = {
         desc: "Opaque public cloud, out-of-frame models, no audit trail: experiments die in legal review.",
       },
       {
-        title: "AI projects without industrialization",
+        title: "Agent projects without industrialization",
         desc: "Calls for projects and POCs pile up; few reach measurable daily use.",
       },
     ],
@@ -908,7 +908,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         who: "DPO / legal",
-        need: "Govern AI experimentation in administration.",
+        need: "Govern technology experimentation in administration.",
         remparia:
           "SIGNAL frame: purposes, legal bases, minimization, audit — then a first controlled production case.",
       },
@@ -929,7 +929,7 @@ const EN: Record<string, SecteurDetail> = {
         a: "We adapt engagement mode to your frame (services, project assistance, embedded teams). Let's discuss it at diagnostic time.",
       },
       {
-        q: "Does AI replace public servants?",
+        q: "Does the agent replace public servants?",
         a: "No. It absorbs repetitive load to free time for judgment and citizen relationships. Accountability stays human.",
       },
       {

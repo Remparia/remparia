@@ -29,7 +29,7 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Remparia — Agents IA : du temps rendu, la décision préservée",
+    default: "Remparia — Agents métier : du temps rendu, la décision préservée",
     template: "%s · Remparia",
   },
   description: SITE.description,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     alternateLocale: [SITE.localeAlternate],
     url: SITE.url,
     siteName: SITE.name,
-    title: "Remparia — Agents IA : du temps rendu, la décision préservée",
+    title: "Remparia — Agents métier : du temps rendu, la décision préservée",
     description: SITE.description,
     images: [
       {
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Remparia — Agents IA : du temps rendu, la décision préservée",
+    title: "Remparia — Agents métier : du temps rendu, la décision préservée",
     description: SITE.description,
     images: [absoluteUrl(SITE.ogImage)],
   },

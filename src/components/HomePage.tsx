@@ -10,11 +10,36 @@ import {
   BRAND,
   HOME,
   METHODE,
+  SECTEURS,
   SERVICES,
+  getSecteurImage,
 } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 type AdvantageIconName = (typeof HOME.fr.advantages)[number]["icon"];
+
+const HOME_SECTOR_CARDS = [
+  { slug: "cabinet-avocat", titleFr: "Juridique", titleEn: "Legal" },
+  {
+    slug: "finance-assurance",
+    titleFr: "Finance & Capital-investissement",
+    titleEn: "Finance & Private Equity",
+  },
+  {
+    slug: "expertise-comptable",
+    titleFr: "Experts-comptables",
+    titleEn: "Accounting Firms",
+  },
+  {
+    slug: "industrie",
+    titleFr: "Industrie & Défense",
+    titleEn: "Industry & Defense",
+  },
+  { slug: "services-conseil", titleFr: "Conseil", titleEn: "Consulting" },
+  { slug: "sante", titleFr: "Santé", titleEn: "Healthcare" },
+  { slug: "courtier-assurance", titleFr: "Assurance", titleEn: "Insurance" },
+  { slug: "tech-produit", titleFr: "Tech", titleEn: "Tech" },
+];
 
 function AdvantageIcon({ name }: { name: AdvantageIconName }) {
   if (name === "security") {
@@ -61,6 +86,9 @@ export default function HomePage() {
   const signal = METHODE[lang].steps;
   const services = SERVICES[lang].items;
   const positions = APROPOS[lang].positions;
+  const sectors = SECTEURS[lang];
+  const sectorsCtaLabel =
+    sectors.discoverAll?.trim() || (lang === "fr" ? "Voir les secteurs" : "View sectors");
   const [holding, setHolding] = useState(true);
 
   return (
@@ -71,7 +99,7 @@ export default function HomePage() {
       >
         <div className="hero__bg" aria-hidden>
           <Image
-            src="/hero-temporal.png"
+            src="/4a7fe64c-880c-4c2d-b5ff-451c58be4fc0.png"
             alt=""
             fill
             priority
@@ -174,10 +202,12 @@ export default function HomePage() {
             <p>{brand.visionP}</p>
           </div>
         </div>
-        <div className="reveal" style={{ marginTop: 64 }}>
-          <SectionLabel>{brand.missionTag}</SectionLabel>
-          <h2 className="section__title">{brand.missionH}</h2>
-          <p className="section__body">{brand.missionP}</p>
+        <div className="reveal section-breakout section-breakout--light">
+          <div className="section-breakout__inner">
+            <SectionLabel>{brand.missionTag}</SectionLabel>
+            <h2 className="section__title">{brand.missionH}</h2>
+            <p className="section__body">{brand.missionP}</p>
+          </div>
         </div>
         <div className="reveal" style={{ marginTop: 64 }}>
           <SectionLabel>{brand.valuesTag}</SectionLabel>
@@ -211,18 +241,33 @@ export default function HomePage() {
         <p className="section__body reveal" data-d="2">
           {t.audienceP}
         </p>
-        <div className="card-grid" style={{ marginTop: 40 }}>
-          {t.audiences.map((audience, i) => (
-            <article
-              key={audience.tag}
-              className="info-card reveal"
-              data-d={String(Math.min(i + 1, 3))}
+
+        <div className="home-sectors-grid" style={{ marginTop: 40 }}>
+          {HOME_SECTOR_CARDS.map((sector, i) => (
+            <LocaleLink
+              key={sector.slug}
+              href={`/secteurs/${sector.slug}`}
+              className="home-sector-card reveal"
+              data-d={String(Math.min((i % 3) + 1, 3))}
             >
-              <div className="info-card__tag">{audience.tag}</div>
-              <h3>{audience.title}</h3>
-              <p>{audience.desc}</p>
-            </article>
+              <Image
+                src={getSecteurImage(sector.slug)}
+                alt={lang === "fr" ? sector.titleFr : sector.titleEn}
+                fill
+                sizes="(max-width: 960px) 100vw, (max-width: 1400px) 50vw, 25vw"
+                className="home-sector-card__img"
+              />
+              <span className="home-sector-card__title">
+                {lang === "fr" ? sector.titleFr : sector.titleEn}
+              </span>
+            </LocaleLink>
           ))}
+        </div>
+
+        <div className="reveal" data-d="3" style={{ marginTop: 28 }}>
+          <LocaleLink href="/secteurs" className="btn-primary">
+            {sectorsCtaLabel} →
+          </LocaleLink>
         </div>
       </section>
 

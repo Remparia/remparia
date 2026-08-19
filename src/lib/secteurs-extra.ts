@@ -198,14 +198,14 @@ function toDetail(
   };
 }
 
-/** Verticales PME (inspirées Sylen) + secteurs IA utiles — positionnement serviсiel Remparia. */
+/** Verticales PME (inspirées Sylen) + secteurs métier utiles — positionnement serviсiel Remparia. */
 const EXTRAS: ExtraInput[] = [
   {
     slug: "cabinet-paramedical",
     fr: {
       title: "Cabinet paramédical",
       desc: "Pour kinés, ostéos, psychologues. RDV, parcours admin, RGPD.",
-      heroH: "IA pour les cabinets paramédicaux",
+      heroH: "Agents pour les cabinets paramédicaux",
       heroP:
         "Alléger l'administratif et fluidifier le parcours patient — sans exposer les dossiers à des outils grand public.",
       pains: [
@@ -214,7 +214,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "Prises de rendez-vous, rappels, dossiers, comptes-rendus : le temps clinique se dilue.",
         },
         {
-          title: "Outils IA grand public incompatibles",
+          title: "Outils génériques du marché incompatibles",
           desc: "Secret professionnel et RGPD interdisent les assistants non maîtrisés sur données patients.",
         },
         {
@@ -257,16 +257,16 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Paramedical practice",
       desc: "For PTs, osteopaths, psychologists. Scheduling, admin pathways, GDPR.",
-      heroH: "AI for paramedical practices",
+      heroH: "Agents for paramedical practices",
       heroP:
-        "Ease admin load and smooth patient pathways — without exposing records to consumer AI tools.",
+        "Ease admin load and smooth patient pathways — without exposing records to consumer tools tools.",
       pains: [
         {
           title: "Admin eats care time",
           desc: "Scheduling, reminders, files, reports: clinical time dissolves into process.",
         },
         {
-          title: "Consumer AI tools are incompatible",
+          title: "Generic consumer tools are incompatible",
           desc: "Professional secrecy and GDPR rule out unmanaged assistants on patient data.",
         },
         {
@@ -312,7 +312,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Cabinet d'avocat",
       desc: "Pour avocats. Qualification dossier, confidentialité, conflits.",
-      heroH: "IA pour les cabinets d'avocats",
+      heroH: "Agents pour les cabinets d'avocats",
       heroP:
         "Qualifier les dossiers, accélérer le documentaire et filtrer le bruit — sous secret professionnel et gouvernance stricte.",
       pains: [
@@ -364,7 +364,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Law firm",
       desc: "For lawyers. Matter qualification, confidentiality, conflicts.",
-      heroH: "AI for law firms",
+      heroH: "Agents for law firms",
       heroP:
         "Qualify matters, speed document work and filter noise — under professional secrecy and strict governance.",
       pains: [
@@ -419,7 +419,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Agence immobilière",
       desc: "Pour agences immo. Leads vendeurs et acheteurs qualifiés.",
-      heroH: "IA pour les agences immobilières",
+      heroH: "Agents pour les agences immobilières",
       heroP:
         "Entre appels entrants, pièces manquantes et suivi des mandats, l'agent prépare et oriente ; le conseiller garde la qualification et la relation.",
       pains: [
@@ -460,7 +460,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Ça remplace les conseillers ?",
-          a: "Non. L'IA trie et prépare ; le conseiller négocie et conclut.",
+          a: "Non. L'agent trie et prépare ; le conseiller négocie et conclut.",
         },
         {
           q: "Compatible avec notre CRM ?",
@@ -471,7 +471,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Real-estate agency",
       desc: "For agencies. Qualified buyer and seller leads.",
-      heroH: "AI for real-estate agencies",
+      heroH: "Agents for real-estate agencies",
       heroP:
         "Across inbound calls, missing documents and mandate follow-up, the agent prepares and routes; the adviser keeps qualification and relationships.",
       pains: [
@@ -512,7 +512,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Does it replace advisors?",
-          a: "No. AI triages and prepares; advisors negotiate and close.",
+          a: "No. Agents triage and prepares; advisors negotiate and close.",
         },
         {
           q: "Compatible with our CRM?",
@@ -526,7 +526,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Salon de beauté",
       desc: "Pour salons et instituts. Multi-praticien, durée variable.",
-      heroH: "IA pour salons & instituts",
+      heroH: "Agents pour salons & instituts",
       heroP:
         "Quand retards, durées variables et annulations désorganisent la journée, l'agent prépare le planning ; l'équipe garde l'accueil et l'arbitrage.",
       pains: [
@@ -577,7 +577,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Beauty salon",
       desc: "For salons and institutes. Multi-staff, variable duration.",
-      heroH: "AI for salons & institutes",
+      heroH: "Agents for salons & institutes",
       heroP:
         "When delays, variable durations and cancellations disrupt the day, the agent prepares the schedule; the team keeps hospitality and arbitration.",
       pains: [
@@ -631,7 +631,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Artisan / BTP",
       desc: "Pour plombiers, électriciens, BTP. Urgences vraies vs entretien.",
-      heroH: "IA pour artisans & BTP",
+      heroH: "Agents pour artisans & BTP",
       heroP:
         "Trier urgences, accélérer devis et planifier les interventions — branché sur votre réalité terrain.",
       pains: [
@@ -682,7 +682,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Trades / construction",
       desc: "For plumbers, electricians, construction. Real emergencies vs maintenance.",
-      heroH: "AI for trades & construction",
+      heroH: "Agents for trades & construction",
       heroP:
         "Triage emergencies, speed quotes and plan interventions — wired to field reality.",
       pains: [
@@ -736,7 +736,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Restaurant",
       desc: "Pour restaurants. Réservations, allergies, modifications.",
-      heroH: "IA pour la restauration",
+      heroH: "Agents pour la restauration",
       heroP:
         "Quand le téléphone coupe le service en salle, l'agent collecte réservations et contraintes ; l'équipe confirme les exceptions et garde l'hospitalité.",
       pains: [
@@ -775,7 +775,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'IA répond-elle à la place du serveur ?",
+          q: "L'agent répond-elle à la place du serveur ?",
           a: "Elle absorbe le répétitif ; le service et l'hospitalité restent humains.",
         },
         {
@@ -787,7 +787,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Restaurant",
       desc: "For restaurants. Reservations, allergies, changes.",
-      heroH: "AI for restaurants",
+      heroH: "Agents for restaurants",
       heroP:
         "When the phone interrupts floor service, the agent collects bookings and constraints; the team confirms exceptions and keeps hospitality human.",
       pains: [
@@ -826,7 +826,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "Does AI answer instead of staff?",
+          q: "Does the agent answer instead of staff?",
           a: "It absorbs repetitive load; hospitality stays human.",
         },
         {
@@ -841,7 +841,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Garage automobile",
       desc: "Pour garages. Prestation, panne, planning atelier.",
-      heroH: "IA pour garages automobiles",
+      heroH: "Agents pour garages automobiles",
       heroP:
         "Qualifier prestations et pannes, accélérer le planning atelier et la relation client — sur vos outils métier.",
       pains: [
@@ -884,7 +884,7 @@ const EXTRAS: ExtraInput[] = [
           a: "On part de votre stack ; l'intégration est un livrable, pas une option marketing.",
         },
         {
-          q: "L'IA diagnostique-t-elle à la place du technicien ?",
+          q: "L'agent diagnostique-t-elle à la place du technicien ?",
           a: "Non. Elle prépare ; le diagnostic et la responsabilité restent humains.",
         },
       ],
@@ -892,7 +892,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Auto garage",
       desc: "For garages. Services, breakdowns, shop scheduling.",
-      heroH: "AI for auto garages",
+      heroH: "Agents for auto garages",
       heroP:
         "Qualify services and breakdowns, speed shop planning and client relationships — on your business tools.",
       pains: [
@@ -935,7 +935,7 @@ const EXTRAS: ExtraInput[] = [
           a: "We start from your stack; integration is a deliverable, not a marketing option.",
         },
         {
-          q: "Does AI diagnose instead of the technician?",
+          q: "Does the agent diagnose instead of the technician?",
           a: "No. It prepares; diagnosis and accountability stay human.",
         },
       ],
@@ -946,7 +946,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "E-commerce et boutique",
       desc: "Pour boutiques en ligne. Suivi commande, retours, FAQ produit.",
-      heroH: "IA pour e-commerce & boutiques",
+      heroH: "Agents pour e-commerce & boutiques",
       heroP:
         "Quand suivi de commande et retours saturent le support, l'agent traite le répétitif ; l'équipe reprend les cas sensibles et la voix de marque.",
       pains: [
@@ -960,7 +960,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Qualité de réponse instable",
-          desc: "Sans gouvernance, l'IA grand public invente ou casse le ton de marque.",
+          desc: "Sans gouvernance, les outils génériques invente ou casse le ton de marque.",
         },
       ],
       deliverables: [
@@ -985,7 +985,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'IA peut-elle rembourser toute seule ?",
+          q: "L'agent peut-elle rembourser toute seule ?",
           a: "Uniquement dans le périmètre que vous autorisez. Les cas sensibles restent humains.",
         },
         {
@@ -997,7 +997,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "E-commerce & retail",
       desc: "For online stores. Order tracking, returns, product FAQ.",
-      heroH: "AI for e-commerce & stores",
+      heroH: "Agents for e-commerce & stores",
       heroP:
         "When order tracking and returns saturate support, the agent handles repetition; the team takes over sensitive cases and brand voice.",
       pains: [
@@ -1011,7 +1011,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Unstable answer quality",
-          desc: "Without governance, consumer AI invents or breaks brand tone.",
+          desc: "Without governance, consumer tools invents or breaks brand tone.",
         },
       ],
       deliverables: [
@@ -1036,7 +1036,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "Can AI refund on its own?",
+          q: "Can the agent refund on its own?",
           a: "Only within the scope you authorize. Sensitive cases stay human.",
         },
         {
@@ -1051,7 +1051,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Cabinet dentaire",
       desc: "Pour cabinets dentaires. Planning, rappels, dossiers, conformité.",
-      heroH: "IA pour cabinets dentaires",
+      heroH: "Agents pour cabinets dentaires",
       heroP:
         "Sécuriser planning, rappels et parcours patient — sous contrainte de données de santé.",
       pains: [
@@ -1094,7 +1094,7 @@ const EXTRAS: ExtraInput[] = [
           a: "Architectures adaptées à votre cadre (y compris exigences d'hébergement santé quand pertinent).",
         },
         {
-          q: "L'IA décide-t-elle un plan de traitement ?",
+          q: "L'agent décide-t-elle un plan de traitement ?",
           a: "Non. Elle prépare ; le praticien décide.",
         },
       ],
@@ -1102,7 +1102,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Dental practice",
       desc: "For dental clinics. Scheduling, reminders, records, compliance.",
-      heroH: "AI for dental practices",
+      heroH: "Agents for dental practices",
       heroP:
         "Secure scheduling, reminders and patient pathways — under health-data constraints.",
       pains: [
@@ -1145,7 +1145,7 @@ const EXTRAS: ExtraInput[] = [
           a: "Architectures suited to your frame (including health hosting requirements when relevant).",
         },
         {
-          q: "Does AI decide a treatment plan?",
+          q: "Does the agent decide a treatment plan?",
           a: "No. It prepares; the practitioner decides.",
         },
       ],
@@ -1156,7 +1156,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Plombier chauffagiste",
       desc: "Pour plombiers chauffagistes. Urgences, devis, tournées.",
-      heroH: "IA pour plombiers chauffagistes",
+      heroH: "Agents pour plombiers chauffagistes",
       heroP:
         "Trier les urgences, accélérer devis et optimiser les tournées — mission terrain, pas gadget.",
       pains: [
@@ -1207,7 +1207,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Plumber / heating engineer",
       desc: "For plumbers and heating engineers. Emergencies, quotes, routes.",
-      heroH: "AI for plumbers & heating engineers",
+      heroH: "Agents for plumbers & heating engineers",
       heroP:
         "Triage emergencies, speed quotes and optimize routes — field mission, not a gadget.",
       pains: [
@@ -1261,7 +1261,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Étude notariale",
       desc: "Pour études notariales. Actes, pièces, délais, confidentialité.",
-      heroH: "IA pour études notariales",
+      heroH: "Agents pour études notariales",
       heroP:
         "Accélérer la collecte de pièces et la préparation d'actes — sous confidentialité et traçabilité strictes.",
       pains: [
@@ -1304,7 +1304,7 @@ const EXTRAS: ExtraInput[] = [
           a: "Oui : architecture, droits et validation humaine conçus pour cet impératif.",
         },
         {
-          q: "L'IA rédige-t-elle l'acte seule ?",
+          q: "L'agent rédige-t-elle l'acte seule ?",
           a: "Non. Elle prépare ; le notaire engage sa responsabilité.",
         },
       ],
@@ -1312,7 +1312,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Notary office",
       desc: "For notary offices. Deeds, documents, deadlines, confidentiality.",
-      heroH: "AI for notary offices",
+      heroH: "Agents for notary offices",
       heroP:
         "Speed document collection and deed preparation — under strict confidentiality and traceability.",
       pains: [
@@ -1355,7 +1355,7 @@ const EXTRAS: ExtraInput[] = [
           a: "Yes: architecture, rights and human validation designed for that imperative.",
         },
         {
-          q: "Does AI draft the deed alone?",
+          q: "Does the agent draft the deed alone?",
           a: "No. It prepares; the notary remains accountable.",
         },
       ],
@@ -1366,7 +1366,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Cabinet d'expertise comptable",
       desc: "Pour experts-comptables. Saisie, dossiers, conformité, livrables.",
-      heroH: "IA pour l'expertise comptable",
+      heroH: "Agents pour l'expertise comptable",
       heroP:
         "Entre collecte, saisie et contrôles, l'agent prépare les dossiers ; l'expert conserve la révision, le conseil et la responsabilité.",
       pains: [
@@ -1410,14 +1410,14 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Remplace le collaborateur ?",
-          a: "Non. L'IA accélère le socle ; l'expertise signe.",
+          a: "Non. L'agent accélère le socle ; l'expertise signe.",
         },
       ],
     },
     en: {
       title: "Accounting firm",
       desc: "For accountants. Entry, files, compliance, deliverables.",
-      heroH: "AI for accounting firms",
+      heroH: "Agents for accounting firms",
       heroP:
         "Across collection, entry and controls, the agent prepares files; the accountant retains review, advice and accountability.",
       pains: [
@@ -1461,7 +1461,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Does it replace staff?",
-          a: "No. AI accelerates the base layer; experts sign off.",
+          a: "No. Agents accelerate the base layer; experts sign off.",
         },
       ],
     },
@@ -1471,7 +1471,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Clinique vétérinaire",
       desc: "Pour cliniques véto. RDV, urgences, dossiers animaux.",
-      heroH: "IA pour cliniques vétérinaires",
+      heroH: "Agents pour cliniques vétérinaires",
       heroP:
         "Fluidifier RDV, urgences et dossiers — tout en gardant le soin et la relation propriétaire au centre.",
       pains: [
@@ -1510,7 +1510,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'IA remplace-t-elle le diagnostic ?",
+          q: "L'agent remplace-t-elle le diagnostic ?",
           a: "Non. Elle organise et prépare ; le vétérinaire soigne et décide.",
         },
         {
@@ -1522,7 +1522,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Veterinary clinic",
       desc: "For vet clinics. Appointments, emergencies, animal records.",
-      heroH: "AI for veterinary clinics",
+      heroH: "Agents for veterinary clinics",
       heroP:
         "Smooth appointments, emergencies and records — while keeping care and owner relationships central.",
       pains: [
@@ -1561,7 +1561,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "Does AI replace diagnosis?",
+          q: "Does the agent replace diagnosis?",
           a: "No. It organizes and prepares; the vet cares and decides.",
         },
         {
@@ -1576,7 +1576,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Courtier en assurance",
       desc: "Pour courtiers. Qualification leads, dossiers, conformité.",
-      heroH: "IA pour courtiers en assurance",
+      heroH: "Agents pour courtiers en assurance",
       heroP:
         "Face aux demandes incomplètes et aux pièces dispersées, l'agent prépare le dossier ; le courtier garde le devoir de conseil et la recommandation.",
       pains: [
@@ -1627,7 +1627,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Insurance broker",
       desc: "For brokers. Lead qualification, files, compliance.",
-      heroH: "AI for insurance brokers",
+      heroH: "Agents for insurance brokers",
       heroP:
         "With incomplete requests and scattered documents, the agent prepares the file; the broker keeps the duty of advice and recommendation.",
       pains: [
@@ -1676,13 +1676,13 @@ const EXTRAS: ExtraInput[] = [
       ],
     },
   },
-  // --- Secteurs IA additionnels ---
+  // --- Secteurs additionnels ---
   {
     slug: "logistique-transport",
     fr: {
       title: "Logistique & transport",
       desc: "Pour chargeurs et transporteurs. Planning, exceptions, documents.",
-      heroH: "IA pour la logistique & le transport",
+      heroH: "Agents pour la logistique & le transport",
       heroP:
         "Traiter exceptions, documents et planning — branché sur WMS/TMS, jusqu'à la production.",
       pains: [
@@ -1733,7 +1733,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Logistics & transport",
       desc: "For shippers and carriers. Planning, exceptions, documents.",
-      heroH: "AI for logistics & transport",
+      heroH: "Agents for logistics & transport",
       heroP:
         "Handle exceptions, documents and planning — wired to WMS/TMS, through to production.",
       pains: [
@@ -1788,7 +1788,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Retail & distribution",
       desc: "Pour enseignes. Demand sensing, assortiment, relation magasin.",
-      heroH: "IA pour le retail & la distribution",
+      heroH: "Agents pour le retail & la distribution",
       heroP:
         "Aider assortiment, prévisions et relation magasin — agents intégrés à vos process métiers.",
       pains: [
@@ -1801,7 +1801,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "FAQ process, ruptures, promos : le siège répond trop tard.",
         },
         {
-          title: "POC IA décorrélés du terrain",
+          title: "POC technologiques décorrélés du terrain",
           desc: "Sans intégration ERP/POS, pas d'impact rayon.",
         },
       ],
@@ -1832,14 +1832,14 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Remplace le category manager ?",
-          a: "Non. L'IA propose ; le métier arbitre.",
+          a: "Non. L'agent propose ; le métier arbitre.",
         },
       ],
     },
     en: {
       title: "Retail & distribution",
       desc: "For retailers. Demand sensing, assortment, store relations.",
-      heroH: "AI for retail & distribution",
+      heroH: "Agents for retail & distribution",
       heroP:
         "Support assortment, forecasting and store relations — agents integrated into business processes.",
       pains: [
@@ -1852,7 +1852,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "Process FAQ, stockouts, promos: HQ answers too late.",
         },
         {
-          title: "AI POCs disconnected from the floor",
+          title: "Technology POCs disconnected from the floor",
           desc: "Without ERP/POS integration, no shelf impact.",
         },
       ],
@@ -1883,7 +1883,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Replace the category manager?",
-          a: "No. AI proposes; business arbitrates.",
+          a: "No. The agent proposes; business arbitrates.",
         },
       ],
     },
@@ -1893,7 +1893,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "RH & recrutement",
       desc: "Pour RH. Screening, parcours candidat, knowledge interne.",
-      heroH: "IA pour les RH & le recrutement",
+      heroH: "Agents pour les RH & le recrutement",
       heroP:
         "Accélérer screening et parcours candidat sans biais non maîtrisés — gouvernance et humain dans la boucle.",
       pains: [
@@ -1907,7 +1907,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Risque biais / conformité",
-          desc: "Une IA RH mal cadrée crée plus de risque qu'elle n'en retire.",
+          desc: "Une automatisation RH mal cadrée crée plus de risque qu'elle n'en retire.",
         },
       ],
       deliverables: [
@@ -1932,7 +1932,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'IA décide-t-elle d'embaucher ?",
+          q: "L'agent décide-t-elle d'embaucher ?",
           a: "Non. Elle trie selon vos critères ; le recruteur décide.",
         },
         {
@@ -1944,7 +1944,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "HR & recruiting",
       desc: "For HR. Screening, candidate journey, internal knowledge.",
-      heroH: "AI for HR & recruiting",
+      heroH: "Agents for HR & recruiting",
       heroP:
         "Speed screening and candidate journeys without unmanaged bias — governance and humans in the loop.",
       pains: [
@@ -1958,7 +1958,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Bias / compliance risk",
-          desc: "Poorly framed HR AI creates more risk than it removes.",
+          desc: "Poorly framed HR automation creates more risk than it removes.",
         },
       ],
       deliverables: [
@@ -1983,7 +1983,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "Does AI decide who to hire?",
+          q: "Does the agent decide who to hire?",
           a: "No. It sorts by your criteria; recruiters decide.",
         },
         {
@@ -1998,7 +1998,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Éducation & formation",
       desc: "Pour écoles et organismes. Parcours, tutoring, back-office.",
-      heroH: "IA pour l'éducation & la formation",
+      heroH: "Agents pour l'éducation & la formation",
       heroP:
         "Augmenter pédagogie et back-office — sans remplacer l'enseignant, avec garde-fous éthiques.",
       pains: [
@@ -2037,7 +2037,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'IA remplace-t-elle le formateur ?",
+          q: "L'agent remplace-t-elle le formateur ?",
           a: "Non. Elle augmente ; la responsabilité pédagogique reste humaine.",
         },
         {
@@ -2049,7 +2049,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Education & training",
       desc: "For schools and training orgs. Pathways, tutoring, back-office.",
-      heroH: "AI for education & training",
+      heroH: "Agents for education & training",
       heroP:
         "Augment teaching and back-office — without replacing educators, with ethical guardrails.",
       pains: [
@@ -2088,7 +2088,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "Does AI replace the trainer?",
+          q: "Does the agent replace the trainer?",
           a: "No. It augments; pedagogical accountability stays human.",
         },
         {
@@ -2103,7 +2103,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Énergie & utilities",
       desc: "Pour énergéticiens. Maintenance, client, conformité terrain.",
-      heroH: "IA pour l'énergie & les utilities",
+      heroH: "Agents pour l'énergie & les utilities",
       heroP:
         "Agents maintenance, relation client et documentaire — sous contrainte sécurité et souveraineté.",
       pains: [
@@ -2117,7 +2117,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Exigences sécurité / data",
-          desc: "Pas de place pour une IA non gouvernée.",
+          desc: "Pas de place pour une automatisation non gouvernée.",
         },
       ],
       deliverables: [
@@ -2154,7 +2154,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Energy & utilities",
       desc: "For energy firms. Maintenance, customer care, field compliance.",
-      heroH: "AI for energy & utilities",
+      heroH: "Agents for energy & utilities",
       heroP:
         "Maintenance, customer and document agents — under security and sovereignty constraints.",
       pains: [
@@ -2168,7 +2168,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Security / data requirements",
-          desc: "No room for unmanaged AI.",
+          desc: "No room for unmanaged automation.",
         },
       ],
       deliverables: [
@@ -2209,7 +2209,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Media & contenu",
       desc: "Pour médias et marques. Production, modération, knowledge.",
-      heroH: "IA pour media & contenu",
+      heroH: "Agents pour media & contenu",
       heroP:
         "Accélérer production et modération sans diluer la ligne éditoriale — gouvernance et revue humaine.",
       pains: [
@@ -2223,7 +2223,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Risque de dilution de marque",
-          desc: "Sans garde-fous, l'IA uniformise ou hallucine.",
+          desc: "Sans garde-fous, l'automatisation uniformise ou dérive.",
         },
       ],
       deliverables: [
@@ -2248,7 +2248,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'IA publie-t-elle seule ?",
+          q: "L'agent publie-t-elle seule ?",
           a: "Non, sauf workflow que vous autorisez explicitement. Par défaut : revue humaine.",
         },
         {
@@ -2260,7 +2260,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Media & content",
       desc: "For media and brands. Production, moderation, knowledge.",
-      heroH: "AI for media & content",
+      heroH: "Agents for media & content",
       heroP:
         "Speed production and moderation without diluting editorial line — governance and human review.",
       pains: [
@@ -2274,7 +2274,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Brand dilution risk",
-          desc: "Without guardrails, AI flattens or hallucinates.",
+          desc: "Without guardrails, automation flattens or drifts.",
         },
       ],
       deliverables: [
@@ -2299,7 +2299,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "Does AI publish alone?",
+          q: "Does the agent publish alone?",
           a: "No, unless you explicitly authorize a workflow. Default: human review.",
         },
         {
@@ -2314,7 +2314,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Pharma & sciences de la vie",
       desc: "Pour pharma et biotech. Documentaire, qualité, conformité.",
-      heroH: "IA pour pharma & sciences de la vie",
+      heroH: "Agents pour pharma & sciences de la vie",
       heroP:
         "Documentaire, qualité et knowledge scientifique — sous GxP, traçabilité et souveraineté.",
       pains: [
@@ -2328,7 +2328,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Exigences GxP / audit",
-          desc: "Pas d'IA opaque dans un environnement régulé.",
+          desc: "Pas d'automatisation opaque dans un environnement régulé.",
         },
       ],
       deliverables: [
@@ -2365,7 +2365,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Pharma & life sciences",
       desc: "For pharma and biotech. Documents, quality, compliance.",
-      heroH: "AI for pharma & life sciences",
+      heroH: "Agents for pharma & life sciences",
       heroP:
         "Documents, quality and scientific knowledge — under GxP, traceability and sovereignty.",
       pains: [
@@ -2379,7 +2379,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "GxP / audit requirements",
-          desc: "No opaque AI in a regulated environment.",
+          desc: "No opaque automation in a regulated environment.",
         },
       ],
       deliverables: [
@@ -2420,7 +2420,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Hôtellerie & tourisme",
       desc: "Pour hôtels et acteurs touristiques. Résa, conciergerie, upsells.",
-      heroH: "IA pour l'hôtellerie & le tourisme",
+      heroH: "Agents pour l'hôtellerie & le tourisme",
       heroP:
         "Quand les demandes répétitives saturent la réception, l'agent prépare les réponses ; l'équipe garde les situations sensibles et l'attention au séjour.",
       pains: [
@@ -2459,7 +2459,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'IA remplace la réception ?",
+          q: "L'agent remplace la réception ?",
           a: "Non. Elle absorbe le répétitif ; l'hospitalité reste humaine.",
         },
         {
@@ -2471,7 +2471,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Hospitality & tourism",
       desc: "For hotels and tourism players. Booking, concierge, upsells.",
-      heroH: "AI for hospitality & tourism",
+      heroH: "Agents for hospitality & tourism",
       heroP:
         "When repetitive requests saturate reception, the agent prepares responses; the team keeps sensitive situations and attention to the stay.",
       pains: [
@@ -2510,7 +2510,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "Does AI replace the front desk?",
+          q: "Does the agent replace the front desk?",
           a: "No. It absorbs repetitive load; hospitality stays human.",
         },
         {
@@ -2525,7 +2525,7 @@ const EXTRAS: ExtraInput[] = [
     fr: {
       title: "Agriculture & agroalimentaire",
       desc: "Pour filières agri. Qualité, traçabilité, ops production.",
-      heroH: "IA pour l'agriculture & l'agroalimentaire",
+      heroH: "Agents pour l'agriculture & l'agroalimentaire",
       heroP:
         "Qualité, traçabilité et opérations — agents intégrés aux contraintes terrain et réglementation.",
       pains: [
@@ -2576,7 +2576,7 @@ const EXTRAS: ExtraInput[] = [
     en: {
       title: "Agriculture & food",
       desc: "For agri chains. Quality, traceability, production ops.",
-      heroH: "AI for agriculture & food",
+      heroH: "Agents for agriculture & food",
       heroP:
         "Quality, traceability and operations — agents integrated with field and regulatory constraints.",
       pains: [

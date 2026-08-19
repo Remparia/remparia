@@ -10,102 +10,109 @@ export type SecteurMeta = {
   image: string;
 };
 
-/** Catalogue central : catégorie + image (remplaçable par une vraie photo au même chemin). */
+function hqImage(file: string) {
+  return `/secteurs/remparia-hq-${file}.png`;
+}
+
+/** Catalogue central : catégorie + image */
 export const SECTEUR_META: Record<string, SecteurMeta> = {
   "finance-assurance": {
     category: "industries",
-    image: "/secteurs/finance-assurance.svg",
+    image: hqImage("finance-assurance"),
   },
-  sante: { category: "industries", image: "/secteurs/sante.svg" },
-  industrie: { category: "industries", image: "/secteurs/industrie.svg" },
+  sante: { category: "industries", image: hqImage("sante") },
+  industrie: {
+    category: "industries",
+    image: hqImage("industrie"),
+  },
   "services-conseil": {
     category: "industries",
-    image: "/secteurs/services-conseil.svg",
+    image: hqImage("services-conseil"),
   },
-  "tech-produit": { category: "industries", image: "/secteurs/tech-produit.svg" },
+  "tech-produit": { category: "industries", image: hqImage("tech-produit") },
   "secteur-public": {
     category: "industries",
-    image: "/secteurs/secteur-public.svg",
+    image: hqImage("secteur-public"),
   },
   "cabinet-paramedical": {
     category: "professions",
-    image: "/secteurs/cabinet-paramedical.svg",
+    image: hqImage("cabinet-paramedical"),
   },
   "cabinet-avocat": {
     category: "professions",
-    image: "/secteurs/cabinet-avocat.svg",
+    image: hqImage("cabinet-avocat"),
   },
   "cabinet-dentaire": {
     category: "professions",
-    image: "/secteurs/cabinet-dentaire.svg",
+    image: hqImage("cabinet-dentaire"),
   },
   "etude-notariale": {
     category: "professions",
-    image: "/secteurs/etude-notariale.svg",
+    image: hqImage("etude-notariale"),
   },
   "expertise-comptable": {
     category: "professions",
-    image: "/secteurs/expertise-comptable.svg",
+    image: hqImage("expertise-comptable"),
   },
   "clinique-veterinaire": {
     category: "professions",
-    image: "/secteurs/clinique-veterinaire.svg",
+    image: hqImage("clinique-veterinaire"),
   },
   "courtier-assurance": {
     category: "professions",
-    image: "/secteurs/courtier-assurance.svg",
+    image: hqImage("courtier-assurance"),
   },
   "agence-immobiliere": {
     category: "commerce",
-    image: "/secteurs/agence-immobiliere.svg",
+    image: hqImage("agence-immobiliere"),
   },
-  "salon-beaute": { category: "commerce", image: "/secteurs/salon-beaute.svg" },
-  "artisan-btp": { category: "commerce", image: "/secteurs/artisan-btp.svg" },
-  restaurant: { category: "commerce", image: "/secteurs/restaurant.svg" },
+  "salon-beaute": { category: "commerce", image: hqImage("salon-beaute") },
+  "artisan-btp": { category: "commerce", image: hqImage("artisan-btp") },
+  restaurant: { category: "commerce", image: hqImage("restaurant") },
   "garage-automobile": {
     category: "commerce",
-    image: "/secteurs/garage-automobile.svg",
+    image: hqImage("garage-automobile"),
   },
-  "e-commerce": { category: "commerce", image: "/secteurs/e-commerce.svg" },
+  "e-commerce": { category: "commerce", image: hqImage("ecommerce-boutique") },
   "plombier-chauffagiste": {
     category: "commerce",
-    image: "/secteurs/plombier-chauffagiste.svg",
+    image: hqImage("plombier-chauffagiste"),
   },
   "hotel-tourisme": {
     category: "commerce",
-    image: "/secteurs/hotel-tourisme.svg",
+    image: hqImage("hotellerie-tourisme"),
   },
   "logistique-transport": {
     category: "operations",
-    image: "/secteurs/logistique-transport.svg",
+    image: hqImage("logistique-transport"),
   },
   "retail-distribution": {
     category: "operations",
-    image: "/secteurs/retail-distribution.svg",
+    image: hqImage("retail-distribution"),
   },
   "energie-utilities": {
     category: "operations",
-    image: "/secteurs/energie-utilities.svg",
+    image: hqImage("energie-utilities"),
   },
   "agriculture-agroalimentaire": {
     category: "operations",
-    image: "/secteurs/agriculture-agroalimentaire.svg",
+    image: hqImage("agriculture"),
   },
   "pharma-sciences-vie": {
     category: "operations",
-    image: "/secteurs/pharma-sciences-vie.svg",
+    image: hqImage("pharma-sciences-vie"),
   },
   "rh-recrutement": {
     category: "organisation",
-    image: "/secteurs/rh-recrutement.svg",
+    image: hqImage("rh-recrutement"),
   },
   "education-formation": {
     category: "organisation",
-    image: "/secteurs/education-formation.svg",
+    image: hqImage("education-formation"),
   },
   "media-contenu": {
     category: "organisation",
-    image: "/secteurs/media-contenu.svg",
+    image: hqImage("media-contenu"),
   },
 };
 

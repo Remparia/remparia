@@ -2,6 +2,7 @@
 
 import LocaleLink from "@/components/LocaleLink";
 import { NAV } from "@/lib/content";
+import { CONTACT_EMAIL } from "@/lib/contact-email";
 import { useLang } from "@/lib/lang";
 
 export type Crumb = {
@@ -105,8 +106,8 @@ export function CtaBand({
           <LocaleLink href="/contact" className="cta__btn">
             {demo} →
           </LocaleLink>
-          <a href="mailto:contact@remparia.fr" className="cta__mail">
-            contact@remparia.fr
+          <a href={`mailto:${CONTACT_EMAIL}`} className="cta__mail">
+            {CONTACT_EMAIL}
           </a>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL } from "./contact-email";
 import { EXTRA_SECTEUR_ITEMS } from "./secteurs-extra";
 
 export type Lang = "fr" | "en";
@@ -59,7 +60,7 @@ export const FOOTER = {
     cookies: "Cookies",
     cookiePrefs: "Gérer les cookies",
     rights: "© 2026 REMPARIA. Tous droits réservés.",
-    logoAlt: "Remparia — Agents IA métier",
+    logoAlt: "Remparia — Agents métier",
   },
   en: {
     tagline: "Time returned · Decision preserved · Data under control",
@@ -75,7 +76,7 @@ export const FOOTER = {
     cookies: "Cookies",
     cookiePrefs: "Cookie settings",
     rights: "© 2026 REMPARIA. All rights reserved.",
-    logoAlt: "Remparia — Business AI agents",
+    logoAlt: "Remparia — Business agents",
   },
 } as const;
 
@@ -104,9 +105,9 @@ export const BRAND = {
   fr: {
     promiseGuard: "La décision préservée.",
     visionTag: "NOTRE VISION",
-    visionH: "Une IA qui renforce les métiers de confiance.",
+    visionH: "Une technologie qui renforce les métiers de confiance.",
     visionP:
-      "Dans les métiers où chaque décision engage une responsabilité, l'IA ne doit pas devenir une boîte noire qui remplace le jugement. Elle doit devenir une infrastructure de confiance : supervisée, traçable et utile.",
+      "Dans les métiers où chaque décision engage une responsabilité, l'automatisation ne doit pas devenir une boîte noire qui remplace le jugement. Elle doit devenir une infrastructure de confiance : supervisée, traçable et utile.",
     missionTag: "NOTRE MISSION",
     missionH: "Transformer le répétitif en temps utile.",
     missionP:
@@ -141,9 +142,9 @@ export const BRAND = {
   en: {
     promiseGuard: "Decision preserved.",
     visionTag: "OUR VISION",
-    visionH: "AI that strengthens professions built on trust.",
+    visionH: "Technology that strengthens professions built on trust.",
     visionP:
-      "In professions where every decision carries accountability, AI must not become a black box that replaces judgment. It must become trusted infrastructure: supervised, traceable and useful.",
+      "In professions where every decision carries accountability, automation must not become a black box that replaces judgment. It must become trusted infrastructure: supervised, traceable and useful.",
     missionTag: "OUR MISSION",
     missionH: "Turn repetitive work into useful time.",
     missionP:
@@ -179,23 +180,23 @@ export const BRAND = {
 
 export const HOME = {
   fr: {
-    eyebrow: "AGENTS IA POUR MÉTIERS SPÉCIALISÉS",
+    eyebrow: "AGENTS POUR MÉTIERS SPÉCIALISÉS",
     h1a: "Nous transformons",
-    h1b: "l’IA en avantage concurrentiel.",
+    h1b: "l’automatisation en avantage concurrentiel.",
     protocolAria: "Protocole SIGNAL",
     introSkip: "Passer",
-    introLine: "rempart + ia",
+    introLine: "rempart + agents",
     introNoise: "Bruit",
     introHint: "extraction du signal",
     subBefore: "Remparia aide les métiers spécialisés à ",
-    subAccent: "intégrer l’intelligence artificielle",
+    subAccent: "intégrer des agents supervisés",
     subAfter:
       " de manière concrète, sécurisée et mesurable — sans céder la décision ni le contrôle de leurs données.",
     advantages: [
       {
         icon: "strategy",
-        title: "Stratégie IA",
-        desc: "Une vision claire des usages où l’IA crée un impact vérifiable.",
+        title: "Stratégie & gouvernance",
+        desc: "Une vision claire des usages où l’automatisation crée un impact vérifiable.",
       },
       {
         icon: "security",
@@ -213,7 +214,7 @@ export const HOME = {
         desc: "Un accompagnement de bout en bout par les associés qui livrent.",
       },
     ],
-    closingBefore: "L’IA n’est pas qu’une technologie.",
+    closingBefore: "L’automatisation n’est pas qu’une technologie.",
     closingAccent: "C’est votre prochaine longueur d’avance.",
     cta: "Parlons de votre processus",
     constat: "LE CONSTAT",
@@ -224,9 +225,9 @@ export const HOME = {
     convH1: "L'humain décide,",
     convH2: "l'agent exécute.",
     convP:
-      "L'IA n'est pas là pour remplacer votre expertise. L'agent prépare, collecte, contrôle et alerte. Vos équipes gardent le jugement, la relation client et la responsabilité.",
+      "Les agents ne sont pas là pour remplacer votre expertise. L'agent prépare, collecte, contrôle et alerte. Vos équipes gardent le jugement, la relation client et la responsabilité.",
     audience: "POUR QUI",
-    audienceH: "Là où l'IA générique échoue.",
+    audienceH: "Là où les solutions génériques échoue.",
     audienceP:
       "Nous intervenons dans les métiers où la donnée est sensible, le cadre exigeant et le temps expert trop précieux pour être absorbé par le répétitif.",
     audiences: [
@@ -260,23 +261,23 @@ export const HOME = {
       "En une heure, nous cadrons le travail répétitif, les contraintes de données et les gains à mesurer — avec un associé, pas un commercial.",
   },
   en: {
-    eyebrow: "AI AGENTS FOR SPECIALIZED PROFESSIONS",
-    h1a: "We turn AI",
+    eyebrow: "AGENTS FOR SPECIALIZED PROFESSIONS",
+    h1a: "We turn automation",
     h1b: "into a competitive advantage.",
     protocolAria: "SIGNAL protocol",
     introSkip: "Skip",
-    introLine: "rampart + ai",
+    introLine: "rampart + agents",
     introNoise: "Noise",
     introHint: "extracting signal",
     subBefore: "Remparia helps specialized professions ",
-    subAccent: "integrate artificial intelligence",
+    subAccent: "integrate supervised agents",
     subAfter:
       " in a concrete, secure and measurable way — without giving up decisions or control of their data.",
     advantages: [
       {
         icon: "strategy",
-        title: "AI strategy",
-        desc: "A clear view of the uses where AI can create verifiable impact.",
+        title: "Agent strategy",
+        desc: "A clear view of the uses where automation can create verifiable impact.",
       },
       {
         icon: "security",
@@ -294,7 +295,7 @@ export const HOME = {
         desc: "End-to-end support from the partners who actually deliver.",
       },
     ],
-    closingBefore: "AI is more than technology.",
+    closingBefore: "Agents are more than technology.",
     closingAccent: "It is your next competitive edge.",
     cta: "Talk through your workflow",
     constat: "THE REALITY",
@@ -305,9 +306,9 @@ export const HOME = {
     convH1: "Humans decide,",
     convH2: "agents execute.",
     convP:
-      "AI is not here to replace expertise. Agents prepare, collect, check and alert. Your teams keep judgment, client relationships and accountability.",
+      "Agents are not here to replace expertise. Agents prepare, collect, check and alert. Your teams keep judgment, client relationships and accountability.",
     audience: "WHO IT IS FOR",
-    audienceH: "Where generic AI falls short.",
+    audienceH: "Where generic tools fall short.",
     audienceP:
       "We work in professions where data is sensitive, the frame is demanding and expert time is too valuable to be consumed by repetitive work.",
     audiences: [
@@ -344,12 +345,12 @@ export const HOME = {
 
 export const PILLARS = {
   fr: [
-    { tag: "AGENTS IA MÉTIER", title: "Branchés sur vos outils réels" },
+    { tag: "AGENTS MÉTIER", title: "Branchés sur vos outils réels" },
     { tag: "DONNÉES SOUS CONTRÔLE", title: "France, on-prem ou architecture hybride" },
     { tag: "TEMPS RENDU", title: "Mesuré avant de passer à l'échelle" },
   ],
   en: [
-    { tag: "BUSINESS AI AGENTS", title: "Connected to your actual tools" },
+    { tag: "BUSINESS AGENTS", title: "Connected to your actual tools" },
     { tag: "DATA UNDER CONTROL", title: "France, on-prem or hybrid architecture" },
     { tag: "TIME RETURNED", title: "Measured before scaling" },
   ],
@@ -377,7 +378,7 @@ export const SERVICES = {
       {
         slug: "agents-metier",
         tag: "02",
-        title: "Agents IA métier",
+        title: "Agents métier",
         desc: "Des agents intégrés à vos outils pour porter la collecte, les contrôles, les relances et la préparation.",
         points: [
           "Intégration CRM, ERP et messagerie",
@@ -433,7 +434,7 @@ export const SERVICES = {
       {
         slug: "agents-metier",
         tag: "02",
-        title: "Business AI agents",
+        title: "Business agents",
         desc: "Agents embedded in your tools to carry collection, checks, follow-ups and preparation.",
         points: [
           "CRM, ERP and messaging integration",
@@ -524,7 +525,7 @@ export const METHODE = {
       },
       {
         title: "RAG souverain",
-        desc: "Connecter vos données propriétaires à l'IA — différenciation réelle.",
+        desc: "Connecter vos données propriétaires à vos agents — différenciation réelle.",
       },
       {
         title: "Passage en production",
@@ -585,7 +586,7 @@ export const METHODE = {
       },
       {
         title: "Sovereign RAG",
-        desc: "Connect proprietary data to AI — real differentiation.",
+        desc: "Connect proprietary data to your agents — real differentiation.",
       },
       {
         title: "Production launch",
@@ -598,7 +599,7 @@ export const METHODE = {
 export const SECTEURS = {
   fr: {
     eyebrow: "MÉTIERS",
-    title: "Là où l'IA générique échoue",
+    title: "Là où les solutions génériques échoue",
     sub: "Donnée sensible, responsabilité forte, expertise rare : découvrez comment des agents supervisés peuvent absorber le répétitif sans diluer votre métier.",
     overview: "Tous les métiers",
     discover: "Découvrir →",
@@ -653,7 +654,7 @@ export const SECTEURS = {
       {
         slug: "tech-produit",
         title: "Tech & produit",
-        desc: "Fonctions IA gouvernées, observables et transférées à vos équipes.",
+        desc: "Fonctions agent gouvernées, observables et transférées à vos équipes.",
       },
       {
         slug: "secteur-public",
@@ -665,7 +666,7 @@ export const SECTEURS = {
   },
   en: {
     eyebrow: "PROFESSIONS",
-    title: "Where generic AI falls short",
+    title: "Where generic tools fall short",
     sub: "Sensitive data, strong accountability, scarce expertise: see how supervised agents can absorb repetitive work without diluting your profession.",
     overview: "All professions",
     discover: "Discover →",
@@ -720,7 +721,7 @@ export const SECTEURS = {
       {
         slug: "tech-produit",
         title: "Tech & product",
-        desc: "Governed, observable AI features progressively transferred to your teams.",
+        desc: "Governed, observable agent features progressively transferred to your teams.",
       },
       {
         slug: "secteur-public",
@@ -888,7 +889,7 @@ export const APROPOS = {
     sub: "Remparia est fondé et opéré par ses associés, du premier échange au passage en production.",
     convictionH: "L'humain décide, l'agent exécute.",
     convictionP:
-      "L'IA n'est pas là pour remplacer. Elle est là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
+      "Les agents ne sont pas là pour remplacer. Elle est là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
     collectiveTitle: "Les associés opérateurs",
     collectiveSub:
       "Pas de couche commerciale déconnectée : stratégie, ingénierie et adoption sont portées par ceux qui s'engagent avec vous.",
@@ -936,7 +937,7 @@ export const APROPOS = {
       {
         tag: "[ 01 ] FORMATION",
         title: "Ils expliquent",
-        desc: "Excellents pour comprendre l'IA. Mais la formation seule ne transforme pas vos opérations.",
+        desc: "Excellents pour comprendre les agents. Mais la formation seule ne transforme pas vos opérations.",
         highlight: false,
       },
       {
@@ -959,7 +960,7 @@ export const APROPOS = {
     sub: "Remparia is founded and operated by its partners, from the first conversation to production.",
     convictionH: "Humans decide, agents execute.",
     convictionP:
-      "AI isn't here to replace. It's here to free up time for what matters. Your teams keep control, decisions and accountability — agents carry the repetitive load.",
+      "Agents aren't here to replace. It's here to free up time for what matters. Your teams keep control, decisions and accountability — agents carry the repetitive load.",
     collectiveTitle: "Operator partners",
     collectiveSub:
       "No disconnected sales layer: strategy, engineering and adoption are carried by the people who commit to you.",
@@ -1007,7 +1008,7 @@ export const APROPOS = {
       {
         tag: "[ 01 ] TRAINING",
         title: "They explain",
-        desc: "Great for understanding AI. But training alone won't transform operations.",
+        desc: "Great for understanding agents. But training alone won't transform operations.",
         highlight: false,
       },
       {
@@ -1072,7 +1073,7 @@ export const CONTACT = {
     eyebrow: "CONTACT",
     title: "Apportez le processus qui vous coûte du temps",
     sub: "En une heure, nous cadrons le répétitif, les contraintes de données et les gains à mesurer. Réponse d'un associé, pas d'un commercial.",
-    email: "contact@remparia.fr",
+    email: CONTACT_EMAIL,
     cta: "Écrire à un associé",
     fields: {
       name: "Nom",
@@ -1094,7 +1095,7 @@ export const CONTACT = {
     eyebrow: "CONTACT",
     title: "Bring the workflow costing you time",
     sub: "In one hour, we frame repetitive work, data constraints and the gains to measure. A partner replies, not a salesperson.",
-    email: "contact@remparia.fr",
+    email: CONTACT_EMAIL,
     cta: "Email a partner",
     fields: {
       name: "Name",

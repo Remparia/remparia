@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "Specialized professions" : "Métiers spécialisés",
     description: isEn
-      ? "AI agents for professions where data is sensitive, accountability is high and expert time is scarce."
-      : "Des agents IA pour les métiers où la donnée est sensible, la responsabilité forte et le temps expert rare.",
+      ? "Agents for professions where data is sensitive, accountability is high and expert time is scarce."
+      : "Des agents Agents pour les métiers où la donnée est sensible, la responsabilité forte et le temps expert rare.",
     path: "/secteurs",
     lang,
   });

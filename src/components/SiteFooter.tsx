@@ -3,6 +3,7 @@
 import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
 import { FOOTER, NAV, SECTEURS, SOCIAL_LINKS } from "@/lib/content";
+import { CONTACT_EMAIL } from "@/lib/contact-email";
 import { useLang } from "@/lib/lang";
 
 function SocialIcon({ id }: { id: (typeof SOCIAL_LINKS)[number]["id"] }) {
@@ -97,7 +98,7 @@ export default function SiteFooter() {
           <LocaleLink href="/carrieres" className="site-footer__hiring">
             {n.hiring}
           </LocaleLink>
-          <a href="mailto:contact@remparia.fr">contact@remparia.fr</a>
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
         </nav>
       </div>
 

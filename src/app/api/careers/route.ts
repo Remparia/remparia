@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { SITE } from "@/lib/seo";
+import { getContactFromEmail, getContactToEmail } from "@/lib/contact-email";
 
 export const runtime = "nodejs";
 
@@ -111,8 +111,7 @@ export async function POST(req: Request) {
     }
   }
 
-  const from =
-    process.env.CONTACT_FROM_EMAIL?.trim() || "Remparia <onboarding@resend.dev>";
+  const from = getContactFromEmail();
   const resend = new Resend(apiKey);
 
   const answersText = answers
@@ -124,7 +123,7 @@ export async function POST(req: Request) {
 
   const { error } = await resend.emails.send({
     from,
-    to: [SITE.email],
+    to: [getContactToEmail()],
     replyTo: email,
     subject: `[Carrières Remparia] ${name} — ${roleLabel}`,
     text: [

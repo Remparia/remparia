@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "AI agent services" : "Services agents IA",
+    title: isEn ? "Agent services" : "Services agents métier",
     description: isEn
       ? "Diagnostic, governance, business agents, sovereign foundation and adoption: Remparia helps specialized teams absorb repetitive workload."
       : "Diagnostic, gouvernance, agents métier, socle souverain et adoption : Remparia aide les équipes spécialisées à absorber la charge répétitive.",

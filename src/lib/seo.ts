@@ -3,6 +3,8 @@ import type { Lang } from "@/lib/content";
 import { SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, getSecteurImage, getService, getServiceImage } from "@/lib/content";
 import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
 
+import { CONTACT_EMAIL } from "./contact-email";
+
 export const SITE = {
   name: "Remparia",
   legalName: "Remparia",
@@ -12,20 +14,20 @@ export const SITE = {
   ),
   locale: "fr_FR",
   localeAlternate: "en_US",
-  email: "contact@remparia.fr",
+  email: CONTACT_EMAIL,
   description:
-    "Remparia renforce les métiers spécialisés avec des agents IA supervisés : du temps rendu, la décision préservée et les données sous contrôle.",
+    "Remparia renforce les métiers spécialisés avec des agents supervisés : du temps rendu, la décision préservée et les données sous contrôle.",
   keywords: [
-    "agents IA métier",
-    "agents IA",
+    "agents métier",
+    "agents métier",
     "automatisation professions réglementées",
-    "IA notariat",
-    "IA expertise comptable",
-    "IA en production",
+    "automatisation notariat",
+    "automatisation expertise comptable",
+    "agents en production",
     "intégration métier",
-    "conformité IA",
-    "intelligence artificielle France",
-    "IA souveraine",
+    "conformité agents",
+    "automatisation supervisée France",
+    "infrastructure souveraine",
     "Remparia",
     "protocole SIGNAL",
     "automatisation agentique",
@@ -169,9 +171,9 @@ export function professionalServiceJsonLd() {
       name: "France",
     },
     serviceType: [
-      "IA souveraine",
-      "Agents IA métier",
-      "Stratégie IA",
+      "infrastructure souveraine",
+      "Agents métier",
+      "Stratégie & gouvernance",
       "Infrastructure souveraine",
     ],
   };
@@ -264,7 +266,7 @@ export function contactPageJsonLd() {
     name: "Contact Remparia",
     url: absoluteUrl(withLocale("fr", "/contact")),
     description:
-      "Contactez Remparia pour un diagnostic SIGNAL ou une discussion sur vos cas d'usage IA.",
+      "Contactez Remparia pour un diagnostic SIGNAL ou une discussion sur vos cas d'usage des agents.",
     mainEntity: {
       "@type": "Organization",
       name: SITE.name,
@@ -359,7 +361,7 @@ export function secteurMeta(slug: string) {
     description:
       detail?.heroP ??
       item?.desc ??
-      "Approche Remparia pour intégrer l'IA souveraine dans votre secteur.",
+      "Approche Remparia pour intégrer l'infrastructure souveraine dans votre secteur.",
     image: getSecteurImage(slug),
   };
 }
@@ -370,7 +372,7 @@ export function serviceMeta(slug: string) {
     title: item?.title ?? "Service",
     description:
       item?.desc ??
-      "Service Remparia pour déployer l'IA souveraine jusqu'à la production.",
+      "Service Remparia pour déployer l'infrastructure souveraine jusqu'à la production.",
     image: getServiceImage(slug),
   };
 }

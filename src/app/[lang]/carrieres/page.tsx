@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "Careers" : "Carrières",
     description: isEn
-      ? "Join Remparia's independent expert network for supervised AI agent deployments in specialized professions."
-      : "Rejoindre le réseau d'experts indépendants Remparia pour des déploiements d'agents IA supervisés dans les métiers spécialisés.",
+      ? "Join Remparia's independent expert network for supervised business agent deployments in specialized professions."
+      : "Rejoindre le réseau d'experts indépendants Remparia pour des déploiements d'agents supervisés dans les métiers spécialisés.",
     path: "/carrieres",
     lang,
   });

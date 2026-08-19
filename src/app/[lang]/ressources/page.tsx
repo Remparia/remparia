@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "Resources" : "Ressources",
     description: isEn
-      ? "The SIGNAL method and practical tools to turn a real workflow into a supervised AI agent."
-      : "La méthode SIGNAL et des outils pratiques pour transformer un processus réel en agent IA supervisé.",
+      ? "The SIGNAL method and practical tools to turn a real workflow into a supervised business agent."
+      : "La méthode SIGNAL et des outils pratiques pour transformer un processus réel en agent métier supervisé.",
     path: "/ressources",
     lang,
   });

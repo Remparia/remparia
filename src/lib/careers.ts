@@ -1,4 +1,5 @@
 import type { Lang } from "@/lib/content";
+import { CONTACT_EMAIL } from "@/lib/contact-email";
 
 export type CareerRoleId =
   | "agent-engineer"
@@ -13,7 +14,7 @@ export const CAREERS = {
   fr: {
     eyebrow: "CARRIÈRES",
     title: "Rejoindre Remparia",
-    sub: "Agents IA pour métiers spécialisés, supervision humaine et données sous contrôle. Nous constituons un réseau d'indépendants mobilisables selon les déploiements.",
+    sub: "Agents Agents pour métiers spécialisés, supervision humaine et données sous contrôle. Nous constituons un réseau d'indépendants mobilisables selon les déploiements.",
     heroMeta: ["≈ 30 min", "3 étapes", "Écrit + vidéo"],
     heroCta: "Lancer le parcours",
     heroSecondary: "Voir les profils",
@@ -25,7 +26,7 @@ export const CAREERS = {
       {
         id: "agent-engineer" as const,
         tag: "ENGINEERING",
-        title: "AI / Agent Engineer",
+        title: "Agent Engineer",
         desc: "Chez le client : agents métier, outils, orchestration, intégrations — jusqu’à la prod quotidienne.",
       },
       {
@@ -37,13 +38,13 @@ export const CAREERS = {
       {
         id: "ai-consultant" as const,
         tag: "MÉTIER",
-        title: "Consultant IA métier",
+        title: "Consultant agents métier",
         desc: "Chez le client : process, ateliers, change — faire passer SIGNAL du cadrage au terrain.",
       },
       {
         id: "delivery-ai" as const,
         tag: "DELIVERY",
-        title: "Delivery / Product AI",
+        title: "Delivery / Product agents",
         desc: "Chez le client : roadmap, ROI, priorisation, passage POC → production.",
       },
       {
@@ -172,14 +173,14 @@ export const CAREERS = {
       {
         id: "craft",
         label:
-          "Décris un agent ou un système IA que tu as fait passer en production (ou presque).",
+          "Décris un agent ou un système agent que tu as fait passer en production (ou presque).",
         hint: "Contexte, stack, blocages, ce que tu ferais différemment.",
         min: 120,
       },
       {
         id: "sovereign",
         label:
-          "Que signifie pour toi « IA souveraine » dans un déploiement client réel ?",
+          "Que signifie pour toi « infrastructure souveraine » dans un déploiement client réel ?",
         hint: "Données, hébergement, modèles, responsabilités.",
         min: 80,
       },
@@ -192,7 +193,7 @@ export const CAREERS = {
       },
       {
         id: "fit",
-        label: "Qu’est-ce que tu refuses de faire dans une mission IA ?",
+        label: "Qu’est-ce que tu refuses de faire dans une mission agents ?",
         hint: "Lignes rouges pro / éthique / qualité.",
         min: 60,
       },
@@ -201,16 +202,16 @@ export const CAREERS = {
     timerNote: "Chronomètre indicatif (30 min). Tu peux finir plus tôt ou un peu après.",
     success:
       "Candidature reçue. On lit chaque dossier — réponse sous quelques jours si on avance.",
-    error: "Envoi impossible. Réessaie ou écris-nous à contact@remparia.fr.",
+    error: `Envoi impossible. Réessaie ou écris-nous à ${CONTACT_EMAIL}.`,
     errorConfig:
-      "Le formulaire n’est pas encore configuré côté serveur. Envoie ta candidature à contact@remparia.fr.",
+      `Le formulaire n’est pas encore configuré côté serveur. Envoie ta candidature à ${CONTACT_EMAIL}.`,
     errorRate: "Trop de tentatives. Réessaie dans une minute.",
     privacyNote: "Tes réponses et le lien vidéo sont traités pour le recrutement uniquement.",
   },
   en: {
     eyebrow: "CAREERS",
     title: "Join Remparia",
-    sub: "AI agents for specialized professions, human supervision and data under control. We are building a network of independents available for deployments.",
+    sub: "Agents for specialized professions, human supervision and data under control. We are building a network of independents available for deployments.",
     heroMeta: ["≈ 30 min", "3 steps", "Written + video"],
     heroCta: "Start the journey",
     heroSecondary: "See open roles",
@@ -222,7 +223,7 @@ export const CAREERS = {
       {
         id: "agent-engineer" as const,
         tag: "ENGINEERING",
-        title: "AI / Agent Engineer",
+        title: "Agent Engineer",
         desc: "At the client: business agents, tools, orchestration, integrations — through to daily production.",
       },
       {
@@ -234,13 +235,13 @@ export const CAREERS = {
       {
         id: "ai-consultant" as const,
         tag: "BUSINESS",
-        title: "AI business consultant",
+        title: "Business agent consultant",
         desc: "At the client: processes, workshops, change — take SIGNAL from scoping to the field.",
       },
       {
         id: "delivery-ai" as const,
         tag: "DELIVERY",
-        title: "Delivery / Product AI",
+        title: "Delivery / Product agents",
         desc: "At the client: roadmap, ROI, prioritization, POC → production.",
       },
       {
@@ -367,14 +368,14 @@ export const CAREERS = {
       {
         id: "craft",
         label:
-          "Describe an agent or AI system you took (or nearly took) to production.",
+          "Describe an agent or agent system you took (or nearly took) to production.",
         hint: "Context, stack, blockers, what you’d do differently.",
         min: 120,
       },
       {
         id: "sovereign",
         label:
-          "What does “sovereign AI” mean to you in a real client deployment?",
+          "What does “operational sovereignty” mean to you in a real client deployment?",
         hint: "Data, hosting, models, accountability.",
         min: 80,
       },
@@ -387,7 +388,7 @@ export const CAREERS = {
       },
       {
         id: "fit",
-        label: "What do you refuse to do on an AI engagement?",
+        label: "What do you refuse to do on an agent engagement?",
         hint: "Professional / ethics / quality red lines.",
         min: 60,
       },
@@ -396,9 +397,9 @@ export const CAREERS = {
     timerNote: "30-minute soft timer. Finish earlier or slightly later if needed.",
     success:
       "Application received. We read every file — you’ll hear back within a few days if we move forward.",
-    error: "Couldn’t send. Try again or email contact@remparia.fr.",
+    error: `Couldn’t send. Try again or email ${CONTACT_EMAIL}.`,
     errorConfig:
-      "The form isn’t configured on the server yet. Please email contact@remparia.fr.",
+      `The form isn’t configured on the server yet. Please email ${CONTACT_EMAIL}.`,
     errorRate: "Too many attempts. Try again in a minute.",
     privacyNote: "Your answers and video link are processed for recruitment only.",
   },
