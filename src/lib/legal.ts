@@ -1,35 +1,8 @@
 import type { Lang } from "@/lib/content";
-import { CONTACT_EMAIL } from "@/lib/contact-email";
+import { LEGAL_ENTITY } from "@/lib/legal-entity";
 import { getSiteUrl } from "@/lib/seo";
 
-function legalEnv(key: string, placeholder: string) {
-  const value = process.env[key]?.trim();
-  return value || placeholder;
-}
-
-/**
- * Infos société — renseigner les variables LEGAL_* dans Vercel / .env.local.
- */
-export const LEGAL_ENTITY = {
-  name: legalEnv("LEGAL_NAME", "Remparia"),
-  legalForm: legalEnv("LEGAL_FORM", "[Forme juridique à compléter — ex. SAS]"),
-  shareCapital: legalEnv("LEGAL_SHARE_CAPITAL", "[Capital social à compléter]"),
-  siret: legalEnv("LEGAL_SIRET", "[SIRET à compléter]"),
-  rcs: legalEnv("LEGAL_RCS", "[RCS / ville à compléter]"),
-  vat: legalEnv("LEGAL_VAT", "[N° TVA intracommunautaire à compléter]"),
-  address: legalEnv("LEGAL_ADDRESS", "[Adresse du siège à compléter]"),
-  country: "France",
-  email: CONTACT_EMAIL,
-  publicationDirector: legalEnv(
-    "LEGAL_PUBLICATION_DIRECTOR",
-    "[Directeur de la publication à compléter]",
-  ),
-  host: {
-    name: "Vercel Inc.",
-    address: "440 N Barranca Ave #4133, Covina, CA 91723, United States",
-    website: "https://vercel.com",
-  },
-} as const;
+export { LEGAL_ENTITY, isLegalPlaceholder } from "@/lib/legal-entity";
 
 type LegalSection = { title: string; paragraphs: string[] };
 

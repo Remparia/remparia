@@ -4,6 +4,7 @@ import { APROPOS, SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, ge
 import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
 
 import { CONTACT_EMAIL } from "./contact-email";
+import { LEGAL_ENTITY, isLegalPlaceholder } from "./legal-entity";
 import { getTeamMembers } from "./team";
 
 const DEFAULT_SITE_ORIGIN = "https://www.remparia.com";
@@ -130,10 +131,10 @@ export function createPageMetadata({
   };
 }
 
-function orgLegalField(envKey: string): string | undefined {
-  const value = process.env[envKey]?.trim();
-  if (!value || /\[.*(à compléter|to complete)/i.test(value)) return undefined;
-  return value;
+function orgLegalField(value: string): string | undefined {
+  const trimmed = value.trim();
+  if (!trimmed || isLegalPlaceholder(trimmed)) return undefined;
+  return trimmed;
 }
 
 function buildOrganizationJsonLd(lang: Lang = "fr") {
@@ -144,9 +145,9 @@ function buildOrganizationJsonLd(lang: Lang = "fr") {
     ...(person.linkedin ? { sameAs: person.linkedin } : {}),
   }));
 
-  const address = orgLegalField("LEGAL_ADDRESS");
-  const vatId = orgLegalField("LEGAL_VAT");
-  const legalName = orgLegalField("LEGAL_NAME") ?? SITE.legalName;
+  const address = orgLegalField(LEGAL_ENTITY.address);
+  const vatId = orgLegalField(LEGAL_ENTITY.vat);
+  const legalName = orgLegalField(LEGAL_ENTITY.name) ?? SITE.legalName;
 
   return {
     "@type": "Organization",
