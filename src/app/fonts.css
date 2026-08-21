@@ -1,0 +1,125 @@
+/**
+ * Typefaces
+ * - UI: SF Pro Display (system on Apple; drop .woff2 in /public/fonts/sf-pro-display for other OS)
+ * - Headlines: Stolzl (drop licensed .woff2 in /public/fonts/stolzl)
+ */
+
+/* --- SF Pro Display (optional self-host) --- */
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display"),
+    local("SFProDisplay-Regular"),
+    url("/fonts/sf-pro-display/SF-Pro-Display-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Medium"),
+    local("SFProDisplay-Medium"),
+    url("/fonts/sf-pro-display/SF-Pro-Display-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Semibold"),
+    local("SFProDisplay-Semibold"),
+    url("/fonts/sf-pro-display/SF-Pro-Display-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Bold"),
+    local("SFProDisplay-Bold"),
+    url("/fonts/sf-pro-display/SF-Pro-Display-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Heavy"),
+    local("SFProDisplay-Heavy"),
+    url("/fonts/sf-pro-display/SF-Pro-Display-Heavy.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Black"),
+    local("SFProDisplay-Black"),
+    url("/fonts/sf-pro-display/SF-Pro-Display-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Stolzl (headline) --- */
+@font-face {
+  font-family: "Stolzl";
+  src:
+    local("Stolzl Book"),
+    local("Stolzl"),
+    url("/fonts/stolzl/Stolzl-Book.woff2") format("woff2"),
+    url("/fonts/stolzl/Stolzl-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stolzl";
+  src:
+    local("Stolzl Medium"),
+    url("/fonts/stolzl/Stolzl-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stolzl";
+  src:
+    local("Stolzl Bold"),
+    url("/fonts/stolzl/Stolzl-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stolzl";
+  src:
+    local("Stolzl Black"),
+    url("/fonts/stolzl/Stolzl-Black.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stolzl";
+  src:
+    local("Stolzl Black"),
+    url("/fonts/stolzl/Stolzl-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

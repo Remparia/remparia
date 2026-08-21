@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
 import VercelAnalyticsProvider from "@/components/VercelAnalyticsProvider";
 import {
@@ -11,13 +10,6 @@ import {
 } from "@/lib/seo";
 import { DEFAULT_LOCALE } from "@/lib/i18n";
 import "./globals.css";
-
-const archivo = Archivo({
-  subsets: ["latin"],
-  variable: "--font-archivo",
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -78,7 +70,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "theme-color": "#0a0a0a",
+    "theme-color": "#000000",
     "color-scheme": "dark",
   },
 };
@@ -89,11 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang={DEFAULT_LOCALE}
-      suppressHydrationWarning
-      className={archivo.variable}
-    >
+    <html lang={DEFAULT_LOCALE} suppressHydrationWarning>
       <head />
       <body>
         <JsonLd

@@ -1,17 +1,35 @@
 @import "tailwindcss";
+@import "./fonts.css";
 @import "./landing.css";
 
 :root {
-  --background: #0a0a0a;
+  --background: #000000;
+  --surface: #050505;
   --foreground: #ffffff;
   --accent: #c8ff00;
+  --accent-deep: #21d760;
+  --accent-blend: color-mix(in srgb, #21d760 42%, #c8ff00 58%);
+  --accent-gradient: linear-gradient(-31deg, #21d760 -93%, #c8ff00 76%, #c8ff00 0);
+  --accent-gradient-soft: linear-gradient(
+    -31deg,
+    rgba(33, 215, 96, 0.9) -93%,
+    rgba(200, 255, 0, 0.95) 76%,
+    rgba(200, 255, 0, 0.95) 0
+  );
+  /* UI typeface */
+  --font-ui: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", system-ui, sans-serif;
+  /* Headline typeface */
+  --font-display: "Stolzl", var(--font-ui);
+  /* Back-compat alias (Archivo → UI) */
+  --font-archivo: var(--font-ui);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-archivo);
-  --font-mono: var(--font-archivo);
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-ui);
 }
 
 * {
@@ -34,10 +52,39 @@ html.intro-lock {
 
 body {
   margin: 0;
-  background: #0a0a0a;
+  background: #000;
   color: #fff;
-  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-family: var(--font-ui);
   overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-blend) #0a0a0a;
+}
+
+/* Accent scrollbar (WebKit / Chromium / Safari) */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--accent-gradient);
+  border-radius: 999px;
+  border: 2px solid #0a0a0a;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(-31deg, #21d760 -40%, #c8ff00 70%, #c8ff00 0);
+  border: 2px solid #0a0a0a;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-corner {
+  background: #0a0a0a;
 }
 
 button,
@@ -48,12 +95,12 @@ select {
 }
 
 a {
-  color: #c8ff00;
+  color: var(--accent-blend);
   text-decoration: none;
 }
 
 a:hover {
-  color: #e4ff7a;
+  color: var(--accent);
 }
 
 a:focus-visible,
@@ -62,8 +109,9 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-  outline: 2px solid #c8ff00;
+  outline: 2px solid transparent;
   outline-offset: 3px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, #21d760 42%, #c8ff00 58%);
 }
 
 .skip-link {
@@ -72,9 +120,9 @@ summary:focus-visible {
   top: 0;
   z-index: 100;
   padding: 12px 18px;
-  background: #c8ff00;
+  background: var(--accent-gradient);
   color: #0a0a0a;
-  font: 800 13px var(--font-archivo), sans-serif;
+  font: 800 13px var(--font-ui), sans-serif;
   text-transform: uppercase;
 }
 

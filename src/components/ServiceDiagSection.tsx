@@ -207,7 +207,7 @@ export default function ServiceDiagSection({
             alt={content.imageAlt}
             width={960}
             height={960}
-            sizes="(max-width: 960px) 100vw, 50vw"
+            sizes="(max-width: 960px) 65vw, 32vw"
             className="service-diag__img"
           />
         </div>

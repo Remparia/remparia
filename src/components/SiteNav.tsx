@@ -17,7 +17,7 @@ export default function SiteNav() {
   const services = SERVICES[lang];
   const pathname = usePathname();
   const logical = stripLocale(pathname || "/");
-  const [navBg, setNavBg] = useState("rgba(10,10,10,0)");
+  const [navBg, setNavBg] = useState("rgba(0,0,0,0)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [deskServicesOpen, setDeskServicesOpen] = useState(false);
@@ -30,7 +30,7 @@ export default function SiteNav() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setNavBg(`rgba(10,10,10,${Math.min(y / 300, 0.92)})`);
+      setNavBg(`rgba(0,0,0,${Math.min(y / 300, 0.92)})`);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -160,7 +160,6 @@ export default function SiteNav() {
               className="nav__dropdown"
               hidden={!deskServicesOpen}
             >
-              <LocaleLink href="/services">{services.overview}</LocaleLink>
               {services.items.map((item) => (
                 <LocaleLink
                   key={item.slug}
@@ -242,18 +241,26 @@ export default function SiteNav() {
         hidden={!menuOpen}
       >
         <div className="nav__drawer-group">
-          <button
-            type="button"
-            className="nav__drawer-toggle"
-            aria-expanded={servicesOpen}
-            onClick={() => setServicesOpen((o) => !o)}
-          >
-            [ {t.services.toUpperCase()} ]
-            <span aria-hidden>{servicesOpen ? "−" : "+"}</span>
-          </button>
+          <div className="nav__drawer-services">
+            <LocaleLink
+              href="/services"
+              className={isServices ? "is-active" : undefined}
+              aria-current={logical === "/services" ? "page" : undefined}
+            >
+              [ {t.services.toUpperCase()} ]
+            </LocaleLink>
+            <button
+              type="button"
+              className="nav__drawer-toggle"
+              aria-expanded={servicesOpen}
+              aria-label={t.servicesMenu}
+              onClick={() => setServicesOpen((o) => !o)}
+            >
+              <span aria-hidden>{servicesOpen ? "−" : "+"}</span>
+            </button>
+          </div>
           {servicesOpen ? (
             <div className="nav__drawer-sub">
-              <LocaleLink href="/services">{services.overview}</LocaleLink>
               {services.items.map((item) => (
                 <LocaleLink key={item.slug} href={`/services/${item.slug}`}>
                   {item.title}

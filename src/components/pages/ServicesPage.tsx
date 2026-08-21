@@ -1,6 +1,6 @@
 "use client";
 
-import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
+import { CtaBand, PageHero } from "@/components/PageBits";
 import ServiceDiagSection from "@/components/ServiceDiagSection";
 import { HOME, SERVICES } from "@/lib/content";
 import { useLang } from "@/lib/lang";
@@ -22,27 +22,21 @@ export default function ServicesPage() {
           { name: t.title },
         ]}
       />
-      <section className="section">
-        <p className="section__body reveal">{t.intro}</p>
-        <div className="reveal" style={{ marginTop: 40 }}>
-          <SectionLabel>{t.commitmentTitle}</SectionLabel>
-          <ul className="proof-badges" style={{ marginTop: 20 }}>
-            {t.commitments.map((line, i) => (
-              <li
-                key={line}
-                className="proof-badges__item"
-                data-d={String(Math.min((i % 3) + 1, 3))}
-              >
-                {line}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="reveal" style={{ marginTop: 40 }}>
-          <SectionLabel>{t.scopeTitle}</SectionLabel>
-          <p className="section__body" style={{ marginTop: 16 }}>
-            {t.scopeBody}
-          </p>
+      <section className="section section--services-media">
+        <div className="reveal video-frame video-frame--native">
+          <video
+            src="/secteurs/home/mais_personnes_max.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label={
+              lang === "fr"
+                ? "Remparia — Innover avec l'IA. Sans abandonner le contrôle."
+                : "Remparia — Innovate with AI. Without giving up control."
+            }
+          />
         </div>
       </section>
       {t.serviceSections.map((section) => (

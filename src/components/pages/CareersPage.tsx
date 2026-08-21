@@ -58,7 +58,7 @@ export default function CareersPage() {
               <p>{roleItem.desc}</p>
               <LocaleLink
                 href={`/carrieres/candidature/1?role=${roleItem.id}`}
-                className="text-link careers-role-pick"
+                className="btn-primary careers-role-pick"
               >
                 {t.applyRoleCta} →
               </LocaleLink>
