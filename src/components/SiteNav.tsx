@@ -4,17 +4,86 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
-import { NAV, SERVICES } from "@/lib/content";
+import { NAV, NAV_SERVICES_BANNER, SERVICES } from "@/lib/content";
 import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+function ServicesBanner({
+  compact = false,
+}: {
+  compact?: boolean;
+}) {
+  const { lang } = useLang();
+  const banner = NAV_SERVICES_BANNER[lang];
+  if (!banner) return null;
+
+  return (
+    <LocaleLink
+      href={banner.href}
+      className={`nav__mega-banner${compact ? " nav__mega-banner--compact" : ""}`}
+    >
+      {banner.image ? (
+        <span className="nav__mega-banner-media" aria-hidden>
+          <Image
+            src={banner.image}
+            alt=""
+            fill
+            sizes={compact ? "100vw" : "420px"}
+            className="nav__mega-banner-img"
+          />
+        </span>
+      ) : null}
+      <span className="nav__mega-banner-copy">
+        <span className="nav__mega-banner-tag">{banner.tag}</span>
+        <span className="nav__mega-banner-title">{banner.title}</span>
+        <span className="nav__mega-banner-text">{banner.text}</span>
+        <span className="nav__mega-banner-cta">
+          {banner.cta} →
+        </span>
+      </span>
+    </LocaleLink>
+  );
+}
+
+function ServicesLinks({
+  logical,
+  onNavigate,
+}: {
+  logical: string;
+  onNavigate?: () => void;
+}) {
+  const { lang } = useLang();
+  const services = SERVICES[lang];
+
+  return (
+    <div className="nav__mega-list">
+      {services.items.map((item) => {
+        const href = `/services/${item.slug}`;
+        const current = logical === href;
+        return (
+          <LocaleLink
+            key={item.slug}
+            href={href}
+            className={`nav__mega-link${current ? " is-active" : ""}`}
+            aria-current={current ? "page" : undefined}
+            onClick={onNavigate}
+          >
+            <span className="nav__mega-link-tag">{item.tag}</span>
+            <span className="nav__mega-link-title">{item.title}</span>
+            <span className="nav__mega-link-desc">{item.desc}</span>
+          </LocaleLink>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();
   const t = NAV[lang];
-  const services = SERVICES[lang];
   const pathname = usePathname();
   const logical = stripLocale(pathname || "/");
   const [navBg, setNavBg] = useState("rgba(0,0,0,0)");
@@ -22,10 +91,25 @@ export default function SiteNav() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [deskServicesOpen, setDeskServicesOpen] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
+  const megaRef = useRef<HTMLDivElement>(null);
   const deskItemRef = useRef<HTMLDivElement>(null);
   const drawerId = useId();
   const deskMenuId = useId();
+  const overlayOpen = menuOpen || deskServicesOpen;
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    const syncHeight = () => {
+      nav.style.setProperty("--nav-height", `${nav.offsetHeight}px`);
+    };
+    syncHeight();
+    const ro = new ResizeObserver(syncHeight);
+    ro.observe(nav);
+    return () => ro.disconnect();
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,11 +128,11 @@ export default function SiteNav() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.style.overflow = overlayOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [menuOpen]);
+  }, [overlayOpen]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -87,14 +171,35 @@ export default function SiteNav() {
 
   useEffect(() => {
     if (!deskServicesOpen) return;
+
+    function getFocusables() {
+      return Array.from(
+        megaRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? [],
+      );
+    }
+
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
         setDeskServicesOpen(false);
         deskItemRef.current
           ?.querySelector<HTMLElement>("button.nav__caret-btn")
           ?.focus();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const list = getFocusables();
+      if (!list.length) return;
+      const first = list[0];
+      const last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     }
+
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [deskServicesOpen]);
@@ -108,8 +213,9 @@ export default function SiteNav() {
   return (
     <>
       <nav
-        className="nav"
-        style={{ background: navBg }}
+        ref={navRef}
+        className={`nav${overlayOpen ? " is-overlay" : ""}`}
+        style={{ background: overlayOpen ? "rgba(0,0,0,0.98)" : navBg }}
         aria-label={t.navLabel}
       >
         <LocaleLink href="/" aria-label="Remparia">
@@ -129,12 +235,6 @@ export default function SiteNav() {
             className={`nav__item${deskServicesOpen ? " is-open" : ""}`}
             onMouseEnter={() => setDeskServicesOpen(true)}
             onMouseLeave={() => setDeskServicesOpen(false)}
-            onFocus={() => setDeskServicesOpen(true)}
-            onBlur={(e) => {
-              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
-                setDeskServicesOpen(false);
-              }
-            }}
           >
             <LocaleLink
               href="/services"
@@ -157,23 +257,27 @@ export default function SiteNav() {
             </button>
             <div
               id={deskMenuId}
-              className="nav__dropdown"
+              ref={megaRef}
+              className={`nav__mega${deskServicesOpen ? " is-open" : ""}`}
               hidden={!deskServicesOpen}
+              role="dialog"
+              aria-modal={deskServicesOpen}
+              aria-label={t.megaLabel}
             >
-              {services.items.map((item) => (
-                <LocaleLink
-                  key={item.slug}
-                  href={`/services/${item.slug}`}
-                  className={
-                    logical === `/services/${item.slug}` ? "is-active" : undefined
-                  }
-                  aria-current={
-                    logical === `/services/${item.slug}` ? "page" : undefined
-                  }
-                >
-                  {item.title}
-                </LocaleLink>
-              ))}
+              <button
+                type="button"
+                className="nav__mega-close"
+                aria-label={t.megaClose}
+                onClick={() => setDeskServicesOpen(false)}
+              >
+                ×
+              </button>
+              <div
+                className={`nav__mega-inner${NAV_SERVICES_BANNER[lang] ? "" : " nav__mega-inner--solo"}`}
+              >
+                <ServicesBanner />
+                <ServicesLinks logical={logical} />
+              </div>
             </div>
           </div>
 
@@ -261,11 +365,11 @@ export default function SiteNav() {
           </div>
           {servicesOpen ? (
             <div className="nav__drawer-sub">
-              {services.items.map((item) => (
-                <LocaleLink key={item.slug} href={`/services/${item.slug}`}>
-                  {item.title}
-                </LocaleLink>
-              ))}
+              <ServicesBanner compact />
+              <ServicesLinks
+                logical={logical}
+                onNavigate={() => setMenuOpen(false)}
+              />
             </div>
           ) : null}
         </div>

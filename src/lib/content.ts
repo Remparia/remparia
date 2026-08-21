@@ -21,6 +21,8 @@ export const NAV = {
     servicesMenu: "Sous-menu services",
     switchLang: "Passer en anglais",
     skipToContent: "Aller au contenu",
+    megaLabel: "Menu services",
+    megaClose: "Fermer le menu services",
   },
   en: {
     services: "Services",
@@ -39,8 +41,40 @@ export const NAV = {
     servicesMenu: "Services submenu",
     switchLang: "Switch to French",
     skipToContent: "Skip to content",
+    megaLabel: "Services menu",
+    megaClose: "Close services menu",
   },
 } as const;
+
+/** Banner du mega-menu Services. Mettre `null` pour le masquer. */
+export const NAV_SERVICES_BANNER: Record<
+  Lang,
+  {
+    image?: string;
+    tag: string;
+    title: string;
+    text: string;
+    cta: string;
+    href: string;
+  } | null
+> = {
+  fr: {
+    image: "/hero-temporal.png",
+    tag: "DU POC À LA PROD",
+    title: "Agents. Production.",
+    text: "Quatre missions pour passer du pilote à l’agent qui travaille tous les jours — intégrés, conformes, souverains.",
+    cta: "Vue d’ensemble",
+    href: "/services",
+  },
+  en: {
+    image: "/hero-temporal.png",
+    tag: "FROM POC TO PROD",
+    title: "Agents. Production.",
+    text: "Four missions to go from a stalled pilot to the agent that works every day — integrated, compliant, sovereign.",
+    cta: "Overview",
+    href: "/services",
+  },
+};
 
 export const FOOTER = {
   fr: {
