@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 import LocaleLink from "@/components/LocaleLink";
 import { NAV, NAV_SERVICES_BANNER, SERVICES } from "@/lib/content";
 import { stripLocale } from "@/lib/i18n";
@@ -110,12 +116,23 @@ export default function SiteNav() {
     setDeskServicesOpen(true);
   }
 
+  function closeDeskServices() {
+    clearCloseTimer();
+    setDeskServicesOpen(false);
+  }
+
   function scheduleCloseDeskServices() {
     clearCloseTimer();
     closeTimerRef.current = setTimeout(() => {
       setDeskServicesOpen(false);
       closeTimerRef.current = null;
-    }, 120);
+    }, 200);
+  }
+
+  function toggleDeskServices(e?: ReactMouseEvent) {
+    e?.preventDefault();
+    clearCloseTimer();
+    setDeskServicesOpen((open) => !open);
   }
 
   useEffect(() => {
@@ -210,12 +227,12 @@ export default function SiteNav() {
       ) {
         return;
       }
-      setDeskServicesOpen(false);
+      closeDeskServices();
     }
 
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
-        setDeskServicesOpen(false);
+        closeDeskServices();
         deskItemRef.current
           ?.querySelector<HTMLElement>("button.nav__caret-btn")
           ?.focus();
@@ -279,6 +296,9 @@ export default function SiteNav() {
               href="/services"
               className={isServices ? "is-active" : undefined}
               aria-current={logical === "/services" ? "page" : undefined}
+              aria-expanded={deskServicesOpen}
+              aria-controls={deskMenuId}
+              onClick={toggleDeskServices}
             >
               {t.services}
             </LocaleLink>
@@ -288,10 +308,7 @@ export default function SiteNav() {
               aria-expanded={deskServicesOpen}
               aria-controls={deskMenuId}
               aria-label={t.servicesMenu}
-              onClick={() => {
-                clearCloseTimer();
-                setDeskServicesOpen((o) => !o);
-              }}
+              onClick={() => toggleDeskServices()}
             >
               <span className="nav__caret" aria-hidden>
                 ▾
@@ -356,16 +373,16 @@ export default function SiteNav() {
         </div>
       </nav>
 
-      {/* Sibling of nav: backdrop-filter on .nav creates a containing block that
-          would collapse position:fixed descendants inside the bar height. */}
+      {/* Must stay outside .nav: backdrop-filter creates a containing block that
+          collapses position:fixed descendants to the bar height. */}
       <div
         id={deskMenuId}
         ref={megaRef}
         className={`nav__mega${deskServicesOpen ? " is-open" : ""}`}
-        hidden={!deskServicesOpen}
         role="dialog"
         aria-modal={deskServicesOpen}
         aria-label={t.megaLabel}
+        aria-hidden={!deskServicesOpen}
         onMouseEnter={openDeskServices}
         onMouseLeave={scheduleCloseDeskServices}
       >
@@ -373,10 +390,7 @@ export default function SiteNav() {
           type="button"
           className="nav__mega-close"
           aria-label={t.megaClose}
-          onClick={() => {
-            clearCloseTimer();
-            setDeskServicesOpen(false);
-          }}
+          onClick={closeDeskServices}
         >
           ×
         </button>
@@ -384,13 +398,7 @@ export default function SiteNav() {
           className={`nav__mega-inner${NAV_SERVICES_BANNER[lang] ? "" : " nav__mega-inner--solo"}`}
         >
           <ServicesBanner />
-          <ServicesLinks
-            logical={logical}
-            onNavigate={() => {
-              clearCloseTimer();
-              setDeskServicesOpen(false);
-            }}
-          />
+          <ServicesLinks logical={logical} onNavigate={closeDeskServices} />
         </div>
       </div>
 

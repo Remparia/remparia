@@ -1617,11 +1617,7 @@
   }
 
   .nav.is-overlay {
-    z-index: 70;
-  }
-
-  .nav__mega.is-open:not([hidden]) {
-    display: flex;
+    z-index: 130;
   }
 
   .nav__links {
@@ -2954,20 +2950,20 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 60;
+  z-index: 120;
   display: none;
   flex-direction: column;
   background: #000;
   overflow: auto;
   overscroll-behavior: contain;
+  pointer-events: none;
+  visibility: hidden;
 }
 
-.nav__mega[hidden] {
-  display: none !important;
-}
-
-.nav__mega.is-open:not([hidden]) {
+.nav__mega.is-open {
   display: flex;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 /* Bridge hover gap between the nav trigger and the panel */
