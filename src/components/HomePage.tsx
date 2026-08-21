@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
 import HeroIntro from "@/components/HeroIntro";
 import LocaleLink from "@/components/LocaleLink";
@@ -78,13 +78,15 @@ export default function HomePage() {
   const sectors = SECTEURS[lang];
   const sectorsCtaLabel = sectors.discoverAll;
   const [holding, setHolding] = useState(false);
+  const onHoldStart = useCallback(() => setHolding(true), []);
+  const onComplete = useCallback(() => setHolding(false), []);
 
   return (
     <div className="page">
       <HeroIntro
         lang={lang}
-        onHoldStart={() => setHolding(true)}
-        onComplete={() => setHolding(false)}
+        onHoldStart={onHoldStart}
+        onComplete={onComplete}
       />
       <header
         className={`hero hero--advantage${holding ? " is-holding" : ""}`}

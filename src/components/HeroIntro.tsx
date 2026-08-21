@@ -18,9 +18,13 @@ export default function HeroIntro({
 }) {
   const t = HOME[lang];
   const letters = METHODE[lang].steps;
-  const [phase, setPhase] = useState<Phase>("pending");
+  const [phase, setPhase] = useState<Phase>(() =>
+    introPlayed ? "off" : "pending",
+  );
   const done = useRef(false);
+  const onHoldStartRef = useRef(onHoldStart);
   const onCompleteRef = useRef(onComplete);
+  onHoldStartRef.current = onHoldStart;
   onCompleteRef.current = onComplete;
 
   const complete = useCallback(() => {
@@ -33,23 +37,28 @@ export default function HeroIntro({
   }, []);
 
   useLayoutEffect(() => {
+    if (introPlayed) {
+      complete();
+      return;
+    }
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mobile = window.matchMedia("(max-width: 768px)").matches;
-
-    if (reduce || introPlayed || mobile) {
+    if (reduce || mobile) {
       complete();
     }
   }, [complete]);
 
   useEffect(() => {
+    if (done.current || introPlayed) return;
+
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mobile = window.matchMedia("(max-width: 768px)").matches;
-
-    if (reduce || introPlayed || mobile) {
+    if (reduce || mobile) {
+      complete();
       return;
     }
 
-    onHoldStart?.();
+    onHoldStartRef.current?.();
     setPhase("boot");
     document.documentElement.classList.add("intro-lock");
 
@@ -57,19 +66,22 @@ export default function HeroIntro({
     const t2 = window.setTimeout(() => setPhase("signal"), 1200);
     const t3 = window.setTimeout(() => setPhase("exit"), 2200);
     const t4 = window.setTimeout(complete, 2800);
+    // Hard failsafe if anything interrupts the sequence.
+    const failsafe = window.setTimeout(complete, 4500);
 
     return () => {
       window.clearTimeout(t1);
       window.clearTimeout(t2);
       window.clearTimeout(t3);
       window.clearTimeout(t4);
+      window.clearTimeout(failsafe);
       document.documentElement.classList.remove("intro-lock");
     };
-  }, [complete, onHoldStart]);
+  }, [complete]);
 
   const skip = () => {
     setPhase("exit");
-    window.setTimeout(complete, 1000);
+    window.setTimeout(complete, 400);
   };
 
   if (phase === "off") return null;
