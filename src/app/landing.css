@@ -14,18 +14,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
+  gap: 8px;
+  padding: 10px 12px 10px 14px;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: background 0.3s;
 }
 
+.nav__brand {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
 .nav__logo {
-  height: 22px !important;
-  width: auto !important;
   display: block;
-  flex-shrink: 0;
+  height: 20px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .nav__links {
@@ -35,12 +46,12 @@
 .nav__actions {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
+  gap: 8px;
+  flex: 0 0 auto;
 }
 
 .nav__lang {
-  font: 700 13px var(--font-ui), sans-serif;
+  font: 700 12px var(--font-ui), sans-serif;
   color: var(--accent-blend);
   background-image: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -48,7 +59,9 @@
   -webkit-text-fill-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 8px 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: filter 0.2s ease;
 }
 
@@ -58,12 +71,13 @@
 }
 
 .nav__cta {
+  display: none;
   font: 700 12px var(--font-ui), sans-serif;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #0a0a0a;
   background: var(--accent-gradient);
-  padding: 11px 14px;
+  padding: 10px 12px;
   white-space: nowrap;
 }
 
@@ -104,7 +118,7 @@
 }
 
 .nav__hiring {
-  display: inline-block;
+  display: none;
   font: 700 11px var(--font-ui), sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1007,7 +1021,7 @@
 }
 
 .section--alt .conviction__accent {
-  -webkit-text-stroke: 1.5px #6f8f00;
+  color: #6f8f00;
 }
 
 .section--alt .info-card {
@@ -1271,12 +1285,14 @@
 }
 
 .conviction__accent {
+  display: inline;
   color: var(--accent-blend);
-  background-image: var(--accent-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-image: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: unset;
   -webkit-text-stroke: 0;
+  font-weight: 700;
 }
 
 .signal-grid {
@@ -1530,7 +1546,8 @@
 /* ??? TABLET ??? */
 @media (min-width: 640px) {
   .nav {
-    padding: 16px 24px;
+    padding: 12px 20px;
+    gap: 12px;
   }
 
   .nav__logo {
@@ -1538,16 +1555,17 @@
   }
 
   .nav__cta {
+    display: inline-block;
     font-size: 11px;
-    padding: 11px 16px;
+    padding: 11px 14px;
   }
 
   .nav__cta-full {
-    display: inline;
+    display: none;
   }
 
   .nav__cta-short {
-    display: none;
+    display: inline;
   }
 
   .hero__main,
@@ -1607,6 +1625,10 @@
     padding: 18px 44px;
   }
 
+  .nav__brand {
+    flex: 0 0 auto;
+  }
+
   .nav__logo {
     height: 30px !important;
   }
@@ -1614,6 +1636,23 @@
   .nav__menu-btn,
   .nav__drawer {
     display: none !important;
+  }
+
+  .nav__hiring {
+    display: inline-block;
+  }
+
+  .nav__cta {
+    display: inline-block;
+    padding: 11px 18px;
+  }
+
+  .nav__cta-full {
+    display: inline;
+  }
+
+  .nav__cta-short {
+    display: none;
   }
 
   .nav__links {
@@ -1809,10 +1848,6 @@
 
   .conviction__quote p {
     font-size: 16px;
-  }
-
-  .conviction__accent {
-    -webkit-text-stroke: 2px var(--accent-blend);
   }
 
   .signal-grid {

@@ -16,10 +16,16 @@ function isCareersApplyPath(pathname: string | null) {
   return /\/carrieres\/candidature(\/|$)/.test(pathname);
 }
 
-/** Masque nav/footer/cookies sur le parcours candidature isolé. */
+function isInternalLabPath(pathname: string | null) {
+  if (!pathname) return false;
+  return /\/design-system(\/|$)/.test(pathname);
+}
+
+/** Masque nav/footer/cookies sur le parcours candidature isolé et le lab interne. */
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isolated = isCareersApplyPath(pathname);
+  const isolated =
+    isCareersApplyPath(pathname) || isInternalLabPath(pathname);
 
   if (isolated) {
     return (

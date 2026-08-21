@@ -1,11 +1,18 @@
 @import "tailwindcss";
 @import "./fonts.css";
 @import "./landing.css";
+@import "./ds-lab.css";
 
 :root {
   --background: #000000;
   --surface: #050505;
+  --surface-2: #0a0a0a;
+  --ink: #0a0a0a;
   --foreground: #ffffff;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.75);
+  --text-soft: rgba(255, 255, 255, 0.62);
+  --text-faint: rgba(255, 255, 255, 0.45);
   --accent: #c8ff00;
   --accent-deep: #21d760;
   --accent-blend: color-mix(in srgb, #21d760 42%, #c8ff00 58%);
@@ -16,13 +23,58 @@
     rgba(200, 255, 0, 0.95) 76%,
     rgba(200, 255, 0, 0.95) 0
   );
-  /* UI typeface */
+  --accent-soft: linear-gradient(
+    -31deg,
+    rgba(33, 215, 96, 0.1) -93%,
+    rgba(200, 255, 0, 0.1) 76%,
+    rgba(200, 255, 0, 0.1) 0
+  );
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --border-field: rgba(255, 255, 255, 0.18);
+  --border-accent: color-mix(in srgb, #21d760 45%, #c8ff00 55%);
+  --border-accent-strong: color-mix(in srgb, #21d760 55%, #c8ff00 45%);
+  --danger: #ff6b6b;
+  --danger-text: #ff8a8a;
+  --focus-ring: 0 0 0 2px color-mix(in srgb, #21d760 42%, #c8ff00 58%);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
   --font-ui: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
     "Segoe UI", system-ui, sans-serif;
-  /* Headline typeface */
   --font-display: "Stolzl", var(--font-ui);
-  /* Back-compat alias (Archivo → UI) */
   --font-archivo: var(--font-ui);
+
+  --font-eyebrow: 700 10px/1.3 var(--font-ui), sans-serif;
+  --font-label: 700 11px/1.35 var(--font-ui), sans-serif;
+  --font-ui-sm: 700 12px/1.2 var(--font-ui), sans-serif;
+  --font-body: 400 14px/1.7 var(--font-ui), sans-serif;
+  --font-body-sm: 400 13px/1.55 var(--font-ui), sans-serif;
+  --font-caption: 400 11px/1.45 var(--font-ui), sans-serif;
+  --letter-ui: 0.02em;
+  --letter-label: 0.04em;
+  --letter-wide: 0.08em;
+
+  --title-hero: clamp(40px, 12.5vw, 64px);
+  --title-page: clamp(32px, 9vw, 56px);
+  --title-section-lg: clamp(36px, 10vw, 56px);
+  --title-section: clamp(28px, 8vw, 48px);
+  --title-card: 18px;
+
+  --btn-font: 700 12px/1.2 var(--font-ui), sans-serif;
+  --btn-letter: 0.02em;
+  --btn-pad: 14px 20px;
+  --btn-pad-sm: 11px 16px;
+  --field-pad: 14px;
+  --radius: 0;
 }
 
 @theme inline {
@@ -111,7 +163,15 @@ select:focus-visible,
 summary:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px color-mix(in srgb, #21d760 42%, #c8ff00 58%);
+  box-shadow: var(--focus-ring);
+}
+
+.text-accent {
+  color: var(--accent-blend);
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .skip-link {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { HOME, METHODE, type Lang } from "@/lib/content";
 
 let introPlayed = false;
@@ -21,7 +21,15 @@ export default function HeroIntro({
   const [phase, setPhase] = useState<Phase>("pending");
   const done = useRef(false);
   const onCompleteRef = useRef(onComplete);
-  onCompleteRef.current = onComplete;
+  const onHoldStartRef = useRef(onHoldStart);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    onHoldStartRef.current = onHoldStart;
+  }, [onHoldStart]);
 
   const complete = useCallback(() => {
     if (done.current) return;
@@ -32,24 +40,16 @@ export default function HeroIntro({
     onCompleteRef.current();
   }, []);
 
-  useLayoutEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const mobile = window.matchMedia("(max-width: 768px)").matches;
-
-    if (reduce || introPlayed || mobile) {
-      complete();
-    }
-  }, [complete]);
-
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mobile = window.matchMedia("(max-width: 768px)").matches;
 
     if (reduce || introPlayed || mobile) {
+      complete();
       return;
     }
 
-    onHoldStart?.();
+    onHoldStartRef.current?.();
     setPhase("boot");
     document.documentElement.classList.add("intro-lock");
 
@@ -65,7 +65,7 @@ export default function HeroIntro({
       window.clearTimeout(t4);
       document.documentElement.classList.remove("intro-lock");
     };
-  }, [complete, onHoldStart]);
+  }, [complete]);
 
   const skip = () => {
     setPhase("exit");

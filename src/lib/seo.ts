@@ -68,6 +68,7 @@ const SITEMAP_EXCLUDED = new Set([
   "/carrieres/candidature/1",
   "/carrieres/candidature/2",
   "/carrieres/candidature/3",
+  "/design-system",
 ]);
 
 export function createPageMetadata({
@@ -394,7 +395,6 @@ export function getAllContentPaths() {
     "/secteurs",
     "/a-propos",
     "/carrieres",
-    "/ressources",
     "/contact",
     "/mentions-legales",
     "/confidentialite",

@@ -72,6 +72,19 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/:lang(fr|en)/design-system",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive, nosnippet, noimageindex",
+          },
+          {
+            key: "Cache-Control",
+            value: "private, no-store",
+          },
+        ],
+      },
+      {
         source: "/(.*)\\.(jpg|jpeg|png|webp|avif|svg|ico|woff2)",
         headers: [
           {

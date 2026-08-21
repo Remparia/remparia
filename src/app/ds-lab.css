@@ -1,0 +1,213 @@
+/* Internal design-system lab — not linked from public chrome */
+
+.ds-lab {
+  min-height: 100svh;
+  background: var(--background);
+  color: var(--text);
+}
+
+.ds-lab__bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.ds-lab__brand {
+  font: var(--font-label);
+  letter-spacing: var(--letter-wide);
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.ds-lab__brand strong {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.ds-lab__badge {
+  font: var(--font-eyebrow);
+  letter-spacing: var(--letter-wide);
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--accent-gradient);
+  padding: 4px 8px;
+  margin-left: 10px;
+}
+
+.ds-lab__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.ds-lab__toc {
+  display: none;
+}
+
+.ds-lab__main {
+  padding: 32px 20px 80px;
+  max-width: 1080px;
+}
+
+.ds-lab section {
+  scroll-margin-top: 72px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ds-lab__kicker {
+  font: var(--font-eyebrow);
+  letter-spacing: var(--letter-wide);
+  text-transform: uppercase;
+  color: var(--accent-blend);
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 10px;
+}
+
+.ds-lab__h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.ds-lab__lede {
+  margin: 0 0 28px;
+  max-width: 640px;
+  font: var(--font-body-sm);
+  color: var(--text-muted);
+}
+
+.ds-lab__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.ds-lab__swatch {
+  border: 1px solid var(--border-strong);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+}
+
+.ds-lab__swatch-chip {
+  height: 64px;
+  margin: -12px -12px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ds-lab__swatch code,
+.ds-lab__meta {
+  font: 600 11px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--text-soft);
+}
+
+.ds-lab__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.ds-lab__stack {
+  display: grid;
+  gap: 18px;
+}
+
+.ds-lab__card {
+  border: 1px solid var(--border-strong);
+  padding: 20px;
+  background: var(--surface);
+}
+
+.ds-lab .nav__cta,
+.ds-lab .nav__hiring {
+  display: inline-block;
+}
+
+.ds-lab__form {
+  display: grid;
+  gap: 14px;
+  max-width: 420px;
+}
+
+.ds-lab__form label {
+  display: grid;
+  gap: 8px;
+}
+
+.ds-lab__form span {
+  font: var(--font-label);
+  color: var(--text-muted);
+}
+
+.ds-lab__form input,
+.ds-lab__form textarea {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border-field);
+  color: var(--text);
+  padding: var(--field-pad);
+  font: var(--font-body-sm);
+}
+
+.ds-lab__form input:focus,
+.ds-lab__form textarea:focus {
+  outline: 2px solid var(--accent-blend);
+  outline-offset: 2px;
+  border-color: var(--accent-blend);
+}
+
+.ds-lab__toc a {
+  display: block;
+  font: var(--font-label);
+  letter-spacing: var(--letter-label);
+  text-transform: uppercase;
+  color: var(--text-soft) !important;
+  padding: 8px 0;
+}
+
+.ds-lab__toc a:hover {
+  color: var(--accent-blend) !important;
+}
+
+@media (min-width: 960px) {
+  .ds-lab__bar {
+    padding: 16px 40px;
+  }
+
+  .ds-lab__layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .ds-lab__toc {
+    display: block;
+    position: sticky;
+    top: 57px;
+    align-self: start;
+    padding: 32px 16px 32px 40px;
+    border-right: 1px solid var(--border);
+    max-height: calc(100svh - 57px);
+    overflow: auto;
+  }
+
+  .ds-lab__main {
+    padding: 40px 48px 96px;
+  }
+}

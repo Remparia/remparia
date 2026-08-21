@@ -2,7 +2,7 @@
 
 import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
-import { APROPOS, BRAND, HOME, PROOF_STATS, RESSOURCES } from "@/lib/content";
+import { APROPOS, BRAND, HOME } from "@/lib/content";
 import { LEGAL_ENTITY } from "@/lib/legal";
 import { useLang } from "@/lib/lang";
 import { getTeamMembers } from "@/lib/team";

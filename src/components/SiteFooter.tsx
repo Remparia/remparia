@@ -64,8 +64,8 @@ export default function SiteFooter() {
           <Image
             src="/logo-remparia.png"
             alt={f.logoAlt}
-            width={160}
-            height={28}
+            width={162}
+            height={32}
             className="footer__logo"
           />
           <p>{f.tagline}</p>
@@ -86,10 +86,9 @@ export default function SiteFooter() {
             {f.secteursAll} →
           </LocaleLink>
         </nav>
-        <nav aria-label={f.ressourcesTitle}>
-          <div className="site-footer__title">{f.ressourcesTitle}</div>
+        <nav aria-label={f.exploreTitle}>
+          <div className="site-footer__title">{f.exploreTitle}</div>
           <LocaleLink href="/secteurs">{n.secteurs}</LocaleLink>
-          <LocaleLink href="/ressources">{n.ressources}</LocaleLink>
           <LocaleLink href="/a-propos">{n.aPropos}</LocaleLink>
         </nav>
         <nav aria-label={f.contactTitle}>

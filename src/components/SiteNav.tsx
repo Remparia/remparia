@@ -218,14 +218,15 @@ export default function SiteNav() {
         style={{ background: overlayOpen ? "rgba(0,0,0,0.98)" : navBg }}
         aria-label={t.navLabel}
       >
-        <LocaleLink href="/" aria-label="Remparia">
+        <LocaleLink href="/" className="nav__brand" aria-label="Remparia">
           <Image
             src="/logo-remparia.png"
             alt=""
-            width={180}
+            width={162}
             height={32}
             className="nav__logo"
             priority
+            sizes="(max-width: 639px) 132px, (max-width: 959px) 148px, 162px"
           />
         </LocaleLink>
 
@@ -294,13 +295,6 @@ export default function SiteNav() {
             aria-current={navCurrent("/a-propos")}
           >
             {t.aPropos}
-          </LocaleLink>
-          <LocaleLink
-            href="/ressources"
-            className={logical === "/ressources" ? "is-active" : undefined}
-            aria-current={navCurrent("/ressources")}
-          >
-            {t.ressources}
           </LocaleLink>
         </div>
 
@@ -376,9 +370,6 @@ export default function SiteNav() {
 
         <LocaleLink href="/methode">[ {t.methode.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/a-propos">[ {t.aPropos.toUpperCase()} ]</LocaleLink>
-        <LocaleLink href="/ressources">
-          [ {t.ressources.toUpperCase()} ]
-        </LocaleLink>
         <LocaleLink href="/carrieres" className="nav__drawer-hiring">
           [ {t.hiring.toUpperCase()} ]
         </LocaleLink>

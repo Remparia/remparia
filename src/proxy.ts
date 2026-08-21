@@ -23,6 +23,21 @@ export function proxy(request: NextRequest) {
   }
 
   if (
+    pathname === "/ressources" ||
+    pathname === "/fr/ressources" ||
+    pathname === "/en/ressources"
+  ) {
+    const locale = pathname.startsWith("/en")
+      ? "en"
+      : pathname.startsWith("/fr")
+        ? "fr"
+        : DEFAULT_LOCALE;
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}/methode`;
+    return NextResponse.redirect(url, 301);
+  }
+
+  if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/icon") ||
@@ -39,9 +54,16 @@ export function proxy(request: NextRequest) {
   if (isLocale(segment ?? "")) {
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set("x-locale", segment!);
-    return NextResponse.next({
+    const response = NextResponse.next({
       request: { headers: requestHeaders },
     });
+    if (pathname.includes("/design-system")) {
+      response.headers.set(
+        "X-Robots-Tag",
+        "noindex, nofollow, noarchive, nosnippet, noimageindex",
+      );
+    }
+    return response;
   }
 
   const url = request.nextUrl.clone();
