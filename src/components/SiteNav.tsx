@@ -40,9 +40,7 @@ function ServicesBanner({
         <span className="nav__mega-banner-tag">{banner.tag}</span>
         <span className="nav__mega-banner-title">{banner.title}</span>
         <span className="nav__mega-banner-text">{banner.text}</span>
-        <span className="nav__mega-banner-cta">
-          {banner.cta} →
-        </span>
+        <span className="nav__mega-banner-cta">{banner.cta} →</span>
       </span>
     </LocaleLink>
   );
@@ -95,15 +93,39 @@ export default function SiteNav() {
   const drawerRef = useRef<HTMLDivElement>(null);
   const megaRef = useRef<HTMLDivElement>(null);
   const deskItemRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const drawerId = useId();
   const deskMenuId = useId();
   const overlayOpen = menuOpen || deskServicesOpen;
+
+  function clearCloseTimer() {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  }
+
+  function openDeskServices() {
+    clearCloseTimer();
+    setDeskServicesOpen(true);
+  }
+
+  function scheduleCloseDeskServices() {
+    clearCloseTimer();
+    closeTimerRef.current = setTimeout(() => {
+      setDeskServicesOpen(false);
+      closeTimerRef.current = null;
+    }, 120);
+  }
 
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
     const syncHeight = () => {
-      nav.style.setProperty("--nav-height", `${nav.offsetHeight}px`);
+      document.documentElement.style.setProperty(
+        "--nav-height",
+        `${nav.offsetHeight}px`,
+      );
     };
     syncHeight();
     const ro = new ResizeObserver(syncHeight);
@@ -125,6 +147,7 @@ export default function SiteNav() {
     setMenuOpen(false);
     setServicesOpen(false);
     setDeskServicesOpen(false);
+    clearCloseTimer();
   }, [pathname]);
 
   useEffect(() => {
@@ -134,10 +157,11 @@ export default function SiteNav() {
     };
   }, [overlayOpen]);
 
+  useEffect(() => () => clearCloseTimer(), []);
+
   useEffect(() => {
     if (!menuOpen) return;
-    const drawer = drawerRef.current;
-    drawer?.querySelectorAll<HTMLElement>(FOCUSABLE)[0]?.focus();
+    drawerRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE)[0]?.focus();
 
     function getFocusables() {
       return Array.from(
@@ -178,6 +202,17 @@ export default function SiteNav() {
       );
     }
 
+    function onPointerDown(e: MouseEvent) {
+      const target = e.target as Node | null;
+      if (
+        megaRef.current?.contains(target) ||
+        deskItemRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setDeskServicesOpen(false);
+    }
+
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
         setDeskServicesOpen(false);
@@ -200,8 +235,12 @@ export default function SiteNav() {
       }
     }
 
+    document.addEventListener("mousedown", onPointerDown);
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, [deskServicesOpen]);
 
   const isServices = logical.startsWith("/services");
@@ -233,8 +272,8 @@ export default function SiteNav() {
           <div
             ref={deskItemRef}
             className={`nav__item${deskServicesOpen ? " is-open" : ""}`}
-            onMouseEnter={() => setDeskServicesOpen(true)}
-            onMouseLeave={() => setDeskServicesOpen(false)}
+            onMouseEnter={openDeskServices}
+            onMouseLeave={scheduleCloseDeskServices}
           >
             <LocaleLink
               href="/services"
@@ -249,36 +288,15 @@ export default function SiteNav() {
               aria-expanded={deskServicesOpen}
               aria-controls={deskMenuId}
               aria-label={t.servicesMenu}
-              onClick={() => setDeskServicesOpen((o) => !o)}
+              onClick={() => {
+                clearCloseTimer();
+                setDeskServicesOpen((o) => !o);
+              }}
             >
               <span className="nav__caret" aria-hidden>
                 ▾
               </span>
             </button>
-            <div
-              id={deskMenuId}
-              ref={megaRef}
-              className={`nav__mega${deskServicesOpen ? " is-open" : ""}`}
-              hidden={!deskServicesOpen}
-              role="dialog"
-              aria-modal={deskServicesOpen}
-              aria-label={t.megaLabel}
-            >
-              <button
-                type="button"
-                className="nav__mega-close"
-                aria-label={t.megaClose}
-                onClick={() => setDeskServicesOpen(false)}
-              >
-                ×
-              </button>
-              <div
-                className={`nav__mega-inner${NAV_SERVICES_BANNER[lang] ? "" : " nav__mega-inner--solo"}`}
-              >
-                <ServicesBanner />
-                <ServicesLinks logical={logical} />
-              </div>
-            </div>
           </div>
 
           <LocaleLink
@@ -337,6 +355,44 @@ export default function SiteNav() {
           </button>
         </div>
       </nav>
+
+      {/* Sibling of nav: backdrop-filter on .nav creates a containing block that
+          would collapse position:fixed descendants inside the bar height. */}
+      <div
+        id={deskMenuId}
+        ref={megaRef}
+        className={`nav__mega${deskServicesOpen ? " is-open" : ""}`}
+        hidden={!deskServicesOpen}
+        role="dialog"
+        aria-modal={deskServicesOpen}
+        aria-label={t.megaLabel}
+        onMouseEnter={openDeskServices}
+        onMouseLeave={scheduleCloseDeskServices}
+      >
+        <button
+          type="button"
+          className="nav__mega-close"
+          aria-label={t.megaClose}
+          onClick={() => {
+            clearCloseTimer();
+            setDeskServicesOpen(false);
+          }}
+        >
+          ×
+        </button>
+        <div
+          className={`nav__mega-inner${NAV_SERVICES_BANNER[lang] ? "" : " nav__mega-inner--solo"}`}
+        >
+          <ServicesBanner />
+          <ServicesLinks
+            logical={logical}
+            onNavigate={() => {
+              clearCloseTimer();
+              setDeskServicesOpen(false);
+            }}
+          />
+        </div>
+      </div>
 
       <div
         id={drawerId}

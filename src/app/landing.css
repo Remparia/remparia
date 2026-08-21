@@ -1616,6 +1616,14 @@
     display: none !important;
   }
 
+  .nav.is-overlay {
+    z-index: 70;
+  }
+
+  .nav__mega.is-open:not([hidden]) {
+    display: flex;
+  }
+
   .nav__links {
     display: flex;
     align-items: center;
@@ -2946,8 +2954,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 48;
-  display: flex;
+  z-index: 60;
+  display: none;
   flex-direction: column;
   background: #000;
   overflow: auto;
@@ -2958,13 +2966,19 @@
   display: none !important;
 }
 
+.nav__mega.is-open:not([hidden]) {
+  display: flex;
+}
+
+/* Bridge hover gap between the nav trigger and the panel */
 .nav__mega::before {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  top: -12px;
-  height: 12px;
+  top: calc(-1 * var(--nav-height, 72px));
+  height: var(--nav-height, 72px);
+  pointer-events: none;
 }
 
 .nav__mega-inner {
