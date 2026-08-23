@@ -21,6 +21,12 @@ export const NAV = {
     switchLang: "Passer en anglais",
     skipToContent: "Aller au contenu",
     megaViewAll: "Tous les services",
+    megaParcours: "Parcours",
+    solution: "Solution",
+    pourQui: "Pour qui",
+    casUsage: "Cas d'usage",
+    demarrer: "Démarrer",
+    parcoursMenu: "Sous-menu parcours",
     megaBanner: {
       enabled: true,
       href: "/contact",
@@ -50,6 +56,12 @@ export const NAV = {
     switchLang: "Switch to French",
     skipToContent: "Skip to content",
     megaViewAll: "All services",
+    megaParcours: "Path",
+    solution: "Solution",
+    pourQui: "Who it is for",
+    casUsage: "Use cases",
+    demarrer: "Get started",
+    parcoursMenu: "Path submenu",
     megaBanner: {
       enabled: true,
       href: "/contact",
@@ -62,6 +74,62 @@ export const NAV = {
       cta: "Book →",
     },
   },
+} as const;
+
+/** Liens du parcours IA (mega-menu + drawer mobile). */
+export const NAV_IA = {
+  fr: [
+    {
+      href: "/solution",
+      tag: "SOLUTION",
+      title: "Remparia OS",
+      desc: "Le système d'exploitation IA sous votre gouvernance.",
+    },
+    {
+      href: "/pour-qui",
+      tag: "POUR QUI",
+      title: "Pour qui",
+      desc: "Métiers à responsabilité et données sensibles.",
+    },
+    {
+      href: "/cas-d-usage",
+      tag: "CAS D'USAGE",
+      title: "Cas d'usage",
+      desc: "Processus métier, jamais une technologie.",
+    },
+    {
+      href: "/demarrer",
+      tag: "DÉMARRER",
+      title: "Démarrer",
+      desc: "Trois façons de commencer, avant de vous engager.",
+    },
+  ],
+  en: [
+    {
+      href: "/solution",
+      tag: "SOLUTION",
+      title: "Remparia OS",
+      desc: "The AI operating system under your governance.",
+    },
+    {
+      href: "/pour-qui",
+      tag: "WHO IT IS FOR",
+      title: "Who it is for",
+      desc: "Accountability professions and sensitive data.",
+    },
+    {
+      href: "/cas-d-usage",
+      tag: "USE CASES",
+      title: "Use cases",
+      desc: "Business workflows, never technology.",
+    },
+    {
+      href: "/demarrer",
+      tag: "GET STARTED",
+      title: "Get started",
+      desc: "Three ways to begin before you commit.",
+    },
+  ],
 } as const;
 
 export const FOOTER = {

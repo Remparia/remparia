@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
-import { NAV, SERVICES } from "@/lib/content";
+import { NAV, NAV_IA, SERVICES } from "@/lib/content";
 import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
 
@@ -15,11 +15,13 @@ export default function SiteNav() {
   const { lang, toggleLang } = useLang();
   const t = NAV[lang];
   const services = SERVICES[lang];
+  const parcours = NAV_IA[lang];
   const pathname = usePathname();
   const logical = stripLocale(pathname || "/");
   const [navBg, setNavBg] = useState("rgba(0,0,0,0)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [parcoursOpen, setParcoursOpen] = useState(false);
   const [deskServicesOpen, setDeskServicesOpen] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
@@ -42,6 +44,7 @@ export default function SiteNav() {
   useEffect(() => {
     setMenuOpen(false);
     setServicesOpen(false);
+    setParcoursOpen(false);
     setDeskServicesOpen(false);
   }, [pathname]);
 
@@ -85,7 +88,7 @@ export default function SiteNav() {
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [menuOpen, servicesOpen]);
+  }, [menuOpen, servicesOpen, parcoursOpen]);
 
   useEffect(() => {
     return () => window.clearTimeout(deskCloseTimer.current);
@@ -215,6 +218,29 @@ export default function SiteNav() {
                       </LocaleLink>
                     ))}
                   </div>
+                  <div className="nav__mega-section">
+                    <div className="nav__mega-head">
+                      <span className="nav__mega-kicker">{t.megaParcours}</span>
+                    </div>
+                    <div className="nav__mega-links nav__mega-links--ia">
+                      {parcours.map((item) => (
+                        <LocaleLink
+                          key={item.href}
+                          href={item.href}
+                          className={`nav__mega-link${
+                            logical === item.href ? " is-active" : ""
+                          }`}
+                          aria-current={
+                            logical === item.href ? "page" : undefined
+                          }
+                        >
+                          <span className="nav__mega-tag">{item.tag}</span>
+                          <span className="nav__mega-title">{item.title}</span>
+                          <span className="nav__mega-desc">{item.desc}</span>
+                        </LocaleLink>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 {banner ? (
                   <LocaleLink
@@ -250,6 +276,20 @@ export default function SiteNav() {
             </div>
           </div>
 
+          <LocaleLink
+            href="/solution"
+            className={logical === "/solution" ? "is-active" : undefined}
+            aria-current={navCurrent("/solution")}
+          >
+            {t.solution}
+          </LocaleLink>
+          <LocaleLink
+            href="/pour-qui"
+            className={logical === "/pour-qui" ? "is-active" : undefined}
+            aria-current={navCurrent("/pour-qui")}
+          >
+            {t.pourQui}
+          </LocaleLink>
           <LocaleLink
             href="/methode"
             className={logical === "/methode" ? "is-active" : undefined}
@@ -343,6 +383,35 @@ export default function SiteNav() {
                   <span className="nav__drawer-banner-cta">{banner.cta}</span>
                 </LocaleLink>
               ) : null}
+            </div>
+          ) : null}
+        </div>
+
+        <div className="nav__drawer-group">
+          <div className="nav__drawer-services">
+            <span className="nav__drawer-label">[ {t.megaParcours.toUpperCase()} ]</span>
+            <button
+              type="button"
+              className="nav__drawer-toggle"
+              aria-expanded={parcoursOpen}
+              aria-label={t.parcoursMenu}
+              onClick={() => setParcoursOpen((o) => !o)}
+            >
+              <span aria-hidden>{parcoursOpen ? "−" : "+"}</span>
+            </button>
+          </div>
+          {parcoursOpen ? (
+            <div className="nav__drawer-sub">
+              {parcours.map((item) => (
+                <LocaleLink
+                  key={item.href}
+                  href={item.href}
+                  className={logical === item.href ? "is-active" : undefined}
+                  aria-current={logical === item.href ? "page" : undefined}
+                >
+                  {item.title}
+                </LocaleLink>
+              ))}
             </div>
           ) : null}
         </div>
