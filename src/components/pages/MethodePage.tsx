@@ -1,5 +1,6 @@
 "use client";
 
+import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
 import { HOME, METHODE, PROOF_STATS } from "@/lib/content";
 import { useLang } from "@/lib/lang";
@@ -9,7 +10,6 @@ export default function MethodePage() {
   const t = METHODE[lang];
   const stats = PROOF_STATS[lang];
   const cta = HOME[lang];
-
   const home = lang === "fr" ? "Accueil" : "Home";
 
   return (
@@ -20,11 +20,28 @@ export default function MethodePage() {
         sub={t.sub}
         crumbs={[
           { name: home, href: "/" },
-          { name: t.title },
+          { name: t.eyebrow },
         ]}
       />
+
+      <section className="section section--alt">
+        <div className="reveal">
+          <SectionLabel>{t.aloneTitle}</SectionLabel>
+          <h2 className="section__title">{t.aloneTitle}</h2>
+          <p className="section__body">{t.aloneBody}</p>
+          <LocaleLink href="/solution" className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
+            {t.aloneCta}
+          </LocaleLink>
+        </div>
+      </section>
+
       <section className="section">
-        <div className="signal-grid">
+        <div className="reveal">
+          <SectionLabel>{t.protocolTitle}</SectionLabel>
+          <h2 className="section__title">{t.protocolTitle}</h2>
+          <p className="section__body">{t.protocolIntro}</p>
+        </div>
+        <div className="signal-grid" style={{ marginTop: 32 }}>
           {t.steps.map((step, i) => (
             <div
               key={step.letter}
@@ -56,6 +73,7 @@ export default function MethodePage() {
           ))}
         </div>
       </section>
+
       <section className="section section--alt">
         <div className="reveal">
           <SectionLabel>{t.governanceTitle}</SectionLabel>
@@ -73,6 +91,7 @@ export default function MethodePage() {
           ))}
         </ul>
       </section>
+
       <section className="section">
         <div className="reveal">
           <SectionLabel>{t.proofTitle}</SectionLabel>
@@ -86,17 +105,15 @@ export default function MethodePage() {
           ))}
         </div>
       </section>
+
       <section className="section section--alt">
-        <div className="conviction">
-          <div className="reveal">
-            <SectionLabel>{t.differenceTitle}</SectionLabel>
-            <h2 className="section__title">{t.differenceH}</h2>
-          </div>
-          <div className="conviction__quote reveal" data-d="2">
-            <p>{t.differenceP}</p>
-          </div>
+        <div className="reveal">
+          <SectionLabel>{t.differenceTitle}</SectionLabel>
+          <h2 className="section__title">{t.differenceH}</h2>
+          <p className="section__body">{t.differenceP}</p>
         </div>
       </section>
+
       <section className="section">
         <div className="reveal">
           <SectionLabel>{t.acceleratorsTitle}</SectionLabel>
@@ -104,19 +121,20 @@ export default function MethodePage() {
           <p className="section__body">{t.acceleratorsSub}</p>
         </div>
         <div className="card-grid" style={{ marginTop: 32 }}>
-          {t.accelerators.map((a, i) => (
+          {t.accelerators.map((item, i) => (
             <article
-              key={a.title}
+              key={item.title}
               className="info-card reveal"
               data-d={String(Math.min((i % 3) + 1, 3))}
             >
-              <h3>{a.title}</h3>
-              <p>{a.desc}</p>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
             </article>
           ))}
         </div>
       </section>
-      <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
+
+      <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} href="/demarrer" />
     </div>
   );
 }

@@ -85,10 +85,12 @@ export function CtaBand({
   tag,
   title,
   text,
+  href = "/demarrer",
 }: {
   tag: string;
   title: string;
   text?: string;
+  href?: string;
 }) {
   const { lang } = useLang();
   const demo = NAV[lang].demo;
@@ -103,7 +105,7 @@ export function CtaBand({
         <h2 className="section__title section__title--lg">{title}</h2>
         {text ? <p className="cta__text">{text}</p> : null}
         <div className="cta__actions">
-          <LocaleLink href="/contact" className="cta__btn">
+          <LocaleLink href={href} className="cta__btn">
             {demo} →
           </LocaleLink>
           <a href={`mailto:${CONTACT_EMAIL}`} className="cta__mail">

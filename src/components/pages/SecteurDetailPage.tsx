@@ -42,7 +42,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
         sub={detail.heroP}
         crumbs={[
           { name: home, href: "/" },
-          { name: label, href: "/secteurs" },
+          { name: label, href: "/pour-qui" },
           { name: item.title },
         ]}
         ctaLabel={labels.cta}
@@ -142,7 +142,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
             {relatedServices.map((service, i) => (
               <LocaleLink
                 key={service.slug}
-                href={`/services/${service.slug}`}
+                href="/solution"
                 className="secteur-service-link reveal"
                 data-d={String(Math.min(i + 1, 3))}
               >
@@ -186,7 +186,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
             ))}
           </div>
           <div className="detail-nav" style={{ marginTop: 24 }}>
-            <LocaleLink href="/secteurs" className="text-link">
+            <LocaleLink href="/pour-qui" className="text-link">
               ← {all.overview}
             </LocaleLink>
           </div>

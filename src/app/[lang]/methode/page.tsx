@@ -11,10 +11,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "SIGNAL method" : "Méthode SIGNAL",
+    title: isEn
+      ? "Method: map before you automate"
+      : "Méthode : cartographier avant d’automatiser",
     description: isEn
-      ? "The SIGNAL protocol: study, identify, govern, normalize, automate, liberate. Six stages from fieldwork to measurable use."
-      : "Le protocole SIGNAL : sonder, identifier, gouverner, normaliser, automatiser, libérer. Six étapes du terrain à un usage mesurable.",
+      ? "Observe real work, prioritize by impact and risk, govern before the first agent. The SIGNAL protocol: six stages, each with a deliverable."
+      : "Observer le travail réel, prioriser par impact et risque, gouverner avant le premier agent. Le protocole SIGNAL : six étapes, chacune avec un livrable.",
     path: "/methode",
     lang,
   });

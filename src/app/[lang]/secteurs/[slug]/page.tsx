@@ -20,12 +20,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, lang: langParam } = await params;
   const lang = toLang(langParam);
   const meta = secteurMeta(slug);
+  const { isHeartSecteur } = await import("@/lib/strategy");
   return createPageMetadata({
     title: meta.title,
     description: meta.description,
     path: `/secteurs/${slug}`,
     image: meta.image,
     lang,
+    noIndex: !isHeartSecteur(slug),
   });
 }
 
@@ -44,7 +46,7 @@ export default async function Page({ params }: Props) {
           breadcrumbJsonLd(
             [
               { name: home, path: "/" },
-              { name: sectors, path: "/secteurs" },
+              { name: sectors, path: "/pour-qui" },
               { name: meta.title, path: `/secteurs/${slug}` },
             ],
             lang,

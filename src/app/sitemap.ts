@@ -14,12 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority:
         logical === "/"
           ? 1
-          : logical === "/contact" ||
-              logical === "/services" ||
+          : logical === "/demarrer" ||
+              logical === "/solution" ||
               logical === "/methode"
             ? 0.9
-            : logical.startsWith("/services/") ||
-                logical.startsWith("/secteurs/")
+            : logical.startsWith("/secteurs/") ||
+                logical === "/cas-d-usage" ||
+                logical === "/pour-qui"
               ? 0.7
               : 0.8,
       alternates: {

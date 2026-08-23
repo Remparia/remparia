@@ -11,11 +11,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isEn = lang === "en";
   return createPageMetadata({
     title: isEn
-      ? "Business agents: time returned, decision preserved"
-      : "Agents métier : du temps rendu, la décision préservée",
+      ? "Repetitive work to the agent. Decisions to the expert."
+      : "Le répétitif à l’agent. La décision à l’expert.",
     description: isEn
-      ? "Remparia strengthens specialized professions with supervised business agents: time returned, decision preserved and data under control."
-      : "Remparia renforce les métiers spécialisés avec des agents supervisés : du temps rendu, la décision préservée et les données sous contrôle.",
+      ? "A method to map the work, an operating system to carry it — without giving up decisions or control of your data."
+      : "Une méthode pour cartographier le travail, un système d’exploitation pour le faire porter — sans céder la décision ni le contrôle de vos données.",
     path: "/",
     lang,
   });

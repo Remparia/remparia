@@ -20,8 +20,18 @@ export const NAV = {
     servicesMenu: "Sous-menu services",
     switchLang: "Passer en anglais",
     skipToContent: "Aller au contenu",
-    megaLabel: "Menu services",
-    megaClose: "Fermer le menu services",
+    megaViewAll: "Tous les services",
+    megaBanner: {
+      enabled: true,
+      href: "/contact",
+      image: "/services/diagnostic-governance-hub.png",
+      imageAlt:
+        "Diagnostic SIGNAL — cadrage d’un processus métier avant automatisation",
+      eyebrow: "Diagnostic SIGNAL",
+      title: "Cadrer le processus qui coûte du temps",
+      desc: "1 h avec un associé : répétitif, données, gains à mesurer.",
+      cta: "Réserver →",
+    },
   },
   en: {
     services: "Services",
@@ -39,40 +49,20 @@ export const NAV = {
     servicesMenu: "Services submenu",
     switchLang: "Switch to French",
     skipToContent: "Skip to content",
-    megaLabel: "Services menu",
-    megaClose: "Close services menu",
+    megaViewAll: "All services",
+    megaBanner: {
+      enabled: true,
+      href: "/contact",
+      image: "/services/diagnostic-governance-hub.png",
+      imageAlt:
+        "SIGNAL diagnostic — scoping a business workflow before automation",
+      eyebrow: "SIGNAL diagnostic",
+      title: "Scope the workflow costing you time",
+      desc: "1 hr with a partner: repetitive work, data, gains to measure.",
+      cta: "Book →",
+    },
   },
 } as const;
-
-/** Banner du mega-menu Services. Mettre `null` pour le masquer. */
-export const NAV_SERVICES_BANNER: Record<
-  Lang,
-  {
-    image?: string;
-    tag: string;
-    title: string;
-    text: string;
-    cta: string;
-    href: string;
-  } | null
-> = {
-  fr: {
-    image: "/hero-temporal.png",
-    tag: "DU POC À LA PROD",
-    title: "Agents. Production.",
-    text: "Quatre missions pour passer du pilote à l’agent qui travaille tous les jours — intégrés, conformes, souverains.",
-    cta: "Vue d’ensemble",
-    href: "/services",
-  },
-  en: {
-    image: "/hero-temporal.png",
-    tag: "FROM POC TO PROD",
-    title: "Agents. Production.",
-    text: "Four missions to go from a stalled pilot to the agent that works every day — integrated, compliant, sovereign.",
-    cta: "Overview",
-    href: "/services",
-  },
-};
 
 export const FOOTER = {
   fr: {

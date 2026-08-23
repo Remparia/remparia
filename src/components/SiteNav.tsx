@@ -4,86 +4,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
-import { NAV, NAV_SERVICES_BANNER, SERVICES } from "@/lib/content";
+import { NAV, SERVICES } from "@/lib/content";
 import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-function ServicesBanner({
-  compact = false,
-}: {
-  compact?: boolean;
-}) {
-  const { lang } = useLang();
-  const banner = NAV_SERVICES_BANNER[lang];
-  if (!banner) return null;
-
-  return (
-    <LocaleLink
-      href={banner.href}
-      className={`nav__mega-banner${compact ? " nav__mega-banner--compact" : ""}`}
-    >
-      {banner.image ? (
-        <span className="nav__mega-banner-media" aria-hidden>
-          <Image
-            src={banner.image}
-            alt=""
-            fill
-            sizes={compact ? "100vw" : "420px"}
-            className="nav__mega-banner-img"
-          />
-        </span>
-      ) : null}
-      <span className="nav__mega-banner-copy">
-        <span className="nav__mega-banner-tag">{banner.tag}</span>
-        <span className="nav__mega-banner-title">{banner.title}</span>
-        <span className="nav__mega-banner-text">{banner.text}</span>
-        <span className="nav__mega-banner-cta">
-          {banner.cta} →
-        </span>
-      </span>
-    </LocaleLink>
-  );
-}
-
-function ServicesLinks({
-  logical,
-  onNavigate,
-}: {
-  logical: string;
-  onNavigate?: () => void;
-}) {
-  const { lang } = useLang();
-  const services = SERVICES[lang];
-
-  return (
-    <div className="nav__mega-list">
-      {services.items.map((item) => {
-        const href = `/services/${item.slug}`;
-        const current = logical === href;
-        return (
-          <LocaleLink
-            key={item.slug}
-            href={href}
-            className={`nav__mega-link${current ? " is-active" : ""}`}
-            aria-current={current ? "page" : undefined}
-            onClick={onNavigate}
-          >
-            <span className="nav__mega-link-tag">{item.tag}</span>
-            <span className="nav__mega-link-title">{item.title}</span>
-            <span className="nav__mega-link-desc">{item.desc}</span>
-          </LocaleLink>
-        );
-      })}
-    </div>
-  );
-}
-
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();
   const t = NAV[lang];
+  const services = SERVICES[lang];
   const pathname = usePathname();
   const logical = stripLocale(pathname || "/");
   const [navBg, setNavBg] = useState("rgba(0,0,0,0)");
@@ -91,25 +22,12 @@ export default function SiteNav() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [deskServicesOpen, setDeskServicesOpen] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
-  const navRef = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
-  const megaRef = useRef<HTMLDivElement>(null);
   const deskItemRef = useRef<HTMLDivElement>(null);
   const drawerId = useId();
   const deskMenuId = useId();
-  const overlayOpen = menuOpen || deskServicesOpen;
-
-  useEffect(() => {
-    const nav = navRef.current;
-    if (!nav) return;
-    const syncHeight = () => {
-      nav.style.setProperty("--nav-height", `${nav.offsetHeight}px`);
-    };
-    syncHeight();
-    const ro = new ResizeObserver(syncHeight);
-    ro.observe(nav);
-    return () => ro.disconnect();
-  }, []);
+  const deskCloseTimer = useRef<number>(0);
+  const banner = t.megaBanner.enabled ? t.megaBanner : null;
 
   useEffect(() => {
     const onScroll = () => {
@@ -128,11 +46,11 @@ export default function SiteNav() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = overlayOpen ? "hidden" : "";
+    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [overlayOpen]);
+  }, [menuOpen]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -170,36 +88,33 @@ export default function SiteNav() {
   }, [menuOpen, servicesOpen]);
 
   useEffect(() => {
+    return () => window.clearTimeout(deskCloseTimer.current);
+  }, []);
+
+  function openDeskServices() {
+    window.clearTimeout(deskCloseTimer.current);
+    setDeskServicesOpen(true);
+  }
+
+  function closeDeskServices(delay = 140) {
+    window.clearTimeout(deskCloseTimer.current);
+    deskCloseTimer.current = window.setTimeout(
+      () => setDeskServicesOpen(false),
+      delay,
+    );
+  }
+
+  useEffect(() => {
     if (!deskServicesOpen) return;
-
-    function getFocusables() {
-      return Array.from(
-        megaRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? [],
-      );
-    }
-
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
+        window.clearTimeout(deskCloseTimer.current);
         setDeskServicesOpen(false);
         deskItemRef.current
           ?.querySelector<HTMLElement>("button.nav__caret-btn")
           ?.focus();
-        return;
-      }
-      if (e.key !== "Tab") return;
-      const list = getFocusables();
-      if (!list.length) return;
-      const first = list[0];
-      const last = list[list.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
       }
     }
-
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [deskServicesOpen]);
@@ -213,9 +128,10 @@ export default function SiteNav() {
   return (
     <>
       <nav
-        ref={navRef}
-        className={`nav${overlayOpen ? " is-overlay" : ""}`}
-        style={{ background: overlayOpen ? "rgba(0,0,0,0.98)" : navBg }}
+        className="nav"
+        style={{
+          background: deskServicesOpen ? "rgba(0,0,0,0.96)" : navBg,
+        }}
         aria-label={t.navLabel}
       >
         <LocaleLink href="/" className="nav__brand" aria-label="Remparia">
@@ -234,8 +150,14 @@ export default function SiteNav() {
           <div
             ref={deskItemRef}
             className={`nav__item${deskServicesOpen ? " is-open" : ""}`}
-            onMouseEnter={() => setDeskServicesOpen(true)}
-            onMouseLeave={() => setDeskServicesOpen(false)}
+            onMouseEnter={openDeskServices}
+            onMouseLeave={() => closeDeskServices()}
+            onFocus={openDeskServices}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                closeDeskServices(0);
+              }
+            }}
           >
             <LocaleLink
               href="/services"
@@ -250,7 +172,9 @@ export default function SiteNav() {
               aria-expanded={deskServicesOpen}
               aria-controls={deskMenuId}
               aria-label={t.servicesMenu}
-              onClick={() => setDeskServicesOpen((o) => !o)}
+              onClick={() =>
+                deskServicesOpen ? closeDeskServices(0) : openDeskServices()
+              }
             >
               <span className="nav__caret" aria-hidden>
                 ▾
@@ -258,26 +182,70 @@ export default function SiteNav() {
             </button>
             <div
               id={deskMenuId}
-              ref={megaRef}
-              className={`nav__mega${deskServicesOpen ? " is-open" : ""}`}
+              className={`nav__mega${banner ? " nav__mega--banner" : ""}`}
               hidden={!deskServicesOpen}
-              role="dialog"
-              aria-modal={deskServicesOpen}
-              aria-label={t.megaLabel}
             >
-              <button
-                type="button"
-                className="nav__mega-close"
-                aria-label={t.megaClose}
-                onClick={() => setDeskServicesOpen(false)}
-              >
-                ×
-              </button>
-              <div
-                className={`nav__mega-inner${NAV_SERVICES_BANNER[lang] ? "" : " nav__mega-inner--solo"}`}
-              >
-                <ServicesBanner />
-                <ServicesLinks logical={logical} />
+              <div className="nav__mega-inner">
+                <div className="nav__mega-main">
+                  <div className="nav__mega-head">
+                    <span className="nav__mega-kicker">{t.services}</span>
+                    <LocaleLink href="/services" className="nav__mega-all">
+                      {t.megaViewAll} →
+                    </LocaleLink>
+                  </div>
+                  <div className="nav__mega-links">
+                    {services.items.map((item) => (
+                      <LocaleLink
+                        key={item.slug}
+                        href={`/services/${item.slug}`}
+                        className={`nav__mega-link${
+                          logical === `/services/${item.slug}`
+                            ? " is-active"
+                            : ""
+                        }`}
+                        aria-current={
+                          logical === `/services/${item.slug}`
+                            ? "page"
+                            : undefined
+                        }
+                      >
+                        <span className="nav__mega-tag">{item.tag}</span>
+                        <span className="nav__mega-title">{item.title}</span>
+                        <span className="nav__mega-desc">{item.desc}</span>
+                      </LocaleLink>
+                    ))}
+                  </div>
+                </div>
+                {banner ? (
+                  <LocaleLink
+                    href={banner.href}
+                    className="nav__mega-banner"
+                  >
+                    <span className="nav__mega-banner-media">
+                      <Image
+                        src={banner.image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 960px) 34vw, 100vw"
+                        className="nav__mega-banner-img"
+                      />
+                    </span>
+                    <span className="nav__mega-banner-copy">
+                      <span className="nav__mega-banner-eyebrow">
+                        {banner.eyebrow}
+                      </span>
+                      <span className="nav__mega-banner-title">
+                        {banner.title}
+                      </span>
+                      <span className="nav__mega-banner-desc">
+                        {banner.desc}
+                      </span>
+                      <span className="nav__mega-banner-cta">
+                        {banner.cta}
+                      </span>
+                    </span>
+                  </LocaleLink>
+                ) : null}
               </div>
             </div>
           </div>
@@ -359,11 +327,22 @@ export default function SiteNav() {
           </div>
           {servicesOpen ? (
             <div className="nav__drawer-sub">
-              <ServicesBanner compact />
-              <ServicesLinks
-                logical={logical}
-                onNavigate={() => setMenuOpen(false)}
-              />
+              {services.items.map((item) => (
+                <LocaleLink key={item.slug} href={`/services/${item.slug}`}>
+                  {item.title}
+                </LocaleLink>
+              ))}
+              {banner ? (
+                <LocaleLink href={banner.href} className="nav__drawer-banner">
+                  <span className="nav__drawer-banner-eyebrow">
+                    {banner.eyebrow}
+                  </span>
+                  <span className="nav__drawer-banner-title">
+                    {banner.title}
+                  </span>
+                  <span className="nav__drawer-banner-cta">{banner.cta}</span>
+                </LocaleLink>
+              ) : null}
             </div>
           ) : null}
         </div>

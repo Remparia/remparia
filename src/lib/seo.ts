@@ -391,7 +391,11 @@ export function getAllContentPaths() {
   const staticPaths = [
     "/",
     "/services",
+    "/solution",
     "/methode",
+    "/pour-qui",
+    "/cas-d-usage",
+    "/demarrer",
     "/secteurs",
     "/a-propos",
     "/carrieres",
