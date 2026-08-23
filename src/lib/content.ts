@@ -675,6 +675,13 @@ export const METHODE = {
     eyebrow: "NOTRE APPROCHE",
     title: "Le protocole SIGNAL",
     sub: "Six étapes, chacune avec un livrable concret. Rien n'est automatisé sans avoir été observé ; rien ne passe en production sans gouvernance.",
+    aloneTitle: "La méthode ne suffit pas seule",
+    aloneBody:
+      "SIGNAL cadre le diagnostic et la gouvernance. Remparia OS est le système qui fait ensuite tourner les agents — sur vos données, sous votre contrôle.",
+    aloneCta: "Voir Remparia OS →",
+    protocolTitle: "Le protocole en six étapes",
+    protocolIntro:
+      "Chaque étape produit un livrable signé avant de passer à la suivante. Rien n'est automatisé sans avoir été observé.",
     governanceTitle: "GOUVERNANCE",
     governanceH: "Ce qui est figé avant le premier agent",
     governanceItems: [
@@ -763,6 +770,13 @@ export const METHODE = {
     eyebrow: "OUR APPROACH",
     title: "The SIGNAL protocol",
     sub: "Six stages, each with a concrete deliverable. Nothing is automated before observation; nothing reaches production without governance.",
+    aloneTitle: "Method alone is not enough",
+    aloneBody:
+      "SIGNAL frames the diagnostic and governance. Remparia OS is the system that then runs the agents — on your data, under your control.",
+    aloneCta: "See Remparia OS →",
+    protocolTitle: "The protocol in six stages",
+    protocolIntro:
+      "Each stage produces a signed deliverable before the next. Nothing is automated before it has been observed.",
     governanceTitle: "GOVERNANCE",
     governanceH: "What is fixed before the first agent",
     governanceItems: [
