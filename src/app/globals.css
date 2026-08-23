@@ -10,9 +10,9 @@
   --ink: #0a0a0a;
   --foreground: #ffffff;
   --text: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.75);
-  --text-soft: rgba(255, 255, 255, 0.62);
-  --text-faint: rgba(255, 255, 255, 0.45);
+  --text-muted: rgba(255, 255, 255, 0.82);
+  --text-soft: rgba(255, 255, 255, 0.68);
+  --text-faint: rgba(255, 255, 255, 0.48);
   --accent: #c8ff00;
   --accent-deep: #21d760;
   --accent-blend: color-mix(in srgb, #21d760 42%, #c8ff00 58%);
@@ -29,14 +29,16 @@
     rgba(200, 255, 0, 0.1) 76%,
     rgba(200, 255, 0, 0.1) 0
   );
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.12);
-  --border-field: rgba(255, 255, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-field: rgba(255, 255, 255, 0.2);
   --border-accent: color-mix(in srgb, #21d760 45%, #c8ff00 55%);
   --border-accent-strong: color-mix(in srgb, #21d760 55%, #c8ff00 45%);
   --danger: #ff6b6b;
   --danger-text: #ff8a8a;
   --focus-ring: 0 0 0 2px color-mix(in srgb, #21d760 42%, #c8ff00 58%);
+  --motion: 200ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   --space-1: 4px;
   --space-2: 8px;

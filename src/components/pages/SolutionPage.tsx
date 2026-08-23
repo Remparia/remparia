@@ -84,7 +84,7 @@ export default function SolutionPage() {
               data-d={String(Math.min(i + 1, 3))}
             >
               <div className="info-card__tag">
-                {row.level === "green" ? "🟢" : row.level === "amber" ? "🟡" : "🔴"}{" "}
+                <span className="status-dot" aria-hidden="true" />
                 {row.title}
               </div>
               <p>{row.desc}</p>
