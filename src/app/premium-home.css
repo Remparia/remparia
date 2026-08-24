@@ -896,3 +896,163 @@
     max-width: none;
   }
 }
+
+/* ——— Alternating light bands (noir / blanc / noir…) ——— */
+.ph-section--light,
+.ph-final.ph-section--light {
+  background: #ffffff;
+  color: #101010;
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+.ph-section--light .ph-eyebrow {
+  color: rgba(16, 16, 16, 0.45);
+}
+
+.ph-section--light .ph-title,
+.ph-section--light .ph-body,
+.ph-section--light .ph-problem__side {
+  color: #101010;
+}
+
+.ph-section--light .ph-body,
+.ph-section--light .ph-problem__side {
+  color: rgba(16, 16, 16, 0.78);
+}
+
+.ph-section--light .ph-compare,
+.ph-section--light .ph-org__panel,
+.ph-section--light .ph-org__log,
+.ph-section--light .ph-sov__diagram,
+.ph-section--light .ph-industry-panel,
+.ph-section--light .ph-roi__field,
+.ph-section--light .ph-roi__out,
+.ph-section--light .ph-model__card,
+.ph-section--light .ph-agent-card,
+.ph-section--light .ph-ops li {
+  background: #f4f4f4;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.ph-section--light .ph-compare__head {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  color: #101010;
+}
+
+.ph-section--light .ph-compare__head span:last-child,
+.ph-section--light .ph-compare__row span:last-child {
+  background: rgba(111, 143, 0, 0.08);
+  border-left-color: rgba(0, 0, 0, 0.08);
+  color: #5f7a00;
+}
+
+.ph-section--light .ph-compare__row {
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+  color: rgba(16, 16, 16, 0.78);
+}
+
+.ph-section--light .ph-compare__row span:first-child {
+  color: rgba(16, 16, 16, 0.48);
+}
+
+.ph-section--light .ph-model__n,
+.ph-section--light .ph-org__log-title,
+.ph-section--light .ph-roi__field > span,
+.ph-section--light .ph-roi__out-label {
+  color: rgba(16, 16, 16, 0.45);
+}
+
+.ph-section--light .ph-model__card h3,
+.ph-section--light .ph-agent-card h3,
+.ph-section--light .ph-industry-panel h3,
+.ph-section--light .ph-org__node,
+.ph-section--light .ph-ops li,
+.ph-section--light .ph-check li {
+  color: #101010;
+}
+
+.ph-section--light .ph-model__card li,
+.ph-section--light .ph-org__agents span,
+.ph-section--light .ph-org__tools span,
+.ph-section--light .ph-sov__models span,
+.ph-section--light .ph-sov__base span {
+  border-color: rgba(0, 0, 0, 0.12);
+  color: rgba(16, 16, 16, 0.7);
+  background: #fff;
+}
+
+.ph-section--light .ph-org__agents span {
+  border-color: rgba(95, 122, 0, 0.35);
+}
+
+.ph-section--light .ph-org__log {
+  background: #fff;
+}
+
+.ph-section--light .ph-org__log li {
+  color: rgba(16, 16, 16, 0.72);
+}
+
+.ph-section--light .ph-org__log li:last-child {
+  color: #5f7a00;
+}
+
+.ph-section--light .ph-org__node--os,
+.ph-section--light .ph-sov__os {
+  color: #5f7a00;
+  border-color: rgba(95, 122, 0, 0.45);
+  background: #fff;
+}
+
+.ph-section--light .ph-agent-card p,
+.ph-section--light .ph-roi__note {
+  color: rgba(16, 16, 16, 0.68);
+}
+
+.ph-section--light .ph-tabs button,
+.ph-section--light .ph-industry-tabs button {
+  border-color: rgba(0, 0, 0, 0.14);
+  color: rgba(16, 16, 16, 0.7);
+  background: #fff;
+}
+
+.ph-section--light .ph-tabs button.is-active,
+.ph-section--light .ph-industry-tabs button.is-active,
+.ph-section--light .ph-tabs button[aria-selected="true"],
+.ph-section--light .ph-industry-tabs button[aria-selected="true"] {
+  border-color: transparent;
+  background: var(--accent-gradient);
+  color: #0a0a0a;
+}
+
+.ph-section--light .ph-roi__field input[type="number"],
+.ph-section--light .ph-roi__stepper button {
+  border-color: rgba(0, 0, 0, 0.16);
+  background: #fff;
+  color: #101010;
+}
+
+.ph-section--light .ph-roi__out {
+  background:
+    radial-gradient(circle at 80% 0%, rgba(200, 255, 0, 0.18), transparent 45%),
+    #f7f7f7;
+}
+
+.ph-section--light .ph-final__horizon {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(111, 143, 0, 0.22),
+    transparent 68%
+  );
+}
+
+.ph-section--light .btn-ghost {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #101010;
+}
+
+.ph-section--light .btn-ghost:hover,
+.ph-section--light .btn-ghost:focus-visible {
+  border-color: #5f7a00;
+  color: #5f7a00;
+}

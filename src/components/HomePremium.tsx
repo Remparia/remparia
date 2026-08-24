@@ -187,7 +187,7 @@ export default function HomePremium() {
         </div>
       </header>
 
-      <section className="ph-section" id="constat">
+      <section className="ph-section ph-section--light" id="constat">
         <div className="ph-shell ph-problem">
           <div>
             <p className="ph-eyebrow">{t.problem.eyebrow}</p>
@@ -238,7 +238,7 @@ export default function HomePremium() {
         </div>
       </section>
 
-      <section className="ph-section" id="en-action">
+      <section className="ph-section ph-section--light" id="en-action">
         <div className="ph-shell ph-org">
           <div className="ph-org__copy">
             <p className="ph-eyebrow">{t.org.eyebrow}</p>
@@ -298,7 +298,7 @@ export default function HomePremium() {
         </div>
       </section>
 
-      <section className="ph-section" id="souverainete">
+      <section className="ph-section ph-section--light" id="souverainete">
         <div className="ph-shell">
           <p className="ph-eyebrow">{t.sovereignty.eyebrow}</p>
           <AccentTitle
@@ -392,7 +392,7 @@ export default function HomePremium() {
         </div>
       </section>
 
-      <section className="ph-section" id="roi">
+      <section className="ph-section ph-section--light" id="roi">
         <div className="ph-shell">
           <p className="ph-eyebrow">{t.roi.eyebrow}</p>
           <AccentTitle before={t.roi.titleBefore} accent={t.roi.titleAccent} />
@@ -415,7 +415,7 @@ export default function HomePremium() {
         </div>
       </section>
 
-      <section className="ph-final">
+      <section className="ph-final ph-section--light">
         <div className="ph-shell ph-final__inner">
           <AccentTitle
             before={t.finalCta.titleBefore}
