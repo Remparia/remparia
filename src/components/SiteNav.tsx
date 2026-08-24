@@ -163,11 +163,13 @@ export default function SiteNav() {
             }}
           >
             <LocaleLink
-              href="/services"
-              className={isServices ? "is-active" : undefined}
-              aria-current={logical === "/services" ? "page" : undefined}
+              href="/solution"
+              className={
+                isServices || logical === "/solution" ? "is-active" : undefined
+              }
+              aria-current={logical === "/solution" ? "page" : undefined}
             >
-              {t.services}
+              {t.platform}
             </LocaleLink>
             <button
               type="button"
@@ -191,8 +193,8 @@ export default function SiteNav() {
               <div className="nav__mega-inner">
                 <div className="nav__mega-main">
                   <div className="nav__mega-head">
-                    <span className="nav__mega-kicker">{t.services}</span>
-                    <LocaleLink href="/services" className="nav__mega-all">
+                    <span className="nav__mega-kicker">{t.platform}</span>
+                    <LocaleLink href="/solution" className="nav__mega-all">
                       {t.megaViewAll} →
                     </LocaleLink>
                   </div>
@@ -277,32 +279,36 @@ export default function SiteNav() {
           </div>
 
           <LocaleLink
-            href="/solution"
-            className={logical === "/solution" ? "is-active" : undefined}
-            aria-current={navCurrent("/solution")}
-          >
-            {t.solution}
-          </LocaleLink>
-          <LocaleLink
-            href="/pour-qui"
-            className={logical === "/pour-qui" ? "is-active" : undefined}
-            aria-current={navCurrent("/pour-qui")}
-          >
-            {t.pourQui}
-          </LocaleLink>
-          <LocaleLink
             href="/methode"
             className={logical === "/methode" ? "is-active" : undefined}
             aria-current={navCurrent("/methode")}
           >
-            {t.methode}
+            {t.method}
+          </LocaleLink>
+          <LocaleLink
+            href="/secteurs"
+            className={
+              logical === "/secteurs" || logical.startsWith("/secteurs/")
+                ? "is-active"
+                : undefined
+            }
+            aria-current={navCurrent("/secteurs")}
+          >
+            {t.solutions}
+          </LocaleLink>
+          <LocaleLink
+            href="/cas-d-usage"
+            className={logical === "/cas-d-usage" ? "is-active" : undefined}
+            aria-current={navCurrent("/cas-d-usage")}
+          >
+            {t.resources}
           </LocaleLink>
           <LocaleLink
             href="/a-propos"
             className={logical === "/a-propos" ? "is-active" : undefined}
             aria-current={navCurrent("/a-propos")}
           >
-            {t.aPropos}
+            {t.company}
           </LocaleLink>
         </div>
 
@@ -322,7 +328,7 @@ export default function SiteNav() {
           >
             {t.hiring}
           </LocaleLink>
-          <LocaleLink href="/contact" className="nav__cta">
+          <LocaleLink href="/demarrer" className="nav__cta">
             <span className="nav__cta-short">{t.demoShort}</span>
             <span className="nav__cta-full">{t.demo} →</span>
           </LocaleLink>
@@ -349,11 +355,13 @@ export default function SiteNav() {
         <div className="nav__drawer-group">
           <div className="nav__drawer-services">
             <LocaleLink
-              href="/services"
-              className={isServices ? "is-active" : undefined}
-              aria-current={logical === "/services" ? "page" : undefined}
+              href="/solution"
+              className={
+                isServices || logical === "/solution" ? "is-active" : undefined
+              }
+              aria-current={logical === "/solution" ? "page" : undefined}
             >
-              [ {t.services.toUpperCase()} ]
+              [ {t.platform.toUpperCase()} ]
             </LocaleLink>
             <button
               type="button"
@@ -367,6 +375,7 @@ export default function SiteNav() {
           </div>
           {servicesOpen ? (
             <div className="nav__drawer-sub">
+              <LocaleLink href="/solution">{t.solution}</LocaleLink>
               {services.items.map((item) => (
                 <LocaleLink key={item.slug} href={`/services/${item.slug}`}>
                   {item.title}
@@ -416,8 +425,10 @@ export default function SiteNav() {
           ) : null}
         </div>
 
-        <LocaleLink href="/methode">[ {t.methode.toUpperCase()} ]</LocaleLink>
-        <LocaleLink href="/a-propos">[ {t.aPropos.toUpperCase()} ]</LocaleLink>
+        <LocaleLink href="/methode">[ {t.method.toUpperCase()} ]</LocaleLink>
+        <LocaleLink href="/secteurs">[ {t.solutions.toUpperCase()} ]</LocaleLink>
+        <LocaleLink href="/cas-d-usage">[ {t.resources.toUpperCase()} ]</LocaleLink>
+        <LocaleLink href="/a-propos">[ {t.company.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/carrieres" className="nav__drawer-hiring">
           [ {t.hiring.toUpperCase()} ]
         </LocaleLink>

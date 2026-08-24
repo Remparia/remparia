@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./fonts.css";
 @import "./landing.css";
+@import "./premium-home.css";
 @import "./ds-lab.css";
 
 :root {
@@ -65,10 +66,10 @@
   --letter-label: 0.04em;
   --letter-wide: 0.08em;
 
-  --title-hero: clamp(40px, 12.5vw, 64px);
-  --title-page: clamp(32px, 9vw, 56px);
-  --title-section-lg: clamp(36px, 10vw, 56px);
-  --title-section: clamp(28px, 8vw, 48px);
+  --title-hero: clamp(40px, 8vw, 72px);
+  --title-page: clamp(32px, 7vw, 56px);
+  --title-section-lg: clamp(36px, 6vw, 56px);
+  --title-section: clamp(28px, 5vw, 48px);
   --title-card: 18px;
 
   --btn-font: 700 12px/1.2 var(--font-ui), sans-serif;
