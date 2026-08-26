@@ -4,24 +4,29 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
-import { NAV, NAV_IA, SERVICES } from "@/lib/content";
+import { NAV, NAV_IA } from "@/lib/content";
 import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+const PLATFORM_PATHS = new Set([
+  "/solution",
+  "/studio",
+  "/governance",
+  "/sovereignty",
+]);
+
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();
   const t = NAV[lang];
-  const services = SERVICES[lang];
   const parcours = NAV_IA[lang];
   const pathname = usePathname();
   const logical = stripLocale(pathname || "/");
   const [navBg, setNavBg] = useState("rgba(0,0,0,0)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [parcoursOpen, setParcoursOpen] = useState(false);
   const [deskServicesOpen, setDeskServicesOpen] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
@@ -44,7 +49,6 @@ export default function SiteNav() {
   useEffect(() => {
     setMenuOpen(false);
     setServicesOpen(false);
-    setParcoursOpen(false);
     setDeskServicesOpen(false);
   }, [pathname]);
 
@@ -88,7 +92,7 @@ export default function SiteNav() {
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [menuOpen, servicesOpen, parcoursOpen]);
+  }, [menuOpen, servicesOpen]);
 
   useEffect(() => {
     return () => window.clearTimeout(deskCloseTimer.current);
@@ -122,7 +126,12 @@ export default function SiteNav() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [deskServicesOpen]);
 
-  const isServices = logical.startsWith("/services");
+  const isPlatform =
+    PLATFORM_PATHS.has(logical) || logical.startsWith("/services");
+  const isSolutions =
+    logical === "/secteurs" ||
+    logical.startsWith("/secteurs/") ||
+    logical.startsWith("/solutions/");
   const navCurrent = (path: string) =>
     logical === path || (path !== "/" && logical.startsWith(path + "/"))
       ? ("page" as const)
@@ -164,9 +173,7 @@ export default function SiteNav() {
           >
             <LocaleLink
               href="/solution"
-              className={
-                isServices || logical === "/solution" ? "is-active" : undefined
-              }
+              className={isPlatform ? "is-active" : undefined}
               aria-current={logical === "/solution" ? "page" : undefined}
             >
               {t.platform}
@@ -198,20 +205,16 @@ export default function SiteNav() {
                       {t.megaViewAll} →
                     </LocaleLink>
                   </div>
-                  <div className="nav__mega-links">
-                    {services.items.map((item) => (
+                  <div className="nav__mega-links nav__mega-links--ia">
+                    {parcours.map((item) => (
                       <LocaleLink
-                        key={item.slug}
-                        href={`/services/${item.slug}`}
+                        key={item.href}
+                        href={item.href}
                         className={`nav__mega-link${
-                          logical === `/services/${item.slug}`
-                            ? " is-active"
-                            : ""
+                          logical === item.href ? " is-active" : ""
                         }`}
                         aria-current={
-                          logical === `/services/${item.slug}`
-                            ? "page"
-                            : undefined
+                          logical === item.href ? "page" : undefined
                         }
                       >
                         <span className="nav__mega-tag">{item.tag}</span>
@@ -219,29 +222,6 @@ export default function SiteNav() {
                         <span className="nav__mega-desc">{item.desc}</span>
                       </LocaleLink>
                     ))}
-                  </div>
-                  <div className="nav__mega-section">
-                    <div className="nav__mega-head">
-                      <span className="nav__mega-kicker">{t.megaParcours}</span>
-                    </div>
-                    <div className="nav__mega-links nav__mega-links--ia">
-                      {parcours.map((item) => (
-                        <LocaleLink
-                          key={item.href}
-                          href={item.href}
-                          className={`nav__mega-link${
-                            logical === item.href ? " is-active" : ""
-                          }`}
-                          aria-current={
-                            logical === item.href ? "page" : undefined
-                          }
-                        >
-                          <span className="nav__mega-tag">{item.tag}</span>
-                          <span className="nav__mega-title">{item.title}</span>
-                          <span className="nav__mega-desc">{item.desc}</span>
-                        </LocaleLink>
-                      ))}
-                    </div>
                   </div>
                 </div>
                 {banner ? (
@@ -287,11 +267,7 @@ export default function SiteNav() {
           </LocaleLink>
           <LocaleLink
             href="/secteurs"
-            className={
-              logical === "/secteurs" || logical.startsWith("/secteurs/")
-                ? "is-active"
-                : undefined
-            }
+            className={isSolutions ? "is-active" : undefined}
             aria-current={navCurrent("/secteurs")}
           >
             {t.solutions}
@@ -356,9 +332,7 @@ export default function SiteNav() {
           <div className="nav__drawer-services">
             <LocaleLink
               href="/solution"
-              className={
-                isServices || logical === "/solution" ? "is-active" : undefined
-              }
+              className={isPlatform ? "is-active" : undefined}
               aria-current={logical === "/solution" ? "page" : undefined}
             >
               [ {t.platform.toUpperCase()} ]
@@ -375,9 +349,13 @@ export default function SiteNav() {
           </div>
           {servicesOpen ? (
             <div className="nav__drawer-sub">
-              <LocaleLink href="/solution">{t.solution}</LocaleLink>
-              {services.items.map((item) => (
-                <LocaleLink key={item.slug} href={`/services/${item.slug}`}>
+              {parcours.map((item) => (
+                <LocaleLink
+                  key={item.href}
+                  href={item.href}
+                  className={logical === item.href ? "is-active" : undefined}
+                  aria-current={logical === item.href ? "page" : undefined}
+                >
                   {item.title}
                 </LocaleLink>
               ))}
@@ -392,35 +370,6 @@ export default function SiteNav() {
                   <span className="nav__drawer-banner-cta">{banner.cta}</span>
                 </LocaleLink>
               ) : null}
-            </div>
-          ) : null}
-        </div>
-
-        <div className="nav__drawer-group">
-          <div className="nav__drawer-services">
-            <span className="nav__drawer-label">[ {t.megaParcours.toUpperCase()} ]</span>
-            <button
-              type="button"
-              className="nav__drawer-toggle"
-              aria-expanded={parcoursOpen}
-              aria-label={t.parcoursMenu}
-              onClick={() => setParcoursOpen((o) => !o)}
-            >
-              <span aria-hidden>{parcoursOpen ? "−" : "+"}</span>
-            </button>
-          </div>
-          {parcoursOpen ? (
-            <div className="nav__drawer-sub">
-              {parcours.map((item) => (
-                <LocaleLink
-                  key={item.href}
-                  href={item.href}
-                  className={logical === item.href ? "is-active" : undefined}
-                  aria-current={logical === item.href ? "page" : undefined}
-                >
-                  {item.title}
-                </LocaleLink>
-              ))}
             </div>
           ) : null}
         </div>

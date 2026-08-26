@@ -5,29 +5,35 @@ const COPY = {
   fr: {
     badge: "Interne",
     home: "Retour au site",
-    kicker: "Remparia",
+    kicker: "Remparia OS",
     title: "Design system",
-    lede: "Source unique pour couleurs, titres, boutons, liens et champs. Cette page n’est pas dans le menu, ni le sitemap, et envoie noindex.",
+    lede: "Source unique : typographie Inter Tight / Inter / IBM Plex Mono, palette noir–blanc–lime #CCFC41, boutons et échelle. Page noindex, hors menu.",
     toc: [
       ["couleurs", "Couleurs"],
       ["typo", "Typographie"],
+      ["espacement", "Espacement"],
       ["boutons", "Boutons"],
       ["liens", "Liens"],
       ["champs", "Champs"],
       ["cartes", "Cartes"],
     ],
     colorsTitle: "Couleurs",
-    colorsLede: "Tokens CSS dans :root — à réutiliser, ne pas recoder des hex en dur.",
+    colorsLede: "90 % noir/blanc · 10 % lime. Le bleu info est sémantique uniquement.",
+    neutrals: "Neutrals",
+    accent: "Accent lime",
+    semantic: "Sémantique",
     typeTitle: "Typographie",
-    typeLede: "Titres en Stolzl, UI en SF Pro. Casse uppercase sur les display.",
+    typeLede: "Display = Inter Tight · Body = Inter · Data = IBM Plex Mono.",
+    spaceTitle: "Espacement",
+    spaceLede: "Grille 8px — tokens --space-*.",
     buttonsTitle: "Boutons",
-    buttonsLede: "Un primaire, un ghost, un compact nav, un inverse sur fond accent.",
+    buttonsLede: "Primary lime · Secondary bordure · Ghost texte lime.",
     linksTitle: "Liens",
     linksLede: "Lien de page, lien texte accent, fil d’Ariane.",
     fieldsTitle: "Champs",
     fieldsLede: "Même padding, bordure et focus que le formulaire contact.",
-    cardsTitle: "Cartes",
-    cardsLede: "Bloc info standard — bordure, titre, corps.",
+    cardsTitle: "Cartes métriques",
+    cardsLede: "Graphite #111, bordure fine, chiffre blanc, accent lime.",
     name: "Nom et prénom",
     email: "Email professionnel",
     message: "Message",
@@ -36,29 +42,35 @@ const COPY = {
   en: {
     badge: "Internal",
     home: "Back to site",
-    kicker: "Remparia",
+    kicker: "Remparia OS",
     title: "Design system",
-    lede: "Single source for colours, headings, buttons, links and fields. This page is not in the nav or sitemap, and sends noindex.",
+    lede: "Single source: Inter Tight / Inter / IBM Plex Mono, black–white–lime #CCFC41, buttons and scale. Noindex, not in nav.",
     toc: [
       ["couleurs", "Colour"],
       ["typo", "Typography"],
+      ["espacement", "Spacing"],
       ["boutons", "Buttons"],
       ["liens", "Links"],
       ["champs", "Fields"],
       ["cartes", "Cards"],
     ],
     colorsTitle: "Colour",
-    colorsLede: "CSS tokens on :root — reuse these, don’t hardcode hex values.",
+    colorsLede: "90% black/white · 10% lime. Info blue is semantic only.",
+    neutrals: "Neutrals",
+    accent: "Lime accent",
+    semantic: "Semantic",
     typeTitle: "Typography",
-    typeLede: "Headlines in Stolzl, UI in SF Pro. Display styles are uppercase.",
+    typeLede: "Display = Inter Tight · Body = Inter · Data = IBM Plex Mono.",
+    spaceTitle: "Spacing",
+    spaceLede: "8px grid — --space-* tokens.",
     buttonsTitle: "Buttons",
-    buttonsLede: "Primary, ghost, compact nav, and inverse on accent.",
+    buttonsLede: "Primary lime · Secondary border · Ghost lime text.",
     linksTitle: "Links",
     linksLede: "Page link, accent text link, breadcrumb.",
     fieldsTitle: "Fields",
     fieldsLede: "Same padding, border and focus as the contact form.",
-    cardsTitle: "Cards",
-    cardsLede: "Standard info block — border, title, body.",
+    cardsTitle: "Metric cards",
+    cardsLede: "Graphite #111, hairline border, white figure, lime accent.",
     name: "Full name",
     email: "Work email",
     message: "Message",
@@ -66,16 +78,67 @@ const COPY = {
   },
 } as const;
 
-const SWATCHES = [
-  { token: "--background", value: "#000000" },
-  { token: "--surface", value: "#050505" },
-  { token: "--ink", value: "#0a0a0a" },
-  { token: "--text", value: "#ffffff" },
-  { token: "--accent", value: "#c8ff00" },
-  { token: "--accent-deep", value: "#21d760" },
-  { token: "--accent-blend", value: "mix 42/58" },
-  { token: "--danger", value: "#ff6b6b" },
+const NEUTRALS = [
+  { token: "--black", value: "#0A0A0A" },
+  { token: "--graphite", value: "#111111" },
+  { token: "--slate", value: "#1A1A1A" },
+  { token: "--steel", value: "#262626" },
+  { token: "--white", value: "#FFFFFF" },
+  { token: "--mist", value: "#E6E6E6" },
 ] as const;
+
+const LIME = [
+  { token: "--lime", value: "#CCFC41" },
+  { token: "--lime-80", value: "80%" },
+  { token: "--lime-60", value: "60%" },
+  { token: "--lime-40", value: "40%" },
+  { token: "--lime-20", value: "20%" },
+] as const;
+
+const SEMANTIC = [
+  { token: "--success", value: "#39FF14" },
+  { token: "--warning", value: "#FFDA00" },
+  { token: "--danger", value: "#FF3B30" },
+  { token: "--info", value: "#3B82F6" },
+] as const;
+
+const TYPE_ROWS = [
+  { name: "Display 1", cls: "ds-type-display-1", meta: "72 / 700 / Inter Tight" },
+  { name: "Display 2", cls: "ds-type-display-2", meta: "56 / 700 / Inter Tight" },
+  { name: "H1", cls: "ds-type-h1", meta: "40 / 700 / Inter Tight" },
+  { name: "H2", cls: "ds-type-h2", meta: "32 / 600 / Inter Tight" },
+  { name: "H3", cls: "ds-type-h3", meta: "24 / 600 / Inter Tight" },
+  { name: "H4", cls: "ds-type-h4", meta: "20 / 600 / Inter Tight" },
+  { name: "Eyebrow", cls: "ds-type-eyebrow", meta: "12 / 600 / 0.12em" },
+  { name: "Body Large", cls: "ds-type-body-lg", meta: "18 / 400 / Inter" },
+  { name: "Body", cls: "ds-type-body", meta: "16 / 400 / Inter" },
+  { name: "Small", cls: "ds-type-small", meta: "14 / 400 / Inter" },
+  { name: "Caption", cls: "ds-type-caption", meta: "12 / 400 / Inter" },
+  { name: "Data / Mono", cls: "ds-type-mono", meta: "12 / IBM Plex Mono" },
+] as const;
+
+const SPACES = [8, 16, 24, 32, 40, 48, 64, 80, 96, 128] as const;
+
+function SwatchGrid({
+  items,
+}: {
+  items: readonly { token: string; value: string }[];
+}) {
+  return (
+    <div className="ds-lab__grid">
+      {items.map((s) => (
+        <div key={s.token} className="ds-lab__swatch">
+          <div
+            className="ds-lab__swatch-chip"
+            style={{ background: `var(${s.token})` }}
+          />
+          <code>{s.token}</code>
+          <span className="ds-lab__meta">{s.value}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function DesignSystemPage({ lang }: { lang: Lang }) {
   const t = COPY[lang];
@@ -103,30 +166,25 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
 
         <div className="ds-lab__main">
           <p className="ds-lab__kicker">{t.kicker}</p>
-          <h1 className="page-hero__title">{t.title}</h1>
-          <p className="page-hero__sub">{t.lede}</p>
+          <h1 className="ds-type-display-2">{t.title}</h1>
+          <p className="ds-lab__lede" style={{ marginTop: 12 }}>
+            {t.lede}
+          </p>
 
           <section id="couleurs">
             <p className="ds-lab__kicker">01</p>
             <h2 className="ds-lab__h2">{t.colorsTitle}</h2>
             <p className="ds-lab__lede">{t.colorsLede}</p>
-            <div className="ds-lab__grid">
-              {SWATCHES.map((s) => (
-                <div key={s.token} className="ds-lab__swatch">
-                  <div
-                    className="ds-lab__swatch-chip"
-                    style={{
-                      background:
-                        s.token === "--accent-blend"
-                          ? "var(--accent-gradient)"
-                          : `var(${s.token})`,
-                    }}
-                  />
-                  <code>{s.token}</code>
-                  <span className="ds-lab__meta">{s.value}</span>
-                </div>
-              ))}
-            </div>
+            <p className="ds-lab__meta">{t.neutrals}</p>
+            <SwatchGrid items={NEUTRALS} />
+            <p className="ds-lab__meta" style={{ marginTop: 24 }}>
+              {t.accent}
+            </p>
+            <SwatchGrid items={LIME} />
+            <p className="ds-lab__meta" style={{ marginTop: 24 }}>
+              {t.semantic}
+            </p>
+            <SwatchGrid items={SEMANTIC} />
           </section>
 
           <section id="typo">
@@ -134,83 +192,64 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
             <h2 className="ds-lab__h2">{t.typeTitle}</h2>
             <p className="ds-lab__lede">{t.typeLede}</p>
             <div className="ds-lab__stack">
-              <div>
-                <p className="ds-lab__meta">.hero__eyebrow</p>
-                <p className="hero__eyebrow">Agents pour métiers spécialisés</p>
-              </div>
-              <div>
-                <p className="ds-lab__meta">.hero__title</p>
-                <h3 className="hero__title" style={{ fontSize: "clamp(32px, 6vw, 52px)" }}>
-                  Du temps rendu.
-                </h3>
-              </div>
-              <div>
-                <p className="ds-lab__meta">.page-hero__title</p>
-                <h3 className="page-hero__title">Services agents métier</h3>
-              </div>
-              <div>
-                <p className="ds-lab__meta">.section__title--lg</p>
-                <h3 className="section__title section__title--lg">
-                  Signal : six étapes.
-                </h3>
-              </div>
-              <div>
-                <p className="ds-lab__meta">.section__title</p>
-                <h3 className="section__title">De l’audit à l’adoption.</h3>
-              </div>
-              <div>
-                <p className="ds-lab__meta">.section__body</p>
-                <p className="section__body">
-                  Remparia aide les métiers spécialisés à intégrer des agents
-                  supervisés — sans céder la décision ni le contrôle des données.
-                </p>
-              </div>
-              <div>
-                <p className="ds-lab__meta">.text-outline</p>
-                <p className="section__title text-outline">Avantage</p>
-              </div>
+              {TYPE_ROWS.map((row) => (
+                <div key={row.name}>
+                  <p className="ds-lab__meta">
+                    {row.name} · {row.meta}
+                  </p>
+                  <p className={row.cls}>
+                    AI shouldn&apos;t be another tool. It should transform how
+                    your company operates.
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="espacement">
+            <p className="ds-lab__kicker">03</p>
+            <h2 className="ds-lab__h2">{t.spaceTitle}</h2>
+            <p className="ds-lab__lede">{t.spaceLede}</p>
+            <div className="ds-space-row">
+              {SPACES.map((n) => (
+                <div key={n} className="ds-space-item">
+                  <div className="ds-space-bar" style={{ width: n }} />
+                  <code>{n}px</code>
+                </div>
+              ))}
             </div>
           </section>
 
           <section id="boutons">
-            <p className="ds-lab__kicker">03</p>
+            <p className="ds-lab__kicker">04</p>
             <h2 className="ds-lab__h2">{t.buttonsTitle}</h2>
             <p className="ds-lab__lede">{t.buttonsLede}</p>
-            <p className="ds-lab__meta">.btn-primary · .btn-ghost</p>
             <div className="ds-lab__row">
               <button type="button" className="btn-primary">
-                Parlons de votre processus →
+                Book a SIGNAL Session →
+              </button>
+              <button type="button" className="btn-secondary">
+                See Remparia OS →
               </button>
               <button type="button" className="btn-ghost">
-                Explorer SIGNAL →
+                Explore method →
               </button>
-            </div>
-            <p className="ds-lab__meta">.nav__cta · .nav__hiring (compact)</p>
-            <div className="ds-lab__row">
-              <a href="#boutons" className="nav__cta">
-                Parlons de votre processus →
-              </a>
-              <a href="#boutons" className="nav__hiring">
-                We&apos;re hiring
-              </a>
-            </div>
-            <p className="ds-lab__meta">.cta__btn (inverse, fond accent)</p>
-            <div className="ds-lab__on-accent">
-              <a href="#boutons" className="cta__btn">
-                Écrire à un associé →
-              </a>
+              <button type="button" className="btn-primary" disabled>
+                Disabled
+              </button>
             </div>
           </section>
 
           <section id="liens">
-            <p className="ds-lab__kicker">04</p>
+            <p className="ds-lab__kicker">05</p>
             <h2 className="ds-lab__h2">{t.linksTitle}</h2>
             <p className="ds-lab__lede">{t.linksLede}</p>
             <div className="ds-lab__stack">
               <div>
-                <p className="ds-lab__meta">a (défaut)</p>
+                <p className="ds-lab__meta">a (default)</p>
                 <p>
-                  Écrire à <a href="mailto:contact@remparia.com">contact@remparia.com</a>
+                  Écrire à{" "}
+                  <a href="mailto:contact@remparia.com">contact@remparia.com</a>
                 </p>
               </div>
               <div>
@@ -219,7 +258,7 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
                   Explorer SIGNAL →
                 </LocaleLink>
               </div>
-              <nav className="breadcrumbs" aria-label="Fil d’Ariane">
+              <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <ol className="breadcrumbs__list">
                   <li className="breadcrumbs__item">
                     <LocaleLink href="/" className="breadcrumbs__link">
@@ -228,13 +267,7 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
                     <span className="breadcrumbs__sep">/</span>
                   </li>
                   <li className="breadcrumbs__item">
-                    <LocaleLink href="/services" className="breadcrumbs__link">
-                      Services
-                    </LocaleLink>
-                    <span className="breadcrumbs__sep">/</span>
-                  </li>
-                  <li className="breadcrumbs__item">
-                    <span className="breadcrumbs__current">Agents métier</span>
+                    <span className="breadcrumbs__current">Design system</span>
                   </li>
                 </ol>
               </nav>
@@ -242,7 +275,7 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
           </section>
 
           <section id="champs">
-            <p className="ds-lab__kicker">05</p>
+            <p className="ds-lab__kicker">06</p>
             <h2 className="ds-lab__h2">{t.fieldsTitle}</h2>
             <p className="ds-lab__lede">{t.fieldsLede}</p>
             <form className="ds-lab__form" action="#champs">
@@ -266,7 +299,7 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
               </label>
               <div className="ds-lab__row">
                 <button type="button" className="btn-primary">
-                  Envoyer
+                  Envoyer →
                 </button>
                 <button type="button" className="btn-ghost">
                   Annuler
@@ -276,25 +309,24 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
           </section>
 
           <section id="cartes">
-            <p className="ds-lab__kicker">06</p>
+            <p className="ds-lab__kicker">07</p>
             <h2 className="ds-lab__h2">{t.cardsTitle}</h2>
             <p className="ds-lab__lede">{t.cardsLede}</p>
-            <div className="card-grid">
-              <article className="info-card">
-                <div className="info-card__tag">01</div>
-                <h3>Diagnostic & gouvernance</h3>
-                <p>
-                  Observer le terrain, prioriser les processus à fort impact et
-                  poser le cadre avant d&apos;automatiser.
-                </p>
+            <div className="ds-metric-grid">
+              <article className="ds-metric">
+                <span className="ds-metric__icon" aria-hidden />
+                <strong>50+</strong>
+                <span>Agents orchestrés</span>
               </article>
-              <article className="info-card">
-                <div className="info-card__tag">02</div>
-                <h3>Agents métier</h3>
-                <p>
-                  Des agents intégrés à vos outils pour porter la collecte, les
-                  contrôles, les relances et la préparation.
-                </p>
+              <article className="ds-metric">
+                <span className="ds-metric__icon" aria-hidden />
+                <strong>120+</strong>
+                <span>Workflows gouvernés</span>
+              </article>
+              <article className="ds-metric">
+                <span className="ds-metric__icon" aria-hidden />
+                <strong>99.9%</strong>
+                <span>Uptime cible</span>
               </article>
             </div>
           </section>

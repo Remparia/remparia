@@ -26,7 +26,7 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
   const analyticsData = page === "cookies" ? ANALYTICS_DATA[lang] : null;
 
   return (
-    <div className="page page--inner">
+    <div className="page page--premium page--premium-inner">
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}

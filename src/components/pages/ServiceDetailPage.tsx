@@ -22,7 +22,7 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
   const flip = siblingIndex % 2 === 1;
 
   return (
-    <div className="page page--inner">
+    <div className="page page--premium page--premium-inner">
       <PageHero
         eyebrow={`${all.title} / ${item.tag}`}
         title={item.title}

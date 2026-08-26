@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import DemarrerPage from "@/components/pages/DemarrerPage";
+import PremiumKeyedPage from "@/components/premium/PremiumKeyedPage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -12,13 +12,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "Get started" : "Démarrer",
     description: isEn
-      ? "Three ways to start with Remparia: the scoping hour, the diagnostic, or the first agent — framed fees, no open-ended billing."
-      : "Trois façons de démarrer avec Remparia : l’heure de cadrage, le diagnostic ou le premier agent — forfaits cadrés, pas de régie ouverte.",
+      ? "Three ways to start with Remparia: SIGNAL session, diagnostic, or first agent — framed fees."
+      : "Trois façons de démarrer avec Remparia : session SIGNAL, diagnostic ou premier agent — forfaits cadrés.",
     path: "/demarrer",
     lang,
   });
 }
 
 export default function Page() {
-  return <DemarrerPage />;
+  return <PremiumKeyedPage pageKey="demarrer" />;
 }

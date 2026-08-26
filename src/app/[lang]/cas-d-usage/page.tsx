@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import CasUsagePage from "@/components/pages/CasUsagePage";
+import PremiumKeyedPage from "@/components/premium/PremiumKeyedPage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -12,13 +12,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "Use cases" : "Cas d’usage",
     description: isEn
-      ? "Nine workflow cards in the profession’s language: what the agent does, what it never does, and what we measure."
-      : "Neuf fiches processus dans le langage du métier : ce que l’agent fait, ce qu’il ne fait jamais, et ce qu’on mesure.",
+      ? "Business workflows: what the agent does, what it never does, and what we measure."
+      : "Processus métier : ce que l’agent fait, ce qu’il ne fait jamais, et ce qu’on mesure.",
     path: "/cas-d-usage",
     lang,
   });
 }
 
 export default function Page() {
-  return <CasUsagePage />;
+  return <PremiumKeyedPage pageKey="casUsage" />;
 }

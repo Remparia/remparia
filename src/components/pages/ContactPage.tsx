@@ -135,7 +135,7 @@ export default function ContactPage() {
   const message = fieldProps("message");
 
   return (
-    <div className="page page--inner">
+    <div className="page page--premium page--premium-inner">
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}

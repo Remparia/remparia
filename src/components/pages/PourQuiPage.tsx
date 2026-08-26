@@ -13,7 +13,7 @@ export default function PourQuiPage() {
   const home = lang === "fr" ? "Accueil" : "Home";
 
   return (
-    <div className="page page--inner">
+    <div className="page page--premium page--premium-inner">
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}

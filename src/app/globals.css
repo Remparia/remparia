@@ -3,44 +3,62 @@
 @import "./landing.css";
 @import "./premium-home.css";
 @import "./ds-lab.css";
+@import "./ds-legacy-bridge.css";
 
 :root {
-  --background: #000000;
-  --surface: #050505;
-  --surface-2: #0a0a0a;
-  --ink: #0a0a0a;
-  --foreground: #ffffff;
-  --text: #ffffff;
+  /* Neutrals — Remparia OS Design System */
+  --black: #0a0a0a;
+  --graphite: #111111;
+  --slate: #1a1a1a;
+  --steel: #262626;
+  --white: #ffffff;
+  --mist: #e6e6e6;
+
+  --background: var(--black);
+  --surface: var(--graphite);
+  --surface-2: var(--slate);
+  --ink: var(--black);
+  --foreground: var(--white);
+  --text: var(--white);
   --text-muted: rgba(255, 255, 255, 0.82);
   --text-soft: rgba(255, 255, 255, 0.68);
   --text-faint: rgba(255, 255, 255, 0.48);
-  --accent: #c8ff00;
-  --accent-deep: #21d760;
-  --accent-blend: color-mix(in srgb, #21d760 42%, #c8ff00 58%);
-  --accent-gradient: linear-gradient(-31deg, #21d760 -93%, #c8ff00 76%, #c8ff00 0);
+  --text-mist: var(--mist);
+
+  /* Accent — lime only (~10% of UI) */
+  --lime: #ccfc41;
+  --lime-80: rgba(204, 252, 65, 0.8);
+  --lime-60: rgba(204, 252, 65, 0.6);
+  --lime-40: rgba(204, 252, 65, 0.4);
+  --lime-20: rgba(204, 252, 65, 0.2);
+  --accent: var(--lime);
+  --accent-deep: #aad136;
+  --accent-blend: var(--lime);
+  --accent-gradient: linear-gradient(90deg, #ccfc41 0%, #ccfc41 100%);
   --accent-gradient-soft: linear-gradient(
-    -31deg,
-    rgba(33, 215, 96, 0.9) -93%,
-    rgba(200, 255, 0, 0.95) 76%,
-    rgba(200, 255, 0, 0.95) 0
+    90deg,
+    rgba(204, 252, 65, 0.9) 0%,
+    rgba(204, 252, 65, 0.9) 100%
   );
-  --accent-soft: linear-gradient(
-    -31deg,
-    rgba(33, 215, 96, 0.1) -93%,
-    rgba(200, 255, 0, 0.1) 76%,
-    rgba(200, 255, 0, 0.1) 0
-  );
+  --accent-soft: rgba(204, 252, 65, 0.12);
+
+  /* Semantic (UI states — not brand) */
+  --success: #39ff14;
+  --warning: #ffda00;
+  --danger: #ff3b30;
+  --danger-text: #ff6b63;
+  --info: #3b82f6;
+
   --border: rgba(255, 255, 255, 0.1);
   --border-strong: rgba(255, 255, 255, 0.14);
   --border-field: rgba(255, 255, 255, 0.2);
-  --border-accent: color-mix(in srgb, #21d760 45%, #c8ff00 55%);
-  --border-accent-strong: color-mix(in srgb, #21d760 55%, #c8ff00 45%);
-  --danger: #ff6b6b;
-  --danger-text: #ff8a8a;
-  --focus-ring: 0 0 0 2px color-mix(in srgb, #21d760 42%, #c8ff00 58%);
+  --border-accent: var(--lime-60);
+  --border-accent-strong: var(--lime-80);
+  --focus-ring: 0 0 0 2px var(--lime);
   --motion: 200ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
+  /* Spacing — 8px base */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -50,41 +68,82 @@
   --space-8: 32px;
   --space-10: 40px;
   --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
 
-  --font-ui: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", system-ui, sans-serif;
-  --font-display: "Stolzl", var(--font-ui);
+  /* Page layout — shared nav / hero / section gutters */
+  --page-gutter: 16px;
+  --page-max: 1180px;
+
+  /* Typography families */
+  --font-ui: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-display: var(--font-inter-tight), "Inter Tight", var(--font-ui);
+  --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
   --font-archivo: var(--font-ui);
 
-  --font-eyebrow: 700 10px/1.3 var(--font-ui), sans-serif;
-  --font-label: 700 11px/1.35 var(--font-ui), sans-serif;
-  --font-ui-sm: 700 12px/1.2 var(--font-ui), sans-serif;
-  --font-body: 400 14px/1.7 var(--font-ui), sans-serif;
-  --font-body-sm: 400 13px/1.55 var(--font-ui), sans-serif;
-  --font-caption: 400 11px/1.45 var(--font-ui), sans-serif;
-  --letter-ui: 0.02em;
-  --letter-label: 0.04em;
-  --letter-wide: 0.08em;
+  /* Type roles */
+  --font-eyebrow: 600 12px/16px var(--font-ui), sans-serif;
+  --font-label: 600 11px/16px var(--font-mono), monospace;
+  --font-ui-sm: 600 12px/16px var(--font-ui), sans-serif;
+  --font-body-lg: 400 18px/28px var(--font-ui), sans-serif;
+  --font-body: 400 16px/24px var(--font-ui), sans-serif;
+  --font-body-sm: 400 14px/20px var(--font-ui), sans-serif;
+  --font-caption: 400 12px/16px var(--font-ui), sans-serif;
+  --font-mini: 400 11px/16px var(--font-mono), monospace;
+  --font-data: 400 12px/16px var(--font-mono), monospace;
+  --letter-ui: 0;
+  --letter-label: 0.12em;
+  --letter-wide: 0.12em;
+  --letter-display: -0.01em;
 
-  --title-hero: clamp(40px, 8vw, 72px);
-  --title-page: clamp(32px, 7vw, 56px);
-  --title-section-lg: clamp(36px, 6vw, 56px);
-  --title-section: clamp(28px, 5vw, 48px);
-  --title-card: 18px;
+  /* Type scale (desktop / clamps toward mobile) */
+  --type-display-1: clamp(40px, 6vw, 72px);
+  --type-display-2: clamp(32px, 5vw, 56px);
+  --type-h1: clamp(28px, 4vw, 40px);
+  --type-h2: clamp(22px, 3vw, 32px);
+  --type-h3: clamp(18px, 2.5vw, 24px);
+  --type-h4: clamp(16px, 2vw, 20px);
+  --title-hero: var(--type-display-1);
+  --title-page: var(--type-display-2);
+  --title-section-lg: var(--type-display-2);
+  --title-section: var(--type-h1);
+  --title-card: var(--type-h3);
 
-  --btn-font: 700 12px/1.2 var(--font-ui), sans-serif;
-  --btn-letter: 0.02em;
+  --btn-font: 600 14px/1.2 var(--font-ui), sans-serif;
+  --btn-letter: 0;
   --btn-pad: 14px 20px;
   --btn-pad-sm: 11px 16px;
   --field-pad: 14px;
-  --radius: 0;
+  --radius: 6px;
+  --radius-sm: 4px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --page-gutter: 20px;
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --page-gutter: 72px;
+    --page-max: 1280px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --page-gutter: 88px;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-ui);
-  --font-mono: var(--font-ui);
+  --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
 }
 
 * {
@@ -107,12 +166,12 @@ html.intro-lock {
 
 body {
   margin: 0;
-  background: #000;
-  color: #fff;
+  background: var(--background);
+  color: var(--text);
   font-family: var(--font-ui);
   overflow-x: hidden;
   scrollbar-width: thin;
-  scrollbar-color: var(--accent-blend) #0a0a0a;
+  scrollbar-color: var(--lime) var(--black);
 }
 
 /* Accent scrollbar (WebKit / Chromium / Safari) */
@@ -122,24 +181,24 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: var(--black);
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--accent-gradient);
+  background: var(--lime);
   border-radius: 999px;
-  border: 2px solid #0a0a0a;
+  border: 2px solid var(--black);
   background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(-31deg, #21d760 -40%, #c8ff00 70%, #c8ff00 0);
-  border: 2px solid #0a0a0a;
+  background: var(--lime-80);
+  border: 2px solid var(--black);
   background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-corner {
-  background: #0a0a0a;
+  background: var(--black);
 }
 
 button,
@@ -170,11 +229,7 @@ summary:focus-visible {
 }
 
 .text-accent {
-  color: var(--accent-blend);
-  background-image: var(--accent-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--lime);
 }
 
 .skip-link {
@@ -183,10 +238,10 @@ summary:focus-visible {
   top: 0;
   z-index: 100;
   padding: 12px 18px;
-  background: var(--accent-gradient);
-  color: #0a0a0a;
-  font: 800 13px var(--font-ui), sans-serif;
-  text-transform: uppercase;
+  background: var(--lime);
+  color: var(--ink);
+  font: 600 13px var(--font-ui), sans-serif;
+  border-radius: var(--radius-sm);
 }
 
 .skip-link:focus {

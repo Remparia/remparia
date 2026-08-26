@@ -34,7 +34,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
   const siblings = all.items.filter((s) => s.slug !== slug).slice(0, 6);
 
   return (
-    <div className="page page--inner page--secteur">
+    <div className="page page--premium page--premium-inner page--secteur">
       <SecteurHero
         slug={slug}
         title={detail.heroH}

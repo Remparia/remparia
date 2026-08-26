@@ -1,0 +1,604 @@
+/*
+ * Remparia OS — legacy UI bridge
+ * Aligns landing.css / inner pages with design-system tokens
+ * (Inter Tight · Inter · IBM Plex Mono · lime #CCFC41 · radius 6px)
+ */
+
+/* ——— Headings: sentence case, Inter Tight, DS scale ——— */
+.page-hero__title,
+.section__title,
+.section__title--lg,
+.section__head .section__title,
+.hero__title,
+.info-card h2,
+.info-card h3,
+.diff-card h3,
+.service-diag__title,
+.secteur-hero__title,
+.legal-doc__title,
+.team-card__name,
+.signal-card__title,
+.position-card__title {
+  font-family: var(--font-display), var(--font-ui), sans-serif !important;
+  font-stretch: normal !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.page-hero__title {
+  font-size: var(--type-display-2) !important;
+  line-height: 1.08 !important;
+}
+
+.section__title {
+  font-size: var(--type-h1) !important;
+  line-height: 1.12 !important;
+}
+
+.section__title--lg {
+  font-size: var(--type-display-2) !important;
+  line-height: 1.08 !important;
+}
+
+.info-card h2,
+.info-card h3,
+.diff-card h3 {
+  font-size: var(--type-h3) !important;
+  line-height: 1.25 !important;
+}
+
+/* ——— Eyebrows / labels (mono, uppercase per DS) ——— */
+.page-hero__eyebrow,
+.section__tag,
+.info-card__tag {
+  font: var(--font-eyebrow) !important;
+  letter-spacing: var(--letter-wide) !important;
+  text-transform: uppercase !important;
+  color: var(--text-soft) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.info-card__tag {
+  font: var(--font-label) !important;
+  color: var(--lime) !important;
+}
+
+/* ——— Accent text: solid lime, no gradient clip ——— */
+.nav__lang,
+.section__tag,
+.careers-hero__meta,
+.site-footer__hiring,
+.site-footer__all,
+.nav__links .nav__mega-all,
+.nav__links .nav__mega-all:hover,
+.nav__links .nav__mega-all.is-active,
+.text-link,
+.breadcrumbs__current {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.breadcrumbs__link:hover,
+.breadcrumbs__link:focus-visible {
+  color: var(--lime) !important;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  text-decoration-color: var(--lime-60) !important;
+}
+
+/* ——— Nav ——— */
+@media (min-width: 960px) {
+  .nav__links {
+    font: 600 14px/1.2 var(--font-ui), sans-serif !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+
+  .nav__links a.is-active,
+  .nav__links a:hover,
+  .nav__item.is-open > a.is-active {
+    color: var(--lime) !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+  }
+}
+
+.nav__cta {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  text-transform: none !important;
+  border-radius: var(--radius) !important;
+  background: var(--lime) !important;
+  color: var(--ink) !important;
+  font: var(--btn-font) !important;
+  letter-spacing: var(--btn-letter) !important;
+  padding: var(--btn-pad) !important;
+}
+
+.nav__cta:hover,
+.nav__cta:focus-visible {
+  filter: brightness(1.06);
+  box-shadow: 0 0 0 1px var(--lime-80);
+}
+
+.nav__hiring {
+  text-transform: none !important;
+  border-radius: var(--radius) !important;
+  letter-spacing: 0 !important;
+  font: var(--btn-font) !important;
+  color: var(--lime) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.nav__hiring:hover,
+.nav__hiring.is-active {
+  color: var(--lime) !important;
+  background: var(--lime-20) !important;
+  border-color: var(--lime-40) !important;
+}
+
+.nav__mega-link {
+  border-radius: var(--radius-sm) !important;
+}
+
+.nav__mega-link:hover,
+.nav__mega-link.is-active {
+  border-color: var(--lime-40) !important;
+  background: var(--lime-20) !important;
+}
+
+.nav__mega-tag {
+  font: var(--font-label) !important;
+  color: var(--lime) !important;
+}
+
+/* ——— Cards & surfaces ——— */
+.info-card,
+.diff-card,
+.team-card,
+.signal-card,
+.scenario-card,
+.heatmap-card {
+  border-radius: var(--radius) !important;
+  background: var(--graphite) !important;
+}
+
+a.info-card:hover,
+a.info-card:focus-visible {
+  background: color-mix(in srgb, var(--graphite) 88%, var(--lime) 12%) !important;
+  border-color: var(--border-accent) !important;
+}
+
+.section--alt .info-card,
+.section-breakout--light .info-card {
+  background: var(--white) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.section--alt .info-card h2,
+.section--alt .info-card h3,
+.section--alt .info-card p,
+.section-breakout--light .info-card h2,
+.section-breakout--light .info-card h3,
+.section-breakout--light .info-card p {
+  color: var(--ink) !important;
+}
+
+.section--alt .info-card__tag,
+.section-breakout--light .info-card__tag {
+  color: var(--lime) !important;
+}
+
+/* ——— Forms (contact, careers) ——— */
+.contact-form input,
+.contact-form textarea,
+.ds-lab__form input,
+.ds-lab__form textarea,
+.secteur-search input {
+  border-radius: var(--radius-sm) !important;
+  border-color: var(--border-field) !important;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.secteur-search input:focus {
+  border-color: var(--lime) !important;
+  outline: 2px solid var(--lime) !important;
+  outline-offset: 2px;
+}
+
+/* ——— Footer ——— */
+.site-footer {
+  background: #000 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.site-footer__title {
+  font: 700 12px/1.3 var(--font-ui), sans-serif !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.site-footer a:hover,
+.site-footer__social-link:hover {
+  color: var(--lime) !important;
+}
+
+.site-footer a.site-footer__hiring,
+.site-footer a.site-footer__all {
+  color: var(--lime) !important;
+}
+
+.site-footer__legal a,
+.site-footer__cookie-prefs,
+.site-footer__bottom {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.site-footer__legal a:hover,
+.site-footer__cookie-prefs:hover {
+  color: var(--lime) !important;
+}
+
+/* ——— CTA band ——— */
+.cta__btn {
+  border-radius: var(--radius) !important;
+  text-transform: none !important;
+}
+
+/* ——— Back to top ——— */
+.back-to-top {
+  border-color: var(--border-accent) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--lime) !important;
+}
+
+.back-to-top:hover {
+  border-color: var(--lime) !important;
+  background: var(--lime-20) !important;
+}
+
+/* ——— Premium inner pages: extend DS bridge ——— */
+.page--premium-inner .page-hero__title,
+.page--premium-inner .section__title,
+.page--premium-inner .section__title--lg {
+  font-family: var(--font-display), var(--font-ui), sans-serif !important;
+  text-transform: none !important;
+  font-stretch: normal !important;
+}
+
+.page--premium-inner .section__tag {
+  color: var(--text-soft) !important;
+}
+
+.page--premium-inner .section--alt .section__tag {
+  color: rgba(16, 16, 16, 0.5) !important;
+}
+
+.page--premium-inner .info-card,
+.page--premium-inner .team-card {
+  border-radius: var(--radius) !important;
+}
+
+.page--premium-inner .section--alt .info-card,
+.page--premium-inner .section--alt .team-card {
+  background: var(--white) !important;
+}
+
+.page--premium-inner .section:not(.section--alt) .info-card,
+.page--premium-inner .section:not(.section--alt) .team-card {
+  background: var(--graphite) !important;
+}
+
+.page--premium-inner .cta {
+  background: var(--graphite) !important;
+}
+
+.page--premium-inner .cta .section__title {
+  color: var(--white) !important;
+}
+
+/* ——— Signal / position / team cards ——— */
+.signal-card__letter,
+.signal-card:hover {
+  border-color: var(--lime-40) !important;
+}
+
+.signal-card__letter {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  font-family: var(--font-display), var(--font-ui), sans-serif !important;
+}
+
+.position-card__tag,
+.position-card__desc {
+  font-family: var(--font-ui), sans-serif !important;
+}
+
+.team-card__role {
+  font: var(--font-label) !important;
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* ——— Secteur hub cards ——— */
+.secteur-card {
+  border-radius: var(--radius) !important;
+}
+
+.secteur-card__cat {
+  background: var(--lime) !important;
+  color: var(--ink) !important;
+  border-radius: var(--radius-sm) !important;
+  font: var(--font-label) !important;
+  text-transform: uppercase !important;
+}
+
+.secteur-card__body h3 {
+  font-family: var(--font-display), var(--font-ui), sans-serif !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+}
+
+.secteur-card__cta {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* ——— Home sector cards ——— */
+.home-sector-card {
+  border-radius: var(--radius) !important;
+}
+
+.home-sector-card__title {
+  font-family: var(--font-display), var(--font-ui), sans-serif !important;
+  text-transform: none !important;
+}
+
+/* ——— Proof badges ——— */
+.proof-badges__item {
+  font: var(--font-label) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* ——— Scenario cards (cas d'usage legacy) ——— */
+.scenario-card__who,
+.scenario-card__tag {
+  font: var(--font-label) !important;
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.scenario-card__block--accent {
+  border-left-color: var(--lime) !important;
+}
+
+/* ——— Service diagnostic blocks ——— */
+.service-diag__index {
+  font: var(--font-mono) !important;
+  color: var(--text-soft) !important;
+}
+
+.service-diag__title {
+  font-size: var(--type-h2) !important;
+}
+
+.service-diag__point-icon {
+  color: var(--lime) !important;
+  border-color: var(--lime-40) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.service-diag__dot.is-active {
+  background: var(--lime) !important;
+  box-shadow: 0 0 0 4px var(--lime-20) !important;
+}
+
+.service-diag__step.is-active {
+  color: var(--lime) !important;
+}
+
+.service-diag__cta {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* ——— Cookie banner ——— */
+.cookie-banner__inner {
+  border-radius: var(--radius) !important;
+  border-color: var(--border) !important;
+}
+
+.cookie-banner__title {
+  font: var(--font-mono) !important;
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  text-transform: none !important;
+}
+
+.cookie-banner__link {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.cookie-banner__btn {
+  border-radius: var(--radius) !important;
+  text-transform: none !important;
+}
+
+.cookie-banner__btn--primary {
+  background: var(--lime) !important;
+  color: var(--ink) !important;
+}
+
+.cookie-banner__btn--ghost:hover {
+  border-color: var(--lime-40) !important;
+  background: var(--lime-20) !important;
+}
+
+/* ——— Legal doc ——— */
+.legal-doc__title {
+  font-size: var(--type-h2) !important;
+}
+
+.cookie-table th {
+  font: var(--font-label) !important;
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.cookie-data-list strong {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* ——— Careers ——— */
+.careers-phil__tag,
+.careers-step__num,
+.careers-role-card__dept {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  font: var(--font-label) !important;
+}
+
+.careers-phil__item h3,
+.careers-step__title,
+.careers-role-card__title {
+  font-family: var(--font-display), var(--font-ui), sans-serif !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+}
+
+.careers-roles .careers-role-pick {
+  background: var(--lime) !important;
+  color: var(--ink) !important;
+  border-radius: var(--radius) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  background-image: none !important;
+}
+
+.careers-process {
+  background: var(--graphite) !important;
+  border-radius: var(--radius) !important;
+}
+
+/* ——— Hero intro overlay ——— */
+.hero-intro__line,
+.hero-intro__hint {
+  font: var(--font-mono) !important;
+}
+
+.hero-intro__letters span {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.hero-intro__skip {
+  font: var(--btn-font) !important;
+  color: var(--lime) !important;
+  text-transform: none !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* ——— Premium home accents ——— */
+.page--premium .ph-stat__value,
+.page--premium .ph-pillar__tag,
+.page--premium .ph-proof__label,
+.page--premium .ph-os__node-label,
+.page--premium .ph-cta-band__eyebrow {
+  color: var(--lime) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.page--premium .ph-btn--primary,
+.page--premium .ph-cta-band__btn {
+  background: var(--lime) !important;
+  color: var(--ink) !important;
+  border-radius: var(--radius) !important;
+}
+
+.page--premium .ph-btn--ghost {
+  border-radius: var(--radius) !important;
+  border-color: var(--border-accent) !important;
+}
+
+.page--premium .ph-btn--ghost:hover {
+  border-color: var(--lime) !important;
+  background: var(--lime-20) !important;
+}
+
+/* ——— Inner page alias: treat page--inner like premium-inner ——— */
+.page--inner {
+  background: var(--black) !important;
+}
+
+.page--inner .page-hero__title,
+.page--inner .section__title,
+.page--inner .section__title--lg {
+  font-family: var(--font-display), var(--font-ui), sans-serif !important;
+  text-transform: none !important;
+}
+
+.page--inner .info-card,
+.page--inner .team-card,
+.page--inner .signal-card {
+  border-radius: var(--radius) !important;
+}

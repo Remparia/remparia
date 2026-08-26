@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SolutionPage from "@/components/pages/SolutionPage";
+import OsPage from "@/components/premium/OsPage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -10,15 +10,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "Remparia OS" : "Remparia OS",
+    title: "Remparia OS",
     description: isEn
-      ? "Remparia OS: the AI operating system for your company — specialized agents, data under control, governance and sovereign infrastructure."
-      : "Remparia OS : le système d’exploitation IA de votre entreprise — agents spécialisés, données sous contrôle, gouvernance et infrastructure souveraine.",
+      ? "Remparia OS is the enterprise AI control plane: models, agents, tools, data, identity, policies, observability and human approvals."
+      : "Remparia OS est le control plane IA d’entreprise : modèles, agents, outils, données, identité, politiques, observabilité et validations humaines.",
     path: "/solution",
     lang,
   });
 }
 
 export default function Page() {
-  return <SolutionPage />;
+  return <OsPage />;
 }

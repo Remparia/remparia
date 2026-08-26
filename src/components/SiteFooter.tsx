@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
-import { FOOTER, NAV, SECTEURS, SOCIAL_LINKS } from "@/lib/content";
+import { FOOTER, NAV, NAV_IA, SECTEURS, SOCIAL_LINKS } from "@/lib/content";
 import { CONTACT_EMAIL } from "@/lib/contact-email";
 import { useLang } from "@/lib/lang";
 
@@ -56,6 +56,7 @@ export default function SiteFooter() {
   const f = FOOTER[lang];
   const n = NAV[lang];
   const secteurs = SECTEURS[lang];
+  const platformLinks = NAV_IA[lang];
 
   return (
     <footer className="site-footer" role="contentinfo">
@@ -72,12 +73,25 @@ export default function SiteFooter() {
         </div>
         <nav aria-label={f.servicesTitle}>
           <div className="site-footer__title">{f.servicesTitle}</div>
-          <LocaleLink href="/services">{n.services}</LocaleLink>
+          {platformLinks.map((item) => (
+            <LocaleLink key={item.href} href={item.href}>
+              {item.title}
+            </LocaleLink>
+          ))}
           <LocaleLink href="/methode">{n.methode}</LocaleLink>
         </nav>
         <nav aria-label={f.secteursTitle} className="site-footer__secteurs">
           <div className="site-footer__title">{f.secteursTitle}</div>
-          {secteurs.items.slice(0, 4).map((item) => (
+          <LocaleLink href="/solutions/real-estate">
+            {lang === "fr" ? "Immobilier" : "Real estate"}
+          </LocaleLink>
+          <LocaleLink href="/solutions/legal">
+            {lang === "fr" ? "Juridique" : "Legal"}
+          </LocaleLink>
+          <LocaleLink href="/solutions/finance">
+            {lang === "fr" ? "Finance" : "Finance"}
+          </LocaleLink>
+          {secteurs.items.slice(0, 2).map((item) => (
             <LocaleLink key={item.slug} href={`/secteurs/${item.slug}`}>
               {item.title}
             </LocaleLink>
@@ -88,11 +102,9 @@ export default function SiteFooter() {
         </nav>
         <nav aria-label={f.exploreTitle}>
           <div className="site-footer__title">{f.exploreTitle}</div>
-          <LocaleLink href="/solution">{n.solution}</LocaleLink>
           <LocaleLink href="/pour-qui">{n.pourQui}</LocaleLink>
           <LocaleLink href="/cas-d-usage">{n.casUsage}</LocaleLink>
           <LocaleLink href="/demarrer">{n.demarrer}</LocaleLink>
-          <LocaleLink href="/methode">{n.methode}</LocaleLink>
           <LocaleLink href="/a-propos">{n.aPropos}</LocaleLink>
         </nav>
         <nav aria-label={f.contactTitle}>

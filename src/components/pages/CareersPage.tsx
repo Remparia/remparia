@@ -12,7 +12,7 @@ export default function CareersPage() {
   const label = lang === "fr" ? "Carrières" : "Careers";
 
   return (
-    <div className="page page--inner page--careers">
+    <div className="page page--premium page--premium-inner page--careers">
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}
