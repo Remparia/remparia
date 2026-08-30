@@ -394,10 +394,12 @@
 .ph-hero-visual__img {
   position: absolute;
   z-index: 1;
-  inset: 0;
+  inset: 8%;
   display: block;
-  width: 100% !important;
-  height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
   object-fit: contain;
   object-position: center;
 }
@@ -431,7 +433,7 @@
   }
 
   .ph-hero-visual {
-    max-width: 420px;
+    max-width: 380px;
     margin-inline: auto;
   }
 }
@@ -2518,7 +2520,7 @@
 
 @media (max-width: 719px) {
   .ph-hero-visual {
-    max-width: 420px;
+    max-width: 360px;
   }
 
   .ph-title {

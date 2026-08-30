@@ -211,7 +211,7 @@ export default function SolutionPage() {
           <SectionLabel>{t.bridgeTitle}</SectionLabel>
           <h2 className="section__title">{t.bridgeTitle}</h2>
           <p className="section__body">{t.bridgeBody}</p>
-          <LocaleLink href="/methode" className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
+          <LocaleLink href="/signal" className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
             {t.bridgeCta}
           </LocaleLink>
         </div>

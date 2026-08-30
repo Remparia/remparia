@@ -32,6 +32,9 @@ export const NAV = {
     casUsage: "Cas d'usage",
     demarrer: "Démarrer",
     parcoursMenu: "Sous-menu parcours",
+    methodMenu: "Sous-menu méthode",
+    megaMethod: "Méthode",
+    megaViewMethod: "Voir le protocole",
     megaBanner: {
       enabled: true,
       href: "/demarrer",
@@ -72,6 +75,9 @@ export const NAV = {
     casUsage: "Use cases",
     demarrer: "Get started",
     parcoursMenu: "Path submenu",
+    methodMenu: "Method submenu",
+    megaMethod: "Method",
+    megaViewMethod: "See the protocol",
     megaBanner: {
       enabled: true,
       href: "/demarrer",
@@ -138,6 +144,26 @@ export const NAV_IA = {
       tag: "SOVEREIGNTY",
       title: "Sovereignty",
       desc: "Cloud, sovereign, private, on-premise.",
+    },
+  ],
+} as const;
+
+/** Liens Méthode (mega-menu + drawer mobile). */
+export const NAV_METHOD = {
+  fr: [
+    {
+      href: "/signal",
+      tag: "SIGNAL",
+      title: "SIGNAL",
+      desc: "Trouver où l’IA crée de la valeur — avant de construire.",
+    },
+  ],
+  en: [
+    {
+      href: "/signal",
+      tag: "SIGNAL",
+      title: "SIGNAL",
+      desc: "Find where AI creates value — before you build.",
     },
   ],
 } as const;
@@ -953,7 +979,7 @@ export const SECTEURS = {
     results: "métiers",
     hubMoreTitle: "Pour aller plus loin",
     hubLinks: [
-      { label: "Le protocole SIGNAL", href: "/methode" },
+      { label: "Le protocole SIGNAL", href: "/signal" },
       { label: "Nos services", href: "/services" },
       { label: "Diagnostic SIGNAL", href: "/contact" },
     ],
@@ -1023,7 +1049,7 @@ export const SECTEURS = {
     results: "professions",
     hubMoreTitle: "Go further",
     hubLinks: [
-      { label: "The SIGNAL protocol", href: "/methode" },
+      { label: "The SIGNAL protocol", href: "/signal" },
       { label: "Our services", href: "/services" },
       { label: "SIGNAL diagnostic", href: "/contact" },
     ],

@@ -114,7 +114,7 @@ export default function DemarrerPage() {
           <SectionLabel>{t.methodTitle}</SectionLabel>
           <h2 className="section__title">{t.methodTitle}</h2>
           <p className="section__body">{t.methodBody}</p>
-          <LocaleLink href="/methode" className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
+          <LocaleLink href="/signal" className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
             {t.methodCta}
           </LocaleLink>
         </div>

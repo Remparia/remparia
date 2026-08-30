@@ -21,7 +21,7 @@ const LocaleLink = forwardRef<HTMLAnchorElement, Props>(
         ? href
         : withLocale(lang, href);
 
-    return <Link ref={ref} href={localized} {...rest} />;
+    return <Link ref={ref} href={localized} suppressHydrationWarning {...rest} />;
   },
 );
 

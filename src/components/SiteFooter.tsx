@@ -78,7 +78,7 @@ export default function SiteFooter() {
               {item.title}
             </LocaleLink>
           ))}
-          <LocaleLink href="/methode">{n.methode}</LocaleLink>
+          <LocaleLink href="/signal">SIGNAL</LocaleLink>
         </nav>
         <nav aria-label={f.secteursTitle} className="site-footer__secteurs">
           <div className="site-footer__title">{f.secteursTitle}</div>

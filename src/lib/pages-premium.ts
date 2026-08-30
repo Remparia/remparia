@@ -726,7 +726,7 @@ const demarrer = {
     ctaPrimary: "Réserver une session SIGNAL",
     ctaPrimaryHref: "/contact",
     ctaSecondary: "Voir la méthode",
-    ctaSecondaryHref: "/methode",
+    ctaSecondaryHref: "/signal",
     sections: [
       {
         id: "paths",
@@ -760,7 +760,7 @@ const demarrer = {
     ctaPrimary: "Book a SIGNAL Session",
     ctaPrimaryHref: "/contact",
     ctaSecondary: "See the method",
-    ctaSecondaryHref: "/methode",
+    ctaSecondaryHref: "/signal",
     sections: [
       {
         id: "paths",

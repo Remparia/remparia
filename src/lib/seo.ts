@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
 
 import { CONTACT_EMAIL } from "./contact-email";
 import { LEGAL_ENTITY, isLegalPlaceholder } from "./legal-entity";
+import { signalPage } from "./signal-page";
 import { getTeamMembers } from "./team";
 
 const DEFAULT_SITE_ORIGIN = "https://www.remparia.com";
@@ -290,16 +291,16 @@ export function secteursItemListJsonLd() {
 
 export function signalArticleJsonLd(lang: Lang | Locale = "fr") {
   const locale = lang === "en" ? "en" : "fr";
-  const path = withLocale(locale, "/methode");
+  const path = withLocale(locale, "/signal");
   const isEn = locale === "en";
 
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: isEn ? "SIGNAL protocol — Remparia" : "Protocole SIGNAL — Remparia",
+    headline: isEn ? "SIGNAL — Remparia" : "SIGNAL — Remparia",
     description: isEn
-      ? "Remparia's six-stage method from fieldwork to measurable agent deployment."
-      : "Méthode Remparia en six étapes, du terrain à un usage mesurable.",
+      ? "Find where AI actually matters: discover, map, score, prioritize and build the roadmap."
+      : "Trouver où l’IA compte vraiment : découvrir, cartographier, scorer, prioriser et bâtir la roadmap.",
     author: {
       "@type": "Organization",
       name: SITE.name,
@@ -316,6 +317,53 @@ export function signalArticleJsonLd(lang: Lang | Locale = "fr") {
     mainEntityOfPage: absoluteUrl(path),
     url: absoluteUrl(path),
     inLanguage: isEn ? "en-US" : "fr-FR",
+  };
+}
+
+export function osArticleJsonLd(lang: Lang | Locale = "fr") {
+  const locale = lang === "en" ? "en" : "fr";
+  const path = withLocale(locale, "/solution");
+  const isEn = locale === "en";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: isEn ? "Remparia OS" : "Remparia OS",
+    description: isEn
+      ? "Your AI workforce needs an operating system — one control plane for agents, models, data and human decisions."
+      : "Votre force de travail IA a besoin d’un système d’exploitation — un control plane pour agents, modèles, données et décisions humaines.",
+    author: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: getSiteUrl(),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/logo-remparia.png"),
+      },
+    },
+    mainEntityOfPage: absoluteUrl(path),
+    url: absoluteUrl(path),
+    inLanguage: isEn ? "en-US" : "fr-FR",
+  };
+}
+
+export function signalFaqJsonLd(lang: Lang | Locale = "fr") {
+  const { faq } = signalPage(lang === "en" ? "en" : "fr");
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
   };
 }
 
@@ -395,7 +443,7 @@ export function getAllContentPaths() {
     "/studio",
     "/governance",
     "/sovereignty",
-    "/methode",
+    "/signal",
     "/pour-qui",
     "/cas-d-usage",
     "/demarrer",

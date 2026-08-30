@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
-import { NAV, NAV_IA } from "@/lib/content";
+import { NAV, NAV_IA, NAV_METHOD } from "@/lib/content";
 import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
 
@@ -18,23 +18,32 @@ const PLATFORM_PATHS = new Set([
   "/sovereignty",
 ]);
 
+const METHOD_PATHS = new Set(["/signal"]);
+
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();
   const t = NAV[lang];
   const parcours = NAV_IA[lang];
+  const methodLinks = NAV_METHOD[lang];
   const pathname = usePathname();
   const logical = stripLocale(pathname || "/");
   const [navBg, setNavBg] = useState("rgba(0,0,0,0)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [methodOpen, setMethodOpen] = useState(false);
   const [deskServicesOpen, setDeskServicesOpen] = useState(false);
+  const [deskMethodOpen, setDeskMethodOpen] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const deskItemRef = useRef<HTMLDivElement>(null);
+  const deskMethodRef = useRef<HTMLDivElement>(null);
   const drawerId = useId();
   const deskMenuId = useId();
+  const deskMethodMenuId = useId();
   const deskCloseTimer = useRef<number>(0);
+  const deskMethodCloseTimer = useRef<number>(0);
   const banner = t.megaBanner.enabled ? t.megaBanner : null;
+  const megaOpen = deskServicesOpen || deskMethodOpen;
 
   useEffect(() => {
     const onScroll = () => {
@@ -49,7 +58,9 @@ export default function SiteNav() {
   useEffect(() => {
     setMenuOpen(false);
     setServicesOpen(false);
+    setMethodOpen(false);
     setDeskServicesOpen(false);
+    setDeskMethodOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -92,14 +103,19 @@ export default function SiteNav() {
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [menuOpen, servicesOpen]);
+  }, [menuOpen, servicesOpen, methodOpen]);
 
   useEffect(() => {
-    return () => window.clearTimeout(deskCloseTimer.current);
+    return () => {
+      window.clearTimeout(deskCloseTimer.current);
+      window.clearTimeout(deskMethodCloseTimer.current);
+    };
   }, []);
 
   function openDeskServices() {
     window.clearTimeout(deskCloseTimer.current);
+    window.clearTimeout(deskMethodCloseTimer.current);
+    setDeskMethodOpen(false);
     setDeskServicesOpen(true);
   }
 
@@ -111,6 +127,21 @@ export default function SiteNav() {
     );
   }
 
+  function openDeskMethod() {
+    window.clearTimeout(deskMethodCloseTimer.current);
+    window.clearTimeout(deskCloseTimer.current);
+    setDeskServicesOpen(false);
+    setDeskMethodOpen(true);
+  }
+
+  function closeDeskMethod(delay = 140) {
+    window.clearTimeout(deskMethodCloseTimer.current);
+    deskMethodCloseTimer.current = window.setTimeout(
+      () => setDeskMethodOpen(false),
+      delay,
+    );
+  }
+
   useEffect(() => {
     if (!deskServicesOpen) return;
     function onKeyDown(e: KeyboardEvent) {
@@ -118,7 +149,7 @@ export default function SiteNav() {
         window.clearTimeout(deskCloseTimer.current);
         setDeskServicesOpen(false);
         deskItemRef.current
-          ?.querySelector<HTMLElement>("button.nav__caret-btn")
+          ?.querySelector<HTMLElement>("button.nav__menu-label")
           ?.focus();
       }
     }
@@ -126,8 +157,24 @@ export default function SiteNav() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [deskServicesOpen]);
 
+  useEffect(() => {
+    if (!deskMethodOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        window.clearTimeout(deskMethodCloseTimer.current);
+        setDeskMethodOpen(false);
+        deskMethodRef.current
+          ?.querySelector<HTMLElement>("button.nav__menu-label")
+          ?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [deskMethodOpen]);
+
   const isPlatform =
     PLATFORM_PATHS.has(logical) || logical.startsWith("/services");
+  const isMethod = METHOD_PATHS.has(logical);
   const isSolutions =
     logical === "/secteurs" ||
     logical.startsWith("/secteurs/") ||
@@ -142,7 +189,7 @@ export default function SiteNav() {
       <nav
         className="nav"
         style={{
-          background: deskServicesOpen ? "rgba(0,0,0,0.96)" : navBg,
+          background: megaOpen ? "rgba(0,0,0,0.96)" : navBg,
         }}
         aria-label={t.navLabel}
       >
@@ -171,23 +218,17 @@ export default function SiteNav() {
               }
             }}
           >
-            <LocaleLink
-              href="/solution"
-              className={isPlatform ? "is-active" : undefined}
-              aria-current={logical === "/solution" ? "page" : undefined}
-            >
-              {t.platform}
-            </LocaleLink>
             <button
               type="button"
-              className="nav__caret-btn"
+              className={`nav__menu-label${isPlatform ? " is-active" : ""}`}
               aria-expanded={deskServicesOpen}
               aria-controls={deskMenuId}
-              aria-label={t.servicesMenu}
+              aria-haspopup="true"
               onClick={() =>
                 deskServicesOpen ? closeDeskServices(0) : openDeskServices()
               }
             >
+              {t.platform}
               <span className="nav__caret" aria-hidden>
                 ▾
               </span>
@@ -201,9 +242,6 @@ export default function SiteNav() {
                 <div className="nav__mega-main">
                   <div className="nav__mega-head">
                     <span className="nav__mega-kicker">{t.platform}</span>
-                    <LocaleLink href="/solution" className="nav__mega-all">
-                      {t.megaViewAll} →
-                    </LocaleLink>
                   </div>
                   <div className="nav__mega-links nav__mega-links--ia">
                     {parcours.map((item) => (
@@ -258,13 +296,66 @@ export default function SiteNav() {
             </div>
           </div>
 
-          <LocaleLink
-            href="/methode"
-            className={logical === "/methode" ? "is-active" : undefined}
-            aria-current={navCurrent("/methode")}
+          <div
+            ref={deskMethodRef}
+            className={`nav__item${deskMethodOpen ? " is-open" : ""}`}
+            onMouseEnter={openDeskMethod}
+            onMouseLeave={() => closeDeskMethod()}
+            onFocus={openDeskMethod}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                closeDeskMethod(0);
+              }
+            }}
           >
-            {t.method}
-          </LocaleLink>
+            <button
+              type="button"
+              className={`nav__menu-label${isMethod ? " is-active" : ""}`}
+              aria-expanded={deskMethodOpen}
+              aria-controls={deskMethodMenuId}
+              aria-haspopup="true"
+              onClick={() =>
+                deskMethodOpen ? closeDeskMethod(0) : openDeskMethod()
+              }
+            >
+              {t.method}
+              <span className="nav__caret" aria-hidden>
+                ▾
+              </span>
+            </button>
+            <div
+              id={deskMethodMenuId}
+              className="nav__mega nav__mega--compact"
+              hidden={!deskMethodOpen}
+            >
+              <div className="nav__mega-inner">
+                <div className="nav__mega-main">
+                  <div className="nav__mega-head">
+                    <span className="nav__mega-kicker">{t.megaMethod}</span>
+                  </div>
+                  <div className="nav__mega-links nav__mega-links--method">
+                    {methodLinks.map((item) => (
+                      <LocaleLink
+                        key={item.href}
+                        href={item.href}
+                        className={`nav__mega-link${
+                          logical === item.href ? " is-active" : ""
+                        }`}
+                        aria-current={
+                          logical === item.href ? "page" : undefined
+                        }
+                      >
+                        <span className="nav__mega-tag">{item.tag}</span>
+                        <span className="nav__mega-title">{item.title}</span>
+                        <span className="nav__mega-desc">{item.desc}</span>
+                      </LocaleLink>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <LocaleLink
             href="/secteurs"
             className={isSolutions ? "is-active" : undefined}
@@ -330,13 +421,11 @@ export default function SiteNav() {
       >
         <div className="nav__drawer-group">
           <div className="nav__drawer-services">
-            <LocaleLink
-              href="/solution"
-              className={isPlatform ? "is-active" : undefined}
-              aria-current={logical === "/solution" ? "page" : undefined}
+            <span
+              className={`nav__drawer-label${isPlatform ? " is-active" : ""}`}
             >
               [ {t.platform.toUpperCase()} ]
-            </LocaleLink>
+            </span>
             <button
               type="button"
               className="nav__drawer-toggle"
@@ -374,7 +463,39 @@ export default function SiteNav() {
           ) : null}
         </div>
 
-        <LocaleLink href="/methode">[ {t.method.toUpperCase()} ]</LocaleLink>
+        <div className="nav__drawer-group">
+          <div className="nav__drawer-services">
+            <span
+              className={`nav__drawer-label${isMethod ? " is-active" : ""}`}
+            >
+              [ {t.method.toUpperCase()} ]
+            </span>
+            <button
+              type="button"
+              className="nav__drawer-toggle"
+              aria-expanded={methodOpen}
+              aria-label={t.methodMenu}
+              onClick={() => setMethodOpen((o) => !o)}
+            >
+              <span aria-hidden>{methodOpen ? "−" : "+"}</span>
+            </button>
+          </div>
+          {methodOpen ? (
+            <div className="nav__drawer-sub">
+              {methodLinks.map((item) => (
+                <LocaleLink
+                  key={item.href}
+                  href={item.href}
+                  className={logical === item.href ? "is-active" : undefined}
+                  aria-current={logical === item.href ? "page" : undefined}
+                >
+                  {item.title}
+                </LocaleLink>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
         <LocaleLink href="/secteurs">[ {t.solutions.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/cas-d-usage">[ {t.resources.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/a-propos">[ {t.company.toUpperCase()} ]</LocaleLink>

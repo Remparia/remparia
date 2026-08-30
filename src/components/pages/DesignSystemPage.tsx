@@ -254,7 +254,7 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
               </div>
               <div>
                 <p className="ds-lab__meta">.text-link</p>
-                <LocaleLink href="/methode" className="text-link">
+                <LocaleLink href="/signal" className="text-link">
                   Explorer SIGNAL →
                 </LocaleLink>
               </div>

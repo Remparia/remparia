@@ -4,17 +4,26 @@
 
 Remparia is a French operator partner for regulated and trust-based professions (legal, finance, health, notarial, consulting). We use the SIGNAL protocol — six stages from fieldwork to production — to integrate agents into existing tools without black-box dependency.
 
+## Agent-readable site view
+
+Append `?view=agent` to any public page URL to switch from the human UI to a Markdown source view optimized for LLMs and agent crawlers (toggle HUMAN | AGENT on the page).
+
+Example: https://www.remparia.com/fr?view=agent
+
 ## Key pages
 
 - Home (FR): https://www.remparia.com/fr
 - Home (EN): https://www.remparia.com/en
-- SIGNAL method: https://www.remparia.com/fr/methode
+- Remparia OS: https://www.remparia.com/fr/solution
+- SIGNAL method: https://www.remparia.com/fr/signal
 - Services: https://www.remparia.com/fr/services
+- Who it is for: https://www.remparia.com/fr/pour-qui
+- Use cases: https://www.remparia.com/fr/cas-d-usage
+- Get started: https://www.remparia.com/fr/demarrer
 - Sectors (29 professions): https://www.remparia.com/fr/secteurs
 - About / team: https://www.remparia.com/fr/a-propos
 - Contact / SIGNAL diagnostic: https://www.remparia.com/fr/contact
 - Careers: https://www.remparia.com/fr/carrieres
-- Resources: https://www.remparia.com/fr/ressources
 
 ## Contact
 
@@ -29,4 +38,4 @@ Remparia is a French operator partner for regulated and trust-based professions 
 
 ## Last updated
 
-2026-08-19
+2026-08-26

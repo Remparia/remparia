@@ -25,7 +25,10 @@ export function proxy(request: NextRequest) {
   if (
     pathname === "/ressources" ||
     pathname === "/fr/ressources" ||
-    pathname === "/en/ressources"
+    pathname === "/en/ressources" ||
+    pathname === "/methode" ||
+    pathname === "/fr/methode" ||
+    pathname === "/en/methode"
   ) {
     const locale = pathname.startsWith("/en")
       ? "en"
@@ -33,7 +36,22 @@ export function proxy(request: NextRequest) {
         ? "fr"
         : DEFAULT_LOCALE;
     const url = request.nextUrl.clone();
-    url.pathname = `/${locale}/methode`;
+    url.pathname = `/${locale}/signal`;
+    return NextResponse.redirect(url, 301);
+  }
+
+  if (
+    pathname === "/os" ||
+    pathname === "/fr/os" ||
+    pathname === "/en/os"
+  ) {
+    const locale = pathname.startsWith("/en")
+      ? "en"
+      : pathname.startsWith("/fr")
+        ? "fr"
+        : DEFAULT_LOCALE;
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}/solution`;
     return NextResponse.redirect(url, 301);
   }
 
