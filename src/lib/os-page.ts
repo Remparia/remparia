@@ -248,11 +248,31 @@ export const OS_PAGE = {
     pipeline: {
       title: "De la découverte à l’exploitation",
       steps: [
-        { label: "SIGNAL", desc: "Découvrir les opportunités" },
-        { label: "STUDIO", desc: "Construire les agents" },
-        { label: "AI WORKFORCE", desc: "Déployer la force de travail" },
-        { label: "REMPARIA OS", desc: "Orchestrer et gouverner" },
-        { label: "MESURER", desc: "Piloter les gains" },
+        {
+          label: "SIGNAL",
+          desc: "Découvrir les opportunités",
+          image: "/os-pipeline-signal.jpg",
+        },
+        {
+          label: "STUDIO",
+          desc: "Construire les agents",
+          image: "/os-pipeline-studio.jpg",
+        },
+        {
+          label: "AI WORKFORCE",
+          desc: "Déployer la force de travail",
+          image: "/os-pipeline-workforce.jpg",
+        },
+        {
+          label: "REMPARIA OS",
+          desc: "Orchestrer et gouverner",
+          image: "/os-pipeline-remparia-os.jpg",
+        },
+        {
+          label: "MESURER",
+          desc: "Piloter les gains",
+          image: "/os-pipeline-mesurer.jpg",
+        },
       ],
     },
     final: {
@@ -483,11 +503,31 @@ export const OS_PAGE = {
     pipeline: {
       title: "From discovery to operations",
       steps: [
-        { label: "SIGNAL", desc: "Discover opportunities" },
-        { label: "STUDIO", desc: "Build agents" },
-        { label: "AI WORKFORCE", desc: "Deploy the workforce" },
-        { label: "REMPARIA OS", desc: "Orchestrate and govern" },
-        { label: "MEASURE", desc: "Track gains" },
+        {
+          label: "SIGNAL",
+          desc: "Discover opportunities",
+          image: "/os-pipeline-signal.jpg",
+        },
+        {
+          label: "STUDIO",
+          desc: "Build agents",
+          image: "/os-pipeline-studio.jpg",
+        },
+        {
+          label: "AI WORKFORCE",
+          desc: "Deploy the workforce",
+          image: "/os-pipeline-workforce.jpg",
+        },
+        {
+          label: "REMPARIA OS",
+          desc: "Orchestrate and govern",
+          image: "/os-pipeline-remparia-os.jpg",
+        },
+        {
+          label: "MEASURE",
+          desc: "Track gains",
+          image: "/os-pipeline-mesurer.jpg",
+        },
       ],
     },
     final: {

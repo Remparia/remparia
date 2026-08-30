@@ -43,7 +43,7 @@ export default function SiteNav() {
   const deskCloseTimer = useRef<number>(0);
   const deskMethodCloseTimer = useRef<number>(0);
   const banner = t.megaBanner.enabled ? t.megaBanner : null;
-  const megaOpen = deskServicesOpen || deskMethodOpen;
+  const platformMegaOpen = deskServicesOpen;
 
   useEffect(() => {
     const onScroll = () => {
@@ -189,7 +189,7 @@ export default function SiteNav() {
       <nav
         className="nav"
         style={{
-          background: megaOpen ? "rgba(0,0,0,0.96)" : navBg,
+          background: platformMegaOpen ? "rgba(0,0,0,0.96)" : navBg,
         }}
         aria-label={t.navLabel}
       >

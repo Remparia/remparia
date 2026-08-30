@@ -3230,13 +3230,32 @@ a.info-card:focus-visible {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .nav__mega-links--method {
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 360px;
+  /* Compact method menu: dropdown under the label, not a full-bleed mega */
+  .nav__item:has(> .nav__mega--compact) {
+    position: relative;
+  }
+
+  .nav__mega--compact {
+    left: 0;
+    right: auto;
+    width: max-content;
+    min-width: 320px;
+    max-width: min(420px, calc(100vw - 48px));
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav__mega--compact .nav__mega-inner {
-    max-width: 420px;
+    max-width: none;
+  }
+
+  .nav__mega--compact .nav__mega-main {
+    padding: 20px 18px 18px;
+  }
+
+  .nav__mega-links--method {
+    grid-template-columns: minmax(0, 1fr);
+    width: 320px;
+    max-width: 320px;
   }
 }
 
@@ -3372,8 +3391,13 @@ a.info-card:focus-visible {
 }
 
 @media (min-width: 1200px) {
-  .nav__mega-links {
+  /* Keep method mega as a single card — do not inherit the 4-col platform grid */
+  .nav__mega-links:not(.nav__mega-links--method) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .nav__mega-links--method {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .nav__mega--banner .nav__mega-inner {

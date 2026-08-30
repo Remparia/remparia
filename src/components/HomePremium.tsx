@@ -675,7 +675,7 @@ export default function HomePremium() {
   const activeIndustry =
     t.industries.tabs.find((tab) => tab.id === indTab) ?? t.industries.tabs[0];
 
-  useHomeParallax(true);
+  useHomeParallax(false);
 
   return (
     <div className="page page--premium">

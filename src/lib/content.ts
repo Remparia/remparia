@@ -154,7 +154,7 @@ export const NAV_METHOD = {
     {
       href: "/signal",
       tag: "SIGNAL",
-      title: "SIGNAL",
+      title: "Protocole SIGNAL",
       desc: "Trouver où l’IA crée de la valeur — avant de construire.",
     },
   ],
@@ -162,7 +162,7 @@ export const NAV_METHOD = {
     {
       href: "/signal",
       tag: "SIGNAL",
-      title: "SIGNAL",
+      title: "SIGNAL protocol",
       desc: "Find where AI creates value — before you build.",
     },
   ],

@@ -407,13 +407,31 @@ function HumanSlider({
   );
 }
 
+const MODEL_ICONS: Record<string, string> = {
+  OpenAI: "/icon-model-openai.png",
+  Anthropic: "/icon-model-anthropic.png",
+};
+
 function ModelGrid({ models }: { models: readonly string[] }) {
   return (
     <div className="os-models" aria-hidden>
       <div className="os-models__sources">
-        {models.map((m) => (
-          <span key={m}>{m}</span>
-        ))}
+        {models.map((m) => {
+          const icon = MODEL_ICONS[m];
+          return icon ? (
+            <span key={m} className="os-models__source os-models__source--icon">
+              <Image
+                src={icon}
+                alt={m}
+                width={32}
+                height={32}
+                className="os-models__icon"
+              />
+            </span>
+          ) : (
+            <span key={m}>{m}</span>
+          );
+        })}
       </div>
       <span className="os-models__arrow">↓</span>
       <span className="os-models__hub">REMPARIA OS</span>
@@ -641,9 +659,25 @@ export default function OsPage() {
           </h2>
           <ol className="os-pipeline__steps">
             {t.pipeline.steps.map((step, i) => (
-              <li key={step.label}>
-                <span className="os-pipeline__label">{step.label}</span>
-                <span className="os-pipeline__desc">{step.desc}</span>
+              <li
+                key={step.label}
+                className={"image" in step && step.image ? "os-pipeline__step--media" : undefined}
+              >
+                <div className="os-pipeline__body">
+                  {"image" in step && step.image ? (
+                    <Image
+                      src={step.image}
+                      alt=""
+                      width={96}
+                      height={96}
+                      className="os-pipeline__media"
+                    />
+                  ) : null}
+                  <span className="os-pipeline__copy">
+                    <span className="os-pipeline__label">{step.label}</span>
+                    <span className="os-pipeline__desc">{step.desc}</span>
+                  </span>
+                </div>
                 {i < t.pipeline.steps.length - 1 ? (
                   <span className="os-pipeline__arrow" aria-hidden>
                     →

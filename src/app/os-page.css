@@ -1278,6 +1278,21 @@
   font: 600 11px/1 var(--font-ui), sans-serif;
 }
 
+.os-models__source--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+}
+
+.os-models__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
 .os-models__arrow {
   color: var(--lime);
   font-size: 18px;
@@ -1429,6 +1444,44 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.02);
+}
+
+.os-pipeline__step--media {
+  align-items: center;
+  gap: 12px;
+  padding: 16px 14px 14px;
+}
+
+.os-pipeline__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.os-pipeline__step--media .os-pipeline__copy {
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.os-pipeline__media {
+  flex: 0 0 auto;
+  display: block;
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.os-pipeline__copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
 }
 
 .os-pipeline__label {
