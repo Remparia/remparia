@@ -39,7 +39,7 @@ export const OS_PAGE = {
       ctaSecondary: "Voir l’architecture",
       ctaSecondaryHref: "#architecture",
       visualAlt:
-        "Remparia OS — orchestration des agents Sales, Doc, Finance, Operations avec validation humaine",
+        "SIGNAL — votre entreprise connectée à vos processus, données, personnes et systèmes",
     },
     ribbon: [
       { id: "identity", label: "Identité", icon: "/icon-customer.png" },
@@ -294,7 +294,7 @@ export const OS_PAGE = {
       ctaSecondary: "See architecture",
       ctaSecondaryHref: "#architecture",
       visualAlt:
-        "Remparia OS — orchestrating Sales, Doc, Finance, Operations agents with human validation",
+        "SIGNAL — your company connected to your processes, data, people and systems",
     },
     ribbon: [
       { id: "identity", label: "Identity", icon: "/icon-customer.png" },

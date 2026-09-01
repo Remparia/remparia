@@ -16,10 +16,10 @@ function HeroVisual({ alt }: { alt: string }) {
     <div className="os-hero__visual">
       <span className="os-hero__glow" aria-hidden />
       <Image
-        src="/remparia-os-orbit-v6.png"
+        src="/remparia-os-hero-signal.png"
         alt={alt}
-        width={654}
-        height={516}
+        width={1024}
+        height={682}
         className="os-hero__img"
         priority
         sizes="(max-width: 959px) 94vw, min(748px, 52vw)"

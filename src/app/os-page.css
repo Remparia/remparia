@@ -128,7 +128,7 @@
 .os-hero__visual {
   position: relative;
   width: min(100%, 748px);
-  aspect-ratio: 654 / 516;
+  aspect-ratio: 1024 / 682;
   margin-inline: auto;
   background: transparent;
 }
