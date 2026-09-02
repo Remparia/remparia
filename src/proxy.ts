@@ -1,22 +1,62 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { DEFAULT_LOCALE, isLocale } from "@/lib/i18n";
+import {
+  CANONICAL_SITE_ORIGIN,
+  EN_SLUG_ALIASES,
+  LEGACY_FR_HOSTS,
+} from "@/lib/redirects";
 
 const PUBLIC_FILE = /\.(.*)$/;
 
+function redirectPermanent(url: URL) {
+  return NextResponse.redirect(url, 308);
+}
+
+function localeFromPath(pathname: string) {
+  if (pathname.startsWith("/en")) return "en";
+  if (pathname.startsWith("/fr")) return "fr";
+  return DEFAULT_LOCALE;
+}
+
 export function proxy(request: NextRequest) {
+  const host = request.headers.get("host")?.split(":")[0]?.toLowerCase();
+
+  if (host && LEGACY_FR_HOSTS.has(host)) {
+    const incoming = new URL(request.url);
+    const target = new URL(
+      `${incoming.pathname}${incoming.search}`,
+      CANONICAL_SITE_ORIGIN,
+    );
+    return redirectPermanent(target);
+  }
+
   const { pathname } = request.nextUrl;
+
+  const enAlias = EN_SLUG_ALIASES[pathname];
+  if (enAlias) {
+    const url = request.nextUrl.clone();
+    url.pathname = enAlias;
+    return redirectPermanent(url);
+  }
+
+  if (
+    pathname === "/pour-qui" ||
+    pathname === "/fr/pour-qui" ||
+    pathname === "/en/pour-qui"
+  ) {
+    const locale = localeFromPath(pathname);
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}/cas-d-usage`;
+    return redirectPermanent(url);
+  }
 
   if (
     pathname === "/realisations" ||
     pathname === "/fr/realisations" ||
     pathname === "/en/realisations"
   ) {
-    const locale = pathname.startsWith("/en")
-      ? "en"
-      : pathname.startsWith("/fr")
-        ? "fr"
-        : DEFAULT_LOCALE;
+    const locale = localeFromPath(pathname);
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}/secteurs`;
     return NextResponse.redirect(url, 301);
@@ -30,11 +70,7 @@ export function proxy(request: NextRequest) {
     pathname === "/fr/methode" ||
     pathname === "/en/methode"
   ) {
-    const locale = pathname.startsWith("/en")
-      ? "en"
-      : pathname.startsWith("/fr")
-        ? "fr"
-        : DEFAULT_LOCALE;
+    const locale = localeFromPath(pathname);
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}/signal`;
     return NextResponse.redirect(url, 301);
@@ -45,11 +81,7 @@ export function proxy(request: NextRequest) {
     pathname === "/fr/os" ||
     pathname === "/en/os"
   ) {
-    const locale = pathname.startsWith("/en")
-      ? "en"
-      : pathname.startsWith("/fr")
-        ? "fr"
-        : DEFAULT_LOCALE;
+    const locale = localeFromPath(pathname);
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}/solution`;
     return NextResponse.redirect(url, 301);

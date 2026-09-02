@@ -1,8 +1,18 @@
 import type { NextConfig } from "next";
 import path from "path";
 import { fileURLToPath } from "url";
+import { LEGACY_FR_HOSTS } from "./src/lib/redirects";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
+
+const frDomainRedirects = [...LEGACY_FR_HOSTS].flatMap((host) => [
+  {
+    source: "/:path*",
+    has: [{ type: "host" as const, value: host }],
+    destination: "https://www.remparia.com/:path*",
+    permanent: true,
+  },
+]);
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: root,
@@ -15,6 +25,9 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 80, 85, 100],
+  },
+  async redirects() {
+    return frDomainRedirects;
   },
   async headers() {
     const securityHeaders = [

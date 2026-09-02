@@ -1298,6 +1298,24 @@
   font-size: 18px;
 }
 
+.os-models__hub,
+.os-integrations__hub {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.os-hub__icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
 .os-models__hub {
   padding: 12px;
   border: 1px solid var(--lime);

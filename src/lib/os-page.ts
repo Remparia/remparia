@@ -205,7 +205,7 @@ export const OS_PAGE = {
       openDesign: {
         index: "07 / OUVERT PAR DESIGN",
         title: "Multi-modèles, sans enfermement.",
-        models: ["OpenAI", "Anthropic", "Mistral", "Llama", "Azure", "Local"],
+        models: ["OpenAI", "Anthropic", "Mistral", "Llama", "Local"],
       },
       deploy: {
         index: "08 / DÉPLOYER PARTOUT",
@@ -460,7 +460,7 @@ export const OS_PAGE = {
       openDesign: {
         index: "07 / OPEN BY DESIGN",
         title: "Multi-model, no lock-in.",
-        models: ["OpenAI", "Anthropic", "Mistral", "Llama", "Azure", "Local"],
+        models: ["OpenAI", "Anthropic", "Mistral", "Llama", "Local"],
       },
       deploy: {
         index: "08 / DEPLOY ANYWHERE",

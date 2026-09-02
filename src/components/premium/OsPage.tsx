@@ -410,7 +410,28 @@ function HumanSlider({
 const MODEL_ICONS: Record<string, string> = {
   OpenAI: "/icon-model-openai.png",
   Anthropic: "/icon-model-anthropic.png",
+  Mistral: "/icon-model-mistral.png",
+  Llama: "/icon-model-llama.png",
+  Local: "/icon-model-local.png",
 };
+
+const OS_HUB_ICON = "/icon-remparia-os-hub.png";
+
+function OsHub({ className }: { className: string }) {
+  return (
+    <span className={className}>
+      <Image
+        src={OS_HUB_ICON}
+        alt=""
+        width={28}
+        height={28}
+        className="os-hub__icon"
+        aria-hidden
+      />
+      REMPARIA OS
+    </span>
+  );
+}
 
 function ModelGrid({ models }: { models: readonly string[] }) {
   return (
@@ -434,7 +455,7 @@ function ModelGrid({ models }: { models: readonly string[] }) {
         })}
       </div>
       <span className="os-models__arrow">↓</span>
-      <span className="os-models__hub">REMPARIA OS</span>
+      <OsHub className="os-models__hub" />
     </div>
   );
 }
@@ -638,7 +659,7 @@ export default function OsPage() {
                 </span>
               ))}
             </div>
-            <div className="os-integrations__hub">REMPARIA OS</div>
+            <OsHub className="os-integrations__hub" />
           </article>
 
           <article className="os-card os-card--wide">

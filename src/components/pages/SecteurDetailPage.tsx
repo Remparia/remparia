@@ -42,7 +42,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
         sub={detail.heroP}
         crumbs={[
           { name: home, href: "/" },
-          { name: label, href: "/pour-qui" },
+          { name: label, href: "/secteurs" },
           { name: item.title },
         ]}
         ctaLabel={labels.cta}
@@ -186,7 +186,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
             ))}
           </div>
           <div className="detail-nav" style={{ marginTop: 24 }}>
-            <LocaleLink href="/pour-qui" className="text-link">
+            <LocaleLink href="/secteurs" className="text-link">
               ← {all.overview}
             </LocaleLink>
           </div>

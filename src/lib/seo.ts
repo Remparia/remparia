@@ -444,7 +444,6 @@ export function getAllContentPaths() {
     "/governance",
     "/sovereignty",
     "/signal",
-    "/pour-qui",
     "/cas-d-usage",
     "/demarrer",
     "/secteurs",

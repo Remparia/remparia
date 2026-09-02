@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "remparia.fr" }],
+      "destination": "https://www.remparia.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.remparia.fr" }],
+      "destination": "https://www.remparia.com/:path*",
+      "permanent": true
+    }
+  ]
+}

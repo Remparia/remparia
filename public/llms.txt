@@ -17,7 +17,7 @@ Example: https://www.remparia.com/fr?view=agent
 - Remparia OS: https://www.remparia.com/fr/solution
 - SIGNAL method: https://www.remparia.com/fr/signal
 - Services: https://www.remparia.com/fr/services
-- Who it is for: https://www.remparia.com/fr/pour-qui
+- Who it is for: https://www.remparia.com/fr/cas-d-usage
 - Use cases: https://www.remparia.com/fr/cas-d-usage
 - Get started: https://www.remparia.com/fr/demarrer
 - Sectors (29 professions): https://www.remparia.com/fr/secteurs

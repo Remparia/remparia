@@ -536,7 +536,7 @@ function siteIndex({ lang, locale }: MdOpts) {
     `- ${mdLink("SIGNAL", locale, "/signal")}`,
     `- ${mdLink(nav.services, locale, "/services")}`,
     `- ${mdLink(nav.secteurs, locale, "/secteurs")}`,
-    `- ${mdLink(nav.pourQui, locale, "/pour-qui")}`,
+    `- ${mdLink(nav.pourQui, locale, "/cas-d-usage")}`,
     `- ${mdLink(nav.casUsage, locale, "/cas-d-usage")}`,
     `- ${mdLink(nav.demarrer, locale, "/demarrer")}`,
     `- ${mdLink(nav.aPropos, locale, "/a-propos")}`,
