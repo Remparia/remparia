@@ -85,7 +85,7 @@ export function CtaBand({
   tag,
   title,
   text,
-  href = "/demarrer",
+  href = "/contact",
 }: {
   tag: string;
   title: string;

@@ -4,12 +4,17 @@ import LocaleLink from "@/components/LocaleLink";
 import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
 import { HOME } from "@/lib/content";
 import { CAS_USAGE } from "@/lib/strategy";
+import {
+  getUseCaseContext,
+  USE_CASE_CONTEXT_COPY,
+} from "@/lib/use-case-context";
 import { useLang } from "@/lib/lang";
 
 export default function CasUsagePage() {
   const { lang } = useLang();
   const t = CAS_USAGE[lang];
   const cta = HOME[lang];
+  const contextLabels = USE_CASE_CONTEXT_COPY[lang];
   const home = lang === "fr" ? "Accueil" : "Home";
   const labels =
     lang === "fr"
@@ -39,38 +44,79 @@ export default function CasUsagePage() {
       />
 
       <section className="section">
-        <div className="card-grid">
-          {t.items.map((item, i) => (
-            <article
-              key={item.slug}
-              id={item.slug}
-              className="info-card reveal"
-              data-d={String(Math.min((i % 3) + 1, 3))}
-            >
-              <div className="info-card__tag">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <h3>{item.process}</h3>
-              <dl className="signal-card__meta" style={{ marginTop: 12 }}>
-                <div>
-                  <dt>{labels.today}</dt>
-                  <dd>{item.today}</dd>
+        <div className="use-case-grid">
+          {t.items.map((item, i) => {
+            const context = getUseCaseContext(item.slug, lang);
+            return (
+              <article
+                key={item.slug}
+                id={item.slug}
+                className="use-case-card reveal"
+                data-d={String(Math.min((i % 3) + 1, 3))}
+              >
+                <div className="use-case-card__head">
+                  <div className="info-card__tag">
+                    UC-{String(i + 1).padStart(2, "0")}
+                  </div>
+                  {context ? (
+                    <div className="use-case-card__agent">
+                      <span>{contextLabels.agent}</span>
+                      <strong>{context.agent}</strong>
+                    </div>
+                  ) : null}
                 </div>
-                <div>
-                  <dt>{labels.withAgent}</dt>
-                  <dd>{item.withAgent}</dd>
-                </div>
-                <div>
-                  <dt>{labels.never}</dt>
-                  <dd>{item.never}</dd>
-                </div>
-                <div>
-                  <dt>{labels.measure}</dt>
-                  <dd>{item.measure}</dd>
-                </div>
-              </dl>
-            </article>
-          ))}
+                <h2>{item.process}</h2>
+                {context ? (
+                  <>
+                    <div className="use-case-card__sectors">
+                      <span>{contextLabels.sectors}</span>
+                      <div>
+                        {context.sectors.map((sector) => (
+                          <LocaleLink
+                            key={sector.slug}
+                            href={`/secteurs/${sector.slug}`}
+                          >
+                            {sector.label}
+                          </LocaleLink>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="use-case-flow">
+                      <span className="use-case-flow__label">
+                        {contextLabels.workflow}
+                      </span>
+                      <ol>
+                        {context.workflow.map((step, stepIndex) => (
+                          <li key={step}>
+                            <span>{String(stepIndex + 1).padStart(2, "0")}</span>
+                            {step}
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  </>
+                ) : null}
+                <dl className="use-case-card__details">
+                  <div>
+                    <dt>{labels.today}</dt>
+                    <dd>{item.today}</dd>
+                  </div>
+                  <div className="use-case-card__details-agent">
+                    <dt>{labels.withAgent}</dt>
+                    <dd>{item.withAgent}</dd>
+                  </div>
+                  <div>
+                    <dt>{labels.never}</dt>
+                    <dd>{item.never}</dd>
+                  </div>
+                  <div className="use-case-card__details-metric">
+                    <dt>{labels.measure}</dt>
+                    <dd>{item.measure}</dd>
+                  </div>
+                </dl>
+              </article>
+            );
+          })}
         </div>
       </section>
 

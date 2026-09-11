@@ -24,7 +24,7 @@ export default function SolutionPage() {
         ]}
         actions={
           <>
-            <LocaleLink href="/demarrer" className="btn-primary">
+            <LocaleLink href="/contact" className="btn-primary">
               {t.ctaPrimary} →
             </LocaleLink>
             <LocaleLink href="/demarrer" className="btn-ghost">

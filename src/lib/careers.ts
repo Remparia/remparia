@@ -14,7 +14,7 @@ export const CAREERS = {
   fr: {
     eyebrow: "CARRIÈRES",
     title: "Rejoindre Remparia",
-    sub: "Agents Agents pour métiers spécialisés, supervision humaine et données sous contrôle. Nous constituons un réseau d'indépendants mobilisables selon les déploiements.",
+    sub: "Agents pour métiers spécialisés, supervision humaine et données sous contrôle. Nous constituons un réseau d'indépendants mobilisables selon les déploiements.",
     heroMeta: ["≈ 30 min", "3 étapes", "Écrit + vidéo"],
     heroCta: "Lancer le parcours",
     heroSecondary: "Voir les profils",

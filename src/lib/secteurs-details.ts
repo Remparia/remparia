@@ -157,7 +157,7 @@ const FR: Record<string, SecteurDetail> = {
         a: "Nous concevons des architectures souveraines adaptées à votre contexte (y compris exigences HDS quand pertinent) et travaillons avec vos contraintes d'infra existantes.",
       },
       {
-        q: "L'agent décide-t-elle à la place du professionnel ?",
+        q: "L'agent décide-t-il à la place du professionnel ?",
         a: "Non. Remparia augmente : l'agent prépare, synthétise, oriente ; le professionnel décide et reste responsable.",
       },
       {
@@ -266,7 +266,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         title: "Outils grand public = risque client",
-        desc: "Coller des données clients dans un chatbot public est un risque contractual et réputationnel.",
+        desc: "Coller des données clients dans un chatbot public est un risque contractuel et réputationnel.",
       },
     ],
     deliverables: [
@@ -468,7 +468,7 @@ const FR: Record<string, SecteurDetail> = {
         a: "Nous adaptons le mode d'engagement à votre cadre (prestation, assistance à maîtrise d'ouvrage, équipes embarquées). Parlons-en dès le diagnostic.",
       },
       {
-        q: "L'agent remplace-t-elle des agents publics ?",
+        q: "L'agent remplace-t-il des agents publics ?",
         a: "Non. Elle absorbe le répétitif pour libérer du temps sur le jugement et la relation usager. La responsabilité reste humaine.",
       },
       {

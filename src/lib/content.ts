@@ -270,7 +270,7 @@ export const HOME = {
   fr: {
     eyebrow: "AGENTS POUR MÉTIERS SPÉCIALISÉS",
     h1a: "Nous transformons",
-    h1b: "l IA en avantage concurrentiel.",
+    h1b: "l’IA en avantage concurrentiel.",
     protocolAria: "Protocole SIGNAL",
     introSkip: "Passer",
     introLine: "rempart + agents",
@@ -315,7 +315,7 @@ export const HOME = {
     convP:
       "Les agents ne sont pas là pour remplacer votre expertise. L'agent prépare, collecte, contrôle et alerte. Vos équipes gardent le jugement, la relation client et la responsabilité.",
     audience: "POUR QUI",
-    audienceH: "Là où les solutions génériques échoue.",
+    audienceH: "Là où les solutions génériques échouent.",
     audienceP:
       "Nous intervenons dans les métiers où la donnée est sensible, le cadre exigeant et le temps expert trop précieux pour être absorbé par le répétitif.",
     audiences: [
@@ -934,7 +934,7 @@ export const METHODE = {
 export const SECTEURS = {
   fr: {
     eyebrow: "MÉTIERS",
-    title: "Là où les solutions génériques échoue",
+    title: "Là où les solutions génériques échouent",
     sub: "Donnée sensible, responsabilité forte, expertise rare : découvrez comment des agents supervisés peuvent absorber le répétitif sans diluer votre métier.",
     overview: "Tous les métiers",
     discover: "Découvrir →",
@@ -1113,7 +1113,7 @@ export const APROPOS = {
     sub: "Remparia est fondé et opéré par Tannous Mekari et Sébastien Houzet — du premier échange au passage en production.",
     convictionH: "L'humain décide, l'agent exécute.",
     convictionP:
-      "Les agents ne sont pas là pour remplacer. Elle est là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
+      "Les agents ne sont pas là pour remplacer. Ils sont là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
     collectiveTitle: "Les associés opérateurs",
     collectiveSub:
       "Pas de couche commerciale déconnectée : stratégie, ingénierie et adoption sont portées par ceux qui s'engagent avec vous.",

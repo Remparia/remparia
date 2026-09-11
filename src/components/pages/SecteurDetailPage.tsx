@@ -3,6 +3,7 @@
 import LocaleLink from "@/components/LocaleLink";
 import { notFound } from "next/navigation";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
+import SectorAgentTeam from "@/components/SectorAgentTeam";
 import { SecteurHero } from "@/components/SecteurHero";
 import {
   getSecteur,
@@ -42,7 +43,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
         sub={detail.heroP}
         crumbs={[
           { name: home, href: "/" },
-          { name: label, href: "/pour-qui" },
+          { name: label, href: "/secteurs" },
           { name: item.title },
         ]}
         ctaLabel={labels.cta}
@@ -105,6 +106,8 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      <SectorAgentTeam slug={slug} scenarios={detail.scenarios} />
+
       <section className="section section--alt">
         <div className="secteur-readable reveal">
           <SectionLabel>{labels.scenarios}</SectionLabel>
@@ -142,7 +145,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
             {relatedServices.map((service, i) => (
               <LocaleLink
                 key={service.slug}
-                href="/solution"
+                href={`/services/${service.slug}`}
                 className="secteur-service-link reveal"
                 data-d={String(Math.min(i + 1, 3))}
               >
