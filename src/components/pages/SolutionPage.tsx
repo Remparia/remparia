@@ -13,7 +13,7 @@ export default function SolutionPage() {
   const home = lang === "fr" ? "Accueil" : "Home";
 
   return (
-    <div className="page page--inner">
+    <div className="page page--premium page--premium-inner">
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}
@@ -24,7 +24,7 @@ export default function SolutionPage() {
         ]}
         actions={
           <>
-            <LocaleLink href="/contact" className="btn-primary">
+            <LocaleLink href="/demarrer" className="btn-primary">
               {t.ctaPrimary} →
             </LocaleLink>
             <LocaleLink href="/demarrer" className="btn-ghost">
@@ -211,7 +211,7 @@ export default function SolutionPage() {
           <SectionLabel>{t.bridgeTitle}</SectionLabel>
           <h2 className="section__title">{t.bridgeTitle}</h2>
           <p className="section__body">{t.bridgeBody}</p>
-          <LocaleLink href="/methode" className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
+          <LocaleLink href="/signal" className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
             {t.bridgeCta}
           </LocaleLink>
         </div>

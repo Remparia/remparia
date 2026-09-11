@@ -332,8 +332,18 @@ export const POUR_QUI = {
     eyebrow: "POUR QUI",
     title: "Là où la donnée est sensible et le temps expert trop rare",
     sub: "Nous intervenons dans les métiers où chaque décision engage une responsabilité — là où l’IA générique échoue et où la gouvernance ne peut pas être un correctif.",
-    familiesTitle: "Les trois familles",
+    familiesTitle: "Les familles",
     families: [
+      {
+        tag: "COMMERCE & RÉSEAU",
+        title: "Retail, e-commerce, distribution",
+        desc: "Leads, relances, commandes, catalogue et relation magasin — l’Agent Commerce en tête.",
+        hrefs: [
+          { label: "Pack Commerce", href: "/solutions/commerce" },
+          { label: "E-commerce", href: "/secteurs/e-commerce" },
+          { label: "Retail & distribution", href: "/secteurs/retail-distribution" },
+        ],
+      },
       {
         tag: "DROIT & CHIFFRE",
         title: "Notariat, juridique, expertise comptable",
@@ -386,8 +396,18 @@ export const POUR_QUI = {
     eyebrow: "WHO IT IS FOR",
     title: "Where data is sensitive and expert time is scarce",
     sub: "We work in professions where every decision carries accountability — where generic AI fails and governance cannot be a retrofit.",
-    familiesTitle: "Three families",
+    familiesTitle: "The families",
     families: [
+      {
+        tag: "COMMERCE & NETWORK",
+        title: "Retail, e-commerce, distribution",
+        desc: "Leads, follow-up, orders, catalog and store relations — Commerce Agent first.",
+        hrefs: [
+          { label: "Commerce pack", href: "/solutions/commerce" },
+          { label: "E-commerce", href: "/secteurs/e-commerce" },
+          { label: "Retail & distribution", href: "/secteurs/retail-distribution" },
+        ],
+      },
       {
         tag: "LAW & ACCOUNTING",
         title: "Notaries, legal and accounting firms",

@@ -29,7 +29,7 @@ export default function NotFound() {
   const t = COPY[locale];
 
   return (
-    <div className="page page--inner">
+    <div className="page page--premium page--premium-inner">
       <header className="page-hero">
         <div className="page-hero__eyebrow">// 404</div>
         <h1 className="page-hero__title">{t.title}</h1>

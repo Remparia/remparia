@@ -3,6 +3,7 @@ import HtmlLang from "@/components/HtmlLang";
 import ScrollRevealRoot from "@/components/ScrollRevealRoot";
 import SiteChrome from "@/components/SiteChrome";
 import { LangProvider } from "@/lib/lang";
+import { ViewModeProvider } from "@/lib/view-mode";
 import { isLocale, LOCALES, toLang, type Locale } from "@/lib/i18n";
 
 export const revalidate = 86_400;
@@ -24,9 +25,11 @@ export default async function LangLayout({
 
   return (
     <LangProvider initialLang={lang}>
-      <HtmlLang />
-      <ScrollRevealRoot />
-      <SiteChrome>{children}</SiteChrome>
+      <ViewModeProvider>
+        <HtmlLang />
+        <ScrollRevealRoot />
+        <SiteChrome>{children}</SiteChrome>
+      </ViewModeProvider>
     </LangProvider>
   );
 }

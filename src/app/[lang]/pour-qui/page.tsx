@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "Who it is for" : "Pour qui",
     description: isEn
-      ? "Law & accounting, wealth & risk, specialized firms: where Remparia is legitimate — and who is not our client."
-      : "Droit & chiffre, patrimoine & risque, cabinets spécialisés : où Remparia est légitime — et qui n’est pas notre client.",
+      ? "Where Remparia is legitimate — commerce networks, accountability professions and sensitive data."
+      : "Là où Remparia est légitime — réseaux commerce, métiers à responsabilité et données sensibles.",
     path: "/pour-qui",
     lang,
   });

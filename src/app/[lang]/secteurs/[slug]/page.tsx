@@ -46,7 +46,7 @@ export default async function Page({ params }: Props) {
           breadcrumbJsonLd(
             [
               { name: home, path: "/" },
-              { name: sectors, path: "/pour-qui" },
+              { name: sectors, path: "/secteurs" },
               { name: meta.title, path: `/secteurs/${slug}` },
             ],
             lang,

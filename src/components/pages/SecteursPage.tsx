@@ -48,7 +48,7 @@ export default function SecteursPage() {
   }, [t.items, filter, query]);
 
   return (
-    <div className="page page--inner">
+    <div className="page page--premium page--premium-inner">
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Mono, Inter, Inter_Tight } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
 import VercelAnalyticsProvider from "@/components/VercelAnalyticsProvider";
 import {
@@ -10,6 +11,25 @@ import {
 } from "@/lib/seo";
 import { DEFAULT_LOCALE } from "@/lib/i18n";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter-tight",
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -70,7 +90,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "theme-color": "#000000",
+    "theme-color": "#0A0A0A",
     "color-scheme": "dark",
   },
 };
@@ -81,7 +101,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={DEFAULT_LOCALE} suppressHydrationWarning>
+    <html
+      lang={DEFAULT_LOCALE}
+      suppressHydrationWarning
+      className={`${inter.variable} ${interTight.variable} ${ibmPlexMono.variable}`}
+    >
       <head />
       <body>
         <JsonLd

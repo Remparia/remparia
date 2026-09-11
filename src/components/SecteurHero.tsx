@@ -14,7 +14,7 @@ export function SecteurHero({
   ctaLabel,
   ctaHref = "/contact",
   secondaryLabel,
-  secondaryHref = "/methode",
+  secondaryHref = "/signal",
 }: {
   slug: string;
   title: string;

@@ -2,8 +2,8 @@
 
 import LocaleLink from "@/components/LocaleLink";
 import { notFound } from "next/navigation";
+import AgentFicheGrid from "@/components/AgentFicheGrid";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
-import SectorAgentTeam from "@/components/SectorAgentTeam";
 import { SecteurHero } from "@/components/SecteurHero";
 import {
   getSecteur,
@@ -12,6 +12,7 @@ import {
   HOME,
   SECTEURS,
 } from "@/lib/content";
+import { getAgentsForSecteur } from "@/lib/agents";
 import { useLang } from "@/lib/lang";
 
 export default function SecteurDetailPage({ slug }: { slug: string }) {
@@ -32,10 +33,22 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
     .map((s) => getService(s, lang))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
+  const agents = getAgentsForSecteur(slug, lang);
+  const packHref =
+    slug === "e-commerce" || slug === "retail-distribution"
+      ? "/solutions/commerce"
+      : slug === "agence-immobiliere"
+        ? "/solutions/real-estate"
+        : slug === "cabinet-avocat" || slug === "etude-notariale"
+          ? "/solutions/legal"
+          : slug === "finance-assurance" || slug === "courtier-assurance"
+            ? "/solutions/finance"
+            : undefined;
+
   const siblings = all.items.filter((s) => s.slug !== slug).slice(0, 6);
 
   return (
-    <div className="page page--inner page--secteur">
+    <div className="page page--premium page--premium-inner page--secteur">
       <SecteurHero
         slug={slug}
         title={detail.heroH}
@@ -106,9 +119,17 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <SectorAgentTeam slug={slug} scenarios={detail.scenarios} />
+      {agents.length ? (
+        <section className="section section--alt">
+          <div className="secteur-readable reveal">
+            <SectionLabel>{labels.agents}</SectionLabel>
+            <h2 className="secteur-section-title">{labels.agentsH}</h2>
+            <AgentFicheGrid agents={agents} packHref={packHref} />
+          </div>
+        </section>
+      ) : null}
 
-      <section className="section section--alt">
+      <section className="section">
         <div className="secteur-readable reveal">
           <SectionLabel>{labels.scenarios}</SectionLabel>
           <h2 className="secteur-section-title">{labels.scenariosH}</h2>
@@ -145,7 +166,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
             {relatedServices.map((service, i) => (
               <LocaleLink
                 key={service.slug}
-                href={`/services/${service.slug}`}
+                href="/solution"
                 className="secteur-service-link reveal"
                 data-d={String(Math.min(i + 1, 3))}
               >
@@ -189,7 +210,7 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
             ))}
           </div>
           <div className="detail-nav" style={{ marginTop: 24 }}>
-            <LocaleLink href="/pour-qui" className="text-link">
+            <LocaleLink href="/secteurs" className="text-link">
               ← {all.overview}
             </LocaleLink>
           </div>

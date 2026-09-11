@@ -1,8 +1,10 @@
 "use client";
 
 import LocaleLink from "@/components/LocaleLink";
+import AgentFicheGrid from "@/components/AgentFicheGrid";
 import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
 import { HOME } from "@/lib/content";
+import { getFlagshipAgent } from "@/lib/agents";
 import { CAS_USAGE } from "@/lib/strategy";
 import {
   getUseCaseContext,
@@ -16,6 +18,7 @@ export default function CasUsagePage() {
   const cta = HOME[lang];
   const contextLabels = USE_CASE_CONTEXT_COPY[lang];
   const home = lang === "fr" ? "Accueil" : "Home";
+  const flagship = getFlagshipAgent(lang);
   const labels =
     lang === "fr"
       ? {
@@ -32,7 +35,7 @@ export default function CasUsagePage() {
         };
 
   return (
-    <div className="page page--inner">
+    <div className="page page--premium page--premium-inner">
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}
@@ -42,6 +45,28 @@ export default function CasUsagePage() {
           { name: t.eyebrow },
         ]}
       />
+
+      <section className="section section--alt">
+        <div className="reveal">
+          <SectionLabel>
+            {lang === "fr" ? "FLAGSHIP" : "FLAGSHIP"}
+          </SectionLabel>
+          <h2 className="section__title">
+            {lang === "fr"
+              ? "L’Agent Commerce, en tête"
+              : "The Commerce Agent, first"}
+          </h2>
+          <p className="section__body">
+            {lang === "fr"
+              ? "Qualification, relances et CRM : le premier agent à industrialiser quand le réseau commercial est le levier."
+              : "Qualification, follow-up and CRM: the first agent to industrialize when the sales network is the lever."}
+          </p>
+          <AgentFicheGrid
+            agents={[flagship]}
+            packHref="/solutions/commerce"
+          />
+        </div>
+      </section>
 
       <section className="section">
         <div className="use-case-grid">

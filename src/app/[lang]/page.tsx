@@ -11,11 +11,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isEn = lang === "en";
   return createPageMetadata({
     title: isEn
-      ? "Repetitive work to the agent. Decisions to the expert."
-      : "Le répétitif à l’agent. La décision à l’expert.",
+      ? "AI shouldn't be another tool. It should transform how you operate."
+      : "L’IA ne doit pas être un outil de plus. Elle doit transformer votre entreprise.",
     description: isEn
-      ? "A method to map the work, an operating system to carry it — without giving up decisions or control of your data."
-      : "Une méthode pour cartographier le travail, un système d’exploitation pour le faire porter — sans céder la décision ni le contrôle de vos données.",
+      ? "From strategy to execution, Remparia turns AI into a governed operating system for your business."
+      : "De la stratégie à l’exécution, Remparia fait de l’IA un système d’exploitation gouverné pour votre activité.",
     path: "/",
     lang,
   });
