@@ -362,50 +362,16 @@ function CapabilityPanel({
   );
 }
 
-function OrchestrationFlow() {
-  return (
-    <div className="os-flow" aria-hidden>
-      <span className="os-flow__node">Human</span>
-      <span className="os-flow__line" />
-      <span className="os-flow__node os-flow__node--hub">Orchestrator</span>
-      <span className="os-flow__line" />
-      <div className="os-flow__agents">
-        {["Sales", "Doc", "Ops"].map((a) => (
-          <span key={a}>{a}</span>
-        ))}
-      </div>
-    </div>
-  );
-}
+const OS_FEATURE_ICONS = {
+  human: "/os-icon-human.png",
+  orchestrator: "/os-icon-orchestrator.png",
+  sales: "/os-icon-sales.png",
+  doc: "/os-icon-doc.png",
+  ops: "/os-icon-ops.png",
+  cloud: "/os-icon-cloud.png",
+} as const;
 
-function HumanSlider({
-  assist,
-  autonomous,
-  actions,
-}: {
-  assist: string;
-  autonomous: string;
-  actions: readonly string[];
-}) {
-  return (
-    <div className="os-human">
-      <div className="os-human__track">
-        <span>{assist}</span>
-        <span className="os-human__thumb" aria-hidden>
-          ◎
-        </span>
-        <span>{autonomous}</span>
-      </div>
-      <div className="os-human__actions">
-        {actions.map((a) => (
-          <span key={a} className="os-human__btn">
-            {a}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
+const AGENT_ICONS = [OS_FEATURE_ICONS.sales, OS_FEATURE_ICONS.doc, OS_FEATURE_ICONS.ops];
 
 const MODEL_ICONS: Record<string, string> = {
   OpenAI: "/icon-model-openai.png",
@@ -433,9 +399,166 @@ function OsHub({ className }: { className: string }) {
   );
 }
 
-function ModelGrid({ models }: { models: readonly string[] }) {
+function OsFeatureIcon({
+  src,
+  label,
+  className = "",
+}: {
+  src: string;
+  label: string;
+  className?: string;
+}) {
   return (
-    <div className="os-models" aria-hidden>
+    <span className={`os-feat-icon ${className}`.trim()}>
+      <Image
+        src={src}
+        alt=""
+        width={52}
+        height={52}
+        className="os-feat-icon__img"
+        aria-hidden
+      />
+      <span className="os-feat-icon__label">{label}</span>
+    </span>
+  );
+}
+
+function OrchestrationPanel({
+  copy,
+}: {
+  copy: {
+    humanReview: string;
+    orchestrator: string;
+    agents: readonly { label: string; tool: string }[];
+    logTitle: string;
+    log: readonly { time: string; event: string }[];
+    footer: string;
+  };
+}) {
+  return (
+    <div className="os-orch">
+      <div className="os-orch__body">
+        <div className="os-orch__tree" aria-hidden>
+          <OsFeatureIcon src={OS_FEATURE_ICONS.human} label={copy.humanReview} />
+          <span className="os-orch__vline" />
+          <OsFeatureIcon
+            src={OS_FEATURE_ICONS.orchestrator}
+            label={copy.orchestrator}
+            className="os-feat-icon--hub"
+          />
+          <span className="os-orch__vline os-orch__vline--branch" />
+          <span className="os-orch__branch-h" aria-hidden />
+          <div className="os-orch__agents">
+            {copy.agents.map((agent, i) => (
+              <div key={agent.label} className="os-orch__agent-col">
+                <OsFeatureIcon
+                  src={AGENT_ICONS[i] ?? OS_FEATURE_ICONS.ops}
+                  label={agent.label}
+                />
+                <span className="os-orch__hline" />
+                <span className="os-orch__tool">{agent.tool}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="os-orch__log">
+          <p className="os-log__head">{copy.logTitle}</p>
+          {copy.log.map((row) => (
+            <p key={row.time} className="os-log__row">
+              <time>{row.time}</time>
+              <span>{row.event}</span>
+              <span className="os-log__dot" aria-hidden />
+            </p>
+          ))}
+        </div>
+      </div>
+      <p className="os-card__foot">{copy.footer}</p>
+    </div>
+  );
+}
+
+function HumanControlPanel({
+  copy,
+}: {
+  copy: {
+    stages: readonly string[];
+    activeStage: number;
+    policies: readonly { label: string; desc: string; tone: string }[];
+  };
+}) {
+  return (
+    <div className="os-human2">
+      <div className="os-human2__track">
+        {copy.stages.map((stage, i) => (
+          <span
+            key={stage}
+            className={
+              i === copy.activeStage
+                ? "os-human2__stage is-active"
+                : "os-human2__stage"
+            }
+          >
+            {stage}
+            {i === copy.activeStage ? (
+              <span className="os-human2__thumb">
+                <Image
+                  src={OS_FEATURE_ICONS.human}
+                  alt=""
+                  width={28}
+                  height={28}
+                  className="os-human2__thumb-img"
+                />
+              </span>
+            ) : null}
+          </span>
+        ))}
+        <span className="os-human2__rail" />
+      </div>
+      <ul className="os-human2__policies">
+        {copy.policies.map((policy) => (
+          <li key={policy.label} className={`os-human2__policy os-human2__policy--${policy.tone}`}>
+            <span className="os-human2__policy-icon" aria-hidden />
+            <span className="os-human2__policy-copy">
+              <strong>{policy.label}</strong>
+              <em>{policy.desc}</em>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function AiWorkforceRow({ label }: { label: string }) {
+  return (
+    <div className="os-workforce" aria-hidden>
+      <p className="os-workforce__label">{label}</p>
+      <div className="os-workforce__row">
+        {Array.from({ length: 6 }, (_, i) => (
+          <span key={i} className="os-workforce__slot">
+            <Image
+              src="/icon-customer.png"
+              alt=""
+              width={24}
+              height={24}
+              className="os-workforce__avatar"
+            />
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ModelStack({
+  models,
+  workforceLabel,
+}: {
+  models: readonly string[];
+  workforceLabel: string;
+}) {
+  return (
+    <div className="os-stack" aria-hidden>
       <div className="os-models__sources">
         {models.map((m) => {
           const icon = MODEL_ICONS[m];
@@ -450,53 +573,136 @@ function ModelGrid({ models }: { models: readonly string[] }) {
               />
             </span>
           ) : (
-            <span key={m}>{m}</span>
+            <span key={m} className="os-models__source">
+              {m}
+            </span>
           );
         })}
       </div>
-      <span className="os-models__arrow">↓</span>
+      <span className="os-stack__arrow">↓</span>
       <OsHub className="os-models__hub" />
+      <span className="os-stack__dots" aria-hidden />
+      <AiWorkforceRow label={workforceLabel} />
     </div>
   );
 }
 
-function OpsDashboard({
-  metrics,
-  agents,
+function DeployPanel({
+  options,
 }: {
-  metrics: readonly { label: string; value: string }[];
-  agents: readonly { name: string; status: string; success: string }[];
+  options: readonly { label: string; desc: string }[];
 }) {
   return (
-    <div className="os-ops">
-      <div className="os-ops__metrics">
-        {metrics.map((m) => (
-          <div key={m.label} className="os-ops__metric">
-            <strong>{m.value}</strong>
+    <ul className="os-deploy2" aria-hidden>
+      {options.map((opt) => (
+        <li key={opt.label} className="os-deploy2__item">
+          <span className="os-deploy2__icon-wrap">
+            <Image
+              src={OS_FEATURE_ICONS.cloud}
+              alt=""
+              width={36}
+              height={36}
+              className="os-deploy2__icon"
+            />
+          </span>
+          <span className="os-deploy2__copy">
+            <strong>{opt.label}</strong>
+            <span>{opt.desc}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ConnectPanel({
+  integrations,
+  workforceLabel,
+  footer,
+}: {
+  integrations: readonly string[];
+  workforceLabel: string;
+  footer: string;
+}) {
+  return (
+    <div className="os-connect">
+      <div className="os-integrations">
+        {integrations.map((name) => (
+          <span key={name} className="os-integrations__chip">
+            {name}
+          </span>
+        ))}
+      </div>
+      <span className="os-stack__arrow">↓</span>
+      <OsHub className="os-integrations__hub" />
+      <span className="os-stack__dots" aria-hidden />
+      <AiWorkforceRow label={workforceLabel} />
+      <p className="os-card__foot">{footer}</p>
+    </div>
+  );
+}
+
+function MeasureDashboard({
+  copy,
+}: {
+  copy: {
+    liveLabel: string;
+    metrics: readonly { label: string; value: string; trend?: string }[];
+    tableHead: readonly string[];
+    agents: readonly {
+      name: string;
+      status: string;
+      tasks: string;
+      success: string;
+    }[];
+    footer: string;
+  };
+}) {
+  return (
+    <div className="os-measure">
+      <div className="os-measure__head">
+        <span className="os-measure__brand">{copy.liveLabel}</span>
+        <span className="os-measure__live">
+          <span className="os-measure__pulse" aria-hidden />
+          LIVE
+        </span>
+      </div>
+      <div className="os-measure__metrics">
+        {copy.metrics.map((m) => (
+          <div key={m.label} className="os-measure__metric">
+            <strong>
+              {m.value}
+              {m.trend ? <span className="os-measure__trend">{m.trend}</span> : null}
+            </strong>
             <span>{m.label}</span>
           </div>
         ))}
       </div>
-      <table className="os-ops__table">
+      <table className="os-measure__table">
         <thead>
           <tr>
-            <th>Agent</th>
-            <th>Status</th>
-            <th>Success</th>
+            {copy.tableHead.map((h) => (
+              <th key={h}>{h}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          {agents.map((a) => (
+          {copy.agents.map((a) => (
             <tr key={a.name}>
               <td>{a.name}</td>
               <td>
-                <span className="os-ops__status">{a.status}</span>
+                <span className="os-measure__status">
+                  <span className="os-measure__status-dot" aria-hidden />
+                  {a.status}
+                </span>
               </td>
+              <td>{a.tasks}</td>
               <td>{a.success}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      <p className="os-card__foot os-card__foot--accent">{copy.footer}</p>
     </div>
   );
 }
@@ -608,67 +814,50 @@ export default function OsPage() {
           <article className="os-card">
             <p className="os-index">{t.grid.orchestration.index}</p>
             <h3 className="os-card__title">{t.grid.orchestration.title}</h3>
-            <OrchestrationFlow />
-            <div className="os-log">
-              <p className="os-log__head">{t.grid.orchestration.logTitle}</p>
-              {t.grid.orchestration.log.map((row) => (
-                <p key={row.time} className="os-log__row">
-                  <time>{row.time}</time>
-                  <span>{row.event}</span>
-                </p>
-              ))}
-            </div>
+            <p className="os-card__sub">{t.grid.orchestration.sub}</p>
+            <OrchestrationPanel copy={t.grid.orchestration} />
           </article>
 
           <article className="os-card">
             <p className="os-index">{t.grid.humanControl.index}</p>
             <h3 className="os-card__title">{t.grid.humanControl.title}</h3>
-            <HumanSlider
-              assist={t.grid.humanControl.assist}
-              autonomous={t.grid.humanControl.autonomous}
-              actions={t.grid.humanControl.actions}
-            />
+            <p className="os-card__sub">{t.grid.humanControl.sub}</p>
+            <HumanControlPanel copy={t.grid.humanControl} />
           </article>
 
           <article className="os-card">
             <p className="os-index">{t.grid.openDesign.index}</p>
             <h3 className="os-card__title">{t.grid.openDesign.title}</h3>
-            <ModelGrid models={t.grid.openDesign.models} />
+            <p className="os-card__sub">{t.grid.openDesign.sub}</p>
+            <ModelStack
+              models={t.grid.openDesign.models}
+              workforceLabel={t.grid.openDesign.workforceLabel}
+            />
           </article>
 
           <article className="os-card">
             <p className="os-index">{t.grid.deploy.index}</p>
             <h3 className="os-card__title">{t.grid.deploy.title}</h3>
-            <ul className="os-deploy">
-              {t.grid.deploy.options.map((opt) => (
-                <li key={opt.label}>
-                  <strong>{opt.label}</strong>
-                  <span>{opt.desc}</span>
-                </li>
-              ))}
-            </ul>
+            <p className="os-card__sub">{t.grid.deploy.sub}</p>
+            <DeployPanel options={t.grid.deploy.options} />
           </article>
 
           <article className="os-card">
             <p className="os-index">{t.grid.connect.index}</p>
             <h3 className="os-card__title">{t.grid.connect.title}</h3>
-            <div className="os-integrations">
-              {t.grid.connect.integrations.map((name) => (
-                <span key={name} className="os-integrations__chip">
-                  {name}
-                </span>
-              ))}
-            </div>
-            <OsHub className="os-integrations__hub" />
+            <p className="os-card__sub">{t.grid.connect.sub}</p>
+            <ConnectPanel
+              integrations={t.grid.connect.integrations}
+              workforceLabel={t.grid.connect.workforceLabel}
+              footer={t.grid.connect.footer}
+            />
           </article>
 
-          <article className="os-card os-card--wide">
+          <article className="os-card">
             <p className="os-index">{t.grid.operations.index}</p>
             <h3 className="os-card__title">{t.grid.operations.title}</h3>
-            <OpsDashboard
-              metrics={t.grid.operations.metrics}
-              agents={t.grid.operations.agents}
-            />
+            <p className="os-card__sub">{t.grid.operations.sub}</p>
+            <MeasureDashboard copy={t.grid.operations} />
           </article>
         </div>
       </section>
