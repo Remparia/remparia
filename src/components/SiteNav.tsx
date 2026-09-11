@@ -291,6 +291,13 @@ export default function SiteNav() {
             {t.pourQui}
           </LocaleLink>
           <LocaleLink
+            href="/secteurs"
+            className={isServices ? undefined : logical.startsWith("/secteurs") ? "is-active" : undefined}
+            aria-current={navCurrent("/secteurs")}
+          >
+            {t.secteurs}
+          </LocaleLink>
+          <LocaleLink
             href="/methode"
             className={logical === "/methode" ? "is-active" : undefined}
             aria-current={navCurrent("/methode")}
@@ -416,6 +423,7 @@ export default function SiteNav() {
           ) : null}
         </div>
 
+        <LocaleLink href="/secteurs">[ {t.secteurs.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/methode">[ {t.methode.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/a-propos">[ {t.aPropos.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/carrieres" className="nav__drawer-hiring">

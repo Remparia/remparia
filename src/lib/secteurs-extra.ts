@@ -951,7 +951,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Qualité de réponse instable",
-          desc: "Sans gouvernance, les outils génériques invente ou casse le ton de marque.",
+          desc: "Sans gouvernance, les outils génériques inventent ou cassent le ton de marque.",
         },
       ],
       deliverables: [
@@ -976,7 +976,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'agent peut-elle rembourser toute seule ?",
+          q: "L'agent peut-il rembourser seul ?",
           a: "Uniquement dans le périmètre que vous autorisez. Les cas sensibles restent humains.",
         },
         {
@@ -1085,7 +1085,7 @@ const EXTRAS: ExtraInput[] = [
           a: "Architectures adaptées à votre cadre (y compris exigences d'hébergement santé quand pertinent).",
         },
         {
-          q: "L'agent décide-t-elle un plan de traitement ?",
+          q: "L'agent décide-t-il un plan de traitement ?",
           a: "Non. Elle prépare ; le praticien décide.",
         },
       ],
@@ -1501,7 +1501,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'agent remplace-t-elle le diagnostic ?",
+          q: "L'agent remplace-t-il le diagnostic ?",
           a: "Non. Elle organise et prépare ; le vétérinaire soigne et décide.",
         },
         {
@@ -1923,7 +1923,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'agent décide-t-elle d'embaucher ?",
+          q: "L'agent décide-t-il d'embaucher ?",
           a: "Non. Elle trie selon vos critères ; le recruteur décide.",
         },
         {
@@ -2028,7 +2028,7 @@ const EXTRAS: ExtraInput[] = [
       ],
       faqs: [
         {
-          q: "L'agent remplace-t-elle le formateur ?",
+          q: "L'agent remplace-t-il le formateur ?",
           a: "Non. Elle augmente ; la responsabilité pédagogique reste humaine.",
         },
         {
