@@ -3,6 +3,7 @@
 import LocaleLink from "@/components/LocaleLink";
 import { notFound } from "next/navigation";
 import { CtaBand, SectionLabel } from "@/components/PageBits";
+import SectorAgentTeam from "@/components/SectorAgentTeam";
 import { SecteurHero } from "@/components/SecteurHero";
 import {
   getSecteur,
@@ -104,6 +105,8 @@ export default function SecteurDetailPage({ slug }: { slug: string }) {
           </ul>
         </div>
       </section>
+
+      <SectorAgentTeam slug={slug} scenarios={detail.scenarios} />
 
       <section className="section section--alt">
         <div className="secteur-readable reveal">

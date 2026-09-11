@@ -292,7 +292,9 @@ export default function SiteNav() {
           </LocaleLink>
           <LocaleLink
             href="/secteurs"
-            className={isServices ? undefined : logical.startsWith("/secteurs") ? "is-active" : undefined}
+            className={
+              logical.startsWith("/secteurs") ? "is-active" : undefined
+            }
             aria-current={navCurrent("/secteurs")}
           >
             {t.secteurs}
