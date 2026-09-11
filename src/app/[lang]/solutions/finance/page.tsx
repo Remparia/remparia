@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PremiumKeyedPage from "@/components/premium/PremiumKeyedPage";
+import VerticalPackPage from "@/components/premium/VerticalPackPage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -22,5 +22,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page() {
-  return <PremiumKeyedPage pageKey="finance" />;
+  return <VerticalPackPage pack="finance" />;
 }

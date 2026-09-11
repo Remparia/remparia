@@ -969,7 +969,7 @@ export const METHODE = {
 export const SECTEURS = {
   fr: {
     eyebrow: "MÉTIERS",
-    title: "Là où les solutions génériques échoue",
+    title: "Là où les solutions génériques échouent",
     sub: "Donnée sensible, responsabilité forte, expertise rare : découvrez comment des agents supervisés peuvent absorber le répétitif sans diluer votre métier.",
     overview: "Tous les métiers",
     discover: "Découvrir →",
@@ -984,6 +984,8 @@ export const SECTEURS = {
       { label: "Diagnostic SIGNAL", href: "/contact" },
     ],
     labels: {
+      agents: "Agents métier",
+      agentsH: "Ce que l’agent porte — et ce qu’il ne touche pas",
       signals: "Ce qui guide nos missions",
       pains: "Le problème",
       painsH: "Les douleurs qu'on connaît trop bien",
@@ -1054,6 +1056,8 @@ export const SECTEURS = {
       { label: "SIGNAL diagnostic", href: "/contact" },
     ],
     labels: {
+      agents: "Business agents",
+      agentsH: "What the agent carries — and what it never touches",
       signals: "What guides our engagements",
       pains: "The problem",
       painsH: "Pains we know too well",
@@ -1148,7 +1152,7 @@ export const APROPOS = {
     sub: "Remparia est fondé et opéré par Tannous Mekari et Sébastien Houzet — du premier échange au passage en production.",
     convictionH: "L'humain décide, l'agent exécute.",
     convictionP:
-      "Les agents ne sont pas là pour remplacer. Elle est là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
+      "Les agents ne sont pas là pour remplacer. Ils sont là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
     collectiveTitle: "Les associés opérateurs",
     collectiveSub:
       "Pas de couche commerciale déconnectée : stratégie, ingénierie et adoption sont portées par ceux qui s'engagent avec vous.",
@@ -1222,7 +1226,7 @@ export const APROPOS = {
     sub: "Remparia is founded and operated by Tannous Mekari and Sébastien Houzet — from the first conversation to production.",
     convictionH: "Humans decide, agents execute.",
     convictionP:
-      "Agents aren't here to replace. It's here to free up time for what matters. Your teams keep control, decisions and accountability — agents carry the repetitive load.",
+      "Agents aren't here to replace. They are here to free up time for what matters. Your teams keep control, decisions and accountability — agents carry the repetitive load.",
     collectiveTitle: "Operator partners",
     collectiveSub:
       "No disconnected sales layer: strategy, engineering and adoption are carried by the people who commit to you.",

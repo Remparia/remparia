@@ -197,11 +197,11 @@ export default function SiteNav() {
           <Image
             src="/logo-remparia.png"
             alt=""
-            width={162}
-            height={32}
+            width={192}
+            height={38}
             className="nav__logo"
             priority
-            sizes="(max-width: 639px) 132px, (max-width: 959px) 148px, 162px"
+            sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
           />
         </LocaleLink>
 
@@ -364,6 +364,17 @@ export default function SiteNav() {
             {t.solutions}
           </LocaleLink>
           <LocaleLink
+            href="/services"
+            className={
+              logical === "/services" || logical.startsWith("/services/")
+                ? "is-active"
+                : undefined
+            }
+            aria-current={navCurrent("/services")}
+          >
+            {t.services}
+          </LocaleLink>
+          <LocaleLink
             href="/cas-d-usage"
             className={logical === "/cas-d-usage" ? "is-active" : undefined}
             aria-current={navCurrent("/cas-d-usage")}
@@ -497,6 +508,7 @@ export default function SiteNav() {
         </div>
 
         <LocaleLink href="/secteurs">[ {t.solutions.toUpperCase()} ]</LocaleLink>
+        <LocaleLink href="/services">[ {t.services.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/cas-d-usage">[ {t.resources.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/a-propos">[ {t.company.toUpperCase()} ]</LocaleLink>
         <LocaleLink href="/carrieres" className="nav__drawer-hiring">

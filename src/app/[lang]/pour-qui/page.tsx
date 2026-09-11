@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PremiumKeyedPage from "@/components/premium/PremiumKeyedPage";
+import PourQuiPage from "@/components/pages/PourQuiPage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -12,13 +12,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     title: isEn ? "Who it is for" : "Pour qui",
     description: isEn
-      ? "Where Remparia is legitimate — accountability professions and sensitive data."
-      : "Là où Remparia est légitime — métiers à responsabilité et données sensibles.",
+      ? "Where Remparia is legitimate — commerce networks, accountability professions and sensitive data."
+      : "Là où Remparia est légitime — réseaux commerce, métiers à responsabilité et données sensibles.",
     path: "/pour-qui",
     lang,
   });
 }
 
 export default function Page() {
-  return <PremiumKeyedPage pageKey="pourQui" />;
+  return <PourQuiPage />;
 }

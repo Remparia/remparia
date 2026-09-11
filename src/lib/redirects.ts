@@ -20,6 +20,6 @@ export const EN_SLUG_ALIASES: Record<string, string> = {
   "/en/industries": "/en/secteurs",
   "/en/sectors": "/en/secteurs",
   "/en/solutions": "/en/secteurs",
-  "/en/who-it-is-for": "/en/cas-d-usage",
-  "/en/for-who": "/en/cas-d-usage",
+  "/en/who-it-is-for": "/en/pour-qui",
+  "/en/for-who": "/en/pour-qui",
 };

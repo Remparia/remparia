@@ -22,9 +22,11 @@ function AccentTitle({
 export default function PremiumMarketingPage({
   copy,
   homeLabel,
+  children,
 }: {
   copy: PremiumPageCopy;
   homeLabel: string;
+  children?: React.ReactNode;
 }) {
   return (
     <div className="page page--premium page--premium-inner">
@@ -130,6 +132,8 @@ export default function PremiumMarketingPage({
           </section>
         );
       })}
+
+      {children}
 
       <section className="ph-final ph-section--light">
         <div className="ph-shell ph-final__inner">

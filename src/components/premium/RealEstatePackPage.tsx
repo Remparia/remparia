@@ -1,15 +1,7 @@
 "use client";
 
-import PremiumMarketingPage from "@/components/premium/PremiumMarketingPage";
-import { premiumPage } from "@/lib/pages-premium";
-import { useLang } from "@/lib/lang";
+import VerticalPackPage from "@/components/premium/VerticalPackPage";
 
 export default function RealEstatePackPage() {
-  const { lang } = useLang();
-  return (
-    <PremiumMarketingPage
-      copy={premiumPage("realEstate", lang)}
-      homeLabel={lang === "fr" ? "Accueil" : "Home"}
-    />
-  );
+  return <VerticalPackPage pack="real-estate" />;
 }

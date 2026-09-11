@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PremiumKeyedPage from "@/components/premium/PremiumKeyedPage";
+import CasUsagePage from "@/components/pages/CasUsagePage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -20,5 +20,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page() {
-  return <PremiumKeyedPage pageKey="casUsage" />;
+  return <CasUsagePage />;
 }

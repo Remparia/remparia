@@ -85,6 +85,9 @@ export default function SiteFooter() {
           <LocaleLink href="/solutions/real-estate">
             {lang === "fr" ? "Immobilier" : "Real estate"}
           </LocaleLink>
+          <LocaleLink href="/solutions/commerce">
+            {lang === "fr" ? "Commerce" : "Commerce"}
+          </LocaleLink>
           <LocaleLink href="/solutions/legal">
             {lang === "fr" ? "Juridique" : "Legal"}
           </LocaleLink>
@@ -102,8 +105,9 @@ export default function SiteFooter() {
         </nav>
         <nav aria-label={f.exploreTitle}>
           <div className="site-footer__title">{f.exploreTitle}</div>
-          <LocaleLink href="/cas-d-usage">{n.pourQui}</LocaleLink>
+          <LocaleLink href="/pour-qui">{n.pourQui}</LocaleLink>
           <LocaleLink href="/cas-d-usage">{n.casUsage}</LocaleLink>
+          <LocaleLink href="/services">{n.services}</LocaleLink>
           <LocaleLink href="/demarrer">{n.demarrer}</LocaleLink>
           <LocaleLink href="/a-propos">{n.aPropos}</LocaleLink>
         </nav>

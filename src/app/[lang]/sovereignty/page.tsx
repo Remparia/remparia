@@ -11,11 +11,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isEn = lang === "en";
   return createPageMetadata({
     title: isEn
-      ? "Sovereignty by architecture"
-      : "Souveraineté par architecture",
+      ? "Sovereignty — a deployment mode, not the product"
+      : "Souveraineté — un mode de déploiement, pas le produit",
     description: isEn
-      ? "Remparia Cloud, Sovereign Cloud, Private Cloud, On-Premise — and air-gapped when relevant."
-      : "Remparia Cloud, Sovereign Cloud, Private Cloud, On-Premise — et air-gapped lorsque pertinent.",
+      ? "Remparia Cloud, sovereign cloud or on-premise: same agents, same OS, same governance. You choose the perimeter."
+      : "Cloud Remparia, cloud souverain ou on-premise : mêmes agents, même OS, même gouvernance. Vous choisissez le périmètre.",
     path: "/sovereignty",
     lang,
   });

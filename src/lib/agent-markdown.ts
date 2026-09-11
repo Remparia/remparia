@@ -17,6 +17,9 @@ import { withLocale, type Locale } from "@/lib/i18n";
 import { PAGES_PREMIUM, premiumPage } from "@/lib/pages-premium";
 import { SITE, getSiteUrl } from "@/lib/seo";
 import { osPage } from "@/lib/os-page";
+import { governancePage } from "@/lib/governance-page";
+import { sovereigntyPage } from "@/lib/sovereignty-page";
+import { getAgentsForSecteur } from "@/lib/agents";
 import { signalPage } from "@/lib/signal-page";
 import {
   CAS_USAGE,
@@ -241,6 +244,133 @@ function solutionMd({ lang, locale }: MdOpts) {
   );
 }
 
+function governanceMd({ lang, locale }: MdOpts) {
+  const t = governancePage(lang);
+  return lines(
+    `# ${t.titleBefore}${t.titleAccent}`,
+    "",
+    `> ${t.eyebrow}`,
+    "",
+    t.sub,
+    "",
+    section(
+      t.heatmap.title,
+      lines(
+        t.heatmap.intro,
+        "",
+        t.heatmap.items
+          .map((item) => `### ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+      ),
+    ),
+    section(
+      t.pillars.title,
+      t.pillars.items
+        .map((item) => lines(`### ${item.title}`, "", item.desc))
+        .join("\n\n"),
+    ),
+    section(
+      t.policies.title,
+      t.policies.items
+        .map((item) => lines(`### ${item.tag} — ${item.title}`, "", item.desc))
+        .join("\n\n"),
+    ),
+    section(t.scenario.title, lines(t.scenario.body, "", bullets(t.scenario.steps))),
+    section(
+      t.audit.title,
+      lines(
+        bullets(t.audit.rows.map((row) => row.join(" · "))),
+        "",
+        `_${t.audit.note}_`,
+      ),
+    ),
+    section(
+      t.sovereignty.title,
+      lines(t.sovereignty.body, "", mdLink(t.sovereignty.cta, locale, t.sovereignty.href)),
+    ),
+    `**CTA:** ${mdLink(t.ctaPrimary, locale, t.ctaPrimaryHref)}`,
+    "",
+  );
+}
+
+function sovereigntyMd({ lang, locale }: MdOpts) {
+  const t = sovereigntyPage(lang);
+  return lines(
+    `# ${t.titleBefore}${t.titleAccent}`,
+    "",
+    `> ${t.eyebrow}`,
+    "",
+    t.sub,
+    "",
+    section(
+      t.position.title,
+      t.position.items
+        .map((item) => lines(`### ${item.tag} — ${item.title}`, "", item.desc))
+        .join("\n\n"),
+    ),
+    section(
+      t.modes.title,
+      t.modes.items
+        .map((mode) =>
+          lines(
+            `### ${mode.title}`,
+            "",
+            `_${mode.subtitle}_`,
+            "",
+            mode.desc,
+            "",
+            bullets(mode.points),
+            "",
+            mode.fit,
+          ),
+        )
+        .join("\n\n"),
+    ),
+    section(
+      t.invariant.title,
+      lines(
+        t.invariant.body,
+        "",
+        t.invariant.items
+          .map((item) => `### ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+      ),
+    ),
+    section(
+      t.where.title,
+      lines(
+        bullets(t.where.rows.map((row) => `**${row.label}:** ${row.value}`)),
+        "",
+        `_${t.where.note}_`,
+      ),
+    ),
+    section(
+      t.compare.title,
+      t.compare.rows
+        .map(
+          (row) =>
+            `**${row.label}:** ${t.compare.columns
+              .map((col, i) => `${col} — ${row.values[i]}`)
+              .join("; ")}`,
+        )
+        .join("\n\n"),
+    ),
+    section(t.commerce.title, lines(t.commerce.body, "", bullets(t.commerce.steps))),
+    section(
+      t.governance.title,
+      lines(
+        t.governance.body,
+        "",
+        mdLink(t.governance.ctaGov, locale, t.governance.hrefGov),
+        "",
+        mdLink(t.governance.ctaOs, locale, t.governance.hrefOs),
+      ),
+    ),
+    `**CTA:** ${mdLink(t.ctaPrimary, locale, t.ctaPrimaryHref)}`,
+    "",
+  );
+}
+
 function pourQuiMd({ lang, locale }: MdOpts) {
   const t = POUR_QUI[lang];
   return lines(
@@ -460,6 +590,27 @@ function secteurDetailMd(slug: string, { lang, locale }: MdOpts) {
           bullets(detail.deliverables),
         )
       : null,
+    (() => {
+      const agents = getAgentsForSecteur(slug, lang);
+      if (!agents.length) return null;
+      return section(
+        lang === "fr" ? "Agents" : "Agents",
+        agents
+          .map((a) =>
+            lines(
+              `### ${a.name}`,
+              "",
+              a.role,
+              "",
+              `- **Trigger:** ${a.trigger}`,
+              `- **Output:** ${a.output}`,
+              `- **Never:** ${a.never}`,
+              `- **KPI:** ${a.kpi}`,
+            ),
+          )
+          .join("\n\n"),
+      );
+    })(),
     detail?.faqs?.length
       ? section(
           "FAQ",
@@ -578,11 +729,10 @@ function fallbackMd(opts: MdOpts) {
 
 const PREMIUM_ROUTE: Record<string, PremiumKey> = {
   "/studio": "studio",
-  "/governance": "governance",
-  "/sovereignty": "sovereignty",
   "/solutions/real-estate": "realEstate",
   "/solutions/legal": "legal",
   "/solutions/finance": "finance",
+  "/solutions/commerce": "commerce",
 };
 
 /**
@@ -654,6 +804,8 @@ export function buildAgentMarkdown(
   }
   if (path === "/") return homeMd(opts);
   if (path === "/os" || path === "/solution") return solutionMd(opts);
+  if (path === "/governance") return governanceMd(opts);
+  if (path === "/sovereignty") return sovereigntyMd(opts);
   if (path === "/pour-qui") return pourQuiMd(opts);
   if (path === "/cas-d-usage") return casUsageMd(opts);
   if (path === "/demarrer") return demarrerMd(opts);

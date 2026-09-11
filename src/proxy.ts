@@ -41,17 +41,6 @@ export function proxy(request: NextRequest) {
   }
 
   if (
-    pathname === "/pour-qui" ||
-    pathname === "/fr/pour-qui" ||
-    pathname === "/en/pour-qui"
-  ) {
-    const locale = localeFromPath(pathname);
-    const url = request.nextUrl.clone();
-    url.pathname = `/${locale}/cas-d-usage`;
-    return redirectPermanent(url);
-  }
-
-  if (
     pathname === "/realisations" ||
     pathname === "/fr/realisations" ||
     pathname === "/en/realisations"

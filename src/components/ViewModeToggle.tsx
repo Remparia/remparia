@@ -5,7 +5,9 @@ import { useViewMode } from "@/lib/view-mode";
 
 export default function ViewModeToggle() {
   const { lang } = useLang();
-  const { mode, setMode } = useViewMode();
+  const { mode, setMode, ready } = useViewMode();
+
+  if (!ready) return null;
 
   const humanLabel = "HUMAN";
   const agentLabel = "AGENT";

@@ -10,10 +10,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "Governance — stay in control" : "Gouvernance — rester maître du système",
+    title: isEn
+      ? "Governance — production starts with control"
+      : "Gouvernance — la mise en production commence par le contrôle",
     description: isEn
-      ? "Identity, RBAC, audit, agent permissions, human approvals, policies, cost, security and compliance."
-      : "Identité, RBAC, audit, permissions agents, validations humaines, politiques, coûts, sécurité et conformité.",
+      ? "ALLOW / REVIEW / BLOCK policies, human stops, auditable logs. Sovereignty is a deployment mode, not the product."
+      : "Politiques ALLOW / REVIEW / BLOCK, stops humains, journal opposable. La souveraineté est un mode de déploiement, pas le produit.",
     path: "/governance",
     lang,
   });
