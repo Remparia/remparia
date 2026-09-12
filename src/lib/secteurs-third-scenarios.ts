@@ -106,16 +106,16 @@ export const THIRD_SCENARIOS: Record<
   },
   "e-commerce": {
     fr: {
-      who: "Responsable SAV",
-      need: "Qualifier les retours et litiges avant qu'ils n'explosent en charge support.",
+      who: "Directeur e-commerce",
+      need: "Un agent qui vend et dépannne dans une seule conversation, sans risque paiement.",
       remparia:
-        "Agent de tri SAV : catégorisation, proposition de résolution et escalade vers un humain.",
+        "Agent shopping branché catalogue + SAV + handoff checkout — garde-fous en code, canary et formation équipes.",
     },
     en: {
-      who: "Customer care lead",
-      need: "Qualify returns and disputes before they explode support load.",
+      who: "E-commerce director",
+      need: "An agent that sells and supports in one conversation, with no payment risk.",
       remparia:
-        "Care triage agent: categorization, resolution proposal and escalation to a human.",
+        "Shopping agent wired to catalog + care + checkout handoff — guards in code, canary and team training.",
     },
   },
   "cabinet-dentaire": {

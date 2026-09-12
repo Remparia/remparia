@@ -30,8 +30,8 @@ const ANSWERS: Record<string, { fr: string; en: string }> = {
     en: "Yes. Time grids, diagnostic procedures and quoting rules transfer to workshops; technicians always validate before client send.",
   },
   "e-commerce": {
-    fr: "Oui. Règles SAV, politiques retour et corpus produit autorisés restent sous votre gouvernance — avec logs d'audit sur chaque réponse agent.",
-    en: "Yes. CS rules, return policies and approved product corpora stay under your governance — with audit logs on every agent reply.",
+    fr: "Oui. Catalogue, politiques SAV, mentions réglementées et règles d’approbation marchand restent sous votre gouvernance — avec logs d’audit et aucun outil de paiement exposé à l’agent.",
+    en: "Yes. Catalog, care policies, regulated notices and merchant approval rules stay under your governance — with audit logs and no payment tool exposed to the agent.",
   },
   "cabinet-dentaire": {
     fr: "Oui. Parcours patient, modèles de comptes-rendus et règles de planification sont documentés ; le praticien garde la responsabilité clinique.",

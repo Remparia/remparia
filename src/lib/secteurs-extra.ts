@@ -936,103 +936,125 @@ const EXTRAS: ExtraInput[] = [
     slug: "e-commerce",
     fr: {
       title: "E-commerce et boutique",
-      desc: "Pour boutiques en ligne. Suivi commande, retours, FAQ produit.",
-      heroH: "Agents pour e-commerce & boutiques",
+      desc: "Agent shopping : conseil, panier, SAV — sans toucher au paiement.",
+      heroH: "Votre boutique en ligne devient un vendeur",
       heroP:
-        "Quand suivi de commande et retours saturent le support, l'agent traite le répétitif ; l'équipe reprend les cas sensibles et la voix de marque.",
+        "Un agent qui comprend « crème peau sèche, pas grasse, moins de 30 € », interroge votre catalogue réel, compose le panier, suit la commande — et passe la main au checkout. Les cas sensibles restent humains.",
       pains: [
         {
-          title: "Support saturé par le répétitif",
-          desc: "Suivi commande, retours, FAQ : les agents humains s'épuisent.",
+          title: "Les assistants répondent, mais ne vendent pas",
+          desc: "FAQ et chat saturent le L1 sans poursuivre l’objectif d’achat ni toucher au panier.",
         },
         {
-          title: "Connaissance produit fragmentée",
-          desc: "Fiches, avis, specs vivent dans plusieurs silos.",
+          title: "Catalogue sous-exploité dans la conversation",
+          desc: "Prix, stock, variantes et politiques vivent dans Shopify / Presta / PIM — l’agent générique invente ou ignore.",
         },
         {
-          title: "Qualité de réponse instable",
-          desc: "Sans gouvernance, les outils génériques inventent ou cassent le ton de marque.",
+          title: "Peur du risque (prix, paiement, RGPD)",
+          desc: "Sans garde-fous dans le code, impossible de convaincre un DAF ou un DPO.",
         },
       ],
       deliverables: [
-        "Agents support (commande, retours, FAQ) avec escalade humaine",
-        "RAG produit / politique commerciale",
-        "Intégration helpdesk / e-commerce",
-        "Evals qualité, ton de marque et coûts",
+        "Agent shopping : recherche, comparaison, panier, handoff checkout",
+        "Flux SAV (commande, retours, politiques) dans la même conversation",
+        "Garde-fous en code : pas de paiement, IDs serveur, mentions verbatim",
+        "Évals, canary, formation équipes (piloter / maintenir)",
+        "Lien vers le pack Agent Commerce (diagnostic → pilote → operate)",
       ],
       scenarios: [
         {
-          who: "Head of CX",
-          need: "Baisser le volume de tickets L1.",
+          who: "Directeur e-commerce",
+          need: "Augmenter la conversion assistée sans chatbot gadget.",
           remparia:
-            "Agent L1 gouverné + handoff propre vers L2, avec mesure du taux de résolution.",
+            "Pilote 8 semaines : catalogue branché, cartes marque, canary trafic, KPI panier / conversion / tickets évités.",
         },
         {
-          who: "Équipe produit",
-          need: "Réponses FAQ fidèles au catalogue.",
+          who: "Head of CX",
+          need: "Résoudre « où est ma commande » sans ticket.",
           remparia:
-            "RAG sur fiches et politiques, avec garde-fous anti-hallucination.",
+            "SAV dans la conversation, politiques servies mot pour mot, escalade humaine hors périmètre.",
+        },
+        {
+          who: "Category / merchandising",
+          need: "Recommandations prix / promo sans perte de contrôle.",
+          remparia:
+            "Agent marchand : digest, alertes stock, changements en file d’approbation.",
         },
       ],
       faqs: [
         {
-          q: "L'agent peut-il rembourser seul ?",
-          a: "Uniquement dans le périmètre que vous autorisez. Les cas sensibles restent humains.",
+          q: "L’agent peut-il payer ou appliquer une promo seul ?",
+          a: "Non. Aucun outil de paiement. Côté marchand, toute écriture attend votre validation.",
         },
         {
-          q: "Multilingue ?",
-          a: "Oui selon vos marchés — avec contrôle qualité par langue.",
+          q: "Shopify, PrestaShop, Magento ?",
+          a: "Oui — les connecteurs exacts sont cadrés en SIGNAL. Shopify est souvent le plus rapide ; Presta / Magento apportent plus de valeur d’intégration.",
+        },
+        {
+          q: "Et les agents ChatGPT / Gemini ?",
+          a: "Autre chantier : rendre votre catalogue lisible par les agents tiers. SIGNAL couvre les deux ; le pilote livre votre agent propriétaire.",
         },
       ],
     },
     en: {
-      title: "E-commerce & retail",
-      desc: "For online stores. Order tracking, returns, product FAQ.",
-      heroH: "Agents for e-commerce & stores",
+      title: "E-commerce and store",
+      desc: "Shopping agent: advice, cart, care — never touching payment.",
+      heroH: "Your online store becomes a seller",
       heroP:
-        "When order tracking and returns saturate support, the agent handles repetition; the team takes over sensitive cases and brand voice.",
+        "An agent that understands multi-constraint product intent, queries your live catalog, builds the cart, tracks the order — and hands off to checkout. Sensitive cases stay human.",
       pains: [
         {
-          title: "Support saturated by repetitive work",
-          desc: "Order tracking, returns, FAQ: human agents burn out.",
+          title: "Assistants answer, but do not sell",
+          desc: "FAQ and chat flood L1 without pursuing purchase or touching the cart.",
         },
         {
-          title: "Fragmented product knowledge",
-          desc: "Specs, reviews, policies live in silos.",
+          title: "Catalog underused in conversation",
+          desc: "Price, stock, variants and policies live in Shopify / Presta / PIM — generic agents invent or ignore them.",
         },
         {
-          title: "Unstable answer quality",
-          desc: "Without governance, consumer tools invents or breaks brand tone.",
+          title: "Fear of risk (price, payment, GDPR)",
+          desc: "Without guards in code, a CFO or DPO will not buy in.",
         },
       ],
       deliverables: [
-        "Support agents (orders, returns, FAQ) with human escalation",
-        "Product / policy RAG",
-        "Helpdesk / commerce integration",
-        "Quality, brand-tone and cost evals",
+        "Shopping agent: search, compare, cart, checkout handoff",
+        "Care flows (order, returns, policies) in the same conversation",
+        "Guards in code: no payment, server IDs, verbatim legal copy",
+        "Evals, canary, team training (operate / maintain)",
+        "Link to the Commerce Agent pack (diagnostic to pilot to operate)",
       ],
       scenarios: [
         {
-          who: "Head of CX",
-          need: "Cut L1 ticket volume.",
+          who: "E-commerce director",
+          need: "Raise assisted conversion without a gimmick chatbot.",
           remparia:
-            "Governed L1 agent + clean L2 handoff, with resolution-rate tracking.",
+            "8-week pilot: wired catalog, branded cards, traffic canary, cart / conversion / avoided-ticket KPIs.",
         },
         {
-          who: "Product team",
-          need: "FAQ answers faithful to the catalog.",
+          who: "Head of CX",
+          need: "Resolve order tracking without a ticket.",
           remparia:
-            "RAG on specs and policies, with anti-hallucination guardrails.",
+            "Care in the conversation, policies served verbatim, human escalation out of scope.",
+        },
+        {
+          who: "Category / merchandising",
+          need: "Price / promo recommendations without losing control.",
+          remparia:
+            "Merchant agent: digest, stock alerts, changes in an approval queue.",
         },
       ],
       faqs: [
         {
-          q: "Can the agent refund on its own?",
-          a: "Only within the scope you authorize. Sensitive cases stay human.",
+          q: "Can the agent pay or apply a promo alone?",
+          a: "No. No payment tool. On the merchant side, every write waits for your validation.",
         },
         {
-          q: "Multilingual?",
-          a: "Yes by market — with quality control per language.",
+          q: "Shopify, PrestaShop, Magento?",
+          a: "Yes — exact connectors are scoped in SIGNAL. Shopify is often fastest; Presta / Magento add more integration value.",
+        },
+        {
+          q: "What about ChatGPT / Gemini agents?",
+          a: "A separate track: make your catalog readable by third-party agents. SIGNAL covers both; the pilot ships your owned agent.",
         },
       ],
     },

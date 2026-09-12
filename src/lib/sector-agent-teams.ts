@@ -188,11 +188,11 @@ const BLUEPRINTS: Record<string, TeamBlueprint> = {
     ],
   },
   "e-commerce": {
-    tools: ["Shopify / Prestashop", "Helpdesk", "ERP / OMS", "Catalogue produit"],
+    tools: ["Shopify / Prestashop", "Helpdesk", "ERP / OMS", "Catalogue / PIM"],
     agents: [
-      agent("Agent service client L1", "Tier-1 customer care agent", "Taux de résolution sans reprise", "Resolution rate without rework", "execute"),
-      agent("Agent catalogue & FAQ", "Catalog and FAQ agent", "Réponses fidèles aux données produit", "Answers grounded in product data", "execute"),
-      agent("Agent retours & litiges", "Returns and disputes agent", "Délai de qualification avant escalade", "Qualification time before escalation"),
+      agent("Agent shopping", "Shopping agent", "Conversion assistée & panier composé", "Assisted conversion & built cart", "execute"),
+      agent("Agent SAV conversation", "Conversational care agent", "Tickets L1 évités dans la conversation", "L1 tickets avoided in-conversation", "execute"),
+      agent("Agent marchand", "Merchant agent", "Recommandations en file d’approbation", "Recommendations in approval queue"),
     ],
   },
   "plombier-chauffagiste": {

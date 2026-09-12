@@ -313,11 +313,40 @@ a.info-card:focus-visible {
 }
 
 .page--premium-inner .cta {
-  background: var(--graphite) !important;
+  background: var(--lime) !important;
+  color: #0a0a0a !important;
 }
 
-.page--premium-inner .cta .section__title {
-  color: var(--white) !important;
+.page--premium-inner .cta .section__title,
+.page--premium-inner .cta .section__title--lg,
+.page--premium-inner .cta .cta__tag,
+.page--premium-inner .cta .cta__text {
+  color: #0a0a0a !important;
+  background-image: none !important;
+  -webkit-text-fill-color: #0a0a0a !important;
+}
+
+.page--premium-inner .cta .cta__btn {
+  color: var(--lime) !important;
+  background: #0a0a0a !important;
+  -webkit-text-fill-color: var(--lime) !important;
+}
+
+.page--premium-inner .cta .cta__btn:hover,
+.page--premium-inner .cta .cta__btn:focus-visible {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.page--premium-inner .cta .cta__mail {
+  color: rgba(0, 0, 0, 0.75) !important;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.page--premium-inner .cta .cta__mail:hover,
+.page--premium-inner .cta .cta__mail:focus-visible {
+  color: #0a0a0a !important;
+  -webkit-text-fill-color: #0a0a0a !important;
 }
 
 /* ——— Signal / position / team cards ——— */
