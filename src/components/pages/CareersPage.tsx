@@ -1,7 +1,12 @@
 "use client";
 
 import LocaleLink from "@/components/LocaleLink";
-import { PageHero, SectionLabel } from "@/components/PageBits";
+import {
+  PremiumCard,
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import { getCareers } from "@/lib/careers";
 import { useLang } from "@/lib/lang";
 
@@ -12,8 +17,8 @@ export default function CareersPage() {
   const label = lang === "fr" ? "Carrières" : "Careers";
 
   return (
-    <div className="page page--premium page--premium-inner page--careers">
-      <PageHero
+    <PremiumPageShell className="page--careers">
+      <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
@@ -40,68 +45,62 @@ export default function CareersPage() {
         }
       />
 
-      <section id="profils" className="section">
-        <div className="reveal">
-          <SectionLabel>{t.rolesTag}</SectionLabel>
-          <h2 className="section__title">{t.rolesTitle}</h2>
-          <p className="section__body">{t.rolesSub}</p>
-        </div>
-        <div className="card-grid careers-roles" style={{ marginTop: 28 }}>
-          {t.roles.map((roleItem, i) => (
-            <article
+      <PremiumSection
+        id="profils"
+        eyebrow={`01 / ${t.rolesTag}`}
+        title={t.rolesTitle}
+        body={t.rolesSub}
+      >
+        <div className="ph-workforce careers-roles" style={{ marginTop: 28 }}>
+          {t.roles.map((roleItem) => (
+            <PremiumCard
               key={roleItem.id}
-              className="info-card reveal"
-              data-d={String(Math.min((i % 3) + 1, 3))}
+              tag={roleItem.tag}
+              title={roleItem.title}
+              desc={roleItem.desc}
             >
-              <div className="info-card__tag">{roleItem.tag}</div>
-              <h3>{roleItem.title}</h3>
-              <p>{roleItem.desc}</p>
               <LocaleLink
                 href={`/carrieres/candidature/1?role=${roleItem.id}`}
                 className="btn-primary careers-role-pick"
+                style={{ marginTop: 16 }}
               >
                 {t.applyRoleCta} →
               </LocaleLink>
-            </article>
+            </PremiumCard>
           ))}
         </div>
-      </section>
+      </PremiumSection>
 
-      <section id="philo" className="section section--alt careers-phil">
-        <div className="reveal">
-          <SectionLabel>{t.philTag}</SectionLabel>
-          <h2 className="section__title">{t.philTitle}</h2>
-          <p className="section__body">{t.philSub}</p>
-        </div>
-        <div className="careers-phil__grid">
-          {t.phil.map((item, i) => (
-            <article
-              key={item.tag}
-              className="careers-phil__item reveal"
-              data-d={String(Math.min((i % 3) + 1, 3))}
-            >
+      <PremiumSection
+        id="philo"
+        light
+        eyebrow={`02 / ${t.philTag}`}
+        title={t.philTitle}
+        body={t.philSub}
+        className="careers-phil"
+      >
+        <div className="careers-phil__grid" style={{ marginTop: 28 }}>
+          {t.phil.map((item) => (
+            <article key={item.tag} className="careers-phil__item">
               <div className="careers-phil__tag">{item.tag}</div>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
             </article>
           ))}
         </div>
-      </section>
+      </PremiumSection>
 
-      <section id="parcours" className="section careers-process">
-        <div className="careers-launch reveal">
-          <div className="section__tag">// {t.applyTitle}</div>
-          <h2 className="section__title">{t.processTitle}</h2>
-          <p className="section__body">{t.processSub}</p>
-          <p className="section__body">{t.applyGate}</p>
-        </div>
-        <div className="careers-steps">
-          {t.steps.map((s, i) => (
-            <article
-              key={s.n}
-              className="careers-step reveal"
-              data-d={String(Math.min(i + 1, 3))}
-            >
+      <PremiumSection
+        id="parcours"
+        eyebrow={`03 / ${t.applyTitle}`}
+        title={t.processTitle}
+        body={t.processSub}
+        className="careers-process"
+      >
+        <p className="ph-body">{t.applyGate}</p>
+        <div className="careers-steps" style={{ marginTop: 28 }}>
+          {t.steps.map((s) => (
+            <article key={s.n} className="careers-step">
               <div className="careers-step__head">
                 <div className="careers-step__n">{s.n}</div>
                 <div className="careers-step__time">{s.time}</div>
@@ -111,7 +110,7 @@ export default function CareersPage() {
             </article>
           ))}
         </div>
-        <div className="careers-launch__actions reveal">
+        <div className="careers-launch__actions" style={{ marginTop: 32 }}>
           <LocaleLink
             href="/carrieres/candidature/1"
             className="btn-primary careers-process__cta"
@@ -125,7 +124,7 @@ export default function CareersPage() {
             {t.fields.roleSpontaneous} →
           </LocaleLink>
         </div>
-      </section>
-    </div>
+      </PremiumSection>
+    </PremiumPageShell>
   );
 }

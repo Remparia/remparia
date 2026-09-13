@@ -12,21 +12,41 @@ function PhSection({
   children,
   className = "",
   centered = false,
+  eyebrow,
+  media,
 }: {
   id?: string;
   children: React.ReactNode;
   className?: string;
   centered?: boolean;
+  eyebrow?: string;
+  media?: string;
 }) {
   return (
     <section
       id={id}
-      className={`ph-section ph-parallax${className ? ` ${className}` : ""}${centered ? " ph-section--center" : ""}`}
+      className={`ph-section ph-parallax${className ? ` ${className}` : ""}${centered ? " ph-section--center" : ""}${media ? " ph-section--media" : ""}`}
     >
-      <div className="ph-parallax__depth" aria-hidden />
+      {media ? (
+        <div className="ph-section__media" aria-hidden>
+          <Image
+            src={media}
+            alt=""
+            fill
+            quality={95}
+            sizes="100vw"
+            className="ph-section__media-img"
+          />
+        </div>
+      ) : (
+        <div className="ph-parallax__depth" aria-hidden />
+      )}
       <div className="ph-parallax__veil" aria-hidden />
       <div className="ph-shell ph-section__layout">
-        <div className="ph-section__main ph-parallax__fore">{children}</div>
+        <div className="ph-section__main ph-parallax__fore">
+          {eyebrow ? <p className="ph-eyebrow reveal">{eyebrow}</p> : null}
+          {children}
+        </div>
       </div>
     </section>
   );
@@ -547,15 +567,55 @@ function HeroVisual({ alt }: { alt: string }) {
     <div className="ph-hero-visual">
       <span className="ph-hero-visual__glow" aria-hidden />
       <Image
-        src="/remparia-os-orbit-v3.png"
+        src="/remparia-os-orbit-v8.png"
         alt={alt}
-        width={984}
-        height={1024}
+        width={1400}
+        height={1400}
         className="ph-hero-visual__img"
         priority
-        sizes="(max-width: 959px) 92vw, 50vw"
+        quality={95}
+        sizes="(max-width: 959px) 580px, 883px"
       />
     </div>
+  );
+}
+
+function HeroChipIcon({ id }: { id: string }) {
+  if (id === "agents") {
+    return (
+      <svg viewBox="0 0 16 16" aria-hidden>
+        <rect x="1" y="1" width="6" height="6" rx="1" />
+        <rect x="9" y="1" width="6" height="6" rx="1" />
+        <rect x="1" y="9" width="6" height="6" rx="1" />
+        <rect x="9" y="9" width="6" height="6" rx="1" />
+      </svg>
+    );
+  }
+  if (id === "governance") {
+    return (
+      <svg viewBox="0 0 16 16" aria-hidden>
+        <path d="M8 1.5 13.5 4v3.6c0 3.2-2.2 5.5-5.5 6.9C4.7 13.1 2.5 10.8 2.5 7.6V4L8 1.5Z" />
+        <path d="m5.6 7.8 1.6 1.6 3.2-3.2" />
+      </svg>
+    );
+  }
+  if (id === "workflows") {
+    return (
+      <svg viewBox="0 0 16 16" aria-hidden>
+        <circle cx="3.5" cy="3.5" r="1.5" />
+        <circle cx="12.5" cy="8" r="1.5" />
+        <circle cx="3.5" cy="12.5" r="1.5" />
+        <path d="M5 3.5h4.5L12 7.2M5 12.5h4.5L12 9" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden>
+      <ellipse cx="8" cy="4" rx="5" ry="2" />
+      <path d="M3 4v3c0 1.1 2.2 2 5 2s5-.9 5-2V4" />
+      <path d="M3 7v3c0 1.1 2.2 2 5 2s5-.9 5-2V7" />
+      <path d="M3 10v2c0 1.1 2.2 2 5 2s5-.9 5-2v-2" />
+    </svg>
   );
 }
 
@@ -679,47 +739,82 @@ export default function HomePremium() {
 
   return (
     <div className="page page--premium">
-      <header className="ph-hero ph-parallax">
+      <header className="ph-hero ph-hero--orbit ph-parallax">
+        <div className="ph-hero__bg" aria-hidden>
+          <Image
+            src="/home-bg-hero-energy.png"
+            alt=""
+            fill
+            priority
+            quality={100}
+            sizes="100vw"
+            unoptimized
+            className="ph-hero__bg-img"
+          />
+        </div>
         <div className="ph-parallax__depth ph-parallax__depth--hero" aria-hidden />
         <div className="ph-shell ph-section__layout">
-          <div className="ph-section__main ph-hero__grid">
-            <div className="ph-hero__copy ph-parallax__fore">
+          <div className="ph-hero__stage">
+            <div className="ph-hero__intro ph-parallax__fore">
               <h1 className="ph-hero__title ph-anim-hero" data-d="1">
-                {t.hero.titleBefore}
-                <span className="ph-accent">{t.hero.titleAccent}</span>
-                {t.hero.titleAfter}
+                <span className="ph-hero__title-row">{t.hero.titleLine1}</span>
+                <span className="ph-hero__title-row ph-hero__title-row--mid">
+                  <span className="ph-hero__title-mid">
+                    {t.hero.titleMidBefore}{" "}
+                    <span className="ph-accent">{t.hero.titleAccent}</span>
+                  </span>
+                  <span className="ph-hero__side">{t.hero.titleSide}</span>
+                </span>
+                <span className="ph-hero__title-row">{t.hero.titleLine3}</span>
               </h1>
-              <p className="ph-hero__sub ph-anim-hero" data-d="2">
-                {t.hero.sub}
-              </p>
-              <div className="ph-hero__actions ph-anim-hero" data-d="3">
-                <LocaleLink href="/demarrer" className="btn-primary">
-                  {t.hero.ctaPrimary} →
+              <div className="ph-hero__actions ph-anim-hero" data-d="2">
+                <LocaleLink href="/demarrer" className="btn-primary ph-hero__cta">
+                  {t.hero.cta} <span aria-hidden>↗</span>
                 </LocaleLink>
-                <a href="#en-action" className="btn-ghost">
-                  {t.hero.ctaSecondary}
-                </a>
               </div>
-              <ul className="ph-hero__badges ph-anim-hero" data-d="4">
-                {t.hero.badges.map((badge) => (
-                  <li key={badge}>{badge}</li>
+            </div>
+
+            <div className="ph-hero__orbit ph-parallax__back">
+              <ul className="ph-hero__chips">
+                {t.hero.chips.map((chip) => (
+                  <li
+                    key={chip.id}
+                    className={`ph-hero__chip ph-hero__chip--${chip.id}`}
+                  >
+                    <span className="ph-hero__chip-icon" aria-hidden>
+                      <HeroChipIcon id={chip.id} />
+                    </span>
+                    <span className="ph-hero__chip-body">
+                      <span className="ph-hero__chip-tag">
+                        {chip.tag}
+                        <i />
+                      </span>
+                      <span className="ph-hero__chip-text">{chip.text}</span>
+                    </span>
+                  </li>
                 ))}
               </ul>
-            </div>
-            <div className="ph-parallax__back">
               <HeroVisual
                 alt={
                   lang === "fr"
-                    ? "Remparia OS — Orchestrer. Gouverner. Scaler. Un humain valide ; agents Recherche, Document, Finance, Opérations et Ventes autour du noyau, avec des emplacements pour ajouter des agents."
-                    : "Remparia OS — Orchestrate. Govern. Scale. A human validates; Research, Document, Finance, Operations and Sales agents around the core, with slots to add agents."
+                    ? "Remparia OS — noyau d’orchestration IA, énergie et orbites gouvernées."
+                    : "Remparia OS — AI orchestration core, governed energy and orbits."
                 }
               />
+            </div>
+
+            <div className="ph-hero__foot ph-parallax__fore">
+              <p className="ph-hero__brandline">{t.hero.brandLine}</p>
+              <p className="ph-hero__claim">
+                {t.hero.claimBefore}
+                <span className="ph-accent">{t.hero.claimAccent}</span>
+              </p>
             </div>
           </div>
         </div>
       </header>
 
-      <PhSection id="constat" className="ph-section--light">
+      <PhSection id="constat" eyebrow={t.problem.eyebrow}>
         <div className="ph-problem">
           <div className="ph-problem__title ph-parallax__mid">
             <AccentTitle
@@ -763,7 +858,12 @@ export default function HomePremium() {
         </div>
       </PhSection>
 
-      <PhSection id="modele" className="ph-section--tight">
+      <PhSection
+        id="modele"
+        className="ph-section--tight"
+        eyebrow={t.model.eyebrow}
+        media="/home-bg-model-waves.jpg"
+      >
         <div className="ph-model">
           {t.model.steps.map((step, i) => (
             <Fragment key={step.tag}>
@@ -792,7 +892,7 @@ export default function HomePremium() {
         </div>
       </PhSection>
 
-      <PhSection id="en-action">
+      <PhSection id="en-action" eyebrow={t.org.eyebrow}>
         <div className="ph-org">
           <div className="ph-org__copy">
             <AccentTitle
@@ -887,7 +987,12 @@ export default function HomePremium() {
         </div>
       </PhSection>
 
-      <PhSection id="workforce" className="ph-section--tight ph-section--light">
+      <PhSection
+        id="workforce"
+        className="ph-section--tight"
+        eyebrow={t.workforce.eyebrow}
+        media="/home-bg-workforce.jpg"
+      >
         <AccentTitle
           before={t.workforce.titleBefore}
           accent={t.workforce.titleAccent}
@@ -937,7 +1042,7 @@ export default function HomePremium() {
         </div>
       </PhSection>
 
-      <PhSection id="souverainete">
+      <PhSection id="souverainete" className="ph-section--light" eyebrow={t.sovereignty.eyebrow}>
         <AccentTitle
           before={t.sovereignty.titleBefore}
           accent={t.sovereignty.titleAccent}
@@ -1043,39 +1148,13 @@ export default function HomePremium() {
             </article>
           ))}
         </div>
-
-        <div className="ph-sov-compare reveal" role="table" aria-label={t.sovereignty.eyebrow}>
-          <div className="ph-sov-compare__head" role="row">
-            <span role="columnheader" />
-            {t.sovereignty.compare.columns.map((col, i) => (
-              <span key={col} role="columnheader" data-col={t.sovereignty.modes[i].id}>
-                {col}
-              </span>
-            ))}
-          </div>
-          {t.sovereignty.compare.rows.map((row) => (
-            <div key={row.label} className="ph-sov-compare__row" role="row">
-              <span role="rowheader">{row.label}</span>
-              {row.values.map((value, i) => {
-                const icon = "icons" in row ? row.icons[i] : undefined;
-                return (
-                  <span
-                    key={`${row.label}-${value}`}
-                    role="cell"
-                    data-col={t.sovereignty.modes[i].id}
-                    className={icon ? "has-icon" : undefined}
-                  >
-                    {icon ? <PhIcon name={icon} className="ph-sov-brick__icon-glyph" /> : null}
-                    {value}
-                  </span>
-                );
-              })}
-            </div>
-          ))}
-        </div>
       </PhSection>
 
-      <PhSection id="industries" className="ph-section--tight">
+      <PhSection
+        id="industries"
+        className="ph-section--tight"
+        eyebrow={t.industries.eyebrow}
+      >
         <AccentTitle
           before={t.industries.titleBefore}
           accent={t.industries.titleAccent}
@@ -1172,12 +1251,17 @@ export default function HomePremium() {
         </div>
       </PhSection>
 
-      <PhSection id="roi" className="ph-section--light">
+      <PhSection id="roi" className="ph-section--light" eyebrow={t.roi.eyebrow}>
         <AccentTitle before={t.roi.titleBefore} accent={t.roi.titleAccent} />
         <RoiCalculator labels={t.roi} />
       </PhSection>
 
-      <PhSection id="operations" className="ph-section--tight">
+      <PhSection
+        id="operations"
+        className="ph-section--tight"
+        eyebrow={t.ops.eyebrow}
+        media="/home-bg-ops.jpg"
+      >
         <AccentTitle before={t.ops.titleBefore} accent={t.ops.titleAccent} />
         <ul className="ph-ops">
           {t.ops.items.map((item, index) => (

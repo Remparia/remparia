@@ -1,6 +1,11 @@
 "use client";
 
-import { CtaBand, PageHero } from "@/components/PageBits";
+import {
+  PremiumCtaBand,
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import ServiceDiagSection from "@/components/ServiceDiagSection";
 import { HOME, SERVICES } from "@/lib/content";
 import { useLang } from "@/lib/lang";
@@ -12,8 +17,8 @@ export default function ServicesPage() {
   const home = lang === "fr" ? "Accueil" : "Home";
 
   return (
-    <div className="page page--premium page--premium-inner">
-      <PageHero
+    <PremiumPageShell>
+      <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
@@ -22,8 +27,8 @@ export default function ServicesPage() {
           { name: t.title },
         ]}
       />
-      <section className="section section--services-media">
-        <div className="reveal video-frame video-frame--native">
+      <PremiumSection className="ph-section--tight">
+        <div className="video-frame video-frame--native">
           <video
             src="/secteurs/home/mais_personnes_max.mp4"
             autoPlay
@@ -38,11 +43,16 @@ export default function ServicesPage() {
             }
           />
         </div>
-      </section>
-      {t.serviceSections.map((section) => (
-        <ServiceDiagSection key={section.tag} content={section} />
+      </PremiumSection>
+      {t.serviceSections.map((section, index) => (
+        <div
+          key={section.tag}
+          className={index % 2 === 0 ? "ph-section--light-wrap" : undefined}
+        >
+          <ServiceDiagSection content={section} />
+        </div>
       ))}
-      <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
-    </div>
+      <PremiumCtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
+    </PremiumPageShell>
   );
 }

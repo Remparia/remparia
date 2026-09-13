@@ -84,85 +84,91 @@
   margin-top: 20px;
 }
 
-.ph-section--light .agent-fiche {
-  background: rgba(0, 0, 0, 0.03);
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-.ph-section--light .agent-fiche--flagship {
-  background: rgba(204, 252, 65, 0.18);
-  border-color: rgba(10, 10, 10, 0.2);
-}
-
-.ph-section--light .agent-fiche > header p,
-.ph-section--light .agent-fiche__meta dd {
-  color: rgba(10, 10, 10, 0.72);
-}
-
-.ph-section--light .agent-fiche h3 {
-  color: #0a0a0a;
-}
-
-.ph-section--light .agent-fiche__meta dt,
-.ph-section--light .agent-fiche__status {
-  color: rgba(10, 10, 10, 0.45);
-}
-
-.ph-section--light .agent-fiche__flag {
-  color: #5a7a00;
-}
-
-/* Secteur / legacy light bands use .section--alt, not .ph-section--light */
+/* Light bands: small uppercase labels need near-black contrast (not soft gray). */
+.ph-section--light .agent-fiche,
+.page--premium-inner .ph-section--light .agent-fiche,
 .section--alt .agent-fiche,
 .page--premium-inner .section--alt .agent-fiche {
   background: #fff;
-  border-color: rgba(10, 10, 10, 0.12);
+  border-color: rgba(10, 10, 10, 0.14);
+  color: var(--text-on-light);
 }
 
+.ph-section--light .agent-fiche--flagship,
+.page--premium-inner .ph-section--light .agent-fiche--flagship,
 .section--alt .agent-fiche--flagship,
 .page--premium-inner .section--alt .agent-fiche--flagship {
   background: var(--lime);
-  border-color: rgba(10, 10, 10, 0.18);
+  border-color: rgba(10, 10, 10, 0.22);
+  color: var(--text-on-lime);
 }
 
+.ph-section--light .agent-fiche h3,
+.page--premium-inner .ph-section--light .agent-fiche h3,
 .section--alt .agent-fiche h3,
 .page--premium-inner .section--alt .agent-fiche h3 {
-  color: #0a0a0a;
+  color: var(--text-on-light);
 }
 
+.ph-section--light .agent-fiche > header p,
+.ph-section--light .agent-fiche__meta dd,
+.page--premium-inner .ph-section--light .agent-fiche > header p,
+.page--premium-inner .ph-section--light .agent-fiche__meta dd,
 .section--alt .agent-fiche > header p,
 .section--alt .agent-fiche__meta dd,
 .page--premium-inner .section--alt .agent-fiche > header p,
 .page--premium-inner .section--alt .agent-fiche__meta dd {
-  color: rgba(10, 10, 10, 0.78);
+  color: rgba(10, 10, 10, 0.84);
 }
 
+.ph-section--light .agent-fiche__meta dt,
+.ph-section--light .agent-fiche__status,
+.ph-section--light .agent-fiche__flag,
+.page--premium-inner .ph-section--light .agent-fiche__meta dt,
+.page--premium-inner .ph-section--light .agent-fiche__status,
+.page--premium-inner .ph-section--light .agent-fiche__flag,
 .section--alt .agent-fiche__meta dt,
 .section--alt .agent-fiche__status,
+.section--alt .agent-fiche__flag,
 .page--premium-inner .section--alt .agent-fiche__meta dt,
-.page--premium-inner .section--alt .agent-fiche__status {
-  color: rgba(10, 10, 10, 0.62);
+.page--premium-inner .section--alt .agent-fiche__status,
+.page--premium-inner .section--alt .agent-fiche__flag {
+  color: rgba(10, 10, 10, 0.78);
+  font-size: 11px;
 }
 
+.ph-section--light .agent-fiche--flagship h3,
+.ph-section--light .agent-fiche--flagship .agent-fiche__flag,
+.page--premium-inner .ph-section--light .agent-fiche--flagship h3,
+.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__flag,
+.section--alt .agent-fiche--flagship h3,
+.section--alt .agent-fiche--flagship .agent-fiche__flag,
+.page--premium-inner .section--alt .agent-fiche--flagship h3,
+.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__flag {
+  color: var(--text-on-lime);
+}
+
+.ph-section--light .agent-fiche--flagship .agent-fiche__meta dt,
+.ph-section--light .agent-fiche--flagship .agent-fiche__status,
+.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__meta dt,
+.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__status,
 .section--alt .agent-fiche--flagship .agent-fiche__meta dt,
 .section--alt .agent-fiche--flagship .agent-fiche__status,
+.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__meta dt,
+.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__status {
+  color: var(--text-on-lime);
+  font-size: 11px;
+}
+
+.ph-section--light .agent-fiche--flagship > header p,
+.ph-section--light .agent-fiche--flagship .agent-fiche__meta dd,
+.page--premium-inner .ph-section--light .agent-fiche--flagship > header p,
+.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__meta dd,
 .section--alt .agent-fiche--flagship > header p,
 .section--alt .agent-fiche--flagship .agent-fiche__meta dd,
-.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__meta dt,
-.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__status,
 .page--premium-inner .section--alt .agent-fiche--flagship > header p,
 .page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__meta dd {
-  color: rgba(10, 10, 10, 0.82);
-}
-
-.section--alt .agent-fiche__flag,
-.page--premium-inner .section--alt .agent-fiche__flag {
-  color: #0a0a0a;
-}
-
-.section--alt .agent-fiche--flagship .agent-fiche__flag,
-.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__flag {
-  color: #0a0a0a;
+  color: var(--text-on-lime-muted);
 }
 
 .gov-page .ph-page-hero {

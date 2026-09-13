@@ -16,6 +16,7 @@ const COPY = {
       ["liens", "Liens"],
       ["champs", "Champs"],
       ["cartes", "Cartes"],
+      ["shell", "Page shell"],
     ],
     colorsTitle: "Couleurs",
     colorsLede: "90 % noir/blanc · 10 % lime. Le bleu info est sémantique uniquement.",
@@ -34,6 +35,9 @@ const COPY = {
     fieldsLede: "Même padding, bordure et focus que le formulaire contact.",
     cardsTitle: "Cartes métriques",
     cardsLede: "Graphite #111, bordure fine, chiffre blanc, accent lime.",
+    shellTitle: "Page shell (ph-*)",
+    shellLede:
+      "Hero, section dark/light, carte ph-agent-card, CTA lime PremiumCtaBand. Tokens --text-on-light / --text-on-lime.",
     name: "Nom et prénom",
     email: "Email professionnel",
     message: "Message",
@@ -53,6 +57,7 @@ const COPY = {
       ["liens", "Links"],
       ["champs", "Fields"],
       ["cartes", "Cards"],
+      ["shell", "Page shell"],
     ],
     colorsTitle: "Colour",
     colorsLede: "90% black/white · 10% lime. Info blue is semantic only.",
@@ -71,6 +76,9 @@ const COPY = {
     fieldsLede: "Same padding, border and focus as the contact form.",
     cardsTitle: "Metric cards",
     cardsLede: "Graphite #111, hairline border, white figure, lime accent.",
+    shellTitle: "Page shell (ph-*)",
+    shellLede:
+      "Hero, dark/light section, ph-agent-card, lime PremiumCtaBand. Tokens --text-on-light / --text-on-lime.",
     name: "Full name",
     email: "Work email",
     message: "Message",
@@ -328,6 +336,39 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
                 <strong>99.9%</strong>
                 <span>Uptime cible</span>
               </article>
+            </div>
+          </section>
+
+          <section id="shell">
+            <p className="ds-lab__kicker">08</p>
+            <h2 className="ds-lab__h2">{t.shellTitle}</h2>
+            <p className="ds-lab__lede">{t.shellLede}</p>
+            <div className="ds-lab__shell-demo">
+              <p className="ph-eyebrow">SOLUTIONS / DEMO</p>
+              <h3 className="ph-title" style={{ fontSize: 28 }}>
+                PremiumHero + PremiumSection
+              </h3>
+              <p className="ph-body">
+                Shell canonique : ph-page-hero, ph-section / ph-section--light,
+                ph-agent-card, ph-cta-band.
+              </p>
+              <div className="ph-workforce" style={{ marginTop: 20 }}>
+                <article className="ph-agent-card">
+                  <h3>PremiumCard</h3>
+                  <p>Carte interactive — pas de décoration vide.</p>
+                </article>
+                <article className="ph-agent-card">
+                  <h3>Contraste</h3>
+                  <p>--text-on-light sur bandes claires, --text-on-lime sur CTA.</p>
+                </article>
+              </div>
+              <div className="ph-cta-band" style={{ marginTop: 28, padding: 32 }}>
+                <p className="ph-cta-band__tag">// CTA</p>
+                <h3 className="ph-cta-band__title" style={{ fontSize: 28 }}>
+                  PremiumCtaBand
+                </h3>
+                <p className="ph-cta-band__text">Fond lime, texte noir, bouton noir/lime.</p>
+              </div>
             </div>
           </section>
         </div>

@@ -7,12 +7,13 @@
 ---
 
 **Project:** Remparia OS  
-**Updated:** 2026-08-26  
+**Updated:** 2026-09-12  
 **Category:** AI-native operating system for modern organizations  
 **Pattern:** Dark · Intelligent · Governed · Scalable  
 **Balance:** ~90% black/white · ~10% lime accent  
 **Live lab:** `/fr/design-system` (noindex)  
-**Legacy bridge:** `src/app/ds-legacy-bridge.css` (loaded after `landing.css`)
+**Canonical shell:** premium `ph-*` (`PremiumShell` + `premium-home.css`)  
+**Legacy bridge:** `src/app/ds-legacy-bridge.css` (nav/footer leftovers only — do not add new page styles here)
 
 ---
 
@@ -29,6 +30,16 @@
 | **Lime** | `#CCFC41` | `--lime` / `--accent` |
 | Lime 80–20% | opacity scale | `--lime-80` … `--lime-20` |
 
+### Text on surfaces
+
+| Surface | Token |
+|---------|-------|
+| Dark band body | `--text` / `--text-muted` / `--text-soft` |
+| Light band (`ph-section--light`) | `--text-on-light` / `--text-on-light-muted` / `--text-on-light-soft` |
+| Lime CTA band | `--text-on-lime` / `--text-on-lime-muted` |
+
+Never put `--text-soft` (white) on light or lime backgrounds.
+
 ### Semantic (UI states — not brand)
 
 | State | Hex | Token |
@@ -40,7 +51,30 @@
 
 **Info blue is semantic only.** Never use blue as a brand / marketing accent.
 
-**Anti-patterns:** no purple AI glow, no emoji icons, no heavy neon fill fields, no playful illustration, no hardcoding hex outside tokens.
+**Anti-patterns:** no purple AI glow, no emoji icons, no heavy neon fill fields, no playful illustration, no hardcoding hex outside tokens. **No new page-specific CSS** except SIGNAL / OS / commerce already present.
+
+---
+
+## Page shell (canonical)
+
+All marketing / vertical / pack pages use:
+
+| Component | Class / file | Role |
+|-----------|--------------|------|
+| `PremiumPageShell` | `page--premium page--premium-inner` | Page wrapper |
+| `PremiumHero` | `ph-page-hero` | Crumbs, eyebrow, title, sub, actions; optional media split |
+| `PremiumSection` | `ph-section` / `ph-section--light` | One job per section |
+| `PremiumCard` | `ph-agent-card` | Interactive / content cards only |
+| `PremiumCtaBand` | `ph-cta-band` | Lime final CTA (replaces legacy `.cta`) |
+| `AgentFicheGrid` | `agent-fiche` | Agent cards |
+
+Source: `src/components/premium/PremiumShell.tsx`.
+
+**Bands:** alternate dark → light → dark. Final CTA is always lime.
+
+**Deprecated:** `PageHero`, raw `.section` / `.section--alt`, legacy `.cta` markup (`CtaBand` now wraps `PremiumCtaBand`).
+
+SIGNAL (`page--signal`) and OS (`page--solution`) keep custom layouts but must reuse tokens, gutters (`--page-gutter`), and lime CTA contrast rules.
 
 ---
 
@@ -52,34 +86,13 @@
 | Body / UI | **Inter** | `--font-ui` |
 | Data / mini labels | **IBM Plex Mono** | `--font-mono` |
 
-### Type scale
-
-| Style | Desktop ≥1280 | Mobile ≤768 | Weight | Tracking |
-|-------|---------------|-------------|--------|----------|
-| Display 1 | 72 / 88 | 40 / 48 | 700 | −1% / −0.5% |
-| Display 2 | 56 / 64 | 32 / 40 | 700 | −1% / −0.5% |
-| H1 | 40 / 48 | 28 / 36 | 700 | −0.5% / −0.25% |
-| H2 | 32 / 40 | 22 / 32 | 600 | −0.25% / 0 |
-| H3 | 24 / 32 | 18 / 28 | 600 | 0 |
-| H4 | 20 / 28 | 16 / 24 | 600 | 0 |
-| Eyebrow | 12 / 16 | 11 / 16 | 600 | 0.12em |
-| Body Large | 18 / 28 | 16 / 24 | 400 | 0 |
-| Body | 16 / 24 | 14 / 20 | 400 | 0 |
-| Small | 14 / 20 | 12 / 18 | 400 | 0 |
-| Caption | 12 / 16 | 11 / 16 | 400 | 0 |
-| Mini / Labels | 11 / 16 | 10 / 14 | 400 | 0 · mono |
-| Data / Mono | 12 / 16 | 11 / 14 | 400 | 0 · mono |
-
 CSS clamps: `--type-display-1` … `--type-h4`, `--font-body`, `--font-eyebrow`, `--font-data`.
 
 ---
 
 ## Spacing (8px base)
 
-`8 · 16 · 24 · 32 · 40 · 48 · 64 · 80 · 96 · 128`  
-Tokens: `--space-2` … `--space-32`.
-
-Section vertical rhythm: ~88–132px (premium home).
+Tokens: `--space-2` … `--space-32`. Gutters: `--page-gutter`, max `--page-max`.
 
 ---
 
@@ -89,53 +102,34 @@ Section vertical rhythm: ~88–132px (premium home).
 
 | Variant | Class | Spec |
 |---------|-------|------|
-| Primary | `.btn-primary` | Lime fill `#CCFC41`, black text, radius 6px, optional → |
-| Secondary | `.btn-secondary` | Black fill, white border, white text |
-| Ghost | `.btn-ghost` | Transparent, lime text |
-| Disabled | `:disabled` | Slate fill, muted text |
+| Primary | `.btn-primary` | Lime fill, black text, pill (`--btn-radius: 999px`) |
+| Secondary | `.btn-secondary` | Black fill, white border, pill |
+| Ghost | `.btn-ghost` | Transparent, lime text, pill |
+| Nav | `.nav__cta` / `.nav__hiring` | Same pill radius |
+| CTA on lime | `.ph-cta-band__btn` | Black fill, lime text, pill |
 
-Hover: brightness / border only — **no large scale/translate**. Focus: `--focus-ring`.
+### Cards
 
-### Stat / metric cards
-
-- Background `--graphite` (`#111111`)
-- Hairline border `--border-strong`
-- Large white metric + lime icon accent
-
-### Cards (interactive only)
-
-- Prefer no decorative cards on marketing heroes
-- When needed: `--surface` + `--border-strong`, hover border → lime soft
+Prefer `PremiumCard` / `.ph-agent-card`. No decorative cards in heroes.
 
 ### Links
 
-- Default / `.text-link`: lime; hover brighter / underline offset
+`.text-link`: lime; hover brighter.
 
 ---
 
 ## Motion
 
-- Micro: **150–250ms**, `--ease-out`
-- Prefer opacity / border / filter
-- Respect `prefers-reduced-motion`
-
----
-
-## Messaging tone (examples)
-
-- “AI shouldn't be another tool. It should transform how your company operates.”
-- “Human intelligence. Artificial scale.”
-- “Dark. Intelligent. Governed. Scalable.”
+Micro: **150–250ms**, `--ease-out`. Respect `prefers-reduced-motion`.
 
 ---
 
 ## Pre-delivery checklist
 
-- [ ] Tokens only (no stray `#c8ff00` / old green gradient)
-- [ ] Inter Tight headings · Inter body · Plex Mono data
-- [ ] Lime ≤ ~10% of the viewport
-- [ ] No brand blue
-- [ ] Contrast body ≥ 4.5:1
-- [ ] Focus visible
-- [ ] `prefers-reduced-motion`
+- [ ] Tokens only
+- [ ] Inter Tight / Inter / Plex Mono
+- [ ] Lime ≤ ~10%
+- [ ] Contrast via `--text-on-light` / `--text-on-lime` on light/lime
+- [ ] Shell = `Premium*` components
+- [ ] Focus visible + reduced motion
 - [ ] Responsive 375 / 768 / 1024 / 1440

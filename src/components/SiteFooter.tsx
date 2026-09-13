@@ -63,9 +63,9 @@ export default function SiteFooter() {
       <div className="site-footer__grid">
         <div className="site-footer__brand">
           <Image
-            src="/logo-remparia.png"
+            src="/logo-remparia-v3.png"
             alt={f.logoAlt}
-            width={162}
+            width={178}
             height={32}
             className="footer__logo"
           />

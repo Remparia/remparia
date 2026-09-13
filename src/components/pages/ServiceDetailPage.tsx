@@ -3,7 +3,12 @@
 import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
 import { notFound } from "next/navigation";
-import { CtaBand, PageHero } from "@/components/PageBits";
+import {
+  PremiumCtaBand,
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import { getService, getServiceImage, HOME, SERVICES } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
@@ -22,8 +27,8 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
   const flip = siblingIndex % 2 === 1;
 
   return (
-    <div className="page page--premium page--premium-inner">
-      <PageHero
+    <PremiumPageShell>
+      <PremiumHero
         eyebrow={`${all.title} / ${item.tag}`}
         title={item.title}
         sub={item.desc}
@@ -33,11 +38,11 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
           { name: item.title },
         ]}
       />
-      <section className="section">
+      <PremiumSection light>
         <div
-          className={`service-detail reveal${flip ? " service-detail--flip" : ""}`}
+          className={`service-detail${flip ? " service-detail--flip" : ""}`}
         >
-          <div className="service-detail__media media-reveal">
+          <div className="service-detail__media">
             <Image
               src={getServiceImage(slug)}
               alt=""
@@ -47,8 +52,8 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
               priority
             />
           </div>
-          <div className="service-detail__content reveal" data-d="2">
-            <ul className="detail-points">
+          <div className="service-detail__content">
+            <ul className="detail-points ph-check">
               {item.points.map((p) => (
                 <li key={p}>{p}</li>
               ))}
@@ -71,8 +76,8 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
             </div>
           </div>
         </div>
-      </section>
-      <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
-    </div>
+      </PremiumSection>
+      <PremiumCtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
+    </PremiumPageShell>
   );
 }

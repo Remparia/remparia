@@ -1,7 +1,13 @@
 "use client";
 
 import LocaleLink from "@/components/LocaleLink";
-import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
+import {
+  PremiumCard,
+  PremiumCtaBand,
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import { HOME } from "@/lib/content";
 import { DEMARRER } from "@/lib/strategy";
 import { useLang } from "@/lib/lang";
@@ -31,8 +37,8 @@ export default function DemarrerPage() {
         };
 
   return (
-    <div className="page page--premium page--premium-inner">
-      <PageHero
+    <PremiumPageShell>
+      <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
@@ -52,75 +58,64 @@ export default function DemarrerPage() {
         }
       />
 
-      <section className="section">
-        <div className="card-grid">
-          {t.paths.map((path, i) => (
-            <article
-              key={path.tag}
-              className="info-card reveal"
-              data-d={String(Math.min(i + 1, 3))}
-            >
-              <div className="info-card__tag">{path.tag}</div>
-              <h3>{path.title}</h3>
-              <dl className="signal-card__meta" style={{ marginTop: 12 }}>
-                <div>
-                  <dt>{labels.forWho}</dt>
-                  <dd>{path.forWho}</dd>
+      <PremiumSection
+        eyebrow={lang === "fr" ? "01 / PARCOURS" : "01 / PATHS"}
+        title={lang === "fr" ? "Choisir comment démarrer" : "Choose how to start"}
+      >
+        <div className="ph-workforce" style={{ marginTop: 28 }}>
+          {t.paths.map((path) => (
+            <PremiumCard key={path.tag} tag={path.tag} title={path.title}>
+              <dl className="ph-audit" style={{ marginTop: 12 }}>
+                <div className="ph-audit__row">
+                  <span>{labels.forWho}</span>
+                  <strong>{path.forWho}</strong>
                 </div>
-                <div>
-                  <dt>{labels.what}</dt>
-                  <dd>{path.what}</dd>
+                <div className="ph-audit__row">
+                  <span>{labels.what}</span>
+                  <strong>{path.what}</strong>
                 </div>
-                <div>
-                  <dt>{labels.leaveWith}</dt>
-                  <dd>{path.leaveWith}</dd>
+                <div className="ph-audit__row">
+                  <span>{labels.leaveWith}</span>
+                  <strong>{path.leaveWith}</strong>
                 </div>
-                <div>
-                  <dt>{labels.duration}</dt>
-                  <dd>{path.duration}</dd>
+                <div className="ph-audit__row">
+                  <span>{labels.duration}</span>
+                  <strong>{path.duration}</strong>
                 </div>
-                <div>
-                  <dt>{labels.price}</dt>
-                  <dd>{path.price}</dd>
+                <div className="ph-audit__row">
+                  <span>{labels.price}</span>
+                  <strong>{path.price}</strong>
                 </div>
-                <div>
-                  <dt>{labels.next}</dt>
-                  <dd>{path.next}</dd>
+                <div className="ph-audit__row">
+                  <span>{labels.next}</span>
+                  <strong>{path.next}</strong>
                 </div>
               </dl>
-            </article>
+            </PremiumCard>
           ))}
         </div>
-      </section>
+      </PremiumSection>
 
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>{t.pricingTitle}</SectionLabel>
-          <h2 className="section__title">{t.pricingTitle}</h2>
-          <p className="section__body">{t.pricingBody}</p>
-        </div>
-      </section>
+      <PremiumSection light eyebrow={`02 / ${t.pricingTitle}`} title={t.pricingTitle} body={t.pricingBody} />
 
-      <section className="section">
-        <div className="reveal">
-          <SectionLabel>{t.nextTitle}</SectionLabel>
-          <h2 className="section__title">{t.nextTitle}</h2>
-          <p className="section__body">{t.nextBody}</p>
-        </div>
-      </section>
+      <PremiumSection eyebrow={`03 / ${t.nextTitle}`} title={t.nextTitle} body={t.nextBody} />
 
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>{t.methodTitle}</SectionLabel>
-          <h2 className="section__title">{t.methodTitle}</h2>
-          <p className="section__body">{t.methodBody}</p>
-          <LocaleLink href="/signal" className="text-link" style={{ marginTop: 16, display: "inline-block" }}>
-            {t.methodCta}
-          </LocaleLink>
-        </div>
-      </section>
+      <PremiumSection light eyebrow={`04 / ${t.methodTitle}`} title={t.methodTitle} body={t.methodBody}>
+        <LocaleLink
+          href="/signal"
+          className="text-link"
+          style={{ marginTop: 16, display: "inline-block" }}
+        >
+          {t.methodCta}
+        </LocaleLink>
+      </PremiumSection>
 
-      <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} href="/contact" />
-    </div>
+      <PremiumCtaBand
+        tag={cta.ctaTag}
+        title={cta.ctaH}
+        text={cta.ctaP}
+        href="/contact"
+      />
+    </PremiumPageShell>
   );
 }

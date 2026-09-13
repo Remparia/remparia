@@ -2,8 +2,14 @@
 
 import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
-import { Breadcrumbs, type Crumb } from "@/components/PageBits";
+import {
+  PremiumCtaBand,
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import { getSecteurMeta } from "@/lib/secteurs-meta";
+import type { Crumb } from "@/components/PageBits";
 
 export function SecteurHero({
   slug,
@@ -29,38 +35,33 @@ export function SecteurHero({
   const meta = getSecteurMeta(slug);
 
   return (
-    <header className="secteur-hero">
-      <div className="secteur-hero__copy">
-        <div className="reveal">
-          <Breadcrumbs items={crumbs} />
-        </div>
-        <div className="page-hero__eyebrow reveal" data-d="1">
-          // {eyebrow}
-        </div>
-        <h1 className="secteur-hero__title clip">{title}</h1>
-        <p className="secteur-hero__sub reveal" data-d="2">
-          {sub}
-        </p>
-        <div className="secteur-hero-cta reveal" data-d="3">
+    <PremiumHero
+      eyebrow={eyebrow}
+      title={title}
+      sub={sub}
+      crumbs={crumbs}
+      actions={
+        <>
           <LocaleLink href={ctaHref} className="btn-primary">
             {ctaLabel}
           </LocaleLink>
-          <LocaleLink href={secondaryHref} className="text-link">
+          <LocaleLink href={secondaryHref} className="btn-ghost">
             {secondaryLabel} →
           </LocaleLink>
-        </div>
-      </div>
-      <div className="secteur-hero__media media-reveal">
+        </>
+      }
+      media={
         <Image
           src={meta.image}
           alt=""
           fill
           sizes="(max-width: 960px) 100vw, 48vw"
-          className="secteur-hero__img"
           priority
           quality={85}
         />
-      </div>
-    </header>
+      }
+    />
   );
 }
+
+export { PremiumPageShell, PremiumSection, PremiumCtaBand };

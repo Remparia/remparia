@@ -1,14 +1,8 @@
-# Démarrer — page override
+# Services & Démarrer
 
-> Overrides `design-system/remparia/MASTER.md` for `/demarrer`.
+> Overrides MASTER for `/services`, `/services/[slug]`, `/demarrer`.
 
-## Intent
-
-Path selection / offer clarity: who, what, leave-with, duration, price, next.
-
-## Rules
-
-- Path cards use structured `.signal-card__meta` — scannable, no decorative chips
-- Hero dual CTA: Contact (primary) + Solution (ghost)
-- Pricing / next / method sections: one headline + one body each
-- Method link: `.text-link` solid accent (no clip blur)
+- Shell: `PremiumPageShell` + `PremiumHero` + `PremiumSection` + `PremiumCtaBand`
+- Demarrer paths: `PremiumCard` inside `ph-workforce` (no `info-card`)
+- Service detail: media + checklist on light band
+- CTA href demarrer default; contact for demarrer page

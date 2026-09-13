@@ -1,7 +1,11 @@
 "use client";
 
 import LocaleLink from "@/components/LocaleLink";
-import { PageHero } from "@/components/PageBits";
+import {
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import { resetCookieConsent } from "@/lib/cookie-consent";
 import {
   COOKIE_TABLE,
@@ -26,8 +30,8 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
   const analyticsData = page === "cookies" ? ANALYTICS_DATA[lang] : null;
 
   return (
-    <div className="page page--premium page--premium-inner">
-      <PageHero
+    <PremiumPageShell>
+      <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
@@ -36,12 +40,12 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
           { name: crumb },
         ]}
       />
-      <section className="section legal-doc">
+      <PremiumSection light className="legal-doc">
         {t.sections.map((section) => (
-          <article key={section.title} className="legal-doc__block reveal">
+          <article key={section.title} className="legal-doc__block">
             <h2 className="legal-doc__title">{section.title}</h2>
             {section.paragraphs.map((p) => (
-              <p key={p.slice(0, 48)} className="section__body">
+              <p key={p.slice(0, 48)} className="ph-body">
                 {p}
               </p>
             ))}
@@ -49,9 +53,9 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
         ))}
 
         {cookieTable ? (
-          <article className="legal-doc__block reveal">
+          <article className="legal-doc__block">
             <h2 className="legal-doc__title">{cookieTable.title}</h2>
-            <p className="section__body">{cookieTable.intro}</p>
+            <p className="ph-body">{cookieTable.intro}</p>
             <div className="cookie-table-wrap">
               <table className="cookie-table">
                 <thead>
@@ -84,9 +88,9 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
         ) : null}
 
         {analyticsData ? (
-          <article className="legal-doc__block reveal">
+          <article className="legal-doc__block">
             <h2 className="legal-doc__title">{analyticsData.title}</h2>
-            <p className="section__body">{analyticsData.intro}</p>
+            <p className="ph-body">{analyticsData.intro}</p>
             <ul className="cookie-data-list">
               {analyticsData.items.map((item) => (
                 <li key={item.label}>
@@ -99,7 +103,7 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
         ) : null}
 
         {page === "cookies" ? (
-          <p className="section__body reveal">
+          <p className="ph-body">
             {lang === "fr" ? (
               <>
                 Voir aussi la{" "}
@@ -118,7 +122,7 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
         ) : null}
 
         {page === "confidentialite" ? (
-          <p className="section__body reveal">
+          <p className="ph-body">
             {lang === "fr" ? (
               <>
                 Inventaire détaillé des cookies :{" "}
@@ -142,7 +146,7 @@ export default function LegalDocPage({ page }: { page: LegalPageKey }) {
             {lang === "fr" ? "Gérer les cookies" : "Cookie settings"} →
           </button>
         ) : null}
-      </section>
-    </div>
+      </PremiumSection>
+    </PremiumPageShell>
   );
 }

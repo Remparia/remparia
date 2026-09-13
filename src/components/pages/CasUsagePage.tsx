@@ -2,7 +2,12 @@
 
 import LocaleLink from "@/components/LocaleLink";
 import AgentFicheGrid from "@/components/AgentFicheGrid";
-import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
+import {
+  PremiumCtaBand,
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import { HOME } from "@/lib/content";
 import { getFlagshipAgent } from "@/lib/agents";
 import { CAS_USAGE } from "@/lib/strategy";
@@ -35,8 +40,8 @@ export default function CasUsagePage() {
         };
 
   return (
-    <div className="page page--premium page--premium-inner">
-      <PageHero
+    <PremiumPageShell>
+      <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
@@ -46,41 +51,34 @@ export default function CasUsagePage() {
         ]}
       />
 
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>
-            {lang === "fr" ? "FLAGSHIP" : "FLAGSHIP"}
-          </SectionLabel>
-          <h2 className="section__title">
-            {lang === "fr"
-              ? "L’Agent Commerce, en tête"
-              : "The Commerce Agent, first"}
-          </h2>
-          <p className="section__body">
-            {lang === "fr"
-              ? "Qualification, relances et CRM : le premier agent à industrialiser quand le réseau commercial est le levier."
-              : "Qualification, follow-up and CRM: the first agent to industrialize when the sales network is the lever."}
-          </p>
-          <AgentFicheGrid
-            agents={[flagship]}
-            packHref="/solutions/commerce"
-          />
-        </div>
-      </section>
+      <PremiumSection
+        light
+        eyebrow="01 / FLAGSHIP"
+        title={
+          lang === "fr"
+            ? "L’Agent Commerce, en tête"
+            : "The Commerce Agent, first"
+        }
+        body={
+          lang === "fr"
+            ? "Qualification, relances et CRM : le premier agent à industrialiser quand le réseau commercial est le levier."
+            : "Qualification, follow-up and CRM: the first agent to industrialize when the sales network is the lever."
+        }
+      >
+        <AgentFicheGrid agents={[flagship]} packHref="/solutions/commerce" />
+      </PremiumSection>
 
-      <section className="section">
-        <div className="use-case-grid">
+      <PremiumSection
+        eyebrow={lang === "fr" ? "02 / CAS" : "02 / CASES"}
+        title={lang === "fr" ? "Processus concrètes" : "Concrete processes"}
+      >
+        <div className="use-case-grid" style={{ marginTop: 28 }}>
           {t.items.map((item, i) => {
             const context = getUseCaseContext(item.slug, lang);
             return (
-              <article
-                key={item.slug}
-                id={item.slug}
-                className="use-case-card reveal"
-                data-d={String(Math.min((i % 3) + 1, 3))}
-              >
+              <article key={item.slug} id={item.slug} className="use-case-card">
                 <div className="use-case-card__head">
-                  <div className="info-card__tag">
+                  <div className="ph-agent-card__tag">
                     UC-{String(i + 1).padStart(2, "0")}
                   </div>
                   {context ? (
@@ -143,24 +141,25 @@ export default function CasUsagePage() {
             );
           })}
         </div>
-      </section>
+      </PremiumSection>
 
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>{t.osLine}</SectionLabel>
-          <p className="section__body">{t.banner}</p>
-          <div style={{ marginTop: 24, display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <LocaleLink href="/demarrer" className="btn-primary">
-              {t.ctaPrimary}
-            </LocaleLink>
-            <LocaleLink href="/solution" className="btn-ghost">
-              {t.osCta}
-            </LocaleLink>
-          </div>
+      <PremiumSection light eyebrow={`03 / ${t.osLine}`} body={t.banner}>
+        <div style={{ marginTop: 24, display: "flex", gap: 16, flexWrap: "wrap" }}>
+          <LocaleLink href="/demarrer" className="btn-primary">
+            {t.ctaPrimary}
+          </LocaleLink>
+          <LocaleLink href="/solution" className="btn-ghost">
+            {t.osCta}
+          </LocaleLink>
         </div>
-      </section>
+      </PremiumSection>
 
-      <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} href="/demarrer" />
-    </div>
+      <PremiumCtaBand
+        tag={cta.ctaTag}
+        title={cta.ctaH}
+        text={cta.ctaP}
+        href="/demarrer"
+      />
+    </PremiumPageShell>
   );
 }

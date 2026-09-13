@@ -119,7 +119,7 @@
   align-items: center;
   gap: 8px;
   text-transform: none !important;
-  border-radius: var(--radius) !important;
+  border-radius: var(--btn-radius) !important;
   background: var(--lime) !important;
   color: var(--ink) !important;
   font: var(--btn-font) !important;
@@ -135,7 +135,7 @@
 
 .nav__hiring {
   text-transform: none !important;
-  border-radius: var(--radius) !important;
+  border-radius: var(--btn-radius) !important;
   letter-spacing: 0 !important;
   font: var(--btn-font) !important;
   color: var(--lime) !important;
@@ -271,7 +271,7 @@ a.info-card:focus-visible {
 /* ——— Back to top ——— */
 .back-to-top {
   border-color: var(--border-accent) !important;
-  border-radius: var(--radius-sm) !important;
+  border-radius: 50% !important;
   color: var(--lime) !important;
 }
 
@@ -312,41 +312,11 @@ a.info-card:focus-visible {
   background: var(--graphite) !important;
 }
 
+/* Legacy .cta overrides — marketing CTAs now use .ph-cta-band (PremiumCtaBand).
+   Keep minimal bridge only if orphan pages still render .cta markup. */
 .page--premium-inner .cta {
   background: var(--lime) !important;
-  color: #0a0a0a !important;
-}
-
-.page--premium-inner .cta .section__title,
-.page--premium-inner .cta .section__title--lg,
-.page--premium-inner .cta .cta__tag,
-.page--premium-inner .cta .cta__text {
-  color: #0a0a0a !important;
-  background-image: none !important;
-  -webkit-text-fill-color: #0a0a0a !important;
-}
-
-.page--premium-inner .cta .cta__btn {
-  color: var(--lime) !important;
-  background: #0a0a0a !important;
-  -webkit-text-fill-color: var(--lime) !important;
-}
-
-.page--premium-inner .cta .cta__btn:hover,
-.page--premium-inner .cta .cta__btn:focus-visible {
-  color: #fff !important;
-  -webkit-text-fill-color: #fff !important;
-}
-
-.page--premium-inner .cta .cta__mail {
-  color: rgba(0, 0, 0, 0.75) !important;
-  -webkit-text-fill-color: rgba(0, 0, 0, 0.75) !important;
-}
-
-.page--premium-inner .cta .cta__mail:hover,
-.page--premium-inner .cta .cta__mail:focus-visible {
-  color: #0a0a0a !important;
-  -webkit-text-fill-color: #0a0a0a !important;
+  color: var(--text-on-lime) !important;
 }
 
 /* ——— Signal / position / team cards ——— */
@@ -601,11 +571,11 @@ a.info-card:focus-visible {
 .page--premium .ph-cta-band__btn {
   background: var(--lime) !important;
   color: var(--ink) !important;
-  border-radius: var(--radius) !important;
+  border-radius: var(--btn-radius) !important;
 }
 
 .page--premium .ph-btn--ghost {
-  border-radius: var(--radius) !important;
+  border-radius: var(--btn-radius) !important;
   border-color: var(--border-accent) !important;
 }
 

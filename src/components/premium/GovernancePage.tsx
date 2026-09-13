@@ -44,12 +44,12 @@ export default function GovernancePage() {
             {t.heatmap.items.map((item) => (
               <article
                 key={item.level}
-                className={`info-card heatmap-card heatmap-card--${item.level}`}
+                className={`ph-agent-card heatmap-card heatmap-card--${item.level}`}
               >
-                <div className="info-card__tag">
+                <span className="ph-agent-card__tag">
                   <span className="status-dot" aria-hidden />
                   {item.title}
-                </div>
+                </span>
                 <p>{item.desc}</p>
               </article>
             ))}

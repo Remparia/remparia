@@ -2,7 +2,11 @@
 
 import { FormEvent, useId, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
-import { PageHero } from "@/components/PageBits";
+import {
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import {
   apiErrorToField,
   type ContactField,
@@ -135,8 +139,8 @@ export default function ContactPage() {
   const message = fieldProps("message");
 
   return (
-    <div className="page page--premium page--premium-inner">
-      <PageHero
+    <PremiumPageShell>
+      <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
@@ -145,10 +149,10 @@ export default function ContactPage() {
           { name: t.title },
         ]}
       />
-      <section className="section">
+      <PremiumSection light>
         <div className="contact-grid">
           <form
-            className="contact-form reveal"
+            className="contact-form"
             onSubmit={onSubmit}
             noValidate
           >
@@ -266,8 +270,8 @@ export default function ContactPage() {
               </LocaleLink>
             </p>
           </form>
-          <div className="contact-aside reveal" data-d="2">
-            <div className="section__tag">// EMAIL</div>
+          <div className="contact-aside">
+            <p className="ph-eyebrow">EMAIL</p>
             <a href={`mailto:${t.email}`} className="contact-email">
               {t.email}
             </a>
@@ -276,7 +280,7 @@ export default function ContactPage() {
             </a>
           </div>
         </div>
-      </section>
-    </div>
+      </PremiumSection>
+    </PremiumPageShell>
   );
 }

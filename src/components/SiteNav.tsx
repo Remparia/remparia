@@ -195,9 +195,9 @@ export default function SiteNav() {
       >
         <LocaleLink href="/" className="nav__brand" aria-label="Remparia">
           <Image
-            src="/logo-remparia.png"
+            src="/logo-remparia-v3.png"
             alt=""
-            width={192}
+            width={211}
             height={38}
             className="nav__logo"
             priority

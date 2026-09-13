@@ -2,8 +2,13 @@
 
 import { useMemo, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
-import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
 import { SecteurCard } from "@/components/SecteurCard";
+import {
+  PremiumCtaBand,
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import { HOME, SECTEURS } from "@/lib/content";
 import {
   getSecteurMeta,
@@ -48,8 +53,8 @@ export default function SecteursPage() {
   }, [t.items, filter, query]);
 
   return (
-    <div className="page page--premium page--premium-inner">
-      <PageHero
+    <PremiumPageShell>
+      <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
@@ -59,8 +64,11 @@ export default function SecteursPage() {
         ]}
       />
 
-      <section className="section secteur-hub">
-        <div className="secteur-hub__toolbar reveal">
+      <PremiumSection
+        eyebrow={lang === "fr" ? "01 / MÉTIERS" : "01 / INDUSTRIES"}
+        title={lang === "fr" ? "Explorer les métiers" : "Browse industries"}
+      >
+        <div className="secteur-hub__toolbar" style={{ marginTop: 28 }}>
           <div
             className="secteur-filters"
             role="group"
@@ -93,11 +101,11 @@ export default function SecteursPage() {
           </label>
         </div>
 
-        <p className="secteur-hub__count reveal" data-d="1">
+        <p className="secteur-hub__count" style={{ marginTop: 16 }}>
           {filtered.length} {t.results}
         </p>
 
-        <div className="secteur-hub-grid">
+        <div className="secteur-hub-grid" style={{ marginTop: 24 }}>
           {filtered.map((item, i) => (
             <SecteurCard
               key={item.slug}
@@ -109,21 +117,23 @@ export default function SecteursPage() {
             />
           ))}
         </div>
-      </section>
+      </PremiumSection>
 
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>{t.hubMoreTitle}</SectionLabel>
-        </div>
-        <div className="secteur-hub-links reveal" data-d="1">
+      <PremiumSection
+        light
+        eyebrow={lang === "fr" ? "02 / ALLER PLUS LOIN" : "02 / GO FURTHER"}
+        title={t.hubMoreTitle}
+      >
+        <div className="secteur-hub-links" style={{ marginTop: 24 }}>
           {t.hubLinks.map((link) => (
             <LocaleLink key={link.href} href={link.href} className="text-link">
               {link.label} →
             </LocaleLink>
           ))}
         </div>
-      </section>
-      <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
-    </div>
+      </PremiumSection>
+
+      <PremiumCtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
+    </PremiumPageShell>
   );
 }

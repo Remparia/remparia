@@ -1,18 +1,15 @@
 "use client";
 
 import LocaleLink from "@/components/LocaleLink";
-import { NAV } from "@/lib/content";
-import { CONTACT_EMAIL } from "@/lib/contact-email";
-import { useLang } from "@/lib/lang";
+import {
+  PremiumCtaBand,
+  type Crumb,
+} from "@/components/premium/PremiumShell";
 
-export type Crumb = {
-  name: string;
-  href?: string;
-};
+export type { Crumb };
 
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
-  const { lang } = useLang();
-  const label = lang === "fr" ? "Fil d'Ariane" : "Breadcrumb";
+  const label = "Breadcrumb";
 
   if (!items.length) return null;
 
@@ -45,6 +42,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
   );
 }
 
+/** @deprecated Prefer PremiumHero from PremiumShell */
 export function PageHero({
   eyebrow,
   title,
@@ -81,40 +79,19 @@ export function PageHero({
   );
 }
 
+/** Unified lime CTA — delegates to PremiumCtaBand */
 export function CtaBand({
   tag,
   title,
   text,
-  href = "/contact",
+  href = "/demarrer",
 }: {
   tag: string;
   title: string;
   text?: string;
   href?: string;
 }) {
-  const { lang } = useLang();
-  const demo = NAV[lang].demo;
-
-  return (
-    <section className="cta">
-      <div className="cta__star" aria-hidden>
-        ✳
-      </div>
-      <div className="cta__inner reveal">
-        <div className="cta__tag">// {tag}</div>
-        <h2 className="section__title section__title--lg">{title}</h2>
-        {text ? <p className="cta__text">{text}</p> : null}
-        <div className="cta__actions">
-          <LocaleLink href={href} className="cta__btn">
-            {demo} →
-          </LocaleLink>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="cta__mail">
-            {CONTACT_EMAIL}
-          </a>
-        </div>
-      </div>
-    </section>
-  );
+  return <PremiumCtaBand tag={tag} title={title} text={text} href={href} />;
 }
 
 export function SectionLabel({ children }: { children: React.ReactNode }) {

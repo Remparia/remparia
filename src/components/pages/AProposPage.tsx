@@ -1,7 +1,13 @@
 "use client";
 
 import LocaleLink from "@/components/LocaleLink";
-import { CtaBand, PageHero, SectionLabel } from "@/components/PageBits";
+import {
+  PremiumCard,
+  PremiumCtaBand,
+  PremiumHero,
+  PremiumPageShell,
+  PremiumSection,
+} from "@/components/premium/PremiumShell";
 import { APROPOS, BRAND, HOME } from "@/lib/content";
 import { LEGAL_ENTITY } from "@/lib/legal";
 import { useLang } from "@/lib/lang";
@@ -18,8 +24,8 @@ export default function AProposPage() {
   const label = lang === "fr" ? "À propos" : "About";
 
   return (
-    <div className="page page--premium page--premium-inner">
-      <PageHero
+    <PremiumPageShell>
+      <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
@@ -28,44 +34,33 @@ export default function AProposPage() {
           { name: label },
         ]}
       />
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>{lang === "fr" ? "CONVICTION" : "CONVICTION"}</SectionLabel>
-          <h2 className="section__title">{t.convictionH}</h2>
-          <p className="section__body">{t.convictionP}</p>
-        </div>
-      </section>
+      <PremiumSection
+        light
+        eyebrow={lang === "fr" ? "01 / CONVICTION" : "01 / CONVICTION"}
+        title={t.convictionH}
+        body={t.convictionP}
+      />
 
-      <section className="section">
-        <div className="conviction">
-          <div className="reveal">
-            <SectionLabel>{brand.visionTag}</SectionLabel>
-            <h2 className="section__title">{brand.visionH}</h2>
-          </div>
-          <div className="conviction__quote reveal" data-d="2">
-            <p>{brand.visionP}</p>
-          </div>
+      <PremiumSection eyebrow={`02 / ${brand.visionTag}`} title={brand.visionH}>
+        <div className="conviction__quote" style={{ marginTop: 28 }}>
+          <p>{brand.visionP}</p>
         </div>
-        <div className="reveal" style={{ marginTop: 64 }}>
-          <SectionLabel>{brand.missionTag}</SectionLabel>
-          <h2 className="section__title">{brand.missionH}</h2>
-          <p className="section__body">{brand.missionP}</p>
-        </div>
-      </section>
+        <p className="ph-eyebrow" style={{ marginTop: 64 }}>
+          {brand.missionTag}
+        </p>
+        <h2 className="ph-title">{brand.missionH}</h2>
+        <p className="ph-body">{brand.missionP}</p>
+      </PremiumSection>
 
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>{t.teamTitle}</SectionLabel>
-          <h2 className="section__title">{t.teamTitle}</h2>
-          <p className="section__body">{t.teamSub}</p>
-        </div>
+      <PremiumSection
+        light
+        eyebrow={`03 / ${t.teamTitle}`}
+        title={t.teamTitle}
+        body={t.teamSub}
+      >
         <div className="team-grid" style={{ marginTop: 32 }}>
-          {team.map((person, i) => (
-            <article
-              key={person.id}
-              className="team-card reveal"
-              data-d={String(Math.min(i + 1, 3))}
-            >
+          {team.map((person) => (
+            <article key={person.id} className="team-card">
               <div className="team-card__initial" aria-hidden>
                 {person.name
                   .split(/\s+/)
@@ -91,69 +86,52 @@ export default function AProposPage() {
             </article>
           ))}
         </div>
-      </section>
+      </PremiumSection>
 
-      <section className="section">
-        <div className="reveal">
-          <SectionLabel>{brand.valuesTag}</SectionLabel>
-          <h2 className="section__title">{brand.valuesH}</h2>
-        </div>
-        <div className="card-grid" style={{ marginTop: 32 }}>
-          {brand.values.map((value, i) => (
-            <article
+      <PremiumSection eyebrow={`04 / ${brand.valuesTag}`} title={brand.valuesH}>
+        <div className="ph-workforce" style={{ marginTop: 32 }}>
+          {brand.values.map((value) => (
+            <PremiumCard
               key={value.tag}
-              className="info-card reveal"
-              data-d={String(Math.min((i % 3) + 1, 3))}
-            >
-              <div className="info-card__tag">{value.tag}</div>
-              <h3>{value.title}</h3>
-              <p>{value.desc}</p>
-            </article>
+              tag={value.tag}
+              title={value.title}
+              desc={value.desc}
+            />
           ))}
         </div>
-        <p className="section__body reveal" style={{ marginTop: 28 }}>
+        <p className="ph-body" style={{ marginTop: 28 }}>
           {brand.guarantee}
         </p>
-      </section>
+      </PremiumSection>
 
-      <section className="section section--alt">
-        <div className="reveal">
-          <SectionLabel>{t.collectiveTitle}</SectionLabel>
-          <h2 className="section__title">{t.collectiveTitle}</h2>
-          <p className="section__body">{t.collectiveSub}</p>
-        </div>
-        <div className="card-grid" style={{ marginTop: 28 }}>
-          {t.collective.map((role, i) => (
-            <article
+      <PremiumSection
+        light
+        eyebrow={`05 / ${t.collectiveTitle}`}
+        title={t.collectiveTitle}
+        body={t.collectiveSub}
+      >
+        <div className="ph-workforce" style={{ marginTop: 28 }}>
+          {t.collective.map((role) => (
+            <PremiumCard
               key={role.tag}
-              className="info-card reveal"
-              data-d={String(Math.min(i + 1, 3))}
-            >
-              <div className="info-card__tag">{role.tag}</div>
-              <h3>{role.title}</h3>
-              <p>{role.desc}</p>
-            </article>
+              tag={role.tag}
+              title={role.title}
+              desc={role.desc}
+            />
           ))}
         </div>
-      </section>
+      </PremiumSection>
 
-      <section className="section">
-        <div className="reveal">
-          <SectionLabel>{t.engagementTitle}</SectionLabel>
-          <h2 className="section__title">{t.engagementTitle}</h2>
-        </div>
-        <ul className="proof-badges" style={{ marginTop: 24 }}>
-          {t.engagement.map((line, i) => (
-            <li
-              key={line}
-              className="proof-badges__item reveal"
-              data-d={String(Math.min((i % 3) + 1, 3))}
-            >
-              {line}
-            </li>
+      <PremiumSection
+        eyebrow={`06 / ${t.engagementTitle}`}
+        title={t.engagementTitle}
+      >
+        <ul className="ph-check" style={{ marginTop: 24 }}>
+          {t.engagement.map((line) => (
+            <li key={line}>{line}</li>
           ))}
         </ul>
-        <p className="section__body reveal" style={{ marginTop: 28 }}>
+        <p className="ph-body" style={{ marginTop: 28 }}>
           {t.contactLine}{" "}
           <a href={`mailto:${LEGAL_ENTITY.email}`}>{LEGAL_ENTITY.email}</a>
           {" · "}
@@ -161,9 +139,9 @@ export default function AProposPage() {
             {lang === "fr" ? "Mentions légales" : "Legal notice"}
           </LocaleLink>
         </p>
-      </section>
+      </PremiumSection>
 
-      <CtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
-    </div>
+      <PremiumCtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
+    </PremiumPageShell>
   );
 }
