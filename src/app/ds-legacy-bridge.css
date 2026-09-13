@@ -98,7 +98,7 @@
 /* ——— Nav ——— */
 @media (min-width: 960px) {
   .nav__links {
-    font: 600 14px/1.2 var(--font-ui), sans-serif !important;
+    font: 400 14px/1.2 var(--font-ui), sans-serif !important;
     letter-spacing: 0 !important;
     text-transform: none !important;
   }

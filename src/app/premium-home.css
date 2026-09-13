@@ -435,8 +435,15 @@
 .ph-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 12px 16px;
+  margin: 28px 0 0; /* space under hero sub */
+}
+
+.ph-hero__sub {
   margin: 0;
+  max-width: 52ch;
+  font: 400 16px/1.5 var(--font-ui), sans-serif;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .ph-hero__cta {

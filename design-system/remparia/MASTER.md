@@ -74,7 +74,7 @@ Source: `src/components/premium/PremiumShell.tsx`.
 
 **Deprecated:** `PageHero`, raw `.section` / `.section--alt`, legacy `.cta` markup (`CtaBand` now wraps `PremiumCtaBand`).
 
-SIGNAL (`page--signal`) and OS (`page--solution`) keep custom layouts but must reuse tokens, gutters (`--page-gutter`), and lime CTA contrast rules.
+SIGNAL (`page--signal`) and OS (`page--solution`) keep custom layouts but must reuse tokens, gutters (`--page-gutter`), and lime CTA contrast rules. Studio, Governance and Sovereignty stay on the premium shell; compositions live in `studio-page.css` (`.st-*`), `governance-page.css` (`.gv-*`) and `sovereignty-page.css` (`.sv-*`) only.
 
 ---
 

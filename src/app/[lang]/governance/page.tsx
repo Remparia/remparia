@@ -11,11 +11,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isEn = lang === "en";
   return createPageMetadata({
     title: isEn
-      ? "Governance — production starts with control"
-      : "Gouvernance — la mise en production commence par le contrôle",
+      ? "Governance — speeds adoption without losing control"
+      : "Gouvernance — accélère l’adoption sans lâcher le contrôle",
     description: isEn
-      ? "ALLOW / REVIEW / BLOCK policies, human stops, auditable logs. Sovereignty is a deployment mode, not the product."
-      : "Politiques ALLOW / REVIEW / BLOCK, stops humains, journal opposable. La souveraineté est un mode de déploiement, pas le produit.",
+      ? "Remparia puts governance rails in the OS — ALLOW / REVIEW / BLOCK, identity, audit — so adoption speeds up safely. Not a PDF nobody reads."
+      : "Remparia pose les rails de gouvernance dans l’OS — ALLOW / REVIEW / BLOCK, identité, audit — pour accélérer l’adoption en sécurité. Pas un PDF.",
     path: "/governance",
     lang,
   });

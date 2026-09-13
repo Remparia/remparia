@@ -1718,7 +1718,7 @@
     display: flex;
     align-items: center;
     gap: 22px;
-    font: 700 13px var(--font-ui), sans-serif;
+    font: 500 13px var(--font-ui), sans-serif;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.7);

@@ -10,10 +10,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "Studio — build your AI workforce" : "Studio — construire votre force de travail IA",
+    title: isEn
+      ? "Studio — don't add a chatbot. Build the workforce."
+      : "Studio — n’ajoutez pas un chatbot. Construisez la force de travail.",
     description: isEn
-      ? "Studio assembles agents, skills, tools, knowledge, workflows and human approvals on a governed foundation."
-      : "Studio assemble agents, skills, outils, knowledge, workflows et validations humaines sur un socle gouverné.",
+      ? "After SIGNAL, Studio assembles specialized agents, skills, tools, knowledge and human approvals — ready to run in Remparia OS."
+      : "Après SIGNAL, Studio assemble agents spécialisés, compétences, outils, connaissance et validations humaines — prêts à tourner dans Remparia OS.",
     path: "/studio",
     lang,
   });
