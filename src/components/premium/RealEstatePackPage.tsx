@@ -1,7 +1,10 @@
 "use client";
 
-import VerticalPackPage from "@/components/premium/VerticalPackPage";
+import PackRichPage from "@/components/premium/PackRichPage";
+import { realEstateAgentPage } from "@/lib/real-estate-agent-page";
+import { useLang } from "@/lib/lang";
 
 export default function RealEstatePackPage() {
-  return <VerticalPackPage pack="real-estate" />;
+  const { lang } = useLang();
+  return <PackRichPage pack="real-estate" copy={realEstateAgentPage(lang)} />;
 }

@@ -209,6 +209,18 @@ a.info-card:focus-visible {
 .ds-lab__form textarea,
 .secteur-search input {
   border-radius: var(--radius-sm) !important;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-color: rgba(10, 10, 10, 0.18) !important;
+  color: var(--text-on-light) !important;
+  background: #fff !important;
+}
+
+.ds-lab__form input,
+.ds-lab__form textarea,
+.secteur-search input {
   border-color: var(--border-field) !important;
 }
 

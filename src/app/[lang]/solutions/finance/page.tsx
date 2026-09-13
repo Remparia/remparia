@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import VerticalPackPage from "@/components/premium/VerticalPackPage";
+import FinancePackPage from "@/components/premium/FinancePackPage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -11,16 +11,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isEn = lang === "en";
   return createPageMetadata({
     title: isEn
-      ? "Financial Services AI Workforce"
-      : "Pack services financiers — force de travail IA",
+      ? "Finance AI Pack — control without diluting the decision"
+      : "Pack finance — contrôler sans diluer la décision",
     description: isEn
-      ? "Assisted KYC, reporting and risk prep with audit trails."
-      : "KYC assisté, reporting et préparation risque avec pistes d’audit.",
+      ? "Governed finance AI workforce: assisted KYC, reporting and risk prep — with audit trails and human decisions on thresholds."
+      : "Force de travail IA finance gouvernée : KYC assisté, reporting et préparation risque — avec pistes d’audit et décisions humaines sur les seuils.",
     path: "/solutions/finance",
     lang,
   });
 }
 
 export default function Page() {
-  return <VerticalPackPage pack="finance" />;
+  return <FinancePackPage />;
 }

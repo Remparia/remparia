@@ -30,7 +30,7 @@ export default function VerticalPackPage({ pack }: { pack: AgentPack }) {
       <section className="ph-section">
         <div className="ph-shell">
           <p className="ph-eyebrow">
-            {lang === "fr" ? "05 / FICHES AGENTS" : "05 / AGENT CARDS"}
+            {lang === "fr" ? "06 / FICHES AGENTS" : "06 / AGENT CARDS"}
           </p>
           <AgentFicheGrid agents={agents} heading={heading} />
         </div>

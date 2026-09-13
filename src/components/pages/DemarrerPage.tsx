@@ -98,7 +98,20 @@ export default function DemarrerPage() {
 
       <PremiumSection light eyebrow={`02 / ${t.pricingTitle}`} title={t.pricingTitle} body={t.pricingBody} />
 
-      <PremiumSection eyebrow={`03 / ${t.nextTitle}`} title={t.nextTitle} body={t.nextBody} />
+      <PremiumSection eyebrow={`03 / ${t.nextTitle}`} title={t.nextTitle} body={t.nextBody}>
+        <div id="agentops" className="ph-workforce" style={{ marginTop: 28 }}>
+          {t.nextSteps.map((step) => (
+            <PremiumCard key={step.tag} tag={step.tag} title={step.title} desc={step.desc} />
+          ))}
+        </div>
+        <p style={{ marginTop: 20 }}>
+          <LocaleLink href="/solution" className="text-link">
+            {lang === "fr"
+              ? "Voir AgentOps dans les offres Remparia OS →"
+              : "See AgentOps in Remparia OS offers →"}
+          </LocaleLink>
+        </p>
+      </PremiumSection>
 
       <PremiumSection light eyebrow={`04 / ${t.methodTitle}`} title={t.methodTitle} body={t.methodBody}>
         <LocaleLink

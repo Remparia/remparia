@@ -11,10 +11,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "Agent services" : "Services agents métier",
+    title: isEn
+      ? "Services — delivery layer for Remparia OS"
+      : "Services — couche delivery de Remparia OS",
     description: isEn
-      ? "Diagnostic, governance, business agents, sovereign foundation and adoption: Remparia helps specialized teams absorb repetitive workload."
-      : "Diagnostic, gouvernance, agents métier, socle souverain et adoption : Remparia aide les équipes spécialisées à absorber la charge répétitive.",
+      ? "Frame with SIGNAL, build in Studio, deploy under sovereignty, drive adoption — implementation services for Remparia OS, not a parallel product."
+      : "Cadrer avec SIGNAL, construire dans Studio, déployer en souveraineté, faire adopter — services de mise en œuvre de Remparia OS, pas un produit parallèle.",
     path: "/services",
     lang,
   });

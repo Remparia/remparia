@@ -37,6 +37,11 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
           { name: all.title, href: "/services" },
           { name: item.title },
         ]}
+        actions={
+          <LocaleLink href="/demarrer" className="btn-primary">
+            {all.startCta}
+          </LocaleLink>
+        }
       />
       <PremiumSection light>
         <div
@@ -53,6 +58,24 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
             />
           </div>
           <div className="service-detail__content">
+            <dl className="ph-audit" style={{ marginBottom: 20 }}>
+              <div className="ph-audit__row">
+                <span>{all.promiseLabel}</span>
+                <strong>{item.promise}</strong>
+              </div>
+              <div className="ph-audit__row">
+                <span>{all.deliverableLabel}</span>
+                <strong>{item.deliverable}</strong>
+              </div>
+              <div className="ph-audit__row">
+                <span>{all.platformLabel}</span>
+                <strong>
+                  <LocaleLink href={item.platformHref} className="text-link">
+                    {item.platformLabel} →
+                  </LocaleLink>
+                </strong>
+              </div>
+            </dl>
             <ul className="detail-points ph-check">
               {item.points.map((p) => (
                 <li key={p}>{p}</li>
@@ -77,7 +100,12 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
           </div>
         </div>
       </PremiumSection>
-      <PremiumCtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
+      <PremiumCtaBand
+        tag={cta.ctaTag}
+        title={cta.ctaH}
+        text={cta.ctaP}
+        href="/demarrer"
+      />
     </PremiumPageShell>
   );
 }

@@ -128,6 +128,18 @@ export default function PremiumMarketingPage({
                   {section.note}
                 </p>
               ) : null}
+
+              {section.links?.length ? (
+                <ul className="ph-check" style={{ marginTop: 24 }}>
+                  {section.links.map((link) => (
+                    <li key={link.href}>
+                      <LocaleLink href={link.href} className="text-link">
+                        {link.label} →
+                      </LocaleLink>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           </section>
         );

@@ -1,5 +1,6 @@
 "use client";
 
+import LocaleLink from "@/components/LocaleLink";
 import {
   PremiumCtaBand,
   PremiumHero,
@@ -27,6 +28,21 @@ export default function ServicesPage() {
           { name: t.title },
         ]}
       />
+      <PremiumSection light eyebrow={`01 / ${t.commitmentTitle}`} title={t.commitmentTitle} body={t.intro}>
+        <ul className="ph-check" style={{ marginTop: 24 }}>
+          {t.commitments.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+        <p className="ph-body" style={{ marginTop: 20 }}>
+          {t.scopeBody}
+        </p>
+        <div style={{ marginTop: 24 }}>
+          <LocaleLink href="/demarrer" className="btn-primary">
+            {t.startCta}
+          </LocaleLink>
+        </div>
+      </PremiumSection>
       <PremiumSection className="ph-section--tight">
         <div className="video-frame video-frame--native">
           <video
@@ -52,7 +68,12 @@ export default function ServicesPage() {
           <ServiceDiagSection content={section} />
         </div>
       ))}
-      <PremiumCtaBand tag={cta.ctaTag} title={cta.ctaH} text={cta.ctaP} />
+      <PremiumCtaBand
+        tag={cta.ctaTag}
+        title={cta.ctaH}
+        text={cta.ctaP}
+        href="/demarrer"
+      />
     </PremiumPageShell>
   );
 }

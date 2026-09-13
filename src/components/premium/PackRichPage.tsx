@@ -4,36 +4,41 @@ import Image from "next/image";
 import AgentFicheGrid from "@/components/AgentFicheGrid";
 import LocaleLink from "@/components/LocaleLink";
 import { PremiumHero } from "@/components/premium/PremiumShell";
-import { getAgentsByPack } from "@/lib/agents";
-import { commerceAgentPage } from "@/lib/commerce-agent-page";
+import { getAgentsByPack, type AgentPack } from "@/lib/agents";
+import type { PackRichPageCopy } from "@/lib/pack-rich-page";
 import { getSecteurMeta } from "@/lib/secteurs-meta";
 import { useLang } from "@/lib/lang";
 
-export default function CommercePackPage() {
+export default function PackRichPage({
+  pack,
+  copy,
+}: {
+  pack: AgentPack;
+  copy: PackRichPageCopy;
+}) {
   const { lang } = useLang();
-  const t = commerceAgentPage(lang);
-  const agents = getAgentsByPack("commerce", lang);
+  const agents = getAgentsByPack(pack, lang);
   const home = lang === "fr" ? "Accueil" : "Home";
-  const heroImage = getSecteurMeta("e-commerce").image;
+  const heroImage = getSecteurMeta(copy.heroSecteurSlug).image;
 
   return (
-    <div className="page page--premium page--premium-inner page--commerce-agent">
+    <div className="page page--premium page--premium-inner page--pack-rich">
       <PremiumHero
-        eyebrow={t.eyebrow}
-        title={t.title}
-        titleAccent={t.titleAccent}
-        sub={t.sub}
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        titleAccent={copy.titleAccent}
+        sub={copy.sub}
         crumbs={[
           { name: home, href: "/" },
-          { name: t.eyebrow },
+          { name: copy.eyebrow },
         ]}
         actions={
           <>
-            <LocaleLink href={t.ctaPrimaryHref} className="btn-primary">
-              {t.ctaPrimary} →
+            <LocaleLink href={copy.ctaPrimaryHref} className="btn-primary">
+              {copy.ctaPrimary} →
             </LocaleLink>
-            <LocaleLink href={t.ctaSecondaryHref} className="btn-ghost">
-              {t.ctaSecondary}
+            <LocaleLink href={copy.ctaSecondaryHref} className="btn-ghost">
+              {copy.ctaSecondary}
             </LocaleLink>
           </>
         }
@@ -52,7 +57,7 @@ export default function CommercePackPage() {
       <section className="ph-section ca-proof">
         <div className="ph-shell">
           <div className="ca-proof__grid">
-            {t.proof.map((item) => (
+            {copy.proof.map((item) => (
               <article key={item.label} className="ca-proof__card reveal">
                 <strong className="ca-proof__value">{item.value}</strong>
                 <p className="ca-proof__label">{item.label}</p>
@@ -63,13 +68,13 @@ export default function CommercePackPage() {
         </div>
       </section>
 
-      <section className="ph-section ph-section--light" id="dual">
+      <section className="ph-section ph-section--light" id="workforce">
         <div className="ph-shell">
-          <p className="ph-eyebrow">{t.dual.eyebrow}</p>
-          <h2 className="ph-title">{t.dual.title}</h2>
-          <p className="ph-body">{t.dual.body}</p>
+          <p className="ph-eyebrow">{copy.workforce.eyebrow}</p>
+          <h2 className="ph-title">{copy.workforce.title}</h2>
+          <p className="ph-body">{copy.workforce.body}</p>
           <div className="ca-dual">
-            {[t.dual.shopping, t.dual.merchant].map((agent) => (
+            {copy.workforce.agents.map((agent) => (
               <article key={agent.title} className="ca-dual__card reveal">
                 <h3>{agent.title}</h3>
                 <p className="ca-dual__for">{agent.forWhom}</p>
@@ -86,13 +91,13 @@ export default function CommercePackPage() {
         </div>
       </section>
 
-      <section className="ph-section" id="security">
+      <section className="ph-section" id="governance">
         <div className="ph-shell">
-          <p className="ph-eyebrow">{t.security.eyebrow}</p>
-          <h2 className="ph-title">{t.security.title}</h2>
-          <p className="ph-body">{t.security.body}</p>
+          <p className="ph-eyebrow">{copy.governance.eyebrow}</p>
+          <h2 className="ph-title">{copy.governance.title}</h2>
+          <p className="ph-body">{copy.governance.body}</p>
           <div className="ca-rules">
-            {t.security.rules.map((rule) => (
+            {copy.governance.rules.map((rule) => (
               <article key={rule.title} className="ca-rules__item reveal">
                 <h3>{rule.title}</h3>
                 <p>{rule.desc}</p>
@@ -102,34 +107,32 @@ export default function CommercePackPage() {
         </div>
       </section>
 
-      <section className="ph-section ph-section--light" id="tracks">
+      <section className="ph-section ph-section--light" id="path">
         <div className="ph-shell">
-          <p className="ph-eyebrow">{t.tracks.eyebrow}</p>
-          <h2 className="ph-title">{t.tracks.title}</h2>
-          <p className="ph-body">{t.tracks.body}</p>
+          <p className="ph-eyebrow">{copy.path.eyebrow}</p>
+          <h2 className="ph-title">{copy.path.title}</h2>
+          <p className="ph-body">{copy.path.body}</p>
           <div className="ca-tracks">
-            <article className="ca-tracks__card reveal">
-              <h3>{t.tracks.own.title}</h3>
-              <p>{t.tracks.own.desc}</p>
-            </article>
-            <article className="ca-tracks__card reveal">
-              <h3>{t.tracks.third.title}</h3>
-              <p>{t.tracks.third.desc}</p>
-            </article>
+            {copy.path.steps.map((step) => (
+              <article key={step.title} className="ca-tracks__card reveal">
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </article>
+            ))}
           </div>
           <p className="ph-note" style={{ marginTop: 18 }}>
-            {t.tracks.note}
+            {copy.path.note}
           </p>
         </div>
       </section>
 
       <section className="ph-section" id="offer">
         <div className="ph-shell">
-          <p className="ph-eyebrow">{t.offer.eyebrow}</p>
-          <h2 className="ph-title">{t.offer.title}</h2>
-          <p className="ph-body">{t.offer.body}</p>
+          <p className="ph-eyebrow">{copy.offer.eyebrow}</p>
+          <h2 className="ph-title">{copy.offer.title}</h2>
+          <p className="ph-body">{copy.offer.body}</p>
           <div className="ca-offer">
-            {t.offer.steps.map((step) => (
+            {copy.offer.steps.map((step) => (
               <article key={step.index} className="ca-offer__card reveal">
                 <span className="ca-offer__index">{step.index}</span>
                 <h3>{step.title}</h3>
@@ -147,15 +150,15 @@ export default function CommercePackPage() {
 
       <section className="ph-section ph-section--light" id="pilot">
         <div className="ph-shell">
-          <p className="ph-eyebrow">{t.pilot.eyebrow}</p>
-          <h2 className="ph-title">{t.pilot.title}</h2>
+          <p className="ph-eyebrow">{copy.pilot.eyebrow}</p>
+          <h2 className="ph-title">{copy.pilot.title}</h2>
           <div className="ca-pilot">
             <div className="ca-pilot__head" aria-hidden>
               <span>{lang === "fr" ? "Semaines" : "Weeks"}</span>
               <span>{lang === "fr" ? "Ce que nous faisons" : "What we do"}</span>
               <span>{lang === "fr" ? "Ce que vous voyez" : "What you see"}</span>
             </div>
-            {t.pilot.rows.map((row) => (
+            {copy.pilot.rows.map((row) => (
               <div key={row.weeks} className="ca-pilot__row reveal">
                 <strong>{row.weeks}</strong>
                 <p>{row.work}</p>
@@ -168,11 +171,11 @@ export default function CommercePackPage() {
 
       <section className="ph-section" id="training">
         <div className="ph-shell">
-          <p className="ph-eyebrow">{t.training.eyebrow}</p>
-          <h2 className="ph-title">{t.training.title}</h2>
-          <p className="ph-body">{t.training.body}</p>
+          <p className="ph-eyebrow">{copy.training.eyebrow}</p>
+          <h2 className="ph-title">{copy.training.title}</h2>
+          <p className="ph-body">{copy.training.body}</p>
           <div className="ca-training">
-            {t.training.courses.map((course) => (
+            {copy.training.courses.map((course) => (
               <article key={course.code} className="ca-training__card reveal">
                 <span className="ca-training__code">{course.code}</span>
                 <h3>{course.title}</h3>
@@ -192,10 +195,10 @@ export default function CommercePackPage() {
 
       <section className="ph-section ph-section--light" id="audience">
         <div className="ph-shell">
-          <p className="ph-eyebrow">{t.audience.eyebrow}</p>
-          <h2 className="ph-title">{t.audience.title}</h2>
+          <p className="ph-eyebrow">{copy.audience.eyebrow}</p>
+          <h2 className="ph-title">{copy.audience.title}</h2>
           <div className="ca-audience">
-            {t.audience.segments.map((segment) => (
+            {copy.audience.segments.map((segment) => (
               <article key={segment.title} className="ca-audience__card reveal">
                 <h3>{segment.title}</h3>
                 <p>{segment.desc}</p>
@@ -211,29 +214,36 @@ export default function CommercePackPage() {
           <p className="ph-eyebrow">
             {lang === "fr" ? "08 / FICHES AGENTS" : "08 / AGENT CARDS"}
           </p>
-          <AgentFicheGrid agents={agents} heading={t.agentsHeading} />
-          <p className="ph-note" style={{ marginTop: 24 }}>
-            <LocaleLink href={t.sectorLink.href} className="text-link">
-              {t.sectorLink.label} →
-            </LocaleLink>
-          </p>
+          <AgentFicheGrid agents={agents} heading={copy.agentsHeading} />
+          <ul className="ph-check" style={{ marginTop: 24 }}>
+            {copy.sectorLinks.map((link) => (
+              <li key={link.href}>
+                <LocaleLink href={link.href} className="text-link">
+                  {link.label} →
+                </LocaleLink>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       <section className="ph-final ph-section--light" id="next">
         <div className="ph-shell ph-final__inner ca-final">
-          <h2 className="ph-title">{t.final.title}</h2>
-          <p className="ph-body">{t.final.body}</p>
+          <h2 className="ph-title">{copy.final.title}</h2>
+          <p className="ph-body">{copy.final.body}</p>
           <ol className="ca-final__steps">
-            {t.final.steps.map((step, i) => (
+            {copy.final.steps.map((step, i) => (
               <li key={step}>
                 <span>{String(i + 1).padStart(2, "0")}</span>
                 {step}
               </li>
             ))}
           </ol>
-          <LocaleLink href={t.ctaPrimaryHref} className="btn-primary ph-final__cta">
-            {t.ctaPrimary} →
+          <LocaleLink
+            href={copy.ctaPrimaryHref}
+            className="btn-primary ph-final__cta"
+          >
+            {copy.ctaPrimary} →
           </LocaleLink>
           <div className="ph-final__horizon" aria-hidden />
         </div>

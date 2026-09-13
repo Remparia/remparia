@@ -2535,25 +2535,30 @@ a.info-card:focus-visible {
 
 .contact-form span {
   font: var(--font-label);
-  color: var(--text-muted);
+  color: var(--text-on-light-muted);
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  background: transparent;
-  border: 1px solid var(--border-field);
-  color: var(--text);
+  background: #fff;
+  border: 1px solid rgba(10, 10, 10, 0.18);
+  color: var(--text-on-light);
   padding: var(--field-pad);
   font: var(--font-body-sm);
   border-radius: var(--radius);
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-on-light-soft);
+}
+
 .contact-form input:focus,
 .contact-form textarea:focus {
-  outline: 2px solid var(--accent-blend);
+  outline: 2px solid var(--lime);
   outline-offset: 2px;
-  border-color: var(--accent-blend);
+  border-color: var(--lime);
 }
 
 .contact-form input[aria-invalid="true"],
@@ -2570,7 +2575,7 @@ a.info-card:focus-visible {
 .contact-field-error {
   margin: 0;
   font: var(--font-caption);
-  color: var(--danger-text);
+  color: #b42318;
 }
 
 .contact-hp {
@@ -2587,15 +2592,13 @@ a.info-card:focus-visible {
 }
 
 .contact-feedback--ok {
-  color: var(--accent-blend);
-  background-image: var(--accent-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #4d6600;
+  -webkit-text-fill-color: #4d6600;
+  background-image: none;
 }
 
 .contact-feedback--err {
-  color: #ff8a8a;
+  color: #b42318;
 }
 
 .contact-privacy {
@@ -2604,11 +2607,11 @@ a.info-card:focus-visible {
 }
 
 .contact-privacy a {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--text-on-light-muted) !important;
 }
 
 .contact-privacy a:hover {
-  color: var(--accent-blend) !important;
+  color: #4d6600 !important;
 }
 
 .contact-aside {
@@ -2618,11 +2621,21 @@ a.info-card:focus-visible {
   align-items: flex-start;
 }
 
+.contact-aside .ph-eyebrow,
+.ph-section--light .contact-aside .ph-eyebrow {
+  color: #4d6600;
+}
+
 .contact-email {
   font-family: var(--font-ui), sans-serif;
   font-weight: 800;
   font-size: clamp(22px, 6vw, 32px);
-  color: #fff !important;
+  color: var(--text-on-light) !important;
+}
+
+.contact-email:hover,
+.contact-email:focus-visible {
+  color: #4d6600 !important;
 }
 
 .site-footer {

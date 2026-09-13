@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import VerticalPackPage from "@/components/premium/VerticalPackPage";
+import LegalPackPage from "@/components/premium/LegalPackPage";
 import { toLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -10,15 +10,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = toLang(langParam);
   const isEn = lang === "en";
   return createPageMetadata({
-    title: isEn ? "Legal AI Workforce" : "Pack juridique — force de travail IA",
+    title: isEn
+      ? "Legal AI Pack — the machine prepares, counsel decides"
+      : "Pack juridique — la machine prépare, l’avocat tranche",
     description: isEn
-      ? "Document review, case prep and compliance checks under governance."
-      : "Revue documentaire, préparation de dossiers et contrôles de conformité sous gouvernance.",
+      ? "Governed legal AI workforce: document review, case prep and compliance checks — no automated advice or machine signature."
+      : "Force de travail IA juridique gouvernée : revue documentaire, préparation de dossiers et contrôles — sans avis automatisé ni signature machine.",
     path: "/solutions/legal",
     lang,
   });
 }
 
 export default function Page() {
-  return <VerticalPackPage pack="legal" />;
+  return <LegalPackPage />;
 }

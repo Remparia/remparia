@@ -168,6 +168,74 @@ export const NAV_METHOD = {
   ],
 } as const;
 
+/** Liens Solutions (mega-menu + drawer mobile). */
+export const NAV_SOLUTIONS = {
+  fr: {
+    megaKicker: "Solutions",
+    viewAll: "Voir tous les métiers",
+    viewAllHref: "/secteurs",
+    menuLabel: "Sous-menu solutions",
+    items: [
+      {
+        href: "/solutions/commerce",
+        tag: "COMMERCE",
+        title: "Pack Commerce",
+        desc: "Qualification, relances, catalogue — agents en production.",
+      },
+      {
+        href: "/solutions/real-estate",
+        tag: "IMMO",
+        title: "Pack Immobilier",
+        desc: "Leads, matching, dossiers et relances sous gouvernance.",
+      },
+      {
+        href: "/solutions/legal",
+        tag: "DROIT",
+        title: "Pack Juridique",
+        desc: "Dossiers, échéances et contrôles pour cabinets et études.",
+      },
+      {
+        href: "/solutions/finance",
+        tag: "FINANCE",
+        title: "Pack Finance",
+        desc: "Contrôles, reporting et gestes métier sous politiques.",
+      },
+    ],
+  },
+  en: {
+    megaKicker: "Solutions",
+    viewAll: "See all professions",
+    viewAllHref: "/secteurs",
+    menuLabel: "Solutions submenu",
+    items: [
+      {
+        href: "/solutions/commerce",
+        tag: "COMMERCE",
+        title: "Commerce pack",
+        desc: "Qualification, follow-ups, catalog — agents in production.",
+      },
+      {
+        href: "/solutions/real-estate",
+        tag: "REAL ESTATE",
+        title: "Real estate pack",
+        desc: "Leads, matching, files and follow-ups under governance.",
+      },
+      {
+        href: "/solutions/legal",
+        tag: "LEGAL",
+        title: "Legal pack",
+        desc: "Files, deadlines and checks for firms and practices.",
+      },
+      {
+        href: "/solutions/finance",
+        tag: "FINANCE",
+        title: "Finance pack",
+        desc: "Controls, reporting and business gestures under policy.",
+      },
+    ],
+  },
+} as const;
+
 export const FOOTER = {
   fr: {
     tagline: "Intelligence humaine. Échelle artificielle.",
@@ -500,11 +568,11 @@ export const PROOF_STATS = {
 
 export const SERVICES = {
   fr: {
-    eyebrow: "CE QUE NOUS FAISONS",
+    eyebrow: "MISE EN ŒUVRE",
     title: "Services",
-    sub: "Un engagement : absorber une charge mesurable sans retirer le contrôle à vos experts.",
+    sub: "La couche delivery de Remparia : cadrer (SIGNAL), construire (Studio), déployer (souveraineté), faire adopter — pas un second produit parallèle à l’OS.",
     intro:
-      "Nous n'intervenons pas pour vendre une couche technologique. Nous construisons des agents supervisés intégrés à vos outils réels, avec un périmètre de données défini, des indicateurs convenus et un transfert de maîtrise à vos équipes. Chaque mission commence par un diagnostic SIGNAL et se termine par une capacité que vous pouvez faire évoluer sans dépendre d'une boîte noire.",
+      "Les Services industrialisent ce que la plateforme permet. Chaque mission commence par un diagnostic SIGNAL, construit dans Studio, tourne dans Remparia OS sous gouvernance, et se termine par une capacité que vos équipes peuvent faire évoluer.",
     commitmentTitle: "Notre engagement opérationnel",
     commitments: [
       "Forfait de mise en œuvre cadré avant signature — pas de facturation au scope flou.",
@@ -519,7 +587,7 @@ export const SERVICES = {
       {
         tag: "01",
         title: "DIAGNOSTIC & GOUVERNANCE",
-        desc: "Observer le terrain, prioriser les processus à fort impact et poser le cadre avant d'automatiser.",
+        desc: "Cadrage SIGNAL : observer le terrain, prioriser, poser le cadre avant d’automatiser.",
         points: [
           { icon: "immersion", label: "Immersion dans les processus" },
           { icon: "prioritize", label: "Priorisation ROI / faisabilité" },
@@ -535,7 +603,7 @@ export const SERVICES = {
       {
         tag: "02",
         title: "AGENTS MÉTIER",
-        desc: "Des agents intégrés à vos outils pour porter la collecte, les contrôles, les relances et la préparation.",
+        desc: "Construction Studio : agents intégrés à vos outils, publiés dans Remparia OS.",
         points: [
           { icon: "integration", label: "Intégration CRM, ERP et messagerie" },
           { icon: "rules", label: "Règles métier et escalade humaine" },
@@ -552,7 +620,7 @@ export const SERVICES = {
       {
         tag: "03",
         title: "SOCLE SOUVERAIN & ROUTAGE",
-        desc: "La donnée sensible reste dans le périmètre défini. Le modèle est choisi selon la tâche et la sensibilité.",
+        desc: "Déploiement souveraineté : périmètre de données et routage selon la sensibilité.",
         points: [
           { icon: "hosting", label: "Hébergement France, on-prem ou hybride" },
           { icon: "rag", label: "RAG sur sources autorisées" },
@@ -568,7 +636,7 @@ export const SERVICES = {
       {
         tag: "04",
         title: "ADOPTION & TRANSFERT",
-        desc: "Un agent utile doit être adopté. Nous embarquons les équipes et transférons les compétences nécessaires.",
+        desc: "Faire adopter : formation, déploiement progressif, transfert sans boîte noire.",
         points: [
           { icon: "training", label: "Formation sur les usages réels" },
           { icon: "rollout", label: "Déploiement progressif" },
@@ -584,12 +652,22 @@ export const SERVICES = {
       },
     ],
     overview: "Vue d'ensemble",
+    platformLabel: "Couche plateforme",
+    deliverableLabel: "Livrable",
+    promiseLabel: "Promesse",
+    startCta: "Démarrer →",
     items: [
       {
         slug: "strategie-ia",
         tag: "01",
         title: "Diagnostic & gouvernance",
         desc: "Observer le terrain, prioriser les processus à fort impact et poser le cadre avant d'automatiser.",
+        promise:
+          "Savoir où l’IA compte vraiment — avant de construire.",
+        deliverable:
+          "Cartographie classée, cadre de gouvernance esquissé, feuille de route avec indicateurs.",
+        platformHref: "/signal",
+        platformLabel: "Méthode SIGNAL",
         points: [
           "Immersion dans les processus",
           "Priorisation ROI / faisabilité",
@@ -602,6 +680,12 @@ export const SERVICES = {
         tag: "02",
         title: "Agents métier",
         desc: "Des agents intégrés à vos outils pour porter la collecte, les contrôles, les relances et la préparation.",
+        promise:
+          "Un premier agent qui tourne dans vos outils, sous vos règles.",
+        deliverable:
+          "Agent en production supervisée, documenté, avec stops humains et indicateurs.",
+        platformHref: "/studio",
+        platformLabel: "Studio",
         points: [
           "Intégration CRM, ERP et messagerie",
           "Règles métier et escalade humaine",
@@ -614,6 +698,12 @@ export const SERVICES = {
         tag: "03",
         title: "Socle souverain & routage",
         desc: "La donnée sensible reste dans le périmètre défini. Le modèle est choisi selon la tâche et la sensibilité.",
+        promise:
+          "Même OS, même gouvernance — périmètre de déploiement choisi.",
+        deliverable:
+          "Architecture de déploiement (cloud Remparia, souverain ou on-prem) et politiques inchangées.",
+        platformHref: "/sovereignty",
+        platformLabel: "Souveraineté",
         points: [
           "Hébergement France, on-prem ou hybride",
           "RAG sur sources autorisées",
@@ -626,6 +716,12 @@ export const SERVICES = {
         tag: "04",
         title: "Adoption & transfert",
         desc: "Un agent utile doit être adopté. Nous embarquons les équipes et transférons les compétences nécessaires.",
+        promise:
+          "Vos équipes pilotent sans dépendre d’une boîte noire.",
+        deliverable:
+          "Formation, documentation, règles versionnées et revue des gains.",
+        platformHref: "/solution",
+        platformLabel: "Remparia OS",
         points: [
           "Formation sur les usages réels",
           "Déploiement progressif",
@@ -636,11 +732,11 @@ export const SERVICES = {
     ],
   },
   en: {
-    eyebrow: "WHAT WE DO",
+    eyebrow: "DELIVERY",
     title: "Services",
-    sub: "One commitment: return measurable time to your experts without losing control of your data.",
+    sub: "Remparia’s delivery layer: frame (SIGNAL), build (Studio), deploy (sovereignty), drive adoption — not a second product parallel to the OS.",
     intro:
-      "We do not sell a technology layer. We build supervised agents embedded in your actual tools, with a defined data perimeter, agreed indicators and transfer of ownership to your teams. Every engagement starts with a SIGNAL diagnostic and ends with capability you can evolve without a black-box dependency.",
+      "Services industrialize what the platform enables. Every engagement starts with a SIGNAL diagnostic, builds in Studio, runs in Remparia OS under governance, and ends with capability your teams can evolve.",
     commitmentTitle: "Our operational commitment",
     commitments: [
       "Implementation fee framed before signature — no open-ended scope billing.",
@@ -655,7 +751,7 @@ export const SERVICES = {
       {
         tag: "01",
         title: "DIAGNOSTIC & GOVERNANCE",
-        desc: "Observe fieldwork, prioritize high-impact workflows and set the frame before automating.",
+        desc: "SIGNAL framing: observe fieldwork, prioritize, set the frame before automating.",
         points: [
           { icon: "immersion", label: "Workflow immersion" },
           { icon: "prioritize", label: "ROI / feasibility prioritization" },
@@ -671,7 +767,7 @@ export const SERVICES = {
       {
         tag: "02",
         title: "BUSINESS AGENTS",
-        desc: "Agents embedded in your tools to carry collection, checks, follow-ups and preparation.",
+        desc: "Studio build: agents embedded in your tools, published to Remparia OS.",
         points: [
           { icon: "integration", label: "CRM, ERP and messaging integration" },
           { icon: "rules", label: "Business rules and human escalation" },
@@ -688,7 +784,7 @@ export const SERVICES = {
       {
         tag: "03",
         title: "SOVEREIGN FOUNDATION & ROUTING",
-        desc: "Sensitive data stays inside the agreed perimeter. Models are selected by task and sensitivity.",
+        desc: "Sovereignty deployment: data perimeter and routing by sensitivity.",
         points: [
           { icon: "hosting", label: "France, on-prem or hybrid hosting" },
           { icon: "rag", label: "RAG on approved sources" },
@@ -704,7 +800,7 @@ export const SERVICES = {
       {
         tag: "04",
         title: "ADOPTION & TRANSFER",
-        desc: "A useful agent must be adopted. We onboard teams and transfer the skills they need.",
+        desc: "Drive adoption: training, progressive rollout, transfer without a black box.",
         points: [
           { icon: "training", label: "Training on actual use cases" },
           { icon: "rollout", label: "Progressive rollout" },
@@ -720,12 +816,21 @@ export const SERVICES = {
       },
     ],
     overview: "Overview",
+    platformLabel: "Platform layer",
+    deliverableLabel: "Deliverable",
+    promiseLabel: "Promise",
+    startCta: "Get started →",
     items: [
       {
         slug: "strategie-ia",
         tag: "01",
         title: "Diagnostic & governance",
         desc: "Observe fieldwork, prioritize high-impact workflows and set the frame before automating.",
+        promise: "Know where AI actually matters — before you build.",
+        deliverable:
+          "Ranked map, sketched governance frame, roadmap with indicators.",
+        platformHref: "/signal",
+        platformLabel: "SIGNAL method",
         points: [
           "Workflow immersion",
           "ROI / feasibility prioritization",
@@ -738,6 +843,11 @@ export const SERVICES = {
         tag: "02",
         title: "Business agents",
         desc: "Agents embedded in your tools to carry collection, checks, follow-ups and preparation.",
+        promise: "A first agent running in your tools, under your rules.",
+        deliverable:
+          "Agent in supervised production, documented, with human stops and indicators.",
+        platformHref: "/studio",
+        platformLabel: "Studio",
         points: [
           "CRM, ERP and messaging integration",
           "Business rules and human escalation",
@@ -750,6 +860,11 @@ export const SERVICES = {
         tag: "03",
         title: "Sovereign foundation & routing",
         desc: "Sensitive data stays inside the agreed perimeter. Models are selected by task and sensitivity.",
+        promise: "Same OS, same governance — chosen deployment perimeter.",
+        deliverable:
+          "Deployment architecture (Remparia Cloud, sovereign or on-prem) with unchanged policies.",
+        platformHref: "/sovereignty",
+        platformLabel: "Sovereignty",
         points: [
           "France, on-prem or hybrid hosting",
           "RAG on approved sources",
@@ -762,6 +877,11 @@ export const SERVICES = {
         tag: "04",
         title: "Adoption & transfer",
         desc: "A useful agent must be adopted. We onboard teams and transfer the skills they need.",
+        promise: "Your teams operate without a black-box dependency.",
+        deliverable:
+          "Training, documentation, versioned rules and outcome review.",
+        platformHref: "/solution",
+        platformLabel: "Remparia OS",
         points: [
           "Training on actual use cases",
           "Progressive rollout",

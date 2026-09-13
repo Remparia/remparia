@@ -345,10 +345,20 @@ export const POUR_QUI = {
         ],
       },
       {
+        tag: "IMMOBILIER",
+        title: "Agences, transaction et gestion",
+        desc: "Leads, matching biens, dossiers et relances — sous gouvernance et stop humain.",
+        hrefs: [
+          { label: "Pack Immobilier", href: "/solutions/real-estate" },
+          { label: "Agence immobilière", href: "/secteurs/agence-immobiliere" },
+        ],
+      },
+      {
         tag: "DROIT & CHIFFRE",
         title: "Notariat, juridique, expertise comptable",
         desc: "Dossiers, actes, contrôles, collecte et production documentaire.",
         hrefs: [
+          { label: "Pack Juridique", href: "/solutions/legal" },
           { label: "Étude notariale", href: "/secteurs/etude-notariale" },
           { label: "Cabinet d’avocat", href: "/secteurs/cabinet-avocat" },
           {
@@ -362,6 +372,7 @@ export const POUR_QUI = {
         title: "Patrimoine, courtage, assurance",
         desc: "Instruction, conformité, comparaison, reporting et suivi client.",
         hrefs: [
+          { label: "Pack Finance", href: "/solutions/finance" },
           {
             label: "Courtage & assurance",
             href: "/secteurs/courtier-assurance",
@@ -409,10 +420,20 @@ export const POUR_QUI = {
         ],
       },
       {
+        tag: "REAL ESTATE",
+        title: "Agencies, transactions and property management",
+        desc: "Leads, property matching, files and follow-ups — under governance and human stop.",
+        hrefs: [
+          { label: "Real estate pack", href: "/solutions/real-estate" },
+          { label: "Real-estate agency", href: "/secteurs/agence-immobiliere" },
+        ],
+      },
+      {
         tag: "LAW & ACCOUNTING",
         title: "Notaries, legal and accounting firms",
         desc: "Files, deeds, controls, collection and document production.",
         hrefs: [
+          { label: "Legal pack", href: "/solutions/legal" },
           { label: "Notarial office", href: "/secteurs/etude-notariale" },
           { label: "Law firm", href: "/secteurs/cabinet-avocat" },
           {
@@ -426,6 +447,7 @@ export const POUR_QUI = {
         title: "Wealth, brokerage and insurance",
         desc: "Assessment, compliance, comparison, reporting and client follow-up.",
         hrefs: [
+          { label: "Finance pack", href: "/solutions/finance" },
           {
             label: "Insurance brokerage",
             href: "/secteurs/courtier-assurance",
@@ -686,10 +708,27 @@ export const DEMARRER = {
     ],
     pricingTitle: "Le modèle de prix",
     pricingBody:
-      "Pas de régie ouverte, pas de facturation à la consommation : forfait fixé avant de démarrer, transfert compris. Les montants s’affichent lorsque la grille est arbitrée.",
+      "Pas de régie ouverte, pas de facturation à la consommation. Chaque parcours a un forfait fixé avant de démarrer — l’heure est gratuite, le diagnostic et le premier agent sont cadrés avant signature. Le transfert (documentation, formation, règles métier) est inclus. Les montants exacts dépendent du périmètre ; ils sont annoncés avant engagement, jamais en régie ouverte.",
     nextTitle: "Et ensuite",
     nextBody:
-      "Après le premier agent : multi-workflows, AgentOps, autonomie des équipes. Il existe une trajectoire — sans engagement de la suivre.",
+      "Le premier agent n’est pas une fin : une trajectoire existe si vous voulez aller plus loin — sans obligation de la suivre.",
+    nextSteps: [
+      {
+        tag: "01",
+        title: "Multi-workflows",
+        desc: "Étendre la même force de travail à d’autres processus, sur le même OS et les mêmes politiques.",
+      },
+      {
+        tag: "02",
+        title: "AgentOps",
+        desc: "Exploitation managée : revue, budgets, supervision continue et gouvernance au quotidien — pour que la capacité tourne sans retomber en projet.",
+      },
+      {
+        tag: "03",
+        title: "Autonomie",
+        desc: "Vos équipes pilotent : règles versionnées, indicateurs, formation — sans boîte noire.",
+      },
+    ],
     methodTitle: "Le protocole en détail",
     methodBody: "Six étapes, chacune avec un livrable. Le détail sur la page Méthode.",
     methodCta: "Voir la méthode →",
@@ -734,10 +773,27 @@ export const DEMARRER = {
     ],
     pricingTitle: "Pricing model",
     pricingBody:
-      "No open-ended time & materials, no consumption billing: fee set before we start, transfer included. Amounts appear when the grid is settled.",
+      "No open-ended time & materials, no consumption billing. Each path has a fee set before we start — the hour is free; diagnostic and first agent are framed before signature. Transfer (documentation, training, business rules) is included. Exact amounts depend on scope; they are stated before you commit, never as open-ended billing.",
     nextTitle: "What follows",
     nextBody:
-      "After the first agent: multi-workflows, AgentOps, team autonomy. There is a path — without obligation to take it.",
+      "The first agent is not an end state: a path exists if you want to go further — without obligation to take it.",
+    nextSteps: [
+      {
+        tag: "01",
+        title: "Multi-workflows",
+        desc: "Extend the same workforce to more processes, on the same OS and the same policies.",
+      },
+      {
+        tag: "02",
+        title: "AgentOps",
+        desc: "Managed operations: review, budgets, continuous supervision and day-to-day governance — so capacity keeps running without sliding back into a project.",
+      },
+      {
+        tag: "03",
+        title: "Autonomy",
+        desc: "Your teams operate: versioned rules, indicators, training — no black box.",
+      },
+    ],
     methodTitle: "The protocol in detail",
     methodBody: "Six stages, each with a deliverable. Full detail on the Method page.",
     methodCta: "See the method →",
