@@ -248,16 +248,46 @@ function solutionMd({ lang, locale }: MdOpts) {
 function governanceMd({ lang, locale }: MdOpts) {
   const t = governancePage(lang);
   return lines(
-    `# ${t.titleBefore}${t.titleAccent}`,
+    `# ${t.titleLine1} ${t.titleAccent}`,
     "",
     `> ${t.eyebrow}`,
     "",
     t.sub,
     "",
     section(
-      t.heatmap.title,
+      `${t.why.titleBefore}${t.why.titleAccent}`,
       lines(
-        t.heatmap.intro,
+        t.why.body,
+        "",
+        t.why.items
+          .map((item) => `### ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+      ),
+    ),
+    section(
+      `${t.problem.titleBefore}${t.problem.titleAccent}`,
+      lines(
+        `${t.problem.sideLead} ${t.problem.sideRest}${t.problem.sideAccent}`,
+        "",
+        t.problem.rows
+          .map((row) => `- **${t.problem.today}:** ${row.today} → **${t.problem.withUs}:** ${row.withUs}`)
+          .join("\n"),
+      ),
+    ),
+    section(
+      `${t.rails.titleBefore}${t.rails.titleAccent}`,
+      lines(
+        t.rails.body,
+        "",
+        t.rails.items
+          .map((item) => `### ${item.n} — ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+      ),
+    ),
+    section(
+      `${t.heatmap.titleBefore}${t.heatmap.titleAccent}`,
+      lines(
+        t.heatmap.body,
         "",
         t.heatmap.items
           .map((item) => `### ${item.title}\n\n${item.desc}`)
@@ -266,19 +296,52 @@ function governanceMd({ lang, locale }: MdOpts) {
     ),
     section(
       t.pillars.title,
-      t.pillars.items
-        .map((item) => lines(`### ${item.title}`, "", item.desc))
-        .join("\n\n"),
+      lines(
+        t.pillars.body,
+        "",
+        t.pillars.items
+          .map((item) => `### ${item.tag} — ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+      ),
     ),
     section(
-      t.policies.title,
-      t.policies.items
-        .map((item) => lines(`### ${item.tag} — ${item.title}`, "", item.desc))
-        .join("\n\n"),
+      `${t.policies.titleBefore}${t.policies.titleAccent}`,
+      lines(
+        t.policies.body,
+        "",
+        t.policies.items
+          .map((item) =>
+            lines(`### ${item.tag} — ${item.title}`, "", item.desc, "", `_${item.example}_`),
+          )
+          .join("\n\n"),
+      ),
     ),
-    section(t.scenario.title, lines(t.scenario.body, "", bullets(t.scenario.steps))),
     section(
-      t.audit.title,
+      `${t.outcomes.titleBefore}${t.outcomes.titleAccent}`,
+      lines(
+        t.outcomes.body,
+        "",
+        t.outcomes.items
+          .map((item) => `### ${item.n} — ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+      ),
+    ),
+    section(
+      `${t.action.titleBefore}${t.action.titleAccent}`,
+      lines(
+        t.action.body,
+        "",
+        `_${t.action.mission}_`,
+        "",
+        t.action.nodes
+          .map((node) => `### ${node.tag} — ${node.title}\n\n${node.desc}`)
+          .join("\n\n"),
+        "",
+        mdLink(t.action.cta, locale, t.action.href),
+      ),
+    ),
+    section(
+      `${t.audit.titleBefore}${t.audit.titleAccent}`,
       lines(
         bullets(t.audit.rows.map((row) => row.join(" · "))),
         "",
@@ -286,10 +349,32 @@ function governanceMd({ lang, locale }: MdOpts) {
       ),
     ),
     section(
-      t.sovereignty.title,
+      t.path.title,
+      t.path.steps
+        .map((step) =>
+          lines(
+            `### ${step.n} — ${step.tag}: ${step.title}`,
+            "",
+            step.desc,
+            "",
+            "href" in step && step.href ? mdLink(step.tag, locale, step.href) : "",
+          ),
+        )
+        .join("\n\n"),
+    ),
+    section(
+      t.sovereignty.cta,
       lines(t.sovereignty.body, "", mdLink(t.sovereignty.cta, locale, t.sovereignty.href)),
     ),
-    `**CTA:** ${mdLink(t.ctaPrimary, locale, t.ctaPrimaryHref)}`,
+    section(
+      t.faq.title,
+      lines(
+        t.faq.sub,
+        "",
+        t.faq.items.map((item) => `### ${item.q}\n\n${item.a}`).join("\n\n"),
+      ),
+    ),
+    `**CTA:** ${mdLink(t.cta.label, locale, t.cta.href)}`,
     "",
   );
 }
@@ -297,38 +382,72 @@ function governanceMd({ lang, locale }: MdOpts) {
 function sovereigntyMd({ lang, locale }: MdOpts) {
   const t = sovereigntyPage(lang);
   return lines(
-    `# ${t.titleBefore}${t.titleAccent}`,
+    `# ${t.titleLine1} ${t.titleAccent}`,
     "",
     `> ${t.eyebrow}`,
     "",
     t.sub,
     "",
     section(
-      t.position.title,
-      t.position.items
-        .map((item) => lines(`### ${item.tag} — ${item.title}`, "", item.desc))
-        .join("\n\n"),
+      `${t.problem.titleBefore}${t.problem.titleAccent}`,
+      lines(
+        `${t.problem.sideLead} ${t.problem.sideRest}${t.problem.sideAccent}`,
+        "",
+        t.problem.rows
+          .map((row) => `- **${t.problem.today}:** ${row.today} → **${t.problem.withUs}:** ${row.withUs}`)
+          .join("\n"),
+      ),
+    ),
+    section(
+      `${t.why.titleBefore}${t.why.titleAccent}`,
+      lines(
+        t.why.body,
+        "",
+        t.why.items
+          .map((item) => `### ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+      ),
+    ),
+    section(
+      `${t.pillars.titleBefore}${t.pillars.titleAccent}`,
+      lines(
+        t.pillars.body,
+        "",
+        t.pillars.items
+          .map((item) => `### ${item.tag} — ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+        "",
+        t.pillars.defs
+          .map((item) => `### ${item.title}\n\n${item.desc}`)
+          .join("\n\n"),
+      ),
     ),
     section(
       t.modes.title,
-      t.modes.items
-        .map((mode) =>
-          lines(
-            `### ${mode.title}`,
-            "",
-            `_${mode.subtitle}_`,
-            "",
-            mode.desc,
-            "",
-            bullets(mode.points),
-            "",
-            mode.fit,
-          ),
-        )
-        .join("\n\n"),
+      lines(
+        t.modes.body,
+        "",
+        t.modes.spectrum,
+        "",
+        t.modes.items
+          .map((mode) =>
+            lines(
+              `### ${mode.title}`,
+              "",
+              `_${mode.subtitle}_`,
+              "",
+              mode.desc,
+              "",
+              bullets(mode.points),
+              "",
+              mode.fit,
+            ),
+          )
+          .join("\n\n"),
+      ),
     ),
     section(
-      t.invariant.title,
+      `${t.invariant.titleBefore}${t.invariant.titleAccent}`,
       lines(
         t.invariant.body,
         "",
@@ -338,7 +457,7 @@ function sovereigntyMd({ lang, locale }: MdOpts) {
       ),
     ),
     section(
-      t.where.title,
+      `${t.where.titleBefore}${t.where.titleAccent}`,
       lines(
         bullets(t.where.rows.map((row) => `**${row.label}:** ${row.value}`)),
         "",
@@ -356,18 +475,49 @@ function sovereigntyMd({ lang, locale }: MdOpts) {
         )
         .join("\n\n"),
     ),
-    section(t.commerce.title, lines(t.commerce.body, "", bullets(t.commerce.steps))),
     section(
-      t.governance.title,
+      `${t.action.titleBefore}${t.action.titleAccent}`,
       lines(
-        t.governance.body,
+        t.action.body,
         "",
-        mdLink(t.governance.ctaGov, locale, t.governance.hrefGov),
+        `_${t.action.mission}_`,
         "",
-        mdLink(t.governance.ctaOs, locale, t.governance.hrefOs),
+        t.action.nodes
+          .map((node) => `### ${node.tag} — ${node.title}\n\n${node.desc}`)
+          .join("\n\n"),
       ),
     ),
-    `**CTA:** ${mdLink(t.ctaPrimary, locale, t.ctaPrimaryHref)}`,
+    section(
+      t.path.title,
+      lines(
+        t.path.body,
+        "",
+        t.path.steps
+          .map((step) =>
+            lines(
+              `### ${step.n} — ${step.tag}: ${step.title}`,
+              "",
+              step.desc,
+              "",
+              mdLink(step.tag, locale, step.href),
+            ),
+          )
+          .join("\n\n"),
+        "",
+        mdLink(t.path.ctaGov, locale, t.path.hrefGov),
+        "",
+        mdLink(t.path.ctaOs, locale, t.path.hrefOs),
+      ),
+    ),
+    section(
+      t.faq.title,
+      lines(
+        t.faq.sub,
+        "",
+        t.faq.items.map((item) => `### ${item.q}\n\n${item.a}`).join("\n\n"),
+      ),
+    ),
+    `**CTA:** ${mdLink(t.cta.label, locale, t.cta.href)}`,
     "",
   );
 }
