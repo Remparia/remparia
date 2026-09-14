@@ -1,4 +1,4 @@
-/* Agent Commerce — rich pack page */
+/* Agent Commerce + pack-rich pages */
 
 .page--commerce-agent .ca-proof__grid,
 .page--pack-rich .ca-proof__grid {
@@ -123,17 +123,17 @@
   background: #fff;
 }
 
-.page--commerce-agent .ca-dual__card,
+.page--commerce-agent .ca-dual__card h3,
 .page--pack-rich .ca-dual__card h3,
-.page--commerce-agent .ca-tracks__card,
+.page--commerce-agent .ca-tracks__card h3,
 .page--pack-rich .ca-tracks__card h3,
-.page--commerce-agent .ca-training__card,
+.page--commerce-agent .ca-training__card h3,
 .page--pack-rich .ca-training__card h3,
-.page--commerce-agent .ca-audience__card,
+.page--commerce-agent .ca-audience__card h3,
 .page--pack-rich .ca-audience__card h3,
-.page--commerce-agent .ca-offer__card,
+.page--commerce-agent .ca-offer__card h3,
 .page--pack-rich .ca-offer__card h3,
-.page--commerce-agent .ca-rules__item,
+.page--commerce-agent .ca-rules__item h3,
 .page--pack-rich .ca-rules__item h3 {
   margin: 0 0 10px;
   font: 700 18px / 1.25 var(--font-display), sans-serif;
@@ -166,34 +166,34 @@
   color: #5a7a00;
 }
 
-.page--commerce-agent .ca-dual__card,
+.page--commerce-agent .ca-dual__card p,
 .page--pack-rich .ca-dual__card p,
-.page--commerce-agent .ca-tracks__card,
+.page--commerce-agent .ca-tracks__card p,
 .page--pack-rich .ca-tracks__card p,
-.page--commerce-agent .ca-training__card,
+.page--commerce-agent .ca-training__card p,
 .page--pack-rich .ca-training__card p,
-.page--commerce-agent .ca-audience__card,
+.page--commerce-agent .ca-audience__card p,
 .page--pack-rich .ca-audience__card p,
-.page--commerce-agent .ca-rules__item,
+.page--commerce-agent .ca-rules__item p,
 .page--pack-rich .ca-rules__item p,
-.page--commerce-agent .ca-pilot__row,
+.page--commerce-agent .ca-pilot__row p,
 .page--pack-rich .ca-pilot__row p {
   margin: 0;
   font: 400 14px / 1.55 var(--font-ui), sans-serif;
   color: rgba(255, 255, 255, 0.72);
 }
 
-.page--commerce-agent .ph-section--light .ca-dual__card,
+.page--commerce-agent .ph-section--light .ca-dual__card p,
 .page--pack-rich .ph-section--light .ca-dual__card p,
-.page--commerce-agent .ph-section--light .ca-tracks__card,
+.page--commerce-agent .ph-section--light .ca-tracks__card p,
 .page--pack-rich .ph-section--light .ca-tracks__card p,
-.page--commerce-agent .ph-section--light .ca-training__card,
+.page--commerce-agent .ph-section--light .ca-training__card p,
 .page--pack-rich .ph-section--light .ca-training__card p,
-.page--commerce-agent .ph-section--light .ca-audience__card,
+.page--commerce-agent .ph-section--light .ca-audience__card p,
 .page--pack-rich .ph-section--light .ca-audience__card p,
-.page--commerce-agent .ph-section--light .ca-rules__item,
+.page--commerce-agent .ph-section--light .ca-rules__item p,
 .page--pack-rich .ph-section--light .ca-rules__item p,
-.page--commerce-agent .ph-section--light .ca-pilot__row,
+.page--commerce-agent .ph-section--light .ca-pilot__row p,
 .page--pack-rich .ph-section--light .ca-pilot__row p {
   color: rgba(0, 0, 0, 0.68);
 }
@@ -273,9 +273,9 @@
   color: var(--lime);
 }
 
-.page--commerce-agent .ca-offer__card,
+.page--commerce-agent .ca-offer__card ul,
 .page--pack-rich .ca-offer__card ul,
-.page--commerce-agent .ca-training__card,
+.page--commerce-agent .ca-training__card ul,
 .page--pack-rich .ca-training__card ul {
   margin: 14px 0 0;
   padding: 0;
@@ -284,9 +284,9 @@
   gap: 8px;
 }
 
-.page--commerce-agent .ca-offer__card,
+.page--commerce-agent .ca-offer__card li,
 .page--pack-rich .ca-offer__card li,
-.page--commerce-agent .ca-training__card,
+.page--commerce-agent .ca-training__card li,
 .page--pack-rich .ca-training__card li {
   position: relative;
   padding-left: 14px;
@@ -294,16 +294,16 @@
   color: rgba(255, 255, 255, 0.72);
 }
 
-.page--commerce-agent .ph-section--light .ca-offer__card,
+.page--commerce-agent .ph-section--light .ca-offer__card li,
 .page--pack-rich .ph-section--light .ca-offer__card li,
-.page--commerce-agent .ph-section--light .ca-training__card,
+.page--commerce-agent .ph-section--light .ca-training__card li,
 .page--pack-rich .ph-section--light .ca-training__card li {
   color: rgba(0, 0, 0, 0.68);
 }
 
-.page--commerce-agent .ca-offer__card,
+.page--commerce-agent .ca-offer__card li::before,
 .page--pack-rich .ca-offer__card li::before,
-.page--commerce-agent .ca-training__card,
+.page--commerce-agent .ca-training__card li::before,
 .page--pack-rich .ca-training__card li::before {
   content: "";
   position: absolute;
@@ -379,7 +379,7 @@
   color: rgba(0, 0, 0, 0.45);
 }
 
-.page--commerce-agent .ca-pilot__head,
+.page--commerce-agent .ca-pilot__head span:last-child,
 .page--pack-rich .ca-pilot__head span:last-child,
 .page--commerce-agent .ca-pilot__row .ca-pilot__see,
 .page--pack-rich .ca-pilot__row .ca-pilot__see {
@@ -387,7 +387,7 @@
 }
 
 @media (min-width: 800px) {
-  .page--commerce-agent .ca-pilot__head,
+  .page--commerce-agent .ca-pilot__head span:last-child,
   .page--pack-rich .ca-pilot__head span:last-child,
   .page--commerce-agent .ca-pilot__row .ca-pilot__see,
   .page--pack-rich .ca-pilot__row .ca-pilot__see {
@@ -405,13 +405,13 @@
   border-top-color: rgba(0, 0, 0, 0.06);
 }
 
-.page--commerce-agent .ca-pilot__row,
+.page--commerce-agent .ca-pilot__row strong,
 .page--pack-rich .ca-pilot__row strong {
   font: 800 14px / 1.3 var(--font-ui), sans-serif;
   color: var(--lime);
 }
 
-.page--commerce-agent .ph-section--light .ca-pilot__row,
+.page--commerce-agent .ph-section--light .ca-pilot__row strong,
 .page--pack-rich .ph-section--light .ca-pilot__row strong {
   color: #5a7a00;
 }
@@ -442,7 +442,7 @@
   max-width: 52rem;
 }
 
-.page--commerce-agent .ca-final__steps,
+.page--commerce-agent .ca-final__steps li,
 .page--pack-rich .ca-final__steps li {
   display: grid;
   grid-template-columns: 36px 1fr;
@@ -452,7 +452,7 @@
   color: rgba(0, 0, 0, 0.78);
 }
 
-.page--commerce-agent .ca-final__steps,
+.page--commerce-agent .ca-final__steps span,
 .page--pack-rich .ca-final__steps span {
   font: 800 12px / 1.4 var(--font-ui), sans-serif;
   letter-spacing: 0.08em;
