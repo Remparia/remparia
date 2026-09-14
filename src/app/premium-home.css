@@ -1453,10 +1453,35 @@
   }
 }
 
+/* Home agent strip: up to 6 compact cards */
 @media (min-width: 1200px) {
-  .ph-workforce {
+  .ph-workforce--agents {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
+}
+
+.ph-workforce > * {
+  min-width: 0;
+}
+
+/* Content cards (paths, steps): left-aligned, full-width audit */
+.ph-workforce .ph-agent-card:has(.ph-audit) {
+  align-items: stretch;
+  text-align: left;
+  padding: 22px 18px;
+  overflow: hidden;
+}
+
+.ph-workforce .ph-audit {
+  width: 100%;
+  max-width: none;
+}
+
+.ph-workforce .ph-audit__row {
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 12px 14px;
+  align-items: start;
 }
 
 .ph-agent-card {

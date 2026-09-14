@@ -998,7 +998,7 @@ export default function HomePremium() {
           accent={t.workforce.titleAccent}
         />
         <p className="ph-body reveal" data-d="1">{t.workforce.body}</p>
-        <div className="ph-workforce">
+        <div className="ph-workforce ph-workforce--agents">
           {t.workforce.agents.map((agent, i) => {
             const href = "href" in agent ? agent.href : undefined;
             const className = `ph-agent-card reveal${href ? " ph-agent-card--cta" : ""}`;

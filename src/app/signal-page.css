@@ -102,14 +102,57 @@
 
 /* ——— Hero ——— */
 .sg-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 108px 0 56px;
+  background-color: #050505;
+}
+
+.sg-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #050505;
+  background-image: url("/signal-hero-bg.jpg");
+  background-position: 68% center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sg-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background:
+    linear-gradient(
+      90deg,
+      rgba(5, 5, 5, 0.92) 0%,
+      rgba(5, 5, 5, 0.78) 34%,
+      rgba(5, 5, 5, 0.28) 58%,
+      rgba(5, 5, 5, 0.18) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 5, 0.45) 0%,
+      transparent 22%,
+      transparent 78%,
+      rgba(5, 5, 5, 0.55) 100%
+    ),
     radial-gradient(
       ellipse 55% 50% at 78% 42%,
-      rgba(204, 252, 65, 0.14),
+      rgba(204, 252, 65, 0.12),
       transparent 70%
-    ),
-    #050505;
+    );
+}
+
+.sg-hero > .sg-shell {
+  position: relative;
+  z-index: 1;
 }
 
 .sg-hero__grid {

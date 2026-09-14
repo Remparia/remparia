@@ -513,7 +513,15 @@ a.info-card:focus-visible {
 }
 
 /* ——— Careers ——— */
-.careers-phil__tag,
+.careers-phil .careers-phil__tag {
+  color: #0a0a0a !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: #0a0a0a !important;
+  font: var(--font-label) !important;
+}
+
 .careers-step__num,
 .careers-role-card__dept {
   color: var(--lime) !important;
@@ -541,8 +549,8 @@ a.info-card:focus-visible {
 }
 
 .careers-process {
-  background: var(--graphite) !important;
-  border-radius: var(--radius) !important;
+  background: transparent !important;
+  border-radius: 0 !important;
 }
 
 /* ——— Hero intro overlay ——— */

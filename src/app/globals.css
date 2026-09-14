@@ -377,4 +377,13 @@ summary:focus-visible {
     opacity: 1;
     transform: scale(1);
   }
+
+  /* Keep a slight crop so HQ asset edge artifacts stay clipped */
+  html.is-ready .media-reveal:not(.in) .secteur-card__img {
+    transform: scale(1.14);
+  }
+
+  html.is-ready .media-reveal.in .secteur-card__img {
+    transform: scale(1.08);
+  }
 }

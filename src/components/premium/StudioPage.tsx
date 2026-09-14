@@ -256,7 +256,7 @@ export default function StudioPage() {
 
       <PremiumSection
         id="workforce"
-        light
+        className="st-workforce-section"
         eyebrow={t.workforce.eyebrow}
         title={t.workforce.titleBefore}
         titleAccent={t.workforce.titleAccent}
@@ -317,7 +317,7 @@ export default function StudioPage() {
 
       <PremiumSection
         id="gouverne"
-        light
+        className="st-governed-section"
         eyebrow={t.governed.eyebrow}
         title={t.governed.titleBefore}
         titleAccent={t.governed.titleAccent}
