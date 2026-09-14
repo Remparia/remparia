@@ -22,7 +22,7 @@ const studio = {
     crumbs: "Studio",
     titleLine1: "N’ajoutez pas un chatbot.",
     titleAccent: "Construisez la force de travail.",
-    sub: "Après SIGNAL, Studio assemble agents, compétences, outils, connaissance et validations humaines — prêts à tourner dans Remparia OS.",
+    sub: "Après SIGNAL, Studio assemble agents, compétences, outils, connaissance et validations humaines, prêts à tourner dans Remparia OS.",
     ctaPrimary: "Parler Studio",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "Voir Remparia OS",
@@ -65,14 +65,14 @@ const studio = {
           id: "skills",
           tag: "COMPÉTENCES",
           title: "Capacités réutilisables",
-          desc: "Qualifier, extraire, rédiger, contrôler — versionnées.",
+          desc: "Qualifier, extraire, rédiger, contrôler. Versionnées.",
           canvas: "Skill · Qualifier",
         },
         {
           id: "tools",
           tag: "OUTILS",
           title: "Le SI reste la source",
-          desc: "CRM, ERP, e-mail, GED, APIs — branchés, pas remplacés.",
+          desc: "CRM, ERP, e-mail, GED, APIs. Branchés, pas remplacés.",
           canvas: "Outil · CRM",
         },
         {
@@ -102,7 +102,7 @@ const studio = {
       eyebrow: "03 / LE PROTOCOLE",
       titleBefore: "De l’opportunité ",
       titleAccent: "à l’agent opérable.",
-      body: "Studio ne part pas d’une idée. Il part d’un cas SIGNAL scoré — puis compose, simule et publie.",
+      body: "Studio ne part pas d’une idée. Il part d’un cas SIGNAL scoré. Ensuite on compose, on simule et on publie.",
       steps: [
         {
           n: "01",
@@ -132,7 +132,7 @@ const studio = {
         {
           n: "06",
           title: "Publier dans l’OS",
-          desc: "L’agent naît observé, permissionné, auditable.",
+          desc: "L’agent est publié avec identité, permissions et journal d’audit.",
         },
       ],
     },
@@ -145,7 +145,7 @@ const studio = {
         {
           tag: "RESEARCH",
           title: "Agent Recherche",
-          desc: "Recherche, synthèse et sourcing sous règles métier.",
+          desc: "Recherche et synthèse sous règles métier.",
         },
         {
           tag: "SALES",
@@ -170,7 +170,7 @@ const studio = {
         {
           tag: "CUSTOM",
           title: "Agent sur mesure",
-          desc: "Construisez l’agent que votre métier exige.",
+          desc: "Composez l’agent que votre métier exige.",
           href: "/demarrer",
         },
       ],
@@ -253,7 +253,7 @@ const studio = {
     crumbs: "Studio",
     titleLine1: "Don't add a chatbot.",
     titleAccent: "Build the workforce.",
-    sub: "After SIGNAL, Studio assembles agents, skills, tools, knowledge and human approvals — ready to run in Remparia OS.",
+    sub: "After SIGNAL, Studio assembles agents, skills, tools, knowledge and human approvals, ready to run in Remparia OS.",
     ctaPrimary: "Talk Studio",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "See Remparia OS",
@@ -296,14 +296,14 @@ const studio = {
           id: "skills",
           tag: "SKILLS",
           title: "Reusable capabilities",
-          desc: "Qualify, extract, draft, check — versioned.",
+          desc: "Qualify, extract, draft, check. Versioned.",
           canvas: "Skill · Qualify",
         },
         {
           id: "tools",
           tag: "TOOLS",
           title: "Systems stay the source",
-          desc: "CRM, ERP, email, DMS, APIs — wired, not replaced.",
+          desc: "CRM, ERP, email, DMS, APIs. Wired, not replaced.",
           canvas: "Tool · CRM",
         },
         {
@@ -333,7 +333,7 @@ const studio = {
       eyebrow: "03 / THE PROTOCOL",
       titleBefore: "From opportunity ",
       titleAccent: "to operable agent.",
-      body: "Studio does not start from an idea. It starts from a scored SIGNAL case — then composes, simulates and publishes.",
+      body: "Studio does not start from an idea. It starts from a scored SIGNAL case. Then we compose, simulate and publish.",
       steps: [
         {
           n: "01",
@@ -363,7 +363,7 @@ const studio = {
         {
           n: "06",
           title: "Publish to the OS",
-          desc: "The agent is born observed, permissioned, auditable.",
+          desc: "The agent ships with identity, permissions and an audit log.",
         },
       ],
     },
@@ -376,7 +376,7 @@ const studio = {
         {
           tag: "RESEARCH",
           title: "Research Agent",
-          desc: "Research, synthesis and sourcing under business rules.",
+          desc: "Research and synthesis under business rules.",
         },
         {
           tag: "SALES",
@@ -401,7 +401,7 @@ const studio = {
         {
           tag: "CUSTOM",
           title: "Custom Agent",
-          desc: "Build the agent your business actually needs.",
+          desc: "Compose the agent your business needs.",
           href: "/demarrer",
         },
       ],

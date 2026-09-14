@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useId, useState } from "react";
+import { FormEvent, useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import CareersApplyShell from "@/components/careers/CareersApplyShell";
 import { getCareers } from "@/lib/careers";
@@ -19,6 +19,8 @@ export default function CareersApplyStep2() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [ready, setReady] = useState(false);
   const [formError, setFormError] = useState("");
+  const [attempted, setAttempted] = useState(false);
+  const fieldRefs = useRef<Record<string, HTMLTextAreaElement | null>>({});
 
   useEffect(() => {
     const s = loadCareersSession();
@@ -30,13 +32,23 @@ export default function CareersApplyStep2() {
     setReady(true);
   }, [lang, router]);
 
+  function answerLen(id: string) {
+    return (answers[id] ?? "").trim().length;
+  }
+
+  function isShort(id: string, min: number) {
+    return answerLen(id) < min;
+  }
+
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    const ok = t.questions.every(
-      (q) => (answers[q.id] ?? "").trim().length >= q.min,
-    );
-    if (!ok) {
-      setFormError(t.fields.formIncomplete);
+    setAttempted(true);
+    const firstBad = t.questions.find((q) => isShort(q.id, q.min));
+    if (firstBad) {
+      setFormError(t.fields.answersTooShort);
+      const el = fieldRefs.current[firstBad.id];
+      el?.focus({ preventScroll: true });
+      el?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
     setFormError("");
@@ -53,28 +65,41 @@ export default function CareersApplyStep2() {
       <form className="careers-iso-form" onSubmit={onSubmit} noValidate>
         <h1>{t.steps[1].title}</h1>
         <p>{t.steps[1].desc}</p>
-        {t.questions.map((q) => (
-          <label key={q.id}>
-            <span>{q.label}</span>
-            <small>{q.hint}</small>
-            <textarea
-              rows={5}
-              value={answers[q.id] ?? ""}
-              onChange={(e) =>
-                setAnswers((prev) => ({ ...prev, [q.id]: e.target.value }))
-              }
-              required
-              minLength={q.min}
-              maxLength={4000}
-              aria-invalid={
-                formError && (answers[q.id] ?? "").trim().length < q.min
-                  ? true
-                  : undefined
-              }
-              aria-describedby={describedBy}
-            />
-          </label>
-        ))}
+        {t.questions.map((q) => {
+          const len = answerLen(q.id);
+          const short = isShort(q.id, q.min);
+          const showInvalid = attempted && short;
+          return (
+            <label key={q.id}>
+              <span>{q.label}</span>
+              <small>{q.hint}</small>
+              <textarea
+                ref={(el) => {
+                  fieldRefs.current[q.id] = el;
+                }}
+                rows={5}
+                value={answers[q.id] ?? ""}
+                onChange={(e) =>
+                  setAnswers((prev) => ({ ...prev, [q.id]: e.target.value }))
+                }
+                required
+                minLength={q.min}
+                maxLength={4000}
+                aria-invalid={showInvalid ? true : undefined}
+                aria-describedby={describedBy}
+              />
+              <small
+                className={
+                  showInvalid
+                    ? "careers-iso-count careers-iso-count--bad"
+                    : "careers-iso-count"
+                }
+              >
+                {len} / {q.min} {t.fields.charsMin} ({t.fields.charsOf})
+              </small>
+            </label>
+          );
+        })}
         {formError ? (
           <p
             id={errorId}

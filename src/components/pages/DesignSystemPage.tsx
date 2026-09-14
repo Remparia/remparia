@@ -80,7 +80,7 @@ const COPY = {
     shellLede:
       "Hero, dark/light section, ph-agent-card, lime PremiumCtaBand. Tokens --text-on-light / --text-on-lime.",
     name: "Full name",
-    email: "Work email",
+    email: "Email",
     message: "Message",
     invalid: "Invalid email format.",
   },

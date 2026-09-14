@@ -5,7 +5,7 @@ const fr: PackRichPageCopy = {
   eyebrow: "SOLUTIONS / IMMOBILIER",
   title: "Le temps expert reste ",
   titleAccent: "sur la décision.",
-  sub: "Qualification, matching, dossiers et relances sous gouvernance — sans déléguer mandat, visite ou négociation à la machine.",
+  sub: "Qualification, matching, dossiers et relances sous gouvernance, sans déléguer mandat, visite ou négociation à la machine.",
   ctaPrimary: "Lancer SIGNAL immobilier",
   ctaPrimaryHref: "/demarrer",
   ctaSecondary: "Voir le métier agence",
@@ -29,7 +29,7 @@ const fr: PackRichPageCopy = {
     },
     {
       value: "SIGNAL",
-      label: "avant le build — connecteurs et KPI cadrés, pas inventés",
+      label: "avant le build : connecteurs et KPI cadrés, pas inventés",
       source: "Méthode",
     },
   ],
@@ -41,14 +41,14 @@ const fr: PackRichPageCopy = {
       {
         title: "Lead immo qualifié",
         forWhom: "Acquisition et transaction",
-        does: "Scorer, enrichir et préparer le premier contact — sans engager le conseiller.",
+        does: "Scorer, enrichir et préparer le premier contact, sans engager le conseiller.",
         skills: ["Scoring", "Enrichissement", "Premier contact préparé", "CRM à jour"],
         never: "Il ne promet pas une visite ni une estimation.",
       },
       {
         title: "Bien proposé, conseiller décide",
         forWhom: "Transaction",
-        does: "Short-list selon critères, brouillon d’envoi — validation humaine avant le client.",
+        does: "Short-list selon critères, brouillon d’envoi. Validation humaine avant le client.",
         skills: ["Matching", "Short-list", "Brouillon client", "File d’approbation"],
         never: "Aucune sélection n’est envoyée sans validation.",
       },
@@ -62,7 +62,7 @@ const fr: PackRichPageCopy = {
       {
         title: "Locataire orienté",
         forWhom: "Gestion locative",
-        does: "L1 process, FAQ et orientation — litige et exception au gestionnaire.",
+        does: "L1 process, FAQ et orientation. Litige et exception au gestionnaire.",
         skills: ["L1", "FAQ", "Orientation", "Escalade"],
         never: "Il n’engage pas de recouvrement ni d’action juridique.",
       },
@@ -70,7 +70,7 @@ const fr: PackRichPageCopy = {
   },
   governance: {
     eyebrow: "02 / GOUVERNANCE",
-    title: "Ce qui reste humain — gravé dans l’OS.",
+    title: "Ce qui reste humain est gravé dans l’OS.",
     body: "Les garde-fous ne vivent pas dans un prompt fragile. Ils tournent dans Remparia OS.",
     rules: [
       {
@@ -87,7 +87,7 @@ const fr: PackRichPageCopy = {
       },
       {
         title: "Journal opposable",
-        desc: "Chaque action est tracée — qui, quoi, quelle règle, quel stop.",
+        desc: "Chaque action est tracée : qui, quoi, quelle règle, quel stop.",
       },
     ],
   },
@@ -98,7 +98,7 @@ const fr: PackRichPageCopy = {
     steps: [
       {
         title: "SIGNAL",
-        desc: "Cartographier processus, données et KPI — connecteurs exacts cadrés.",
+        desc: "Cartographier processus, données et KPI. Connecteurs exacts cadrés.",
       },
       {
         title: "Studio",
@@ -110,15 +110,15 @@ const fr: PackRichPageCopy = {
       },
       {
         title: "AgentOps",
-        desc: "Exploitation, revue et budgets — sans retomber en projet.",
+        desc: "Exploitation, revue et budgets, sans retomber en projet.",
       },
     ],
-    note: "Les connecteurs (CRM, portails, GED) sont cadrés en SIGNAL — pas de fake case.",
+    note: "Les connecteurs (CRM, portails, GED) sont cadrés en SIGNAL. Pas de fake case.",
   },
   offer: {
     eyebrow: "04 / OFFRE",
-    title: "Commencer petit. Mesurer. Étendre.",
-    body: "Quatre niveaux — du diagnostic mesurable au run continu.",
+    title: "On commence petit, on mesure, on étend.",
+    body: "Quatre niveaux, du diagnostic mesurable au run continu.",
     steps: [
       {
         index: "01",
@@ -194,7 +194,7 @@ const fr: PackRichPageCopy = {
   },
   training: {
     eyebrow: "06 / FORMATION",
-    title: "Piloter l’agent — pas seulement le recevoir.",
+    title: "Piloter l’agent au quotidien.",
     body: "Trois formats, du comité de direction au terrain.",
     courses: [
       {
@@ -248,7 +248,7 @@ const fr: PackRichPageCopy = {
   },
   final: {
     title: "Prochaine étape : savoir ce que l’agent rendrait chez vous.",
-    body: "En SIGNAL, on cadre données, outils et gains à mesurer — puis on décide du premier agent.",
+    body: "En SIGNAL, on cadre données, outils et gains à mesurer. Ensuite on décide du premier agent.",
     steps: [
       "Atelier de cadrage (transaction, gestion, IT)",
       "Audit flux et KPI, cas d’usage priorisé",
@@ -266,7 +266,7 @@ const en: PackRichPageCopy = {
   eyebrow: "SOLUTIONS / REAL ESTATE",
   title: "Expert time stays ",
   titleAccent: "on the decision.",
-  sub: "Qualification, matching, files and follow-ups under governance — without handing mandate, viewing or negotiation to the machine.",
+  sub: "Qualification, matching, files and follow-ups under governance, without handing mandate, viewing or negotiation to the machine.",
   ctaPrimary: "Start real-estate SIGNAL",
   ctaPrimaryHref: "/demarrer",
   ctaSecondary: "See the agency vertical",
@@ -290,7 +290,7 @@ const en: PackRichPageCopy = {
     },
     {
       value: "SIGNAL",
-      label: "before the build — connectors and KPIs scoped, not invented",
+      label: "before the build: connectors and KPIs scoped, not invented",
       source: "Method",
     },
   ],
@@ -302,14 +302,14 @@ const en: PackRichPageCopy = {
       {
         title: "Qualified property lead",
         forWhom: "Acquisition and sales",
-        does: "Score, enrich and prepare first contact — without committing the advisor.",
+        does: "Score, enrich and prepare first contact, without committing the advisor.",
         skills: ["Scoring", "Enrichment", "Prepared first contact", "CRM up to date"],
         never: "It does not promise a viewing or a valuation.",
       },
       {
         title: "Property proposed, advisor decides",
         forWhom: "Sales",
-        does: "Short-list by criteria, draft send — human validation before the client.",
+        does: "Short-list by criteria, draft send. Human validation before the client.",
         skills: ["Matching", "Short-list", "Client draft", "Approval queue"],
         never: "No selection is sent without validation.",
       },
@@ -323,7 +323,7 @@ const en: PackRichPageCopy = {
       {
         title: "Tenant routed",
         forWhom: "Property management",
-        does: "L1 process, FAQ and routing — disputes and exceptions to the manager.",
+        does: "L1 process, FAQ and routing. Disputes and exceptions go to the manager.",
         skills: ["L1", "FAQ", "Routing", "Escalation"],
         never: "It does not commit to recovery or legal action.",
       },
@@ -331,7 +331,7 @@ const en: PackRichPageCopy = {
   },
   governance: {
     eyebrow: "02 / GOVERNANCE",
-    title: "What stays human — enforced in the OS.",
+    title: "What stays human is enforced in the OS.",
     body: "Guards don’t live in a fragile prompt. They run in Remparia OS.",
     rules: [
       {
@@ -348,7 +348,7 @@ const en: PackRichPageCopy = {
       },
       {
         title: "Auditable log",
-        desc: "Every action is traced — who, what, which rule, which stop.",
+        desc: "Every action is traced: who, what, which rule, which stop.",
       },
     ],
   },
@@ -359,7 +359,7 @@ const en: PackRichPageCopy = {
     steps: [
       {
         title: "SIGNAL",
-        desc: "Map processes, data and KPIs — exact connectors scoped.",
+        desc: "Map processes, data and KPIs. Exact connectors scoped.",
       },
       {
         title: "Studio",
@@ -371,15 +371,15 @@ const en: PackRichPageCopy = {
       },
       {
         title: "AgentOps",
-        desc: "Operations, review and budgets — without sliding back into a project.",
+        desc: "Operations, review and budgets, without sliding back into a project.",
       },
     ],
-    note: "Connectors (CRM, portals, DMS) are scoped in SIGNAL — no fake case studies.",
+    note: "Connectors (CRM, portals, DMS) are scoped in SIGNAL. No fake case studies.",
   },
   offer: {
     eyebrow: "04 / OFFER",
-    title: "Start small. Measure. Extend.",
-    body: "Four tiers — from a measurable diagnostic to continuous run.",
+    title: "Start small, measure, then extend.",
+    body: "Four tiers, from a measurable diagnostic to continuous run.",
     steps: [
       {
         index: "01",
@@ -455,7 +455,7 @@ const en: PackRichPageCopy = {
   },
   training: {
     eyebrow: "06 / TRAINING",
-    title: "Operate the agent — don’t just receive it.",
+    title: "Operate the agent day to day.",
     body: "Three formats, from the exec committee to the field.",
     courses: [
       {
@@ -509,7 +509,7 @@ const en: PackRichPageCopy = {
   },
   final: {
     title: "Next step: know what the agent would return for you.",
-    body: "In SIGNAL we frame data, tools and gains to measure — then we choose the first agent.",
+    body: "In SIGNAL we frame data, tools and gains to measure. Then we choose the first agent.",
     steps: [
       "Scoping workshop (sales, property, IT)",
       "Flow and KPI audit, prioritized use case",

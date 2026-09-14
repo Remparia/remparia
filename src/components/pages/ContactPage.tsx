@@ -207,7 +207,7 @@ export default function ContactPage() {
                 name="email"
                 required
                 maxLength={200}
-                autoComplete="work email"
+                autoComplete="email"
                 inputMode="email"
                 spellCheck={false}
                 aria-describedby={email.describedBy}

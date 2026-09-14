@@ -36,7 +36,7 @@ export const SITE = {
   localeAlternate: "en_US",
   email: CONTACT_EMAIL,
   description:
-    "Remparia renforce les métiers spécialisés avec des agents supervisés : du temps rendu, la décision préservée et les données sous contrôle.",
+    "Remparia déploie des agents métier supervisés chez les métiers spécialisés. L’humain garde la décision ; les données restent sous contrôle.",
   twitter: "@remparia",
   ogImage: "/4a7fe64c-880c-4c2d-b5ff-451c58be4fc0.png",
 } as const;
@@ -299,8 +299,8 @@ export function signalArticleJsonLd(lang: Lang | Locale = "fr") {
     "@type": "Article",
     headline: isEn ? "SIGNAL — Remparia" : "SIGNAL — Remparia",
     description: isEn
-      ? "Find where AI actually matters: discover, map, score, prioritize and build the roadmap."
-      : "Trouver où l’IA compte vraiment : découvrir, cartographier, scorer, prioriser et bâtir la roadmap.",
+      ? "Map where AI can run: discover use cases, score them, prioritize, then build the SIGNAL roadmap."
+      : "Cartographier où l’IA peut tourner : découvrir les cas, les scorer, prioriser, puis bâtir la roadmap SIGNAL.",
     author: {
       "@type": "Organization",
       name: SITE.name,
@@ -330,8 +330,8 @@ export function osArticleJsonLd(lang: Lang | Locale = "fr") {
     "@type": "Article",
     headline: isEn ? "Remparia OS" : "Remparia OS",
     description: isEn
-      ? "Your AI workforce needs an operating system — one control plane for agents, models, data and human decisions."
-      : "Votre force de travail IA a besoin d’un système d’exploitation — un control plane pour agents, modèles, données et décisions humaines.",
+      ? "Remparia OS is the control plane for agents, models, data and human decisions (ALLOW / REVIEW / BLOCK)."
+      : "Remparia OS est le control plane pour agents, modèles, données et décisions humaines (ALLOW / REVIEW / BLOCK).",
     author: {
       "@type": "Organization",
       name: SITE.name,
@@ -374,7 +374,7 @@ export function contactPageJsonLd() {
     name: "Contact Remparia",
     url: absoluteUrl(withLocale("fr", "/contact")),
     description:
-      "Contactez Remparia pour un diagnostic SIGNAL ou une discussion sur vos cas d'usage des agents.",
+      "Contactez Remparia pour un diagnostic SIGNAL ou pour parler d’un cas d’usage agents.",
     mainEntity: {
       "@type": "Organization",
       name: SITE.name,
@@ -477,7 +477,7 @@ export function secteurMeta(slug: string) {
     description:
       detail?.heroP ??
       item?.desc ??
-      "Approche Remparia pour intégrer l'infrastructure souveraine dans votre secteur.",
+      "Agents métier Remparia pour ce secteur : SIGNAL, Studio, OS, hébergement France.",
     image: getSecteurImage(slug),
   };
 }
@@ -488,7 +488,7 @@ export function serviceMeta(slug: string) {
     title: item?.title ?? "Service",
     description:
       item?.desc ??
-      "Service Remparia pour déployer l'infrastructure souveraine jusqu'à la production.",
+      "Service Remparia : du cadrage SIGNAL au déploiement en production.",
     image: getServiceImage(slug),
   };
 }

@@ -15,9 +15,9 @@ const FR: Record<string, SecteurDetail> = {
     slug: "finance-assurance",
     heroH: "Solutions souveraines pour la finance & l'assurance",
     heroP:
-      "Des agents supervisés pour absorber le documentaire et les contrôles, pendant que vos équipes gardent le jugement, la responsabilité et la relation client.",
+      "Des agents supervisés absorbent le documentaire et les contrôles. Vos équipes gardent le jugement, la responsabilité et la relation client.",
     signals: [
-      { value: "SIGNAL", label: "Protocole de bout en bout" },
+      { value: "SIGNAL", label: "Protocole SIGNAL" },
       { value: "FR", label: "Données en France" },
       { value: "HITL", label: "Humain dans la boucle" },
       { value: "Audit", label: "Traçabilité native" },
@@ -33,7 +33,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         title: "Back-office saturé, expertise sous-exploitée",
-        desc: "Analyse documentaire, KYC, sinistres, contrôles : vos équipes perdent du temps sur le répétitif au lieu du jugement métier.",
+        desc: "Analyse documentaire, KYC, sinistres, contrôles : vos équipes passent trop de temps sur le répétitif au lieu du jugement métier.",
       },
     ],
     deliverables: [
@@ -47,7 +47,7 @@ const FR: Record<string, SecteurDetail> = {
     scenarios: [
       {
         who: "Direction opérations assurance",
-        need: "Réduire le délai de traitement des dossiers sinistres sans perdre le contrôle métier.",
+        need: "Réduire le délai de traitement des dossiers sinistres en gardant le contrôle métier.",
         remparia:
           "Nous industrialisons un agent de pré-analyse documentaire branché sur votre GED, avec validation humaine sur les cas ambigus et traçabilité complète.",
       },
@@ -73,7 +73,7 @@ const FR: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Travaillez-vous avec nos contraintes ACPR / secret bancaire ?",
-        a: "Oui. La conformité n'est pas un add-on : elle structure le cadrage SIGNAL (données autorisées, traçabilité, human-in-the-loop, hébergement). Nous concevons avec vos équipes risque et juridique, pas contre elles.",
+        a: "Oui. La conformité structure le cadrage SIGNAL (données autorisées, traçabilité, human-in-the-loop, hébergement). Nous concevons avec vos équipes risque et juridique, pas contre elles.",
       },
       {
         q: "Nos données quittent-elles la France ?",
@@ -81,11 +81,11 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         q: "Combien de temps avant un premier livrable utile ?",
-        a: "Un diagnostic SIGNAL identifie rapidement où la valeur est réelle. Un prototype guidé valide ensuite un cas à faible risque avant industrialisation — sans promettre de magie en dix minutes.",
+        a: "Un diagnostic SIGNAL identifie où la valeur est réelle. Un prototype guidé valide ensuite un cas à faible risque avant industrialisation.",
       },
       {
         q: "Remplacez-vous nos équipes métier ?",
-        a: "Non. Notre conviction : l'humain décide, l'agent exécute. Nous augmentons vos équipes sur le répétitif ; le jugement, la responsabilité et la relation client restent les vôtres.",
+        a: "Non. L'humain décide, l'agent exécute. Nous augmentons vos équipes sur le répétitif ; le jugement, la responsabilité et la relation client restent les vôtres.",
       },
     ],
   },
@@ -93,7 +93,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "sante",
     heroH: "Agents pour la santé & les professions réglementées",
     heroP:
-      "Alléger la charge administrative sans déléguer la décision clinique : secret professionnel, validation humaine et outils existants structurent chaque usage.",
+      "Alléger la charge administrative sans déléguer la décision clinique. Secret professionnel, validation humaine et outils existants cadrent chaque usage.",
     signals: [
       { value: "Secret", label: "Professionnel respecté" },
       { value: "FR", label: "Hébergement souverain" },
@@ -111,14 +111,14 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         title: "Pilotes isolés sans adoption terrain",
-        desc: "Sans intégration aux logiciels métier et sans gouvernance, l'automatisation reste une expérimentation hors du quotidien.",
+        desc: "Sans intégration aux logiciels métier et sans gouvernance, l'automatisation reste hors du quotidien.",
       },
     ],
     deliverables: [
       "Cadrage des cas d'usage à impact (admin, parcours, documentaire) sous contrainte légale",
       "Agents et automatisations avec validation humaine systématique sur le sensible",
       "Architectures souveraines adaptées aux données de santé",
-      "Intégration aux outils existants plutôt que remplacement brutal",
+      "Intégration aux outils existants, sans les remplacer d'emblée",
       "Gouvernance, traçabilité et documentation pour vos DPO / direction",
       "Accompagnement au changement pour les équipes soignantes et admin",
     ],
@@ -133,13 +133,13 @@ const FR: Record<string, SecteurDetail> = {
         who: "Profession réglementée (cabinet / réseau)",
         need: "Accélérer la production documentaire sans diluer la responsabilité professionnelle.",
         remparia:
-          "Nous industrialisons des assistants de rédaction / synthèse où le professionnel valide avant envoi — jamais d'autonomie opaque sur le sensible.",
+          "Nous industrialisons des assistants de rédaction / synthèse où le professionnel valide avant envoi. Pas d'autonomie opaque sur le sensible.",
       },
       {
         who: "DSI / DPO santé",
         need: "Encadrer l'usage des agents au-delà des shadow IT.",
         remparia:
-          "Nous posons une feuille de route SIGNAL : cas autorisés, modèles, données, audit — et un premier cas en production contrôlée.",
+          "Nous posons une feuille de route SIGNAL (cas autorisés, modèles, données, audit), puis un premier cas en production contrôlée.",
       },
     ],
     serviceSlugs: [
@@ -162,7 +162,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         q: "Par quoi commencer ?",
-        a: "Un diagnostic SIGNAL pour séparer les cas à fort impact / faible risque des usages interdits ou trop précoces — puis un prototype guidé.",
+        a: "Un diagnostic SIGNAL pour séparer les cas à fort impact / faible risque des usages interdits ou trop précoces, puis un prototype guidé.",
       },
     ],
   },
@@ -170,7 +170,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "industrie",
     heroH: "Agents pour l'industrie & les opérations",
     heroP:
-      "Donner aux techniciens un accès plus rapide au savoir opérationnel et absorber les exceptions répétitives — sans contourner vos systèmes ni leur expertise.",
+      "Donner aux techniciens un accès plus rapide au savoir opérationnel et absorber les exceptions répétitives, sans contourner vos systèmes ni leur expertise.",
     signals: [
       { value: "OT/IT", label: "Intégration systèmes" },
       { value: "Prod", label: "Jusqu'à la production" },
@@ -204,7 +204,7 @@ const FR: Record<string, SecteurDetail> = {
         who: "Responsable maintenance",
         need: "Réduire le temps de diagnostic sur pannes récurrentes.",
         remparia:
-          "Nous connectons un agent à vos historiques et procédures, pour proposer des hypothèses et checklists — validées par vos techniciens.",
+          "Nous connectons un agent à vos historiques et procédures pour proposer des hypothèses et checklists, validées par vos techniciens.",
       },
       {
         who: "Qualité / industrialisation",
@@ -228,7 +228,7 @@ const FR: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Travaillez-vous avec nos contraintes OT / cybersécurité ?",
-        a: "Oui. Nous concevons des architectures qui respectent la segmentation des réseaux et les politiques sécurité — les agents ne contournent pas votre SI.",
+        a: "Oui. Nous concevons des architectures qui respectent la segmentation des réseaux et les politiques sécurité. Les agents ne contournent pas votre SI.",
       },
       {
         q: "Faut-il tout migrer vers le cloud ?",
@@ -236,7 +236,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         q: "Comment mesurez-vous le succès ?",
-        a: "Dès le cadrage : indicateurs métier (temps de diagnostic, taux de reprise, délais qualité) — pas des métriques de démo.",
+        a: "Dès le cadrage : indicateurs métier (temps de diagnostic, taux de reprise, délais qualité), pas des métriques de démo.",
       },
       {
         q: "Vos équipes viennent-elles sur site ?",
@@ -248,7 +248,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "services-conseil",
     heroH: "Agents pour les services & le conseil",
     heroP:
-      "Retrouver de la capacité sur la recherche, la synthèse et les livrables — sans standardiser le jugement ni exposer la confidentialité client.",
+      "Retrouver de la capacité sur la recherche, la synthèse et les livrables, sans standardiser le jugement ni exposer la confidentialité client.",
     signals: [
       { value: "Expert", label: "Humain au centre" },
       { value: "Conf.", label: "Confidentialité client" },
@@ -294,7 +294,7 @@ const FR: Record<string, SecteurDetail> = {
         who: "Direction innovation",
         need: "Encadrer l'usage des agents des consultants au-delà du shadow ChatGPT.",
         remparia:
-          "Feuille de route SIGNAL + premier cas en production contrôlée + charte d'usage alignée sur vos engagements clients.",
+          "Feuille de route SIGNAL, premier cas en production contrôlée, et charte d'usage conforme à vos engagements clients.",
       },
     ],
     serviceSlugs: [
@@ -305,11 +305,11 @@ const FR: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Les données clients sont-elles isolées ?",
-        a: "Oui. Nous concevons cloisonnement, droits et politiques d'usage pour que les agents respectent vos engagements contractuels — pas un pot commun opaque.",
+        a: "Oui. Nous concevons cloisonnement, droits et politiques d'usage pour que les agents respectent vos engagements contractuels. Pas de pot commun opaque.",
       },
       {
         q: "L'automatisation va-t-elle standardiser nos livrables au point de les uniformiser ?",
-        a: "Elle accélère le socle ; vos experts apportent le jugement et la différenciation. C'est précisément le modèle « humain décide, agent exécute ».",
+        a: "Elle accélère le socle ; vos experts apportent le jugement et la différenciation. Modèle Remparia : humain décide, agent exécute.",
       },
       {
         q: "Combien de temps pour un premier usage utile ?",
@@ -357,21 +357,21 @@ const FR: Record<string, SecteurDetail> = {
     scenarios: [
       {
         who: "Head of Product",
-        need: "Passer d'une démo impressionnante à une feature stable.",
+        need: "Passer d'une démo à une feature stable.",
         remparia:
-          "Nous posons evals, garde-fous, observabilité et critères de sortie — puis industrialisons avec vos squads.",
+          "Nous posons evals, garde-fous, observabilité et critères de sortie, puis industrialisons avec vos squads.",
       },
       {
         who: "CTO / plateforme",
-        need: "Éviter la jungle de stacks agentiques par équipe.",
+        need: "Éviter une stack agentique différente par équipe.",
         remparia:
           "Nous définissons une architecture de référence, des patterns d'agents et une gouvernance data/modèles réutilisable.",
       },
       {
         who: "Équipe data / ML",
-        need: "Accélérer sans recruter toute une armée agentique.",
+        need: "Accélérer sans recruter toute une équipe agentique.",
         remparia:
-          "Équipes embarquées Remparia pour livrer, documenter et transférer — pas une boîte noire externe.",
+          "Équipes embarquées Remparia pour livrer, documenter et transférer. Pas une boîte noire externe.",
       },
     ],
     serviceSlugs: [
@@ -391,7 +391,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         q: "Comment gérez-vous coûts et latence ?",
-        a: "Dès le design : routing de modèles, cache, truncation, evals de régression et budgets — pas après la facture cloud.",
+        a: "Dès le design : routing de modèles, cache, truncation, evals de régression et budgets. Pas après la facture cloud.",
       },
       {
         q: "Pouvez-vous auditer un stack agent existant ?",
@@ -403,7 +403,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "secteur-public",
     heroH: "Agents pour le secteur public",
     heroP:
-      "Réduire les délais administratifs tout en préservant la décision publique, la traçabilité et la maîtrise des données d'intérêt général.",
+      "Réduire les délais administratifs en gardant la décision publique, la traçabilité et la maîtrise des données d'intérêt général.",
     signals: [
       { value: "Souverain", label: "Données & hébergement" },
       { value: "Audit", label: "Traçabilité" },
@@ -449,7 +449,7 @@ const FR: Record<string, SecteurDetail> = {
         who: "DPO / juridique",
         need: "Encadrer l'expérimentation technologique dans l'administration.",
         remparia:
-          "Cadre SIGNAL : finalités, bases légales, minimisation, audit — puis premier cas contrôlé en production.",
+          "Cadre SIGNAL (finalités, bases légales, minimisation, audit), puis premier cas contrôlé en production.",
       },
     ],
     serviceSlugs: [
@@ -469,11 +469,11 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         q: "L'agent remplace-t-il des agents publics ?",
-        a: "Non. Elle absorbe le répétitif pour libérer du temps sur le jugement et la relation usager. La responsabilité reste humaine.",
+        a: "Non. Il absorbe le répétitif pour libérer du temps sur le jugement et la relation usager. La responsabilité reste humaine.",
       },
       {
         q: "Par quoi commencer concrètement ?",
-        a: "Un diagnostic SIGNAL : cartographier cas d'usage, risques, data et SI — puis un prototype guidé sur un périmètre à fort impact / risque maîtrisé.",
+        a: "Un diagnostic SIGNAL : cartographier cas d'usage, risques, data et SI, puis un prototype guidé sur un périmètre à fort impact / risque maîtrisé.",
       },
     ],
   },
@@ -484,9 +484,9 @@ const EN: Record<string, SecteurDetail> = {
     slug: "finance-assurance",
     heroH: "Sovereign agents for finance & insurance",
     heroP:
-      "Supervised agents absorb document work and controls while your teams keep judgment, accountability and client relationships.",
+      "Supervised agents absorb document work and controls. Your teams keep judgment, accountability and client relationships.",
     signals: [
-      { value: "SIGNAL", label: "End-to-end protocol" },
+      { value: "SIGNAL", label: "SIGNAL protocol" },
       { value: "FR", label: "Data in France" },
       { value: "HITL", label: "Human in the loop" },
       { value: "Audit", label: "Native traceability" },
@@ -502,7 +502,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         title: "Back-office overload, expertise underused",
-        desc: "Document analysis, KYC, claims, controls: teams drown in repetitive work instead of applying judgment.",
+        desc: "Document analysis, KYC, claims, controls: teams spend too much time on repetitive work instead of applying judgment.",
       },
     ],
     deliverables: [
@@ -516,7 +516,7 @@ const EN: Record<string, SecteurDetail> = {
     scenarios: [
       {
         who: "Insurance operations leadership",
-        need: "Cut claims handling time without losing business control.",
+        need: "Cut claims handling time while keeping business control.",
         remparia:
           "We industrialize a document pre-analysis agent on your DMS, with human validation on ambiguous cases and full traceability.",
       },
@@ -542,7 +542,7 @@ const EN: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Do you work under banking secrecy / supervisory constraints?",
-        a: "Yes. Compliance is not an add-on: it shapes SIGNAL scoping (allowed data, traceability, human-in-the-loop, hosting). We design with your risk and legal teams.",
+        a: "Yes. Compliance shapes SIGNAL scoping (allowed data, traceability, human-in-the-loop, hosting). We design with your risk and legal teams.",
       },
       {
         q: "Does our data leave France?",
@@ -550,7 +550,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         q: "How soon is a first useful deliverable?",
-        a: "A SIGNAL diagnostic quickly finds where value is real. A guided prototype then validates a low-risk case before industrialization — no magic in ten minutes.",
+        a: "A SIGNAL diagnostic finds where value is real. A guided prototype then validates a low-risk case before industrialization.",
       },
       {
         q: "Do you replace our business teams?",
@@ -562,7 +562,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "sante",
     heroH: "Agents for healthcare & regulated professions",
     heroP:
-      "Ease administrative load without delegating clinical decisions: professional secrecy, human validation and existing tools shape every use.",
+      "Ease administrative load without delegating clinical decisions. Professional secrecy, human validation and existing tools frame every use.",
     signals: [
       { value: "Secrecy", label: "Professional respect" },
       { value: "FR", label: "Sovereign hosting" },
@@ -571,7 +571,7 @@ const EN: Record<string, SecteurDetail> = {
     ],
     pains: [
       {
-        title: "Admin load crushing care time",
+        title: "Admin load crowding out care time",
         desc: "Reports, scheduling, document pathways: clinical time dissolves into process.",
       },
       {
@@ -580,14 +580,14 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         title: "Isolated pilots without field adoption",
-        desc: "Without integration into clinical software and governance, Automation stays an experiment outside daily work.",
+        desc: "Without integration into clinical software and governance, automation stays outside daily work.",
       },
     ],
     deliverables: [
       "Scoping of high-impact use cases (admin, pathways, documents) under legal constraints",
       "Agents and automations with systematic human validation on sensitive outputs",
       "Sovereign architectures suited to health data",
-      "Integration into existing tools rather than blunt replacement",
+      "Integration into existing tools, without replacing them outright",
       "Governance, traceability and documentation for DPOs / leadership",
       "Change support for clinical and admin teams",
     ],
@@ -602,13 +602,13 @@ const EN: Record<string, SecteurDetail> = {
         who: "Regulated practice / network",
         need: "Speed document production without diluting professional responsibility.",
         remparia:
-          "We industrialize drafting / synthesis assistants where the professional validates before send — never opaque autonomy on sensitive matter.",
+          "We industrialize drafting / synthesis assistants where the professional validates before send. No opaque autonomy on sensitive matter.",
       },
       {
         who: "Health IT / DPO",
         need: "Govern agent usage beyond shadow IT.",
         remparia:
-          "We set a SIGNAL roadmap: allowed cases, models, data, audit — then a first controlled production case.",
+          "We set a SIGNAL roadmap (allowed cases, models, data, audit), then a first controlled production case.",
       },
     ],
     serviceSlugs: ["strategie-ia", "agents-metier", "infra-souveraine"],
@@ -627,7 +627,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         q: "Where do we start?",
-        a: "A SIGNAL diagnostic to separate high-impact / low-risk cases from forbidden or premature ones — then a guided prototype.",
+        a: "A SIGNAL diagnostic to separate high-impact / low-risk cases from forbidden or premature ones, then a guided prototype.",
       },
     ],
   },
@@ -635,7 +635,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "industrie",
     heroH: "Agents for industry & operations",
     heroP:
-      "Give technicians faster access to operational knowledge and absorb repetitive exceptions — without bypassing your systems or their expertise.",
+      "Give technicians faster access to operational knowledge and absorb repetitive exceptions, without bypassing your systems or their expertise.",
     signals: [
       { value: "OT/IT", label: "Systems integration" },
       { value: "Prod", label: "Through to production" },
@@ -649,7 +649,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         title: "Technology POCs disconnected from the shopfloor",
-        desc: "Without MES/ERP/CMMS wiring and operator adoption, Automation stays a slide.",
+        desc: "Without MES/ERP/CMMS wiring and operator adoption, automation stays a slide.",
       },
       {
         title: "Quality and maintenance under pressure",
@@ -669,7 +669,7 @@ const EN: Record<string, SecteurDetail> = {
         who: "Maintenance lead",
         need: "Cut diagnosis time on recurring failures.",
         remparia:
-          "We connect an agent to your history and procedures to propose hypotheses and checklists — validated by your technicians.",
+          "We connect an agent to your history and procedures to propose hypotheses and checklists, validated by your technicians.",
       },
       {
         who: "Quality / industrialization",
@@ -693,7 +693,7 @@ const EN: Record<string, SecteurDetail> = {
     faqs: [
       {
         q: "Do you work with OT / cyber constraints?",
-        a: "Yes. We design architectures that respect network segmentation and security policy — Agents do not bypass your stack.",
+        a: "Yes. We design architectures that respect network segmentation and security policy. Agents do not bypass your stack.",
       },
       {
         q: "Must everything move to the cloud?",
@@ -701,7 +701,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         q: "How do you measure success?",
-        a: "From scoping: business indicators (diagnosis time, rework rate, quality lead times) — not demo metrics.",
+        a: "From scoping: business indicators (diagnosis time, rework rate, quality lead times), not demo metrics.",
       },
       {
         q: "Do your teams come on site?",
@@ -713,7 +713,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "services-conseil",
     heroH: "Agents for services & consulting",
     heroP:
-      "Recover capacity across research, synthesis and deliverables — without standardizing judgment or exposing client confidentiality.",
+      "Recover capacity across research, synthesis and deliverables, without standardizing judgment or exposing client confidentiality.",
     signals: [
       { value: "Expert", label: "Humans at the center" },
       { value: "Conf.", label: "Client confidentiality" },
@@ -759,22 +759,22 @@ const EN: Record<string, SecteurDetail> = {
         who: "Innovation leadership",
         need: "Govern consultant agent use beyond shadow ChatGPT.",
         remparia:
-          "SIGNAL roadmap + first controlled production case + usage charter aligned to client commitments.",
+          "SIGNAL roadmap, first controlled production case, and usage charter matching your client commitments.",
       },
     ],
     serviceSlugs: ["strategie-ia", "agents-metier", "infra-souveraine"],
     faqs: [
       {
         q: "Are client data isolated?",
-        a: "Yes. We design isolation, rights and usage policies so Agents respect your contractual commitments — not an opaque shared pot.",
+        a: "Yes. We design isolation, rights and usage policies so agents respect your contractual commitments. No opaque shared pot.",
       },
       {
         q: "Will automation flatten our deliverables?",
-        a: "It accelerates the base layer; your experts bring judgment and differentiation. That is “humans decide, agents execute”.",
+        a: "It accelerates the base layer; your experts bring judgment and differentiation. Remparia model: humans decide, agents execute.",
       },
       {
         q: "How soon for a first useful usage?",
-        a: "A diagnostic targets 1–2 high-leverage cases (often drafting / knowledge). A guided prototype follows before industrialization.",
+        a: "A diagnostic targets 1–2 priority cases (often drafting / knowledge). A guided prototype follows before scale-up.",
       },
       {
         q: "Do you train our teams?",
@@ -786,7 +786,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "tech-produit",
     heroH: "Agents for tech & product",
     heroP:
-      "Make agent features and internal workflows reliable through guardrails, evidence and progressive transfer to product and engineering teams.",
+      "Make agent features and internal workflows reliable with guardrails, evidence and progressive transfer to product and engineering teams.",
     signals: [
       { value: "LLM", label: "Model-agnostic" },
       { value: "Prod", label: "Product reliability" },
@@ -808,7 +808,7 @@ const EN: Record<string, SecteurDetail> = {
       },
     ],
     deliverables: [
-      "Product Agent strategy: use cases, architecture, model choices",
+      "Product agent strategy: use cases, architecture, model choices",
       "Industrialization of agents and features (eval, monitoring, cost)",
       "RAG and data readiness on proprietary data",
       "Sovereign or hybrid infra patterns by policy",
@@ -818,21 +818,21 @@ const EN: Record<string, SecteurDetail> = {
     scenarios: [
       {
         who: "Head of Product",
-        need: "Move from impressive demo to stable feature.",
+        need: "Move from a demo to a stable feature.",
         remparia:
-          "We set evals, guardrails, observability and exit criteria — then industrialize with your squads.",
+          "We set evals, guardrails, observability and exit criteria, then industrialize with your squads.",
       },
       {
         who: "CTO / platform",
-        need: "Avoid an agent stack jungle per team.",
+        need: "Avoid a different agent stack per team.",
         remparia:
           "We define a reference architecture, agent patterns and reusable data/model governance.",
       },
       {
         who: "Data / ML team",
-        need: "Accelerate without hiring a full agentic army.",
+        need: "Accelerate without hiring a full agentic team.",
         remparia:
-          "Embedded Remparia teams to ship, document and transfer — not an external black box.",
+          "Embedded Remparia teams to ship, document and transfer. Not an external black box.",
       },
     ],
     serviceSlugs: [
@@ -848,11 +848,11 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         q: "Do you work in our codebase?",
-        a: "Yes — embedded or co-delivery, with engineering standards, tests and progressive ownership by your teams.",
+        a: "Yes, embedded or co-delivery, with engineering standards, tests and progressive ownership by your teams.",
       },
       {
         q: "How do you handle cost and latency?",
-        a: "From design: model routing, cache, truncation, regression evals and budgets — not after the cloud bill.",
+        a: "From design: model routing, cache, truncation, regression evals and budgets. Not after the cloud bill.",
       },
       {
         q: "Can you audit an existing agent stack?",
@@ -864,7 +864,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "secteur-public",
     heroH: "Agents for the public sector",
     heroP:
-      "Shorten administrative lead times while preserving public decisions, traceability and control of public-interest data.",
+      "Shorten administrative lead times while keeping public decisions, traceability and control of public-interest data.",
     signals: [
       { value: "Sovereign", label: "Data & hosting" },
       { value: "Audit", label: "Traceability" },
@@ -910,7 +910,7 @@ const EN: Record<string, SecteurDetail> = {
         who: "DPO / legal",
         need: "Govern technology experimentation in administration.",
         remparia:
-          "SIGNAL frame: purposes, legal bases, minimization, audit — then a first controlled production case.",
+          "SIGNAL frame (purposes, legal bases, minimization, audit), then a first controlled production case.",
       },
     ],
     serviceSlugs: [
@@ -934,7 +934,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         q: "Where do we start concretely?",
-        a: "A SIGNAL diagnostic: map use cases, risks, data and systems — then a guided prototype on a high-impact / controlled-risk scope.",
+        a: "A SIGNAL diagnostic: map use cases, risks, data and systems, then a guided prototype on a high-impact / controlled-risk scope.",
       },
     ],
   },
@@ -973,8 +973,8 @@ export function getSecteurDetail(
     ...detail,
     scenarios: scenarios.map((scenario) => ({
       ...scenario,
-      need: `${objectiveLabel} — ${scenario.need}`,
-      remparia: `${scenarioLabel} — ${scenario.remparia}`,
+      need: `${objectiveLabel} : ${scenario.need}`,
+      remparia: `${scenarioLabel} : ${scenario.remparia}`,
     })),
   };
 }

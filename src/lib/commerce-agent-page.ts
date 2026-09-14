@@ -89,7 +89,7 @@ const fr: CommerceAgentPageCopy = {
   eyebrow: "SOLUTIONS / AGENT COMMERCE",
   title: "Votre boutique devient ",
   titleAccent: "un vendeur.",
-  sub: "Un agent qui conseille vos clients, compose leur panier et suit leur commande — dans une seule conversation, sur votre site, avec vos règles gravées dans le code. Et qui ne touche jamais au paiement.",
+  sub: "Un agent qui conseille vos clients, compose leur panier et suit leur commande dans une seule conversation, sur votre site, avec vos règles dans le code. Il ne touche jamais au paiement.",
   ctaPrimary: "Lancer SIGNAL commerce",
   ctaPrimaryHref: "/demarrer",
   ctaSecondary: "Voir le vertical e-commerce",
@@ -112,18 +112,18 @@ const fr: CommerceAgentPageCopy = {
     },
     {
       value: "0",
-      label: "outil de paiement exposé à l’agent — le checkout reste humain",
+      label: "outil de paiement exposé à l’agent : le checkout reste humain",
       source: "Sécurité by design",
     },
   ],
   dual: {
     eyebrow: "01 / DEUX AGENTS",
     title: "Shopping côté client. Marchand côté équipe.",
-    body: "Un seul agent conversationnel côté site — pas un routeur d’intentions qui perd le contexte. Et un agent marchand pour le back-office, où chaque écriture attend votre validation.",
+    body: "Un seul agent conversationnel côté site, pas un routeur d’intentions qui perd le contexte. Un agent marchand pour le back-office, où chaque écriture attend votre validation.",
     shopping: {
       title: "Agent shopping",
       forWhom: "Le client final, dans votre site ou votre app",
-      does: "Recherche multi-contraintes, comparaison, panier, handoff checkout, SAV (commande, retours, politiques) — dans une seule conversation.",
+      does: "Recherche multi-contraintes, comparaison, panier, handoff checkout, SAV (commande, retours, politiques), le tout dans une seule conversation.",
       skills: [
         "Recherche & découverte",
         "Comparaison produit",
@@ -136,7 +136,7 @@ const fr: CommerceAgentPageCopy = {
     merchant: {
       title: "Agent marchand",
       forWhom: "L’équipe qui exploite la boutique",
-      does: "Analyse ventes et stocks, recommande prix / promos, rédige des campagnes — chaque changement reste en attente jusqu’à approbation.",
+      does: "Analyse ventes et stocks, recommande prix / promos, rédige des campagnes. Chaque changement reste en attente jusqu’à approbation.",
       skills: [
         "Insights performance",
         "Alertes stock",
@@ -150,7 +150,7 @@ const fr: CommerceAgentPageCopy = {
   security: {
     eyebrow: "02 / SÉCURITÉ DANS LE CODE",
     title: "Ce qui rassure un dirigeant, un DAF et un DPO.",
-    body: "Les garde-fous ne vivent pas dans une consigne fragile. Ils sont appliqués dans le harness — avant d’atteindre vos systèmes.",
+    body: "Les garde-fous ne vivent pas dans une consigne fragile. Ils sont appliqués dans le harness, avant d’atteindre vos systèmes.",
     rules: [
       {
         title: "L’agent ne paie jamais",
@@ -170,7 +170,7 @@ const fr: CommerceAgentPageCopy = {
       },
       {
         title: "Mentions légales mot pour mot",
-        desc: "Frais, conditions, disclosures servis depuis votre copie approuvée — jamais paraphrasés.",
+        desc: "Frais, conditions, disclosures servis depuis votre copie approuvée, jamais paraphrasés.",
       },
       {
         title: "Mémoire gouvernée (RGPD)",
@@ -184,7 +184,7 @@ const fr: CommerceAgentPageCopy = {
     body: "Les agents tiers orientent déjà l’achat. Votre propre agent garde la marque, la donnée et le contexte.",
     own: {
       title: "Agent propriétaire",
-      desc: "Sur votre site : conseille, compose le panier, suit la commande — sous Remparia OS, avec vos règles.",
+      desc: "Sur votre site : conseille, compose le panier, suit la commande, sous Remparia OS, avec vos règles.",
     },
     third: {
       title: "Visibilité agents tiers",
@@ -194,8 +194,8 @@ const fr: CommerceAgentPageCopy = {
   },
   offer: {
     eyebrow: "04 / OFFRE",
-    title: "Commencer petit. Mesurer. Étendre.",
-    body: "Quatre paliers — du diagnostic mesurable au run continu. Les connecteurs et le ROI sont cadrés en SIGNAL, pas inventés en démo.",
+    title: "On commence petit, on mesure, on étend.",
+    body: "Quatre paliers, du diagnostic mesurable au run continu. Les connecteurs et le ROI sont cadrés en SIGNAL, pas inventés en démo.",
     steps: [
       {
         index: "01",
@@ -270,7 +270,7 @@ const fr: CommerceAgentPageCopy = {
   },
   training: {
     eyebrow: "06 / FORMATION",
-    title: "Vendre et piloter avec un agent — pas seulement le déployer.",
+    title: "Vendre et piloter avec l’agent au quotidien.",
     body: "Trois formats, du comité de direction à l’équipe technique. Inclus ou à la carte selon le palier.",
     courses: [
       {
@@ -316,7 +316,7 @@ const fr: CommerceAgentPageCopy = {
       {
         title: "Marques & DTC",
         desc: "Shopify, catalogue vivant, équipe e-com 3–15 personnes.",
-        angle: "Pilote shopping avant les pics — démo sur votre catalogue.",
+        angle: "Pilote shopping avant les pics. Démo sur votre catalogue.",
       },
       {
         title: "Retailers multicanaux",
@@ -337,7 +337,7 @@ const fr: CommerceAgentPageCopy = {
   },
   final: {
     title: "Prochaine étape : savoir exactement ce que l’agent vous rapporterait.",
-    body: "En SIGNAL, on cadre les données, les systèmes et le business case — puis on fait tourner une démo sur votre catalogue.",
+    body: "En SIGNAL, on cadre les données, les systèmes et le business case. Ensuite on fait tourner une démo sur votre catalogue.",
     steps: [
       "Atelier de cadrage (e-commerce, SAV, marketing, DSI)",
       "Audit des données et des systèmes, business case chiffré",
@@ -355,7 +355,7 @@ const en: CommerceAgentPageCopy = {
   eyebrow: "SOLUTIONS / COMMERCE AGENT",
   title: "Your store becomes ",
   titleAccent: "a seller.",
-  sub: "An agent that advises shoppers, builds their cart and tracks their order — in one conversation, on your site, with your rules enforced in code. And never touches payment.",
+  sub: "An agent that advises shoppers, builds their cart and tracks their order in one conversation, on your site, with your rules enforced in code. It never touches payment.",
   ctaPrimary: "Start commerce SIGNAL",
   ctaPrimaryHref: "/demarrer",
   ctaSecondary: "See the e-commerce vertical",
@@ -378,18 +378,18 @@ const en: CommerceAgentPageCopy = {
     },
     {
       value: "0",
-      label: "payment tool exposed to the agent — checkout stays human",
+      label: "payment tool exposed to the agent: checkout stays human",
       source: "Security by design",
     },
   ],
   dual: {
     eyebrow: "01 / TWO AGENTS",
     title: "Shopping for customers. Merchant for your team.",
-    body: "One conversational agent on-site — not an intent router that drops context. And a merchant agent for back-office, where every write waits for your approval.",
+    body: "One conversational agent on-site, not an intent router that drops context. A merchant agent for back-office, where every write waits for your approval.",
     shopping: {
       title: "Shopping agent",
       forWhom: "The end customer, in your site or app",
-      does: "Multi-constraint search, comparison, cart, checkout handoff, care (orders, returns, policies) — in one conversation.",
+      does: "Multi-constraint search, comparison, cart, checkout handoff, care (orders, returns, policies), all in one conversation.",
       skills: [
         "Search & discovery",
         "Product comparison",
@@ -402,7 +402,7 @@ const en: CommerceAgentPageCopy = {
     merchant: {
       title: "Merchant agent",
       forWhom: "The team running the store",
-      does: "Sales and stock analysis, price / promo recommendations, campaign drafts — every change stays staged until approved.",
+      does: "Sales and stock analysis, price / promo recommendations, campaign drafts. Every change stays staged until approved.",
       skills: [
         "Performance insights",
         "Stock alerts",
@@ -416,7 +416,7 @@ const en: CommerceAgentPageCopy = {
   security: {
     eyebrow: "02 / SECURITY IN CODE",
     title: "What reassures a CEO, a CFO and a DPO.",
-    body: "Guards don’t live in a fragile prompt. They run in the harness — before they reach your systems.",
+    body: "Guards don’t live in a fragile prompt. They run in the harness, before they reach your systems.",
     rules: [
       {
         title: "The agent never pays",
@@ -436,7 +436,7 @@ const en: CommerceAgentPageCopy = {
       },
       {
         title: "Legal copy verbatim",
-        desc: "Fees, terms, disclosures served from your approved copy — never paraphrased.",
+        desc: "Fees, terms, disclosures served from your approved copy, never paraphrased.",
       },
       {
         title: "Governed memory (GDPR)",
@@ -450,7 +450,7 @@ const en: CommerceAgentPageCopy = {
     body: "Third-party agents already steer purchase. Your own agent keeps brand, data and context.",
     own: {
       title: "Owned agent",
-      desc: "On your site: advises, builds the cart, tracks the order — under Remparia OS, with your rules.",
+      desc: "On your site: advises, builds the cart, tracks the order, under Remparia OS, with your rules.",
     },
     third: {
       title: "Third-party visibility",
@@ -460,8 +460,8 @@ const en: CommerceAgentPageCopy = {
   },
   offer: {
     eyebrow: "04 / OFFER",
-    title: "Start small. Measure. Extend.",
-    body: "Four tiers — from a measurable diagnostic to continuous run. Connectors and ROI are scoped in SIGNAL, not invented in a demo.",
+    title: "Start small, measure, then extend.",
+    body: "Four tiers, from a measurable diagnostic to continuous run. Connectors and ROI are scoped in SIGNAL, not invented in a demo.",
     steps: [
       {
         index: "01",
@@ -536,7 +536,7 @@ const en: CommerceAgentPageCopy = {
   },
   training: {
     eyebrow: "06 / TRAINING",
-    title: "Sell and operate with an agent — don’t just ship it.",
+    title: "Sell and operate with the agent day to day.",
     body: "Three formats, from the exec committee to engineering. Included or à la carte by tier.",
     courses: [
       {
@@ -582,7 +582,7 @@ const en: CommerceAgentPageCopy = {
       {
         title: "Brands & DTC",
         desc: "Shopify, living catalog, e-com team of 3–15.",
-        angle: "Shopping pilot before peaks — demo on your catalog.",
+        angle: "Shopping pilot before peaks. Demo on your catalog.",
       },
       {
         title: "Multichannel retailers",
@@ -603,7 +603,7 @@ const en: CommerceAgentPageCopy = {
   },
   final: {
     title: "Next step: know exactly what the agent would return for you.",
-    body: "In SIGNAL we scope data, systems and the business case — then run a demo on your catalog.",
+    body: "In SIGNAL we scope data, systems and the business case. Then we run a demo on your catalog.",
     steps: [
       "Scoping workshop (e-commerce, care, marketing, IT)",
       "Data and systems audit, quantified business case",

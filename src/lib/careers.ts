@@ -14,20 +14,20 @@ export const CAREERS = {
   fr: {
     eyebrow: "CARRIÈRES",
     title: "Rejoindre Remparia",
-    sub: "Agents métier pour métiers spécialisés, supervision humaine et données sous contrôle. Nous constituons un réseau d'indépendants mobilisables selon les déploiements.",
+    sub: "Agents métier pour métiers spécialisés. Supervision humaine, données sous contrôle. Remparia a un réseau d'indépendants mobilisables selon les déploiements.",
     heroMeta: ["≈ 30 min", "3 étapes", "Écrit + vidéo"],
     heroCta: "Lancer le parcours",
     heroSecondary: "Voir les profils",
     rolesTag: "OUVERTS",
     rolesTitle: "Profils que l’on cherche",
     rolesSub:
-      "Des indépendants capables de sonder, gouverner, construire et transférer — pas des titres fantaisie.",
+      "Des indépendants qui sondent le besoin, gouvernent les agents, construisent et transfèrent. Pas de titres fantaisie.",
     roles: [
       {
         id: "agent-engineer" as const,
         tag: "ENGINEERING",
         title: "Agent Engineer",
-        desc: "Chez le client : agents métier, outils, orchestration, intégrations — jusqu’à la prod quotidienne.",
+        desc: "Chez le client : agents métier, outils, orchestration, intégrations, jusqu’à la prod quotidienne.",
       },
       {
         id: "platform-engineer" as const,
@@ -39,19 +39,19 @@ export const CAREERS = {
         id: "ai-consultant" as const,
         tag: "MÉTIER",
         title: "Consultant agents métier",
-        desc: "Chez le client : process, ateliers, change — faire passer SIGNAL du cadrage au terrain.",
+        desc: "Chez le client : process, ateliers, change. Faire passer SIGNAL du cadrage au terrain.",
       },
       {
         id: "delivery-ai" as const,
         tag: "DELIVERY",
         title: "Delivery / Product agents",
-        desc: "Chez le client : roadmap, ROI, priorisation, passage POC → production.",
+        desc: "Chez le client : roadmap, priorisation, passage POC → production.",
       },
       {
         id: "compliance-data" as const,
         tag: "CONFORMITÉ",
         title: "Conformité & données",
-        desc: "Chez le client : cadre RGPD, human-in-the-loop, souveraineté — dès le design.",
+        desc: "Chez le client : cadre RGPD, human-in-the-loop, souveraineté dès le design.",
       },
       {
         id: "business-developer" as const,
@@ -63,22 +63,22 @@ export const CAREERS = {
     philTag: "PHILO",
     philTitle: "Comment on travaille",
     philSub:
-      "Quand un déploiement requiert ton expertise, Remparia cadre l'engagement et tu interviens en indépendant — au TJ ou à l'heure.",
+      "Quand un déploiement requiert ton expertise, Remparia cadre l'engagement et tu interviens en indépendant, au TJ ou à l'heure.",
     phil: [
       {
         tag: "LIVRER",
         title: "Prod > démo",
-        desc: "Jusqu’à la production quotidienne chez le client — pas jusqu’au POC qui impressionne.",
+        desc: "On vise la production quotidienne chez le client, pas le POC qui impressionne.",
       },
       {
         tag: "CADRER",
         title: "Ownership réel",
-        desc: "ROI, conformité et ownership métier avant la stack. Tu cadres, tu livres, tu assumes.",
+        desc: "Conformité et ownership métier avant la stack. Tu cadres, tu livres, tu assumes.",
       },
       {
         tag: "RESPECTER",
         title: "Humain décide",
-        desc: "Chez le client : l’humain garde la décision — l’agent porte la charge. Pas de remplacement déguisé.",
+        desc: "Chez le client, l’humain garde la décision. L’agent porte la charge. Pas de remplacement déguisé.",
       },
       {
         tag: "COLLABORER",
@@ -100,7 +100,7 @@ export const CAREERS = {
         n: "02",
         title: "Questions écrites",
         time: "≈ 17 min",
-        desc: "Réponses courtes et concrètes — on veut du signal, pas du blabla.",
+        desc: "Réponses courtes et concrètes. On veut du signal, pas du blabla.",
       },
       {
         n: "03",
@@ -134,7 +134,7 @@ export const CAREERS = {
     videoUnavailable:
       "Caméra / micro indisponibles (déjà utilisés par une autre app, ou bloqués par Windows). Ferme Zoom/Teams et vérifie Confidentialité → Caméra / Microphone.",
     videoTooShort: "Enregistre au moins 30 secondes.",
-    videoTooLong: "Maximum 12 minutes — arrête et renvoie une version plus courte.",
+    videoTooLong: "Maximum 12 minutes : arrête et renvoie une version plus courte.",
     videoNoBlob:
       "L’upload vidéo n’est pas configuré côté serveur (BLOB_READ_WRITE_TOKEN).",
     videoError: "Enregistrement ou envoi impossible. Réessaie.",
@@ -161,12 +161,27 @@ export const CAREERS = {
       back: "Retour",
       stepOf: "Étape",
       formIncomplete:
-        "Merci de remplir tous les champs obligatoires avant de continuer.",
+        "Merci de corriger les champs indiqués avant de continuer.",
+      answersTooShort:
+        "Certaines réponses sont trop courtes. Atteins le minimum indiqué sous chaque question (il y en a 5, remonte en haut si besoin).",
+      charsOf: "caractères",
+      charsMin: "min.",
+    },
+    validation: {
+      nameRequired: "Indique ton nom et prénom.",
+      nameInvalid: "Nom invalide (2 caractères minimum, lettres uniquement).",
+      emailRequired: "Indique ton email.",
+      emailInvalid: "Format d’email invalide.",
+      linkedinInvalid:
+        "Lien LinkedIn invalide (ex. https://www.linkedin.com/in/…).",
+      cityRequired: "Indique ta ville ou ton fuseau.",
+      cityInvalid: "Ville / fuseau invalide (2 caractères minimum).",
+      roleRequired: "Choisis un profil.",
     },
     questions: [
       {
         id: "why",
-        label: "Pourquoi Remparia — et pourquoi maintenant ?",
+        label: "Pourquoi Remparia, et pourquoi maintenant ?",
         hint: "2–3 paragraphes max. Sois précis.",
         min: 80,
       },
@@ -201,7 +216,7 @@ export const CAREERS = {
     timerLabel: "Temps indicatif restant",
     timerNote: "Chronomètre indicatif (30 min). Tu peux finir plus tôt ou un peu après.",
     success:
-      "Candidature reçue. On lit chaque dossier — réponse sous quelques jours si on avance.",
+      "Candidature reçue. On lit chaque dossier. Réponse sous quelques jours si on avance.",
     error: `Envoi impossible. Réessaie ou écris-nous à ${CONTACT_EMAIL}.`,
     errorConfig:
       `Le formulaire n’est pas encore configuré côté serveur. Envoie ta candidature à ${CONTACT_EMAIL}.`,
@@ -211,20 +226,20 @@ export const CAREERS = {
   en: {
     eyebrow: "CAREERS",
     title: "Join Remparia",
-    sub: "Agents for specialized professions, human supervision and data under control. We are building a network of independents available for deployments.",
+    sub: "Agents for specialized professions. Human supervision, data under control. Remparia has a network of independents available for deployments.",
     heroMeta: ["≈ 30 min", "3 steps", "Written + video"],
     heroCta: "Start the journey",
     heroSecondary: "See open roles",
     rolesTag: "OPEN",
     rolesTitle: "Profiles we’re looking for",
     rolesSub:
-      "Independents who can study, govern, build and transfer — no vanity titles.",
+      "Independents who probe the need, govern agents, build and transfer. No vanity titles.",
     roles: [
       {
         id: "agent-engineer" as const,
         tag: "ENGINEERING",
         title: "Agent Engineer",
-        desc: "At the client: business agents, tools, orchestration, integrations — through to daily production.",
+        desc: "At the client: business agents, tools, orchestration, integrations, through to daily production.",
       },
       {
         id: "platform-engineer" as const,
@@ -236,19 +251,19 @@ export const CAREERS = {
         id: "ai-consultant" as const,
         tag: "BUSINESS",
         title: "Business agent consultant",
-        desc: "At the client: processes, workshops, change — take SIGNAL from scoping to the field.",
+        desc: "At the client: processes, workshops, change. Take SIGNAL from scoping to the field.",
       },
       {
         id: "delivery-ai" as const,
         tag: "DELIVERY",
         title: "Delivery / Product agents",
-        desc: "At the client: roadmap, ROI, prioritization, POC → production.",
+        desc: "At the client: roadmap, prioritization, POC → production.",
       },
       {
         id: "compliance-data" as const,
         tag: "COMPLIANCE",
         title: "Compliance & data",
-        desc: "At the client: GDPR frame, human-in-the-loop, sovereignty — from design time.",
+        desc: "At the client: GDPR frame, human-in-the-loop, sovereignty from design time.",
       },
       {
         id: "business-developer" as const,
@@ -260,22 +275,22 @@ export const CAREERS = {
     philTag: "ETHOS",
     philTitle: "How we work",
     philSub:
-      "When a deployment needs your expertise, Remparia frames the engagement and you contribute as an independent — day rate or hourly.",
+      "When a deployment needs your expertise, Remparia frames the engagement and you contribute as an independent, day rate or hourly.",
     phil: [
       {
         tag: "SHIP",
         title: "Prod > demo",
-        desc: "Through to daily production at the client — not the POC that dazzles.",
+        desc: "We aim for daily production at the client, not the POC that dazzles.",
       },
       {
         tag: "OWN",
         title: "Real ownership",
-        desc: "ROI, compliance and business ownership before the stack. You frame, ship, own.",
+        desc: "Compliance and business ownership before the stack. You frame, ship, own.",
       },
       {
         tag: "RESPECT",
         title: "Humans decide",
-        desc: "At the client: humans keep the decision — agents carry the load. No disguised replacement.",
+        desc: "At the client, humans keep the decision. Agents carry the load. No disguised replacement.",
       },
       {
         tag: "COLLABORATE",
@@ -297,7 +312,7 @@ export const CAREERS = {
         n: "02",
         title: "Written questions",
         time: "≈ 17 min",
-        desc: "Short, concrete answers — signal, not fluff.",
+        desc: "Short, concrete answers. Signal, not fluff.",
       },
       {
         n: "03",
@@ -330,7 +345,7 @@ export const CAREERS = {
     videoUnavailable:
       "Camera / mic unavailable (in use by another app, or blocked by the OS). Close Zoom/Teams and check Privacy → Camera / Microphone.",
     videoTooShort: "Record at least 30 seconds.",
-    videoTooLong: "Max 12 minutes — stop and send a shorter take.",
+    videoTooLong: "Max 12 minutes: stop and send a shorter take.",
     videoNoBlob:
       "Video upload isn’t configured on the server (BLOB_READ_WRITE_TOKEN).",
     videoError: "Couldn’t record or upload. Try again.",
@@ -356,12 +371,27 @@ export const CAREERS = {
       next: "Continue",
       back: "Back",
       stepOf: "Step",
-      formIncomplete: "Please complete all required fields before continuing.",
+      formIncomplete: "Please fix the highlighted fields before continuing.",
+      answersTooShort:
+        "Some answers are too short. Reach the minimum under each question (there are 5 — scroll up if needed).",
+      charsOf: "characters",
+      charsMin: "min.",
+    },
+    validation: {
+      nameRequired: "Enter your full name.",
+      nameInvalid: "Invalid name (at least 2 characters, letters only).",
+      emailRequired: "Enter your email.",
+      emailInvalid: "Invalid email format.",
+      linkedinInvalid:
+        "Invalid LinkedIn URL (e.g. https://www.linkedin.com/in/…).",
+      cityRequired: "Enter your city or timezone.",
+      cityInvalid: "Invalid city / timezone (at least 2 characters).",
+      roleRequired: "Choose a profile.",
     },
     questions: [
       {
         id: "why",
-        label: "Why Remparia — and why now?",
+        label: "Why Remparia, and why now?",
         hint: "2–3 short paragraphs max. Be specific.",
         min: 80,
       },
@@ -396,7 +426,7 @@ export const CAREERS = {
     timerLabel: "Indicative time left",
     timerNote: "30-minute soft timer. Finish earlier or slightly later if needed.",
     success:
-      "Application received. We read every file — you’ll hear back within a few days if we move forward.",
+      "Application received. We read every file. You’ll hear back within a few days if we move forward.",
     error: `Couldn’t send. Try again or email ${CONTACT_EMAIL}.`,
     errorConfig:
       `The form isn’t configured on the server yet. Please email ${CONTACT_EMAIL}.`,

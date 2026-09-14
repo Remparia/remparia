@@ -40,7 +40,7 @@ export const NAV = {
       href: "/demarrer",
       image: "/services/diagnostic-governance-hub.png",
       imageAlt:
-        "Diagnostic SIGNAL — cadrage d’un processus métier avant automatisation",
+        "Diagnostic SIGNAL : cadrage d’un processus métier avant automatisation",
       eyebrow: "SIGNAL",
       title: "Réserver une session SIGNAL",
       desc: "1 h pour cadrer valeur, données et gouvernance.",
@@ -83,7 +83,7 @@ export const NAV = {
       href: "/demarrer",
       image: "/services/diagnostic-governance-hub.png",
       imageAlt:
-        "SIGNAL diagnostic — scoping a business workflow before automation",
+        "SIGNAL diagnostic: scoping a business workflow before automation",
       eyebrow: "SIGNAL",
       title: "Book a SIGNAL Session",
       desc: "1 hr to frame value, data and governance.",
@@ -155,7 +155,7 @@ export const NAV_METHOD = {
       href: "/signal",
       tag: "SIGNAL",
       title: "Protocole SIGNAL",
-      desc: "Trouver où l’IA crée de la valeur — avant de construire.",
+      desc: "Trouver où l’IA crée de la valeur, avant de construire.",
     },
   ],
   en: [
@@ -163,7 +163,7 @@ export const NAV_METHOD = {
       href: "/signal",
       tag: "SIGNAL",
       title: "SIGNAL protocol",
-      desc: "Find where AI creates value — before you build.",
+      desc: "Find where AI creates value, before you build.",
     },
   ],
 } as const;
@@ -180,7 +180,7 @@ export const NAV_SOLUTIONS = {
         href: "/solutions/commerce",
         tag: "COMMERCE",
         title: "Pack Commerce",
-        desc: "Qualification, relances, catalogue — agents en production.",
+        desc: "Qualification, relances, catalogue. Agents en production.",
       },
       {
         href: "/solutions/real-estate",
@@ -212,7 +212,7 @@ export const NAV_SOLUTIONS = {
         href: "/solutions/commerce",
         tag: "COMMERCE",
         title: "Commerce pack",
-        desc: "Qualification, follow-ups, catalog — agents in production.",
+        desc: "Qualification, follow-ups, catalog. Agents in production.",
       },
       {
         href: "/solutions/real-estate",
@@ -251,7 +251,7 @@ export const FOOTER = {
     cookies: "Cookies",
     cookiePrefs: "Gérer les cookies",
     rights: "© 2026 Remparia. Tous droits réservés.",
-    logoAlt: "Remparia — Agents métier",
+    logoAlt: "Remparia, agents métier",
   },
   en: {
     tagline: "Human intelligence. Artificial scale.",
@@ -267,7 +267,7 @@ export const FOOTER = {
     cookies: "Cookies",
     cookiePrefs: "Cookie settings",
     rights: "© 2026 Remparia. All rights reserved.",
-    logoAlt: "Remparia — Business agents",
+    logoAlt: "Remparia, business agents",
   },
 } as const;
 
@@ -296,9 +296,9 @@ export const BRAND = {
   fr: {
     promiseGuard: "La décision préservée.",
     visionTag: "NOTRE VISION",
-    visionH: "Une technologie qui renforce les métiers de confiance.",
+    visionH: "Une technologie qui sert les métiers de confiance.",
     visionP:
-      "Dans les métiers où chaque décision engage une responsabilité, l'automatisation ne doit pas devenir une boîte noire qui remplace le jugement. Elle doit devenir une infrastructure de confiance : supervisée, traçable et utile.",
+      "Dans les métiers où chaque décision engage une responsabilité, l'automatisation ne doit pas être une boîte noire qui remplace le jugement. Elle doit être une infrastructure de confiance : supervisée, traçable et utile.",
     missionTag: "NOTRE MISSION",
     missionH: "Transformer le répétitif en temps utile.",
     missionP:
@@ -333,9 +333,9 @@ export const BRAND = {
   en: {
     promiseGuard: "Decision preserved.",
     visionTag: "OUR VISION",
-    visionH: "Technology that strengthens professions built on trust.",
+    visionH: "Technology that serves professions built on trust.",
     visionP:
-      "In professions where every decision carries accountability, automation must not become a black box that replaces judgment. It must become trusted infrastructure: supervised, traceable and useful.",
+      "In professions where every decision carries accountability, automation must not be a black box that replaces judgment. It must be trusted infrastructure: supervised, traceable and useful.",
     missionTag: "OUR MISSION",
     missionH: "Turn repetitive work into useful time.",
     missionP:
@@ -382,7 +382,7 @@ export const HOME = {
     subBefore: "Remparia aide les métiers spécialisés à ",
     subAccent: "intégrer des agents supervisés",
     subAfter:
-      " de manière concrète, souveraine, sécurisée et mesurable — sans céder la décision ni le contrôle de leurs données.",
+      " dans vos outils, sous gouvernance et sous votre contrôle des données. La décision reste chez vos experts.",
     advantages: [
       {
         icon: "strategy",
@@ -402,17 +402,17 @@ export const HOME = {
       {
         icon: "partnership",
         title: "Partenaire de confiance",
-        desc: "Un accompagnement souverain de bout en bout par les associés qui livrent.",
+        desc: "Un accompagnement continu par les associés qui livrent.",
       },
     ],
-    closingBefore: "L’automatisation n’est pas qu’une technologie.",
-    closingAccent: "C’est votre prochaine longueur d’avance.",
+    closingBefore: "L’automatisation est aussi une longueur d’avance.",
+    closingAccent: "Sur le terrain, pas sur une slide.",
     cta: "Parlons de votre processus",
     constat: "LE CONSTAT",
     constatH: "Vos experts perdent encore des heures sur du travail que des agents peuvent porter.",
     constatP:
       "Collecte de pièces, ressaisies, contrôles, relances, reporting : la valeur ne vient pas d'une nouvelle démo. Elle vient d'agents intégrés aux processus réels, adoptés par les équipes et gouvernés dès le départ.",
-    conviction: "NOTRE CONVICTION",
+    conviction: "NOTRE POSITION",
     convH1: "L'humain décide,",
     convH2: "l'agent exécute.",
     convP:
@@ -441,17 +441,17 @@ export const HOME = {
     method: "DU TERRAIN AUX GAINS",
     methodH: "SIGNAL : six étapes, six livrables.",
     methodTeaser:
-      "Du terrain aux gains mesurés — livrables, gouvernance et délais à chaque étape. Le détail sur la page Méthode.",
+      "Du terrain aux gains mesurés. Livrables, gouvernance et délais à chaque étape. Le détail sur la page Méthode.",
     methodCta: "Explorer SIGNAL",
     position: "LE POSITIONNEMENT",
-    positionH: "Ni formation seule, ni outil générique. Un partenaire qui livre.",
+    positionH: "Un partenaire qui livre : terrain, agents et transfert.",
     servicesEyebrow: "CE QUE NOUS LIVRONS",
     servicesH: "De l’audit à l’adoption.",
     servicesCta: "Voir notre accompagnement",
     ctaTag: "PRÊT À COMMENCER",
     ctaH: "Montrez-nous le processus qui vous coûte du temps.",
     ctaP:
-      "En une heure, nous cadrons le travail répétitif, les contraintes de données et les gains à mesurer — avec un associé, pas un commercial.",
+      "En une heure, nous cadrons le travail répétitif, les contraintes de données et les gains à mesurer. Avec un associé, pas un commercial.",
   },
   en: {
     eyebrow: "AGENTS FOR SPECIALIZED PROFESSIONS",
@@ -465,7 +465,7 @@ export const HOME = {
     subBefore: "Remparia helps specialized professions ",
     subAccent: "integrate supervised agents",
     subAfter:
-      " in a concrete, sovereign, secure and measurable way — without giving up decisions or control of their data.",
+      " into your tools, under governance, with your data under your control. Decisions stay with your experts.",
     advantages: [
       {
         icon: "strategy",
@@ -485,17 +485,17 @@ export const HOME = {
       {
         icon: "partnership",
         title: "Trusted partner",
-        desc: "End-to-end sovereign support from the partners who actually deliver.",
+        desc: "Continuous support from the partners who actually deliver.",
       },
     ],
-    closingBefore: "Agents are more than technology.",
-    closingAccent: "It is your next competitive edge.",
+    closingBefore: "Agents are a competitive edge.",
+    closingAccent: "In production, not on a slide.",
     cta: "Talk through your workflow",
     constat: "THE REALITY",
     constatH: "Your experts still lose hours to work agents can carry.",
     constatP:
       "Document collection, rekeying, checks, follow-ups and reporting: value does not come from another demo. It comes from agents embedded in real workflows, adopted by teams and governed from day one.",
-    conviction: "OUR CONVICTION",
+    conviction: "OUR POSITION",
     convH1: "Humans decide,",
     convH2: "agents execute.",
     convP:
@@ -524,17 +524,17 @@ export const HOME = {
     method: "FROM FIELDWORK TO GAINS",
     methodH: "SIGNAL: six stages, six deliverables.",
     methodTeaser:
-      "From fieldwork to measured outcomes — deliverables, governance and timelines at every stage. Full detail on the Method page.",
+      "From fieldwork to measured outcomes. Deliverables, governance and timelines at every stage. Full detail on the Method page.",
     methodCta: "Explore SIGNAL",
     position: "POSITIONING",
-    positionH: "Not training alone. Not a generic tool. A partner that ships.",
+    positionH: "A partner that ships: fieldwork, agents and transfer.",
     servicesEyebrow: "WHAT WE DELIVER",
     servicesH: "From audit to adoption.",
     servicesCta: "See how we engage",
     ctaTag: "READY TO START",
     ctaH: "Show us the workflow costing you time.",
     ctaP:
-      "In one hour, we frame repetitive work, data constraints and the gains to measure — with a partner, not a salesperson.",
+      "In one hour, we frame repetitive work, data constraints and the gains to measure. With a partner, not a salesperson.",
   },
 } as const;
 
@@ -570,14 +570,14 @@ export const SERVICES = {
   fr: {
     eyebrow: "MISE EN ŒUVRE",
     title: "Services",
-    sub: "La couche delivery de Remparia : cadrer (SIGNAL), construire (Studio), déployer (souveraineté), faire adopter — pas un second produit parallèle à l’OS.",
+    sub: "La couche delivery de Remparia : cadrer (SIGNAL), construire (Studio), déployer (souveraineté), faire adopter. Ce n’est pas un second produit parallèle à l’OS.",
     intro:
-      "Les Services industrialisent ce que la plateforme permet. Chaque mission commence par un diagnostic SIGNAL, construit dans Studio, tourne dans Remparia OS sous gouvernance, et se termine par une capacité que vos équipes peuvent faire évoluer.",
+      "Les Services industrialisent ce que la plateforme permet. Chaque mission commence par un diagnostic SIGNAL, se construit dans Studio, tourne dans Remparia OS sous gouvernance, et se termine par une capacité que vos équipes peuvent faire évoluer.",
     commitmentTitle: "Notre engagement opérationnel",
     commitments: [
-      "Forfait de mise en œuvre cadré avant signature — pas de facturation au scope flou.",
+      "Forfait de mise en œuvre cadré avant signature. Pas de facturation au scope flou.",
       "Données sensibles dans le périmètre convenu : France, on-prem ou architecture hybride.",
-      "Gains mesurés sur charge, délais ou qualité — indicateurs définis avant le premier agent.",
+      "Gains mesurés sur charge, délais ou qualité. Indicateurs définis avant le premier agent.",
       "Documentation, formation et transfert inclus dans l'industrialisation.",
     ],
     scopeTitle: "Périmètre type d'une mission",
@@ -663,7 +663,7 @@ export const SERVICES = {
         title: "Diagnostic & gouvernance",
         desc: "Observer le terrain, prioriser les processus à fort impact et poser le cadre avant d'automatiser.",
         promise:
-          "Savoir où l’IA compte vraiment — avant de construire.",
+          "Savoir où l’IA compte vraiment, avant de construire.",
         deliverable:
           "Cartographie classée, cadre de gouvernance esquissé, feuille de route avec indicateurs.",
         platformHref: "/signal",
@@ -699,7 +699,7 @@ export const SERVICES = {
         title: "Socle souverain & routage",
         desc: "La donnée sensible reste dans le périmètre défini. Le modèle est choisi selon la tâche et la sensibilité.",
         promise:
-          "Même OS, même gouvernance — périmètre de déploiement choisi.",
+          "Même OS, même gouvernance. Périmètre de déploiement choisi.",
         deliverable:
           "Architecture de déploiement (cloud Remparia, souverain ou on-prem) et politiques inchangées.",
         platformHref: "/sovereignty",
@@ -734,14 +734,14 @@ export const SERVICES = {
   en: {
     eyebrow: "DELIVERY",
     title: "Services",
-    sub: "Remparia’s delivery layer: frame (SIGNAL), build (Studio), deploy (sovereignty), drive adoption — not a second product parallel to the OS.",
+    sub: "Remparia’s delivery layer: frame (SIGNAL), build (Studio), deploy (sovereignty), drive adoption. It is not a second product parallel to the OS.",
     intro:
       "Services industrialize what the platform enables. Every engagement starts with a SIGNAL diagnostic, builds in Studio, runs in Remparia OS under governance, and ends with capability your teams can evolve.",
     commitmentTitle: "Our operational commitment",
     commitments: [
-      "Implementation fee framed before signature — no open-ended scope billing.",
+      "Implementation fee framed before signature. No open-ended scope billing.",
       "Sensitive data inside the agreed perimeter: France, on-prem or hybrid architecture.",
-      "Outcomes measured on workload, cycle time or quality — indicators set before the first agent.",
+      "Outcomes measured on workload, cycle time or quality. Indicators set before the first agent.",
       "Documentation, training and transfer included in industrialization.",
     ],
     scopeTitle: "Typical engagement scope",
@@ -826,7 +826,7 @@ export const SERVICES = {
         tag: "01",
         title: "Diagnostic & governance",
         desc: "Observe fieldwork, prioritize high-impact workflows and set the frame before automating.",
-        promise: "Know where AI actually matters — before you build.",
+        promise: "Know where AI actually matters, before you build.",
         deliverable:
           "Ranked map, sketched governance frame, roadmap with indicators.",
         platformHref: "/signal",
@@ -860,7 +860,7 @@ export const SERVICES = {
         tag: "03",
         title: "Sovereign foundation & routing",
         desc: "Sensitive data stays inside the agreed perimeter. Models are selected by task and sensitivity.",
-        promise: "Same OS, same governance — chosen deployment perimeter.",
+        promise: "Same OS, same governance. Chosen deployment perimeter.",
         deliverable:
           "Deployment architecture (Remparia Cloud, sovereign or on-prem) with unchanged policies.",
         platformHref: "/sovereignty",
@@ -900,7 +900,7 @@ export const METHODE = {
     sub: "Six étapes, chacune avec un livrable concret. Rien n'est automatisé sans avoir été observé ; rien ne passe en production sans gouvernance.",
     aloneTitle: "La méthode ne suffit pas seule",
     aloneBody:
-      "SIGNAL cadre le diagnostic et la gouvernance. Remparia OS est le système qui fait ensuite tourner les agents — sur vos données, sous votre contrôle.",
+      "SIGNAL cadre le diagnostic et la gouvernance. Remparia OS est le système qui fait ensuite tourner les agents, sur vos données, sous votre contrôle.",
     aloneCta: "Voir Remparia OS →",
     protocolTitle: "Le protocole en six étapes",
     protocolIntro:
@@ -981,7 +981,7 @@ export const METHODE = {
       },
       {
         title: "RAG souverain",
-        desc: "Connecter vos données propriétaires à vos agents — différenciation réelle.",
+        desc: "Connecter vos données propriétaires à vos agents. Différenciation réelle.",
       },
       {
         title: "Passage en production",
@@ -995,7 +995,7 @@ export const METHODE = {
     sub: "Six stages, each with a concrete deliverable. Nothing is automated before observation; nothing reaches production without governance.",
     aloneTitle: "Method alone is not enough",
     aloneBody:
-      "SIGNAL frames the diagnostic and governance. Remparia OS is the system that then runs the agents — on your data, under your control.",
+      "SIGNAL frames the diagnostic and governance. Remparia OS is the system that then runs the agents, on your data, under your control.",
     aloneCta: "See Remparia OS →",
     protocolTitle: "The protocol in six stages",
     protocolIntro:
@@ -1076,7 +1076,7 @@ export const METHODE = {
       },
       {
         title: "Sovereign RAG",
-        desc: "Connect proprietary data to your agents — real differentiation.",
+        desc: "Connect proprietary data to your agents. Real differentiation.",
       },
       {
         title: "Production launch",
@@ -1090,7 +1090,7 @@ export const SECTEURS = {
   fr: {
     eyebrow: "MÉTIERS",
     title: "Là où les solutions génériques échouent",
-    sub: "Donnée sensible, responsabilité forte, expertise rare : découvrez comment des agents supervisés peuvent absorber le répétitif sans diluer votre métier.",
+    sub: "Donnée sensible, responsabilité forte, expertise rare. Des agents supervisés absorbent le répétitif sans diluer votre métier.",
     overview: "Tous les métiers",
     discover: "Découvrir →",
     discoverAll: "Voir les secteurs",
@@ -1105,7 +1105,7 @@ export const SECTEURS = {
     ],
     labels: {
       agents: "Agents métier",
-      agentsH: "Ce que l’agent porte — et ce qu’il ne touche pas",
+      agentsH: "Ce que l’agent porte, et ce qu’il ne touche pas",
       signals: "Ce qui guide nos missions",
       pains: "Le problème",
       painsH: "Les douleurs qu'on connaît trop bien",
@@ -1114,7 +1114,7 @@ export const SECTEURS = {
       scenarios: "Cas d'usage",
       scenariosH: "Trois cas d'usage concrets",
       scenariosNote:
-        "Scénarios illustratifs — chaque déploiement est cadré avec des KPIs signés avant mise en production.",
+        "Scénarios illustratifs. Chaque déploiement est cadré avec des KPIs signés avant mise en production.",
       services: "Services liés",
       servicesH: "Missions utiles pour ce secteur",
       faq: "FAQ",
@@ -1162,7 +1162,7 @@ export const SECTEURS = {
   en: {
     eyebrow: "PROFESSIONS",
     title: "Where generic tools fall short",
-    sub: "Sensitive data, strong accountability, scarce expertise: see how supervised agents can absorb repetitive work without diluting your profession.",
+    sub: "Sensitive data, strong accountability, scarce expertise. Supervised agents absorb repetitive work without diluting your profession.",
     overview: "All professions",
     discover: "Discover →",
     discoverAll: "View sectors",
@@ -1177,7 +1177,7 @@ export const SECTEURS = {
     ],
     labels: {
       agents: "Business agents",
-      agentsH: "What the agent carries — and what it never touches",
+      agentsH: "What the agent carries, and what it never touches",
       signals: "What guides our engagements",
       pains: "The problem",
       painsH: "Pains we know too well",
@@ -1186,7 +1186,7 @@ export const SECTEURS = {
       scenarios: "Use cases",
       scenariosH: "Three concrete use cases",
       scenariosNote:
-        "Illustrative scenarios — every deployment is scoped with signed KPIs before production.",
+        "Illustrative scenarios. Every deployment is scoped with signed KPIs before production.",
       services: "Related services",
       servicesH: "Missions that fit this industry",
       faq: "FAQ",
@@ -1269,16 +1269,16 @@ export const APROPOS = {
   fr: {
     eyebrow: "QUI NOUS SOMMES",
     title: "Deux cofondateurs. Ceux qui vendent livrent.",
-    sub: "Remparia est fondé et opéré par Tannous Mekari et Sébastien Houzet — du premier échange au passage en production.",
+    sub: "Remparia est fondé et opéré par Tannous Mekari et Sébastien Houzet, du premier échange au passage en production.",
     convictionH: "L'humain décide, l'agent exécute.",
     convictionP:
-      "Les agents ne sont pas là pour remplacer. Ils sont là pour libérer du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité — les agents portent la charge répétitive.",
+      "Les agents ne sont pas là pour remplacer. Ils libèrent du temps sur ce qui compte. Vos équipes gardent la main, la décision et la responsabilité. Les agents portent la charge répétitive.",
     collectiveTitle: "Les associés opérateurs",
     collectiveSub:
       "Pas de couche commerciale déconnectée : stratégie, ingénierie et adoption sont portées par ceux qui s'engagent avec vous.",
     teamTitle: "Les cofondateurs",
     teamSub:
-      "Tannous Mekari et Sébastien Houzet — ceux qui cadreront votre mission sont ceux qui la livreront en production.",
+      "Tannous Mekari et Sébastien Houzet. Ceux qui cadrent votre mission sont ceux qui la livrent en production.",
     collective: [
       {
         tag: "STRATÉGIE & DELIVERY",
@@ -1301,7 +1301,7 @@ export const APROPOS = {
       "Forfait de mise en œuvre cadré avant signature",
       "Données, droits et supervision définis avant automatisation",
       "Gains mesurés selon des indicateurs convenus ensemble",
-      "Transfert de compétences inclus — pas de boîte noire",
+      "Transfert de compétences inclus. Pas de boîte noire.",
     ],
     contactLine: "Écrire à l’équipe",
     pillars: [
@@ -1343,16 +1343,16 @@ export const APROPOS = {
   en: {
     eyebrow: "WHO WE ARE",
     title: "Two cofounders. The people who sell also ship.",
-    sub: "Remparia is founded and operated by Tannous Mekari and Sébastien Houzet — from the first conversation to production.",
+    sub: "Remparia is founded and operated by Tannous Mekari and Sébastien Houzet, from the first conversation to production.",
     convictionH: "Humans decide, agents execute.",
     convictionP:
-      "Agents aren't here to replace. They are here to free up time for what matters. Your teams keep control, decisions and accountability — agents carry the repetitive load.",
+      "Agents aren't here to replace. They free up time for what matters. Your teams keep control, decisions and accountability. Agents carry the repetitive load.",
     collectiveTitle: "Operator partners",
     collectiveSub:
       "No disconnected sales layer: strategy, engineering and adoption are carried by the people who commit to you.",
     teamTitle: "The cofounders",
     teamSub:
-      "Tannous Mekari and Sébastien Houzet — the people who scope your engagement lead production delivery.",
+      "Tannous Mekari and Sébastien Houzet. The people who scope your engagement lead production delivery.",
     collective: [
       {
         tag: "STRATEGY & DELIVERY",
@@ -1375,7 +1375,7 @@ export const APROPOS = {
       "Implementation fee framed before signature",
       "Data, rights and supervision defined before automation",
       "Outcomes measured against jointly agreed indicators",
-      "Skills transfer included — no black box",
+      "Skills transfer included. No black box.",
     ],
     contactLine: "Email the team",
     pillars: [
@@ -1420,13 +1420,13 @@ export const CONTACT = {
   fr: {
     eyebrow: "CONTACT",
     title: "Apportez le processus qui vous coûte du temps",
-    sub: "En une heure, nous cadrons le répétitif, les contraintes de données et les gains à mesurer. Réponse d'un associé, pas d'un commercial.",
+    sub: "En une heure, nous cadrons le répétitif, les contraintes de données et les gains à mesurer. Un associé répond, pas un commercial.",
     email: CONTACT_EMAIL,
     cta: "Écrire à un associé",
     fields: {
       name: "Nom et prénom",
       company: "Entreprise",
-      email: "Email professionnel",
+      email: "Email",
       message: "Quel processus vous coûte le plus de temps ?",
       submit: "Présenter mon processus",
       sending: "Envoi…",
@@ -1436,10 +1436,8 @@ export const CONTACT = {
       nameInvalid: "Nom invalide (2 caractères minimum, lettres uniquement).",
       companyRequired: "Indiquez le nom de votre entreprise.",
       companyInvalid: "Nom d’entreprise invalide (2 à 160 caractères).",
-      emailRequired: "Indiquez votre email professionnel.",
+      emailRequired: "Indiquez votre email.",
       emailInvalid: "Format d’email invalide.",
-      emailPersonal:
-        "Utilisez votre email professionnel (domaine entreprise). Les adresses Gmail, Outlook, Orange, Free, etc. ne sont pas acceptées.",
       messageRequired: "Décrivez le processus à cadrer.",
       messageTooShort: "Message trop court (20 caractères minimum).",
       messageTooLong: "Message trop long (5 000 caractères maximum).",
@@ -1461,7 +1459,7 @@ export const CONTACT = {
     fields: {
       name: "Full name",
       company: "Company",
-      email: "Work email",
+      email: "Email",
       message: "Which workflow costs you the most time?",
       submit: "Share my workflow",
       sending: "Sending…",
@@ -1471,10 +1469,8 @@ export const CONTACT = {
       nameInvalid: "Invalid name (at least 2 characters, letters only).",
       companyRequired: "Enter your company name.",
       companyInvalid: "Invalid company name (2–160 characters).",
-      emailRequired: "Enter your work email.",
+      emailRequired: "Enter your email.",
       emailInvalid: "Invalid email format.",
-      emailPersonal:
-        "Use your work email (company domain). Gmail, Outlook, Yahoo, iCloud, etc. are not accepted.",
       messageRequired: "Describe the workflow to scope.",
       messageTooShort: "Message too short (20 characters minimum).",
       messageTooLong: "Message too long (5,000 characters maximum).",

@@ -23,13 +23,13 @@ export const THIRD_SCENARIOS: Record<
   "cabinet-avocat": {
     fr: {
       who: "Associé / direction",
-      need: "Capitaliser les précédents et modèles sans exposer le secret professionnel.",
+      need: "Réutiliser les précédents et modèles sans exposer le secret professionnel.",
       remparia:
         "RAG souverain sur corpus internes validés, avec recherche assistée et citation des sources.",
     },
     en: {
       who: "Partner / leadership",
-      need: "Leverage precedents and templates without breaching professional secrecy.",
+      need: "Reuse precedents and templates without breaching professional secrecy.",
       remparia:
         "Sovereign RAG on approved internal corpora, assisted search and source citation.",
     },
@@ -95,27 +95,27 @@ export const THIRD_SCENARIOS: Record<
       who: "Responsable atelier",
       need: "Prioriser les véhicules en attente sans relancer manuellement les clients.",
       remparia:
-        "File d'attente intelligente : statut pièces, préparation SMS/email et validation avant envoi.",
+        "File d'attente atelier : statut pièces, préparation SMS/email et validation avant envoi.",
     },
     en: {
       who: "Workshop manager",
       need: "Prioritize waiting vehicles without manually chasing clients.",
       remparia:
-        "Smart waiting queue: parts status, prepared SMS/email and approval before send.",
+        "Workshop waiting queue: parts status, prepared SMS/email and approval before send.",
     },
   },
   "e-commerce": {
     fr: {
       who: "Directeur e-commerce",
-      need: "Un agent qui vend et dépannne dans une seule conversation, sans risque paiement.",
+      need: "Un agent qui vend et dépanne dans une seule conversation, sans risque paiement.",
       remparia:
-        "Agent shopping branché catalogue + SAV + handoff checkout — garde-fous en code, canary et formation équipes.",
+        "Agent shopping branché catalogue + SAV + handoff checkout, avec garde-fous en code, canary et formation équipes.",
     },
     en: {
       who: "E-commerce director",
       need: "An agent that sells and supports in one conversation, with no payment risk.",
       remparia:
-        "Shopping agent wired to catalog + care + checkout handoff — guards in code, canary and team training.",
+        "Shopping agent wired to catalog + care + checkout handoff, with guards in code, canary release and team training.",
     },
   },
   "cabinet-dentaire": {
@@ -137,13 +137,13 @@ export const THIRD_SCENARIOS: Record<
       who: "Responsable planning",
       need: "Router les urgences et créneaux sans surcharger le standard.",
       remparia:
-        "Qualification d'appel agent : type panne, zone, criticité — proposition de créneau validée.",
+        "Qualification d'appel agent : type panne, zone, criticité, puis proposition de créneau à valider.",
     },
     en: {
       who: "Scheduling lead",
       need: "Route emergencies and slots without overloading the phone line.",
       remparia:
-        "Call qualification agent: fault type, area, severity — proposed slot for validation.",
+        "Call qualification agent: fault type, area, severity, then a proposed slot for validation.",
     },
   },
   "etude-notariale": {
@@ -177,13 +177,13 @@ export const THIRD_SCENARIOS: Record<
   "clinique-veterinaire": {
     fr: {
       who: "Directeur de clinique",
-      need: "Fluidifier les hospitalisations sans perdre le suivi propriétaire.",
+      need: "Tenir le suivi des hospitalisations sans perdre le fil avec le propriétaire.",
       remparia:
         "Agent parcours hospitalisation : statuts, comptes-rendus préparés et validation vétérinaire.",
     },
     en: {
       who: "Clinic director",
-      need: "Smooth hospital stays without losing owner follow-up.",
+      need: "Keep hospital stays tracked without losing owner follow-up.",
       remparia:
         "Hospitalization pathway agent: statuses, prepared reports and veterinary validation.",
     },

@@ -33,13 +33,13 @@ export const OS_PAGE = {
       index: "01 / REMPARIA OS",
       titleBefore: "Votre force de travail IA a besoin d’un ",
       titleAccent: "système d’exploitation.",
-      sub: "Un plan de contrôle unique pour orchestrer agents, modèles, données d’entreprise et décisions humaines.",
+      sub: "Un control plane pour orchestrer agents, modèles, données d’entreprise et décisions humaines.",
       ctaPrimary: "Explorer Remparia OS",
       ctaPrimaryHref: "/demarrer",
       ctaSecondary: "Voir l’architecture",
       ctaSecondaryHref: "#architecture",
       visualAlt:
-        "SIGNAL — votre entreprise connectée à vos processus, données, personnes et systèmes",
+        "SIGNAL : votre entreprise connectée à vos processus, données, personnes et systèmes",
     },
     ribbon: [
       { id: "identity", label: "Identité", icon: "/icon-customer.png" },
@@ -60,13 +60,13 @@ export const OS_PAGE = {
     controlPlane: {
       index: "03 / LE CONTROL PLANE",
       title: "Un control plane. Toutes les capacités IA.",
-      body: "Remparia OS fournit la couche d’exploitation entre votre force de travail IA et votre entreprise.",
+      body: "Remparia OS est la couche d’exploitation entre votre force de travail IA et votre entreprise.",
       bullets: [
         "Les agents restent spécialisés.",
         "Les modèles restent interchangeables.",
         "Vos systèmes restent en place.",
       ],
-      closing: "Remparia orchestre la façon dont tout fonctionne ensemble.",
+      closing: "Remparia OS orchestre comment tout fonctionne ensemble.",
       layers: [
         { label: "Force de travail IA", detail: "Agents spécialisés par fonction" },
         { label: "Orchestration", detail: "Routage, files, escalade" },
@@ -83,7 +83,7 @@ export const OS_PAGE = {
           id: "identity",
           label: "Identité",
           title: "Chaque agent a une identité.",
-          body: "Chaque agent possède un profil, des droits et un propriétaire humain nommé. Zéro accès par défaut.",
+          body: "Chaque agent a un profil, des droits et un propriétaire humain nommé. Zéro accès par défaut.",
           bullets: [
             "Profils agents et rôles métier",
             "Propriétaire humain par agent",
@@ -95,7 +95,7 @@ export const OS_PAGE = {
           id: "policies",
           label: "Politiques",
           title: "Vos règles, appliquées partout.",
-          body: "Encodez vos politiques métier, conformité et limites de délégation. L’OS les applique avant chaque action.",
+          body: "Encodez vos politiques métier, conformité et limites de délégation. L’OS les applique avant chaque action (ALLOW, REVIEW, BLOCK).",
           bullets: [
             "Règles métier et conformité",
             "Limites de délégation par agent",
@@ -107,7 +107,7 @@ export const OS_PAGE = {
           id: "memory",
           label: "Mémoire",
           title: "La connaissance qui persiste.",
-          body: "L’OS capitalise le contexte, les décisions et les corpus validés — sans fuite entre périmètres.",
+          body: "L’OS garde le contexte, les décisions et les corpus validés, sans fuite entre périmètres.",
           bullets: [
             "Mémoire par agent et par équipe",
             "Corpus validés et versionnés",
@@ -119,7 +119,7 @@ export const OS_PAGE = {
           id: "tools",
           label: "Outils",
           title: "Branché sur votre stack.",
-          body: "CRM, ERP, email, documents — l’OS connecte les agents à vos outils existants sans les remplacer.",
+          body: "CRM, ERP, email, documents : l’OS connecte les agents à vos outils existants sans les remplacer.",
           bullets: [
             "Intégrations CRM, ERP, email",
             "Actions dans vos systèmes réels",
@@ -143,18 +143,18 @@ export const OS_PAGE = {
           id: "audit",
           label: "Audit",
           title: "Une trace opposable.",
-          body: "Chaque consultation, chaque action, chaque décision est journalisée — exploitable par vos auditeurs.",
+          body: "Chaque consultation, chaque action, chaque décision est journalisée. Vos auditeurs peuvent s’en servir.",
           bullets: [
             "Journal complet et immuable",
             "Exports pour conformité",
-            "Traçabilité bout en bout",
+            "Traçabilité complète du parcours",
             "Preuves pour régulateurs",
           ],
         },
         {
           id: "security",
           label: "Sécurité",
-          title: "Souveraineté by design.",
+          title: "Souveraineté au choix.",
           body: "Hébergement FR/UE ou on-premise. Les agents ne détiennent jamais un mot de passe. Données sensibles en local.",
           bullets: [
             "Hébergement souverain choisi",
@@ -197,10 +197,10 @@ export const OS_PAGE = {
         ],
         logTitle: "Exécution en direct",
         log: [
-          { time: "09:14:02", event: "Demande reçue — qualification lead" },
+          { time: "09:14:02", event: "Demande reçue : qualification lead" },
           { time: "09:14:03", event: "Routage → Sales AI" },
-          { time: "09:14:05", event: "CRM mis à jour — escalade humaine" },
-          { time: "09:14:08", event: "Validation manager — approuvé" },
+          { time: "09:14:05", event: "CRM mis à jour, escalade humaine" },
+          { time: "09:14:08", event: "Validation manager : approuvé" },
         ],
         footer:
           "Les agents collaborent. Les outils exécutent. Les humains décident. Remparia OS orchestre l'exécution.",
@@ -208,7 +208,7 @@ export const OS_PAGE = {
       humanControl: {
         index: "06 / CONTRÔLE HUMAIN",
         title: "Autonome quand ça peut l'être. Humain quand ça doit l'être.",
-        sub: "Définissez le niveau d'autonomie pour chaque action. L'IA suit vos règles.",
+        sub: "Définissez le niveau d'autonomie pour chaque action. L'IA suit vos règles ALLOW, REVIEW ou BLOCK.",
         stages: ["Assister", "Recommander", "Approuver", "Autonome"],
         activeStage: 2,
         policies: [
@@ -232,7 +232,7 @@ export const OS_PAGE = {
       openDesign: {
         index: "07 / OUVERT PAR DESIGN",
         title: "Le bon modèle pour chaque tâche.",
-        sub: "Utilisez le bon modèle pour la bonne tâche. Sans enfermement. Flexibilité totale.",
+        sub: "Choisissez le modèle adapté à chaque tâche. Pas d'enfermement fournisseur.",
         models: ["OpenAI", "Anthropic", "Mistral", "Llama", "Local"],
         workforceLabel: "AI Workforce",
       },
@@ -242,7 +242,7 @@ export const OS_PAGE = {
         sub: "Déployez Remparia OS selon vos besoins de sécurité, souveraineté et infrastructure.",
         options: [
           { label: "Remparia Cloud", desc: "La voie la plus rapide vers la production." },
-          { label: "Cloud souverain", desc: "Souveraineté des données by design." },
+          { label: "Cloud souverain", desc: "Résidence des données EU / France." },
           { label: "On-premise", desc: "Contrôle maximal de l'infrastructure." },
         ],
       },
@@ -261,12 +261,12 @@ export const OS_PAGE = {
         ],
         workforceLabel: "AI Workforce",
         footer:
-          "Vos systèmes restent la source de vérité. Remparia devient la couche d'intelligence au-dessus.",
+          "Vos systèmes restent la source de vérité. Remparia OS est la couche d'orchestration au-dessus.",
       },
       operations: {
         index: "10 / MESURER L'IMPACT",
         title: "Le déploiement n'est que le début.",
-        sub: "Observez ce que l'IA orchestre. Mesurez ce qui compte. Prouvez l'impact business.",
+        sub: "Observez ce que l'IA exécute. Mesurez coûts, succès et escalades dans Remparia OS.",
         liveLabel: "REMPARIA OS",
         metrics: [
           { label: "Agents actifs", value: "24" },
@@ -327,13 +327,13 @@ export const OS_PAGE = {
       index: "01 / REMPARIA OS",
       titleBefore: "Your AI workforce needs an ",
       titleAccent: "operating system.",
-      sub: "One control layer to orchestrate agents, models, enterprise data and human decisions.",
+      sub: "One control plane to orchestrate agents, models, enterprise data and human decisions.",
       ctaPrimary: "Explore Remparia OS",
       ctaPrimaryHref: "/demarrer",
       ctaSecondary: "See architecture",
       ctaSecondaryHref: "#architecture",
       visualAlt:
-        "SIGNAL — your company connected to your processes, data, people and systems",
+        "SIGNAL: your company connected to your processes, data, people and systems",
     },
     ribbon: [
       { id: "identity", label: "Identity", icon: "/icon-customer.png" },
@@ -354,13 +354,13 @@ export const OS_PAGE = {
     controlPlane: {
       index: "03 / THE CONTROL PLANE",
       title: "One control plane. Every AI capability.",
-      body: "Remparia OS provides the operating layer between your AI workforce and your enterprise.",
+      body: "Remparia OS is the operating layer between your AI workforce and your enterprise.",
       bullets: [
         "Agents remain specialized.",
         "Models remain interchangeable.",
         "Your systems remain in place.",
       ],
-      closing: "Remparia orchestrates how everything works together.",
+      closing: "Remparia OS orchestrates how everything works together.",
       layers: [
         { label: "AI Workforce", detail: "Specialized agents by function" },
         { label: "Orchestration", detail: "Routing, queues, escalation" },
@@ -389,7 +389,7 @@ export const OS_PAGE = {
           id: "policies",
           label: "Policies",
           title: "Your rules, applied everywhere.",
-          body: "Encode business rules, compliance and delegation limits. The OS applies them before every action.",
+          body: "Encode business rules, compliance and delegation limits. The OS applies them before every action (ALLOW, REVIEW, BLOCK).",
           bullets: [
             "Business rules and compliance",
             "Delegation limits per agent",
@@ -401,7 +401,7 @@ export const OS_PAGE = {
           id: "memory",
           label: "Memory",
           title: "Knowledge that persists.",
-          body: "The OS captures context, decisions and validated corpora — without leakage across perimeters.",
+          body: "The OS keeps context, decisions and validated corpora, with no leakage across perimeters.",
           bullets: [
             "Memory per agent and team",
             "Validated, versioned corpora",
@@ -413,7 +413,7 @@ export const OS_PAGE = {
           id: "tools",
           label: "Tools",
           title: "Plugged into your stack.",
-          body: "CRM, ERP, email, documents — the OS connects agents to your existing tools without replacing them.",
+          body: "CRM, ERP, email, documents: the OS connects agents to your existing tools without replacing them.",
           bullets: [
             "CRM, ERP, email integrations",
             "Actions in your real systems",
@@ -437,18 +437,18 @@ export const OS_PAGE = {
           id: "audit",
           label: "Audit",
           title: "An opposable trail.",
-          body: "Every query, action and decision is logged — usable by your auditors.",
+          body: "Every query, action and decision is logged. Your auditors can use it.",
           bullets: [
             "Complete, immutable log",
             "Compliance exports",
-            "End-to-end traceability",
+            "Full-path traceability",
             "Evidence for regulators",
           ],
         },
         {
           id: "security",
           label: "Security",
-          title: "Sovereignty by design.",
+          title: "Sovereignty on your terms.",
           body: "FR/EU or on-premise hosting. Agents never hold passwords. Sensitive data stays local.",
           bullets: [
             "Chosen sovereign hosting",
@@ -491,18 +491,18 @@ export const OS_PAGE = {
         ],
         logTitle: "Live Execution",
         log: [
-          { time: "09:14:02", event: "Request received — lead qualification" },
+          { time: "09:14:02", event: "Request received: lead qualification" },
           { time: "09:14:03", event: "Routing → Sales AI" },
-          { time: "09:14:05", event: "CRM updated — human escalation" },
-          { time: "09:14:08", event: "Manager validation — approved" },
+          { time: "09:14:05", event: "CRM updated, human escalation" },
+          { time: "09:14:08", event: "Manager validation: approved" },
         ],
         footer:
-          "Agents collaborate. Tools execute. Humans decide. Remparia OS orchestrates the entire execution.",
+          "Agents collaborate. Tools execute. Humans decide. Remparia OS orchestrates the execution.",
       },
       humanControl: {
         index: "06 / HUMAN CONTROL",
         title: "Autonomous when it can be. Human when it should be.",
-        sub: "Define the level of autonomy for every action. AI follows your rules.",
+        sub: "Define the level of autonomy for every action. AI follows your ALLOW, REVIEW or BLOCK rules.",
         stages: ["Assist", "Recommend", "Approve", "Autonomous"],
         activeStage: 2,
         policies: [
@@ -526,7 +526,7 @@ export const OS_PAGE = {
       openDesign: {
         index: "07 / OPEN BY DESIGN",
         title: "Choose the best model for every job.",
-        sub: "Use the right model for the right task. No lock-in. Full flexibility.",
+        sub: "Pick the right model for each task. No vendor lock-in.",
         models: ["OpenAI", "Anthropic", "Mistral", "Llama", "Local"],
         workforceLabel: "AI Workforce",
       },
@@ -536,14 +536,14 @@ export const OS_PAGE = {
         sub: "Deploy Remparia OS according to your security, sovereignty and infrastructure needs.",
         options: [
           { label: "Remparia Cloud", desc: "Fastest path to production." },
-          { label: "Sovereign Cloud", desc: "Data sovereignty by design." },
+          { label: "Sovereign Cloud", desc: "EU / France data residency." },
           { label: "On-Premise", desc: "Maximum infrastructure control." },
         ],
       },
       connect: {
-        index: "09 / CONNECT YOUR ECOSYSTEM",
+        index: "09 / CONNECT YOUR COMPANY",
         title: "Don't replace your stack. Operate on top of it.",
-        sub: "Connect AI to the tools, applications and data your organization already relies on.",
+        sub: "Connect AI to the tools, applications and data your organization already uses.",
         integrations: [
           "Salesforce",
           "SAP",
@@ -555,12 +555,12 @@ export const OS_PAGE = {
         ],
         workforceLabel: "AI Workforce",
         footer:
-          "Your systems remain the systems of record. Remparia becomes the intelligence layer above them.",
+          "Your systems remain the systems of record. Remparia OS is the orchestration layer above them.",
       },
       operations: {
         index: "10 / MEASURE IMPACT",
         title: "Deployment is the beginning.",
-        sub: "Observe what AI orchestrates. Measure what matters. Prove business impact.",
+        sub: "Watch what AI executes. Measure cost, success and escalations in Remparia OS.",
         liveLabel: "REMPARIA OS",
         metrics: [
           { label: "Active Agents", value: "24" },

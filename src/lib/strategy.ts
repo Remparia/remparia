@@ -5,8 +5,8 @@ import type { Lang } from "./content";
 export const SOLUTION = {
   fr: {
     eyebrow: "SOLUTION",
-    title: "Remparia OS — le système d’exploitation IA de votre entreprise",
-    sub: "Un plan de contrôle unique qui orchestre une équipe d’agents spécialisés, route chaque tâche vers le bon modèle, s’appuie sur vos données, sous votre gouvernance, sur une infrastructure souveraine.",
+    title: "Remparia OS, le système d’exploitation IA de votre entreprise",
+    sub: "Un plan de contrôle unique. Il orchestre une équipe d’agents spécialisés, route chaque tâche vers le bon modèle, s’appuie sur vos données, sous votre gouvernance, sur une infrastructure souveraine.",
     problemTitle: "Le problème qu’il règle",
     problemBody:
       "L’IA en entreprise aujourd’hui : des abonnements dispersés, aucune mémoire commune, aucune trace, des données qui partent on ne sait où. Il manque le système d’exploitation.",
@@ -29,7 +29,7 @@ export const SOLUTION = {
       },
       {
         tag: "04",
-        title: "Capitaliser sa connaissance",
+        title: "Encoder sa connaissance",
         desc: "Vos règles et exceptions encodées et appliquées. Chacun ne retrouve que ce qu’il a le droit de voir.",
       },
       {
@@ -50,10 +50,10 @@ export const SOLUTION = {
     ],
     teamTitle: "L’équipe d’agents",
     teamBody:
-      "Des agents spécialisés persistants par fonction — recherche, commercial, juridique, finance, RH, support IT, achats — orchestrés par un « chef de cabinet » IA qui décompose les demandes, affecte au bon agent, surveille et remonte les décisions à l’humain. Chaque agent est configuré avec vos règles métier : celui d’un notaire et celui d’un expert-comptable partagent le socle, pas les compétences.",
+      "Des agents spécialisés persistants par fonction (recherche, commercial, juridique, finance, RH, support IT, achats), orchestrés par un « chef de cabinet » IA. Il décompose les demandes, affecte au bon agent, surveille et remonte les décisions à l’humain. Chaque agent est configuré avec vos règles métier : celui d’un notaire et celui d’un expert-comptable partagent le socle, pas les compétences.",
     heatmapTitle: "Ce que l’agent porte, prépare, ou ne touche jamais",
     heatmapIntro:
-      "Le rouge est un choix, pas une limite technique — nous refusons d’y mettre un agent, même sur demande. C’est « l’humain décide, l’agent exécute » rendu vérifiable.",
+      "Le rouge est un choix, pas une limite technique. Nous refusons d’y mettre un agent, même sur demande. C’est « l’humain décide, l’agent exécute » rendu vérifiable.",
     heatmap: [
       {
         level: "green" as const,
@@ -86,7 +86,7 @@ export const SOLUTION = {
       {
         tag: "03",
         title: "L’intelligence",
-        desc: "Le bon modèle pour chaque tâche, au meilleur coût — et jamais un modèle cloud pour une donnée classée locale.",
+        desc: "Le bon modèle pour chaque tâche, au meilleur coût. Jamais un modèle cloud pour une donnée classée locale.",
       },
       {
         tag: "04",
@@ -110,9 +110,9 @@ export const SOLUTION = {
     principlesTitle: "Les quatre principes",
     principles: [
       "Souveraineté totale",
-      "Choix & liberté — multi-modèles, multi-cloud, pas d’enfermement",
-      "Contrôle & gouvernance",
-      "Performance & intelligence",
+      "Choix et liberté : multi-modèles, multi-cloud, pas d’enfermement",
+      "Contrôle et gouvernance",
+      "Performance et intelligence",
     ],
     dayTitle: "Une journée avec l’OS",
     day: [
@@ -134,9 +134,9 @@ export const SOLUTION = {
     ],
     notTitle: "Ce que ce n’est pas",
     notItems: [
-      "Pas une licence à l’usage — pas de facturation aux tokens.",
-      "Pas une technologie propriétaire fermée — le socle repose sur des briques open source standard : si nous disparaissons, votre système tourne.",
-      "Pas une solution livrée sans vous — vos règles, votre configuration, votre documentation sont remises ; votre codex métier vous appartient, versionné.",
+      "Pas une licence à l’usage. Pas de facturation aux tokens.",
+      "Pas une technologie propriétaire fermée. Le socle repose sur des briques open source standard : si nous disparaissons, votre système tourne.",
+      "Pas une solution livrée sans vous. Vos règles, votre configuration, votre documentation sont remises ; votre codex métier vous appartient, versionné.",
     ],
     deployTitle: "Offres de déploiement",
     deploy: [
@@ -159,15 +159,15 @@ export const SOLUTION = {
     ],
     bridgeTitle: "Méthode et solution",
     bridgeBody:
-      "Le diagnostic note vos capacités — pas des outils — et colorie la carte avec vous. L’OS augmente ensuite les capacités retenues. On ne vend jamais un agent : on augmente une capacité de votre entreprise.",
+      "Le diagnostic note vos capacités, pas des outils, et colorie la carte avec vous. L’OS augmente ensuite les capacités retenues. On ne vend jamais un agent : on augmente une capacité de votre entreprise.",
     bridgeCta: "Voir la méthode →",
     ctaPrimary: "Demander une démo",
     ctaSecondary: "Réserver l’heure de cadrage →",
   },
   en: {
     eyebrow: "SOLUTION",
-    title: "Remparia OS — the AI operating system for your company",
-    sub: "A single control plane that orchestrates a team of specialized agents, routes each task to the right model, works on your data, under your governance, on sovereign infrastructure.",
+    title: "Remparia OS, the AI operating system for your company",
+    sub: "A single control plane. It orchestrates a team of specialized agents, routes each task to the right model, works on your data, under your governance, on sovereign infrastructure.",
     problemTitle: "The problem it solves",
     problemBody:
       "Enterprise AI today: scattered subscriptions, no shared memory, no trail, data leaving to unknown places. What’s missing is the operating system.",
@@ -190,7 +190,7 @@ export const SOLUTION = {
       },
       {
         tag: "04",
-        title: "Capitalize knowledge",
+        title: "Encode knowledge",
         desc: "Your rules and exceptions encoded and applied. Everyone only sees what they are allowed to see.",
       },
       {
@@ -211,10 +211,10 @@ export const SOLUTION = {
     ],
     teamTitle: "The agent workforce",
     teamBody:
-      "Persistent specialized agents by function — research, sales, legal, finance, HR, IT support, procurement — orchestrated by an AI “chief of staff” that breaks down requests, assigns the right agent, monitors and escalates decisions to humans. Each agent is configured with your business rules: a notary’s and an accountant’s share the foundation, not the skills.",
+      "Persistent specialized agents by function (research, sales, legal, finance, HR, IT support, procurement), orchestrated by an AI “chief of staff”. It breaks down requests, assigns the right agent, monitors and escalates decisions to humans. Each agent is configured with your business rules: a notary’s and an accountant’s share the foundation, not the skills.",
     heatmapTitle: "What the agent carries, prepares, or never touches",
     heatmapIntro:
-      "Red is a choice, not a technical limit — we refuse to put an agent there, even on request. That is “humans decide, agents execute” made verifiable.",
+      "Red is a choice, not a technical limit. We refuse to put an agent there, even on request. That is “humans decide, agents execute” made verifiable.",
     heatmap: [
       {
         level: "green" as const,
@@ -247,7 +247,7 @@ export const SOLUTION = {
       {
         tag: "03",
         title: "Intelligence",
-        desc: "The right model for each task, at the best cost — never a cloud model for data classified as local.",
+        desc: "The right model for each task, at the best cost. Never a cloud model for data classified as local.",
       },
       {
         tag: "04",
@@ -271,9 +271,9 @@ export const SOLUTION = {
     principlesTitle: "Four principles",
     principles: [
       "Full sovereignty",
-      "Choice & freedom — multi-model, multi-cloud, no lock-in",
-      "Control & governance",
-      "Performance & intelligence",
+      "Choice and freedom: multi-model, multi-cloud, no lock-in",
+      "Control and governance",
+      "Performance and intelligence",
     ],
     dayTitle: "A day with the OS",
     day: [
@@ -295,9 +295,9 @@ export const SOLUTION = {
     ],
     notTitle: "What it is not",
     notItems: [
-      "Not a usage licence — no token billing.",
-      "Not a closed proprietary stack — the foundation uses standard open-source building blocks: if we disappear, your system keeps running.",
-      "Not a black-box delivery — your rules, configuration and documentation are handed over; your business codex is yours, versioned.",
+      "Not a usage licence. No token billing.",
+      "Not a closed proprietary stack. The foundation uses standard open-source building blocks: if we disappear, your system keeps running.",
+      "Not a black-box delivery. Your rules, configuration and documentation are handed over; your business codex is yours, versioned.",
     ],
     deployTitle: "Deployment offers",
     deploy: [
@@ -320,7 +320,7 @@ export const SOLUTION = {
     ],
     bridgeTitle: "Method and solution",
     bridgeBody:
-      "The diagnostic scores your capabilities — not tools — and colours the map with you. The OS then raises the capabilities you keep. We never sell an agent: we raise a capability of your company.",
+      "The diagnostic scores your capabilities, not tools, and colours the map with you. The OS then raises the capabilities you keep. We never sell an agent: we raise a capability of your company.",
     bridgeCta: "See the method →",
     ctaPrimary: "Request a demo",
     ctaSecondary: "Book the scoping hour →",
@@ -331,13 +331,13 @@ export const POUR_QUI = {
   fr: {
     eyebrow: "POUR QUI",
     title: "Là où la donnée est sensible et le temps expert trop rare",
-    sub: "Nous intervenons dans les métiers où chaque décision engage une responsabilité — là où l’IA générique échoue et où la gouvernance ne peut pas être un correctif.",
+    sub: "Nous intervenons dans les métiers où chaque décision engage une responsabilité. L’IA générique y échoue. La gouvernance ne peut pas être un correctif.",
     familiesTitle: "Les familles",
     families: [
       {
         tag: "COMMERCE & RÉSEAU",
         title: "Retail, e-commerce, distribution",
-        desc: "Leads, relances, commandes, catalogue et relation magasin — l’Agent Commerce en tête.",
+        desc: "Leads, relances, commandes, catalogue et relation magasin. L’Agent Commerce en tête.",
         hrefs: [
           { label: "Pack Commerce", href: "/solutions/commerce" },
           { label: "E-commerce", href: "/secteurs/e-commerce" },
@@ -347,7 +347,7 @@ export const POUR_QUI = {
       {
         tag: "IMMOBILIER",
         title: "Agences, transaction et gestion",
-        desc: "Leads, matching biens, dossiers et relances — sous gouvernance et stop humain.",
+        desc: "Leads, matching biens, dossiers et relances, sous gouvernance et stop humain.",
         hrefs: [
           { label: "Pack Immobilier", href: "/solutions/real-estate" },
           { label: "Agence immobilière", href: "/secteurs/agence-immobiliere" },
@@ -394,7 +394,7 @@ export const POUR_QUI = {
     ],
     openTitle: "Vous n’êtes pas dans cette liste ?",
     openBody:
-      "Si votre métier partage ces contraintes — responsabilité, données sensibles, temps expert rare — la première heure dira si nous sommes légitimes. Sinon, nous vous orientons : nous préférons orienter que vendre.",
+      "Si votre métier a les mêmes contraintes (responsabilité, données sensibles, temps expert rare), la première heure dira si nous sommes légitimes. Sinon, nous vous orientons : nous préférons orienter que vendre.",
     notTitle: "Qui n’est pas notre client",
     notItems: [
       "Les structures qui cherchent « une démo d’IA » sans processus identifié.",
@@ -406,13 +406,13 @@ export const POUR_QUI = {
   en: {
     eyebrow: "WHO IT IS FOR",
     title: "Where data is sensitive and expert time is scarce",
-    sub: "We work in professions where every decision carries accountability — where generic AI fails and governance cannot be a retrofit.",
+    sub: "We work in professions where every decision carries accountability. Generic AI fails there. Governance cannot be a retrofit.",
     familiesTitle: "The families",
     families: [
       {
         tag: "COMMERCE & NETWORK",
         title: "Retail, e-commerce, distribution",
-        desc: "Leads, follow-up, orders, catalog and store relations — Commerce Agent first.",
+        desc: "Leads, follow-up, orders, catalog and store relations. Commerce Agent first.",
         hrefs: [
           { label: "Commerce pack", href: "/solutions/commerce" },
           { label: "E-commerce", href: "/secteurs/e-commerce" },
@@ -422,7 +422,7 @@ export const POUR_QUI = {
       {
         tag: "REAL ESTATE",
         title: "Agencies, transactions and property management",
-        desc: "Leads, property matching, files and follow-ups — under governance and human stop.",
+        desc: "Leads, property matching, files and follow-ups, under governance and human stop.",
         hrefs: [
           { label: "Real estate pack", href: "/solutions/real-estate" },
           { label: "Real-estate agency", href: "/secteurs/agence-immobiliere" },
@@ -469,7 +469,7 @@ export const POUR_QUI = {
     ],
     openTitle: "Not on this list?",
     openBody:
-      "If your profession shares these constraints — accountability, sensitive data, scarce expert time — the first hour will tell whether we are the right partner. If not, we will point you elsewhere: we prefer to refer than to sell.",
+      "If your profession has the same constraints (accountability, sensitive data, scarce expert time), the first hour will tell whether we are the right partner. If not, we will point you elsewhere: we prefer to refer than to sell.",
     notTitle: "Who is not our client",
     notItems: [
       "Organisations looking for “an AI demo” without an identified workflow.",
@@ -484,7 +484,7 @@ export const CAS_USAGE = {
   fr: {
     eyebrow: "CAS D’USAGE",
     title: "Le processus, dans le langage du métier",
-    sub: "Chaque fiche décrit un travail réel — jamais une technologie. Ce que l’agent fait, ce qu’il ne fait pas, et ce qu’on mesure.",
+    sub: "Chaque fiche décrit un travail réel, jamais une technologie. Ce que l’agent fait, ce qu’il ne fait pas, et ce qu’on mesure.",
     items: [
       {
         slug: "collecte-de-pieces",
@@ -509,7 +509,7 @@ export const CAS_USAGE = {
         process: "Préparation de révision",
         today: "Heures d’expert sur l’assemblage et le tri avant l’analyse.",
         withAgent:
-          "L’agent assemble les sources autorisées, prépare la liasse, met en avant les écarts.",
+          "L’agent assemble les sources autorisées, prépare la liasse, signale les écarts.",
         never: "Il ne rend pas l’opinion professionnelle.",
         measure: "Temps expert avant première lecture utile.",
       },
@@ -571,13 +571,13 @@ export const CAS_USAGE = {
     osLine: "Sur quoi ça tourne",
     osCta: "Voir Remparia OS →",
     banner:
-      "Votre processus n’est probablement pas exactement dans cette liste — c’est justement l’objet de la première heure.",
+      "Votre processus n’est probablement pas exactement dans cette liste. C’est l’objet de la première heure.",
     ctaPrimary: "Réserver l’heure →",
   },
   en: {
     eyebrow: "USE CASES",
     title: "The workflow, in the profession’s language",
-    sub: "Each card describes real work — never technology. What the agent does, what it does not, and what we measure.",
+    sub: "Each card describes real work, never technology. What the agent does, what it does not, and what we measure.",
     items: [
       {
         slug: "collecte-de-pieces",
@@ -602,7 +602,7 @@ export const CAS_USAGE = {
         process: "Review preparation",
         today: "Expert hours on assembling and sorting before analysis.",
         withAgent:
-          "The agent assembles approved sources, prepares the pack, highlights gaps.",
+          "The agent assembles approved sources, prepares the pack, flags gaps.",
         never: "It does not issue the professional opinion.",
         measure: "Expert time before a useful first read.",
       },
@@ -664,7 +664,7 @@ export const CAS_USAGE = {
     osLine: "What it runs on",
     osCta: "See Remparia OS →",
     banner:
-      "Your workflow is probably not exactly on this list — that is precisely what the first hour is for.",
+      "Your workflow is probably not exactly on this list. That is what the first hour is for.",
     ctaPrimary: "Book the hour →",
   },
 } as const;
@@ -673,7 +673,7 @@ export const DEMARRER = {
   fr: {
     eyebrow: "DÉMARRER",
     title: "Trois façons de commencer",
-    sub: "Vous savez comment on démarre, en combien de temps, et selon quel modèle — avant de vous engager.",
+    sub: "Vous savez comment on démarre, en combien de temps, et selon quel modèle, avant de vous engager.",
     paths: [
       {
         tag: "01",
@@ -690,7 +690,7 @@ export const DEMARRER = {
         title: "Le diagnostic",
         forWho: "Vous voulez une cartographie classée par impact et risque.",
         what: "Observation terrain, scorecard par processus, cadre de gouvernance esquissé.",
-        leaveWith: "La cartographie et les priorités — vendable seul, sans obligation de suite.",
+        leaveWith: "La cartographie et les priorités. Vendable seul, sans obligation de suite.",
         duration: "Selon périmètre",
         price: "Forfait fixé avant de démarrer",
         next: "Aucun engagement de suite.",
@@ -703,15 +703,15 @@ export const DEMARRER = {
         leaveWith: "Un agent qui travaille, documenté, sous vos règles.",
         duration: "Selon périmètre",
         price: "Forfait cadré avant signature",
-        next: "Trajectoire possible vers multi-workflows — sans obligation contractuelle.",
+        next: "Trajectoire possible vers multi-workflows, sans obligation contractuelle.",
       },
     ],
     pricingTitle: "Le modèle de prix",
     pricingBody:
-      "Pas de régie ouverte, pas de facturation à la consommation. Chaque parcours a un forfait fixé avant de démarrer — l’heure est gratuite, le diagnostic et le premier agent sont cadrés avant signature. Le transfert (documentation, formation, règles métier) est inclus. Les montants exacts dépendent du périmètre ; ils sont annoncés avant engagement, jamais en régie ouverte.",
+      "Pas de régie ouverte, pas de facturation à la consommation. Chaque parcours a un forfait fixé avant de démarrer. L’heure est gratuite ; le diagnostic et le premier agent sont cadrés avant signature. Le transfert (documentation, formation, règles métier) est inclus. Les montants exacts dépendent du périmètre ; ils sont annoncés avant engagement, jamais en régie ouverte.",
     nextTitle: "Et ensuite",
     nextBody:
-      "Le premier agent n’est pas une fin : une trajectoire existe si vous voulez aller plus loin — sans obligation de la suivre.",
+      "Le premier agent n’est pas une fin. Une trajectoire existe si vous voulez aller plus loin, sans obligation de la suivre.",
     nextSteps: [
       {
         tag: "01",
@@ -721,12 +721,12 @@ export const DEMARRER = {
       {
         tag: "02",
         title: "AgentOps",
-        desc: "Exploitation managée : revue, budgets, supervision continue et gouvernance au quotidien — pour que la capacité tourne sans retomber en projet.",
+        desc: "Exploitation managée : revue, budgets, supervision continue et gouvernance au quotidien, pour que la capacité tourne sans retomber en projet.",
       },
       {
         tag: "03",
         title: "Autonomie",
-        desc: "Vos équipes pilotent : règles versionnées, indicateurs, formation — sans boîte noire.",
+        desc: "Vos équipes pilotent : règles versionnées, indicateurs, formation. Pas de boîte noire.",
       },
     ],
     methodTitle: "Le protocole en détail",
@@ -738,7 +738,7 @@ export const DEMARRER = {
   en: {
     eyebrow: "GET STARTED",
     title: "Three ways to start",
-    sub: "You know how we start, how long it takes, and which pricing model — before you commit.",
+    sub: "You know how we start, how long it takes, and which pricing model, before you commit.",
     paths: [
       {
         tag: "01",
@@ -755,7 +755,7 @@ export const DEMARRER = {
         title: "The diagnostic",
         forWho: "You want a map ranked by impact and risk.",
         what: "Field observation, scorecard per workflow, sketched governance frame.",
-        leaveWith: "The map and priorities — sellable alone, no obligation to continue.",
+        leaveWith: "The map and priorities. Sellable alone, no obligation to continue.",
         duration: "Scoped",
         price: "Fixed fee before start",
         next: "No follow-on commitment.",
@@ -768,15 +768,15 @@ export const DEMARRER = {
         leaveWith: "An agent that works, documented, under your rules.",
         duration: "Scoped",
         price: "Framed fee before signature",
-        next: "Path to multi-workflows possible — no contractual obligation.",
+        next: "Path to multi-workflows possible, no contractual obligation.",
       },
     ],
     pricingTitle: "Pricing model",
     pricingBody:
-      "No open-ended time & materials, no consumption billing. Each path has a fee set before we start — the hour is free; diagnostic and first agent are framed before signature. Transfer (documentation, training, business rules) is included. Exact amounts depend on scope; they are stated before you commit, never as open-ended billing.",
+      "No open-ended time & materials, no consumption billing. Each path has a fee set before we start. The hour is free; diagnostic and first agent are framed before signature. Transfer (documentation, training, business rules) is included. Exact amounts depend on scope; they are stated before you commit, never as open-ended billing.",
     nextTitle: "What follows",
     nextBody:
-      "The first agent is not an end state: a path exists if you want to go further — without obligation to take it.",
+      "The first agent is not an end state. A path exists if you want to go further, without obligation to take it.",
     nextSteps: [
       {
         tag: "01",
@@ -786,12 +786,12 @@ export const DEMARRER = {
       {
         tag: "02",
         title: "AgentOps",
-        desc: "Managed operations: review, budgets, continuous supervision and day-to-day governance — so capacity keeps running without sliding back into a project.",
+        desc: "Managed operations: review, budgets, continuous supervision and day-to-day governance, so capacity keeps running without sliding back into a project.",
       },
       {
         tag: "03",
         title: "Autonomy",
-        desc: "Your teams operate: versioned rules, indicators, training — no black box.",
+        desc: "Your teams operate: versioned rules, indicators, training. No black box.",
       },
     ],
     methodTitle: "The protocol in detail",

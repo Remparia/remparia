@@ -4561,11 +4561,47 @@ a.info-card:focus-visible {
 
 /* ??? Careers isolated journey ??? */
 .careers-iso {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
-  background: #000;
+  background: #050505;
   color: #fff;
   display: flex;
   flex-direction: column;
+}
+
+.careers-iso::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #050505;
+  background-image: url("/careers-apply-bg.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.careers-iso::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 5, 0.72) 0%,
+      rgba(5, 5, 5, 0.55) 28%,
+      rgba(5, 5, 5, 0.62) 70%,
+      rgba(5, 5, 5, 0.82) 100%
+    ),
+    radial-gradient(
+      ellipse 70% 55% at 50% 40%,
+      rgba(5, 5, 5, 0.35),
+      transparent 72%
+    );
 }
 
 .careers-iso__bar {
@@ -4576,6 +4612,8 @@ a.info-card:focus-visible {
   gap: 12px;
   padding: 16px 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(5, 5, 5, 0.45);
+  backdrop-filter: blur(10px);
 }
 
 .careers-iso__eyebrow {
@@ -4677,6 +4715,29 @@ a.info-card:focus-visible {
 .careers-iso-form label small {
   font: var(--font-caption);
   color: var(--text-soft);
+}
+
+.careers-iso-form .careers-iso-count {
+  display: block;
+  margin-top: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.careers-iso-form .careers-iso-count--bad {
+  color: #f87171;
+}
+
+.careers-iso-form textarea[aria-invalid="true"],
+.careers-iso-form input[aria-invalid="true"],
+.careers-iso-form select[aria-invalid="true"] {
+  border-color: #f87171;
+}
+
+.careers-iso-form .contact-field-error {
+  display: block;
+  margin-top: 0.35rem;
+  color: #f87171;
+  font: var(--font-caption);
 }
 
 .careers-iso-form input,

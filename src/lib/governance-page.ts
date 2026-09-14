@@ -24,7 +24,7 @@ const governance = {
     crumbs: "Gouvernance",
     titleLine1: "Une gouvernance qui accélère l’adoption —",
     titleAccent: "sans lâcher le contrôle.",
-    sub: "Le risque n’est pas le futur rollout. C’est l’IA non gouvernée déjà en cours. Remparia pose les rails dans l’OS — ALLOW / REVIEW / BLOCK, identité, journal — pas un PDF que personne ne lit.",
+    sub: "Le risque n’est pas le futur rollout. C’est l’IA non gouvernée déjà en cours. Remparia met les rails dans l’OS : ALLOW / REVIEW / BLOCK, identité, journal. Pas un PDF que personne ne lit.",
     ctaPrimary: "Cadrer la gouvernance",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "Voir Remparia OS",
@@ -38,19 +38,19 @@ const governance = {
       eyebrow: "01 / POURQUOI MAINTENANT",
       titleBefore: "Le risque arrive ",
       titleAccent: "avant la politique.",
-      body: "L’adoption n’attend pas la permission. Une personne trouve un outil, en parle à deux collègues — et en un trimestre, la moitié de l’entreprise colle des données réelles dans des logins que l’IT n’a jamais validés.",
+      body: "L’adoption n’attend pas la permission. Une personne trouve un outil, en parle à deux collègues, et en un trimestre la moitié de l’entreprise colle des données réelles dans des logins que l’IT n’a jamais validés.",
       items: [
         {
           title: "Tout le monde construit",
-          desc: "L’IA a rendu la construction facile. Les équipes spin-up agents et workflows sans standard partagé — personne ne voit ce qui a été bâti ni ce que ça touche.",
+          desc: "L’IA a rendu la construction facile. Les équipes montent agents et workflows sans standard partagé. Personne ne voit ce qui a été bâti ni ce que ça touche.",
         },
         {
           title: "Données sur logins perso",
-          desc: "Le meilleur travail IA se fait souvent sur des comptes gratuits, avec clients et financiers qui transitent par des outils jamais revus pour la vie privée.",
+          desc: "Le meilleur travail IA se fait souvent sur des comptes gratuits, avec clients et financiers qui passent par des outils jamais revus pour la vie privée.",
         },
         {
           title: "Cinq personnes, cinq façons",
-          desc: "Sans standard, chaque équipe utilise l’IA différemment. La qualité oscille, rien n’est répétable, ce qu’un collègue a compris ne devient jamais la façon de travailler.",
+          desc: "Sans standard, chaque équipe utilise l’IA différemment. La qualité oscille, rien n’est répétable, et ce qu’un collègue a compris ne devient jamais la façon de travailler.",
         },
         {
           title: "Pas de porte avant le live",
@@ -79,12 +79,12 @@ const governance = {
       eyebrow: "03 / LES RAILS",
       titleBefore: "La gouvernance vit dans le travail — ",
       titleAccent: "pas dans un PDF.",
-      body: "Remparia installe le contrôle là où l’agent agit : outils, données, portes avant le live. Assez léger pour être suivi. Assez ferme pour faire confiance.",
+      body: "Remparia met le contrôle là où l’agent agit : outils, données, portes avant le live. Les règles sont simples à suivre et assez fermes pour faire confiance.",
       items: [
         {
           n: "01",
           title: "Politique d’usage",
-          desc: "Qui peut utiliser l’IA, sur quelles données, où — en langage clair, versionné dans l’OS.",
+          desc: "Qui peut utiliser l’IA, sur quelles données, où : en langage clair, versionné dans Remparia OS.",
         },
         {
           n: "02",
@@ -117,12 +117,12 @@ const governance = {
       eyebrow: "04 / DÉLÉGATION",
       titleBefore: "Ce que l’agent porte, prépare, ",
       titleAccent: "ou ne touche jamais.",
-      body: "Le rouge est un choix, pas une limite technique — nous refusons d’y mettre un agent, même sur demande.",
+      body: "Le rouge est un choix, pas une limite technique. Nous refusons d’y mettre un agent, même sur demande.",
       items: [
         {
           level: "green" as const,
           title: "L’agent porte",
-          desc: "Collecte, relances, contrôles, reporting, qualification — l’humain traite les exceptions.",
+          desc: "Collecte, relances, contrôles, reporting, qualification. L’humain traite les exceptions.",
         },
         {
           level: "amber" as const,
@@ -139,7 +139,7 @@ const governance = {
     pillars: {
       eyebrow: "05 / LES PILIERS",
       title: "Le contrôle n’est pas un correctif.",
-      body: "Six piliers, un seul plan de contrôle. Rien ne tourne dans l’OS sans identité, politique et journal.",
+      body: "Six piliers, un seul plan de contrôle. Rien ne tourne dans Remparia OS sans identité, politique et journal.",
       items: [
         {
           id: "identity",
@@ -159,7 +159,7 @@ const governance = {
           id: "policies",
           tag: "POLITIQUES",
           title: "Politiques",
-          desc: "ALLOW, REVIEW, BLOCK — règles métier et seuils d’arrêt versionnés.",
+          desc: "ALLOW, REVIEW, BLOCK : règles métier et seuils d’arrêt versionnés.",
           panel: "Policy · BLOCK remboursements",
         },
         {
@@ -173,7 +173,7 @@ const governance = {
           id: "observability",
           tag: "OBSERVABILITÉ",
           title: "Observabilité",
-          desc: "Latence, échecs, escalades, qualité — mesurés en continu.",
+          desc: "Latence, échecs, escalades, qualité : mesurés en continu.",
           panel: "Health · 98,7 % succès",
         },
         {
@@ -216,9 +216,9 @@ const governance = {
     },
     outcomes: {
       eyebrow: "07 / CE QUE ÇA CHANGE",
-      titleBefore: "Adoption plus rapide. ",
-      titleAccent: "Plus sûre. Plus cohérente.",
-      body: "Les équipes viennent parce que l’IA est partout et que personne ne tient le volant. Elles repartent avec une adoption enfin alignée.",
+      titleBefore: "L’adoption avance ",
+      titleAccent: "avec des règles claires.",
+      body: "Les équipes viennent parce que l’IA est partout et que personne ne tient le volant. Elles repartent avec une stack approuvée, des portes ALLOW / REVIEW / BLOCK, et un journal.",
       items: [
         {
           n: "01",
@@ -228,7 +228,7 @@ const governance = {
         {
           n: "02",
           title: "Une entreprise, une façon de travailler",
-          desc: "Fini les cinq façons différentes. Même stack, mêmes portes, même qualité — ce qu’un métier apprend devient le standard.",
+          desc: "Fini les cinq façons différentes. Même stack, mêmes portes, même qualité. Ce qu’un métier apprend devient le standard.",
         },
         {
           n: "03",
@@ -241,7 +241,7 @@ const governance = {
       eyebrow: "08 / EN ACTION",
       titleBefore: "Une décision engageante. ",
       titleAccent: "Le contrôle s’active.",
-      body: "L’Agent Commerce illustre la gouvernance : chaque action a un stop, un journal, un propriétaire.",
+      body: "L’Agent Commerce montre la gouvernance : chaque action a un stop, un journal, un propriétaire.",
       mission: "Lead → relance → remboursement hors politique",
       nodes: [
         { tag: "ALLOW", title: "Score + CRM", desc: "Lead #4821 · cadence OK" },
@@ -256,7 +256,7 @@ const governance = {
       eyebrow: "09 / JOURNAL",
       titleBefore: "Chaque action est ",
       titleAccent: "journalisée.",
-      note: "Exemple illustratif — format d’audit, pas une donnée client.",
+      note: "Exemple illustratif : format d’audit, pas une donnée client.",
       headers: ["Heure", "Agent", "Action", "Ressource", "Politique", "Humain"],
       rows: [
         ["14:02:11", "Agent Commerce", "Score lead", "Opportunity #4821", "ALLOW", "—"],
@@ -306,15 +306,15 @@ const governance = {
     faq: {
       eyebrow: "11 / FAQ",
       title: "Questions fréquentes",
-      sub: "Ce que la gouvernance signifie chez Remparia — sans jargon compliance.",
+      sub: "Ce que la gouvernance signifie chez Remparia, sans jargon compliance.",
       items: [
         {
           q: "Qu’est-ce que la gouvernance IA chez Remparia ?",
-          a: "Les règles, contrôles d’accès et portes de revue qui décident qui peut utiliser l’IA, sur quelles données, et comment ça part en production. Chez Remparia, ça vit dans l’OS — ALLOW / REVIEW / BLOCK — pas dans un PDF.",
+          a: "Les règles, contrôles d’accès et portes de revue qui décident qui peut utiliser l’IA, sur quelles données, et comment ça part en production. Chez Remparia, ça vit dans Remparia OS (ALLOW / REVIEW / BLOCK), pas dans un PDF.",
         },
         {
           q: "Vous écrivez une politique, ou vous l’installez ?",
-          a: "On l’installe. Identité, permissions, politiques versionnées, budgets, journal — dans Remparia OS, avant qu’un agent ne touche un client. SIGNAL cadre ; Studio et l’OS exécutent déjà gouvernés.",
+          a: "On l’installe. Identité, permissions, politiques versionnées, budgets, journal : dans Remparia OS, avant qu’un agent ne touche un client. SIGNAL cadre ; Studio et l’OS exécutent déjà gouvernés.",
         },
         {
           q: "La gouvernance va-t-elle ralentir les équipes ?",
@@ -322,7 +322,7 @@ const governance = {
         },
         {
           q: "On a déjà des gens qui utilisent l’IA de leur côté. Trop tard ?",
-          a: "C’est exactement le moment. On cadre le shadow AI, on pose les portes, on aligne sur une façon de travailler — sans geler l’adoption.",
+          a: "C’est exactement le moment. On cadre le shadow AI, on pose les portes, on aligne sur une façon de travailler, sans geler l’adoption.",
         },
         {
           q: "Quelle différence avec la souveraineté ?",
@@ -337,7 +337,7 @@ const governance = {
     cta: {
       tag: "GOUVERNANCE",
       title: "Cadrer le contrôle avant le premier agent.",
-      text: "On part d’un cas SIGNAL. On compose dans Studio. On publie dans l’OS — déjà gouverné.",
+      text: "On part d’un cas SIGNAL. On compose dans Studio. On publie dans Remparia OS, déjà gouverné.",
       href: "/demarrer",
       label: "Réserver une session SIGNAL",
     },
@@ -347,7 +347,7 @@ const governance = {
     crumbs: "Governance",
     titleLine1: "Governance that speeds adoption —",
     titleAccent: "without letting go of control.",
-    sub: "The risk is not the future rollout. It is the ungoverned AI already running. Remparia puts the rails in the OS — ALLOW / REVIEW / BLOCK, identity, log — not a PDF nobody reads.",
+    sub: "The risk is not the future rollout. It is the ungoverned AI already running. Remparia puts the rails in the OS: ALLOW / REVIEW / BLOCK, identity, log. Not a PDF nobody reads.",
     ctaPrimary: "Frame governance",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "See Remparia OS",
@@ -361,11 +361,11 @@ const governance = {
       eyebrow: "01 / WHY NOW",
       titleBefore: "Risk shows up ",
       titleAccent: "before any policy does.",
-      body: "Adoption never waits for permission. One person finds a tool, tells two coworkers — and within a quarter half the company is pasting real data into logins IT never approved.",
+      body: "Adoption never waits for permission. One person finds a tool, tells two coworkers, and within a quarter half the company is pasting real data into logins IT never approved.",
       items: [
         {
           title: "Everyone is a builder now",
-          desc: "AI made building easy, so everyone is doing it. Teams spin up agents and workflows with no shared standard — no one can see what was built or what it touches.",
+          desc: "AI made building easy, so everyone is doing it. Teams spin up agents and workflows with no shared standard. No one can see what was built or what it touches.",
         },
         {
           title: "Company data on personal logins",
@@ -402,12 +402,12 @@ const governance = {
       eyebrow: "03 / THE RAILS",
       titleBefore: "Governance lives in the work — ",
       titleAccent: "not in a PDF.",
-      body: "Remparia installs control where the agent acts: tools, data, gates before go-live. Light enough to follow. Firm enough to trust.",
+      body: "Remparia puts control where the agent acts: tools, data, gates before go-live. The rules are simple to follow and firm enough to trust.",
       items: [
         {
           n: "01",
           title: "Usage policy",
-          desc: "Who can use AI, on what data, where — plain language, versioned in the OS.",
+          desc: "Who can use AI, on what data, where: plain language, versioned in Remparia OS.",
         },
         {
           n: "02",
@@ -440,12 +440,12 @@ const governance = {
       eyebrow: "04 / DELEGATION",
       titleBefore: "What the agent carries, prepares, ",
       titleAccent: "or never touches.",
-      body: "Red is a choice, not a technical limit — we refuse to put an agent there, even on request.",
+      body: "Red is a choice, not a technical limit. We refuse to put an agent there, even on request.",
       items: [
         {
           level: "green" as const,
           title: "The agent carries",
-          desc: "Collection, follow-ups, checks, reporting, qualification — humans handle exceptions.",
+          desc: "Collection, follow-ups, checks, reporting, qualification. Humans handle exceptions.",
         },
         {
           level: "amber" as const,
@@ -462,7 +462,7 @@ const governance = {
     pillars: {
       eyebrow: "05 / PILLARS",
       title: "Control is not a retrofit.",
-      body: "Six pillars, one control plane. Nothing runs in the OS without identity, policy and a log.",
+      body: "Six pillars, one control plane. Nothing runs in Remparia OS without identity, policy and a log.",
       items: [
         {
           id: "identity",
@@ -482,7 +482,7 @@ const governance = {
           id: "policies",
           tag: "POLICIES",
           title: "Policies",
-          desc: "ALLOW, REVIEW, BLOCK — versioned business rules and stop thresholds.",
+          desc: "ALLOW, REVIEW, BLOCK: versioned business rules and stop thresholds.",
           panel: "Policy · BLOCK refunds",
         },
         {
@@ -496,7 +496,7 @@ const governance = {
           id: "observability",
           tag: "OBSERVABILITY",
           title: "Observability",
-          desc: "Latency, failures, escalations, quality — measured continuously.",
+          desc: "Latency, failures, escalations, quality: measured continuously.",
           panel: "Health · 98.7% success",
         },
         {
@@ -539,9 +539,9 @@ const governance = {
     },
     outcomes: {
       eyebrow: "07 / WHAT CHANGES",
-      titleBefore: "Adoption faster. ",
-      titleAccent: "Safer. More consistent.",
-      body: "Companies come because AI is everywhere and no one is holding the wheel. They leave with adoption that is finally aligned.",
+      titleBefore: "Adoption moves faster ",
+      titleAccent: "with clear rules.",
+      body: "Companies come because AI is everywhere and no one is holding the wheel. They leave with an approved stack, ALLOW / REVIEW / BLOCK gates, and a log.",
       items: [
         {
           n: "01",
@@ -551,7 +551,7 @@ const governance = {
         {
           n: "02",
           title: "One company, one way of working",
-          desc: "The five-different-ways problem is gone. Same stack, same gates, same quality — what one team figures out becomes how the company runs.",
+          desc: "The five-different-ways problem is gone. Same stack, same gates, same quality. What one team figures out becomes how the company runs.",
         },
         {
           n: "03",
@@ -579,7 +579,7 @@ const governance = {
       eyebrow: "09 / LOG",
       titleBefore: "Every action is ",
       titleAccent: "logged.",
-      note: "Illustrative example — audit format, not client data.",
+      note: "Illustrative example: audit format, not client data.",
       headers: ["Time", "Agent", "Action", "Resource", "Policy", "Human"],
       rows: [
         ["14:02:11", "Commerce Agent", "Score lead", "Opportunity #4821", "ALLOW", "—"],
@@ -629,15 +629,15 @@ const governance = {
     faq: {
       eyebrow: "11 / FAQ",
       title: "Frequently asked questions",
-      sub: "What governance means at Remparia — without compliance jargon.",
+      sub: "What governance means at Remparia, without compliance jargon.",
       items: [
         {
           q: "What is AI governance at Remparia?",
-          a: "The rules, access controls and review gates that decide who can use AI, on what data, and how it ships. At Remparia it lives in the OS — ALLOW / REVIEW / BLOCK — not in a PDF.",
+          a: "The rules, access controls and review gates that decide who can use AI, on what data, and how it ships. At Remparia it lives in Remparia OS (ALLOW / REVIEW / BLOCK), not in a PDF.",
         },
         {
           q: "Do you just write a policy, or actually set it up?",
-          a: "We set it up. Identity, permissions, versioned policies, budgets, log — in Remparia OS, before an agent touches a customer. SIGNAL frames; Studio and the OS ship already governed.",
+          a: "We set it up. Identity, permissions, versioned policies, budgets, log: in Remparia OS, before an agent touches a customer. SIGNAL frames; Studio and the OS ship already governed.",
         },
         {
           q: "Will governance slow our team down?",
@@ -645,7 +645,7 @@ const governance = {
         },
         {
           q: "We already have people using AI on their own. Too late?",
-          a: "That is exactly when it matters. We frame shadow AI, put the gates in place, and align on one way of working — without freezing adoption.",
+          a: "That is exactly when it matters. We frame shadow AI, put the gates in place, and align on one way of working, without freezing adoption.",
         },
         {
           q: "How is this different from sovereignty?",
@@ -660,7 +660,7 @@ const governance = {
     cta: {
       tag: "GOVERNANCE",
       title: "Frame control before the first agent.",
-      text: "Start from a SIGNAL case. Compose in Studio. Publish to the OS — already governed.",
+      text: "Start from a SIGNAL case. Compose in Studio. Publish to Remparia OS, already governed.",
       href: "/demarrer",
       label: "Book a SIGNAL session",
     },

@@ -192,7 +192,7 @@ export const LEGAL_PAGES = {
         {
           title: "Limitation de responsabilité",
           paragraphs: [
-            "Remparia s’efforce d’assurer l’exactitude des informations diffusées. Des erreurs ou omissions peuvent toutefois survenir ; les contenus sont fournis à titre informatif.",
+            "Remparia s’efforce d’assurer l’exactitude des informations diffusées. Des erreurs ou omissions peuvent toutefois survenir. Les contenus sont fournis à titre informatif.",
             "L’utilisation du site se fait sous la responsabilité de l’utilisateur. Remparia ne saurait être tenue responsable des dommages liés à l’accès ou à l’usage du site.",
           ],
         },
@@ -236,7 +236,7 @@ export const LEGAL_PAGES = {
         {
           title: "Limitation of liability",
           paragraphs: [
-            "Remparia strives to keep information accurate. Errors or omissions may occur; content is provided for information only.",
+            "Remparia strives to keep information accurate. Errors or omissions may occur. Content is provided for information only.",
             "Use of the site is at the user’s own risk. Remparia shall not be liable for damages arising from access to or use of the site.",
           ],
         },
@@ -262,7 +262,7 @@ export const LEGAL_PAGES = {
             "Via le formulaire de contact : nom, société (optionnel), adresse e-mail, message.",
             "Via le parcours Carrières : identité, réponses aux questions, vidéo de présentation enregistrée sur la plateforme (stockage objet), éventuellement LinkedIn.",
             "Données techniques de navigation : logs serveur.",
-            "Si vous acceptez la mesure d’audience : statistiques Vercel Web Analytics (pages vues, parcours, données techniques — détail sur la page Cookies).",
+            "Si vous acceptez la mesure d’audience : statistiques Vercel Web Analytics (pages vues, parcours, données techniques ; détail sur la page Cookies).",
           ],
         },
         {
@@ -278,7 +278,7 @@ export const LEGAL_PAGES = {
           title: "Destinataires et sous-traitants",
           paragraphs: [
             "Les données de contact sont destinées à Remparia et, le cas échéant, à notre prestataire d’envoi d’e-mails (Resend) pour acheminer votre message.",
-            "L’hébergement et la mesure d’audience sont assurés par Vercel (Web Analytics, sans cookie publicitaire). Aucune revente de données à des tiers à des fins publicitaires.",
+            "L’hébergement et la mesure d’audience sont assurés par Vercel (Web Analytics, sans cookie publicitaire). Remparia ne revend pas de données à des tiers à des fins publicitaires.",
           ],
         },
         {
@@ -315,7 +315,7 @@ export const LEGAL_PAGES = {
             "Via the contact form: name, company (optional), email address, message.",
             "Via the Careers journey: identity, written answers, intro video recorded on the platform (object storage), optionally LinkedIn.",
             "Technical browsing data: server logs.",
-            "If you accept audience measurement: Vercel Web Analytics (page views, journeys, technical data — see the Cookies page).",
+            "If you accept audience measurement: Vercel Web Analytics (page views, journeys, technical data; see the Cookies page).",
           ],
         },
         {
@@ -355,7 +355,7 @@ export const LEGAL_PAGES = {
     fr: {
       eyebrow: "LÉGAL",
       title: "Cookies",
-      sub: "Ce que le site utilise — et ce qu’il n’utilise pas.",
+      sub: "Ce que le site utilise, et ce qu’il n’utilise pas.",
       sections: [
         {
           title: "Principe",
@@ -391,7 +391,7 @@ export const LEGAL_PAGES = {
     en: {
       eyebrow: "LEGAL",
       title: "Cookies",
-      sub: "What this site uses — and what it does not.",
+      sub: "What this site uses, and what it does not.",
       sections: [
         {
           title: "Principle",

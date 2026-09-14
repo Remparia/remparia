@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getContactFromEmail, getContactToEmail } from "@/lib/contact-email";
+import { getCareersIdentityApiError } from "@/lib/contact-form-validation";
 
 export const runtime = "nodejs";
 
@@ -24,10 +25,6 @@ function rateLimit(ip: string) {
   if (entry.count >= MAX_PER_WINDOW) return false;
   entry.count += 1;
   return true;
-}
-
-function isEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 function isHttpUrl(value: string) {
@@ -80,16 +77,17 @@ export async function POST(req: Request) {
     ? (body.answers as Answer[])
     : [];
 
-  if (!name || name.length > 120) {
-    return NextResponse.json({ ok: false, error: "invalid_name" }, { status: 400 });
+  const identityError = getCareersIdentityApiError({
+    name,
+    email,
+    linkedin,
+    city,
+    role,
+  });
+  if (identityError) {
+    return NextResponse.json({ ok: false, error: identityError }, { status: 400 });
   }
-  if (!email || !isEmail(email) || email.length > 200) {
-    return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
-  }
-  if (!city || city.length > 120) {
-    return NextResponse.json({ ok: false, error: "invalid_city" }, { status: 400 });
-  }
-  if (!role || role.length > 80) {
+  if (role.length > 80) {
     return NextResponse.json({ ok: false, error: "invalid_role" }, { status: 400 });
   }
   if (!videoUrl || !isHttpUrl(videoUrl) || videoUrl.length > 500) {

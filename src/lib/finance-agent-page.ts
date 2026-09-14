@@ -5,7 +5,7 @@ const fr: PackRichPageCopy = {
   eyebrow: "SOLUTIONS / FINANCE",
   title: "Contrôler sans ",
   titleAccent: "diluer la décision.",
-  sub: "KYC assisté, reporting et préparation risque — avec pistes d’audit et décisions humaines sur les seuils.",
+  sub: "KYC assisté, reporting et préparation risque, avec pistes d’audit et décisions humaines sur les seuils.",
   ctaPrimary: "Lancer SIGNAL finance",
   ctaPrimaryHref: "/demarrer",
   ctaSecondary: "Voir finance & assurance",
@@ -29,26 +29,26 @@ const fr: PackRichPageCopy = {
     },
     {
       value: "SIGNAL",
-      label: "avant le build — seuils et systèmes cadrés",
+      label: "avant le build : seuils et systèmes cadrés",
       source: "Méthode",
     },
   ],
   workforce: {
     eyebrow: "01 / FORCE DE TRAVAIL",
     title: "Préparer le dossier. Journaliser. Ne jamais trancher à la place du métier.",
-    body: "Des agents qui accélèrent la collecte et le contrôle — les seuils restent humains.",
+    body: "Des agents qui accélèrent la collecte et le contrôle. Les seuils restent humains.",
     agents: [
       {
         title: "KYC prêt pour décision",
         forWhom: "Conformité / middle office",
-        does: "Collecte, contrôles, piste d’audit — sans acceptation client.",
+        does: "Collecte, contrôles, piste d’audit, sans acceptation client.",
         skills: ["Collecte", "Contrôles", "Audit", "Escalade"],
         never: "Il n’accepte pas un client et n’ouvre pas de relation.",
       },
       {
         title: "Reporting prêt pour revue",
         forWhom: "Finance / reporting",
-        does: "Brouillon sourcé, non envoyé — la revue humaine décide de la diffusion.",
+        does: "Brouillon sourcé, non envoyé. La revue humaine décide de la diffusion.",
         skills: ["Agrégation", "Sources", "Brouillon", "Revue"],
         never: "Aucun reporting n’est envoyé sans validation.",
       },
@@ -89,12 +89,12 @@ const fr: PackRichPageCopy = {
       { title: "OS + gouvernance", desc: "Politiques identiques quel que soit l’hébergement." },
       { title: "AgentOps", desc: "Revue, budgets, amélioration continue." },
     ],
-    note: "Connecteurs (CRM, core banking, KYC) cadrés en SIGNAL — pas de fake case.",
+    note: "Connecteurs (CRM, core banking, KYC) cadrés en SIGNAL. Pas de fake case.",
   },
   offer: {
     eyebrow: "04 / OFFRE",
-    title: "Commencer petit. Mesurer. Étendre.",
-    body: "Quatre niveaux — diagnostic, pilote, multi-workflows, AgentOps.",
+    title: "On commence petit, on mesure, on étend.",
+    body: "Quatre niveaux : diagnostic, pilote, multi-workflows, AgentOps.",
     steps: [
       {
         index: "01",
@@ -172,7 +172,7 @@ const fr: PackRichPageCopy = {
   },
   final: {
     title: "Prochaine étape : cadrer seuils et systèmes.",
-    body: "SIGNAL fixe ce que l’agent peut préparer — et ce qu’il ne tranchera jamais.",
+    body: "SIGNAL fixe ce que l’agent peut préparer, et ce qu’il ne tranchera jamais.",
     steps: [
       "Atelier risk / finance / IT",
       "Cartographie contrôles et KPI",
@@ -191,7 +191,7 @@ const en: PackRichPageCopy = {
   eyebrow: "SOLUTIONS / FINANCE",
   title: "Control without ",
   titleAccent: "diluting the decision.",
-  sub: "Assisted KYC, reporting and risk prep — with audit trails and human decisions on thresholds.",
+  sub: "Assisted KYC, reporting and risk prep, with audit trails and human decisions on thresholds.",
   ctaPrimary: "Start finance SIGNAL",
   ctaPrimaryHref: "/demarrer",
   ctaSecondary: "See finance & insurance",
@@ -215,26 +215,26 @@ const en: PackRichPageCopy = {
     },
     {
       value: "SIGNAL",
-      label: "before the build — thresholds and systems scoped",
+      label: "before the build: thresholds and systems scoped",
       source: "Method",
     },
   ],
   workforce: {
     eyebrow: "01 / AI WORKFORCE",
     title: "Prepare the file. Log. Never decide for the business.",
-    body: "Agents that accelerate collection and checks — thresholds stay human.",
+    body: "Agents that accelerate collection and checks. Thresholds stay human.",
     agents: [
       {
         title: "KYC ready for a decision",
         forWhom: "Compliance / middle office",
-        does: "Collection, checks, audit trail — no client acceptance.",
+        does: "Collection, checks, audit trail, no client acceptance.",
         skills: ["Collection", "Checks", "Audit", "Escalation"],
         never: "It does not accept a client or open a relationship.",
       },
       {
         title: "Report ready for review",
         forWhom: "Finance / reporting",
-        does: "Sourced draft, not sent — human review decides distribution.",
+        does: "Sourced draft, not sent. Human review decides distribution.",
         skills: ["Aggregation", "Sources", "Draft", "Review"],
         never: "No report is sent without validation.",
       },
@@ -275,12 +275,12 @@ const en: PackRichPageCopy = {
       { title: "OS + governance", desc: "Identical policies whatever the hosting." },
       { title: "AgentOps", desc: "Review, budgets, continuous improvement." },
     ],
-    note: "Connectors (CRM, core banking, KYC) scoped in SIGNAL — no fake case studies.",
+    note: "Connectors (CRM, core banking, KYC) scoped in SIGNAL. No fake case studies.",
   },
   offer: {
     eyebrow: "04 / OFFER",
-    title: "Start small. Measure. Extend.",
-    body: "Four tiers — diagnostic, pilot, multi-workflows, AgentOps.",
+    title: "Start small, measure, then extend.",
+    body: "Four tiers: diagnostic, pilot, multi-workflows, AgentOps.",
     steps: [
       {
         index: "01",
@@ -358,7 +358,7 @@ const en: PackRichPageCopy = {
   },
   final: {
     title: "Next step: frame thresholds and systems.",
-    body: "SIGNAL defines what the agent can prepare — and what it will never decide.",
+    body: "SIGNAL defines what the agent can prepare, and what it will never decide.",
     steps: [
       "Workshop risk / finance / IT",
       "Control map and KPIs",

@@ -48,14 +48,14 @@ const DEFAULT_SERVICES = [
 ] as const;
 
 const SIGNALS_FR = [
-  { value: "SIGNAL", label: "Méthode de bout en bout" },
+  { value: "SIGNAL", label: "Méthode SIGNAL" },
   { value: "PÉRIM.", label: "Données dans le cadre défini" },
   { value: "HITL", label: "Humain dans la boucle" },
   { value: "Preuve", label: "Gains définis avant déploiement" },
 ];
 
 const SIGNALS_EN = [
-  { value: "SIGNAL", label: "End-to-end method" },
+  { value: "SIGNAL", label: "SIGNAL method" },
   { value: "SCOPE", label: "Data inside the agreed frame" },
   { value: "HITL", label: "Human in the loop" },
   { value: "Evidence", label: "Outcomes defined before deployment" },
@@ -189,7 +189,7 @@ function toDetail(
   };
 }
 
-/** Verticales PME (inspirées Sylen) + secteurs métier utiles — positionnement serviсiel Remparia. */
+/** Verticales PME (inspirées Sylen) + secteurs métier utiles. Positionnement serviciel Remparia. */
 const EXTRAS: ExtraInput[] = [
   {
     slug: "cabinet-paramedical",
@@ -198,7 +198,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour kinés, ostéos, psychologues. RDV, parcours admin, RGPD.",
       heroH: "Agents pour les cabinets paramédicaux",
       heroP:
-        "Alléger l'administratif et fluidifier le parcours patient — sans exposer les dossiers à des outils grand public.",
+        "Alléger l'administratif et simplifier le parcours patient, sans exposer les dossiers à des outils grand public.",
       pains: [
         {
           title: "L'admin mange le temps de soin",
@@ -225,7 +225,7 @@ const EXTRAS: ExtraInput[] = [
           who: "Titulaire de cabinet",
           need: "Réduire les no-shows et le temps passé au téléphone.",
           remparia:
-            "Nous industrialisons des agents de confirmation / qualification branchés sur votre agenda, avec règles métier et revue humaine.",
+            "Nous déployons des agents de confirmation / qualification branchés sur votre agenda, avec règles métier et revue humaine.",
         },
         {
           who: "Secrétariat médical",
@@ -250,7 +250,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For PTs, osteopaths, psychologists. Scheduling, admin pathways, GDPR.",
       heroH: "Agents for paramedical practices",
       heroP:
-        "Ease admin load and smooth patient pathways — without exposing records to consumer tools tools.",
+        "Cut admin load and simplify patient pathways, without exposing records to consumer tools.",
       pains: [
         {
           title: "Admin eats care time",
@@ -277,7 +277,7 @@ const EXTRAS: ExtraInput[] = [
           who: "Practice owner",
           need: "Cut no-shows and phone time.",
           remparia:
-            "We industrialize confirmation / qualification agents on your calendar, with business rules and human review.",
+            "We deploy confirmation / qualification agents on your calendar, with business rules and human review.",
         },
         {
           who: "Medical secretariat",
@@ -305,7 +305,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour avocats. Qualification dossier, confidentialité, conflits.",
       heroH: "Agents pour les cabinets d'avocats",
       heroP:
-        "Qualifier les dossiers, accélérer le documentaire et filtrer le bruit — sous secret professionnel et gouvernance stricte.",
+        "Qualifier les dossiers, accélérer le documentaire et filtrer le bruit, sous secret professionnel et gouvernance claire.",
       pains: [
         {
           title: "Prospects perdus pendant les audiences",
@@ -325,7 +325,7 @@ const EXTRAS: ExtraInput[] = [
         "RAG souverain sur méthodes et modèles internes du cabinet",
         "Détection d'alertes conflits selon vos listes",
         "Gouvernance données et audit pour le secret professionnel",
-        "Industrialisation jusqu'à l'usage quotidien des collaborateurs",
+        "Mise en production jusqu'à l'usage quotidien des collaborateurs",
       ],
       scenarios: [
         {
@@ -357,7 +357,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For lawyers. Matter qualification, confidentiality, conflicts.",
       heroH: "Agents for law firms",
       heroP:
-        "Qualify matters, speed document work and filter noise — under professional secrecy and strict governance.",
+        "Qualify matters, speed document work and filter noise, under professional secrecy and clear governance.",
       pains: [
         {
           title: "Prospects lost during hearings",
@@ -377,7 +377,7 @@ const EXTRAS: ExtraInput[] = [
         "Sovereign RAG on firm methods and templates",
         "Conflict alerts based on your lists",
         "Data governance and audit for professional secrecy",
-        "Industrialization through to daily associate usage",
+        "Rollout through to daily associate usage",
       ],
       scenarios: [
         {
@@ -455,7 +455,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Compatible avec notre CRM ?",
-          a: "Oui dans la majorité des cas — on part de votre stack, pas d'un outil imposé.",
+          a: "Oui dans la majorité des cas : on part de votre stack, pas d'un outil imposé.",
         },
       ],
     },
@@ -503,11 +503,11 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Does it replace advisors?",
-          a: "No. Agents triage and prepares; advisors negotiate and close.",
+          a: "No. Agents triage and prepare; advisors negotiate and close.",
         },
         {
           q: "Compatible with our CRM?",
-          a: "Yes in most cases — we start from your stack, not a forced tool.",
+          a: "Yes in most cases: we start from your stack, not a forced tool.",
         },
       ],
     },
@@ -624,7 +624,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour plombiers, électriciens, BTP. Urgences vraies vs entretien.",
       heroH: "Agents pour artisans & BTP",
       heroP:
-        "Trier urgences, accélérer devis et planifier les interventions — branché sur votre réalité terrain.",
+        "Trier urgences, accélérer devis et planifier les interventions, branché sur votre réalité terrain.",
       pains: [
         {
           title: "Urgences et entretien mélangés",
@@ -635,7 +635,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "Pièces, photos, historiques : le commercial terrain perd du temps en admin.",
         },
         {
-          title: "Savoir chantier peu capitalisé",
+          title: "Savoir chantier peu formalisé",
           desc: "Retours d'expérience et mode opératoire restent informels.",
         },
       ],
@@ -666,7 +666,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Remplace un standard téléphonique ?",
-          a: "Nous pouvons orchestrer qualification et handoff — en mission serviсielle, pas en boîte SaaS imposée.",
+          a: "Nous pouvons orchestrer qualification et handoff en mission servicielle, pas en boîte SaaS imposée.",
         },
       ],
     },
@@ -675,7 +675,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For plumbers, electricians, construction. Real emergencies vs maintenance.",
       heroH: "Agents for trades & construction",
       heroP:
-        "Triage emergencies, speed quotes and plan interventions — wired to field reality.",
+        "Triage emergencies, speed quotes and plan interventions, wired to field reality.",
       pains: [
         {
           title: "Emergencies mixed with maintenance",
@@ -686,7 +686,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "Parts, photos, history: field sales lose time to admin.",
         },
         {
-          title: "Site knowledge poorly capitalized",
+          title: "Site knowledge poorly captured",
           desc: "Lessons learned and SOPs stay informal.",
         },
       ],
@@ -717,7 +717,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Does it replace a phone receptionist?",
-          a: "We can orchestrate qualification and handoff — as a service engagement, not a forced SaaS box.",
+          a: "We can orchestrate qualification and handoff as a service engagement, not a forced SaaS box.",
         },
       ],
     },
@@ -740,8 +740,8 @@ const EXTRAS: ExtraInput[] = [
           desc: "Sans process fiable, le risque et le stress en cuisine montent.",
         },
         {
-          title: "Savoir-faire peu industrialisé",
-          desc: "Menus, FAQ, process événements restent fragiles à scaler.",
+          title: "Savoir-faire peu formalisé",
+          desc: "Menus, FAQ, process événements restent fragiles quand le volume monte.",
         },
       ],
       deliverables: [
@@ -791,8 +791,8 @@ const EXTRAS: ExtraInput[] = [
           desc: "Without a reliable process, risk and kitchen stress rise.",
         },
         {
-          title: "Know-how poorly industrialized",
-          desc: "Menus, FAQ, event process stay hard to scale.",
+          title: "Know-how poorly formalized",
+          desc: "Menus, FAQ, event process stay hard to grow with volume.",
         },
       ],
       deliverables: [
@@ -834,7 +834,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour garages. Prestation, panne, planning atelier.",
       heroH: "Agents pour garages automobiles",
       heroP:
-        "Qualifier prestations et pannes, accélérer le planning atelier et la relation client — sur vos outils métier.",
+        "Qualifier prestations et pannes, accélérer le planning atelier et la relation client, sur vos outils métier.",
       pains: [
         {
           title: "Demandes mal qualifiées",
@@ -845,8 +845,8 @@ const EXTRAS: ExtraInput[] = [
           desc: "Imprévus et relances client désorganisent la journée.",
         },
         {
-          title: "Historique véhicule sous-exploité",
-          desc: "Le savoir entretien reste dans le DMS, peu actionnable.",
+          title: "Historique véhicule peu utilisé",
+          desc: "Le savoir entretien reste dans le DMS, difficile à actionner.",
         },
       ],
       deliverables: [
@@ -885,7 +885,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For garages. Services, breakdowns, shop scheduling.",
       heroH: "Agents for auto garages",
       heroP:
-        "Qualify services and breakdowns, speed shop planning and client relationships — on your business tools.",
+        "Qualify services and breakdowns, speed shop planning and client relationships, on your business tools.",
       pains: [
         {
           title: "Poorly qualified requests",
@@ -896,8 +896,8 @@ const EXTRAS: ExtraInput[] = [
           desc: "Surprises and client follow-ups scramble the day.",
         },
         {
-          title: "Underused vehicle history",
-          desc: "Service knowledge sits in the DMS, barely actionable.",
+          title: "Vehicle history barely used",
+          desc: "Service knowledge sits in the DMS, hard to act on.",
         },
       ],
       deliverables: [
@@ -936,18 +936,18 @@ const EXTRAS: ExtraInput[] = [
     slug: "e-commerce",
     fr: {
       title: "E-commerce et boutique",
-      desc: "Agent shopping : conseil, panier, SAV — sans toucher au paiement.",
+      desc: "Agent shopping : conseil, panier, SAV, sans toucher au paiement.",
       heroH: "Votre boutique en ligne devient un vendeur",
       heroP:
-        "Un agent qui comprend « crème peau sèche, pas grasse, moins de 30 € », interroge votre catalogue réel, compose le panier, suit la commande — et passe la main au checkout. Les cas sensibles restent humains.",
+        "Un agent qui comprend « crème peau sèche, pas grasse, moins de 30 € », interroge votre catalogue réel, compose le panier, suit la commande, puis passe la main au checkout. Les cas sensibles restent humains.",
       pains: [
         {
           title: "Les assistants répondent, mais ne vendent pas",
           desc: "FAQ et chat saturent le L1 sans poursuivre l’objectif d’achat ni toucher au panier.",
         },
         {
-          title: "Catalogue sous-exploité dans la conversation",
-          desc: "Prix, stock, variantes et politiques vivent dans Shopify / Presta / PIM — l’agent générique invente ou ignore.",
+          title: "Catalogue peu utilisé dans la conversation",
+          desc: "Prix, stock, variantes et politiques vivent dans Shopify / Presta / PIM. L’agent générique invente ou ignore.",
         },
         {
           title: "Peur du risque (prix, paiement, RGPD)",
@@ -988,7 +988,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Shopify, PrestaShop, Magento ?",
-          a: "Oui — les connecteurs exacts sont cadrés en SIGNAL. Shopify est souvent le plus rapide ; Presta / Magento apportent plus de valeur d’intégration.",
+          a: "Oui. Les connecteurs exacts sont cadrés en SIGNAL. Shopify est souvent le plus rapide ; Presta / Magento apportent plus de valeur d’intégration.",
         },
         {
           q: "Et les agents ChatGPT / Gemini ?",
@@ -998,18 +998,18 @@ const EXTRAS: ExtraInput[] = [
     },
     en: {
       title: "E-commerce and store",
-      desc: "Shopping agent: advice, cart, care — never touching payment.",
+      desc: "Shopping agent: advice, cart, care, never touching payment.",
       heroH: "Your online store becomes a seller",
       heroP:
-        "An agent that understands multi-constraint product intent, queries your live catalog, builds the cart, tracks the order — and hands off to checkout. Sensitive cases stay human.",
+        "An agent that understands multi-constraint product intent, queries your live catalog, builds the cart, tracks the order, then hands off to checkout. Sensitive cases stay human.",
       pains: [
         {
           title: "Assistants answer, but do not sell",
           desc: "FAQ and chat flood L1 without pursuing purchase or touching the cart.",
         },
         {
-          title: "Catalog underused in conversation",
-          desc: "Price, stock, variants and policies live in Shopify / Presta / PIM — generic agents invent or ignore them.",
+          title: "Catalog barely used in conversation",
+          desc: "Price, stock, variants and policies live in Shopify / Presta / PIM. Generic agents invent or ignore them.",
         },
         {
           title: "Fear of risk (price, payment, GDPR)",
@@ -1050,7 +1050,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           q: "Shopify, PrestaShop, Magento?",
-          a: "Yes — exact connectors are scoped in SIGNAL. Shopify is often fastest; Presta / Magento add more integration value.",
+          a: "Yes. Exact connectors are scoped in SIGNAL. Shopify is often fastest; Presta / Magento add more integration value.",
         },
         {
           q: "What about ChatGPT / Gemini agents?",
@@ -1066,7 +1066,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour cabinets dentaires. Planning, rappels, dossiers, conformité.",
       heroH: "Agents pour cabinets dentaires",
       heroP:
-        "Sécuriser planning, rappels et parcours patient — sous contrainte de données de santé.",
+        "Sécuriser planning, rappels et parcours patient, sous contrainte de données de santé.",
       pains: [
         {
           title: "No-shows et planning saturé",
@@ -1117,7 +1117,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For dental clinics. Scheduling, reminders, records, compliance.",
       heroH: "Agents for dental practices",
       heroP:
-        "Secure scheduling, reminders and patient pathways — under health-data constraints.",
+        "Secure scheduling, reminders and patient pathways, under health-data constraints.",
       pains: [
         {
           title: "No-shows and saturated schedules",
@@ -1171,7 +1171,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour plombiers chauffagistes. Urgences, devis, tournées.",
       heroH: "Agents pour plombiers chauffagistes",
       heroP:
-        "Trier les urgences, accélérer devis et optimiser les tournées — mission terrain, pas gadget.",
+        "Trier les urgences, accélérer devis et mieux planifier les tournées : mission terrain, pas gadget.",
       pains: [
         {
           title: "Astreintes saturées par le non-urgent",
@@ -1182,7 +1182,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "Photos, historiques logements, pièces : admin lourde.",
         },
         {
-          title: "Tournées sous-optimisées",
+          title: "Tournées mal planifiées",
           desc: "Le planning réactif coûte cher en kilomètres et en délais.",
         },
       ],
@@ -1190,7 +1190,7 @@ const EXTRAS: ExtraInput[] = [
         "Qualification urgence / entretien / devis",
         "Assistants diagnostic et devis sur vos grilles",
         "Aide au planning de tournées",
-        "Capitalisation des interventions types",
+        "Référentiel des interventions types",
       ],
       scenarios: [
         {
@@ -1222,7 +1222,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For plumbers and heating engineers. Emergencies, quotes, routes.",
       heroH: "Agents for plumbers & heating engineers",
       heroP:
-        "Triage emergencies, speed quotes and optimize routes — field mission, not a gadget.",
+        "Triage emergencies, speed quotes and plan routes better: field mission, not a gadget.",
       pains: [
         {
           title: "On-call flooded by non-urgent work",
@@ -1233,7 +1233,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "Photos, home history, parts: heavy admin.",
         },
         {
-          title: "Suboptimal routes",
+          title: "Poorly planned routes",
           desc: "Reactive planning costs miles and delays.",
         },
       ],
@@ -1241,7 +1241,7 @@ const EXTRAS: ExtraInput[] = [
         "Emergency / maintenance / quote qualification",
         "Diagnostic and quote assistants on your rate cards",
         "Route planning support",
-        "Capitalization of typical interventions",
+        "Reference library of typical interventions",
       ],
       scenarios: [
         {
@@ -1276,7 +1276,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour études notariales. Actes, pièces, délais, confidentialité.",
       heroH: "Agents pour études notariales",
       heroP:
-        "Accélérer la collecte de pièces et la préparation d'actes — sous confidentialité et traçabilité strictes.",
+        "Accélérer la collecte de pièces et la préparation d'actes, sous confidentialité et traçabilité strictes.",
       pains: [
         {
           title: "Pièces incomplètes qui retardent les actes",
@@ -1327,7 +1327,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For notary offices. Deeds, documents, deadlines, confidentiality.",
       heroH: "Agents for notary offices",
       heroP:
-        "Speed document collection and deed preparation — under strict confidentiality and traceability.",
+        "Speed document collection and deed preparation, under strict confidentiality and traceability.",
       pains: [
         {
           title: "Incomplete documents delay deeds",
@@ -1389,7 +1389,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Pics de clôture",
-          desc: "Sans industrialisation, la qualité baisse sous la pression des délais.",
+          desc: "Sans process structurés, la qualité baisse sous la pression des délais.",
         },
         {
           title: "Confidentialité client",
@@ -1405,9 +1405,9 @@ const EXTRAS: ExtraInput[] = [
       scenarios: [
         {
           who: "Associé",
-          need: "Absorber la croissance sans recruter linéairement.",
+          need: "Grandir sans recruter au même rythme que le volume.",
           remparia:
-            "Industrialisation de cas à fort volume (saisie, contrôles) avec validation expert.",
+            "Déploiement de cas à fort volume (saisie, contrôles) avec validation expert.",
         },
         {
           who: "Collaborateur",
@@ -1440,7 +1440,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Closing peaks",
-          desc: "Without industrialization, quality drops under deadline pressure.",
+          desc: "Without structured process, quality drops under deadline pressure.",
         },
         {
           title: "Client confidentiality",
@@ -1456,9 +1456,9 @@ const EXTRAS: ExtraInput[] = [
       scenarios: [
         {
           who: "Partner",
-          need: "Absorb growth without linear hiring.",
+          need: "Grow without hiring in lockstep with volume.",
           remparia:
-            "Industrialize high-volume cases (entry, checks) with expert validation.",
+            "Deploy high-volume cases (entry, checks) with expert validation.",
         },
         {
           who: "Staff accountant",
@@ -1486,7 +1486,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour cliniques véto. RDV, urgences, dossiers animaux.",
       heroH: "Agents pour cliniques vétérinaires",
       heroP:
-        "Fluidifier RDV, urgences et dossiers — tout en gardant le soin et la relation propriétaire au centre.",
+        "Alléger RDV, urgences et dossiers, en gardant le soin et la relation propriétaire au centre.",
       pains: [
         {
           title: "Urgences et RDV en collision",
@@ -1537,7 +1537,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For vet clinics. Appointments, emergencies, animal records.",
       heroH: "Agents for veterinary clinics",
       heroP:
-        "Smooth appointments, emergencies and records — while keeping care and owner relationships central.",
+        "Ease appointments, emergencies and records, while keeping care and owner relationships central.",
       pains: [
         {
           title: "Emergencies colliding with appointments",
@@ -1697,18 +1697,18 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour chargeurs et transporteurs. Planning, exceptions, documents.",
       heroH: "Agents pour la logistique & le transport",
       heroP:
-        "Traiter exceptions, documents et planning — branché sur WMS/TMS, jusqu'à la production.",
+        "Traiter exceptions, documents et planning, branché sur WMS/TMS, jusqu'à la production.",
       pains: [
         {
           title: "Exceptions qui saturent les ops",
-          desc: "Retards, litiges, replanifications : le manuel ne scale pas.",
+          desc: "Retards, litiges, replanifications : le traitement manuel ne suit pas le volume.",
         },
         {
           title: "Documents transport fragmentés",
           desc: "CMR, BL, factures : contrôles lents et erreurs coûteuses.",
         },
         {
-          title: "Savoir dispatch peu capitalisé",
+          title: "Savoir dispatch peu formalisé",
           desc: "Les règles vivent dans la tête des exploitants.",
         },
       ],
@@ -1748,18 +1748,18 @@ const EXTRAS: ExtraInput[] = [
       desc: "For shippers and carriers. Planning, exceptions, documents.",
       heroH: "Agents for logistics & transport",
       heroP:
-        "Handle exceptions, documents and planning — wired to WMS/TMS, through to production.",
+        "Handle exceptions, documents and planning, wired to WMS/TMS, through to production.",
       pains: [
         {
           title: "Exceptions flooding ops",
-          desc: "Delays, disputes, replanning: manual work does not scale.",
+          desc: "Delays, disputes, replanning: manual work cannot keep up.",
         },
         {
           title: "Fragmented transport documents",
           desc: "BoL, invoices, proofs: slow checks and costly errors.",
         },
         {
-          title: "Dispatch knowledge poorly capitalized",
+          title: "Dispatch knowledge poorly captured",
           desc: "Rules live in planners' heads.",
         },
       ],
@@ -1803,11 +1803,11 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour enseignes. Demand sensing, assortiment, relation magasin.",
       heroH: "Agents pour le retail & la distribution",
       heroP:
-        "Aider assortiment, prévisions et relation magasin — agents intégrés à vos process métiers.",
+        "Aider assortiment, prévisions et relation magasin, avec des agents intégrés à vos process métiers.",
       pains: [
         {
           title: "Décisions assortiment trop lentes",
-          desc: "Signaux ventes / stock sous-exploités au quotidien.",
+          desc: "Signaux ventes / stock peu utilisés au quotidien.",
         },
         {
           title: "Relation magasin saturée",
@@ -1854,11 +1854,11 @@ const EXTRAS: ExtraInput[] = [
       desc: "For retailers. Demand sensing, assortment, store relations.",
       heroH: "Agents for retail & distribution",
       heroP:
-        "Support assortment, forecasting and store relations — agents integrated into business processes.",
+        "Support assortment, forecasting and store relations, with agents integrated into business processes.",
       pains: [
         {
           title: "Assortment decisions too slow",
-          desc: "Sales / stock signals underused day to day.",
+          desc: "Sales / stock signals barely used day to day.",
         },
         {
           title: "Store relations overloaded",
@@ -1908,7 +1908,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour RH. Screening, parcours candidat, knowledge interne.",
       heroH: "Agents pour les RH & le recrutement",
       heroP:
-        "Accélérer screening et parcours candidat sans biais non maîtrisés — gouvernance et humain dans la boucle.",
+        "Accélérer screening et parcours candidat sans biais non maîtrisés, avec gouvernance et humain dans la boucle.",
       pains: [
         {
           title: "Volume de candidatures ingérable",
@@ -1959,7 +1959,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For HR. Screening, candidate journey, internal knowledge.",
       heroH: "Agents for HR & recruiting",
       heroP:
-        "Speed screening and candidate journeys without unmanaged bias — governance and humans in the loop.",
+        "Speed screening and candidate journeys without unmanaged bias, with governance and humans in the loop.",
       pains: [
         {
           title: "Unmanageable application volume",
@@ -2013,15 +2013,15 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour écoles et organismes. Parcours, tutoring, back-office.",
       heroH: "Agents pour l'éducation & la formation",
       heroP:
-        "Augmenter pédagogie et back-office — sans remplacer l'enseignant, avec garde-fous éthiques.",
+        "Soutenir pédagogie et back-office sans remplacer l'enseignant, avec garde-fous éthiques.",
       pains: [
         {
           title: "Charge administrative pédagogique",
           desc: "Suivi, FAQ apprenants, documents : le temps enseignant fond.",
         },
         {
-          title: "Personnalisation difficile à scaler",
-          desc: "Sans industrialisation, le tutoring reste artisanal.",
+          title: "Personnalisation difficile à étendre",
+          desc: "Sans process structurés, le tutoring reste artisanal.",
         },
         {
           title: "Risques éthiques et de contenu",
@@ -2064,7 +2064,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For schools and training orgs. Pathways, tutoring, back-office.",
       heroH: "Agents for education & training",
       heroP:
-        "Augment teaching and back-office — without replacing educators, with ethical guardrails.",
+        "Support teaching and back-office without replacing educators, with ethical guardrails.",
       pains: [
         {
           title: "Teaching admin load",
@@ -2072,7 +2072,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Hard-to-scale personalization",
-          desc: "Without industrialization, tutoring stays artisanal.",
+          desc: "Without structured process, tutoring stays artisanal.",
         },
         {
           title: "Ethics and content risks",
@@ -2118,7 +2118,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour énergéticiens. Maintenance, client, conformité terrain.",
       heroH: "Agents pour l'énergie & les utilities",
       heroP:
-        "Agents maintenance, relation client et documentaire — sous contrainte sécurité et souveraineté.",
+        "Agents maintenance, relation client et documentaire, sous contrainte sécurité et souveraineté.",
       pains: [
         {
           title: "Maintenance et interventions sous pression",
@@ -2156,7 +2156,7 @@ const EXTRAS: ExtraInput[] = [
           who: "Responsable conformité",
           need: "Prouver la gouvernance des agents auprès des autorités.",
           remparia:
-            "Registre des finalités, journaux d'accès et revue trimestrielle — cadre documenté dès le SIGNAL.",
+            "Registre des finalités, journaux d'accès et revue trimestrielle : cadre documenté dès le SIGNAL.",
         },
       ],
       faqs: [
@@ -2175,7 +2175,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For energy firms. Maintenance, customer care, field compliance.",
       heroH: "Agents for energy & utilities",
       heroP:
-        "Maintenance, customer and document agents — under security and sovereignty constraints.",
+        "Maintenance, customer and document agents, under security and sovereignty constraints.",
       pains: [
         {
           title: "Maintenance and interventions under pressure",
@@ -2213,7 +2213,7 @@ const EXTRAS: ExtraInput[] = [
           who: "Compliance lead",
           need: "Prove agent governance to regulators.",
           remparia:
-            "Purpose register, access logs and quarterly review — documented frame from SIGNAL onward.",
+            "Purpose register, access logs and quarterly review: documented frame from SIGNAL onward.",
         },
       ],
       faqs: [
@@ -2236,7 +2236,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour médias et marques. Production, modération, knowledge.",
       heroH: "Agents pour media & contenu",
       heroP:
-        "Accélérer production et modération sans diluer la ligne éditoriale — gouvernance et revue humaine.",
+        "Accélérer production et modération sans diluer la ligne éditoriale, avec gouvernance et revue humaine.",
       pains: [
         {
           title: "Production sous contrainte de délais",
@@ -2287,7 +2287,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For media and brands. Production, moderation, knowledge.",
       heroH: "Agents for media & content",
       heroP:
-        "Speed production and moderation without diluting editorial line — governance and human review.",
+        "Speed production and moderation without diluting editorial line, with governance and human review.",
       pains: [
         {
           title: "Production under deadline pressure",
@@ -2341,7 +2341,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour pharma et biotech. Documentaire, qualité, conformité.",
       heroH: "Agents pour pharma & sciences de la vie",
       heroP:
-        "Documentaire, qualité et knowledge scientifique — sous GxP, traçabilité et souveraineté.",
+        "Documentaire, qualité et knowledge scientifique, sous GxP, traçabilité et souveraineté.",
       pains: [
         {
           title: "Volumes documentaires réglementaires",
@@ -2371,7 +2371,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           who: "Qualité",
-          need: "Mieux capitaliser SOP et déviations.",
+          need: "Mieux réutiliser SOP et déviations.",
           remparia:
             "RAG + assistant investigation, traçabilité complète.",
         },
@@ -2379,7 +2379,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Compatible GxP ?",
-          a: "Nous concevons avec vos exigences validation / audit — pas de raccourci.",
+          a: "Nous concevons avec vos exigences validation / audit, sans raccourci.",
         },
         {
           q: "Données cliniques ?",
@@ -2392,7 +2392,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For pharma and biotech. Documents, quality, compliance.",
       heroH: "Agents for pharma & life sciences",
       heroP:
-        "Documents, quality and scientific knowledge — under GxP, traceability and sovereignty.",
+        "Documents, quality and scientific knowledge, under GxP, traceability and sovereignty.",
       pains: [
         {
           title: "Regulatory document volumes",
@@ -2422,7 +2422,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           who: "Quality",
-          need: "Better capitalize SOPs and deviations.",
+          need: "Reuse SOPs and deviations more effectively.",
           remparia:
             "RAG + investigation assistant, full traceability.",
         },
@@ -2430,7 +2430,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "GxP compatible?",
-          a: "We design with your validation / audit requirements — no shortcuts.",
+          a: "We design with your validation / audit requirements, with no shortcuts.",
         },
         {
           q: "Clinical data?",
@@ -2477,7 +2477,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           who: "Groupe hôtelier",
-          need: "Homogénéiser la qualité multi-sites.",
+          need: "Aligner la qualité multi-sites.",
           remparia:
             "Playbooks et agents partagés, droits par établissement.",
         },
@@ -2528,7 +2528,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           who: "Hotel group",
-          need: "Homogenize multi-site quality.",
+          need: "Align multi-site quality.",
           remparia:
             "Shared playbooks and agents, rights per property.",
         },
@@ -2552,7 +2552,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour filières agri. Qualité, traçabilité, ops production.",
       heroH: "Agents pour l'agriculture & l'agroalimentaire",
       heroP:
-        "Qualité, traçabilité et opérations — agents intégrés aux contraintes terrain et réglementation.",
+        "Qualité, traçabilité et opérations, avec des agents intégrés aux contraintes terrain et réglementation.",
       pains: [
         {
           title: "Contrôles qualité chronophages",
@@ -2563,7 +2563,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "Remonter un lot rapidement reste trop manuel.",
         },
         {
-          title: "Savoir process peu industrialisé",
+          title: "Savoir process peu formalisé",
           desc: "Modes opératoires et retours terrain dispersés.",
         },
       ],
@@ -2582,7 +2582,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           who: "Direction de site",
-          need: "Capitaliser les modes opératoires.",
+          need: "Centraliser les modes opératoires.",
           remparia:
             "RAG terrain + assistant consignes pour les équipes.",
         },
@@ -2590,7 +2590,7 @@ const EXTRAS: ExtraInput[] = [
           who: "Responsable supply / filière",
           need: "Préparer un audit traçabilité sans mobiliser toute l'usine.",
           remparia:
-            "Agent de consolidation lot + checklist audit, export signé par la qualité — délai moyen visé : −40 % sur la préparation dossier.",
+            "Agent de consolidation lot + checklist audit, export signé par la qualité. Objectif : réduire le temps de préparation dossier.",
         },
       ],
       faqs: [
@@ -2609,7 +2609,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For agri chains. Quality, traceability, production ops.",
       heroH: "Agents for agriculture & food",
       heroP:
-        "Quality, traceability and operations — agents integrated with field and regulatory constraints.",
+        "Quality, traceability and operations, with agents integrated into field and regulatory constraints.",
       pains: [
         {
           title: "Time-heavy quality controls",
@@ -2620,7 +2620,7 @@ const EXTRAS: ExtraInput[] = [
           desc: "Tracing a lot quickly stays too manual.",
         },
         {
-          title: "Poorly industrialized process knowledge",
+          title: "Poorly formalized process knowledge",
           desc: "SOPs and field feedback are scattered.",
         },
       ],
@@ -2639,7 +2639,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           who: "Site leadership",
-          need: "Capitalize operating procedures.",
+          need: "Centralize operating procedures.",
           remparia:
             "Field RAG + instruction assistant for teams.",
         },
@@ -2647,7 +2647,7 @@ const EXTRAS: ExtraInput[] = [
           who: "Supply / chain lead",
           need: "Prepare a traceability audit without mobilizing the whole plant.",
           remparia:
-            "Lot consolidation agent + audit checklist, quality-signed export — target: −40% dossier prep time.",
+            "Lot consolidation agent + audit checklist, quality-signed export. Goal: shorten dossier prep time.",
         },
       ],
       faqs: [

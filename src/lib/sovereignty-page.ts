@@ -19,7 +19,7 @@ const sovereignty = {
     crumbs: "Souveraineté",
     titleLine1: "Votre IA. Votre infrastructure.",
     titleAccent: "Vos règles.",
-    sub: "Cloud Remparia, cloud souverain ou on-premise : mêmes agents, même OS, même gouvernance. La souveraineté est un spectre — vous durcissez le périmètre sans changer la force de travail.",
+    sub: "Cloud Remparia, cloud souverain ou on-premise : mêmes agents, même OS, même gouvernance. Vous durcissez le périmètre ; agents et politiques restent les mêmes.",
     ctaPrimary: "Cadrer le déploiement",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "Voir la gouvernance",
@@ -34,7 +34,7 @@ const sovereignty = {
       titleBefore: "Un cloud « souverain » sans contrôle ",
       titleAccent: "n’est qu’un autre cloud.",
       sideLead: "Le défi",
-      sideRest: "n’est pas d’afficher une région. C’est de garder les mêmes stops humains, le même journal et les mêmes politiques — ",
+      sideRest: "n’est pas d’afficher une région. C’est de garder les mêmes stops humains, le même journal et les mêmes politiques, ",
       sideAccent: "quel que soit le périmètre.",
       today: "AUJOURD’HUI",
       withUs: "AVEC REMPARIA",
@@ -50,7 +50,7 @@ const sovereignty = {
       eyebrow: "02 / POURQUOI MAINTENANT",
       titleBefore: "La résilience a rejoint ",
       titleAccent: "le stack.",
-      body: "Acheteurs, régulateurs et conseils demandent de plus en plus où vit votre IA — et qui peut l’éteindre. La question n’est plus seulement « cloud ou on-prem » : c’est « restez-vous maître si les règles changent ».",
+      body: "Acheteurs, régulateurs et conseils demandent où vit votre IA, et qui peut l’éteindre. La question n’est plus « cloud ou on-prem ». C’est : restez-vous maître si les règles changent ?",
       items: [
         {
           title: "Dépendance métier",
@@ -70,12 +70,12 @@ const sovereignty = {
       eyebrow: "03 / TROIS PILIERS",
       titleBefore: "Vos données. Votre IA. ",
       titleAccent: "Votre contrôle.",
-      body: "Vous n’achetez pas un cloud. Vous déployez une force de travail IA dans le périmètre que votre risque exige — avec le même OS et la même gouvernance.",
+      body: "Vous déployez une force de travail IA dans le périmètre que votre risque exige, avec le même OS et la même gouvernance.",
       items: [
         {
           tag: "DONNÉES",
           title: "Vos données",
-          desc: "Vous décidez où elles résident. Elles ne sortent pas du périmètre convenu — Cloud Remparia, souverain EU / France ou on-premise.",
+          desc: "Vous décidez où elles résident. Elles ne sortent pas du périmètre convenu : Cloud Remparia, souverain EU / France ou on-premise.",
         },
         {
           tag: "IA",
@@ -85,7 +85,7 @@ const sovereignty = {
         {
           tag: "CONTRÔLE",
           title: "Votre contrôle",
-          desc: "Identité, ALLOW / REVIEW / BLOCK, journal opposable, stops humains — identiques dans chaque mode.",
+          desc: "Identité, ALLOW / REVIEW / BLOCK, journal opposable, stops humains : identiques dans chaque mode.",
         },
       ],
       defs: [
@@ -95,7 +95,7 @@ const sovereignty = {
         },
         {
           title: "Souveraineté opérationnelle",
-          desc: "Qui peut lancer, arrêter, auditer et faire évoluer le système — sans diluer ALLOW / REVIEW / BLOCK.",
+          desc: "Qui peut lancer, arrêter, auditer et faire évoluer le système, sans diluer ALLOW / REVIEW / BLOCK.",
         },
       ],
     },
@@ -104,7 +104,7 @@ const sovereignty = {
       title: "Trois périmètres. Un même système.",
       body: "Choisissez la vitesse, le pilotage et le degré d’isolement. Les agents et les politiques restent les mêmes.",
       spectrum:
-        "La souveraineté n’est pas binaire : démarrez en Cloud Remparia, durcissez vers souverain ou on-prem — sans changer agents ni politiques.",
+        "Démarrez en Cloud Remparia, passez en souverain ou on-prem, sans changer agents ni politiques.",
       items: [
         {
           id: "cloud",
@@ -125,13 +125,13 @@ const sovereignty = {
           tag: "EU / FRANCE",
           title: "Cloud souverain",
           subtitle: "Infrastructure européenne",
-          desc: "Périmètre EU / France, réseau isolé, chiffrement, journaux d’audit. Conçu pour s’inscrire dans vos cadres — le détail se cadre en SIGNAL.",
+          desc: "Périmètre EU / France, réseau isolé, chiffrement, journaux d’audit. Le détail réglementaire se cadre en SIGNAL.",
           points: [
             "Résidence des données EU / France",
             "Réseau isolé, supervision et audit",
             "RGPD, NIS2, DORA : cadrage, pas une certification affichée",
           ],
-          fit: "Métiers régulés — finance, santé, public.",
+          fit: "Métiers régulés : finance, santé, public.",
           panel: "Souverain · EU / France",
         },
         {
@@ -162,7 +162,7 @@ const sovereignty = {
         },
         {
           title: "Mêmes politiques",
-          desc: "ALLOW, REVIEW, BLOCK versionnés — pas réinventés par cloud.",
+          desc: "ALLOW, REVIEW, BLOCK versionnés, pas réinventés par cloud.",
         },
         {
           title: "Même journal",
@@ -178,16 +178,16 @@ const sovereignty = {
       eyebrow: "06 / ARCHITECTURE",
       titleBefore: "Clarté sur ",
       titleAccent: "où tourne quoi.",
-      note: "Le schéma exact — région, fournisseur, air-gap — se cadre en SIGNAL. On n’invente pas la stack.",
+      note: "Le schéma exact (région, fournisseur, air-gap) se cadre en SIGNAL. On n’invente pas la stack.",
       headers: ["Couche", "Dans le périmètre"],
       rows: [
-        { label: "Données", value: "Là où vous les posez — jamais hors convention." },
+        { label: "Données", value: "Là où vous les posez, jamais hors convention." },
         { label: "LLM", value: "Cloud choisi, modèle européen ou local, selon sensibilité." },
         { label: "Remparia OS", value: "Control plane sous votre gouvernance, dans le mode retenu." },
         { label: "Agents", value: "Sur le même socle, droits nommés, propriétaire humain." },
         { label: "Logs", value: "Journalisés, exportables, opposables." },
         { label: "Clés", value: "Vous les possédez ou vous en contrôlez l’usage." },
-        { label: "Accès", value: "Vous définissez qui peut quoi — zéro par défaut." },
+        { label: "Accès", value: "Vous définissez qui peut quoi : zéro par défaut." },
       ],
     },
     compare: {
@@ -270,15 +270,15 @@ const sovereignty = {
     faq: {
       eyebrow: "10 / FAQ",
       title: "Questions fréquentes",
-      sub: "Ce que la souveraineté signifie chez Remparia — sans jargon marketing.",
+      sub: "Ce que la souveraineté signifie chez Remparia, sans jargon marketing.",
       items: [
         {
           q: "Qu’est-ce que la souveraineté chez Remparia ?",
-          a: "Un choix de périmètre d’hébergement pour une force de travail IA déjà gouvernée. Même OS, mêmes politiques, mêmes stops humains — Cloud Remparia, cloud souverain ou on-premise.",
+          a: "Un choix de périmètre d’hébergement pour une force de travail IA déjà gouvernée. Même OS, mêmes politiques, mêmes stops humains : Cloud Remparia, cloud souverain ou on-premise.",
         },
         {
           q: "Quelle différence entre souveraineté des données et opérationnelle ?",
-          a: "Les données : où elles résident et quelle juridiction s’applique. L’opérationnelle : qui peut lancer, arrêter, auditer et faire évoluer le système. Remparia exige les deux — résidence cadrée + ALLOW / REVIEW / BLOCK inchangés.",
+          a: "Les données : où elles résident et quelle juridiction s’applique. L’opérationnelle : qui peut lancer, arrêter, auditer et faire évoluer le système. Remparia exige les deux : résidence cadrée et ALLOW / REVIEW / BLOCK inchangés.",
         },
         {
           q: "Le mode est-il un produit séparé ?",
@@ -286,11 +286,11 @@ const sovereignty = {
         },
         {
           q: "Peut-on démarrer en cloud puis durcir ?",
-          a: "Oui. La souveraineté est un spectre : vous démarrez en Cloud Remparia et passez en souverain ou on-prem sans réécrire agents ni politiques. Le détail se cadre en SIGNAL.",
+          a: "Oui. Vous démarrez en Cloud Remparia et passez en souverain ou on-prem sans réécrire agents ni politiques. Le détail se cadre en SIGNAL.",
         },
         {
           q: "L’air-gap est-il supporté ?",
-          a: "Oui, quand le dossier l’exige. On-premise avec clés, accès et modèles sous votre contrôle — le contrôle métier reste celui de Remparia OS.",
+          a: "Oui, quand le dossier l’exige. On-premise avec clés, accès et modèles sous votre contrôle. Le contrôle métier reste celui de Remparia OS.",
         },
         {
           q: "La souveraineté impose-t-elle de renoncer à la performance ?",
@@ -301,7 +301,7 @@ const sovereignty = {
     cta: {
       tag: "SOUVERAINETÉ",
       title: "Choisir le périmètre sans perdre le contrôle.",
-      text: "On part d’un cas SIGNAL. On compose dans Studio. On publie dans l’OS — dans le mode que votre risque exige.",
+      text: "On part d’un cas SIGNAL. On compose dans Studio. On publie dans Remparia OS, dans le mode que votre risque exige.",
       href: "/demarrer",
       label: "Réserver une session SIGNAL",
     },
@@ -311,7 +311,7 @@ const sovereignty = {
     crumbs: "Sovereignty",
     titleLine1: "Your AI. Your infrastructure.",
     titleAccent: "Your rules.",
-    sub: "Remparia Cloud, sovereign cloud or on-premise: the same agents, the same OS, the same governance. Sovereignty is a spectrum — harden the perimeter without changing the workforce.",
+    sub: "Remparia Cloud, sovereign cloud or on-premise: the same agents, the same OS, the same governance. You harden the perimeter; agents and policies stay the same.",
     ctaPrimary: "Frame the deployment",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "See governance",
@@ -326,7 +326,7 @@ const sovereignty = {
       titleBefore: "A “sovereign” cloud without control ",
       titleAccent: "is just another cloud.",
       sideLead: "The challenge",
-      sideRest: "is not displaying a region. It is keeping the same human stops, the same log and the same policies — ",
+      sideRest: "is not displaying a region. It is keeping the same human stops, the same log and the same policies, ",
       sideAccent: "whatever the perimeter.",
       today: "TODAY",
       withUs: "WITH REMPARIA",
@@ -342,7 +342,7 @@ const sovereignty = {
       eyebrow: "02 / WHY NOW",
       titleBefore: "Resilience has reached ",
       titleAccent: "the stack.",
-      body: "Buyers, regulators and boards increasingly ask where your AI lives — and who can turn it off. The question is no longer only “cloud or on-prem”: it is “do you stay in charge if the rules change”.",
+      body: "Buyers, regulators and boards ask where your AI lives, and who can turn it off. The question is no longer “cloud or on-prem”. It is: do you stay in charge if the rules change?",
       items: [
         {
           title: "Business dependency",
@@ -362,12 +362,12 @@ const sovereignty = {
       eyebrow: "03 / THREE PILLARS",
       titleBefore: "Your data. Your AI. ",
       titleAccent: "Your control.",
-      body: "You are not buying a cloud. You are deploying an AI workforce in the perimeter your risk requires — with the same OS and the same governance.",
+      body: "You deploy an AI workforce in the perimeter your risk requires, with the same OS and the same governance.",
       items: [
         {
           tag: "DATA",
           title: "Your data",
-          desc: "You decide where it resides. It does not leave the agreed perimeter — Remparia Cloud, sovereign EU / France or on-premise.",
+          desc: "You decide where it resides. It does not leave the agreed perimeter: Remparia Cloud, sovereign EU / France or on-premise.",
         },
         {
           tag: "AI",
@@ -377,7 +377,7 @@ const sovereignty = {
         {
           tag: "CONTROL",
           title: "Your control",
-          desc: "Identity, ALLOW / REVIEW / BLOCK, auditable log, human stops — identical in every mode.",
+          desc: "Identity, ALLOW / REVIEW / BLOCK, auditable log, human stops: identical in every mode.",
         },
       ],
       defs: [
@@ -387,7 +387,7 @@ const sovereignty = {
         },
         {
           title: "Operational sovereignty",
-          desc: "Who can run, stop, audit and evolve the system — without diluting ALLOW / REVIEW / BLOCK.",
+          desc: "Who can run, stop, audit and evolve the system, without diluting ALLOW / REVIEW / BLOCK.",
         },
       ],
     },
@@ -396,7 +396,7 @@ const sovereignty = {
       title: "Three perimeters. One system.",
       body: "Choose speed, stewardship and isolation. Agents and policies stay the same.",
       spectrum:
-        "Sovereignty is not binary: start on Remparia Cloud, harden to sovereign or on-prem — without changing agents or policies.",
+        "Start on Remparia Cloud, move to sovereign or on-prem, without changing agents or policies.",
       items: [
         {
           id: "cloud",
@@ -417,13 +417,13 @@ const sovereignty = {
           tag: "EU / FRANCE",
           title: "Sovereign cloud",
           subtitle: "European infrastructure",
-          desc: "EU / France perimeter, isolated network, encryption, audit logs. Designed to fit your frameworks — the detail is scoped in SIGNAL.",
+          desc: "EU / France perimeter, isolated network, encryption, audit logs. Regulatory detail is scoped in SIGNAL.",
           points: [
             "EU / France data residency",
             "Isolated network, supervision and audit",
             "GDPR, NIS2, DORA: scoping, not a displayed certification",
           ],
-          fit: "Regulated work — finance, health, public sector.",
+          fit: "Regulated work: finance, health, public sector.",
           panel: "Sovereign · EU / France",
         },
         {
@@ -454,7 +454,7 @@ const sovereignty = {
         },
         {
           title: "Same policies",
-          desc: "ALLOW, REVIEW, BLOCK versioned — not reinvented per cloud.",
+          desc: "ALLOW, REVIEW, BLOCK versioned, not reinvented per cloud.",
         },
         {
           title: "Same log",
@@ -470,16 +470,16 @@ const sovereignty = {
       eyebrow: "06 / ARCHITECTURE",
       titleBefore: "Clarity on ",
       titleAccent: "where what runs.",
-      note: "The exact diagram — region, vendor, air-gap — is scoped in SIGNAL. The stack is not invented.",
+      note: "The exact diagram (region, vendor, air-gap) is scoped in SIGNAL. The stack is not invented.",
       headers: ["Layer", "In the perimeter"],
       rows: [
-        { label: "Data", value: "Where you put it — never outside the agreement." },
+        { label: "Data", value: "Where you put it, never outside the agreement." },
         { label: "LLM", value: "Chosen cloud, European or local model, by sensitivity." },
         { label: "Remparia OS", value: "Control plane under your governance, in the chosen mode." },
         { label: "Agents", value: "Same foundation, named rights, human owner." },
         { label: "Logs", value: "Logged, exportable, auditable." },
         { label: "Keys", value: "You own them or you control their use." },
-        { label: "Access", value: "You define who may do what — zero by default." },
+        { label: "Access", value: "You define who may do what: zero by default." },
       ],
     },
     compare: {
@@ -562,15 +562,15 @@ const sovereignty = {
     faq: {
       eyebrow: "10 / FAQ",
       title: "Frequently asked questions",
-      sub: "What sovereignty means at Remparia — without marketing jargon.",
+      sub: "What sovereignty means at Remparia, without marketing jargon.",
       items: [
         {
           q: "What is sovereignty at Remparia?",
-          a: "A hosting-perimeter choice for an already governed AI workforce. Same OS, same policies, same human stops — Remparia Cloud, sovereign cloud or on-premise.",
+          a: "A hosting-perimeter choice for an already governed AI workforce. Same OS, same policies, same human stops: Remparia Cloud, sovereign cloud or on-premise.",
         },
         {
           q: "What is the difference between data and operational sovereignty?",
-          a: "Data: where it resides and which jurisdiction applies. Operational: who can run, stop, audit and evolve the system. Remparia requires both — framed residency + unchanged ALLOW / REVIEW / BLOCK.",
+          a: "Data: where it resides and which jurisdiction applies. Operational: who can run, stop, audit and evolve the system. Remparia requires both: framed residency and unchanged ALLOW / REVIEW / BLOCK.",
         },
         {
           q: "Is the mode a separate product?",
@@ -578,11 +578,11 @@ const sovereignty = {
         },
         {
           q: "Can we start in cloud then harden?",
-          a: "Yes. Sovereignty is a spectrum: start on Remparia Cloud and move to sovereign or on-prem without rewriting agents or policies. Detail is scoped in SIGNAL.",
+          a: "Yes. You start on Remparia Cloud and move to sovereign or on-prem without rewriting agents or policies. Detail is scoped in SIGNAL.",
         },
         {
           q: "Is air-gap supported?",
-          a: "Yes, when the file requires it. On-premise with keys, access and models under your control — business control remains that of Remparia OS.",
+          a: "Yes, when the file requires it. On-premise with keys, access and models under your control. Business control remains that of Remparia OS.",
         },
         {
           q: "Does sovereignty mean giving up performance?",
@@ -593,7 +593,7 @@ const sovereignty = {
     cta: {
       tag: "SOVEREIGNTY",
       title: "Choose the perimeter without losing control.",
-      text: "Start from a SIGNAL case. Compose in Studio. Publish to the OS — in the mode your risk requires.",
+      text: "Start from a SIGNAL case. Compose in Studio. Publish to Remparia OS, in the mode your risk requires.",
       href: "/demarrer",
       label: "Book a SIGNAL session",
     },

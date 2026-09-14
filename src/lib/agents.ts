@@ -48,7 +48,7 @@ export const AGENTS: readonly AgentFiche[] = [
     },
     {
       name: "Pipeline qualifié, CRM à jour",
-      role: "Agent Commerce — qualifier, scorer et router les demandes sans noyer l’équipe.",
+      role: "Agent Commerce : qualifier, scorer et router les demandes sans noyer l’équipe.",
       trigger: "Lead entrant (formulaire, marketplace, e-mail, magasin, appel).",
       inputs: "Identité, canal, panier ou besoin déclaré, historique CRM s’il existe.",
       tools: ["CRM", "E-mail", "Formulaires", "APIs commerce"],
@@ -59,7 +59,7 @@ export const AGENTS: readonly AgentFiche[] = [
     },
     {
       name: "Qualified pipeline, CRM up to date",
-      role: "Commerce Agent — qualify, score and route inbound demand without flooding the team.",
+      role: "Commerce Agent: qualify, score and route inbound demand without flooding the team.",
       trigger: "Inbound lead (form, marketplace, email, store, call).",
       inputs: "Identity, channel, stated need or cart, existing CRM history.",
       tools: ["CRM", "Email", "Forms", "Commerce APIs"],
@@ -93,7 +93,7 @@ export const AGENTS: readonly AgentFiche[] = [
       trigger: "CRM due date, open quote, abandoned cart, customer silence.",
       inputs: "Opportunity status, last exchange, cadence rules.",
       tools: ["CRM", "Email", "SMS / helpdesk"],
-      output: "Prepared, logged follow-up — sent only inside the allowed frame.",
+      output: "Prepared, logged follow-up, sent only inside the allowed frame.",
       human: "Sales owns sensitive accounts and strategic follow-ups.",
       never: "It does not chase outside cadence or invent a commercial commitment.",
       kpi: "Share of opportunities followed up on time and sales load absorbed.",
@@ -138,7 +138,7 @@ export const AGENTS: readonly AgentFiche[] = [
     },
     {
       name: "Fiche produit fidèle au catalogue",
-      role: "Enrichir et aligner les contenus sur le PIM, sans inventer.",
+      role: "Enrichir les contenus à partir du PIM, sans inventer.",
       trigger: "Nouvelle référence, rupture d’attributs, campagne merchandising.",
       inputs: "PIM, specs, politiques, visuels et mentions obligatoires.",
       tools: ["PIM", "CMS", "Docs", "APIs catalogue"],
@@ -149,7 +149,7 @@ export const AGENTS: readonly AgentFiche[] = [
     },
     {
       name: "Product sheet faithful to the catalog",
-      role: "Enrich and align content on the PIM, without inventing facts.",
+      role: "Enrich content from the PIM, without inventing facts.",
       trigger: "New SKU, missing attributes, merchandising campaign.",
       inputs: "PIM, specs, policies, assets and mandatory notices.",
       tools: ["PIM", "CMS", "Docs", "Catalog APIs"],
@@ -213,7 +213,7 @@ export const AGENTS: readonly AgentFiche[] = [
       trigger: "Day, week or campaign close.",
       inputs: "Sales, stockouts, basket, channels, report template.",
       tools: ["ERP", "BI / exports", "Docs", "Email"],
-      output: "Draft report and gap alerts — not published.",
+      output: "Draft report and gap alerts, not published.",
       human: "Management commentary, calls and send-out.",
       never: "It does not send to the network or replace commercial judgment.",
       kpi: "Time to prepare the report and gaps caught before review.",
@@ -348,7 +348,7 @@ export const AGENTS: readonly AgentFiche[] = [
     },
     {
       name: "KYC prêt pour décision",
-      role: "Collecter, contrôler et journaliser — sans accepter le client.",
+      role: "Collecter, contrôler et journaliser, sans accepter le client.",
       trigger: "Onboarding, renouvellement, pièce manquante.",
       inputs: "Pièces d’identité, règles LCB-FT, historique dossier.",
       tools: ["CRM", "GED", "E-mail", "Outils KYC"],
@@ -359,7 +359,7 @@ export const AGENTS: readonly AgentFiche[] = [
     },
     {
       name: "KYC ready for a decision",
-      role: "Collect, check and log — without accepting the client.",
+      role: "Collect, check and log, without accepting the client.",
       trigger: "Onboarding, renewal, missing document.",
       inputs: "ID documents, AML rules, file history.",
       tools: ["CRM", "DMS", "Email", "KYC tools"],
@@ -709,7 +709,7 @@ export const AGENTS: readonly AgentFiche[] = [
     },
     {
       name: "Parcours administratif préparé",
-      role: "Trier demandes, pièces et rendez-vous — la décision métier reste humaine.",
+      role: "Trier demandes, pièces et rendez-vous. La décision métier reste humaine.",
       trigger: "Prise de rendez-vous, pièce manquante, demande usager.",
       inputs: "Formulaires, pièces, règles d’éligibilité / secret pro.",
       tools: ["Agenda", "GED", "E-mail"],
@@ -720,7 +720,7 @@ export const AGENTS: readonly AgentFiche[] = [
     },
     {
       name: "Admin path prepared",
-      role: "Sort requests, documents and appointments — the professional decision stays human.",
+      role: "Sort requests, documents and appointments. The professional decision stays human.",
       trigger: "Booking, missing document, citizen request.",
       inputs: "Forms, documents, eligibility / confidentiality rules.",
       tools: ["Calendar", "DMS", "Email"],
@@ -840,7 +840,7 @@ export function getAgentsForSecteur(slug: string, lang: Lang): LocalizedAgent[] 
 export const AGENT_UI = {
   fr: {
     eyebrow: "Agents de ce métier",
-    title: "Ce que l’agent porte — et ce qu’il ne touche pas",
+    title: "Ce que l’agent porte, et ce qu’il ne touche pas",
     flagship: "Flagship",
     trigger: "Déclencheur",
     inputs: "Entrées",
@@ -860,7 +860,7 @@ export const AGENT_UI = {
   },
   en: {
     eyebrow: "Agents for this profession",
-    title: "What the agent carries — and what it never touches",
+    title: "What the agent carries, and what it never touches",
     flagship: "Flagship",
     trigger: "Trigger",
     inputs: "Inputs",

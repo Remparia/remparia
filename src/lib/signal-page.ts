@@ -34,7 +34,7 @@ export const SIGNAL_PAGE = {
     titleAccent1: "où l’IA s’insère.",
     titleMid: " Trouvez où elle ",
     titleAccent2: "crée de la valeur.",
-    sub: "SIGNAL est un moteur de découverte d’opportunités IA. Nous scannons vos processus, données et opérations pour révéler où l’IA crée une valeur business mesurable.",
+    sub: "SIGNAL est la méthode Remparia pour trouver où l’IA crée de la valeur. On observe vos processus, données et opérations, puis on livre une carte d’opportunités scorée.",
     ctaPrimary: "Lancer votre scan SIGNAL",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "Voir comment ça marche",
@@ -49,7 +49,7 @@ export const SIGNAL_PAGE = {
     },
     results: {
       title: "Les résultats SIGNAL",
-      sub: "Nous analysons. Nous scorons. Nous classons. Vous décidez.",
+      sub: "On score chaque opportunité. Vous décidez.",
     },
     metrics: [
       {
@@ -61,7 +61,7 @@ export const SIGNAL_PAGE = {
       },
       {
         id: "data",
-        label: "Levier data",
+        label: "Maturité data",
         valueLabel: "74%",
         score: 74,
         icon: "db",
@@ -102,7 +102,7 @@ export const SIGNAL_PAGE = {
     },
     journey: {
       id: "protocol",
-      title: "Le protocole SIGNAL — six étapes",
+      title: "Le protocole SIGNAL – six étapes",
       sub: "Chaque étape produit un livrable signé avant de passer à la suivante. Rien n’est automatisé sans avoir été observé.",
       labels: {
         deliverable: "Livrable",
@@ -170,7 +170,7 @@ export const SIGNAL_PAGE = {
       eyebrow: "Livrable",
       titleBefore: "Carte d’opportunités IA. ",
       titleAccent: "Priorisée. Scorée. Prête à construire.",
-      body: "Un livrable clair qui montre où l’IA crée de la valeur — classé par impact, faisabilité et ROI.",
+      body: "Un livrable qui montre où l’IA crée de la valeur, classé par impact, faisabilité et ROI.",
       sampleCta: "Voir un rapport type",
       sampleHref: "/contact",
       bookTitle: "AI Opportunity Map",
@@ -228,11 +228,11 @@ export const SIGNAL_PAGE = {
       items: [
         {
           q: "Qu’est-ce que SIGNAL, concrètement ?",
-          a: "SIGNAL est la méthodologie Remparia pour découvrir où l’IA crée de la valeur dans votre organisation. Nous observons vos processus, données, personnes et systèmes, puis produisons une carte d’opportunités priorisée — pas une liste de gadgets IA.",
+          a: "SIGNAL est la méthodologie Remparia pour trouver où l’IA crée de la valeur dans votre organisation. Nous observons vos processus, données, personnes et systèmes, puis produisons une carte d’opportunités priorisée.",
         },
         {
           q: "En quoi est-ce différent d’un audit IA ou d’une POC ?",
-          a: "Un audit catalogue des outils ; une POC teste une idée isolée. SIGNAL part du travail réel sur le terrain, score chaque opportunité (impact, faisabilité, risque, ROI) et livre une feuille de route actionnable. Rien n’est automatisé avant d’avoir été observé et validé.",
+          a: "Un audit catalogue des outils. Une POC teste une idée isolée. SIGNAL part du travail réel sur le terrain, score chaque opportunité (impact, faisabilité, risque, ROI) et livre une feuille de route. Rien n’est automatisé avant d’avoir été observé et validé.",
         },
         {
           q: "Combien de temps dure un scan SIGNAL ?",
@@ -240,7 +240,7 @@ export const SIGNAL_PAGE = {
         },
         {
           q: "Qui doit être impliqué côté client ?",
-          a: "Un sponsor direction, un référent métier par processus clé, et les équipes opérationnelles pour les ateliers terrain. Pas besoin d’une équipe data dédiée au départ — nous adaptons le rythme à votre organisation.",
+          a: "Un sponsor direction, un référent métier par processus clé, et les équipes opérationnelles pour les ateliers terrain. Pas besoin d’une équipe data dédiée au départ. Nous adaptons le rythme à votre organisation.",
         },
         {
           q: "Quels livrables recevons-nous ?",
@@ -248,11 +248,11 @@ export const SIGNAL_PAGE = {
         },
         {
           q: "Que se passe-t-il après SIGNAL ?",
-          a: "Vous disposez d’une roadmap claire pour déployer l’IA dans Remparia OS ou avec vos équipes internes. Nous pouvons accompagner l’exécution, transférer les compétences, ou vous laisser opérer en autonomie selon votre choix.",
+          a: "Vous avez une roadmap pour déployer l’IA dans Remparia OS ou avec vos équipes internes. Nous pouvons accompagner l’exécution, transférer les compétences, ou vous laisser opérer en autonomie.",
         },
         {
           q: "La méthodologie convient-elle à notre taille d’entreprise ?",
-          a: "SIGNAL s’adapte aux PME comme aux groupes multi-sites. L’échelle change (nombre de processus scannés, profondeur terrain), mais la logique reste la même : observer, prioriser, gouverner, puis automatiser avec escalade humaine.",
+          a: "SIGNAL fonctionne pour les PME comme pour les groupes multi-sites. L’échelle change (nombre de processus scannés, profondeur terrain), la logique reste la même : observer, prioriser, gouverner, puis automatiser avec escalade humaine.",
         },
       ],
     },
@@ -269,7 +269,7 @@ export const SIGNAL_PAGE = {
     titleAccent1: "where AI fits.",
     titleMid: " Find where it ",
     titleAccent2: "creates value.",
-    sub: "SIGNAL is an AI opportunity discovery engine. We scan your processes, data and operations to reveal where AI creates measurable business value.",
+    sub: "SIGNAL is Remparia’s method to find where AI creates value. We observe your processes, data and operations, then deliver a scored opportunity map.",
     ctaPrimary: "Start your SIGNAL Scan",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "See how it works",
@@ -284,7 +284,7 @@ export const SIGNAL_PAGE = {
     },
     results: {
       title: "The SIGNAL results",
-      sub: "We analyse. We score. We rank. You decide.",
+      sub: "We score each opportunity. You decide.",
     },
     metrics: [
       {
@@ -296,7 +296,7 @@ export const SIGNAL_PAGE = {
       },
       {
         id: "data",
-        label: "Data Leverage",
+        label: "Data Maturity",
         valueLabel: "74%",
         score: 74,
         icon: "db",
@@ -336,7 +336,7 @@ export const SIGNAL_PAGE = {
     },
     journey: {
       id: "protocol",
-      title: "The SIGNAL protocol — six stages",
+      title: "The SIGNAL protocol – six stages",
       sub: "Each stage produces a signed deliverable before the next. Nothing is automated before observation.",
       labels: {
         deliverable: "Deliverable",
@@ -404,7 +404,7 @@ export const SIGNAL_PAGE = {
       eyebrow: "Deliverable",
       titleBefore: "AI Opportunity Map. ",
       titleAccent: "Prioritized. Scored. Ready to build.",
-      body: "A clear deliverable that shows where AI creates value — ranked by impact, feasibility and ROI.",
+      body: "A deliverable that shows where AI creates value, ranked by impact, feasibility and ROI.",
       sampleCta: "See a sample report",
       sampleHref: "/contact",
       bookTitle: "AI Opportunity Map",
@@ -462,11 +462,11 @@ export const SIGNAL_PAGE = {
       items: [
         {
           q: "What is SIGNAL, exactly?",
-          a: "SIGNAL is Remparia’s methodology for discovering where AI creates value in your organization. We observe your processes, data, people and systems, then deliver a prioritized opportunity map — not a list of AI gadgets.",
+          a: "SIGNAL is Remparia’s methodology to find where AI creates value in your organization. We observe your processes, data, people and systems, then deliver a prioritized opportunity map.",
         },
         {
           q: "How is this different from an AI audit or a PoC?",
-          a: "An audit catalogs tools; a PoC tests an isolated idea. SIGNAL starts from real work on the ground, scores each opportunity (impact, feasibility, risk, ROI) and delivers an actionable roadmap. Nothing is automated before it has been observed and validated.",
+          a: "An audit catalogs tools. A PoC tests an isolated idea. SIGNAL starts from real work on the ground, scores each opportunity (impact, feasibility, risk, ROI) and delivers a roadmap. Nothing is automated before it has been observed and validated.",
         },
         {
           q: "How long does a SIGNAL scan take?",
@@ -474,7 +474,7 @@ export const SIGNAL_PAGE = {
         },
         {
           q: "Who needs to be involved on the client side?",
-          a: "An executive sponsor, a business lead per key process, and operational teams for field workshops. You don’t need a dedicated data team upfront — we adapt the pace to your organization.",
+          a: "An executive sponsor, a business lead per key process, and operational teams for field workshops. You don’t need a dedicated data team upfront. We adapt the pace to your organization.",
         },
         {
           q: "What deliverables do we receive?",
@@ -482,11 +482,11 @@ export const SIGNAL_PAGE = {
         },
         {
           q: "What happens after SIGNAL?",
-          a: "You have a clear roadmap to deploy AI in Remparia OS or with your internal teams. We can support execution, transfer skills, or let you operate autonomously — your choice.",
+          a: "You have a roadmap to deploy AI in Remparia OS or with your internal teams. We can support execution, transfer skills, or leave you to operate on your own.",
         },
         {
           q: "Is the methodology right for our company size?",
-          a: "SIGNAL scales from SMBs to multi-site groups. The scope changes (number of processes scanned, field depth), but the logic stays the same: observe, prioritize, govern, then automate with human escalation.",
+          a: "SIGNAL works for SMBs and multi-site groups. The scope changes (number of processes scanned, field depth), the logic stays the same: observe, prioritize, govern, then automate with human escalation.",
         },
       ],
     },

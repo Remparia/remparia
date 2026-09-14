@@ -176,7 +176,7 @@ const BLUEPRINTS: Record<string, TeamBlueprint> = {
     agents: [
       agent("Agent réservations & accueil", "Booking and guest agent", "Demandes traitées avant service", "Requests handled before service", "execute"),
       agent("Agent préparation service", "Service preparation agent", "Exceptions anticipées", "Exceptions anticipated"),
-      agent("Agent prévision stocks", "Stock forecasting agent", "Ruptures évitées sur produits clés", "Stock-outs avoided on key items"),
+      agent("Agent prévision stocks", "Stock forecasting agent", "Ruptures évitées sur le cœur d’assortiment", "Stock-outs avoided on core assortment"),
     ],
   },
   "garage-automobile": {
@@ -282,8 +282,8 @@ export const AGENT_TEAM_COPY = {
     eyebrow: "ÉQUIPE AGENTIQUE",
     title: "Les agents spécialisés dans votre contexte métier",
     intro:
-      "Une équipe coordonnée, branchée sur vos outils et limitée par vos règles. Chaque agent a un propriétaire humain, un périmètre et un indicateur explicites.",
-    flowTitle: "Une exécution gouvernée de bout en bout",
+      "Des agents branchés sur vos outils, bornés par vos règles. Chaque agent a un propriétaire humain, un périmètre et un indicateur définis en SIGNAL.",
+    flowTitle: "De la source à l’action, sous validation humaine",
     sources: "Sources autorisées",
     orchestrator: "Orchestrateur Remparia",
     validation: "Validation humaine",
@@ -301,15 +301,15 @@ export const AGENT_TEAM_COPY = {
     eyebrow: "AGENT WORKFORCE",
     title: "Specialized agents in your business context",
     intro:
-      "A coordinated workforce connected to your tools and bounded by your rules. Every agent has a human owner, an explicit scope and a measurable indicator.",
-    flowTitle: "Governed execution from end to end",
+      "Agents wired to your tools, bounded by your rules. Every agent has a human owner, a scope and an indicator defined in SIGNAL.",
+    flowTitle: "From source to action, under human validation",
     sources: "Approved sources",
     orchestrator: "Remparia orchestrator",
     validation: "Human validation",
     action: "Action in your tools",
     owner: "Human owner",
     trigger: "Trigger",
-    mission: "What the agent carries",
+    mission: "What the agent handles",
     metric: "Indicator to frame",
     execute: "Executes within rules",
     prepare: "Prepares for approval",
@@ -353,8 +353,8 @@ export function getSectorAgentTeam(
         metric:
           definition?.metric[lang] ??
           (lang === "fr"
-            ? "Temps expert rendu et qualité maintenue"
-            : "Expert time returned and quality maintained"),
+            ? "Temps expert récupéré sur le processus"
+            : "Expert time recovered on the process"),
         autonomy: definition?.autonomy ?? "prepare",
       };
     }),

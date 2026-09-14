@@ -55,9 +55,9 @@ const MEMBERS = [
     roleFr: "Cofondateur · Stratégie, business & partenariats",
     roleEn: "Cofounder · Strategy, business & partnerships",
     bioFr:
-      "Entrepreneur : connaissance métier et business, sensibilisation growth, développement d’affaires et alliances jusqu’au passage en production. Parcours transformation digitale, retail et innovation, exécution terrain.",
+      "Entrepreneur : connaissance métier et business, développement d’affaires et alliances jusqu’au passage en production. Parcours en transformation digitale et retail, exécution terrain.",
     bioEn:
-      "Entrepreneur: domain and business knowledge, growth awareness, business development and partnerships through to production launch. Digital transformation, retail and innovation, field execution.",
+      "Entrepreneur: domain and business knowledge, business development and partnerships through to production launch. Digital transformation and retail background, field execution.",
     credFr:
       "Transformation digitale · Partenariats & retail · Delivery solutions · Agents supervisés en production",
     credEn:
@@ -69,9 +69,9 @@ const MEMBERS = [
     roleFr: "Cofondateur · Architecture & delivery solutions",
     roleEn: "Cofounder · Architecture & solution delivery",
     bioFr:
-      "Forward Development Engineer (FDE) et architecte solutions : conception agentique, intégrations SI et industrialisation avec observabilité. Socle souverain, sécurité by design et transfert aux équipes client.",
+      "Forward Development Engineer (FDE) et architecte solutions : conception d’agents, intégrations SI et industrialisation avec observabilité. Socle souverain, sécurité dès la conception et transfert aux équipes client.",
     bioEn:
-      "Forward Development Engineer (FDE) and solutions architect: agent design, system integration and industrialization with observability. Sovereign foundation, security by design and client team transfer.",
+      "Forward Development Engineer (FDE) and solutions architect: agent design, system integration and industrialization with observability. Sovereign foundation, security from design and client team transfer.",
     credFr:
       "Architecture technique · Forward Development Engineer · Intégration · Infra souveraine · Mise en production",
     credEn:

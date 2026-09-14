@@ -5,7 +5,7 @@ const fr: PackRichPageCopy = {
   eyebrow: "SOLUTIONS / JURIDIQUE",
   title: "La machine prépare. ",
   titleAccent: "L’avocat tranche.",
-  sub: "Revue documentaire, préparation de dossiers et contrôles de conformité — sous gouvernance, sans avis automatisé ni signature machine.",
+  sub: "Revue documentaire, préparation de dossiers et contrôles de conformité sous gouvernance, sans avis automatisé ni signature machine.",
   ctaPrimary: "Lancer SIGNAL juridique",
   ctaPrimaryHref: "/demarrer",
   ctaSecondary: "Voir le métier avocat",
@@ -29,19 +29,19 @@ const fr: PackRichPageCopy = {
     },
     {
       value: "SIGNAL",
-      label: "avant le build — sources autorisées et seuils cadrés",
+      label: "avant le build : sources autorisées et seuils cadrés",
       source: "Méthode",
     },
   ],
   workforce: {
     eyebrow: "01 / FORCE DE TRAVAIL",
-    title: "Trier, assembler, signaler — jamais conseiller.",
-    body: "Des agents qui accélèrent la préparation ; la stratégie et le conseil restent humains.",
+    title: "Trier, assembler, signaler. Jamais conseiller.",
+    body: "Des agents qui accélèrent la préparation. La stratégie et le conseil restent humains.",
     agents: [
       {
         title: "Dossier lu, écarts signalés",
         forWhom: "Associés, collaborateurs, clercs",
-        does: "Trier, synthétiser, marquer les manques — synthèse sourcée pour l’humain.",
+        does: "Trier, synthétiser, marquer les manques. Synthèse sourcée pour l’humain.",
         skills: ["Tri", "Synthèse", "Écarts", "Sources citées"],
         never: "Il ne rend pas d’avis et ne signe rien.",
       },
@@ -55,7 +55,7 @@ const fr: PackRichPageCopy = {
       {
         title: "Contrôle cadré, doute escaladé",
         forWhom: "Conformité / risque",
-        does: "Check-list, écarts, piste d’audit — décision humaine sur l’acceptation.",
+        does: "Check-list, écarts, piste d’audit. Décision humaine sur l’acceptation.",
         skills: ["Check-list", "Écarts", "Audit", "Escalade"],
         never: "Il ne décide pas de l’acceptation du risque ou du client.",
       },
@@ -79,7 +79,7 @@ const fr: PackRichPageCopy = {
       },
       {
         title: "Écarts toujours visibles",
-        desc: "Aucun contrôle « vert » sans piste — le doute remonte.",
+        desc: "Aucun contrôle « vert » sans piste. Le doute remonte.",
       },
       {
         title: "Sources journalisées",
@@ -101,12 +101,12 @@ const fr: PackRichPageCopy = {
       { title: "OS + gouvernance", desc: "Publier sous politiques du cabinet." },
       { title: "AgentOps", desc: "Revue traces, budgets, amélioration continue." },
     ],
-    note: "Connecteurs (CRM, GED, calendrier) cadrés en SIGNAL — pas de fake case.",
+    note: "Connecteurs (CRM, GED, calendrier) cadrés en SIGNAL. Pas de fake case.",
   },
   offer: {
     eyebrow: "04 / OFFRE",
-    title: "Commencer petit. Mesurer. Étendre.",
-    body: "Quatre niveaux — diagnostic, pilote, multi-workflows, AgentOps.",
+    title: "On commence petit, on mesure, on étend.",
+    body: "Quatre niveaux : diagnostic, pilote, multi-workflows, AgentOps.",
     steps: [
       {
         index: "01",
@@ -184,7 +184,7 @@ const fr: PackRichPageCopy = {
   },
   final: {
     title: "Prochaine étape : cadrer où l’IA est légitime chez vous.",
-    body: "SIGNAL pose les sources, les stops et le premier agent — sans promettre un avis machine.",
+    body: "SIGNAL pose les sources, les stops et le premier agent, sans promettre un avis machine.",
     steps: [
       "Atelier associés / risk / IT",
       "Cartographie dossiers et KPI",
@@ -202,7 +202,7 @@ const en: PackRichPageCopy = {
   eyebrow: "SOLUTIONS / LEGAL",
   title: "The machine prepares. ",
   titleAccent: "Counsel decides.",
-  sub: "Document review, case prep and compliance checks — under governance, with no automated advice or machine signature.",
+  sub: "Document review, case prep and compliance checks under governance, with no automated advice or machine signature.",
   ctaPrimary: "Start legal SIGNAL",
   ctaPrimaryHref: "/demarrer",
   ctaSecondary: "See the law-firm vertical",
@@ -226,19 +226,19 @@ const en: PackRichPageCopy = {
     },
     {
       value: "SIGNAL",
-      label: "before the build — allowed sources and thresholds scoped",
+      label: "before the build: allowed sources and thresholds scoped",
       source: "Method",
     },
   ],
   workforce: {
     eyebrow: "01 / AI WORKFORCE",
-    title: "Sort, assemble, flag — never advise.",
-    body: "Agents that accelerate preparation; strategy and counsel stay human.",
+    title: "Sort, assemble, flag. Never advise.",
+    body: "Agents that accelerate preparation. Strategy and counsel stay human.",
     agents: [
       {
         title: "File read, gaps flagged",
         forWhom: "Partners, associates, clerks",
-        does: "Sort, synthesize, mark missing items — sourced brief for the human.",
+        does: "Sort, synthesize, mark missing items. Sourced brief for the human.",
         skills: ["Sort", "Synthesis", "Gaps", "Cited sources"],
         never: "It does not issue an opinion or sign.",
       },
@@ -252,7 +252,7 @@ const en: PackRichPageCopy = {
       {
         title: "Framed check, doubt escalated",
         forWhom: "Compliance / risk",
-        does: "Checklist, gaps, audit trail — human decision on acceptance.",
+        does: "Checklist, gaps, audit trail. Human decision on acceptance.",
         skills: ["Checklist", "Gaps", "Audit", "Escalation"],
         never: "It does not decide client or risk acceptance.",
       },
@@ -271,7 +271,7 @@ const en: PackRichPageCopy = {
     body: "ALLOW / REVIEW / BLOCK applied to every business gesture.",
     rules: [
       { title: "No machine advice", desc: "The agent cites and prepares; counsel advises and commits." },
-      { title: "Gaps always visible", desc: "No “green” check without a trail — doubt escalates." },
+      { title: "Gaps always visible", desc: "No “green” check without a trail. Doubt escalates." },
       { title: "Sources logged", desc: "Access and citations traced for auditable review." },
       { title: "Signature out of scope", desc: "No deed, no binding send without a human." },
     ],
@@ -286,12 +286,12 @@ const en: PackRichPageCopy = {
       { title: "OS + governance", desc: "Publish under firm policies." },
       { title: "AgentOps", desc: "Trace review, budgets, continuous improvement." },
     ],
-    note: "Connectors (CRM, DMS, calendar) scoped in SIGNAL — no fake case studies.",
+    note: "Connectors (CRM, DMS, calendar) scoped in SIGNAL. No fake case studies.",
   },
   offer: {
     eyebrow: "04 / OFFER",
-    title: "Start small. Measure. Extend.",
-    body: "Four tiers — diagnostic, pilot, multi-workflows, AgentOps.",
+    title: "Start small, measure, then extend.",
+    body: "Four tiers: diagnostic, pilot, multi-workflows, AgentOps.",
     steps: [
       {
         index: "01",
@@ -369,7 +369,7 @@ const en: PackRichPageCopy = {
   },
   final: {
     title: "Next step: frame where AI is legitimate for you.",
-    body: "SIGNAL sets sources, stops and the first agent — without promising machine advice.",
+    body: "SIGNAL sets sources, stops and the first agent, without promising machine advice.",
     steps: [
       "Workshop partners / risk / IT",
       "File map and KPIs",

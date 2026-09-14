@@ -9,49 +9,15 @@ export type ContactField = keyof ContactFormValues;
 
 export type ContactFormErrors = Partial<Record<ContactField, string>>;
 
-/** Consumer / free-mail domains — contact form accepts professional addresses only. */
-const BLOCKED_EMAIL_DOMAINS = new Set([
-  "aol.com",
-  "bbox.fr",
-  "free.fr",
-  "gmail.com",
-  "gmx.com",
-  "gmx.fr",
-  "googlemail.com",
-  "hotmail.co.uk",
-  "hotmail.com",
-  "hotmail.fr",
-  "icloud.com",
-  "laposte.net",
-  "live.com",
-  "live.fr",
-  "mac.com",
-  "mail.com",
-  "mail.ru",
-  "me.com",
-  "msn.com",
-  "neuf.fr",
-  "orange.fr",
-  "outlook.com",
-  "outlook.fr",
-  "pm.me",
-  "proton.me",
-  "protonmail.com",
-  "sfr.fr",
-  "tuta.io",
-  "tutanota.com",
-  "wanadoo.fr",
-  "yahoo.co.uk",
-  "yahoo.com",
-  "yahoo.fr",
-  "ymail.com",
-  "yandex.com",
-]);
-
-const EMAIL_RE =
+export const EMAIL_RE =
   /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$/i;
 
-const NAME_RE = /^[\p{L}\p{M}\s'.-]{2,120}$/u;
+export const NAME_RE = /^[\p{L}\p{M}\s'.-]{2,120}$/u;
+
+const CITY_RE = /^[\p{L}\p{M}\d\s'./+-]{2,120}$/u;
+
+const LINKEDIN_RE =
+  /^(https?:\/\/)?(www\.)?linkedin\.com\/(in|pub|company)\/[\w%-]+\/?/i;
 
 export function normalizeContactInput(values: ContactFormValues): ContactFormValues {
   return {
@@ -68,11 +34,8 @@ export function emailDomain(email: string) {
   return email.slice(at + 1).toLowerCase();
 }
 
-export function isProfessionalEmail(email: string) {
-  if (!EMAIL_RE.test(email)) return false;
-  const domain = emailDomain(email);
-  if (!domain || BLOCKED_EMAIL_DOMAINS.has(domain)) return false;
-  return true;
+export function isValidEmail(email: string) {
+  return EMAIL_RE.test(email);
 }
 
 type ValidationCopy = {
@@ -82,7 +45,6 @@ type ValidationCopy = {
   companyInvalid: string;
   emailRequired: string;
   emailInvalid: string;
-  emailPersonal: string;
   messageRequired: string;
   messageTooShort: string;
   messageTooLong: string;
@@ -113,8 +75,6 @@ export function validateContactForm(
     errors.email = copy.emailRequired;
   } else if (!EMAIL_RE.test(values.email)) {
     errors.email = copy.emailInvalid;
-  } else if (BLOCKED_EMAIL_DOMAINS.has(emailDomain(values.email))) {
-    errors.email = copy.emailPersonal;
   }
 
   if (!values.message) {
@@ -140,7 +100,6 @@ export function getContactFormApiError(values: ContactFormValues): string | null
     return "invalid_company";
   }
   if (!v.email || !EMAIL_RE.test(v.email)) return "invalid_email";
-  if (BLOCKED_EMAIL_DOMAINS.has(emailDomain(v.email))) return "personal_email";
   if (!v.message || v.message.length < 20 || v.message.length > 5000) {
     return "invalid_message";
   }
@@ -154,11 +113,103 @@ export function apiErrorToField(error: string | undefined): ContactField | null 
     case "invalid_company":
       return "company";
     case "invalid_email":
-    case "personal_email":
       return "email";
     case "invalid_message":
       return "message";
     default:
       return null;
   }
+}
+
+export type CareersIdentityValues = {
+  name: string;
+  email: string;
+  linkedin: string;
+  city: string;
+  role: string;
+};
+
+export type CareersIdentityField = keyof CareersIdentityValues;
+
+export type CareersIdentityErrors = Partial<
+  Record<CareersIdentityField, string>
+>;
+
+export type CareersIdentityCopy = {
+  nameRequired: string;
+  nameInvalid: string;
+  emailRequired: string;
+  emailInvalid: string;
+  linkedinInvalid: string;
+  cityRequired: string;
+  cityInvalid: string;
+  roleRequired: string;
+};
+
+export function normalizeCareersIdentity(
+  values: CareersIdentityValues,
+): CareersIdentityValues {
+  return {
+    name: values.name.trim().replace(/\s+/g, " "),
+    email: values.email.trim().toLowerCase(),
+    linkedin: values.linkedin.trim(),
+    city: values.city.trim().replace(/\s+/g, " "),
+    role: values.role.trim(),
+  };
+}
+
+export function validateCareersIdentity(
+  raw: CareersIdentityValues,
+  copy: CareersIdentityCopy,
+): {
+  values: CareersIdentityValues;
+  errors: CareersIdentityErrors;
+  valid: boolean;
+} {
+  const values = normalizeCareersIdentity(raw);
+  const errors: CareersIdentityErrors = {};
+
+  if (!values.name) {
+    errors.name = copy.nameRequired;
+  } else if (!NAME_RE.test(values.name)) {
+    errors.name = copy.nameInvalid;
+  }
+
+  if (!values.email) {
+    errors.email = copy.emailRequired;
+  } else if (!EMAIL_RE.test(values.email)) {
+    errors.email = copy.emailInvalid;
+  }
+
+  if (values.linkedin && !LINKEDIN_RE.test(values.linkedin)) {
+    errors.linkedin = copy.linkedinInvalid;
+  }
+
+  if (!values.city) {
+    errors.city = copy.cityRequired;
+  } else if (!CITY_RE.test(values.city)) {
+    errors.city = copy.cityInvalid;
+  }
+
+  if (!values.role) {
+    errors.role = copy.roleRequired;
+  }
+
+  return {
+    values,
+    errors,
+    valid: Object.keys(errors).length === 0,
+  };
+}
+
+export function getCareersIdentityApiError(
+  values: CareersIdentityValues,
+): string | null {
+  const v = normalizeCareersIdentity(values);
+  if (!v.name || !NAME_RE.test(v.name)) return "invalid_name";
+  if (!v.email || !EMAIL_RE.test(v.email)) return "invalid_email";
+  if (v.linkedin && !LINKEDIN_RE.test(v.linkedin)) return "invalid_linkedin";
+  if (!v.city || !CITY_RE.test(v.city)) return "invalid_city";
+  if (!v.role) return "invalid_role";
+  return null;
 }

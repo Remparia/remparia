@@ -1,0 +1,18 @@
+---
+description: Apply signes-ecriture-ia to all Remparia marketing copy (FR/EN)
+globs: src/lib/**/*.{ts,tsx}
+alwaysApply: true
+---
+
+# Copy Remparia — signes-ecriture-ia
+
+Toute rédaction ou réécriture de copy marketing Remparia (pages, packs, secteurs, chrome, meta SEO, carrières) doit appliquer [`.cursor/skills/signes-ecriture-ia/SKILL.md`](../skills/signes-ecriture-ia/SKILL.md).
+
+## Obligatoire
+
+1. Lire le skill avant d’écrire ou de réécrire.
+2. Mode écriture par défaut : livrer un texte propre, sans commenter la checklist.
+3. Garder le parallélisme `fr` / `en` et les clés TypeScript existantes.
+4. Ne pas casser `titleBefore` / `titleAccent`, `titleLine1` / `titleAccent`, ni les `href` / slugs / IDs.
+5. Pas de ROI inventé, pas de preuves clients fictives, pas de SIRET/TVA inventés.
+6. Remplacer les tics IA par du concret Remparia (SIGNAL, Studio, OS, ALLOW / REVIEW / BLOCK, délais réels du corpus).

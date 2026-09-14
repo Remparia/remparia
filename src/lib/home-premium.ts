@@ -9,34 +9,34 @@ export const HOME_PREMIUM = {
       titleLine3: "orchestration",
       titleSide: "De la stratégie au système d’exploitation",
       cta: "Construire la suite",
-      claimBefore: "Nous construisons des systèmes IA qui pensent, agissent et restent ",
+      claimBefore: "Nous construisons des systèmes IA qui agissent dans votre métier et restent ",
       claimAccent: "sous contrôle.",
-      brandLine: "REMPARIA   PERSONNES  ×  IA  ×  IMPACT RÉEL",
+      brandLine: "REMPARIA   SIGNAL  ×  STUDIO  ×  OS",
       rails: {
-        left: "POTENTIEL HUMAIN MULTIPLIÉ",
-        rightTop: "UN DEMAIN PLUS INTELLIGENT",
-        rightBottom: "DES IDÉES À L’IMPACT DURABLE",
+        left: "AGENTS SOUS GOUVERNANCE",
+        rightTop: "SIGNAL → STUDIO → OS",
+        rightBottom: "ALLOW · REVIEW · BLOCK",
       },
       chips: [
         {
           id: "agents",
           tag: "AGENTS",
-          text: "Scaler l’intelligence dans votre métier",
+          text: "Agents métier dans Remparia OS",
         },
         {
           id: "governance",
           tag: "GOUVERNANCE",
-          text: "Contrôler en confiance",
+          text: "ALLOW, REVIEW, BLOCK",
         },
         {
           id: "workflows",
           tag: "WORKFLOWS",
-          text: "De l’idée à l’impact",
+          text: "Workflows multi-agents",
         },
         {
           id: "audit",
           tag: "AUDIT",
-          text: "Tracer. Comprendre. Anticiper.",
+          text: "Journal et piste d’audit",
         },
       ],
     },
@@ -45,16 +45,16 @@ export const HOME_PREMIUM = {
       titleBefore: "Tout le monde expérimente l’IA. ",
       titleAccent: "Peu l’orchestrent vraiment.",
       sideLead: "Le défi",
-      sideRest: "n’est plus d’accéder à l’IA. C’est de construire des systèmes qui pensent, agissent et restent ",
+      sideRest: "n’est plus d’accéder à l’IA. C’est de faire tourner des agents qui agissent et restent ",
       sideAccent: "sous contrôle.",
       today: "AUJOURD’HUI",
       withUs: "AVEC REMPARIA",
       rows: [
         { today: "Chatbots", withUs: "Agents qui agissent" },
-        { today: "PoC isolés", withUs: "Workflows orchestrés" },
+        { today: "PoC isolés", withUs: "Workflows dans Remparia OS" },
         { today: "10 outils différents", withUs: "Un système d’exploitation" },
-        { today: "Shadow AI", withUs: "IA gouvernée" },
-        { today: "ROI flou", withUs: "Impact sous contrôle" },
+        { today: "Shadow AI", withUs: "ALLOW / REVIEW / BLOCK" },
+        { today: "ROI flou", withUs: "Mesures cadrées en SIGNAL" },
       ],
     },
     model: {
@@ -66,7 +66,7 @@ export const HOME_PREMIUM = {
           tag: "SIGNAL",
           icon: "signal",
           title: "Trouver la valeur.",
-          desc: "Découvrir, prioriser et quantifier où l’IA peut transformer vos opérations.",
+          desc: "Cartographier le travail réel, scorer les cas d’usage et bâtir la roadmap SIGNAL → Studio → OS.",
           items: ["Découvrir", "Scorer", "Prioriser", "ROI"],
         },
         {
@@ -74,7 +74,7 @@ export const HOME_PREMIUM = {
           tag: "STUDIO",
           icon: "studio",
           title: "Construire la force de travail.",
-          desc: "Concevoir des agents IA spécialisés et des workflows multi-agents autour de votre métier.",
+          desc: "Assembler agents, compétences, outils et validations humaines, prêts à tourner dans Remparia OS.",
           items: ["Agents", "Compétences", "Workflows", "Outils"],
         },
         {
@@ -82,7 +82,7 @@ export const HOME_PREMIUM = {
           tag: "OS",
           icon: "os",
           title: "Faire tourner le système.",
-          desc: "Un plan de contrôle unique pour orchestrer agents, modèles, outils et données enterprise.",
+          desc: "Remparia OS est le control plane : modèles, agents, outils, données et connecteurs enterprise.",
           items: ["Modèles", "Agents", "Données", "Connecteurs"],
         },
         {
@@ -90,7 +90,7 @@ export const HOME_PREMIUM = {
           tag: "GOUVERNANCE",
           icon: "governance",
           title: "Garder le contrôle.",
-          desc: "Observer chaque action. Contrôler les permissions. Auditer les décisions. Gouverner l’IA à l’échelle.",
+          desc: "Chaque action passe ALLOW, REVIEW ou BLOCK. Identité, politiques, audit et observabilité dans l’OS.",
           items: ["Identité", "Politiques", "Audit", "Observabilité"],
         },
       ],
@@ -99,7 +99,7 @@ export const HOME_PREMIUM = {
       eyebrow: "04 / EN ACTION",
       titleBefore: "Voir une organisation IA ",
       titleAccent: "au travail.",
-      body: "Une mission entre, l’orchestrateur délègue, les agents exécutent, l’humain valide — le tout journalisé dans Remparia OS.",
+      body: "Une mission entre, l’orchestrateur délègue, les agents exécutent, l’humain valide. Le tout est journalisé dans Remparia OS.",
       cta: "Lancer la démo interactive",
       logTitle: "Activité",
       logs: [
@@ -129,14 +129,14 @@ export const HOME_PREMIUM = {
     },
     workforce: {
       eyebrow: "05 / FORCE DE TRAVAIL IA",
-      titleBefore: "N’ajoutez pas un chatbot. ",
-      titleAccent: "Construisez une force de travail IA.",
-      body: "Les agents ne travaillent pas seuls. Ils collaborent dans des workflows gouvernés par Remparia OS.",
+      titleBefore: "Un chatbot répond. ",
+      titleAccent: "Une force de travail IA exécute.",
+      body: "Les agents travaillent dans des workflows Remparia OS. Les actions engagantes passent en REVIEW ; le reste est ALLOW ou BLOCK selon vos politiques.",
       agents: [
         {
           tag: "RESEARCH",
           title: "Agent Recherche",
-          desc: "Recherche, synthèse et sourcing sous règles métier.",
+          desc: "Recherche et synthèse sous règles métier.",
         },
         {
           tag: "SALES",
@@ -161,7 +161,7 @@ export const HOME_PREMIUM = {
         {
           tag: "CUSTOM",
           title: "Agent sur mesure",
-          desc: "Construisez votre propre agent IA.",
+          desc: "Composez votre agent dans Studio.",
           href: "/studio",
         },
       ],
@@ -171,7 +171,7 @@ export const HOME_PREMIUM = {
       titleBefore: "Votre IA. Votre infrastructure. ",
       titleAccent: "Vos règles.",
       os: "REMPARIA OS",
-      osTagline: "ORCHESTRER. GOUVERNER. SCALER.",
+      osTagline: "CONTROL PLANE · POLITIQUES · AUDIT",
       modes: [
         {
           id: "cloud",
@@ -205,9 +205,9 @@ export const HOME_PREMIUM = {
           features: [
             "Mise en production en jours",
             "Modèles publics au choix",
-            "Exploitation 100 % gérée",
+            "Exploitation gérée par Remparia",
           ],
-          tagline: "Le chemin le plus rapide vers la production",
+          tagline: "Le chemin le plus court vers la production",
           taglineIcon: "zap",
         },
         {
@@ -240,11 +240,11 @@ export const HOME_PREMIUM = {
             { label: "APIs", icon: "apis" },
           ],
           features: [
-            "Résidence des données",
+            "Résidence des données EU / France",
             "Réseau isolé",
             "Chiffrement au repos et en transit",
             "Journaux d’audit et supervision",
-            "Conformité souveraine (RGPD, NIS2, DORA…)",
+            "Cadre RGPD, NIS2, DORA selon le périmètre",
           ],
           tagline: "Infrastructure européenne. Contrôle entreprise.",
           taglineIcon: "shield",
@@ -255,7 +255,7 @@ export const HOME_PREMIUM = {
           subtitle: "Votre infrastructure. Vos règles.",
           badge: "Air-gap",
           badgeIcon: "lock",
-          boundary: "Périmètre client — aucune donnée ne sort",
+          boundary: "Périmètre client : aucune donnée ne sort",
           attrs: [
             { label: "Déploiement", value: "Infra client", icon: "server" },
             { label: "Résidence des données", value: "Environnement client", icon: "database" },
@@ -286,7 +286,7 @@ export const HOME_PREMIUM = {
             "Audit et observabilité",
             "Prêt air-gap*",
           ],
-          tagline: "Contrôle maximum. Zéro compromis.",
+          tagline: "Données chez vous. Contrôle client.",
           taglineIcon: "lock",
         },
       ],
@@ -313,9 +313,9 @@ export const HOME_PREMIUM = {
           {
             label: "Idéal pour",
             values: [
-              "Démarrage rapide, agilité",
-              "Industries régulées, souveraineté",
-              "Environnements sensibles, contrôle total",
+              "Démarrage rapide",
+              "Industries régulées, résidence EU",
+              "Environnements sensibles, air-gap",
             ],
           },
         ],
@@ -325,22 +325,22 @@ export const HOME_PREMIUM = {
       eyebrow: "07 / SOLUTIONS MÉTIERS",
       titleBefore: "Conçu pour ",
       titleAccent: "votre industrie.",
-      titleAfter: " Pas à partir de zéro.",
-      body: "Choisissez votre industrie. Nous déployons votre force de travail IA.",
+      titleAfter: " Packs métier déjà cadrés.",
+      body: "Choisissez votre industrie. On déploie la force de travail IA correspondante dans Remparia OS.",
       orchestrator: "ORCHESTRATEUR",
       osTitle: "REMPARIA OS",
-      osTagline: "GOUVERNER. ORCHESTRER. SCALER.",
+      osTagline: "GOUVERNANCE · ORCHESTRATION · AGENTOPS",
       tabs: [
         {
           id: "real-estate",
           label: "IMMOBILIER",
-          title: "Force de travail IA — Immobilier",
+          title: "Force de travail IA – Immobilier",
           cta: "Explorer le pack Immobilier",
           agents: [
             {
               icon: "lead",
               name: "Agent qualification de leads",
-              desc: "Qualifiez et scorez les leads automatiquement depuis plusieurs sources.",
+              desc: "Qualifiez et scorez les leads depuis plusieurs sources.",
             },
             {
               icon: "property",
@@ -355,17 +355,17 @@ export const HOME_PREMIUM = {
             {
               icon: "support",
               name: "Agent support locataires",
-              desc: "Répondez aux locataires et résolvez les demandes instantanément.",
+              desc: "Répondez aux locataires et routez les demandes.",
             },
             {
               icon: "reporting",
               name: "Agent reporting",
-              desc: "Générez des insights et rapports sur la performance et l’occupation.",
+              desc: "Produisez les rapports d’occupation et de performance.",
             },
             {
               icon: "ops",
               name: "Agent opérations",
-              desc: "Automatisez les tâches opérationnelles et gagnez en efficacité.",
+              desc: "Automatisez les tâches ops récurrentes du parc.",
             },
           ],
           tools: [
@@ -379,13 +379,13 @@ export const HOME_PREMIUM = {
         {
           id: "legal",
           label: "JURIDIQUE",
-          title: "Force de travail IA — Juridique",
+          title: "Force de travail IA – Juridique",
           cta: "Explorer le pack Juridique",
           agents: [
             {
               icon: "document",
               name: "Agent revue documentaire",
-              desc: "Analysez et synthétisez les dossiers juridiques à grande échelle.",
+              desc: "Analysez et synthétisez les dossiers juridiques en volume.",
             },
             {
               icon: "ops",
@@ -424,7 +424,7 @@ export const HOME_PREMIUM = {
         {
           id: "finance",
           label: "SERVICES FINANCIERS",
-          title: "Force de travail IA — Services financiers",
+          title: "Force de travail IA – Services financiers",
           cta: "Explorer le pack Finance",
           agents: [
             {
@@ -469,7 +469,7 @@ export const HOME_PREMIUM = {
         {
           id: "retail",
           label: "RETAIL",
-          title: "Force de travail IA — Retail",
+          title: "Force de travail IA – Retail",
           cta: "Explorer le pack Retail",
           agents: [
             {
@@ -514,7 +514,7 @@ export const HOME_PREMIUM = {
         {
           id: "industry",
           label: "INDUSTRIE",
-          title: "Force de travail IA — Industrie",
+          title: "Force de travail IA – Industrie",
           cta: "Explorer le pack Industrie",
           agents: [
             {
@@ -559,7 +559,7 @@ export const HOME_PREMIUM = {
         {
           id: "services",
           label: "SERVICES PRO",
-          title: "Force de travail IA — Services pro",
+          title: "Force de travail IA – Services pro",
           cta: "Explorer le pack Services Pro",
           agents: [
             {
@@ -613,7 +613,7 @@ export const HOME_PREMIUM = {
       capacity: "Capacité automatisable potentielle",
       fte: "FTE",
       annual: "Valeur opérationnelle annuelle",
-      note: "Estimation indicative — hypothèses ajustables. Pas de promesse de ROI fixe.",
+      note: "Estimation indicative, hypothèses ajustables. Pas de promesse de ROI fixe.",
       cta: "Discuter de vos hypothèses",
       investment: "Investissement estimé (année 1)",
       roiPct: "ROI estimé",
@@ -628,16 +628,16 @@ export const HOME_PREMIUM = {
         "Gestion d’incidents",
         "Maintenance connecteurs",
         "Correctifs sécurité",
-        "Optimisation d’usage",
+        "Réglage des seuils et politiques",
         "Suivi de performance",
-        "Amélioration continue",
+        "Itération AgentOps",
       ],
     },
     finalCta: {
       titleBefore: "L’expérimentation IA est terminée. ",
       titleAccent: "Il est temps d’opérer.",
       cta: "Démarrer avec SIGNAL",
-      tagline: "Intelligence humaine. Échelle artificielle.",
+      tagline: "SIGNAL. Studio. Remparia OS.",
     },
   },
   en: {
@@ -648,34 +648,34 @@ export const HOME_PREMIUM = {
       titleLine3: "orchestration",
       titleSide: "From strategy to operating system",
       cta: "Build what's next",
-      claimBefore: "We build AI systems that think, act and stay ",
+      claimBefore: "We build AI systems that act in your business and stay ",
       claimAccent: "under control.",
-      brandLine: "REMPARIA   PEOPLE  ×  AI  ×  REAL IMPACT",
+      brandLine: "REMPARIA   SIGNAL  ×  STUDIO  ×  OS",
       rails: {
-        left: "HUMAN POTENTIAL MULTIPLIED",
-        rightTop: "A MORE INTELLIGENT TOMORROW",
-        rightBottom: "FROM IDEAS TO LASTING IMPACT",
+        left: "GOVERNED AGENTS",
+        rightTop: "SIGNAL → STUDIO → OS",
+        rightBottom: "ALLOW · REVIEW · BLOCK",
       },
       chips: [
         {
           id: "agents",
           tag: "AGENTS",
-          text: "Scale intelligence across your business",
+          text: "Business agents in Remparia OS",
         },
         {
           id: "governance",
           tag: "GOVERNANCE",
-          text: "Control with confidence",
+          text: "ALLOW, REVIEW, BLOCK",
         },
         {
           id: "workflows",
           tag: "WORKFLOWS",
-          text: "From idea to impact",
+          text: "Multi-agent workflows",
         },
         {
           id: "audit",
           tag: "AUDIT",
-          text: "Trace. Understand. Stay ahead.",
+          text: "Logs and audit trail",
         },
       ],
     },
@@ -684,16 +684,16 @@ export const HOME_PREMIUM = {
       titleBefore: "Everyone is experimenting with AI. ",
       titleAccent: "Few are orchestrating it.",
       sideLead: "The challenge",
-      sideRest: "isn't accessing AI anymore. It's building systems that think, act and stay ",
+      sideRest: "isn't accessing AI anymore. It's running agents that act and stay ",
       sideAccent: "under control.",
       today: "TODAY",
       withUs: "WITH REMPARIA",
       rows: [
         { today: "Chatbots", withUs: "Agents that act" },
-        { today: "Isolated PoCs", withUs: "Orchestrated workflows" },
+        { today: "Isolated PoCs", withUs: "Workflows in Remparia OS" },
         { today: "10 different tools", withUs: "One operating system" },
-        { today: "Shadow AI", withUs: "Governed AI" },
-        { today: "Unclear ROI", withUs: "Impact under control" },
+        { today: "Shadow AI", withUs: "ALLOW / REVIEW / BLOCK" },
+        { today: "Unclear ROI", withUs: "Measures scoped in SIGNAL" },
       ],
     },
     model: {
@@ -705,7 +705,7 @@ export const HOME_PREMIUM = {
           tag: "SIGNAL",
           icon: "signal",
           title: "Find the value.",
-          desc: "Discover, prioritize and quantify where AI can transform your operations.",
+          desc: "Map real work, score use cases and build the SIGNAL → Studio → OS roadmap.",
           items: ["Discover", "Score", "Prioritize", "ROI"],
         },
         {
@@ -713,7 +713,7 @@ export const HOME_PREMIUM = {
           tag: "STUDIO",
           icon: "studio",
           title: "Build the workforce.",
-          desc: "Design specialized AI agents and multi-agent workflows around your business.",
+          desc: "Assemble agents, skills, tools and human approvals, ready to run in Remparia OS.",
           items: ["Agents", "Skills", "Workflows", "Tools"],
         },
         {
@@ -721,7 +721,7 @@ export const HOME_PREMIUM = {
           tag: "OS",
           icon: "os",
           title: "Run the system.",
-          desc: "One control plane to orchestrate agents, models, tools and enterprise data.",
+          desc: "Remparia OS is the control plane: models, agents, tools, data and enterprise connectors.",
           items: ["Models", "Agents", "Data", "Connectors"],
         },
         {
@@ -729,7 +729,7 @@ export const HOME_PREMIUM = {
           tag: "GOVERNANCE",
           icon: "governance",
           title: "Stay in control.",
-          desc: "Observe every action. Control permissions. Audit decisions. Govern AI at scale.",
+          desc: "Every action hits ALLOW, REVIEW or BLOCK. Identity, policies, audit and observability in the OS.",
           items: ["Identity", "Policies", "Audit", "Observability"],
         },
       ],
@@ -738,7 +738,7 @@ export const HOME_PREMIUM = {
       eyebrow: "04 / SEE IT IN ACTION",
       titleBefore: "See an AI organization ",
       titleAccent: "at work.",
-      body: "A mission comes in, the orchestrator delegates, agents execute, humans approve — everything logged in Remparia OS.",
+      body: "A mission comes in, the orchestrator delegates, agents execute, humans approve. Everything is logged in Remparia OS.",
       cta: "Launch interactive demo",
       logTitle: "Activity",
       logs: [
@@ -768,14 +768,14 @@ export const HOME_PREMIUM = {
     },
     workforce: {
       eyebrow: "05 / AI WORKFORCE",
-      titleBefore: "Don't add another chatbot. ",
-      titleAccent: "Build an AI workforce.",
-      body: "Agents don't work alone. They collaborate in workflows governed by Remparia OS.",
+      titleBefore: "A chatbot answers. ",
+      titleAccent: "An AI workforce executes.",
+      body: "Agents run in Remparia OS workflows. High-stakes actions go to REVIEW; the rest is ALLOW or BLOCK per your policies.",
       agents: [
         {
           tag: "RESEARCH",
           title: "Research Agent",
-          desc: "Research, synthesis and sourcing under business rules.",
+          desc: "Research and synthesis under business rules.",
         },
         {
           tag: "SALES",
@@ -800,7 +800,7 @@ export const HOME_PREMIUM = {
         {
           tag: "CUSTOM",
           title: "Custom Agent",
-          desc: "Build your own AI agent.",
+          desc: "Compose your agent in Studio.",
           href: "/studio",
         },
       ],
@@ -810,7 +810,7 @@ export const HOME_PREMIUM = {
       titleBefore: "Your AI. Your infrastructure. ",
       titleAccent: "Your rules.",
       os: "REMPARIA OS",
-      osTagline: "ORCHESTRATE. GOVERN. SCALE.",
+      osTagline: "CONTROL PLANE · POLICIES · AUDIT",
       modes: [
         {
           id: "cloud",
@@ -844,9 +844,9 @@ export const HOME_PREMIUM = {
           features: [
             "Production in days",
             "Public models of your choice",
-            "Fully managed operations",
+            "Operations run by Remparia",
           ],
-          tagline: "Fastest path to production",
+          tagline: "Shortest path to production",
           taglineIcon: "zap",
         },
         {
@@ -879,11 +879,11 @@ export const HOME_PREMIUM = {
             { label: "APIs", icon: "apis" },
           ],
           features: [
-            "Data residency",
+            "EU / France data residency",
             "Isolated network",
             "Encryption at rest and in transit",
             "Audit logs and monitoring",
-            "Sovereign compliance (GDPR, NIS2, DORA…)",
+            "GDPR, NIS2, DORA framing by scope",
           ],
           tagline: "European infrastructure. Enterprise control.",
           taglineIcon: "shield",
@@ -894,7 +894,7 @@ export const HOME_PREMIUM = {
           subtitle: "Your infrastructure. Your rules.",
           badge: "Air-gap",
           badgeIcon: "lock",
-          boundary: "Customer perimeter — no data leaves",
+          boundary: "Customer perimeter: no data leaves",
           attrs: [
             { label: "Deployment", value: "Customer infrastructure", icon: "server" },
             { label: "Data residency", value: "Customer environment", icon: "database" },
@@ -925,7 +925,7 @@ export const HOME_PREMIUM = {
             "Audit and observability",
             "Air-gapped ready*",
           ],
-          tagline: "Maximum control. Zero compromise.",
+          tagline: "Data stays with you. Customer control.",
           taglineIcon: "lock",
         },
       ],
@@ -952,9 +952,9 @@ export const HOME_PREMIUM = {
           {
             label: "Ideal for",
             values: [
-              "Quick start, agility",
-              "Regulated industries, sovereignty",
-              "Sensitive environments, full control",
+              "Quick start",
+              "Regulated industries, EU residency",
+              "Sensitive environments, air-gap",
             ],
           },
         ],
@@ -964,11 +964,11 @@ export const HOME_PREMIUM = {
       eyebrow: "07 / INDUSTRY SOLUTIONS",
       titleBefore: "Built for ",
       titleAccent: "your industry.",
-      titleAfter: " Not from scratch.",
-      body: "Choose your industry. We deploy your AI workforce.",
+      titleAfter: " Packs already scoped.",
+      body: "Pick your industry. We deploy the matching AI workforce in Remparia OS.",
       orchestrator: "ORCHESTRATOR",
       osTitle: "REMPARIA OS",
-      osTagline: "GOVERN. ORCHESTRATE. SCALE.",
+      osTagline: "GOVERNANCE · ORCHESTRATION · AGENTOPS",
       tabs: [
         {
           id: "real-estate",
@@ -979,7 +979,7 @@ export const HOME_PREMIUM = {
             {
               icon: "lead",
               name: "Lead Qualification Agent",
-              desc: "Qualify and score leads automatically from multiple sources.",
+              desc: "Qualify and score leads from multiple sources.",
             },
             {
               icon: "property",
@@ -994,17 +994,17 @@ export const HOME_PREMIUM = {
             {
               icon: "support",
               name: "Tenant Support Agent",
-              desc: "Answer tenant inquiries and resolve issues instantly.",
+              desc: "Answer tenants and route requests.",
             },
             {
               icon: "reporting",
               name: "Reporting Agent",
-              desc: "Generate insights and reports on performance and occupancy.",
+              desc: "Produce occupancy and performance reports.",
             },
             {
               icon: "ops",
               name: "Operations Agent",
-              desc: "Automate operational tasks and improve efficiency.",
+              desc: "Automate recurring property ops tasks.",
             },
           ],
           tools: [
@@ -1024,7 +1024,7 @@ export const HOME_PREMIUM = {
             {
               icon: "document",
               name: "Document Review Agent",
-              desc: "Review and synthesize legal files at scale.",
+              desc: "Review and synthesize legal files at volume.",
             },
             {
               icon: "ops",
@@ -1034,7 +1034,7 @@ export const HOME_PREMIUM = {
             {
               icon: "reporting",
               name: "Compliance Check Agent",
-              desc: "Check compliance and flag gaps early.",
+              desc: "Check compliance and flag gaps.",
             },
             {
               icon: "support",
@@ -1069,7 +1069,7 @@ export const HOME_PREMIUM = {
             {
               icon: "lead",
               name: "KYC Assist Agent",
-              desc: "Accelerate KYC and document collection.",
+              desc: "Speed up KYC and document collection.",
             },
             {
               icon: "reporting",
@@ -1129,7 +1129,7 @@ export const HOME_PREMIUM = {
             {
               icon: "lead",
               name: "Lead & Loyalty Agent",
-              desc: "Qualify leads and activate loyalty programs.",
+              desc: "Qualify leads and run loyalty follow-up.",
             },
             {
               icon: "document",
@@ -1219,7 +1219,7 @@ export const HOME_PREMIUM = {
             {
               icon: "lead",
               name: "Proposal Assist Agent",
-              desc: "Accelerate RFP responses and proposals.",
+              desc: "Speed up RFP responses and proposals.",
             },
             {
               icon: "support",
@@ -1252,7 +1252,7 @@ export const HOME_PREMIUM = {
       capacity: "Potential automated capacity",
       fte: "FTE",
       annual: "Annual operational value",
-      note: "Indicative estimate — adjustable assumptions. No fixed ROI promise.",
+      note: "Indicative estimate, adjustable assumptions. No fixed ROI promise.",
       cta: "Discuss your assumptions",
       investment: "Estimated investment (year 1)",
       roiPct: "Estimated ROI",
@@ -1267,16 +1267,16 @@ export const HOME_PREMIUM = {
         "Incident management",
         "Connector maintenance",
         "Security patches",
-        "Usage optimization",
-        "Performance monitoring",
-        "Continuous improvement",
+        "Policy and threshold tuning",
+        "Performance tracking",
+        "AgentOps iteration",
       ],
     },
     finalCta: {
       titleBefore: "AI experimentation is over. ",
       titleAccent: "It's time to operate.",
       cta: "Start with SIGNAL",
-      tagline: "Human intelligence. Artificial scale.",
+      tagline: "SIGNAL. Studio. Remparia OS.",
     },
   },
 } as const;
