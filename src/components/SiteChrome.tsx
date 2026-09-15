@@ -55,6 +55,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   return (
     <>
       <SkipLink />
+      <ViewModeToggle />
       <SiteNav />
       <main id="contenu">{children}</main>
       <SiteFooter />

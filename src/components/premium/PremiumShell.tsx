@@ -100,6 +100,8 @@ export function PremiumSection({
   id,
   children,
   className = "",
+  backgroundSrc,
+  backgroundAlt = "",
 }: {
   eyebrow?: string;
   title?: string;
@@ -109,12 +111,28 @@ export function PremiumSection({
   id?: string;
   children?: React.ReactNode;
   className?: string;
+  /** Decorative full-bleed background image (served as-is from /public). */
+  backgroundSrc?: string;
+  backgroundAlt?: string;
 }) {
   return (
     <section
       id={id}
       className={`ph-section${light ? " ph-section--light" : ""}${className ? ` ${className}` : ""}`}
     >
+      {backgroundSrc ? (
+        // eslint-disable-next-line @next/next/no-img-element -- keep original bytes / no Next image pipeline
+        <img
+          className="ph-section__bg"
+          src={backgroundSrc}
+          alt={backgroundAlt}
+          width={1024}
+          height={576}
+          decoding="async"
+          fetchPriority="low"
+          aria-hidden={backgroundAlt ? undefined : true}
+        />
+      ) : null}
       <div className="ph-shell">
         {eyebrow ? <p className="ph-eyebrow">{eyebrow}</p> : null}
         {title ? (

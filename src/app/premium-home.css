@@ -119,6 +119,110 @@
   overflow: visible;
 }
 
+/* Demarrer — PATHS background */
+.page--demarrer #parcours.dm-paths-section {
+  isolation: isolate;
+  background-color: #050505;
+  overflow: hidden;
+}
+
+.page--demarrer #parcours.dm-paths-section .ph-section__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.page--demarrer #parcours.dm-paths-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 5, 0.72) 0%,
+      rgba(5, 5, 5, 0.42) 24%,
+      rgba(5, 5, 5, 0.48) 70%,
+      rgba(5, 5, 5, 0.82) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 5, 5, 0.55) 0%,
+      rgba(5, 5, 5, 0.22) 28%,
+      rgba(5, 5, 5, 0.22) 72%,
+      rgba(5, 5, 5, 0.55) 100%
+    );
+}
+
+.page--demarrer #parcours.dm-paths-section > .ph-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.page--demarrer #parcours.dm-paths-section .ph-workforce .ph-agent-card {
+  background: rgba(0, 0, 0, 0.72);
+  border-color: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+}
+
+/* À propos — commitments background (bit-identical JPG, no recompress) */
+.page--apropos #engagements.ap-commitments-section {
+  isolation: isolate;
+  background-color: #050505;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.page--apropos #engagements.ap-commitments-section .ph-section__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.page--apropos #engagements.ap-commitments-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 5, 5, 0.82) 0%,
+      rgba(5, 5, 5, 0.55) 36%,
+      rgba(5, 5, 5, 0.22) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 5, 0.4) 0%,
+      transparent 26%,
+      transparent 74%,
+      rgba(5, 5, 5, 0.5) 100%
+    );
+}
+
+.page--apropos #engagements.ap-commitments-section > .ph-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.page--apropos #engagements.ap-commitments-section .ph-check {
+  max-width: 42rem;
+}
+
 .ph-section--tight {
   padding: 64px 0;
 }

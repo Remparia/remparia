@@ -37,7 +37,7 @@ export default function DemarrerPage() {
         };
 
   return (
-    <PremiumPageShell>
+    <PremiumPageShell className="page--demarrer">
       <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
@@ -59,6 +59,9 @@ export default function DemarrerPage() {
       />
 
       <PremiumSection
+        id="parcours"
+        className="dm-paths-section"
+        backgroundSrc="/demarrer-paths-bg.jpg"
         eyebrow={lang === "fr" ? "01 / PARCOURS" : "01 / PATHS"}
         title={lang === "fr" ? "Choisir comment démarrer" : "Choose how to start"}
       >

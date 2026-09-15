@@ -24,7 +24,7 @@ export default function AProposPage() {
   const label = lang === "fr" ? "À propos" : "About";
 
   return (
-    <PremiumPageShell>
+    <PremiumPageShell className="page--apropos">
       <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
@@ -123,6 +123,9 @@ export default function AProposPage() {
       </PremiumSection>
 
       <PremiumSection
+        id="engagements"
+        className="ap-commitments-section"
+        backgroundSrc="/apropos-commitments-bg.jpg"
         eyebrow={`06 / ${t.engagementTitle}`}
         title={t.engagementTitle}
       >

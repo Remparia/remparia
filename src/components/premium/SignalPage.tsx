@@ -148,7 +148,7 @@ function SpiderChart({
             key={i}
             d={d}
             fill="none"
-            stroke="rgba(204,252,65,0.2)"
+            stroke="var(--lime-20)"
             strokeWidth="1"
           />
         ))}
@@ -161,15 +161,15 @@ function SpiderChart({
               y1={cy}
               x2={p.x}
               y2={p.y}
-              stroke="rgba(204,252,65,0.22)"
+              stroke="color-mix(in srgb, var(--lime) 22%, transparent)"
               strokeWidth="1"
             />
           );
         })}
         <path
           d={dataPath}
-          fill="rgba(204,252,65,0.28)"
-          stroke="#ccfc41"
+          fill="color-mix(in srgb, var(--lime) 28%, transparent)"
+          stroke="#c5ff32"
           strokeWidth="2"
         />
       </svg>

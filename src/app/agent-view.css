@@ -71,7 +71,7 @@
 
 .agent-view {
   min-height: 100vh;
-  background: #050505;
+  background: var(--black);
   color: var(--lime);
   padding: 28px 20px 96px 72px;
 }
@@ -85,7 +85,7 @@
   max-width: 920px;
   margin: 0 auto 28px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(204, 252, 65, 0.22);
+  border-bottom: 1px solid color-mix(in srgb, var(--lime) 22%, transparent);
 }
 
 .agent-view__hint {
@@ -93,14 +93,14 @@
   max-width: 52ch;
   font: 500 12px/1.45 var(--font-ui), ui-sans-serif, system-ui, sans-serif;
   letter-spacing: 0.02em;
-  color: rgba(204, 252, 65, 0.72);
+  color: color-mix(in srgb, var(--lime) 72%, transparent);
 }
 
 .agent-view__copy {
   flex-shrink: 0;
   padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(204, 252, 65, 0.45);
+  border: 1px solid color-mix(in srgb, var(--lime) 45%, transparent);
   background: transparent;
   color: var(--lime);
   font: 700 11px/1 var(--font-ui), ui-sans-serif, system-ui, sans-serif;
@@ -113,7 +113,7 @@
 }
 
 .agent-view__copy:hover {
-  background: rgba(204, 252, 65, 0.1);
+  background: color-mix(in srgb, var(--lime) 10%, transparent);
   border-color: var(--lime);
 }
 
@@ -165,9 +165,9 @@
 }
 
 html.view-agent {
-  background: #050505;
+  background: var(--black);
 }
 
 html.view-agent body {
-  background: #050505;
+  background: var(--black);
 }
