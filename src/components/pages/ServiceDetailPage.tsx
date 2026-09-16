@@ -9,14 +9,13 @@ import {
   PremiumPageShell,
   PremiumSection,
 } from "@/components/premium/PremiumShell";
-import { getService, getServiceImage, HOME, SERVICES } from "@/lib/content";
+import { getService, getServiceImage, SERVICES } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function ServiceDetailPage({ slug }: { slug: string }) {
   const { lang } = useLang();
   const item = getService(slug, lang);
   const all = SERVICES[lang];
-  const cta = HOME[lang];
   const home = lang === "fr" ? "Accueil" : "Home";
 
   if (!item) {
@@ -101,10 +100,11 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
         </div>
       </PremiumSection>
       <PremiumCtaBand
-        tag={cta.ctaTag}
-        title={cta.ctaH}
-        text={cta.ctaP}
-        href="/demarrer"
+        tag={item.ctaTag}
+        title={item.ctaH}
+        text={item.ctaP}
+        href={item.ctaHref}
+        ctaLabel={item.ctaLabel}
       />
     </PremiumPageShell>
   );

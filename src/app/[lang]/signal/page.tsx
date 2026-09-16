@@ -2,33 +2,44 @@ import type { Metadata } from "next";
 import SignalPage from "@/components/premium/SignalPage";
 import JsonLd from "@/components/JsonLd";
 import { toLang } from "@/lib/i18n";
-import { createPageMetadata, signalArticleJsonLd, signalFaqJsonLd } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  homeCrumb,
+  signalArticleJsonLd,
+  signalFaqJsonLd,
+  signalHowToJsonLd,
+} from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang: langParam } = await params;
-  const lang = toLang(langParam);
-  const isEn = lang === "en";
+  const lang = toLang((await params).lang);
+  const copy = pageSeo("/signal", lang);
   return createPageMetadata({
-    title: isEn
-      ? "SIGNAL — stop guessing where AI fits"
-      : "SIGNAL — arrêtez de deviner où l’IA s’insère",
-    description: isEn
-      ? "SIGNAL is an AI opportunity discovery engine. We scan your processes, data and operations to reveal where AI creates measurable business value."
-      : "SIGNAL est un moteur de découverte d’opportunités IA. Nous scannons vos processus, données et opérations pour révéler où l’IA crée une valeur business mesurable.",
+    ...copy,
     path: "/signal",
     lang,
+    ogType: "article",
   });
 }
 
 export default async function Page({ params }: Props) {
-  const { lang: langParam } = await params;
-  const lang = toLang(langParam);
+  const lang = toLang((await params).lang);
   return (
     <>
-      <JsonLd data={signalArticleJsonLd(lang)} />
-      <JsonLd data={signalFaqJsonLd(lang)} />
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(
+            [homeCrumb(lang), { name: "SIGNAL", path: "/signal" }],
+            lang,
+          ),
+          signalArticleJsonLd(lang),
+          signalHowToJsonLd(lang),
+          signalFaqJsonLd(lang),
+        ]}
+      />
       <SignalPage />
     </>
   );

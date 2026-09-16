@@ -13,9 +13,9 @@ export type SecteurDetail = {
 const FR: Record<string, SecteurDetail> = {
   "finance-assurance": {
     slug: "finance-assurance",
-    heroH: "Solutions souveraines pour la finance & l'assurance",
+    heroH: "Agents gouvernés pour la finance & l'assurance",
     heroP:
-      "Des agents supervisés absorbent le documentaire et les contrôles. Vos équipes gardent le jugement, la responsabilité et la relation client.",
+      "Cadrage SIGNAL, puis agents avec ALLOW / REVIEW / BLOCK sur le documentaire et les contrôles. Vos équipes gardent le jugement, la responsabilité et la relation client.",
     signals: [
       { value: "SIGNAL", label: "Protocole SIGNAL" },
       { value: "FR", label: "Données en France" },
@@ -248,7 +248,7 @@ const FR: Record<string, SecteurDetail> = {
     slug: "services-conseil",
     heroH: "Agents pour les services & le conseil",
     heroP:
-      "Retrouver de la capacité sur la recherche, la synthèse et les livrables, sans standardiser le jugement ni exposer la confidentialité client.",
+      "SIGNAL pour cadrer, puis agents Studio sur recherche et synthèse : revue obligatoire avant envoi client. Le jugement et la confidentialité restent aux consultants.",
     signals: [
       { value: "Expert", label: "Humain au centre" },
       { value: "Conf.", label: "Confidentialité client" },
@@ -313,7 +313,7 @@ const FR: Record<string, SecteurDetail> = {
       },
       {
         q: "Combien de temps pour un premier usage utile ?",
-        a: "Un diagnostic cible 1–2 cas à fort levier (souvent rédaction / knowledge). Un prototype guidé suit avant industrialisation.",
+        a: "Un diagnostic SIGNAL cible 1–2 cas à fort levier (souvent rédaction / knowledge). Un prototype Studio suit avant industrialisation.",
       },
       {
         q: "Formez-vous nos équipes ?",
@@ -482,9 +482,9 @@ const FR: Record<string, SecteurDetail> = {
 const EN: Record<string, SecteurDetail> = {
   "finance-assurance": {
     slug: "finance-assurance",
-    heroH: "Sovereign agents for finance & insurance",
+    heroH: "Governed agents for finance & insurance",
     heroP:
-      "Supervised agents absorb document work and controls. Your teams keep judgment, accountability and client relationships.",
+      "SIGNAL scoping, then agents with ALLOW / REVIEW / BLOCK on documents and controls. Your teams keep judgment, accountability and client relationships.",
     signals: [
       { value: "SIGNAL", label: "SIGNAL protocol" },
       { value: "FR", label: "Data in France" },
@@ -713,7 +713,7 @@ const EN: Record<string, SecteurDetail> = {
     slug: "services-conseil",
     heroH: "Agents for services & consulting",
     heroP:
-      "Recover capacity across research, synthesis and deliverables, without standardizing judgment or exposing client confidentiality.",
+      "SIGNAL to scope, then Studio agents for research and synthesis: mandatory review before client send. Judgment and confidentiality stay with consultants.",
     signals: [
       { value: "Expert", label: "Humans at the center" },
       { value: "Conf.", label: "Client confidentiality" },
@@ -774,7 +774,7 @@ const EN: Record<string, SecteurDetail> = {
       },
       {
         q: "How soon for a first useful usage?",
-        a: "A diagnostic targets 1–2 priority cases (often drafting / knowledge). A guided prototype follows before scale-up.",
+        a: "A SIGNAL diagnostic targets 1–2 priority cases (often drafting / knowledge). A Studio prototype follows before scale-up.",
       },
       {
         q: "Do you train our teams?",

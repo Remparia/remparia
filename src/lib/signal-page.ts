@@ -49,7 +49,7 @@ export const SIGNAL_PAGE = {
     },
     results: {
       title: "Les résultats SIGNAL",
-      sub: "On score chaque opportunité. Vous décidez.",
+      sub: "Exemple de scoring. On score chaque opportunité. Vous décidez.",
     },
     metrics: [
       {
@@ -171,11 +171,11 @@ export const SIGNAL_PAGE = {
       titleBefore: "Carte d’opportunités IA. ",
       titleAccent: "Priorisée. Scorée. Prête à construire.",
       body: "Un livrable qui montre où l’IA crée de la valeur, classé par impact, faisabilité et ROI.",
-      sampleCta: "Voir un rapport type",
+      sampleCta: "Demander un exemple de carte",
       sampleHref: "/contact",
-      bookTitle: "AI Opportunity Map",
+      bookTitle: "AI Opportunity Map (exemple)",
       bookSub: "SIGNAL · Remparia",
-      tableTitle: "Classement des opportunités",
+      tableTitle: "Classement des opportunités (illustration)",
       columns: {
         opportunity: "Opportunité",
         impact: "Impact",
@@ -284,7 +284,7 @@ export const SIGNAL_PAGE = {
     },
     results: {
       title: "The SIGNAL results",
-      sub: "We score each opportunity. You decide.",
+      sub: "Sample scoring. We score each opportunity. You decide.",
     },
     metrics: [
       {
@@ -405,11 +405,11 @@ export const SIGNAL_PAGE = {
       titleBefore: "AI Opportunity Map. ",
       titleAccent: "Prioritized. Scored. Ready to build.",
       body: "A deliverable that shows where AI creates value, ranked by impact, feasibility and ROI.",
-      sampleCta: "See a sample report",
+      sampleCta: "Request a sample map",
       sampleHref: "/contact",
-      bookTitle: "AI Opportunity Map",
+      bookTitle: "AI Opportunity Map (sample)",
       bookSub: "SIGNAL · Remparia",
-      tableTitle: "Opportunity ranking",
+      tableTitle: "Opportunity ranking (illustration)",
       columns: {
         opportunity: "Opportunity",
         impact: "Impact",

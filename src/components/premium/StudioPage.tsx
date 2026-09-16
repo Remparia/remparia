@@ -359,6 +359,22 @@ export default function StudioPage() {
         </ol>
       </PremiumSection>
 
+      <PremiumSection
+        id="faq"
+        eyebrow={t.faq.eyebrow}
+        title={t.faq.title}
+        body={t.faq.sub}
+      >
+        <div className="gv-faq">
+          {t.faq.items.map((item) => (
+            <details key={item.q} className="gv-faq__item">
+              <summary className="gv-faq__question">{item.q}</summary>
+              <p className="gv-faq__answer">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </PremiumSection>
+
       <PremiumCtaBand
         tag={t.cta.tag}
         title={t.cta.title}

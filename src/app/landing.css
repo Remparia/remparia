@@ -3179,14 +3179,17 @@ a.info-card:focus-visible {
   display: none !important;
 }
 
-/* Pont hover entre le lien Services et le panneau pleine largeur */
-.nav__mega::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  height: 28px;
+/* Compact only: short bridge under the trigger. Full-bleed Platform
+   must not use a full-width ::before — it sat on top of Method / Solutions. */
+@media (min-width: 960px) {
+  .nav__mega--compact::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    height: 12px;
+  }
 }
 
 .nav__mega-inner {

@@ -2,32 +2,37 @@ import type { Metadata } from "next";
 import OsPage from "@/components/premium/OsPage";
 import JsonLd from "@/components/JsonLd";
 import { toLang } from "@/lib/i18n";
-import { createPageMetadata, osArticleJsonLd } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  homeCrumb,
+  osFaqJsonLd,
+  osSoftwareJsonLd,
+} from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang: langParam } = await params;
-  const lang = toLang(langParam);
-  const isEn = lang === "en";
-  return createPageMetadata({
-    title: isEn
-      ? "Remparia OS — your AI workforce needs an operating system"
-      : "Remparia OS — votre force de travail IA a besoin d’un système d’exploitation",
-    description: isEn
-      ? "Remparia OS is the enterprise AI control plane: orchestrate agents, models, enterprise data and human decisions from one layer."
-      : "Remparia OS est le control plane IA d’entreprise : orchestrer agents, modèles, données et décisions humaines depuis une couche unique.",
-    path: "/solution",
-    lang,
-  });
+  const lang = toLang((await params).lang);
+  const copy = pageSeo("/solution", lang);
+  return createPageMetadata({ ...copy, path: "/solution", lang });
 }
 
 export default async function Page({ params }: Props) {
-  const { lang: langParam } = await params;
-  const lang = toLang(langParam);
+  const lang = toLang((await params).lang);
   return (
     <>
-      <JsonLd data={osArticleJsonLd(lang)} />
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(
+            [homeCrumb(lang), { name: "Remparia OS", path: "/solution" }],
+            lang,
+          ),
+          osSoftwareJsonLd(lang),
+          osFaqJsonLd(lang),
+        ]}
+      />
       <OsPage />
     </>
   );

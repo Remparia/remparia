@@ -6,6 +6,7 @@ import { toLang } from "@/lib/i18n";
 import {
   breadcrumbJsonLd,
   createPageMetadata,
+  homeCrumb,
   secteurFaqJsonLd,
   secteurMeta,
 } from "@/lib/seo";
@@ -19,7 +20,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, lang: langParam } = await params;
   const lang = toLang(langParam);
-  const meta = secteurMeta(slug);
+  const meta = secteurMeta(slug, lang);
   const { isHeartSecteur } = await import("@/lib/strategy");
   return createPageMetadata({
     title: meta.title,
@@ -34,9 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug, lang: langParam } = await params;
   const lang = toLang(langParam);
-  const meta = secteurMeta(slug);
-  const faqLd = secteurFaqJsonLd(slug);
-  const home = lang === "en" ? "Home" : "Accueil";
+  const meta = secteurMeta(slug, lang);
+  const faqLd = secteurFaqJsonLd(slug, lang);
   const sectors = lang === "en" ? "Industries" : "Secteurs";
 
   return (
@@ -45,7 +45,7 @@ export default async function Page({ params }: Props) {
         data={[
           breadcrumbJsonLd(
             [
-              { name: home, path: "/" },
+              homeCrumb(lang),
               { name: sectors, path: "/secteurs" },
               { name: meta.title, path: `/secteurs/${slug}` },
             ],

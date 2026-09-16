@@ -1,12 +1,32 @@
 import type { Metadata } from "next";
 import type { Lang } from "@/lib/content";
-import { APROPOS, SECTEUR_SLUGS, SERVICE_SLUGS, getSecteur, getSecteurDetail, getSecteurImage, getService, getServiceImage } from "@/lib/content";
+import {
+  APROPOS,
+  SECTEUR_SLUGS,
+  SERVICE_SLUGS,
+  SOCIAL_LINKS,
+  getSecteur,
+  getSecteurDetail,
+  getSecteurImage,
+  getService,
+  getServiceImage,
+} from "@/lib/content";
 import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
+import { homePremium } from "@/lib/home-premium";
+import { osPage } from "@/lib/os-page";
+import { studioPage } from "@/lib/studio-page";
+import { governancePage } from "@/lib/governance-page";
+import { sovereigntyPage } from "@/lib/sovereignty-page";
+import { CAS_USAGE, DEMARRER, isHeartSecteur } from "@/lib/strategy";
 
 import { CONTACT_EMAIL } from "./contact-email";
 import { LEGAL_ENTITY, isLegalPlaceholder } from "./legal-entity";
 import { signalPage } from "./signal-page";
 import { getTeamMembers } from "./team";
+import { legalAgentPage } from "./legal-agent-page";
+import { financeAgentPage } from "./finance-agent-page";
+import { realEstateAgentPage } from "./real-estate-agent-page";
+import { commerceAgentPage } from "./commerce-agent-page";
 
 const DEFAULT_SITE_ORIGIN = "https://www.remparia.com";
 
@@ -39,7 +59,28 @@ export const SITE = {
     "Remparia déploie des agents métier supervisés chez les métiers spécialisés. L’humain garde la décision ; les données restent sous contrôle.",
   twitter: "@remparia",
   ogImage: "/4a7fe64c-880c-4c2d-b5ff-451c58be4fc0.png",
+  logo: "/logo-remparia-v3.png",
+  linkedIn: "https://www.linkedin.com/company/remparia",
 } as const;
+
+function seoLang(lang: Lang | Locale = "fr"): Lang {
+  return lang === "en" ? "en" : "fr";
+}
+
+function inLanguage(lang: Lang | Locale) {
+  return seoLang(lang) === "en" ? "en-US" : "fr-FR";
+}
+
+function orgId() {
+  return `${getSiteUrl()}/#organization`;
+}
+
+function logoImageObject() {
+  return {
+    "@type": "ImageObject" as const,
+    url: absoluteUrl(SITE.logo),
+  };
+}
 
 type PageSeoInput = {
   title: string;
@@ -48,6 +89,7 @@ type PageSeoInput = {
   image?: string;
   noIndex?: boolean;
   lang?: Lang | Locale;
+  ogType?: "website" | "article";
 };
 
 export function absoluteUrl(path = "/") {
@@ -79,6 +121,7 @@ export function createPageMetadata({
   image = SITE.ogImage,
   noIndex = false,
   lang = DEFAULT_LOCALE,
+  ogType = "website",
 }: PageSeoInput): Metadata {
   const locale = lang as Locale;
   const localizedPath = withLocale(locale, path);
@@ -92,9 +135,12 @@ export function createPageMetadata({
     alternates: {
       canonical: url,
       languages,
+      types: {
+        "text/plain": absoluteUrl("/llms.txt"),
+      },
     },
     openGraph: {
-      type: "website",
+      type: ogType,
       locale: locale === "en" ? SITE.localeAlternate : SITE.locale,
       alternateLocale:
         locale === "en" ? [SITE.locale] : [SITE.localeAlternate],
@@ -113,6 +159,8 @@ export function createPageMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: SITE.twitter,
+      creator: SITE.twitter,
       title: `${title} · ${SITE.name}`,
       description,
       images: [imageUrl],
@@ -153,13 +201,15 @@ function buildOrganizationJsonLd(lang: Lang = "fr") {
 
   return {
     "@type": "Organization",
-    "@id": `${getSiteUrl()}/#organization`,
+    "@id": orgId(),
     name: SITE.name,
     legalName,
     url: getSiteUrl(),
-    logo: absoluteUrl("/logo-remparia.png"),
+    logo: logoImageObject(),
+    image: absoluteUrl(SITE.ogImage),
     email: SITE.email,
     description: APROPOS[lang].sub,
+    sameAs: SOCIAL_LINKS.map((link) => link.href),
     founder: founders,
     employee: founders,
     knowsAbout: [
@@ -167,6 +217,8 @@ function buildOrganizationJsonLd(lang: Lang = "fr") {
       lang === "en" ? "Sovereign AI infrastructure" : "Infrastructure IA souveraine",
       lang === "en" ? "Data governance" : "Gouvernance des données",
       "SIGNAL",
+      "Remparia OS",
+      "ALLOW / REVIEW / BLOCK",
     ],
     ...(address
       ? {
@@ -199,16 +251,16 @@ export function organizationJsonLd() {
 }
 
 export function aboutPageJsonLd(lang: Lang = "fr") {
-  const locale = lang === "en" ? "en" : "fr";
+  const locale = seoLang(lang);
   const path = withLocale(locale, "/a-propos");
-  const isEn = lang === "en";
+  const isEn = locale === "en";
 
   return {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     name: isEn ? "About Remparia" : "À propos de Remparia",
     url: absoluteUrl(path),
-    inLanguage: isEn ? "en-US" : "fr-FR",
+    inLanguage: inLanguage(locale),
     description: APROPOS[lang].sub,
     mainEntity: buildOrganizationJsonLd(lang),
   };
@@ -221,11 +273,15 @@ export function websiteJsonLd() {
     name: SITE.name,
     url: getSiteUrl(),
     description: SITE.description,
-    inLanguage: ["fr-FR", "en"],
+    inLanguage: ["fr-FR", "en-US"],
     publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      logo: absoluteUrl("/logo-remparia.png"),
+      "@id": orgId(),
+    },
+    hasPart: {
+      "@type": "WebPage",
+      name: "llms.txt",
+      url: absoluteUrl("/llms.txt"),
+      encodingFormat: "text/plain",
     },
   };
 }
@@ -250,113 +306,15 @@ export function professionalServiceJsonLd() {
       "Infrastructure souveraine",
       "Adoption & transfert",
     ],
+    parentOrganization: { "@id": orgId() },
   };
 }
 
-export function servicesItemListJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Services Remparia",
-    itemListElement: SERVICE_SLUGS.map((slug, index) => {
-      const item = getService(slug, "fr");
-      return {
-        "@type": "ListItem",
-        position: index + 1,
-        name: item?.title ?? slug,
-        url: absoluteUrl(withLocale("fr", `/services/${slug}`)),
-        description: item?.desc,
-      };
-    }),
-  };
-}
-
-export function secteursItemListJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Secteurs Remparia",
-    itemListElement: SECTEUR_SLUGS.map((slug, index) => {
-      const item = getSecteur(slug, "fr");
-      return {
-        "@type": "ListItem",
-        position: index + 1,
-        name: item?.title ?? slug,
-        url: absoluteUrl(withLocale("fr", `/secteurs/${slug}`)),
-        description: item?.desc,
-      };
-    }),
-  };
-}
-
-export function signalArticleJsonLd(lang: Lang | Locale = "fr") {
-  const locale = lang === "en" ? "en" : "fr";
-  const path = withLocale(locale, "/signal");
-  const isEn = locale === "en";
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: isEn ? "SIGNAL — Remparia" : "SIGNAL — Remparia",
-    description: isEn
-      ? "Map where AI can run: discover use cases, score them, prioritize, then build the SIGNAL roadmap."
-      : "Cartographier où l’IA peut tourner : découvrir les cas, les scorer, prioriser, puis bâtir la roadmap SIGNAL.",
-    author: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: getSiteUrl(),
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      logo: {
-        "@type": "ImageObject",
-        url: absoluteUrl("/logo-remparia.png"),
-      },
-    },
-    mainEntityOfPage: absoluteUrl(path),
-    url: absoluteUrl(path),
-    inLanguage: isEn ? "en-US" : "fr-FR",
-  };
-}
-
-export function osArticleJsonLd(lang: Lang | Locale = "fr") {
-  const locale = lang === "en" ? "en" : "fr";
-  const path = withLocale(locale, "/solution");
-  const isEn = locale === "en";
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: isEn ? "Remparia OS" : "Remparia OS",
-    description: isEn
-      ? "Remparia OS is the control plane for agents, models, data and human decisions (ALLOW / REVIEW / BLOCK)."
-      : "Remparia OS est le control plane pour agents, modèles, données et décisions humaines (ALLOW / REVIEW / BLOCK).",
-    author: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: getSiteUrl(),
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      logo: {
-        "@type": "ImageObject",
-        url: absoluteUrl("/logo-remparia.png"),
-      },
-    },
-    mainEntityOfPage: absoluteUrl(path),
-    url: absoluteUrl(path),
-    inLanguage: isEn ? "en-US" : "fr-FR",
-  };
-}
-
-export function signalFaqJsonLd(lang: Lang | Locale = "fr") {
-  const { faq } = signalPage(lang === "en" ? "en" : "fr");
+export function faqJsonLd(items: readonly { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faq.items.map((item) => ({
+    mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: {
@@ -367,19 +325,250 @@ export function signalFaqJsonLd(lang: Lang | Locale = "fr") {
   };
 }
 
-export function contactPageJsonLd() {
+export function webPageJsonLd({
+  lang,
+  path,
+  name,
+  description,
+}: {
+  lang: Lang | Locale;
+  path: string;
+  name: string;
+  description: string;
+}) {
+  const locale = seoLang(lang);
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name,
+    description,
+    url: absoluteUrl(withLocale(locale, path)),
+    inLanguage: inLanguage(locale),
+    isPartOf: { "@id": orgId() },
+    publisher: { "@id": orgId() },
+  };
+}
+
+export function servicesItemListJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: locale === "en" ? "Remparia services" : "Services Remparia",
+    itemListElement: SERVICE_SLUGS.map((slug, index) => {
+      const item = getService(slug, locale);
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item?.title ?? slug,
+        url: absoluteUrl(withLocale(locale, `/services/${slug}`)),
+        description: item?.desc,
+      };
+    }),
+  };
+}
+
+export function secteursItemListJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: locale === "en" ? "Remparia industries" : "Secteurs Remparia",
+    itemListElement: SECTEUR_SLUGS.map((slug, index) => {
+      const item = getSecteur(slug, locale);
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item?.title ?? slug,
+        url: absoluteUrl(withLocale(locale, `/secteurs/${slug}`)),
+        description: item?.desc,
+      };
+    }),
+  };
+}
+
+export function casUsageItemListJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const copy = CAS_USAGE[locale];
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: copy.title,
+    description: copy.sub,
+    itemListElement: copy.items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.process,
+      description: item.withAgent,
+    })),
+  };
+}
+
+export function demarrerItemListJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const copy = DEMARRER[locale];
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: copy.title,
+    description: copy.sub,
+    itemListElement: copy.paths.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.title,
+      description: `${item.what} ${item.duration}. ${item.price}.`,
+    })),
+  };
+}
+
+export function signalArticleJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const path = withLocale(locale, "/signal");
+  const isEn = locale === "en";
+  const page = signalPage(locale);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: isEn ? "SIGNAL — Remparia" : "SIGNAL — Remparia",
+    description: page.sub,
+    author: {
+      "@id": orgId(),
+    },
+    publisher: {
+      "@id": orgId(),
+      name: SITE.name,
+      logo: logoImageObject(),
+    },
+    mainEntityOfPage: absoluteUrl(path),
+    url: absoluteUrl(path),
+    inLanguage: inLanguage(locale),
+  };
+}
+
+export function signalHowToJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const { journey } = signalPage(locale);
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: journey.title,
+    description: journey.sub,
+    totalTime: "P12W",
+    url: absoluteUrl(withLocale(locale, "/signal")),
+    inLanguage: inLanguage(locale),
+    step: journey.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: `${step.letter} — ${step.title}`,
+      text: step.desc,
+      url: `${absoluteUrl(withLocale(locale, "/signal"))}#protocol`,
+    })),
+  };
+}
+
+export function osSoftwareJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const path = withLocale(locale, "/solution");
+  const page = osPage(locale);
+  const isEn = locale === "en";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Remparia OS",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description: page.hero.sub,
+    url: absoluteUrl(path),
+    image: absoluteUrl(SITE.ogImage),
+    inLanguage: inLanguage(locale),
+    featureList: [
+      "ALLOW / REVIEW / BLOCK",
+      isEn ? "Agent identity" : "Identité agents",
+      isEn ? "Audit log" : "Journal d’audit",
+      isEn ? "Model routing" : "Routage des modèles",
+    ],
+    provider: { "@id": orgId() },
+    publisher: { "@id": orgId() },
+  };
+}
+
+/** @deprecated Use osSoftwareJsonLd. Kept as alias for existing imports. */
+export function osArticleJsonLd(lang: Lang | Locale = "fr") {
+  return osSoftwareJsonLd(lang);
+}
+
+export function studioServiceJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const page = studioPage(locale);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Remparia Studio",
+    description: page.sub,
+    provider: { "@id": orgId() },
+    areaServed: "FR",
+    url: absoluteUrl(withLocale(locale, "/studio")),
+    inLanguage: inLanguage(locale),
+  };
+}
+
+export function signalFaqJsonLd(lang: Lang | Locale = "fr") {
+  const { faq } = signalPage(seoLang(lang));
+  return faqJsonLd(faq.items);
+}
+
+export function homeFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(homePremium(seoLang(lang)).faq.items);
+}
+
+export function osFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(osPage(seoLang(lang)).faq.items);
+}
+
+export function studioFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(studioPage(seoLang(lang)).faq.items);
+}
+
+export function governanceFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(governancePage(seoLang(lang)).faq.items);
+}
+
+export function sovereigntyFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(sovereigntyPage(seoLang(lang)).faq.items);
+}
+
+export function legalPackFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(legalAgentPage(seoLang(lang)).faq.items);
+}
+
+export function financePackFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(financeAgentPage(seoLang(lang)).faq.items);
+}
+
+export function realEstatePackFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(realEstateAgentPage(seoLang(lang)).faq.items);
+}
+
+export function commercePackFaqJsonLd(lang: Lang | Locale = "fr") {
+  return faqJsonLd(commerceAgentPage(seoLang(lang)).faq.items);
+}
+
+export function contactPageJsonLd(lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const isEn = locale === "en";
   return {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contact Remparia",
-    url: absoluteUrl(withLocale("fr", "/contact")),
-    description:
-      "Contactez Remparia pour un diagnostic SIGNAL ou pour parler d’un cas d’usage agents.",
+    name: isEn ? "Contact Remparia" : "Contact Remparia",
+    url: absoluteUrl(withLocale(locale, "/contact")),
+    inLanguage: inLanguage(locale),
+    description: isEn
+      ? "Contact Remparia for a SIGNAL diagnostic or an agent use case."
+      : "Contactez Remparia pour un diagnostic SIGNAL ou pour parler d’un cas d’usage agents.",
     mainEntity: {
-      "@type": "Organization",
-      name: SITE.name,
-      email: SITE.email,
-      url: getSiteUrl(),
+      "@id": orgId(),
     },
   };
 }
@@ -395,13 +584,21 @@ export function breadcrumbJsonLd(
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: absoluteUrl(withLocale(lang as Locale, item.path)),
+      item: absoluteUrl(withLocale(seoLang(lang), item.path)),
     })),
   };
 }
 
+export function homeCrumb(lang: Lang | Locale = "fr") {
+  return {
+    name: seoLang(lang) === "en" ? "Home" : "Accueil",
+    path: "/",
+  };
+}
+
 export function serviceJsonLd(slug: string, lang: Lang | Locale = "fr") {
-  const item = getService(slug, lang === "en" ? "en" : "fr");
+  const locale = seoLang(lang);
+  const item = getService(slug, locale);
   if (!item) return null;
   return {
     "@context": "https://schema.org",
@@ -409,30 +606,21 @@ export function serviceJsonLd(slug: string, lang: Lang | Locale = "fr") {
     name: item.title,
     description: item.desc,
     provider: {
-      "@type": "Organization",
+      "@id": orgId(),
       name: SITE.name,
       url: getSiteUrl(),
     },
     areaServed: "FR",
-    url: absoluteUrl(withLocale(lang as Locale, `/services/${slug}`)),
+    url: absoluteUrl(withLocale(locale, `/services/${slug}`)),
+    inLanguage: inLanguage(locale),
   };
 }
 
-export function secteurFaqJsonLd(slug: string) {
-  const detail = getSecteurDetail(slug, "fr");
+export function secteurFaqJsonLd(slug: string, lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const detail = getSecteurDetail(slug, locale);
   if (!detail?.faqs.length) return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: detail.faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.a,
-      },
-    })),
-  };
+  return faqJsonLd(detail.faqs);
 }
 
 export function getAllContentPaths() {
@@ -469,26 +657,69 @@ export function getAllContentPaths() {
   );
 }
 
-export function secteurMeta(slug: string) {
-  const item = getSecteur(slug, "fr");
-  const detail = getSecteurDetail(slug, "fr");
+export function sitemapPriority(logical: string): number {
+  if (logical === "/") return 1;
+  if (
+    logical === "/demarrer" ||
+    logical === "/solution" ||
+    logical === "/studio" ||
+    logical === "/signal"
+  ) {
+    return 0.9;
+  }
+  if (logical.startsWith("/secteurs/")) {
+    const slug = logical.slice("/secteurs/".length);
+    return isHeartSecteur(slug) ? 0.8 : 0.6;
+  }
+  if (
+    logical === "/cas-d-usage" ||
+    logical === "/pour-qui" ||
+    logical === "/services" ||
+    logical === "/secteurs" ||
+    logical === "/contact" ||
+    logical === "/governance" ||
+    logical === "/sovereignty" ||
+    logical === "/a-propos" ||
+    logical.startsWith("/solutions/") ||
+    logical.startsWith("/services/")
+  ) {
+    return 0.7;
+  }
+  if (
+    logical === "/mentions-legales" ||
+    logical === "/confidentialite" ||
+    logical === "/cookies"
+  ) {
+    return 0.4;
+  }
+  return 0.6;
+}
+
+export function secteurMeta(slug: string, lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const item = getSecteur(slug, locale);
+  const detail = getSecteurDetail(slug, locale);
+  const fallback =
+    locale === "en"
+      ? "Remparia business agents for this profession: SIGNAL, Studio, OS, hosting in France."
+      : "Agents métier Remparia pour ce secteur : SIGNAL, Studio, OS, hébergement France.";
   return {
-    title: detail?.heroH ?? item?.title ?? "Secteur",
-    description:
-      detail?.heroP ??
-      item?.desc ??
-      "Agents métier Remparia pour ce secteur : SIGNAL, Studio, OS, hébergement France.",
+    title: detail?.heroH ?? item?.title ?? (locale === "en" ? "Industry" : "Secteur"),
+    description: detail?.heroP ?? item?.desc ?? fallback,
     image: getSecteurImage(slug),
   };
 }
 
-export function serviceMeta(slug: string) {
-  const item = getService(slug, "fr");
+export function serviceMeta(slug: string, lang: Lang | Locale = "fr") {
+  const locale = seoLang(lang);
+  const item = getService(slug, locale);
+  const fallback =
+    locale === "en"
+      ? "Remparia service: from SIGNAL framing to production."
+      : "Service Remparia : du cadrage SIGNAL au déploiement en production.";
   return {
-    title: item?.title ?? "Service",
-    description:
-      item?.desc ??
-      "Service Remparia : du cadrage SIGNAL au déploiement en production.",
+    title: item?.title ?? (locale === "en" ? "Service" : "Service"),
+    description: item?.desc ?? fallback,
     image: getServiceImage(slug),
   };
 }

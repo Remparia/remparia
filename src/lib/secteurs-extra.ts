@@ -305,7 +305,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour avocats. Qualification dossier, confidentialité, conflits.",
       heroH: "Agents pour les cabinets d'avocats",
       heroP:
-        "Qualifier les dossiers, accélérer le documentaire et filtrer le bruit, sous secret professionnel et gouvernance claire.",
+        "Qualifier les dossiers et accélérer le documentaire, avec revue humaine avant envoi. Secret professionnel, traçabilité et aucun traitement opaque sur le sensible.",
       pains: [
         {
           title: "Prospects perdus pendant les audiences",
@@ -344,7 +344,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Le secret professionnel est-il préservé ?",
-          a: "Oui. Cloisonnement, minimisation, logs, validation humaine. Aucune autonomie opaque sur le sensible.",
+          a: "Oui. Infra souveraine ou OS Remparia : cloisonnement, minimisation, logs. REVIEW obligatoire sur dossier sensible, BLOCK sur export non validé.",
         },
         {
           q: "Pouvez-vous détecter les conflits d'intérêts ?",
@@ -357,7 +357,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For lawyers. Matter qualification, confidentiality, conflicts.",
       heroH: "Agents for law firms",
       heroP:
-        "Qualify matters, speed document work and filter noise, under professional secrecy and clear governance.",
+        "Qualify matters and speed document work, with human review before send. Professional secrecy, traceability and no opaque processing on sensitive matter.",
       pains: [
         {
           title: "Prospects lost during hearings",
@@ -396,7 +396,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Is professional secrecy preserved?",
-          a: "Yes. Isolation, minimization, logs, human validation. No opaque autonomy on sensitive matter.",
+          a: "Yes. Sovereign infra or Remparia OS: isolation, minimization, logs. Mandatory REVIEW on sensitive matter, BLOCK on unvalidated export.",
         },
         {
           q: "Can you detect conflicts of interest?",
@@ -1276,7 +1276,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour études notariales. Actes, pièces, délais, confidentialité.",
       heroH: "Agents pour études notariales",
       heroP:
-        "Accélérer la collecte de pièces et la préparation d'actes, sous confidentialité et traçabilité strictes.",
+        "Parcours pièces gouverné : l'agent relance et contrôle la complétude, le clerc ou le notaire valide avant acte. Confidentialité et piste d'audit natives.",
       pains: [
         {
           title: "Pièces incomplètes qui retardent les actes",
@@ -1314,7 +1314,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Compatible avec le secret professionnel ?",
-          a: "Oui : architecture, droits et validation humaine conçus pour cet impératif.",
+          a: "Oui : hébergement souverain, droits par dossier et REVIEW systématique avant toute pièce transmise à un tiers.",
         },
         {
           q: "L'agent rédige-t-elle l'acte seule ?",
@@ -1327,7 +1327,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For notary offices. Deeds, documents, deadlines, confidentiality.",
       heroH: "Agents for notary offices",
       heroP:
-        "Speed document collection and deed preparation, under strict confidentiality and traceability.",
+        "Governed document pathway: the agent chases and checks completeness, clerk or notary validates before deed. Confidentiality and native audit trail.",
       pains: [
         {
           title: "Incomplete documents delay deeds",
@@ -1365,7 +1365,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Compatible with professional secrecy?",
-          a: "Yes: architecture, rights and human validation designed for that imperative.",
+          a: "Yes: sovereign hosting, file-level rights and systematic REVIEW before any document goes to a third party.",
         },
         {
           q: "Does the agent draft the deed alone?",
@@ -1419,7 +1419,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Les dossiers clients sont-ils isolés ?",
-          a: "Oui. Cloisonnement et droits font partie du design.",
+          a: "Oui. Cloisonnement multi-clients dans l'OS, droits par dossier et logs d'accès. Aucune donnée client dans un outil grand public.",
         },
         {
           q: "Remplace le collaborateur ?",
@@ -1470,7 +1470,7 @@ const EXTRAS: ExtraInput[] = [
       faqs: [
         {
           q: "Are client files isolated?",
-          a: "Yes. Isolation and rights are part of the design.",
+          a: "Yes. Multi-client isolation in the OS, file-level rights and access logs. No client data in consumer tools.",
         },
         {
           q: "Does it replace staff?",
@@ -1591,7 +1591,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "Pour courtiers. Qualification leads, dossiers, conformité.",
       heroH: "Agents pour courtiers en assurance",
       heroP:
-        "Face aux demandes incomplètes et aux pièces dispersées, l'agent prépare le dossier ; le courtier garde le devoir de conseil et la recommandation.",
+        "Demandes incomplètes, pièces dispersées : l'agent qualifie et prépare le dossier avec traçabilité DDA ; le courtier valide la recommandation.",
       pains: [
         {
           title: "Leads mal qualifiés",
@@ -1603,7 +1603,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Pression conformité",
-          desc: "Traçabilité et devoir de conseil à prouver.",
+          desc: "DDA exige des preuves : conseil documenté, pièces complètes, validation avant émission.",
         },
       ],
       deliverables: [
@@ -1642,7 +1642,7 @@ const EXTRAS: ExtraInput[] = [
       desc: "For brokers. Lead qualification, files, compliance.",
       heroH: "Agents for insurance brokers",
       heroP:
-        "With incomplete requests and scattered documents, the agent prepares the file; the broker keeps the duty of advice and recommendation.",
+        "Incomplete requests, scattered documents: the agent qualifies and prepares the file with conduct-rule traceability; the broker validates the recommendation.",
       pains: [
         {
           title: "Poorly qualified leads",
@@ -1654,7 +1654,7 @@ const EXTRAS: ExtraInput[] = [
         },
         {
           title: "Compliance pressure",
-          desc: "Traceability and duty-to-advise must be proven.",
+          desc: "Conduct rules require evidence: documented advice, complete files, validation before issuance.",
         },
       ],
       deliverables: [

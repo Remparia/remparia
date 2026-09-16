@@ -300,9 +300,9 @@ export const BRAND = {
     visionP:
       "Dans les métiers où chaque décision engage une responsabilité, l'automatisation ne doit pas être une boîte noire qui remplace le jugement. Elle doit être une infrastructure de confiance : supervisée, traçable et utile.",
     missionTag: "NOTRE MISSION",
-    missionH: "Transformer le répétitif en temps utile.",
+    missionH: "Tourner le répétitif en temps utile.",
     missionP:
-      "Nous transformons les processus répétitifs des métiers spécialisés en agents supervisés, intégrés aux outils existants et évalués sur des résultats définis ensemble.",
+      "Nous convertissons les processus répétitifs des métiers spécialisés en agents supervisés, intégrés aux outils existants et évalués sur des résultats définis ensemble.",
     valuesTag: "NOS VALEURS",
     valuesH: "Quatre principes qui ne se négocient pas.",
     values: [
@@ -372,7 +372,7 @@ export const BRAND = {
 export const HOME = {
   fr: {
     eyebrow: "AGENTS POUR MÉTIERS SPÉCIALISÉS",
-    h1a: "Nous transformons",
+    h1a: "Nous convertissons",
     h1b: "l’IA en avantage concurrentiel.",
     protocolAria: "Protocole SIGNAL",
     introSkip: "Passer",
@@ -442,7 +442,7 @@ export const HOME = {
     method: "DU TERRAIN AUX GAINS",
     methodH: "SIGNAL : six étapes, six livrables.",
     methodTeaser:
-      "Du terrain aux gains mesurés. Livrables, gouvernance et délais à chaque étape. Le détail sur la page Méthode.",
+      "Du terrain aux gains mesurés. Livrables, gouvernance et délais à chaque étape. Le détail sur la page SIGNAL.",
     methodCta: "Explorer SIGNAL",
     position: "LE POSITIONNEMENT",
     positionH: "Un partenaire qui livre : terrain, agents et transfert.",
@@ -526,7 +526,7 @@ export const HOME = {
     method: "FROM FIELDWORK TO GAINS",
     methodH: "SIGNAL: six stages, six deliverables.",
     methodTeaser:
-      "From fieldwork to measured outcomes. Deliverables, governance and timelines at every stage. Full detail on the Method page.",
+      "From fieldwork to measured outcomes. Deliverables, governance and timelines at every stage. Full detail on the SIGNAL page.",
     methodCta: "Explore SIGNAL",
     position: "POSITIONING",
     positionH: "A partner that ships: fieldwork, agents and transfer.",
@@ -663,29 +663,35 @@ export const SERVICES = {
         slug: "strategie-ia",
         tag: "01",
         title: "Diagnostic & gouvernance",
-        desc: "Observer le terrain, prioriser les processus à fort impact et poser le cadre avant d'automatiser.",
+        desc: "Immersion terrain, cartographie des processus à fort impact, cadre données / risques / supervision. Livrable SIGNAL avant tout build Studio.",
         promise:
-          "Savoir où l’IA compte vraiment, avant de construire.",
+          "Savoir où l’IA compte vraiment, avant d’écrire une ligne d’agent.",
         deliverable:
-          "Cartographie classée, cadre de gouvernance esquissé, feuille de route avec indicateurs.",
+          "Carte classée ALLOW / REVIEW / BLOCK, cadre de gouvernance esquissé, feuille de route avec indicateurs et horizon 30/60/90 jours.",
         platformHref: "/signal",
-        platformLabel: "Méthode SIGNAL",
+        platformLabel: "SIGNAL",
         points: [
-          "Immersion dans les processus",
-          "Priorisation ROI / faisabilité",
-          "Cadre données, risques et supervision",
-          "Feuille de route avec indicateurs",
+          "Immersion dans les processus réels",
+          "Priorisation impact / faisabilité / risque",
+          "Cadre données, stops humains et supervision",
+          "Feuille de route avec indicateurs mesurables",
         ],
+        ctaTag: "SIGNAL",
+        ctaH: "Cadrer le cas avant le premier agent.",
+        ctaP:
+          "Une session SIGNAL : terrain, priorités, gouvernance. Ensuite on décide du build Studio.",
+        ctaHref: "/signal",
+        ctaLabel: "Explorer SIGNAL",
       },
       {
         slug: "agents-metier",
         tag: "02",
         title: "Agents métier",
-        desc: "Des agents intégrés à vos outils pour porter la collecte, les contrôles, les relances et la préparation.",
+        desc: "Construction Studio : agents branchés sur CRM, ERP, messagerie et documents. Publiés dans Remparia OS avec stops humains et journal.",
         promise:
-          "Un premier agent qui tourne dans vos outils, sous vos règles.",
+          "Un premier agent qui tourne dans vos outils, sous vos règles, pas dans un bac à sable.",
         deliverable:
-          "Agent en production supervisée, documenté, avec stops humains et indicateurs.",
+          "Agent en production supervisée, documenté, avec ALLOW / REVIEW / BLOCK, indicateurs et plan d’escalade.",
         platformHref: "/studio",
         platformLabel: "Studio",
         points: [
@@ -694,34 +700,46 @@ export const SERVICES = {
           "Traçabilité des actions et des sources",
           "Mesure du temps et des délais",
         ],
+        ctaTag: "STUDIO",
+        ctaH: "Composer le premier agent métier.",
+        ctaP:
+          "On part d’un cas SIGNAL priorisé. On assemble dans Studio. On publie dans Remparia OS.",
+        ctaHref: "/demarrer",
+        ctaLabel: "Parler Studio",
       },
       {
         slug: "infra-souveraine",
         tag: "03",
         title: "Socle souverain & routage",
-        desc: "La donnée sensible reste dans le périmètre défini. Le modèle est choisi selon la tâche et la sensibilité.",
+        desc: "Même Remparia OS, trois périmètres : cloud Remparia, cloud souverain, on-premise. Routage modèle selon sensibilité ; politiques inchangées.",
         promise:
-          "Même OS, même gouvernance. Périmètre de déploiement choisi.",
+          "Choisir où ça tourne sans reécrire agents ni gouvernance.",
         deliverable:
-          "Architecture de déploiement (cloud Remparia, souverain ou on-prem) et politiques inchangées.",
+          "Architecture de déploiement validée, politiques de routage, droits d’accès, logs et plan de bascule.",
         platformHref: "/sovereignty",
         platformLabel: "Souveraineté",
         points: [
           "Hébergement France, on-prem ou hybride",
           "RAG sur sources autorisées",
           "Routage agnostique par sensibilité",
-          "Droits d'accès, logs et audit",
+          "Droits d’accès, logs et audit",
         ],
+        ctaTag: "SOUVERAINETÉ",
+        ctaH: "Choisir le périmètre sans perdre le contrôle.",
+        ctaP:
+          "On cadre le mode de déploiement adapté à votre risque. Agents et politiques restent.",
+        ctaHref: "/demarrer",
+        ctaLabel: "Choisir le périmètre",
       },
       {
         slug: "equipes-embarquees",
         tag: "04",
         title: "Adoption & transfert",
-        desc: "Un agent utile doit être adopté. Nous embarquons les équipes et transférons les compétences nécessaires.",
+        desc: "Formation sur les usages réels, déploiement progressif, documentation et revue des gains. Transfert sans boîte noire.",
         promise:
-          "Vos équipes pilotent sans dépendre d’une boîte noire.",
+          "Vos équipes pilotent règles et indicateurs sans dépendre d’un prestataire opaque.",
         deliverable:
-          "Formation, documentation, règles versionnées et revue des gains.",
+          "Sessions de formation, runbooks, règles versionnées, revue 30/60/90 jours des gains.",
         platformHref: "/solution",
         platformLabel: "Remparia OS",
         points: [
@@ -730,6 +748,12 @@ export const SERVICES = {
           "Documentation et transfert",
           "Suivi des gains et amélioration",
         ],
+        ctaTag: "ADOPTION",
+        ctaH: "Embarquer les équipes qui feront vivre l’OS.",
+        ctaP:
+          "Formation, transfert et revue des gains. L’autonomie reste le critère de réussite.",
+        ctaHref: "/demarrer",
+        ctaLabel: "Planifier le transfert",
       },
     ],
   },
@@ -827,27 +851,34 @@ export const SERVICES = {
         slug: "strategie-ia",
         tag: "01",
         title: "Diagnostic & governance",
-        desc: "Observe fieldwork, prioritize high-impact workflows and set the frame before automating.",
-        promise: "Know where AI actually matters, before you build.",
+        desc: "Field immersion, map of high-impact workflows, data / risk / supervision frame. SIGNAL deliverable before any Studio build.",
+        promise: "Know where AI actually matters, before writing an agent line.",
         deliverable:
-          "Ranked map, sketched governance frame, roadmap with indicators.",
+          "Ranked ALLOW / REVIEW / BLOCK map, sketched governance frame, roadmap with indicators and a 30/60/90-day horizon.",
         platformHref: "/signal",
-        platformLabel: "SIGNAL method",
+        platformLabel: "SIGNAL",
         points: [
-          "Workflow immersion",
-          "ROI / feasibility prioritization",
-          "Data, risk and supervision frame",
-          "Roadmap with agreed indicators",
+          "Immersion in real workflows",
+          "Impact / feasibility / risk prioritization",
+          "Data frame, human stops and supervision",
+          "Roadmap with measurable indicators",
         ],
+        ctaTag: "SIGNAL",
+        ctaH: "Frame the case before the first agent.",
+        ctaP:
+          "One SIGNAL session: fieldwork, priorities, governance. Then we decide the Studio build.",
+        ctaHref: "/signal",
+        ctaLabel: "Explore SIGNAL",
       },
       {
         slug: "agents-metier",
         tag: "02",
         title: "Business agents",
-        desc: "Agents embedded in your tools to carry collection, checks, follow-ups and preparation.",
-        promise: "A first agent running in your tools, under your rules.",
+        desc: "Studio build: agents wired to CRM, ERP, messaging and documents. Published to Remparia OS with human stops and a log.",
+        promise:
+          "A first agent running in your tools, under your rules, not in a sandbox.",
         deliverable:
-          "Agent in supervised production, documented, with human stops and indicators.",
+          "Agent in supervised production, documented, with ALLOW / REVIEW / BLOCK, indicators and escalation plan.",
         platformHref: "/studio",
         platformLabel: "Studio",
         points: [
@@ -856,15 +887,21 @@ export const SERVICES = {
           "Action and source traceability",
           "Time and cycle measurement",
         ],
+        ctaTag: "STUDIO",
+        ctaH: "Compose the first business agent.",
+        ctaP:
+          "Start from a prioritized SIGNAL case. Assemble in Studio. Publish to Remparia OS.",
+        ctaHref: "/demarrer",
+        ctaLabel: "Talk about Studio",
       },
       {
         slug: "infra-souveraine",
         tag: "03",
         title: "Sovereign foundation & routing",
-        desc: "Sensitive data stays inside the agreed perimeter. Models are selected by task and sensitivity.",
-        promise: "Same OS, same governance. Chosen deployment perimeter.",
+        desc: "Same Remparia OS, three perimeters: Remparia Cloud, sovereign cloud, on-premise. Model routing by sensitivity; policies unchanged.",
+        promise: "Choose where it runs without rewriting agents or governance.",
         deliverable:
-          "Deployment architecture (Remparia Cloud, sovereign or on-prem) with unchanged policies.",
+          "Validated deployment architecture, routing policies, access rights, logs and cutover plan.",
         platformHref: "/sovereignty",
         platformLabel: "Sovereignty",
         points: [
@@ -873,15 +910,22 @@ export const SERVICES = {
           "Model-agnostic sensitivity routing",
           "Access rights, logs and audit",
         ],
+        ctaTag: "SOVEREIGNTY",
+        ctaH: "Choose the perimeter without losing control.",
+        ctaP:
+          "We frame the deployment mode that matches your risk. Agents and policies stay.",
+        ctaHref: "/demarrer",
+        ctaLabel: "Choose the perimeter",
       },
       {
         slug: "equipes-embarquees",
         tag: "04",
         title: "Adoption & transfer",
-        desc: "A useful agent must be adopted. We onboard teams and transfer the skills they need.",
-        promise: "Your teams operate without a black-box dependency.",
+        desc: "Training on real uses, progressive rollout, documentation and gain reviews. Transfer without a black box.",
+        promise:
+          "Your teams operate rules and indicators without depending on an opaque vendor.",
         deliverable:
-          "Training, documentation, versioned rules and outcome review.",
+          "Training sessions, runbooks, versioned rules, 30/60/90-day gain reviews.",
         platformHref: "/solution",
         platformLabel: "Remparia OS",
         points: [
@@ -890,6 +934,12 @@ export const SERVICES = {
           "Documentation and transfer",
           "Outcome tracking and improvement",
         ],
+        ctaTag: "ADOPTION",
+        ctaH: "Onboard the teams that will run the OS.",
+        ctaP:
+          "Training, transfer and gain reviews. Autonomy is the success criterion.",
+        ctaHref: "/demarrer",
+        ctaLabel: "Plan the transfer",
       },
     ],
   },
@@ -1325,7 +1375,7 @@ export const APROPOS = {
       {
         tag: "[ 01 ] FORMATION",
         title: "Ils expliquent",
-        desc: "Excellents pour comprendre les agents. Mais la formation seule ne transforme pas vos opérations.",
+        desc: "Excellents pour comprendre les agents. Mais la formation seule ne fait pas tourner vos opérations.",
         highlight: false,
       },
       {
@@ -1399,7 +1449,7 @@ export const APROPOS = {
       {
         tag: "[ 01 ] TRAINING",
         title: "They explain",
-        desc: "Great for understanding agents. But training alone won't transform operations.",
+        desc: "Great for understanding agents. But training alone won't run your operations.",
         highlight: false,
       },
       {

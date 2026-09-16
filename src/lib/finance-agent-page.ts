@@ -179,6 +179,29 @@ const fr: PackRichPageCopy = {
       "Démo extract et trajectoire",
     ],
   },
+  faq: {
+    eyebrow: "09 / FAQ",
+    title: "Questions fréquentes",
+    sub: "Contrôles assistés, décisions humaines, auditabilité.",
+    items: [
+      {
+        q: "L’agent tranche-t-il un seuil de risque ?",
+        a: "Non. Il prépare, contrôle et alerte. Les seuils et la décision restent humains, journalisés dans Remparia OS.",
+      },
+      {
+        q: "Par où commence-t-on ?",
+        a: "SIGNAL cadre les contrôles prioritaires, les systèmes et les stops. Studio compose ; l’OS publie sous gouvernance.",
+      },
+      {
+        q: "Quels systèmes branchez-vous ?",
+        a: "Outils KYC, reporting, core banking ou ERP selon le périmètre. Les connecteurs sont listés avant le pilote.",
+      },
+      {
+        q: "Comment prouve-t-on la conformité ?",
+        a: "Journal d’actions, sources citées, ALLOW / REVIEW / BLOCK. L’audit lit ce qui s’est passé, pas une promesse slide.",
+      },
+    ],
+  },
   agentsHeading: "Fiches agents Remparia — déclencheur, livrable, stop humain",
   sectorLinks: [
     { label: "Finance & assurance", href: "/secteurs/finance-assurance" },
@@ -363,6 +386,29 @@ const en: PackRichPageCopy = {
       "Workshop risk / finance / IT",
       "Control map and KPIs",
       "Extract demo and path",
+    ],
+  },
+  faq: {
+    eyebrow: "09 / FAQ",
+    title: "Frequently asked questions",
+    sub: "Assisted controls, human decisions, auditability.",
+    items: [
+      {
+        q: "Does the agent decide a risk threshold?",
+        a: "No. It prepares, checks and alerts. Thresholds and decisions stay human, logged in Remparia OS.",
+      },
+      {
+        q: "Where do we start?",
+        a: "SIGNAL frames priority controls, systems and stops. Studio composes; the OS publishes under governance.",
+      },
+      {
+        q: "Which systems do you wire?",
+        a: "KYC tools, reporting, core banking or ERP depending on scope. Connectors are listed before the pilot.",
+      },
+      {
+        q: "How do you prove compliance?",
+        a: "Action log, cited sources, ALLOW / REVIEW / BLOCK. Audit reads what happened, not a slide promise.",
+      },
     ],
   },
   agentsHeading: "Remparia agent cards — trigger, deliverable, human stop",

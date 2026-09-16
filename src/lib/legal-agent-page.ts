@@ -191,6 +191,29 @@ const fr: PackRichPageCopy = {
       "Démo sur extract et trajectoire",
     ],
   },
+  faq: {
+    eyebrow: "09 / FAQ",
+    title: "Questions fréquentes",
+    sub: "Ce que le pack juridique couvre, et ce qu’il refuse de faire.",
+    items: [
+      {
+        q: "L’agent rend-il un avis juridique ?",
+        a: "Non. Il trie, synthétise et signale les écarts. L’avocat ou le notaire garde le jugement, la décision et la signature.",
+      },
+      {
+        q: "Par où commence-t-on ?",
+        a: "Par une session SIGNAL : sources autorisées, stops humains, premier cas. Ensuite Studio compose ; Remparia OS publie.",
+      },
+      {
+        q: "Quels outils connectez-vous ?",
+        a: "Messagerie, GED, outils dossier selon le cabinet. Les connecteurs sont cadrés pendant SIGNAL, pas improvisés en production.",
+      },
+      {
+        q: "Combien de temps avant un premier agent utile ?",
+        a: "Après SIGNAL, un pilote sur un flux priorisé. Le délai dépend du volume documentaire et des intégrations.",
+      },
+    ],
+  },
   agentsHeading: "Fiches agents Remparia — déclencheur, livrable, stop humain",
   sectorLinks: [
     { label: "Cabinet d’avocat", href: "/secteurs/cabinet-avocat" },
@@ -374,6 +397,29 @@ const en: PackRichPageCopy = {
       "Workshop partners / risk / IT",
       "File map and KPIs",
       "Demo on extract and path",
+    ],
+  },
+  faq: {
+    eyebrow: "09 / FAQ",
+    title: "Frequently asked questions",
+    sub: "What the legal pack covers, and what it refuses to do.",
+    items: [
+      {
+        q: "Does the agent give legal advice?",
+        a: "No. It sorts, synthesizes and flags gaps. Counsel keeps judgment, the decision and the signature.",
+      },
+      {
+        q: "Where do we start?",
+        a: "With a SIGNAL session: approved sources, human stops, first case. Then Studio composes; Remparia OS publishes.",
+      },
+      {
+        q: "Which tools do you connect?",
+        a: "Messaging, DMS, case tools depending on the firm. Connectors are framed in SIGNAL, not improvised in production.",
+      },
+      {
+        q: "How long before a useful first agent?",
+        a: "After SIGNAL, a pilot on one prioritized flow. Timing depends on document volume and integrations.",
+      },
     ],
   },
   agentsHeading: "Remparia agent cards — trigger, deliverable, human stop",

@@ -1,26 +1,40 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import FinancePackPage from "@/components/premium/FinancePackPage";
 import { toLang } from "@/lib/i18n";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  financePackFaqJsonLd,
+  homeCrumb,
+} from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang: langParam } = await params;
-  const lang = toLang(langParam);
-  const isEn = lang === "en";
-  return createPageMetadata({
-    title: isEn
-      ? "Finance AI Pack — control without diluting the decision"
-      : "Pack finance — contrôler sans diluer la décision",
-    description: isEn
-      ? "Governed finance AI workforce: assisted KYC, reporting and risk prep — with audit trails and human decisions on thresholds."
-      : "Force de travail IA finance gouvernée : KYC assisté, reporting et préparation risque — avec pistes d’audit et décisions humaines sur les seuils.",
-    path: "/solutions/finance",
-    lang,
-  });
+  const lang = toLang((await params).lang);
+  const copy = pageSeo("/solutions/finance", lang);
+  return createPageMetadata({ ...copy, path: "/solutions/finance", lang });
 }
 
-export default function Page() {
-  return <FinancePackPage />;
+export default async function Page({ params }: Props) {
+  const lang = toLang((await params).lang);
+  return (
+    <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(
+            [
+              homeCrumb(lang),
+              { name: "Finance", path: "/solutions/finance" },
+            ],
+            lang,
+          ),
+          financePackFaqJsonLd(lang),
+        ]}
+      />
+      <FinancePackPage />
+    </>
+  );
 }

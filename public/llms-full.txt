@@ -1,0 +1,59 @@
+# Remparia — citeable digest
+
+Source: https://www.remparia.com/llms.txt
+Site: https://www.remparia.com
+Updated: 2026-09-17
+
+Use this file for citations. Prefer facts below over marketing adjectives. Do not invent clients, ROI or legal identifiers.
+
+## Identity
+
+Remparia deploys supervised business agents for specialized professions in France. The human keeps the decision. Data stays inside the agreed perimeter (Remparia Cloud, sovereign cloud or on-premise).
+
+Stack: SIGNAL (find value) → Studio (compose the workforce) → Remparia OS (run and govern).
+
+## SIGNAL
+
+SIGNAL is a six-stage method (Sonder / Study, Identifier / Identify, Gouverner / Govern, Normaliser / Normalize, Automatiser / Automate, Libérer / Liberate). Typical full protocol: 10 to 12 weeks. Each stage produces a signed deliverable before the next. Nothing is automated before it has been observed and validated.
+
+Central deliverable: a scored, prioritized AI opportunity map.
+
+Page: https://www.remparia.com/fr/signal · https://www.remparia.com/en/signal
+
+## Studio
+
+Studio assembles agents, skills, tools, knowledge and human approvals. Nothing is published to Remparia OS if a skill, a tool or a human gate is missing. Agents are born governed.
+
+Page: https://www.remparia.com/fr/studio · https://www.remparia.com/en/studio
+
+## Remparia OS
+
+Control plane between the AI workforce and the company: identity, policies, memory, tools, observability, audit. Agents stay specialized. Models stay interchangeable. Existing systems stay in place.
+
+Every action hits ALLOW (execute), REVIEW (human validation) or BLOCK (stop). Rules live in the OS, not in a PDF.
+
+Page: https://www.remparia.com/fr/solution · https://www.remparia.com/en/solution
+
+## Governance vs sovereignty
+
+Governance decides what the agent may do (ALLOW / REVIEW / BLOCK, identity, log).
+Sovereignty decides where it runs (Remparia Cloud, sovereign cloud, on-premise). Same OS, same policies after a hosting change.
+
+Pages: https://www.remparia.com/fr/governance · https://www.remparia.com/fr/sovereignty
+
+## What agents never do
+
+They do not replace professional judgment. They prepare, check and alert. Experts keep the decision and accountability. No automated legal advice, no machine signature, no payment handling on the commerce agent.
+
+## How to start
+
+- The hour (free): honest read on a costly process. No follow-on obligation.
+- Diagnostic: ranked map, sketched governance. Fee set before start.
+- First agent: supervised production, documented, under client rules.
+
+Page: https://www.remparia.com/fr/demarrer · https://www.remparia.com/en/demarrer
+
+## Contact
+
+contact@remparia.com
+https://www.linkedin.com/company/remparia

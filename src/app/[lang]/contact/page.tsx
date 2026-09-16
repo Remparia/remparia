@@ -2,28 +2,35 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import ContactPage from "@/components/pages/ContactPage";
 import { toLang } from "@/lib/i18n";
-import { contactPageJsonLd, createPageMetadata } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  contactPageJsonLd,
+  createPageMetadata,
+  homeCrumb,
+} from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang: langParam } = await params;
-  const lang = toLang(langParam);
-  const isEn = lang === "en";
-  return createPageMetadata({
-    title: "Contact",
-    description: isEn
-      ? "Bring Remparia the workflow costing your experts time. Frame repetitive work, data constraints and measurable outcomes with a partner."
-      : "Présentez à Remparia le processus qui coûte du temps à vos experts. Cadrez le répétitif, les données et les gains avec un associé.",
-    path: "/contact",
-    lang,
-  });
+  const lang = toLang((await params).lang);
+  const copy = pageSeo("/contact", lang);
+  return createPageMetadata({ ...copy, path: "/contact", lang });
 }
 
-export default function Page() {
+export default async function Page({ params }: Props) {
+  const lang = toLang((await params).lang);
   return (
     <>
-      <JsonLd data={contactPageJsonLd()} />
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(
+            [homeCrumb(lang), { name: "Contact", path: "/contact" }],
+            lang,
+          ),
+          contactPageJsonLd(lang),
+        ]}
+      />
       <ContactPage />
     </>
   );

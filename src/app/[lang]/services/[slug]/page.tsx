@@ -6,6 +6,7 @@ import { toLang } from "@/lib/i18n";
 import {
   breadcrumbJsonLd,
   createPageMetadata,
+  homeCrumb,
   serviceJsonLd,
   serviceMeta,
 } from "@/lib/seo";
@@ -19,7 +20,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, lang: langParam } = await params;
   const lang = toLang(langParam);
-  const meta = serviceMeta(slug);
+  const meta = serviceMeta(slug, lang);
   return createPageMetadata({
     title: meta.title,
     description: meta.description,
@@ -32,12 +33,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug, lang: langParam } = await params;
   const lang = toLang(langParam);
-  const meta = serviceMeta(slug);
-  const home = lang === "en" ? "Home" : "Accueil";
+  const meta = serviceMeta(slug, lang);
   const jsonLd = [
     breadcrumbJsonLd(
       [
-        { name: home, path: "/" },
+        homeCrumb(lang),
         { name: "Services", path: "/services" },
         { name: meta.title, path: `/services/${slug}` },
       ],

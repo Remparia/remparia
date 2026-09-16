@@ -1,41 +1,77 @@
 # Remparia
 
-> Remparia helps specialized professions deploy supervised business agents: measurable time returned, human decisions preserved, data under control.
+> Remparia deploys supervised business agents for specialized professions. Humans keep the decision. Data stays under control.
 
-Remparia is a French operator partner for regulated and trust-based professions (legal, finance, health, notarial, consulting). We use the SIGNAL protocol — six stages from fieldwork to production — to integrate agents into existing tools without black-box dependency.
+Remparia is a French operator partner for regulated and trust-based professions (legal, finance, notarial, accounting, consulting, commerce, real estate). Work follows SIGNAL → Studio → Remparia OS. Every agent action hits ALLOW, REVIEW or BLOCK.
 
 ## Agent-readable site view
 
-Append `?view=agent` to any public page URL to switch from the human UI to a Markdown source view optimized for LLMs and agent crawlers (toggle HUMAN | AGENT on the page).
+Append `?view=agent` to any public page URL to switch from the human UI to a Markdown source view (toggle HUMAN | AGENT on the page).
 
 Example: https://www.remparia.com/fr?view=agent
 
-## Key pages
+Longer citeable digest: https://www.remparia.com/llms-full.txt
 
-- Home (FR): https://www.remparia.com/fr
-- Home (EN): https://www.remparia.com/en
-- Remparia OS: https://www.remparia.com/fr/solution
-- SIGNAL method: https://www.remparia.com/fr/signal
-- Services: https://www.remparia.com/fr/services
-- Who it is for: https://www.remparia.com/fr/cas-d-usage
-- Use cases: https://www.remparia.com/fr/cas-d-usage
-- Get started: https://www.remparia.com/fr/demarrer
-- Sectors (29 professions): https://www.remparia.com/fr/secteurs
-- About / team: https://www.remparia.com/fr/a-propos
-- Contact / SIGNAL diagnostic: https://www.remparia.com/fr/contact
-- Careers: https://www.remparia.com/fr/carrieres
+## Glossary
 
-## Contact
-
-- Email: contact@remparia.com
-- LinkedIn: https://www.linkedin.com/company/remparia
+- **SIGNAL**: six-stage method (10–12 weeks) to observe real work, score AI cases and deliver a prioritized opportunity map. Nothing is automated before it has been observed.
+- **Studio**: workshop that assembles agents, skills, tools, knowledge and human approvals, ready to run in Remparia OS.
+- **Remparia OS**: control plane for agents, models, enterprise data and human decisions (identity, policies, memory, tools, observability, audit).
+- **ALLOW / REVIEW / BLOCK**: gates applied before every agent action. ALLOW executes, REVIEW waits for a human, BLOCK stops. Rules live in the OS, not in a PDF.
+- **Sovereignty**: hosting perimeter for the same governed OS: Remparia Cloud, sovereign cloud, or on-premise. Same policies after a move.
 
 ## What we do not do
 
 - We do not replace professional judgment or accountability.
 - We do not deploy unmanaged automation on sensitive data.
 - We do not sell generic tools without field integration and governance.
+- We do not invent client proof or ROI figures on this site.
+
+## Key pages (FR)
+
+- Home: https://www.remparia.com/fr
+- Remparia OS: https://www.remparia.com/fr/solution
+- SIGNAL: https://www.remparia.com/fr/signal
+- Studio: https://www.remparia.com/fr/studio
+- Governance: https://www.remparia.com/fr/governance
+- Sovereignty: https://www.remparia.com/fr/sovereignty
+- Services: https://www.remparia.com/fr/services
+- Who it is for: https://www.remparia.com/fr/pour-qui
+- Use cases: https://www.remparia.com/fr/cas-d-usage
+- Get started: https://www.remparia.com/fr/demarrer
+- Sectors: https://www.remparia.com/fr/secteurs
+- About / team: https://www.remparia.com/fr/a-propos
+- Contact: https://www.remparia.com/fr/contact
+- Careers: https://www.remparia.com/fr/carrieres
+
+## Key pages (EN)
+
+- Home: https://www.remparia.com/en
+- Remparia OS: https://www.remparia.com/en/solution
+- SIGNAL: https://www.remparia.com/en/signal
+- Studio: https://www.remparia.com/en/studio
+- Governance: https://www.remparia.com/en/governance
+- Sovereignty: https://www.remparia.com/en/sovereignty
+- Services: https://www.remparia.com/en/services
+- Who it is for: https://www.remparia.com/en/pour-qui
+- Use cases: https://www.remparia.com/en/cas-d-usage
+- Get started: https://www.remparia.com/en/demarrer
+- Sectors: https://www.remparia.com/en/secteurs
+- About / team: https://www.remparia.com/en/a-propos
+- Contact: https://www.remparia.com/en/contact
+- Careers: https://www.remparia.com/en/carrieres
+
+## How to start
+
+1. The hour (free): frame the repetitive work, data constraints and outcomes to measure.
+2. Diagnostic: ranked process map, sketched governance. Fixed fee, no follow-on obligation.
+3. First agent: supervised production in existing tools, documented, under your rules.
+
+## Contact
+
+- Email: contact@remparia.com
+- LinkedIn: https://www.linkedin.com/company/remparia
 
 ## Last updated
 
-2026-08-26
+2026-09-17

@@ -22,7 +22,7 @@ const governance = {
   fr: {
     eyebrow: "04 / GOUVERNANCE",
     crumbs: "Gouvernance",
-    titleLine1: "Une gouvernance qui accélère l’adoption —",
+    titleLine1: "Une gouvernance qui accélère l’adoption,",
     titleAccent: "sans lâcher le contrôle.",
     sub: "Le risque n’est pas le futur rollout. C’est l’IA non gouvernée déjà en cours. Remparia met les rails dans l’OS : ALLOW / REVIEW / BLOCK, identité, journal. Pas un PDF que personne ne lit.",
     ctaPrimary: "Cadrer la gouvernance",
@@ -77,7 +77,7 @@ const governance = {
     },
     rails: {
       eyebrow: "03 / LES RAILS",
-      titleBefore: "La gouvernance vit dans le travail — ",
+      titleBefore: "La gouvernance vit dans le travail : ",
       titleAccent: "pas dans un PDF.",
       body: "Remparia met le contrôle là où l’agent agit : outils, données, portes avant le live. Les règles sont simples à suivre et assez fermes pour faire confiance.",
       items: [
@@ -174,7 +174,7 @@ const governance = {
           tag: "OBSERVABILITÉ",
           title: "Observabilité",
           desc: "Latence, échecs, escalades, qualité : mesurés en continu.",
-          panel: "Health · 98,7 % succès",
+          panel: "Health · exemple 98,7 % succès",
         },
         {
           id: "audit",
@@ -339,13 +339,13 @@ const governance = {
       title: "Cadrer le contrôle avant le premier agent.",
       text: "On part d’un cas SIGNAL. On compose dans Studio. On publie dans Remparia OS, déjà gouverné.",
       href: "/demarrer",
-      label: "Réserver une session SIGNAL",
+      label: "Cadrer la gouvernance",
     },
   },
   en: {
     eyebrow: "04 / GOVERNANCE",
     crumbs: "Governance",
-    titleLine1: "Governance that speeds adoption —",
+    titleLine1: "Governance that speeds adoption,",
     titleAccent: "without letting go of control.",
     sub: "The risk is not the future rollout. It is the ungoverned AI already running. Remparia puts the rails in the OS: ALLOW / REVIEW / BLOCK, identity, log. Not a PDF nobody reads.",
     ctaPrimary: "Frame governance",
@@ -400,7 +400,7 @@ const governance = {
     },
     rails: {
       eyebrow: "03 / THE RAILS",
-      titleBefore: "Governance lives in the work — ",
+      titleBefore: "Governance lives in the work: ",
       titleAccent: "not in a PDF.",
       body: "Remparia puts control where the agent acts: tools, data, gates before go-live. The rules are simple to follow and firm enough to trust.",
       items: [
@@ -497,7 +497,7 @@ const governance = {
           tag: "OBSERVABILITY",
           title: "Observability",
           desc: "Latency, failures, escalations, quality: measured continuously.",
-          panel: "Health · 98.7% success",
+          panel: "Health · sample 98.7% success",
         },
         {
           id: "audit",
@@ -662,7 +662,7 @@ const governance = {
       title: "Frame control before the first agent.",
       text: "Start from a SIGNAL case. Compose in Studio. Publish to Remparia OS, already governed.",
       href: "/demarrer",
-      label: "Book a SIGNAL session",
+      label: "Frame governance",
     },
   },
 } as const;

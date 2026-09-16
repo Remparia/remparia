@@ -1105,7 +1105,7 @@ const about = {
     eyebrow: "COMPANY / ABOUT",
     title: "Une plateforme + une méthode + ",
     titleAccent: "une capacité d’exploitation.",
-    sub: "Remparia transforme l’IA en capacité opérationnelle gouvernée : pas des chatbots, pas de régie ouverte.",
+    sub: "Remparia convertit l’IA en capacité opérationnelle gouvernée : pas des chatbots, pas de régie ouverte.",
     ctaPrimary: "Book a SIGNAL Session",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "Nous contacter",

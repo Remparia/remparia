@@ -76,6 +76,12 @@ export type PackRichPageCopy = {
     body: string;
     steps: readonly string[];
   };
+  faq: {
+    eyebrow: string;
+    title: string;
+    sub: string;
+    items: readonly { q: string; a: string }[];
+  };
   agentsHeading: string;
   sectorLinks: readonly { label: string; href: string }[];
 };

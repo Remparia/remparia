@@ -26,6 +26,11 @@ export default async function LangLayout({
   return (
     <LangProvider initialLang={lang}>
       <ViewModeProvider>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.lang=${JSON.stringify(lang === "en" ? "en" : "fr")}`,
+          }}
+        />
         <HtmlLang />
         <ScrollRevealRoot />
         <SiteChrome>{children}</SiteChrome>

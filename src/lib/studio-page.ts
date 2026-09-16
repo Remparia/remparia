@@ -240,12 +240,31 @@ const studio = {
         },
       ],
     },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Questions sur Studio",
+      sub: "Ce que Studio compose, avant publication dans l’OS.",
+      items: [
+        {
+          q: "Qu’est-ce que Studio ?",
+          a: "L’atelier qui assemble agents, compétences, outils, connaissance et validations humaines, prêts à tourner dans Remparia OS.",
+        },
+        {
+          q: "Studio publie-t-il sans gouvernance ?",
+          a: "Non. Rien n’est publié dans l’OS s’il manque une compétence, un outil ou une porte humaine. Les agents naissent gouvernés (ALLOW / REVIEW / BLOCK).",
+        },
+        {
+          q: "Faut-il SIGNAL avant Studio ?",
+          a: "SIGNAL cadre le cas. Studio compose. Remparia OS fait tourner. On peut parler Studio après un cas priorisé, pas avant d’avoir observé le travail réel.",
+        },
+      ],
+    },
     cta: {
       tag: "STUDIO",
       title: "Construire votre première force de travail IA.",
       text: "On part d’un cas SIGNAL. On compose dans Studio. On publie dans l’OS.",
       href: "/demarrer",
-      label: "Réserver une session SIGNAL",
+      label: "Parler Studio",
     },
   },
   en: {
@@ -254,7 +273,7 @@ const studio = {
     titleLine1: "Don't add a chatbot.",
     titleAccent: "Build the workforce.",
     sub: "After SIGNAL, Studio assembles agents, skills, tools, knowledge and human approvals, ready to run in Remparia OS.",
-    ctaPrimary: "Talk Studio",
+    ctaPrimary: "Talk about Studio",
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "See Remparia OS",
     ctaSecondaryHref: "/solution",
@@ -471,12 +490,31 @@ const studio = {
         },
       ],
     },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Questions about Studio",
+      sub: "What Studio composes, before it ships to the OS.",
+      items: [
+        {
+          q: "What is Studio?",
+          a: "The workshop that assembles agents, skills, tools, knowledge and human approvals, ready to run in Remparia OS.",
+        },
+        {
+          q: "Does Studio ship without governance?",
+          a: "No. Nothing is published to the OS if a skill, a tool or a human gate is missing. Agents are born governed (ALLOW / REVIEW / BLOCK).",
+        },
+        {
+          q: "Do we need SIGNAL before Studio?",
+          a: "SIGNAL frames the case. Studio composes. Remparia OS runs. You talk Studio after a prioritized case, not before observing real work.",
+        },
+      ],
+    },
     cta: {
       tag: "STUDIO",
       title: "Build your first AI workforce.",
       text: "Start from a SIGNAL case. Compose in Studio. Publish to the OS.",
       href: "/demarrer",
-      label: "Book a SIGNAL session",
+      label: "Talk about Studio",
     },
   },
 } as const;

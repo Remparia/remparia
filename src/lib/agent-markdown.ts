@@ -25,7 +25,6 @@ import {
   CAS_USAGE,
   DEMARRER,
   POUR_QUI,
-  SOLUTION,
 } from "@/lib/strategy";
 
 type PremiumKey = keyof typeof PAGES_PREMIUM;
@@ -96,19 +95,20 @@ function fromPremium(key: PremiumKey, { lang, locale }: MdOpts) {
 
 function homeMd({ lang, locale }: MdOpts) {
   const t = homePremium(lang);
-  const heroTitle = `${t.hero.titleLine1} ${t.hero.titleMidBefore} ${t.hero.titleAccent} ${t.hero.titleLine3}`;
+  const heroTitle = `${t.hero.titleBefore}${t.hero.titleAccent} ${t.hero.titleLine2Before}${t.hero.titleLine2Accent}`;
   return lines(
     `# Remparia`,
     "",
     heroTitle,
     "",
-    t.hero.titleSide,
+    t.hero.sub,
     "",
-    `${t.hero.claimBefore}${t.hero.claimAccent}`,
+    t.hero.proof.join(" › "),
     "",
     bullets(t.hero.chips.map((c) => `${c.tag} — ${c.text}`)),
     "",
     `**Primary:** ${mdLink(t.hero.cta, locale, "/demarrer")}`,
+    `**Secondary:** ${mdLink(t.hero.ctaSecondary, locale, t.hero.ctaSecondaryHref)}`,
     "",
     section(
       `${t.problem.titleBefore}${t.problem.titleAccent}`,
@@ -852,6 +852,7 @@ function siteIndex({ lang, locale }: MdOpts) {
     `### ${lang === "fr" ? "Pour les agents" : "For agents"}`,
     "",
     `- [llms.txt](${getSiteUrl()}/llms.txt)`,
+    `- [llms-full.txt](${getSiteUrl()}/llms-full.txt)`,
     `- ${lang === "fr" ? "Ajoutez" : "Append"} \`?view=agent\` ${lang === "fr" ? "à toute URL pour cette vue Markdown." : "to any URL for this Markdown view."}`,
     "",
     `---`,

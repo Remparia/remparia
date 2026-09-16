@@ -3,6 +3,7 @@
 import Image from "next/image";
 import AgentFicheGrid from "@/components/AgentFicheGrid";
 import LocaleLink from "@/components/LocaleLink";
+import PageFaq from "@/components/PageFaq";
 import { PremiumHero } from "@/components/premium/PremiumShell";
 import { getAgentsByPack } from "@/lib/agents";
 import { commerceAgentPage } from "@/lib/commerce-agent-page";
@@ -219,6 +220,13 @@ export default function CommercePackPage() {
           </p>
         </div>
       </section>
+
+      <PageFaq
+        eyebrow={t.faq.eyebrow}
+        title={t.faq.title}
+        sub={t.faq.sub}
+        items={t.faq.items}
+      />
 
       <section className="ph-final ph-section--light" id="next">
         <div className="ph-shell ph-final__inner ca-final">

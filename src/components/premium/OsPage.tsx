@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import LocaleLink from "@/components/LocaleLink";
+import PageFaq from "@/components/PageFaq";
 import { useLang } from "@/lib/lang";
 import {
   osPage,
@@ -724,12 +725,24 @@ export default function OsPage() {
             </h1>
             <p className="os-hero__sub">{t.hero.sub}</p>
             <div className="os-hero__actions">
-              <LocaleLink href={t.hero.ctaPrimaryHref} className="os-btn os-btn--solid">
-                {t.hero.ctaPrimary} →
-              </LocaleLink>
-              <a href={t.hero.ctaSecondaryHref} className="os-btn os-btn--ghost">
-                {t.hero.ctaSecondary} ↓
-              </a>
+              {t.hero.ctaPrimaryHref.startsWith("#") ? (
+                <a href={t.hero.ctaPrimaryHref} className="os-btn os-btn--solid">
+                  {t.hero.ctaPrimary} ↓
+                </a>
+              ) : (
+                <LocaleLink href={t.hero.ctaPrimaryHref} className="os-btn os-btn--solid">
+                  {t.hero.ctaPrimary} →
+                </LocaleLink>
+              )}
+              {t.hero.ctaSecondaryHref.startsWith("#") ? (
+                <a href={t.hero.ctaSecondaryHref} className="os-btn os-btn--ghost">
+                  {t.hero.ctaSecondary} ↓
+                </a>
+              ) : (
+                <LocaleLink href={t.hero.ctaSecondaryHref} className="os-btn os-btn--ghost">
+                  {t.hero.ctaSecondary} →
+                </LocaleLink>
+              )}
             </div>
           </div>
           <HeroVisual alt={t.hero.visualAlt} />
@@ -898,6 +911,13 @@ export default function OsPage() {
           </ol>
         </div>
       </section>
+
+      <PageFaq
+        eyebrow={t.faq.eyebrow}
+        title={t.faq.title}
+        sub={t.faq.sub}
+        items={t.faq.items}
+      />
 
       <section className="os-final" aria-labelledby="os-final-title">
         <div className="os-shell os-final__inner">

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Fragment, useCallback, useId, useState } from "react";
 import HeroIntro from "@/components/HeroIntro";
 import LocaleLink from "@/components/LocaleLink";
+import PageFaq from "@/components/PageFaq";
 import { useHomeParallax } from "@/hooks/useHomeParallax";
 import { homePremium } from "@/lib/home-premium";
 import { useLang } from "@/lib/lang";
@@ -767,21 +768,26 @@ export default function HomePremium() {
         <div className="ph-shell ph-section__layout">
           <div className="ph-hero__stage">
             <div className="ph-hero__intro ph-parallax__fore">
-              <h1 className="ph-hero__title ph-anim-hero" data-d="1">
-                <span className="ph-hero__title-row">{t.hero.titleLine1}</span>
-                <span className="ph-hero__title-row ph-hero__title-row--mid">
-                  <span className="ph-hero__title-mid">
-                    {t.hero.titleMidBefore}{" "}
-                    <span className="ph-accent">{t.hero.titleAccent}</span>
-                  </span>
-                  <span className="ph-hero__side">{t.hero.titleSide}</span>
+              <h1 className="ph-hero__title ph-hero__title--statement ph-anim-hero" data-d="1">
+                <span className="ph-hero__title-row">
+                  {t.hero.titleBefore}
+                  <span className="ph-accent">{t.hero.titleAccent}</span>
                 </span>
-                <span className="ph-hero__title-row">{t.hero.titleLine3}</span>
+                <span className="ph-hero__title-row">
+                  {t.hero.titleLine2Before}
+                  <span className="ph-accent">{t.hero.titleLine2Accent}</span>
+                </span>
               </h1>
-              <div className="ph-hero__actions ph-anim-hero" data-d="2">
+              <p className="ph-hero__sub ph-anim-hero" data-d="2">
+                {t.hero.sub}
+              </p>
+              <div className="ph-hero__actions ph-anim-hero" data-d="3">
                 <LocaleLink href="/demarrer" className="btn-primary ph-hero__cta">
-                  {t.hero.cta} <span aria-hidden>↗</span>
+                  {t.hero.cta} <span aria-hidden>→</span>
                 </LocaleLink>
+                <a href={t.hero.ctaSecondaryHref} className="btn-ghost ph-hero__cta-secondary">
+                  {t.hero.ctaSecondary}
+                </a>
               </div>
             </div>
 
@@ -815,10 +821,13 @@ export default function HomePremium() {
             </div>
 
             <div className="ph-hero__foot ph-parallax__fore">
-              <p className="ph-hero__brandline">{t.hero.brandLine}</p>
-              <p className="ph-hero__claim">
-                {t.hero.claimBefore}
-                <span className="ph-accent">{t.hero.claimAccent}</span>
+              <p className="ph-hero__proof">
+                {t.hero.proof.map((item, i) => (
+                  <span key={item}>
+                    {i > 0 ? <span aria-hidden> › </span> : null}
+                    {item}
+                  </span>
+                ))}
               </p>
             </div>
           </div>
@@ -1283,6 +1292,13 @@ export default function HomePremium() {
           ))}
         </ul>
       </PhSection>
+
+      <PageFaq
+        eyebrow={t.faq.eyebrow}
+        title={t.faq.title}
+        sub={t.faq.sub}
+        items={t.faq.items}
+      />
 
       <section className="ph-final">
         <div className="ph-shell ph-final__inner">

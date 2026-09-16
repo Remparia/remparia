@@ -3,15 +3,20 @@ import type { Lang } from "./content";
 export const HOME_PREMIUM = {
   fr: {
     hero: {
-      titleLine1: "Aller plus loin",
-      titleMidBefore: "dans",
-      titleAccent: "l’IA",
-      titleLine3: "orchestration",
-      titleSide: "De la stratégie au système d’exploitation",
-      cta: "Construire la suite",
-      claimBefore: "Nous construisons des systèmes IA qui agissent dans votre métier et restent ",
-      claimAccent: "sous contrôle.",
-      brandLine: "REMPARIA   SIGNAL  ×  STUDIO  ×  OS",
+      titleBefore: "L’IA ne doit pas être ",
+      titleAccent: "un outil de plus.",
+      titleLine2Before: "Elle doit transformer le ",
+      titleLine2Accent: "fonctionnement de votre entreprise.",
+      sub: "De la stratégie à l’exécution, Remparia fait de l’IA un système d’exploitation gouverné pour votre activité.",
+      cta: "Construire votre modèle d’exploitation IA",
+      ctaSecondary: "Voir Remparia en action",
+      ctaSecondaryHref: "#en-action",
+      proof: [
+        "Prêt souveraineté",
+        "Agnostique modèles",
+        "Contrôle humain",
+        "Gouvernance d’entreprise",
+      ],
       rails: {
         left: "AGENTS SOUS GOUVERNANCE",
         rightTop: "SIGNAL → STUDIO → OS",
@@ -41,7 +46,7 @@ export const HOME_PREMIUM = {
       ],
     },
     problem: {
-      eyebrow: "02 / LE CONSTAT",
+      eyebrow: "01 / LE CONSTAT",
       titleBefore: "Tout le monde expérimente l’IA. ",
       titleAccent: "Peu l’orchestrent vraiment.",
       sideLead: "Le défi",
@@ -58,7 +63,7 @@ export const HOME_PREMIUM = {
       ],
     },
     model: {
-      eyebrow: "03 / NOTRE MODÈLE",
+      eyebrow: "02 / NOTRE MODÈLE",
       title: "Notre méthode. Votre modèle d’exploitation IA.",
       steps: [
         {
@@ -96,12 +101,12 @@ export const HOME_PREMIUM = {
       ],
     },
     org: {
-      eyebrow: "04 / EN ACTION",
+      eyebrow: "03 / EN ACTION",
       titleBefore: "Voir une organisation IA ",
       titleAccent: "au travail.",
-      body: "Une mission entre, l’orchestrateur délègue, les agents exécutent, l’humain valide. Le tout est journalisé dans Remparia OS.",
-      cta: "Lancer la démo interactive",
-      logTitle: "Activité",
+      body: "Illustration : une mission entre, l’orchestrateur délègue, les agents exécutent, l’humain valide. Le tout est journalisé dans Remparia OS.",
+      cta: "Voir Remparia OS",
+      logTitle: "Activité (exemple)",
       logs: [
         { icon: "mission", title: "Nouvelle mission reçue", time: "10:23:54" },
         { icon: "sales", title: "Agent Ventes démarré", time: "10:32:13" },
@@ -110,7 +115,7 @@ export const HOME_PREMIUM = {
         { icon: "human", title: "Validation humaine", time: "11:03:02" },
         { icon: "done", title: "Mission terminée", time: "11:06:14" },
       ],
-      saved: "14 min économisées",
+      saved: "Exemple · 14 min économisées",
       human: { title: "HUMAIN", desc: "Approuve / Valide" },
       orchestrator: { title: "ORCHESTRATEUR", desc: "Planifie et délègue" },
       agents: [
@@ -128,7 +133,7 @@ export const HOME_PREMIUM = {
       ],
     },
     workforce: {
-      eyebrow: "05 / FORCE DE TRAVAIL IA",
+      eyebrow: "04 / FORCE DE TRAVAIL IA",
       titleBefore: "Un chatbot répond. ",
       titleAccent: "Une force de travail IA exécute.",
       body: "Les agents travaillent dans des workflows Remparia OS. Les actions engagantes passent en REVIEW ; le reste est ALLOW ou BLOCK selon vos politiques.",
@@ -167,9 +172,9 @@ export const HOME_PREMIUM = {
       ],
     },
     sovereignty: {
-      eyebrow: "06 / SOUVERAINETÉ",
-      titleBefore: "Votre IA. Votre infrastructure. ",
-      titleAccent: "Vos règles.",
+      eyebrow: "05 / SOUVERAINETÉ",
+      titleBefore: "Choisissez le périmètre. ",
+      titleAccent: "Gardez le contrôle.",
       os: "REMPARIA OS",
       osTagline: "CONTROL PLANE · POLITIQUES · AUDIT",
       modes: [
@@ -203,7 +208,7 @@ export const HOME_PREMIUM = {
             { label: "APIs", icon: "apis" },
           ],
           features: [
-            "Mise en production en jours",
+            "Mise en production rapide (délai cadré en SIGNAL)",
             "Modèles publics au choix",
             "Exploitation gérée par Remparia",
           ],
@@ -284,7 +289,7 @@ export const HOME_PREMIUM = {
             "Aucune donnée ne quitte votre environnement",
             "Clés gérées par le client",
             "Audit et observabilité",
-            "Prêt air-gap*",
+            "Air-gap possible si le dossier l’exige (cadré en SIGNAL)",
           ],
           tagline: "Données chez vous. Contrôle client.",
           taglineIcon: "lock",
@@ -315,14 +320,14 @@ export const HOME_PREMIUM = {
             values: [
               "Démarrage rapide",
               "Industries régulées, résidence EU",
-              "Environnements sensibles, air-gap",
+              "Environnements sensibles, air-gap si besoin",
             ],
           },
         ],
       },
     },
     industries: {
-      eyebrow: "07 / SOLUTIONS MÉTIERS",
+      eyebrow: "06 / SOLUTIONS MÉTIERS",
       titleBefore: "Conçu pour ",
       titleAccent: "votre industrie.",
       titleAfter: " Packs métier déjà cadrés.",
@@ -604,9 +609,9 @@ export const HOME_PREMIUM = {
       ],
     },
     roi: {
-      eyebrow: "08 / ROI",
-      titleBefore: "Une IA qui ",
-      titleAccent: "se paie elle-même.",
+      eyebrow: "07 / ROI",
+      titleBefore: "Estimez le temps ",
+      titleAccent: "récupérable.",
       employees: "Employés",
       hours: "Heures de travail répétitif / semaine",
       cost: "Coût horaire moyen (€)",
@@ -616,10 +621,10 @@ export const HOME_PREMIUM = {
       note: "Estimation indicative, hypothèses ajustables. Pas de promesse de ROI fixe.",
       cta: "Discuter de vos hypothèses",
       investment: "Investissement estimé (année 1)",
-      roiPct: "ROI estimé",
+      roiPct: "ROI estimé (hypothèse)",
     },
     ops: {
-      eyebrow: "09 / OPÉRATIONS IA",
+      eyebrow: "08 / OPÉRATIONS IA",
       titleBefore: "Votre force de travail IA ne s’arrête pas au déploiement. ",
       titleAccent: "Nous non plus.",
       items: [
@@ -633,24 +638,52 @@ export const HOME_PREMIUM = {
         "Itération AgentOps",
       ],
     },
+    faq: {
+      eyebrow: "09 / FAQ",
+      title: "Questions fréquentes",
+      sub: "Ce que Remparia est, concrètement, avant le premier agent.",
+      items: [
+        {
+          q: "Qu’est-ce que Remparia ?",
+          a: "Remparia déploie des agents métier supervisés. SIGNAL cartographie les cas, Studio les assemble, Remparia OS les fait tourner. L’humain garde la décision ; les données restent sous contrôle.",
+        },
+        {
+          q: "SIGNAL, Studio, OS : dans quel ordre ?",
+          a: "SIGNAL trouve où l’IA crée de la valeur. Studio compose agents, compétences, outils et validations humaines. Remparia OS orchestre, applique ALLOW / REVIEW / BLOCK, et journalise.",
+        },
+        {
+          q: "Qu’est-ce que ALLOW / REVIEW / BLOCK ?",
+          a: "Chaque action d’agent passe une porte : ALLOW (exécutée), REVIEW (validation humaine), BLOCK (stoppée). Les règles vivent dans Remparia OS, pas dans un PDF.",
+        },
+        {
+          q: "Remplacez-vous le jugement professionnel ?",
+          a: "Non. L’agent prépare, contrôle et alerte. L’expert garde le jugement, la décision et la responsabilité.",
+        },
+      ],
+    },
     finalCta: {
-      titleBefore: "L’expérimentation IA est terminée. ",
-      titleAccent: "Il est temps d’opérer.",
+      titleBefore: "Assez d’expérimenter. ",
+      titleAccent: "Place à l’exploitation.",
       cta: "Démarrer avec SIGNAL",
       tagline: "SIGNAL. Studio. Remparia OS.",
     },
   },
   en: {
     hero: {
-      titleLine1: "Go deeper",
-      titleMidBefore: "into",
-      titleAccent: "AI",
-      titleLine3: "orchestration",
-      titleSide: "From strategy to operating system",
-      cta: "Build what's next",
-      claimBefore: "We build AI systems that act in your business and stay ",
-      claimAccent: "under control.",
-      brandLine: "REMPARIA   SIGNAL  ×  STUDIO  ×  OS",
+      titleBefore: "AI must not be ",
+      titleAccent: "one more tool.",
+      titleLine2Before: "It must reshape ",
+      titleLine2Accent: "how your company runs.",
+      sub: "From strategy to execution, Remparia turns AI into a governed operating system for your business.",
+      cta: "Build your AI operating model",
+      ctaSecondary: "See Remparia in action",
+      ctaSecondaryHref: "#en-action",
+      proof: [
+        "Sovereignty-ready",
+        "Model-agnostic",
+        "Human control",
+        "Enterprise governance",
+      ],
       rails: {
         left: "GOVERNED AGENTS",
         rightTop: "SIGNAL → STUDIO → OS",
@@ -680,7 +713,7 @@ export const HOME_PREMIUM = {
       ],
     },
     problem: {
-      eyebrow: "02 / THE PROBLEM",
+      eyebrow: "01 / THE PROBLEM",
       titleBefore: "Everyone is experimenting with AI. ",
       titleAccent: "Few are orchestrating it.",
       sideLead: "The challenge",
@@ -697,7 +730,7 @@ export const HOME_PREMIUM = {
       ],
     },
     model: {
-      eyebrow: "03 / OUR MODEL",
+      eyebrow: "02 / OUR MODEL",
       title: "Our method. Your AI operating model.",
       steps: [
         {
@@ -735,12 +768,12 @@ export const HOME_PREMIUM = {
       ],
     },
     org: {
-      eyebrow: "04 / SEE IT IN ACTION",
+      eyebrow: "03 / SEE IT IN ACTION",
       titleBefore: "See an AI organization ",
       titleAccent: "at work.",
-      body: "A mission comes in, the orchestrator delegates, agents execute, humans approve. Everything is logged in Remparia OS.",
-      cta: "Launch interactive demo",
-      logTitle: "Activity",
+      body: "Illustration: a mission comes in, the orchestrator delegates, agents execute, humans approve. Everything is logged in Remparia OS.",
+      cta: "See Remparia OS",
+      logTitle: "Activity (sample)",
       logs: [
         { icon: "mission", title: "New mission received", time: "10:23:54" },
         { icon: "sales", title: "Sales Agent started", time: "10:32:13" },
@@ -749,7 +782,7 @@ export const HOME_PREMIUM = {
         { icon: "human", title: "Human approval", time: "11:03:02" },
         { icon: "done", title: "Task completed", time: "11:06:14" },
       ],
-      saved: "14 min saved",
+      saved: "Sample · 14 min saved",
       human: { title: "HUMAN", desc: "Approves / Validates" },
       orchestrator: { title: "ORCHESTRATOR", desc: "Plans and delegates" },
       agents: [
@@ -767,7 +800,7 @@ export const HOME_PREMIUM = {
       ],
     },
     workforce: {
-      eyebrow: "05 / AI WORKFORCE",
+      eyebrow: "04 / AI WORKFORCE",
       titleBefore: "A chatbot answers. ",
       titleAccent: "An AI workforce executes.",
       body: "Agents run in Remparia OS workflows. High-stakes actions go to REVIEW; the rest is ALLOW or BLOCK per your policies.",
@@ -806,9 +839,9 @@ export const HOME_PREMIUM = {
       ],
     },
     sovereignty: {
-      eyebrow: "06 / SOVEREIGNTY",
-      titleBefore: "Your AI. Your infrastructure. ",
-      titleAccent: "Your rules.",
+      eyebrow: "05 / SOVEREIGNTY",
+      titleBefore: "Choose the perimeter. ",
+      titleAccent: "Keep control.",
       os: "REMPARIA OS",
       osTagline: "CONTROL PLANE · POLICIES · AUDIT",
       modes: [
@@ -842,7 +875,7 @@ export const HOME_PREMIUM = {
             { label: "APIs", icon: "apis" },
           ],
           features: [
-            "Production in days",
+            "Fast production (timeline scoped in SIGNAL)",
             "Public models of your choice",
             "Operations run by Remparia",
           ],
@@ -923,7 +956,7 @@ export const HOME_PREMIUM = {
             "No data leaves your environment",
             "Customer-managed keys",
             "Audit and observability",
-            "Air-gapped ready*",
+            "Air-gap when the file requires it (scoped in SIGNAL)",
           ],
           tagline: "Data stays with you. Customer control.",
           taglineIcon: "lock",
@@ -954,14 +987,14 @@ export const HOME_PREMIUM = {
             values: [
               "Quick start",
               "Regulated industries, EU residency",
-              "Sensitive environments, air-gap",
+              "Sensitive environments, air-gap if needed",
             ],
           },
         ],
       },
     },
     industries: {
-      eyebrow: "07 / INDUSTRY SOLUTIONS",
+      eyebrow: "06 / INDUSTRY SOLUTIONS",
       titleBefore: "Built for ",
       titleAccent: "your industry.",
       titleAfter: " Packs already scoped.",
@@ -1243,9 +1276,9 @@ export const HOME_PREMIUM = {
       ],
     },
     roi: {
-      eyebrow: "08 / ROI",
-      titleBefore: "AI that ",
-      titleAccent: "pays for itself.",
+      eyebrow: "07 / ROI",
+      titleBefore: "Estimate the time you can ",
+      titleAccent: "reclaim.",
       employees: "Employees",
       hours: "Hours spent on repetitive work / week",
       cost: "Average hourly cost (€)",
@@ -1255,10 +1288,10 @@ export const HOME_PREMIUM = {
       note: "Indicative estimate, adjustable assumptions. No fixed ROI promise.",
       cta: "Discuss your assumptions",
       investment: "Estimated investment (year 1)",
-      roiPct: "Estimated ROI",
+      roiPct: "Estimated ROI (hypothesis)",
     },
     ops: {
-      eyebrow: "09 / AI OPERATIONS",
+      eyebrow: "08 / AI OPERATIONS",
       titleBefore: "Your AI workforce doesn't stop after deployment. ",
       titleAccent: "Neither do we.",
       items: [
@@ -1272,9 +1305,32 @@ export const HOME_PREMIUM = {
         "AgentOps iteration",
       ],
     },
+    faq: {
+      eyebrow: "09 / FAQ",
+      title: "Frequently asked questions",
+      sub: "What Remparia is, in concrete terms, before the first agent.",
+      items: [
+        {
+          q: "What is Remparia?",
+          a: "Remparia deploys supervised business agents. SIGNAL maps the cases, Studio assembles them, Remparia OS runs them. Humans keep the decision; data stays under control.",
+        },
+        {
+          q: "SIGNAL, Studio, OS: in what order?",
+          a: "SIGNAL finds where AI creates value. Studio composes agents, skills, tools and human approvals. Remparia OS orchestrates, applies ALLOW / REVIEW / BLOCK, and logs.",
+        },
+        {
+          q: "What is ALLOW / REVIEW / BLOCK?",
+          a: "Every agent action hits a gate: ALLOW (executed), REVIEW (human validation), BLOCK (stopped). The rules live in Remparia OS, not in a PDF.",
+        },
+        {
+          q: "Do you replace professional judgment?",
+          a: "No. The agent prepares, checks and alerts. The expert keeps judgment, the decision and accountability.",
+        },
+      ],
+    },
     finalCta: {
-      titleBefore: "AI experimentation is over. ",
-      titleAccent: "It's time to operate.",
+      titleBefore: "Enough experimenting. ",
+      titleAccent: "Time to operate.",
       cta: "Start with SIGNAL",
       tagline: "SIGNAL. Studio. Remparia OS.",
     },

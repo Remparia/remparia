@@ -81,6 +81,12 @@ export type CommerceAgentPageCopy = {
     body: string;
     steps: readonly string[];
   };
+  faq: {
+    eyebrow: string;
+    title: string;
+    sub: string;
+    items: readonly { q: string; a: string }[];
+  };
   agentsHeading: string;
   sectorLink: { label: string; href: string };
 };
@@ -107,8 +113,9 @@ const fr: CommerceAgentPageCopy = {
     },
     {
       value: "+15–35 %",
-      label: "de conversion assistée observée sur agents conversationnels bien intégrés",
-      source: "BCG cité Fevad",
+      label:
+        "de conversion cités en édito sur agents conversationnels bien intégrés (pas un résultat Remparia)",
+      source: "Édito Fevad",
     },
     {
       value: "0",
@@ -344,6 +351,29 @@ const fr: CommerceAgentPageCopy = {
       "Démo sur votre catalogue et feuille de route 6–12 mois",
     ],
   },
+  faq: {
+    eyebrow: "09 / FAQ",
+    title: "Questions fréquentes",
+    sub: "Shopping côté client, marchand côté équipe, checkout humain.",
+    items: [
+      {
+        q: "L’agent peut-il payer à la place du client ?",
+        a: "Non. Aucun outil de paiement n’est exposé. Le panier s’affiche ; le checkout reste une action humaine.",
+      },
+      {
+        q: "Par où commence-t-on ?",
+        a: "SIGNAL cadre catalogue, politiques et systèmes. On démarre souvent par l’agent shopping, puis l’agent marchand.",
+      },
+      {
+        q: "Sur quelles plateformes tourne l’agent ?",
+        a: "Shopify, PrestaShop, Magento et stacks custom selon le cadrage. Les connecteurs sont listés avant le pilote.",
+      },
+      {
+        q: "Les stats Fevad / Checkout sont-elles vos résultats ?",
+        a: "Non. Ce sont des repères secteur. Vos indicateurs (conversion, charge SAV, délai panier) sont posés en SIGNAL.",
+      },
+    ],
+  },
   agentsHeading: "Fiches agents Remparia — déclencheur, livrable, stop humain",
   sectorLink: {
     label: "Voir le détail vertical e-commerce & boutiques",
@@ -373,8 +403,9 @@ const en: CommerceAgentPageCopy = {
     },
     {
       value: "+15–35 %",
-      label: "assisted conversion lift for well-integrated conversational agents",
-      source: "BCG via Fevad",
+      label:
+        "conversion lift cited in Fevad editorial for well-integrated conversational agents (not a Remparia result)",
+      source: "Fevad editorial",
     },
     {
       value: "0",
@@ -608,6 +639,29 @@ const en: CommerceAgentPageCopy = {
       "Scoping workshop (e-commerce, care, marketing, IT)",
       "Data and systems audit, quantified business case",
       "Demo on your catalog and 6–12 month roadmap",
+    ],
+  },
+  faq: {
+    eyebrow: "09 / FAQ",
+    title: "Frequently asked questions",
+    sub: "Shopping for customers, merchant for your team, human checkout.",
+    items: [
+      {
+        q: "Can the agent pay for the customer?",
+        a: "No. No payment tool is exposed. The cart is shown; checkout stays a human action.",
+      },
+      {
+        q: "Where do we start?",
+        a: "SIGNAL frames catalog, policies and systems. We usually start with the shopping agent, then the merchant agent.",
+      },
+      {
+        q: "Which platforms does the agent run on?",
+        a: "Shopify, PrestaShop, Magento and custom stacks depending on scope. Connectors are listed before the pilot.",
+      },
+      {
+        q: "Are Fevad / Checkout stats your results?",
+        a: "No. They are sector benchmarks. Your indicators (conversion, care load, cart time) are set in SIGNAL.",
+      },
     ],
   },
   agentsHeading: "Remparia agent cards — trigger, deliverable, human stop",

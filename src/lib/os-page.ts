@@ -35,9 +35,9 @@ export const OS_PAGE = {
       titleAccent: "système d’exploitation.",
       sub: "Un control plane pour orchestrer agents, modèles, données d’entreprise et décisions humaines.",
       ctaPrimary: "Explorer Remparia OS",
-      ctaPrimaryHref: "/demarrer",
-      ctaSecondary: "Voir l’architecture",
-      ctaSecondaryHref: "#architecture",
+      ctaPrimaryHref: "#architecture",
+      ctaSecondary: "Réserver une session SIGNAL",
+      ctaSecondaryHref: "/demarrer",
       visualAlt:
         "SIGNAL : votre entreprise connectée à vos processus, données, personnes et systèmes",
     },
@@ -195,7 +195,7 @@ export const OS_PAGE = {
           { label: "Doc AI", tool: "ERP" },
           { label: "Finance AI", tool: "BI" },
         ],
-        logTitle: "Exécution en direct",
+        logTitle: "Exécution en direct (exemple)",
         log: [
           { time: "09:14:02", event: "Demande reçue : qualification lead" },
           { time: "09:14:03", event: "Routage → Sales AI" },
@@ -238,7 +238,7 @@ export const OS_PAGE = {
       },
       deploy: {
         index: "08 / DÉPLOYER PARTOUT",
-        title: "Votre IA. Votre infrastructure. Vos règles.",
+        title: "Cloud, souverain ou on-premise : même OS.",
         sub: "Déployez Remparia OS selon vos besoins de sécurité, souveraineté et infrastructure.",
         options: [
           { label: "Remparia Cloud", desc: "La voie la plus rapide vers la production." },
@@ -266,8 +266,8 @@ export const OS_PAGE = {
       operations: {
         index: "10 / MESURER L'IMPACT",
         title: "Le déploiement n'est que le début.",
-        sub: "Observez ce que l'IA exécute. Mesurez coûts, succès et escalades dans Remparia OS.",
-        liveLabel: "REMPARIA OS",
+        sub: "Illustration d’un tableau de bord Remparia OS : observez ce que l'IA exécute, mesurez coûts, succès et escalades.",
+        liveLabel: "REMPARIA OS · EXEMPLE",
         metrics: [
           { label: "Agents actifs", value: "24" },
           { label: "Tâches aujourd'hui", value: "1 284" },
@@ -281,7 +281,7 @@ export const OS_PAGE = {
           { name: "Finance AI", status: "Revue", tasks: "198", success: "88%" },
           { name: "Operations AI", status: "Actif", tasks: "490", success: "94%" },
         ],
-        footer: "Build. Operate. Govern. Improve.",
+        footer: "Illustration · Build. Operate. Govern. Improve.",
       },
     },
     pipeline: {
@@ -314,6 +314,29 @@ export const OS_PAGE = {
         },
       ],
     },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Questions sur Remparia OS",
+      sub: "Le control plane, sans jargon produit.",
+      items: [
+        {
+          q: "Qu’est-ce que Remparia OS ?",
+          a: "Le control plane entre votre force de travail IA et l’entreprise. Il orchestre agents, modèles, données et décisions humaines : identité, politiques, mémoire, outils, observabilité, audit.",
+        },
+        {
+          q: "Comment ALLOW / REVIEW / BLOCK s’appliquent-ils ?",
+          a: "L’OS applique vos politiques avant chaque action. Les gestes engagants passent en REVIEW ; le reste est ALLOW ou BLOCK selon vos règles versionnées.",
+        },
+        {
+          q: "Les modèles sont-ils interchangeables ?",
+          a: "Oui. Les agents restent spécialisés, les modèles restent interchangeables. L’OS route par coût, qualité et sensibilité. Vos systèmes restent en place.",
+        },
+        {
+          q: "L’OS est-il un produit séparé de SIGNAL et Studio ?",
+          a: "Non. SIGNAL cadre, Studio compose, Remparia OS fait tourner. Même gouvernance, même journal.",
+        },
+      ],
+    },
     final: {
       title: "N’ajoutez pas un autre outil IA. Construisez votre modèle opérationnel IA.",
       ctaPrimary: "Commencer par SIGNAL",
@@ -329,9 +352,9 @@ export const OS_PAGE = {
       titleAccent: "operating system.",
       sub: "One control plane to orchestrate agents, models, enterprise data and human decisions.",
       ctaPrimary: "Explore Remparia OS",
-      ctaPrimaryHref: "/demarrer",
-      ctaSecondary: "See architecture",
-      ctaSecondaryHref: "#architecture",
+      ctaPrimaryHref: "#architecture",
+      ctaSecondary: "Book a SIGNAL session",
+      ctaSecondaryHref: "/demarrer",
       visualAlt:
         "SIGNAL: your company connected to your processes, data, people and systems",
     },
@@ -489,7 +512,7 @@ export const OS_PAGE = {
           { label: "Doc AI", tool: "ERP" },
           { label: "Finance AI", tool: "BI" },
         ],
-        logTitle: "Live Execution",
+        logTitle: "Live Execution (sample)",
         log: [
           { time: "09:14:02", event: "Request received: lead qualification" },
           { time: "09:14:03", event: "Routing → Sales AI" },
@@ -532,7 +555,7 @@ export const OS_PAGE = {
       },
       deploy: {
         index: "08 / DEPLOY ANYWHERE",
-        title: "Your AI. Your infrastructure. Your rules.",
+        title: "Cloud, sovereign or on-premise: same OS.",
         sub: "Deploy Remparia OS according to your security, sovereignty and infrastructure needs.",
         options: [
           { label: "Remparia Cloud", desc: "Fastest path to production." },
@@ -560,8 +583,8 @@ export const OS_PAGE = {
       operations: {
         index: "10 / MEASURE IMPACT",
         title: "Deployment is the beginning.",
-        sub: "Watch what AI executes. Measure cost, success and escalations in Remparia OS.",
-        liveLabel: "REMPARIA OS",
+        sub: "Illustration of a Remparia OS dashboard: watch what AI executes, measure cost, success and escalations.",
+        liveLabel: "REMPARIA OS · SAMPLE",
         metrics: [
           { label: "Active Agents", value: "24" },
           { label: "Tasks Today", value: "1,284" },
@@ -575,7 +598,7 @@ export const OS_PAGE = {
           { name: "Finance AI", status: "Review", tasks: "198", success: "88%" },
           { name: "Operations AI", status: "Active", tasks: "490", success: "94%" },
         ],
-        footer: "Build. Operate. Govern. Improve.",
+        footer: "Illustration · Build. Operate. Govern. Improve.",
       },
     },
     pipeline: {
@@ -605,6 +628,29 @@ export const OS_PAGE = {
           label: "MEASURE",
           desc: "Track gains",
           image: "/os-pipeline-mesurer.jpg",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Questions about Remparia OS",
+      sub: "The control plane, without product jargon.",
+      items: [
+        {
+          q: "What is Remparia OS?",
+          a: "The control plane between your AI workforce and the company. It orchestrates agents, models, data and human decisions: identity, policies, memory, tools, observability, audit.",
+        },
+        {
+          q: "How do ALLOW / REVIEW / BLOCK apply?",
+          a: "The OS applies your policies before every action. High-stakes gestures go to REVIEW; the rest is ALLOW or BLOCK per your versioned rules.",
+        },
+        {
+          q: "Are models interchangeable?",
+          a: "Yes. Agents stay specialized, models stay interchangeable. The OS routes by cost, quality and sensitivity. Your systems stay in place.",
+        },
+        {
+          q: "Is the OS a separate product from SIGNAL and Studio?",
+          a: "No. SIGNAL frames, Studio composes, Remparia OS runs. Same governance, same log.",
         },
       ],
     },

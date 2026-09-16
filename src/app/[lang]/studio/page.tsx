@@ -1,26 +1,39 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import StudioPage from "@/components/premium/StudioPage";
 import { toLang } from "@/lib/i18n";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  homeCrumb,
+  studioFaqJsonLd,
+  studioServiceJsonLd,
+} from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang: langParam } = await params;
-  const lang = toLang(langParam);
-  const isEn = lang === "en";
-  return createPageMetadata({
-    title: isEn
-      ? "Studio — don't add a chatbot. Build the workforce."
-      : "Studio — n’ajoutez pas un chatbot. Construisez la force de travail.",
-    description: isEn
-      ? "After SIGNAL, Studio assembles specialized agents, skills, tools, knowledge and human approvals — ready to run in Remparia OS."
-      : "Après SIGNAL, Studio assemble agents spécialisés, compétences, outils, connaissance et validations humaines — prêts à tourner dans Remparia OS.",
-    path: "/studio",
-    lang,
-  });
+  const lang = toLang((await params).lang);
+  const copy = pageSeo("/studio", lang);
+  return createPageMetadata({ ...copy, path: "/studio", lang });
 }
 
-export default function Page() {
-  return <StudioPage />;
+export default async function Page({ params }: Props) {
+  const lang = toLang((await params).lang);
+  return (
+    <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(
+            [homeCrumb(lang), { name: "Studio", path: "/studio" }],
+            lang,
+          ),
+          studioServiceJsonLd(lang),
+          studioFaqJsonLd(lang),
+        ]}
+      />
+      <StudioPage />
+    </>
+  );
 }

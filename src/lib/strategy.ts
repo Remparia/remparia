@@ -2,6 +2,10 @@ import type { Lang } from "./content";
 
 /** Contenu aligné sur la stratégie Méthode + Remparia OS. */
 
+/**
+ * Legacy Remparia OS copy retained for `strategyCopy` / markdown fallbacks.
+ * Live UI for `/solution` is `OsPage` + `os-page.ts` — do not wire this into a page again.
+ */
 export const SOLUTION = {
   fr: {
     eyebrow: "SOLUTION",
@@ -730,8 +734,8 @@ export const DEMARRER = {
       },
     ],
     methodTitle: "Le protocole en détail",
-    methodBody: "Six étapes, chacune avec un livrable. Le détail sur la page Méthode.",
-    methodCta: "Voir la méthode →",
+    methodBody: "Six étapes, chacune avec un livrable. Le détail sur la page SIGNAL.",
+    methodCta: "Voir SIGNAL →",
     ctaPrimary: "Réserver l’heure →",
     ctaSecondary: "Demander une démo Remparia OS →",
   },
@@ -795,8 +799,8 @@ export const DEMARRER = {
       },
     ],
     methodTitle: "The protocol in detail",
-    methodBody: "Six stages, each with a deliverable. Full detail on the Method page.",
-    methodCta: "See the method →",
+    methodBody: "Six stages, each with a deliverable. Full detail on the SIGNAL page.",
+    methodCta: "See SIGNAL →",
     ctaPrimary: "Book the hour →",
     ctaSecondary: "Request a Remparia OS demo →",
   },

@@ -255,6 +255,29 @@ const fr: PackRichPageCopy = {
       "Démo sur vos données et trajectoire 6–12 mois",
     ],
   },
+  faq: {
+    eyebrow: "09 / FAQ",
+    title: "Questions fréquentes",
+    sub: "Qualification, dossiers, relances : sous gouvernance.",
+    items: [
+      {
+        q: "L’agent signe-t-il un mandat ou négocie-t-il ?",
+        a: "Non. Il qualifie, assemble et relance. Mandat, visite et négociation restent humains.",
+      },
+      {
+        q: "Par où commence-t-on ?",
+        a: "SIGNAL cadre flux transaction / gestion, outils et KPI. Studio compose le premier agent ; Remparia OS publie.",
+      },
+      {
+        q: "Quels outils branchez-vous ?",
+        a: "CRM immobilier, portails, messagerie, outils dossier. La liste est figée avant le pilote.",
+      },
+      {
+        q: "Comment mesure-t-on la valeur ?",
+        a: "Délais de dossier, charge absorbée, taux de complétude. Les indicateurs sont posés en SIGNAL, pas après coup.",
+      },
+    ],
+  },
   agentsHeading: "Fiches agents Remparia — déclencheur, livrable, stop humain",
   sectorLinks: [
     { label: "Agence immobilière", href: "/secteurs/agence-immobiliere" },
@@ -514,6 +537,29 @@ const en: PackRichPageCopy = {
       "Scoping workshop (sales, property, IT)",
       "Flow and KPI audit, prioritized use case",
       "Demo on your data and 6–12 month path",
+    ],
+  },
+  faq: {
+    eyebrow: "09 / FAQ",
+    title: "Frequently asked questions",
+    sub: "Qualification, files, follow-ups: under governance.",
+    items: [
+      {
+        q: "Does the agent sign a mandate or negotiate?",
+        a: "No. It qualifies, assembles and follows up. Mandate, viewing and negotiation stay human.",
+      },
+      {
+        q: "Where do we start?",
+        a: "SIGNAL frames sales / property flows, tools and KPIs. Studio composes the first agent; Remparia OS publishes.",
+      },
+      {
+        q: "Which tools do you wire?",
+        a: "Real-estate CRM, portals, messaging, file tools. The list is locked before the pilot.",
+      },
+      {
+        q: "How do you measure value?",
+        a: "File cycle time, absorbed workload, completeness rate. Indicators are set in SIGNAL, not after the fact.",
+      },
     ],
   },
   agentsHeading: "Remparia agent cards — trigger, deliverable, human stop",
