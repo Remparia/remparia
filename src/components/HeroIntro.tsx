@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { HOME, METHODE, type Lang } from "@/lib/content";
+import { HOME, type Lang } from "@/lib/content";
 
 let introPlayed = false;
 
-type Phase = "pending" | "boot" | "lines" | "signal" | "exit" | "off";
+type Phase = "pending" | "boot" | "lock" | "hold" | "exit" | "off";
 
 export default function HeroIntro({
   lang,
@@ -17,9 +18,9 @@ export default function HeroIntro({
   onComplete: () => void;
 }) {
   const t = HOME[lang];
-  const letters = METHODE[lang].steps;
   const [phase, setPhase] = useState<Phase>("pending");
   const done = useRef(false);
+  const timers = useRef<number[]>([]);
   const onCompleteRef = useRef(onComplete);
   const onHoldStartRef = useRef(onHoldStart);
 
@@ -31,20 +32,25 @@ export default function HeroIntro({
     onHoldStartRef.current = onHoldStart;
   }, [onHoldStart]);
 
+  const clearTimers = useCallback(() => {
+    timers.current.forEach((id) => window.clearTimeout(id));
+    timers.current = [];
+  }, []);
+
   const complete = useCallback(() => {
     if (done.current) return;
     done.current = true;
     introPlayed = true;
+    clearTimers();
     document.documentElement.classList.remove("intro-lock");
     setPhase("off");
     onCompleteRef.current();
-  }, []);
+  }, [clearTimers]);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const mobile = window.matchMedia("(max-width: 768px)").matches;
 
-    if (reduce || introPlayed || mobile) {
+    if (reduce || introPlayed) {
       complete();
       return;
     }
@@ -53,23 +59,24 @@ export default function HeroIntro({
     setPhase("boot");
     document.documentElement.classList.add("intro-lock");
 
-    const t1 = window.setTimeout(() => setPhase("lines"), 500);
-    const t2 = window.setTimeout(() => setPhase("signal"), 1200);
-    const t3 = window.setTimeout(() => setPhase("exit"), 2200);
-    const t4 = window.setTimeout(complete, 2800);
+    timers.current = [
+      window.setTimeout(() => setPhase("lock"), 1500),
+      window.setTimeout(() => setPhase("hold"), 2400),
+      window.setTimeout(() => setPhase("exit"), 4300),
+      window.setTimeout(complete, 6000),
+    ];
 
     return () => {
-      window.clearTimeout(t1);
-      window.clearTimeout(t2);
-      window.clearTimeout(t3);
-      window.clearTimeout(t4);
+      clearTimers();
       document.documentElement.classList.remove("intro-lock");
     };
-  }, [complete]);
+  }, [clearTimers, complete]);
 
   const skip = () => {
+    if (done.current || phase === "exit") return;
+    clearTimers();
     setPhase("exit");
-    window.setTimeout(complete, 1000);
+    timers.current = [window.setTimeout(complete, 1600)];
   };
 
   if (phase === "off") return null;
@@ -82,26 +89,35 @@ export default function HeroIntro({
       aria-modal="true"
       aria-label="Remparia"
     >
-      <div className="hero-intro__grain" aria-hidden />
-      <div className="hero-intro__raster" aria-hidden />
-
       <div className="hero-intro__stage">
-        <p className="hero-intro__line">// {t.introLine}</p>
-
-        <div className="hero-intro__words">
-          <div className="hero-intro__noise" aria-hidden>
-            {t.introNoise}
+        <div className="hero-intro__lockup">
+          <div className="hero-intro__seal">
+            <span className="hero-intro__orbit" aria-hidden />
+            <div className="hero-intro__mark">
+              <Image
+                src="/logo-remparia-v3.png"
+                alt=""
+                width={211}
+                height={38}
+                className="hero-intro__img"
+                priority
+                unoptimized
+              />
+            </div>
           </div>
-          <div className="hero-intro__letters" aria-hidden={phase !== "signal"}>
-            {letters.map((step) => (
-              <span key={step.letter} title={step.title}>
-                {step.letter}
-              </span>
-            ))}
+          <div className="hero-intro__word" aria-hidden>
+            <Image
+              src="/logo-remparia-v3.png"
+              alt=""
+              width={211}
+              height={38}
+              className="hero-intro__img hero-intro__img--word"
+              priority
+              unoptimized
+            />
           </div>
         </div>
-
-        <p className="hero-intro__hint">{t.introHint}_</p>
+        <p className="hero-intro__slogan">{t.introSlogan}</p>
       </div>
 
       <button type="button" className="hero-intro__skip" onClick={skip}>

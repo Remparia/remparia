@@ -554,24 +554,16 @@ a.info-card:focus-visible {
 }
 
 /* ——— Hero intro overlay ——— */
-.hero-intro__line,
-.hero-intro__hint {
-  font: var(--font-mono) !important;
-}
-
-.hero-intro__letters span {
-  color: var(--lime) !important;
-  background-image: none !important;
-  -webkit-background-clip: unset !important;
-  background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-}
-
 .hero-intro__skip {
   font: var(--btn-font) !important;
   color: var(--lime) !important;
   text-transform: none !important;
   border-radius: var(--radius-sm) !important;
+}
+
+.hero-intro__slogan {
+  font: var(--font-mono) !important;
+  letter-spacing: 0.08em !important;
 }
 
 /* ——— Premium home accents ——— */

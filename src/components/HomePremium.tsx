@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Fragment, useId, useState } from "react";
+import { Fragment, useCallback, useId, useState } from "react";
+import HeroIntro from "@/components/HeroIntro";
 import LocaleLink from "@/components/LocaleLink";
 import { useHomeParallax } from "@/hooks/useHomeParallax";
 import { homePremium } from "@/lib/home-premium";
@@ -732,14 +733,24 @@ export default function HomePremium() {
   const t = homePremium(lang);
   const indId = useId();
   const [indTab, setIndTab] = useState<string>(t.industries.tabs[0].id);
+  const [holding, setHolding] = useState(false);
   const activeIndustry =
     t.industries.tabs.find((tab) => tab.id === indTab) ?? t.industries.tabs[0];
+  const onHoldStart = useCallback(() => setHolding(true), []);
+  const onHoldComplete = useCallback(() => setHolding(false), []);
 
   useHomeParallax(false);
 
   return (
     <div className="page page--premium">
-      <header className="ph-hero ph-hero--orbit ph-parallax">
+      <HeroIntro
+        lang={lang}
+        onHoldStart={onHoldStart}
+        onComplete={onHoldComplete}
+      />
+      <header
+        className={`ph-hero ph-hero--orbit ph-parallax${holding ? " is-holding" : ""}`}
+      >
         <div className="ph-hero__bg" aria-hidden>
           <Image
             src="/home-bg-hero-energy.png"
