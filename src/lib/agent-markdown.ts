@@ -96,19 +96,20 @@ function fromPremium(key: PremiumKey, { lang, locale }: MdOpts) {
 
 function homeMd({ lang, locale }: MdOpts) {
   const t = homePremium(lang);
-  const heroTitle = `${t.hero.titleLine1} ${t.hero.titleMidBefore} ${t.hero.titleAccent} ${t.hero.titleLine3}`;
+  const heroTitle = `${t.hero.titleLine1} ${t.hero.titleLine2Before}${t.hero.titleAccent}${t.hero.titleLine2After}`;
   return lines(
-    `# Remparia`,
+    `# ${t.hero.brand}`,
     "",
     heroTitle,
     "",
-    t.hero.titleSide,
+    t.hero.lead,
     "",
-    `${t.hero.claimBefore}${t.hero.claimAccent}`,
+    bullets(t.hero.badges),
     "",
-    bullets(t.hero.chips.map((c) => `${c.tag} — ${c.text}`)),
+    bullets(t.hero.advantages.map((c) => `${c.tag} — ${c.text}`)),
     "",
     `**Primary:** ${mdLink(t.hero.cta, locale, "/demarrer")}`,
+    `**Secondary:** ${mdLink(t.hero.ctaSecondary, locale, "/solution")}`,
     "",
     section(
       `${t.problem.titleBefore}${t.problem.titleAccent}`,

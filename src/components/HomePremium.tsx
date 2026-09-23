@@ -564,57 +564,74 @@ function ModelTagBox({ items }: { items: readonly string[] }) {
 
 function HeroVisual({ alt }: { alt: string }) {
   return (
-    <div className="ph-hero-visual">
+    <div className="ph-hero-visual" aria-hidden={false}>
       <span className="ph-hero-visual__glow" aria-hidden />
+      <span className="ph-hero-visual__ring" aria-hidden />
       <Image
-        src="/remparia-os-orbit-v8.png"
+        src="/remparia-os-orbit-v9.png"
         alt={alt}
-        width={1400}
-        height={1400}
+        width={1600}
+        height={1600}
         className="ph-hero-visual__img"
         priority
         quality={95}
-        sizes="(max-width: 959px) 580px, 883px"
+        sizes="(max-width: 959px) 100vw, 70vw"
       />
     </div>
   );
 }
 
-function HeroChipIcon({ id }: { id: string }) {
+function AdvantageIcon({ id }: { id: string }) {
   if (id === "agents") {
     return (
       <svg viewBox="0 0 16 16" aria-hidden>
-        <rect x="1" y="1" width="6" height="6" rx="1" />
-        <rect x="9" y="1" width="6" height="6" rx="1" />
-        <rect x="1" y="9" width="6" height="6" rx="1" />
-        <rect x="9" y="9" width="6" height="6" rx="1" />
+        <rect x="1" y="1" width="6" height="6" rx="1" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <rect x="9" y="1" width="6" height="6" rx="1" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <rect x="1" y="9" width="6" height="6" rx="1" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <rect x="9" y="9" width="6" height="6" rx="1" fill="none" stroke="currentColor" strokeWidth="1.2" />
       </svg>
     );
   }
   if (id === "governance") {
     return (
       <svg viewBox="0 0 16 16" aria-hidden>
-        <path d="M8 1.5 13.5 4v3.6c0 3.2-2.2 5.5-5.5 6.9C4.7 13.1 2.5 10.8 2.5 7.6V4L8 1.5Z" />
-        <path d="m5.6 7.8 1.6 1.6 3.2-3.2" />
+        <path
+          d="M8 1.5 13.5 4v3.6c0 3.2-2.2 5.5-5.5 6.9C4.7 13.1 2.5 10.8 2.5 7.6V4L8 1.5Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.2"
+        />
+        <path
+          d="m5.6 7.8 1.6 1.6 3.2-3.2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.2"
+          strokeLinecap="round"
+        />
       </svg>
     );
   }
   if (id === "workflows") {
     return (
       <svg viewBox="0 0 16 16" aria-hidden>
-        <circle cx="3.5" cy="3.5" r="1.5" />
-        <circle cx="12.5" cy="8" r="1.5" />
-        <circle cx="3.5" cy="12.5" r="1.5" />
-        <path d="M5 3.5h4.5L12 7.2M5 12.5h4.5L12 9" />
+        <circle cx="3.5" cy="3.5" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <circle cx="12.5" cy="8" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <circle cx="3.5" cy="12.5" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <path
+          d="M5 3.5h4.5L12 7.2M5 12.5h4.5L12 9"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.2"
+        />
       </svg>
     );
   }
   return (
     <svg viewBox="0 0 16 16" aria-hidden>
-      <ellipse cx="8" cy="4" rx="5" ry="2" />
-      <path d="M3 4v3c0 1.1 2.2 2 5 2s5-.9 5-2V4" />
-      <path d="M3 7v3c0 1.1 2.2 2 5 2s5-.9 5-2V7" />
-      <path d="M3 10v2c0 1.1 2.2 2 5 2s5-.9 5-2v-2" />
+      <ellipse cx="8" cy="4" rx="5" ry="2" fill="none" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M3 4v3c0 1.1 2.2 2 5 2s5-.9 5-2V4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M3 7v3c0 1.1 2.2 2 5 2s5-.9 5-2V7" fill="none" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M3 10v2c0 1.1 2.2 2 5 2s5-.9 5-2v-2" fill="none" stroke="currentColor" strokeWidth="1.2" />
     </svg>
   );
 }
@@ -739,7 +756,7 @@ export default function HomePremium() {
 
   return (
     <div className="page page--premium">
-      <header className="ph-hero ph-hero--orbit ph-parallax">
+      <header className="ph-hero ph-hero--compose ph-parallax">
         <div className="ph-hero__bg" aria-hidden>
           <Image
             src="/home-bg-hero-energy.png"
@@ -753,66 +770,68 @@ export default function HomePremium() {
           />
         </div>
         <div className="ph-parallax__depth ph-parallax__depth--hero" aria-hidden />
+        <div className="ph-hero__orbit ph-parallax__back" aria-hidden={false}>
+          <HeroVisual
+            alt={
+              lang === "fr"
+                ? "Remparia OS — noyau d’orchestration IA et orbites gouvernées."
+                : "Remparia OS — AI orchestration core and governed orbits."
+            }
+          />
+        </div>
         <div className="ph-shell ph-section__layout">
           <div className="ph-hero__stage">
             <div className="ph-hero__intro ph-parallax__fore">
-              <h1 className="ph-hero__title ph-anim-hero" data-d="1">
+              <p className="ph-hero__brand ph-anim-hero" data-d="0">
+                {t.hero.brand}
+              </p>
+              <p className="ph-eyebrow ph-hero__protocol ph-anim-hero" data-d="1">
+                {t.hero.eyebrow}
+              </p>
+              <h1 className="ph-hero__title ph-anim-hero" data-d="2">
                 <span className="ph-hero__title-row">{t.hero.titleLine1}</span>
-                <span className="ph-hero__title-row ph-hero__title-row--mid">
-                  <span className="ph-hero__title-mid">
-                    {t.hero.titleMidBefore}{" "}
-                    <span className="ph-accent">{t.hero.titleAccent}</span>
-                  </span>
-                  <span className="ph-hero__side">{t.hero.titleSide}</span>
+                <span className="ph-hero__title-row">
+                  {t.hero.titleLine2Before}
+                  <span className="ph-accent">{t.hero.titleAccent}</span>
+                  {t.hero.titleLine2After}
                 </span>
-                <span className="ph-hero__title-row">{t.hero.titleLine3}</span>
               </h1>
-              <div className="ph-hero__actions ph-anim-hero" data-d="2">
+              <p className="ph-hero__lead ph-anim-hero" data-d="3">
+                {t.hero.lead}
+              </p>
+              <div className="ph-hero__actions ph-anim-hero" data-d="4">
                 <LocaleLink href="/demarrer" className="btn-primary ph-hero__cta">
-                  {t.hero.cta} <span aria-hidden>↗</span>
+                  {t.hero.cta}
+                </LocaleLink>
+                <LocaleLink href="/solution" className="btn-ghost ph-hero__cta-ghost">
+                  {t.hero.ctaSecondary}
                 </LocaleLink>
               </div>
-            </div>
-
-            <div className="ph-hero__orbit ph-parallax__back">
-              <ul className="ph-hero__chips">
-                {t.hero.chips.map((chip) => (
-                  <li
-                    key={chip.id}
-                    className={`ph-hero__chip ph-hero__chip--${chip.id}`}
-                  >
-                    <span className="ph-hero__chip-icon" aria-hidden>
-                      <HeroChipIcon id={chip.id} />
-                    </span>
-                    <span className="ph-hero__chip-body">
-                      <span className="ph-hero__chip-tag">
-                        {chip.tag}
-                        <i />
-                      </span>
-                      <span className="ph-hero__chip-text">{chip.text}</span>
-                    </span>
-                  </li>
+              <ul className="ph-hero__badges ph-anim-hero" data-d="5">
+                {t.hero.badges.map((badge) => (
+                  <li key={badge}>{badge}</li>
                 ))}
               </ul>
-              <HeroVisual
-                alt={
-                  lang === "fr"
-                    ? "Remparia OS — noyau d’orchestration IA, énergie et orbites gouvernées."
-                    : "Remparia OS — AI orchestration core, governed energy and orbits."
-                }
-              />
-            </div>
-
-            <div className="ph-hero__foot ph-parallax__fore">
-              <p className="ph-hero__brandline">{t.hero.brandLine}</p>
-              <p className="ph-hero__claim">
-                {t.hero.claimBefore}
-                <span className="ph-accent">{t.hero.claimAccent}</span>
-              </p>
             </div>
           </div>
         </div>
       </header>
+
+      <section className="ph-advantage" aria-label={t.hero.eyebrow}>
+        <div className="ph-shell">
+          <ul className="ph-advantage__row">
+            {t.hero.advantages.map((item) => (
+              <li key={item.id} className="ph-advantage__item reveal">
+                <span className="ph-advantage__icon" aria-hidden>
+                  <AdvantageIcon id={item.id} />
+                </span>
+                <span className="ph-advantage__tag">{item.tag}</span>
+                <span className="ph-advantage__text">{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <PhSection id="constat" eyebrow={t.problem.eyebrow}>
         <div className="ph-problem">

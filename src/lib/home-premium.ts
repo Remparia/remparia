@@ -3,21 +3,23 @@ import type { Lang } from "./content";
 export const HOME_PREMIUM = {
   fr: {
     hero: {
-      titleLine1: "Aller plus loin",
-      titleMidBefore: "dans",
-      titleAccent: "l’IA",
-      titleLine3: "orchestration",
-      titleSide: "De la stratégie au système d’exploitation",
-      cta: "Construire la suite",
-      claimBefore: "Nous construisons des systèmes IA qui pensent, agissent et restent ",
-      claimAccent: "sous contrôle.",
-      brandLine: "REMPARIA   PERSONNES  ×  IA  ×  IMPACT RÉEL",
-      rails: {
-        left: "POTENTIEL HUMAIN MULTIPLIÉ",
-        rightTop: "UN DEMAIN PLUS INTELLIGENT",
-        rightBottom: "DES IDÉES À L’IMPACT DURABLE",
-      },
-      chips: [
+      brand: "Remparia",
+      eyebrow: "01 / TRANSFORMATION",
+      titleLine1: "L’IA ne doit pas être un outil de plus.",
+      titleLine2Before: "Elle doit ",
+      titleAccent: "transformer",
+      titleLine2After: " comment votre entreprise fonctionne.",
+      lead:
+        "De la stratégie à l’exécution, Remparia fait de l’IA un système d’exploitation gouverné pour votre activité.",
+      cta: "Construire votre modèle d’exploitation IA",
+      ctaSecondary: "Voir Remparia en action",
+      badges: [
+        "Prêt pour la souveraineté",
+        "Agnostique modèles",
+        "Contrôle humain",
+        "Gouvernance entreprise",
+      ],
+      advantages: [
         {
           id: "agents",
           tag: "AGENTS",
@@ -642,21 +644,23 @@ export const HOME_PREMIUM = {
   },
   en: {
     hero: {
-      titleLine1: "Go deeper",
-      titleMidBefore: "into",
-      titleAccent: "AI",
-      titleLine3: "orchestration",
-      titleSide: "From strategy to operating system",
-      cta: "Build what's next",
-      claimBefore: "We build AI systems that think, act and stay ",
-      claimAccent: "under control.",
-      brandLine: "REMPARIA   PEOPLE  ×  AI  ×  REAL IMPACT",
-      rails: {
-        left: "HUMAN POTENTIAL MULTIPLIED",
-        rightTop: "A MORE INTELLIGENT TOMORROW",
-        rightBottom: "FROM IDEAS TO LASTING IMPACT",
-      },
-      chips: [
+      brand: "Remparia",
+      eyebrow: "01 / TRANSFORM",
+      titleLine1: "AI shouldn't be another tool.",
+      titleLine2Before: "It should ",
+      titleAccent: "transform",
+      titleLine2After: " how your company operates.",
+      lead:
+        "From strategy to execution, Remparia turns AI into a governed operating system for your business.",
+      cta: "Build your AI operating model",
+      ctaSecondary: "See Remparia in action",
+      badges: [
+        "Sovereign-ready",
+        "Model agnostic",
+        "Human controlled",
+        "Enterprise governed",
+      ],
+      advantages: [
         {
           id: "agents",
           tag: "AGENTS",
