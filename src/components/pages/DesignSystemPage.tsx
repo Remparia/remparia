@@ -7,7 +7,7 @@ const COPY = {
     home: "Retour au site",
     kicker: "Remparia OS",
     title: "Design system",
-    lede: "Source unique : typographie Inter Tight / Inter / IBM Plex Mono, palette noir–blanc–lime #CCFC41, boutons et échelle. Page noindex, hors menu.",
+    lede: "Source unique : typographie Inter Tight / Inter / IBM Plex Mono, palette noir–blanc–lime #C5FF32, boutons et échelle. Page noindex, hors menu.",
     toc: [
       ["couleurs", "Couleurs"],
       ["typo", "Typographie"],
@@ -19,7 +19,7 @@ const COPY = {
       ["shell", "Page shell"],
     ],
     colorsTitle: "Couleurs",
-    colorsLede: "90 % noir/blanc · 10 % lime. Le bleu info est sémantique uniquement.",
+    colorsLede: "Même bandeau en jour et en nuit : fond, surface, bordure, texte secondaire, texte principal, accent électrique.",
     neutrals: "Neutrals",
     accent: "Accent lime",
     semantic: "Sémantique",
@@ -34,7 +34,8 @@ const COPY = {
     fieldsTitle: "Champs",
     fieldsLede: "Même padding, bordure et focus que le formulaire contact.",
     cardsTitle: "Cartes métriques",
-    cardsLede: "Graphite #111, bordure fine, chiffre blanc, accent lime.",
+    cardsLede:
+      "Carte métier : surface --surface, bordure fine, rayon 16 px, tag accent, flèche.",
     shellTitle: "Page shell (ph-*)",
     shellLede:
       "Hero, section dark/light, carte ph-agent-card, CTA lime PremiumCtaBand. Tokens --text-on-light / --text-on-lime.",
@@ -48,7 +49,7 @@ const COPY = {
     home: "Back to site",
     kicker: "Remparia OS",
     title: "Design system",
-    lede: "Single source: Inter Tight / Inter / IBM Plex Mono, black–white–lime #CCFC41, buttons and scale. Noindex, not in nav.",
+    lede: "Single source: Inter Tight / Inter / IBM Plex Mono, black–white–lime #C5FF32, buttons and scale. Noindex, not in nav.",
     toc: [
       ["couleurs", "Colour"],
       ["typo", "Typography"],
@@ -60,7 +61,7 @@ const COPY = {
       ["shell", "Page shell"],
     ],
     colorsTitle: "Colour",
-    colorsLede: "90% black/white · 10% lime. Info blue is semantic only.",
+    colorsLede: "Same six roles in day and night: ground, surface, border, secondary text, primary text, electric accent.",
     neutrals: "Neutrals",
     accent: "Lime accent",
     semantic: "Semantic",
@@ -75,7 +76,8 @@ const COPY = {
     fieldsTitle: "Fields",
     fieldsLede: "Same padding, border and focus as the contact form.",
     cardsTitle: "Metric cards",
-    cardsLede: "Graphite #111, hairline border, white figure, lime accent.",
+    cardsLede:
+      "Business card: --surface, hairline border, 16px radius, accent tag, arrow.",
     shellTitle: "Page shell (ph-*)",
     shellLede:
       "Hero, dark/light section, ph-agent-card, lime PremiumCtaBand. Tokens --text-on-light / --text-on-lime.",
@@ -86,17 +88,37 @@ const COPY = {
   },
 } as const;
 
+const PALETTE_NIGHT = [
+  { label: "Fond principal", hex: "#050604" },
+  { label: "Surface", hex: "#10130C" },
+  { label: "Bordures", hex: "#343A2A" },
+  { label: "Texte secondaire", hex: "#A7ACA1" },
+  { label: "Texte principal", hex: "#F7F8F4" },
+  { label: "Accent électrique", hex: "#C5FF32" },
+] as const;
+
+const PALETTE_DAY = [
+  { label: "Fond principal", hex: "#F7F9F1" },
+  { label: "Surface", hex: "#FFFFFF" },
+  { label: "Bordures", hex: "#D8E0CD" },
+  { label: "Texte secondaire", hex: "#5F6858" },
+  { label: "Texte principal", hex: "#10130C" },
+  { label: "Accent électrique", hex: "#A7E800" },
+] as const;
+
 const NEUTRALS = [
-  { token: "--black", value: "#0A0A0A" },
-  { token: "--graphite", value: "#111111" },
-  { token: "--slate", value: "#1A1A1A" },
-  { token: "--steel", value: "#262626" },
-  { token: "--white", value: "#FFFFFF" },
-  { token: "--mist", value: "#E6E6E6" },
+  { token: "--black", value: "#050604" },
+  { token: "--graphite", value: "#10130C" },
+  { token: "--slate", value: "#1B2910" },
+  { token: "--steel", value: "#343A2A" },
+  { token: "--white", value: "#F7F8F4" },
+  { token: "--mist", value: "#A7ACA1" },
 ] as const;
 
 const LIME = [
-  { token: "--lime", value: "#CCFC41" },
+  { token: "--lime", value: "#C5FF32" },
+  { token: "--lime-day", value: "#A7E800" },
+  { token: "--lime-ink", value: "#7FBA00" },
   { token: "--lime-80", value: "80%" },
   { token: "--lime-60", value: "60%" },
   { token: "--lime-40", value: "40%" },
@@ -104,9 +126,9 @@ const LIME = [
 ] as const;
 
 const SEMANTIC = [
-  { token: "--success", value: "#39FF14" },
-  { token: "--warning", value: "#FFDA00" },
-  { token: "--danger", value: "#FF3B30" },
+  { token: "--success", value: "#2F7D32" },
+  { token: "--warning", value: "#EDC986" },
+  { token: "--danger", value: "#FF5D52" },
   { token: "--info", value: "#3B82F6" },
 ] as const;
 
@@ -129,8 +151,10 @@ const SPACES = [8, 16, 24, 32, 40, 48, 64, 80, 96, 128] as const;
 
 function SwatchGrid({
   items,
+  paint = "token",
 }: {
   items: readonly { token: string; value: string }[];
+  paint?: "token" | "hex";
 }) {
   return (
     <div className="ds-lab__grid">
@@ -138,7 +162,10 @@ function SwatchGrid({
         <div key={s.token} className="ds-lab__swatch">
           <div
             className="ds-lab__swatch-chip"
-            style={{ background: `var(${s.token})` }}
+            style={{
+              background: paint === "hex" ? s.value : `var(${s.token})`,
+              border: "1px solid var(--border)",
+            }}
           />
           <code>{s.token}</code>
           <span className="ds-lab__meta">{s.value}</span>
@@ -183,7 +210,27 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
             <p className="ds-lab__kicker">01</p>
             <h2 className="ds-lab__h2">{t.colorsTitle}</h2>
             <p className="ds-lab__lede">{t.colorsLede}</p>
-            <p className="ds-lab__meta">{t.neutrals}</p>
+            <p className="ds-lab__meta">Nuit · noir dominant · accent #C5FF32</p>
+            <SwatchGrid
+              paint="hex"
+              items={PALETTE_NIGHT.map((s) => ({
+                token: s.label,
+                value: s.hex,
+              }))}
+            />
+            <p className="ds-lab__meta" style={{ marginTop: 24 }}>
+              Jour · accent vert conservé · #A7E800
+            </p>
+            <SwatchGrid
+              paint="hex"
+              items={PALETTE_DAY.map((s) => ({
+                token: s.label,
+                value: s.hex,
+              }))}
+            />
+            <p className="ds-lab__meta" style={{ marginTop: 24 }}>
+              {t.neutrals}
+            </p>
             <SwatchGrid items={NEUTRALS} />
             <p className="ds-lab__meta" style={{ marginTop: 24 }}>
               {t.accent}
@@ -232,19 +279,19 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
             <p className="ds-lab__kicker">04</p>
             <h2 className="ds-lab__h2">{t.buttonsTitle}</h2>
             <p className="ds-lab__lede">{t.buttonsLede}</p>
-            <div className="ds-lab__row">
-              <button type="button" className="btn-primary">
-                Book a SIGNAL Session →
-              </button>
-              <button type="button" className="btn-secondary">
-                See Remparia OS →
-              </button>
-              <button type="button" className="btn-ghost">
-                Explore method →
-              </button>
-              <button type="button" className="btn-primary" disabled>
-                Disabled
-              </button>
+            <div className="ds-lab__actions-box">
+              <p className="ds-lab__meta">Actions · rayon pilule · contraste</p>
+              <div className="ds-lab__row">
+                <button type="button" className="btn-primary">
+                  Book a SIGNAL Session →
+                </button>
+                <button type="button" className="btn-secondary">
+                  See Remparia OS →
+                </button>
+                <button type="button" className="btn-ghost">
+                  Explore method →
+                </button>
+              </div>
             </div>
           </section>
 
@@ -320,7 +367,19 @@ export default function DesignSystemPage({ lang }: { lang: Lang }) {
             <p className="ds-lab__kicker">07</p>
             <h2 className="ds-lab__h2">{t.cardsTitle}</h2>
             <p className="ds-lab__lede">{t.cardsLede}</p>
-            <div className="ds-metric-grid">
+            <div className="ds-lab__card-demo">
+              <article className="ds-lab__metier-card">
+                <div className="ds-lab__metier-card-head">
+                  <span className="ds-lab__metier-card-tag">01 / SIGNAL</span>
+                  <span className="ds-lab__metier-card-arrow" aria-hidden>
+                    ↗
+                  </span>
+                </div>
+                <h3>Trouver la valeur.</h3>
+                <p>Partir du travail réel et définir les gains à mesurer.</p>
+              </article>
+            </div>
+            <div className="ds-metric-grid" style={{ marginTop: 24 }}>
               <article className="ds-metric">
                 <span className="ds-metric__icon" aria-hidden />
                 <strong>50+</strong>

@@ -54,6 +54,22 @@
   z-index: 1;
 }
 
+.studio-page .ph-shell > .ph-title,
+.studio-page .ph-shell > .ph-body,
+.studio-page .ph-section .ph-shell > .ph-title,
+.studio-page .ph-section .ph-shell > .ph-body,
+.studio-page #workforce.st-workforce-section .ph-shell > .ph-title,
+.studio-page #workforce.st-workforce-section .ph-shell > .ph-body,
+.studio-page #gouverne.st-governed-section .ph-shell > .ph-title,
+.studio-page #gouverne.st-governed-section .ph-shell > .ph-body,
+.studio-page #en-action .ph-shell > .ph-title,
+.studio-page #en-action .ph-shell > .ph-body,
+.studio-page #trajectoire .ph-shell > .ph-title,
+.studio-page #trajectoire .ph-shell > .ph-body {
+  max-width: none !important;
+  width: 100%;
+}
+
 .studio-page #workforce.st-workforce-section {
   isolation: isolate;
   background-color: #000;
@@ -112,8 +128,8 @@
 }
 
 .studio-page #workforce.st-workforce-section .st-workforce .ph-agent-card {
-  background: #000;
-  border-color: rgba(255, 255, 255, 0.14);
+  background: var(--surface);
+  border-color: var(--border);
   backdrop-filter: none;
   box-sizing: border-box;
   min-height: 200px;
@@ -192,12 +208,12 @@
   min-height: 0;
   padding: 0;
   background: transparent;
-  border: 1px solid rgba(204, 252, 65, 0.14);
+  border: 1px solid rgba(197, 255, 50, 0.14);
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.5);
 }
 
 .studio-page .st-canvas {
-  background: #050505;
+  background: var(--surface);
 }
 
 .st-canvas {
@@ -282,12 +298,12 @@
 
 .st-canvas__node:hover,
 .st-canvas__node:focus-visible {
-  border-color: rgba(204, 252, 65, 0.45);
+  border-color: rgba(197, 255, 50, 0.45);
 }
 
 .st-canvas__node.is-on {
   border-color: var(--lime);
-  background: #0a0a0a;
+  background: #050604;
   color: #fff;
 }
 
@@ -340,10 +356,10 @@
   align-items: flex-start;
   gap: 8px;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 16px;
-  background: #000;
-  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+  color: var(--text);
   text-align: left;
   cursor: pointer;
   transition:
@@ -353,12 +369,12 @@
 
 .st-layer:hover,
 .st-layer:focus-visible {
-  border-color: rgba(204, 252, 65, 0.45);
+  border-color: var(--border-accent);
 }
 
 .st-layer.is-on {
-  border-color: var(--lime);
-  background: #050505;
+  border-color: var(--accent);
+  background: var(--surface);
 }
 
 .st-layer__icon {
@@ -366,7 +382,7 @@
   place-items: center;
   width: 28px;
   height: 28px;
-  color: var(--lime);
+  color: var(--accent);
 }
 
 .st-layer__icon svg {
@@ -376,7 +392,7 @@
 
 .st-layer__tag {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
 }
 
 .st-layer h3,
@@ -387,13 +403,23 @@
   font: 650 1.05rem/1.25 var(--font-display), sans-serif;
 }
 
-.st-layer p,
+.st-layer p {
+  margin: 0;
+  font: 400 0.92rem/1.5 var(--font-ui), sans-serif;
+  color: var(--text-muted);
+}
+
 .st-protocol__step p,
-.st-action__card p,
-.st-path__card p {
+.st-action__card p {
   margin: 0;
   font: 400 0.92rem/1.5 var(--font-ui), sans-serif;
   color: rgba(255, 255, 255, 0.68);
+}
+
+.st-path__card p {
+  margin: 0;
+  font: 400 0.92rem/1.5 var(--font-ui), sans-serif;
+  color: var(--text-muted);
 }
 
 .st-protocol {
@@ -409,15 +435,23 @@
   display: grid;
   gap: 8px;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: #050505;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
 }
 
 .st-protocol__n {
   font-size: 11px;
   font-weight: 700;
-  color: var(--lime);
+  color: var(--accent);
+}
+
+.st-protocol__step h3 {
+  color: var(--text);
+}
+
+.st-protocol__step p {
+  color: var(--text-muted);
 }
 
 .st-workforce .ph-agent-card,
@@ -451,14 +485,22 @@
   display: grid;
   gap: 8px;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: #050505;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+}
+
+.st-action__card h3 {
+  color: var(--text);
+}
+
+.st-action__card p {
+  color: var(--text-muted);
 }
 
 .st-action__tag {
   font-size: 10px;
-  color: var(--lime);
+  color: var(--accent);
 }
 
 .st-action__arrow {
@@ -467,27 +509,27 @@
 }
 
 .st-governed .ph-agent-card {
-  background: #000;
-  border-color: rgba(255, 255, 255, 0.14);
-  color: #fff;
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
 }
 
 .studio-page #gouverne.st-governed-section .st-governed .ph-agent-card {
-  background: rgba(0, 0, 0, 0.88);
-  border-color: rgba(255, 255, 255, 0.14);
+  background: var(--surface);
+  border-color: var(--border);
 }
 
 .studio-page #gouverne.st-governed-section .st-governed .ph-agent-card h3 {
-  color: #fff;
+  color: var(--text);
 }
 
 .studio-page #gouverne.st-governed-section .st-governed .ph-agent-card p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
 }
 
 .studio-page #gouverne.st-governed-section .st-governed .ph-agent-card:hover {
-  background: #000;
-  border-color: rgba(204, 252, 65, 0.35);
+  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%);
+  border-color: var(--border-accent);
 }
 
 .st-inline-link {
@@ -509,32 +551,36 @@
   gap: 8px;
   min-height: 100%;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: #050505;
-  color: inherit;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+  color: var(--text);
   text-decoration: none;
   transition: border-color 200ms var(--ease-out);
 }
 
+.st-path__card h3 {
+  color: var(--text);
+}
+
 .st-path__card:hover,
 .st-path__card:focus-visible {
-  border-color: rgba(204, 252, 65, 0.45);
+  border-color: var(--border-accent);
 }
 
 .st-path__card--here {
-  border-color: var(--lime);
+  border-color: var(--accent);
 }
 
 .st-path__n {
   font-size: 11px;
   font-weight: 700;
-  color: var(--lime);
+  color: var(--accent);
 }
 
 .st-path__tag {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
 }
 
 @media (min-width: 720px) {

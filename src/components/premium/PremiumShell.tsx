@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
 import { NAV } from "@/lib/content";
 import { CONTACT_EMAIL } from "@/lib/contact-email";
@@ -34,6 +35,8 @@ export function PremiumHero({
   crumbs,
   actions,
   media,
+  bgDay,
+  bgNight,
 }: {
   eyebrow: string;
   title: string;
@@ -42,12 +45,45 @@ export function PremiumHero({
   crumbs?: Crumb[];
   actions?: React.ReactNode;
   media?: React.ReactNode;
+  /** Full-bleed day-theme hero photo (served unoptimized to preserve quality). */
+  bgDay?: string;
+  /** Full-bleed night-theme hero photo (served unoptimized to preserve quality). */
+  bgNight?: string;
 }) {
   const { lang } = useLang();
   const crumbLabel = lang === "fr" ? "Fil d'Ariane" : "Breadcrumb";
+  const hasThemeBg = Boolean(bgDay || bgNight);
 
   return (
-    <header className={`ph-page-hero${media ? " ph-page-hero--split" : ""}`}>
+    <header
+      className={`ph-page-hero${media ? " ph-page-hero--split" : ""}${hasThemeBg ? " ph-page-hero--has-theme-bg" : ""}`}
+    >
+      {bgNight ? (
+        <div className="ph-page-hero__bg ph-page-hero__bg--night" aria-hidden>
+          <Image
+            src={bgNight}
+            alt=""
+            fill
+            priority
+            unoptimized
+            sizes="100vw"
+            className="ph-page-hero__bg-img"
+          />
+        </div>
+      ) : null}
+      {bgDay ? (
+        <div className="ph-page-hero__bg ph-page-hero__bg--day" aria-hidden>
+          <Image
+            src={bgDay}
+            alt=""
+            fill
+            priority
+            unoptimized
+            sizes="100vw"
+            className="ph-page-hero__bg-img"
+          />
+        </div>
+      ) : null}
       <div className="ph-shell">
         {crumbs?.length ? (
           <nav className="ph-crumbs" aria-label={crumbLabel}>

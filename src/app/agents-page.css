@@ -20,12 +20,12 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 20px 20px 18px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface);
 }
 
 .agent-fiche--flagship {
   border-color: var(--lime-40);
-  background: var(--accent-soft);
+  background: var(--surface);
 }
 
 .agent-fiche__tags {
@@ -50,11 +50,12 @@
 .agent-fiche h3 {
   margin: 0 0 8px;
   font: 700 1.05rem/1.25 var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  color: var(--text);
 }
 
 .agent-fiche > header p {
   margin: 0 0 16px;
-  color: var(--text-soft);
+  color: var(--text-muted);
   font-size: 0.95rem;
 }
 
@@ -84,30 +85,30 @@
   margin-top: 20px;
 }
 
-/* Light bands: small uppercase labels need near-black contrast (not soft gray). */
+/* Light bands: card surfaces stay on semantic tokens. */
 .ph-section--light .agent-fiche,
 .page--premium-inner .ph-section--light .agent-fiche,
 .section--alt .agent-fiche,
 .page--premium-inner .section--alt .agent-fiche {
-  background: #fff;
-  border-color: rgba(10, 10, 10, 0.14);
-  color: var(--text-on-light);
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
 }
 
 .ph-section--light .agent-fiche--flagship,
 .page--premium-inner .ph-section--light .agent-fiche--flagship,
 .section--alt .agent-fiche--flagship,
 .page--premium-inner .section--alt .agent-fiche--flagship {
-  background: var(--lime);
-  border-color: rgba(10, 10, 10, 0.22);
-  color: var(--text-on-lime);
+  background: var(--surface);
+  border-color: var(--lime-40);
+  color: var(--text);
 }
 
 .ph-section--light .agent-fiche h3,
 .page--premium-inner .ph-section--light .agent-fiche h3,
 .section--alt .agent-fiche h3,
 .page--premium-inner .section--alt .agent-fiche h3 {
-  color: var(--text-on-light);
+  color: var(--text);
 }
 
 .ph-section--light .agent-fiche > header p,
@@ -118,46 +119,34 @@
 .section--alt .agent-fiche__meta dd,
 .page--premium-inner .section--alt .agent-fiche > header p,
 .page--premium-inner .section--alt .agent-fiche__meta dd {
-  color: rgba(10, 10, 10, 0.84);
+  color: var(--text-muted);
 }
 
 .ph-section--light .agent-fiche__meta dt,
 .ph-section--light .agent-fiche__status,
-.ph-section--light .agent-fiche__flag,
 .page--premium-inner .ph-section--light .agent-fiche__meta dt,
 .page--premium-inner .ph-section--light .agent-fiche__status,
-.page--premium-inner .ph-section--light .agent-fiche__flag,
 .section--alt .agent-fiche__meta dt,
 .section--alt .agent-fiche__status,
-.section--alt .agent-fiche__flag,
 .page--premium-inner .section--alt .agent-fiche__meta dt,
-.page--premium-inner .section--alt .agent-fiche__status,
+.page--premium-inner .section--alt .agent-fiche__status {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.ph-section--light .agent-fiche__flag,
+.page--premium-inner .ph-section--light .agent-fiche__flag,
+.section--alt .agent-fiche__flag,
 .page--premium-inner .section--alt .agent-fiche__flag {
-  color: rgba(10, 10, 10, 0.78);
+  color: var(--lime);
   font-size: 11px;
 }
 
 .ph-section--light .agent-fiche--flagship h3,
-.ph-section--light .agent-fiche--flagship .agent-fiche__flag,
 .page--premium-inner .ph-section--light .agent-fiche--flagship h3,
-.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__flag,
 .section--alt .agent-fiche--flagship h3,
-.section--alt .agent-fiche--flagship .agent-fiche__flag,
-.page--premium-inner .section--alt .agent-fiche--flagship h3,
-.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__flag {
-  color: var(--text-on-lime);
-}
-
-.ph-section--light .agent-fiche--flagship .agent-fiche__meta dt,
-.ph-section--light .agent-fiche--flagship .agent-fiche__status,
-.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__meta dt,
-.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__status,
-.section--alt .agent-fiche--flagship .agent-fiche__meta dt,
-.section--alt .agent-fiche--flagship .agent-fiche__status,
-.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__meta dt,
-.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__status {
-  color: var(--text-on-lime);
-  font-size: 11px;
+.page--premium-inner .section--alt .agent-fiche--flagship h3 {
+  color: var(--text);
 }
 
 .ph-section--light .agent-fiche--flagship > header p,
@@ -168,7 +157,19 @@
 .section--alt .agent-fiche--flagship .agent-fiche__meta dd,
 .page--premium-inner .section--alt .agent-fiche--flagship > header p,
 .page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__meta dd {
-  color: var(--text-on-lime-muted);
+  color: var(--text-muted);
+}
+
+.ph-section--light .agent-fiche--flagship .agent-fiche__meta dt,
+.ph-section--light .agent-fiche--flagship .agent-fiche__status,
+.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__meta dt,
+.page--premium-inner .ph-section--light .agent-fiche--flagship .agent-fiche__status,
+.section--alt .agent-fiche--flagship .agent-fiche__meta dt,
+.section--alt .agent-fiche--flagship .agent-fiche__status,
+.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__meta dt,
+.page--premium-inner .section--alt .agent-fiche--flagship .agent-fiche__status {
+  color: var(--text-muted);
+  font-size: 11px;
 }
 
 .gov-page .ph-page-hero {
@@ -306,7 +307,7 @@
 }
 
 .sov-mode--sovereign {
-  border-color: var(--lime-40, rgba(204, 252, 65, 0.4));
+  border-color: var(--lime-40, rgba(197, 255, 50, 0.4));
   background: var(--accent-soft);
 }
 

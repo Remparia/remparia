@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
 import { NAV, NAV_IA, NAV_METHOD, NAV_SOLUTIONS } from "@/lib/content";
+import { useColorTheme } from "@/lib/color-theme";
 import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
 
@@ -22,13 +23,15 @@ const METHOD_PATHS = new Set(["/signal"]);
 
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();
+  const { theme } = useColorTheme();
   const t = NAV[lang];
   const parcours = NAV_IA[lang];
   const methodLinks = NAV_METHOD[lang];
   const solutionsNav = NAV_SOLUTIONS[lang];
   const pathname = usePathname();
   const logical = stripLocale(pathname || "/");
-  const [navBg, setNavBg] = useState("rgba(0,0,0,0)");
+  const [navBg, setNavBg] = useState("transparent");
+  const [navSolid, setNavSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [methodOpen, setMethodOpen] = useState(false);
@@ -55,12 +58,24 @@ export default function SiteNav() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setNavBg(`rgba(0,0,0,${Math.min(y / 300, 0.92)})`);
+      const solid = y > 40;
+      setNavSolid(solid || anyMegaOpen);
+      const scrollOpacity = Math.min(y / 300, theme === "day" ? 0.96 : 0.92);
+      const opacity = anyMegaOpen
+        ? 0.98
+        : theme === "day"
+          ? Math.max(scrollOpacity, 0.92)
+          : scrollOpacity;
+      setNavBg(
+        opacity <= 0.01
+          ? "transparent"
+          : `color-mix(in srgb, var(--surface) ${Math.round(opacity * 100)}%, transparent)`,
+      );
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [theme, anyMegaOpen]);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -239,22 +254,46 @@ export default function SiteNav() {
   return (
     <>
       <nav
-        className="nav"
-        style={{
-          background: anyMegaOpen ? "rgba(0,0,0,0.96)" : navBg,
-        }}
+        className={`nav${navSolid || anyMegaOpen ? " nav--solid" : ""}`}
+        style={{ background: navBg }}
         aria-label={t.navLabel}
       >
         <LocaleLink href="/" className="nav__brand" aria-label="Remparia">
-          <Image
-            src="/logo-remparia-v3.png"
-            alt=""
-            width={211}
-            height={38}
-            className="nav__logo"
-            priority
-            sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
-          />
+          <span className="nav__lockup">
+            <Image
+              src="/logo-remparia-v3.png"
+              alt=""
+              width={211}
+              height={38}
+              className="nav__logo nav__logo--full"
+              priority
+              sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
+            />
+            <span className="nav__logo-split" aria-hidden>
+              <span className="nav__logo-mark">
+                <Image
+                  src="/logo-remparia-v3.png"
+                  alt=""
+                  width={211}
+                  height={38}
+                  className="nav__logo"
+                  priority
+                  sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
+                />
+              </span>
+              <span className="nav__logo-word">
+                <Image
+                  src="/logo-remparia-v3.png"
+                  alt=""
+                  width={211}
+                  height={38}
+                  className="nav__logo"
+                  priority
+                  sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
+                />
+              </span>
+            </span>
+          </span>
         </LocaleLink>
 
         <div className="nav__links">
@@ -672,6 +711,16 @@ export default function SiteNav() {
           [ {t.hiring.toUpperCase()} ]
         </LocaleLink>
         <LocaleLink href="/contact">[ {t.contact.toUpperCase()} ]</LocaleLink>
+        <div className="nav__drawer-chrome">
+          <button
+            type="button"
+            className="nav__lang nav__drawer-lang"
+            onClick={toggleLang}
+            aria-label={t.switchLang}
+          >
+            {lang === "fr" ? "FR / en" : "fr / EN"}
+          </button>
+        </div>
       </div>
     </>
   );

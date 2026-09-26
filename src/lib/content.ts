@@ -60,7 +60,7 @@ export const NAV = {
     carrieres: "Careers",
     hiring: "We're hiring",
     contact: "Contact",
-    demo: "Book a SIGNAL Session",
+    demo: "Book a SIGNAL session",
     demoShort: "SIGNAL →",
     navLabel: "Main navigation",
     openMenu: "Open menu",
@@ -1540,7 +1540,7 @@ export const STATS = {
     {
       value: "HUMAIN",
       label: "la décision et la responsabilité restent chez vos experts",
-      color: "#ccfc41",
+      color: "#c5ff32",
     },
     {
       value: "CADRÉ",
@@ -1557,7 +1557,7 @@ export const STATS = {
     {
       value: "HUMAN",
       label: "decisions and accountability stay with your experts",
-      color: "#ccfc41",
+      color: "#c5ff32",
     },
     {
       value: "CONTROL",

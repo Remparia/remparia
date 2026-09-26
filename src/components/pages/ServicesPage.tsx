@@ -18,11 +18,13 @@ export default function ServicesPage() {
   const home = lang === "fr" ? "Accueil" : "Home";
 
   return (
-    <PremiumPageShell>
+    <PremiumPageShell className="services-page">
       <PremiumHero
         eyebrow={t.eyebrow}
         title={t.title}
         sub={t.sub}
+        bgDay="/services-hero-bg-day.jpg"
+        bgNight="/services-hero-bg-night.jpg"
         crumbs={[
           { name: home, href: "/" },
           { name: t.title },

@@ -12,15 +12,16 @@
 @import "./agent-view.css";
 @import "./ds-lab.css";
 @import "./ds-legacy-bridge.css";
+@import "./theme-day.css";
 
 :root {
-  /* Neutrals — Remparia OS Design System */
-  --black: #0a0a0a;
-  --graphite: #111111;
-  --slate: #1a1a1a;
-  --steel: #262626;
-  --white: #ffffff;
-  --mist: #e6e6e6;
+  /* Neutrals — Remparia visual system */
+  --black: #050604;
+  --graphite: #10130c;
+  --slate: #1b2910;
+  --steel: #343a2a;
+  --white: #f7f8f4;
+  --mist: #a7aca1;
 
   --background: var(--black);
   --surface: var(--graphite);
@@ -28,46 +29,63 @@
   --ink: var(--black);
   --foreground: var(--white);
   --text: var(--white);
-  --text-muted: rgba(255, 255, 255, 0.82);
-  --text-soft: rgba(255, 255, 255, 0.68);
-  --text-faint: rgba(255, 255, 255, 0.48);
+  --text-muted: #a7aca1;
+  --text-soft: rgba(167, 172, 161, 0.76);
+  --text-faint: rgba(167, 172, 161, 0.56);
   --text-mist: var(--mist);
-  --text-on-light: #0a0a0a;
-  --text-on-light-muted: rgba(10, 10, 10, 0.72);
-  --text-on-light-soft: rgba(10, 10, 10, 0.58);
-  --text-on-lime: #0a0a0a;
-  --text-on-lime-muted: rgba(10, 10, 10, 0.75);
+  --text-on-light: #10130c;
+  --text-on-light-muted: #5f6858;
+  --text-on-light-soft: #7b8572;
+  --text-on-lime: #10130c;
+  --text-on-lime-muted: rgba(16, 19, 12, 0.75);
 
-  /* Accent — lime only (~10% of UI) */
-  --lime: #ccfc41;
-  --lime-80: rgba(204, 252, 65, 0.8);
-  --lime-60: rgba(204, 252, 65, 0.6);
-  --lime-40: rgba(204, 252, 65, 0.4);
-  --lime-20: rgba(204, 252, 65, 0.2);
+  /* Accent — neon lime only (~10% of UI) */
+  --lime: #c5ff32;
+  --lime-80: rgba(197, 255, 50, 0.8);
+  --lime-60: rgba(197, 255, 50, 0.6);
+  --lime-40: rgba(197, 255, 50, 0.4);
+  --lime-20: rgba(197, 255, 50, 0.2);
+  /* Readable lime/olive inks for day surfaces */
+  --lime-day: #a7e800;
+  --lime-day-hover: #91d400;
+  --lime-ink: #7fba00;
+  --lime-ink-deep: #5f8f00;
   --accent: var(--lime);
-  --accent-deep: #aad136;
+  --accent-deep: #91d400;
+  --accent-ink: var(--lime);
   --accent-blend: var(--lime);
-  --accent-gradient: linear-gradient(90deg, #ccfc41 0%, #ccfc41 100%);
+  --accent-gradient: linear-gradient(90deg, #c5ff32 0%, #c5ff32 100%);
   --accent-gradient-soft: linear-gradient(
     90deg,
-    rgba(204, 252, 65, 0.9) 0%,
-    rgba(204, 252, 65, 0.9) 100%
+    rgba(197, 255, 50, 0.9) 0%,
+    rgba(197, 255, 50, 0.9) 100%
   );
-  --accent-soft: rgba(204, 252, 65, 0.12);
+  --accent-soft: rgba(197, 255, 50, 0.12);
+
+  /* Chrome — nav / mega / ribbon / footer surfaces */
+  --chrome: var(--black);
+  --chrome-text: var(--white);
+  --chrome-muted: rgba(255, 255, 255, 0.78);
 
   /* Semantic (UI states — not brand) */
-  --success: #39ff14;
-  --warning: #ffda00;
-  --danger: #ff3b30;
-  --danger-text: #ff6b63;
+  --success: #2f7d32;
+  --success-soft: #1b2910;
+  --warning: #edc986;
+  --warning-soft: rgba(237, 201, 134, 0.14);
+  --danger: #ff5d52;
+  --danger-text: #ff8a80;
+  --danger-soft: rgba(255, 93, 82, 0.14);
   --info: #3b82f6;
 
-  --border: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --border-field: rgba(255, 255, 255, 0.2);
+  --border: #343a2a;
+  --border-strong: #52643d;
+  --border-field: #607448;
   --border-accent: var(--lime-60);
   --border-accent-strong: var(--lime-80);
   --focus-ring: 0 0 0 2px var(--lime);
+  --shadow-card: 0 18px 44px rgba(0, 0, 0, 0.34);
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.26);
+  --glow-accent: 0 0 0 4px rgba(197, 255, 50, 0.16), 0 12px 32px rgba(197, 255, 50, 0.16);
   --motion: 200ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -94,16 +112,17 @@
   --font-ui: var(--font-inter), "Inter", system-ui, sans-serif;
   --font-display: var(--font-inter-tight), "Inter Tight", var(--font-ui);
   --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+  --font-prose: var(--font-urbanist), "Urbanist", Helvetica, Arial, sans-serif;
   --font-archivo: var(--font-ui);
 
   /* Type roles */
   --font-eyebrow: 600 12px/16px var(--font-ui), sans-serif;
   --font-label: 600 11px/16px var(--font-mono), monospace;
   --font-ui-sm: 600 12px/16px var(--font-ui), sans-serif;
-  --font-body-lg: 400 18px/28px var(--font-ui), sans-serif;
-  --font-body: 400 16px/24px var(--font-ui), sans-serif;
-  --font-body-sm: 400 14px/20px var(--font-ui), sans-serif;
-  --font-caption: 400 12px/16px var(--font-ui), sans-serif;
+  --font-body-lg: 400 15px/1.6 var(--font-prose);
+  --font-body: 400 15px/1.6 var(--font-prose);
+  --font-body-sm: 400 15px/1.6 var(--font-prose);
+  --font-caption: 400 15px/1.6 var(--font-prose);
   --font-mini: 400 11px/16px var(--font-mono), monospace;
   --font-data: 400 12px/16px var(--font-mono), monospace;
   --letter-ui: 0;
@@ -124,14 +143,60 @@
   --title-section: var(--type-h1);
   --title-card: var(--type-h3);
 
-  --btn-font: 600 14px/1.2 var(--font-ui), sans-serif;
+  --btn-font: 600 14px/1.2 var(--font-prose);
   --btn-letter: 0;
   --btn-pad: 14px 20px;
   --btn-pad-sm: 11px 16px;
   --btn-radius: 999px;
   --field-pad: 14px;
-  --radius: 6px;
+  /* Cards / panels — planche DS 12–18 px, canon 16 px */
+  --radius: 16px;
   --radius-sm: 4px;
+  --radius-card: 16px;
+}
+
+/* Day theme — remaps semantic tokens; keep --black / --white / --lime raw */
+html[data-theme="day"] {
+  color-scheme: light;
+  --background: #f7f9f1;
+  --background-soft: #eef3e5;
+  --surface: #ffffff;
+  --surface-2: #eef3e5;
+  --surface-raised: #fbfcf7;
+  --ink: #10130c;
+  --foreground: #10130c;
+  --text: #10130c;
+  --text-muted: #5f6858;
+  --text-soft: #7b8572;
+  --text-faint: rgba(95, 104, 88, 0.62);
+  --text-mist: #5f6858;
+  --text-on-light: #10130c;
+  --text-on-light-muted: #5f6858;
+  --text-on-light-soft: #7b8572;
+  --border: #d8e0cd;
+  --border-strong: #b9c8a8;
+  --border-field: #b9c8a8;
+  --accent: var(--lime-day);
+  --accent-deep: var(--lime-day-hover);
+  --accent-soft: #e9ffc2;
+  --accent-ink: #7fba00;
+  --accent-blend: #7fba00;
+  --accent-gradient: linear-gradient(90deg, #a7e800 0%, #a7e800 100%);
+  --accent-gradient-soft: linear-gradient(90deg, rgba(167, 232, 0, 0.28) 0%, rgba(167, 232, 0, 0.28) 100%);
+  --chrome: #7fba00;
+  --chrome-text: var(--white);
+  --chrome-muted: rgba(255, 255, 255, 0.78);
+  --success: #2f7d32;
+  --success-soft: #e4f6dd;
+  --warning: #b67818;
+  --warning-soft: #fff2d6;
+  --danger: #b44336;
+  --danger-text: #b44336;
+  --danger-soft: #fce5e1;
+  --focus-ring: 0 0 0 2px var(--lime-day);
+  --shadow-card: 0 18px 44px rgba(16, 19, 12, 0.1);
+  --shadow-soft: 0 8px 24px rgba(16, 19, 12, 0.07);
+  --glow-accent: 0 0 0 4px rgba(167, 232, 0, 0.22), 0 12px 32px rgba(167, 232, 0, 0.18);
 }
 
 @media (min-width: 640px) {
@@ -185,7 +250,7 @@ body {
   font-family: var(--font-ui);
   overflow-x: hidden;
   scrollbar-width: thin;
-  scrollbar-color: var(--lime) var(--black);
+  scrollbar-color: var(--lime) var(--background);
 }
 
 /* Accent scrollbar (WebKit / Chromium / Safari) */
@@ -195,24 +260,24 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--black);
+  background: var(--background);
 }
 
 *::-webkit-scrollbar-thumb {
   background: var(--lime);
   border-radius: 999px;
-  border: 2px solid var(--black);
+  border: 2px solid var(--background);
   background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-thumb:hover {
   background: var(--lime-80);
-  border: 2px solid var(--black);
+  border: 2px solid var(--background);
   background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-corner {
-  background: var(--black);
+  background: var(--background);
 }
 
 button,
@@ -261,7 +326,7 @@ summary:focus-visible {
 .skip-link:focus {
   left: 16px;
   top: 16px;
-  color: #0a0a0a;
+  color: #10130c;
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
@@ -418,5 +483,45 @@ summary:focus-visible {
 }
 
 .page--solution .seo-faq {
-  background: #050505;
+  background: #050604;
 }
+
+/* Premium inner — section titles/bodies span the shell */
+.page--premium-inner .ph-section .ph-shell > .ph-title,
+.page--premium-inner .ph-section .ph-shell > .ph-body {
+  max-width: none !important;
+  width: 100%;
+}
+
+.page--premium-inner .ph-cta-band__inner,
+.page--premium-inner .ph-cta-band__title,
+.page--premium-inner .ph-cta-band__text {
+  max-width: none !important;
+  width: 100%;
+}
+
+.page--premium .ph-section__main > .ph-title,
+.page--premium .ph-section__main > .ph-body,
+.page--premium #operations .ph-section__main > .ph-title {
+  max-width: none !important;
+  width: 100%;
+}
+
+p,
+li,
+em {
+  font-family: var(--font-prose) !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[class*="btn-"],
+[class*="-btn"],
+.os-btn {
+  font-family: var(--font-prose) !important;
+}
+

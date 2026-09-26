@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import HtmlLang from "@/components/HtmlLang";
 import ScrollRevealRoot from "@/components/ScrollRevealRoot";
 import SiteChrome from "@/components/SiteChrome";
+import { ColorThemeProvider } from "@/lib/color-theme";
 import { LangProvider } from "@/lib/lang";
 import { ViewModeProvider } from "@/lib/view-mode";
 import { isLocale, LOCALES, toLang, type Locale } from "@/lib/i18n";
@@ -25,16 +26,18 @@ export default async function LangLayout({
 
   return (
     <LangProvider initialLang={lang}>
-      <ViewModeProvider>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.lang=${JSON.stringify(lang === "en" ? "en" : "fr")}`,
-          }}
-        />
-        <HtmlLang />
-        <ScrollRevealRoot />
-        <SiteChrome>{children}</SiteChrome>
-      </ViewModeProvider>
+      <ColorThemeProvider>
+        <ViewModeProvider>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `document.documentElement.lang=${JSON.stringify(lang === "en" ? "en" : "fr")}`,
+            }}
+          />
+          <HtmlLang />
+          <ScrollRevealRoot />
+          <SiteChrome>{children}</SiteChrome>
+        </ViewModeProvider>
+      </ColorThemeProvider>
     </LangProvider>
   );
 }

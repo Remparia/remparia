@@ -3,6 +3,7 @@
 import NotFoundPage from "@/components/pages/NotFoundPage";
 import SiteChrome from "@/components/SiteChrome";
 import { DEFAULT_LOCALE, getLocaleFromPathname } from "@/lib/i18n";
+import { ColorThemeProvider } from "@/lib/color-theme";
 import { LangProvider } from "@/lib/lang";
 import { ViewModeProvider } from "@/lib/view-mode";
 import { useEffect, useState } from "react";
@@ -17,11 +18,13 @@ export default function NotFound() {
 
   return (
     <LangProvider initialLang={locale}>
-      <ViewModeProvider>
-        <SiteChrome>
-          <NotFoundPage />
-        </SiteChrome>
-      </ViewModeProvider>
+      <ColorThemeProvider>
+        <ViewModeProvider>
+          <SiteChrome>
+            <NotFoundPage />
+          </SiteChrome>
+        </ViewModeProvider>
+      </ColorThemeProvider>
     </LangProvider>
   );
 }

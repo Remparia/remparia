@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter, Inter_Tight } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Inter_Tight, Urbanist } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
 import VercelAnalyticsProvider from "@/components/VercelAnalyticsProvider";
 import {
@@ -10,6 +10,7 @@ import {
   websiteJsonLd,
 } from "@/lib/seo";
 import { DEFAULT_LOCALE } from "@/lib/i18n";
+import { COLOR_THEME_BOOT_SCRIPT } from "@/lib/color-theme-boot";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,6 +29,13 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-ibm-plex-mono",
+  display: "swap",
+});
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-urbanist",
   display: "swap",
 });
 
@@ -99,7 +107,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "theme-color": "#0A0A0A",
+    "theme-color": "#050604",
     "color-scheme": "dark",
   },
 };
@@ -112,10 +120,15 @@ export default function RootLayout({
   return (
     <html
       lang={DEFAULT_LOCALE}
+      data-theme="night"
       suppressHydrationWarning
-      className={`${inter.variable} ${interTight.variable} ${ibmPlexMono.variable}`}
+      className={`${inter.variable} ${interTight.variable} ${ibmPlexMono.variable} ${urbanist.variable}`}
     >
-      <head />
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: COLOR_THEME_BOOT_SCRIPT }}
+        />
+      </head>
       <body>
         <JsonLd
           data={[

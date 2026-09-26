@@ -21,13 +21,13 @@
 
 | Role | Hex | Token |
 |------|-----|-------|
-| Black | `#0A0A0A` | `--black` / `--background` |
+| Black | `#050604` | `--black` / `--background` |
 | Graphite | `#111111` | `--graphite` / `--surface` |
 | Slate | `#1A1A1A` | `--slate` / `--surface-2` |
 | Steel | `#262626` | `--steel` |
 | White | `#FFFFFF` | `--white` / `--text` |
 | Mist | `#E6E6E6` | `--mist` |
-| **Lime** | `#CCFC41` | `--lime` / `--accent` |
+| **Lime** | `#C5FF32` | `--lime` / `--accent` |
 | Lime 80–20% | opacity scale | `--lime-80` … `--lime-20` |
 
 ### Text on surfaces

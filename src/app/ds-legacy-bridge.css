@@ -1,7 +1,7 @@
 /*
  * Remparia OS — legacy UI bridge
  * Aligns landing.css / inner pages with design-system tokens
- * (Inter Tight · Inter · IBM Plex Mono · lime #CCFC41 · radius 6px)
+ * (Inter Tight · Inter · IBM Plex Mono · lime #c5ff32 · radius 6px)
  */
 
 /* ——— Headings: sentence case, Inter Tight, DS scale ——— */
@@ -514,11 +514,11 @@ a.info-card:focus-visible {
 
 /* ——— Careers ——— */
 .careers-phil .careers-phil__tag {
-  color: #0a0a0a !important;
+  color: #050604 !important;
   background-image: none !important;
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
-  -webkit-text-fill-color: #0a0a0a !important;
+  -webkit-text-fill-color: #050604 !important;
   font: var(--font-label) !important;
 }
 
@@ -581,8 +581,8 @@ a.info-card:focus-visible {
 
 .page--premium .ph-btn--primary,
 .page--premium .ph-cta-band__btn {
-  background: var(--lime) !important;
-  color: var(--ink) !important;
+  background: var(--accent) !important;
+  color: var(--text-on-lime) !important;
   border-radius: var(--btn-radius) !important;
 }
 

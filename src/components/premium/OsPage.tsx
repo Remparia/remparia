@@ -21,9 +21,20 @@ function HeroVisual({ alt }: { alt: string }) {
         alt={alt}
         width={1024}
         height={682}
-        className="os-hero__img"
+        className="os-hero__img os-hero__img--night"
         priority
         sizes="(max-width: 959px) 94vw, min(748px, 52vw)"
+      />
+      <Image
+        src="/remparia-os-hero-signal-day.png"
+        alt=""
+        width={678}
+        height={575}
+        className="os-hero__img os-hero__img--day"
+        priority
+        unoptimized
+        sizes="(max-width: 959px) 94vw, min(748px, 52vw)"
+        aria-hidden
       />
     </div>
   );
@@ -716,6 +727,26 @@ export default function OsPage() {
   return (
     <div className="page page--solution">
       <header className="os-hero">
+        <div className="os-hero__bg" aria-hidden>
+          <Image
+            src="/os-hero-bg.jpg"
+            alt=""
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            className="os-hero__bg-img os-hero__bg-img--night"
+          />
+          <Image
+            src="/os-hero-bg-day.jpg"
+            alt=""
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            className="os-hero__bg-img os-hero__bg-img--day"
+          />
+        </div>
         <div className="os-shell os-hero__grid">
           <div className="os-hero__copy">
             <p className="os-index">{t.hero.index}</p>

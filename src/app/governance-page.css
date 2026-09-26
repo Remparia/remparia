@@ -58,12 +58,12 @@
   min-height: 0;
   padding: 0;
   background: transparent;
-  border: 1px solid rgba(204, 252, 65, 0.14);
+  border: 1px solid rgba(197, 255, 50, 0.14);
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.5);
 }
 
 .governance-page .gv-panel {
-  background: #050505;
+  background: var(--surface);
 }
 
 .gv-panel {
@@ -152,12 +152,12 @@
 
 .gv-panel__node:hover,
 .gv-panel__node:focus-visible {
-  border-color: rgba(204, 252, 65, 0.45);
+  border-color: rgba(197, 255, 50, 0.45);
 }
 
 .gv-panel__node.is-on {
   border-color: var(--lime);
-  background: #0a0a0a;
+  background: #050604;
   color: #fff;
 }
 
@@ -182,6 +182,12 @@
 .gv-panel__node-icon svg {
   width: 16px;
   height: 16px;
+}
+
+.governance-page .ph-section .ph-shell > .ph-title,
+.governance-page .ph-section .ph-shell > .ph-body {
+  max-width: none !important;
+  width: 100%;
 }
 
 .gv-problem {
@@ -213,17 +219,25 @@
   display: grid;
   gap: 8px;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: #050505;
-  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+  color: var(--text);
+}
+
+.gv-why__card h3 {
+  color: var(--text);
+}
+
+.gv-why__card p {
+  color: var(--text-muted);
 }
 
 .ph-section--light .gv-why__card,
 .ph-section--light .gv-rails__card,
 .ph-section--light .gv-outcomes__card {
-  border-color: rgba(0, 0, 0, 0.12);
-  background: #000;
+  border-color: var(--border);
+  background: var(--surface);
 }
 
 .gv-rails__n,
@@ -260,10 +274,10 @@
   display: grid;
   gap: 10px;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 16px;
-  background: #000;
-  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+  color: var(--text);
   text-align: left;
 }
 
@@ -273,13 +287,13 @@
   gap: 8px;
   font-size: 11px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text-muted);
 }
 
 .gv-heat p {
   margin: 0;
   font: 400 0.95rem/1.5 var(--font-ui), sans-serif;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--text-muted);
 }
 
 .gv-heat--green .status-dot {
@@ -301,10 +315,10 @@
   align-items: flex-start;
   gap: 8px;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: #050505;
-  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+  color: var(--text);
   text-align: left;
   cursor: pointer;
   transition:
@@ -312,23 +326,39 @@
     background 200ms var(--ease-out);
 }
 
+.gv-pillar h3 {
+  color: var(--text);
+}
+
+.gv-pillar p {
+  color: var(--text-muted);
+}
+
+.gv-policy h3 {
+  color: var(--text);
+}
+
+.gv-policy p {
+  color: var(--text-muted);
+}
+
 .ph-section--light .gv-pillar,
 .ph-section--light .gv-policy {
-  border-color: rgba(0, 0, 0, 0.12);
-  background: #000;
+  border-color: var(--border);
+  background: var(--surface);
 }
 
 .gv-pillar:hover,
 .gv-pillar:focus-visible,
 .gv-policy:hover,
 .gv-policy:focus-visible {
-  border-color: rgba(204, 252, 65, 0.45);
+  border-color: var(--border-accent);
 }
 
 .gv-pillar.is-on,
 .gv-policy.is-on {
-  border-color: var(--lime);
-  background: #050505;
+  border-color: var(--accent);
+  background: var(--surface);
 }
 
 .gv-pillar__icon {
@@ -336,7 +366,7 @@
   place-items: center;
   width: 28px;
   height: 28px;
-  color: var(--lime);
+  color: var(--accent);
 }
 
 .gv-pillar__icon svg {
@@ -346,13 +376,13 @@
 
 .gv-pillar__tag {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
 }
 
 .gv-policy__tag {
   font-size: 11px;
   font-weight: 700;
-  color: var(--lime);
+  color: var(--accent);
 }
 
 .gv-policy--review .gv-policy__tag {
@@ -364,7 +394,7 @@
 }
 
 .gv-policy--allow.is-on {
-  border-color: var(--lime);
+  border-color: var(--accent);
 }
 
 .gv-policy--review.is-on {
@@ -378,7 +408,7 @@
 .gv-policy__example {
   margin-top: 4px;
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
 }
 
 .gv-action__mission {
@@ -386,6 +416,10 @@
   font-size: 12px;
   font-weight: 700;
   color: var(--lime);
+}
+
+.governance-page .ph-section--light .gv-action__mission {
+  color: #101010;
 }
 
 .gv-action {
@@ -405,14 +439,22 @@
   display: grid;
   gap: 8px;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: #050505;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+}
+
+.gv-action__card h3 {
+  color: var(--text);
+}
+
+.gv-action__card p {
+  color: var(--text-muted);
 }
 
 .gv-action__tag {
   font-size: 10px;
-  color: var(--lime);
+  color: var(--accent);
 }
 
 .gv-action__arrow {
@@ -425,31 +467,48 @@
   margin-top: 20px;
 }
 
+.governance-page .ph-section--light .ph-eyebrow {
+  color: #101010;
+}
+
+.governance-page .ph-section--light .text-link.gv-inline-link {
+  color: #101010 !important;
+  background-image: none !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+.governance-page .ph-section--light .text-link.gv-inline-link:hover,
+.governance-page .ph-section--light .text-link.gv-inline-link:focus-visible {
+  color: #101010 !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.35);
+}
+
 .gv-audit {
   margin-top: 28px;
   overflow-x: auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: #050505;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
 }
 
 .ph-section--light .gv-audit {
-  border-color: rgba(0, 0, 0, 0.12);
-  background: #000;
+  border-color: var(--border);
+  background: var(--surface);
 }
 
 .gv-audit table {
   width: 100%;
   border-collapse: collapse;
   font: 500 0.92rem/1.4 var(--font-ui), sans-serif;
-  color: #fff;
+  color: var(--text);
 }
 
 .gv-audit th,
 .gv-audit td {
   text-align: left;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border);
   white-space: nowrap;
 }
 
@@ -457,7 +516,12 @@
   font: 700 10px/1 var(--font-mono), ui-monospace, monospace;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
+  background: var(--surface);
+}
+
+.gv-audit td {
+  background: var(--surface);
 }
 
 .gv-audit tr:last-child td {
@@ -465,7 +529,7 @@
 }
 
 .gv-audit__policy--allow {
-  color: var(--lime);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -503,37 +567,40 @@
   gap: 8px;
   min-height: 100%;
   padding: 22px 20px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 16px;
-  background: #000;
-  color: inherit;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+  color: var(--text);
   text-decoration: none;
   transition: border-color 200ms var(--ease-out);
 }
 
-.ph-section:not(.ph-section--light) .gv-path__card {
-  border-color: rgba(255, 255, 255, 0.1);
-  background: #050505;
+.gv-path__card h3 {
+  color: var(--accent);
+}
+
+.gv-path__card p {
+  color: var(--text-muted);
 }
 
 .gv-path__card:hover,
 .gv-path__card:focus-visible {
-  border-color: rgba(204, 252, 65, 0.45);
+  border-color: var(--border-accent);
 }
 
 .gv-path__card--here {
-  border-color: var(--lime);
+  border-color: var(--accent);
 }
 
 .gv-path__n {
   font-size: 11px;
   font-weight: 700;
-  color: var(--lime);
+  color: var(--accent);
 }
 
 .gv-path__tag {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
 }
 
 .gv-sov-note {
@@ -548,20 +615,21 @@
 }
 
 .gv-faq__item {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  background: #050505;
-  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--ph-box-radius, var(--radius-card));
+  background: var(--surface);
+  color: var(--text);
   overflow: hidden;
 }
 
 .ph-section--light .gv-faq__item {
-  border-color: rgba(0, 0, 0, 0.12);
-  background: #000;
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--text);
 }
 
 .gv-faq__item[open] {
-  border-color: rgba(204, 252, 65, 0.35);
+  border-color: var(--border-accent);
 }
 
 .gv-faq__question {
@@ -569,6 +637,8 @@
   list-style: none;
   padding: 16px 18px;
   font: 650 0.98rem/1.35 var(--font-display), sans-serif;
+  color: var(--text);
+  background: var(--surface);
 }
 
 .gv-faq__question::-webkit-details-marker {
@@ -578,7 +648,7 @@
 .gv-faq__question::after {
   content: "+";
   float: right;
-  color: var(--lime);
+  color: var(--accent);
   font: 700 1rem/1 var(--font-mono), ui-monospace, monospace;
 }
 
@@ -590,7 +660,8 @@
   margin: 0;
   padding: 0 18px 18px;
   font: 400 0.92rem/1.55 var(--font-ui), sans-serif;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--text-muted);
+  background: var(--surface);
 }
 
 @media (min-width: 720px) {

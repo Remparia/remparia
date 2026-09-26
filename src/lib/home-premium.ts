@@ -27,21 +27,25 @@ export const HOME_PREMIUM = {
           id: "agents",
           tag: "AGENTS",
           text: "Agents métier dans Remparia OS",
+          href: "/studio",
         },
         {
           id: "governance",
           tag: "GOUVERNANCE",
           text: "ALLOW, REVIEW, BLOCK",
+          href: "/governance",
         },
         {
           id: "workflows",
           tag: "WORKFLOWS",
           text: "Workflows multi-agents",
+          href: "/solution",
         },
         {
           id: "audit",
           tag: "AUDIT",
           text: "Journal et piste d’audit",
+          href: "/governance",
         },
       ],
     },
@@ -64,7 +68,8 @@ export const HOME_PREMIUM = {
     },
     model: {
       eyebrow: "02 / NOTRE MODÈLE",
-      title: "Notre méthode. Votre modèle d’exploitation IA.",
+      titleBefore: "Notre méthode. ",
+      titleAccent: "Votre modèle d’exploitation IA.",
       steps: [
         {
           n: "01",
@@ -694,21 +699,25 @@ export const HOME_PREMIUM = {
           id: "agents",
           tag: "AGENTS",
           text: "Business agents in Remparia OS",
+          href: "/studio",
         },
         {
           id: "governance",
           tag: "GOVERNANCE",
           text: "ALLOW, REVIEW, BLOCK",
+          href: "/governance",
         },
         {
           id: "workflows",
           tag: "WORKFLOWS",
           text: "Multi-agent workflows",
+          href: "/solution",
         },
         {
           id: "audit",
           tag: "AUDIT",
           text: "Logs and audit trail",
+          href: "/governance",
         },
       ],
     },
@@ -731,7 +740,8 @@ export const HOME_PREMIUM = {
     },
     model: {
       eyebrow: "02 / OUR MODEL",
-      title: "Our method. Your AI operating model.",
+      titleBefore: "Our method. ",
+      titleAccent: "Your AI operating model.",
       steps: [
         {
           n: "01",

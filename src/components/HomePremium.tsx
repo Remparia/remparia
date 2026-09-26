@@ -16,6 +16,7 @@ function PhSection({
   centered = false,
   eyebrow,
   media,
+  mediaDay,
 }: {
   id?: string;
   children: React.ReactNode;
@@ -23,11 +24,12 @@ function PhSection({
   centered?: boolean;
   eyebrow?: string;
   media?: string;
+  mediaDay?: string;
 }) {
   return (
     <section
       id={id}
-      className={`ph-section ph-parallax${className ? ` ${className}` : ""}${centered ? " ph-section--center" : ""}${media ? " ph-section--media" : ""}`}
+      className={`ph-section ph-parallax${className ? ` ${className}` : ""}${centered ? " ph-section--center" : ""}${media ? " ph-section--media" : ""}${mediaDay ? " ph-section--media-day" : ""}`}
     >
       {media ? (
         <div className="ph-section__media" aria-hidden>
@@ -37,8 +39,18 @@ function PhSection({
             fill
             quality={95}
             sizes="100vw"
-            className="ph-section__media-img"
+            className={`ph-section__media-img${mediaDay ? " ph-section__media-img--night" : ""}`}
           />
+          {mediaDay ? (
+            <Image
+              src={mediaDay}
+              alt=""
+              fill
+              quality={95}
+              sizes="100vw"
+              className="ph-section__media-img ph-section__media-img--day"
+            />
+          ) : null}
         </div>
       ) : (
         <div className="ph-parallax__depth" aria-hidden />
@@ -101,7 +113,6 @@ function AgentIcon({ tag }: { tag: string }) {
 }
 
 const OPS_ICONS: Partial<Record<number, string>> = {
-  0: "/icon-ops-monitoring.png",
   1: "/icon-ops-model.png",
   2: "/icon-ops-incident.png",
   3: "/icon-ops-connector.png",
@@ -464,7 +475,26 @@ function OrgBranch({ count }: { count: number }) {
   );
 }
 
+function OpsSupervisionIcon() {
+  return (
+    <svg className="ph-ops__icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <rect x="3.5" y="5" width="17" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M7 14.5 9.5 11 12 13.5 15 9 17 12"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="18" cy="7.5" r="1.2" fill="currentColor" />
+    </svg>
+  );
+}
+
 function OpsIcon({ index }: { index: number }) {
+  if (index === 0) {
+    return <OpsSupervisionIcon />;
+  }
   const src = OPS_ICONS[index];
   if (src) {
     return (
@@ -761,7 +791,16 @@ export default function HomePremium() {
             quality={100}
             sizes="100vw"
             unoptimized
-            className="ph-hero__bg-img"
+            className="ph-hero__bg-img ph-hero__bg-img--night"
+          />
+          <Image
+            src="/home-bg-hero-day.jpg"
+            alt=""
+            fill
+            priority
+            quality={100}
+            sizes="100vw"
+            className="ph-hero__bg-img ph-hero__bg-img--day"
           />
         </div>
         <div className="ph-parallax__depth ph-parallax__depth--hero" aria-hidden />
@@ -798,16 +837,21 @@ export default function HomePremium() {
                     key={chip.id}
                     className={`ph-hero__chip ph-hero__chip--${chip.id}`}
                   >
-                    <span className="ph-hero__chip-icon" aria-hidden>
-                      <HeroChipIcon id={chip.id} />
-                    </span>
-                    <span className="ph-hero__chip-body">
-                      <span className="ph-hero__chip-tag">
-                        {chip.tag}
-                        <i />
+                    <LocaleLink
+                      href={chip.href}
+                      className="ph-hero__chip-link"
+                    >
+                      <span className="ph-hero__chip-icon" aria-hidden>
+                        <HeroChipIcon id={chip.id} />
                       </span>
-                      <span className="ph-hero__chip-text">{chip.text}</span>
-                    </span>
+                      <span className="ph-hero__chip-body">
+                        <span className="ph-hero__chip-tag">
+                          {chip.tag}
+                          <i />
+                        </span>
+                        <span className="ph-hero__chip-text">{chip.text}</span>
+                      </span>
+                    </LocaleLink>
                   </li>
                 ))}
               </ul>
@@ -883,7 +927,13 @@ export default function HomePremium() {
         className="ph-section--tight"
         eyebrow={t.model.eyebrow}
         media="/home-bg-model-waves.jpg"
+        mediaDay="/home-bg-model-day.jpg"
       >
+        <AccentTitle
+          before={t.model.titleBefore}
+          accent={t.model.titleAccent}
+          className=" ph-title--wide"
+        />
         <div className="ph-model">
           {t.model.steps.map((step, i) => (
             <Fragment key={step.tag}>
@@ -1012,6 +1062,7 @@ export default function HomePremium() {
         className="ph-section--tight"
         eyebrow={t.workforce.eyebrow}
         media="/home-bg-workforce.jpg"
+        mediaDay="/home-bg-workforce-day.jpg"
       >
         <AccentTitle
           before={t.workforce.titleBefore}
@@ -1281,6 +1332,7 @@ export default function HomePremium() {
         className="ph-section--tight"
         eyebrow={t.ops.eyebrow}
         media="/home-bg-ops.jpg"
+        mediaDay="/home-bg-ops-day.jpg"
       >
         <AccentTitle before={t.ops.titleBefore} accent={t.ops.titleAccent} />
         <ul className="ph-ops">

@@ -7,6 +7,7 @@ import BackToTop from "@/components/BackToTop";
 import SiteFooter from "@/components/SiteFooter";
 import SiteNav from "@/components/SiteNav";
 import SkipLink from "@/components/SkipLink";
+import ColorThemeToggle from "@/components/ColorThemeToggle";
 import ViewModeToggle from "@/components/ViewModeToggle";
 import { useViewMode } from "@/lib/view-mode";
 
@@ -44,7 +45,10 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
     return (
       <>
         <SkipLink />
-        <ViewModeToggle />
+        <div className="chrome-rail">
+          <ViewModeToggle />
+          <ColorThemeToggle />
+        </div>
         <main id="contenu">
           <AgentMarkdownView />
         </main>
@@ -55,7 +59,10 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   return (
     <>
       <SkipLink />
-      <ViewModeToggle />
+      <div className="chrome-rail">
+        <ViewModeToggle />
+        <ColorThemeToggle />
+      </div>
       <SiteNav />
       <main id="contenu">{children}</main>
       <SiteFooter />

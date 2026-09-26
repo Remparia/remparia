@@ -24,7 +24,7 @@
   display: inline-flex;
   align-items: center;
   padding: 6px 14px;
-  border: 1px solid rgba(204, 252, 65, 0.55);
+  border: 1px solid rgba(197, 255, 50, 0.55);
   border-radius: 999px;
   font: 700 11px/1 var(--font-ui), sans-serif;
   letter-spacing: 0.14em;
@@ -33,8 +33,8 @@
 }
 
 .sg-badge--soft {
-  border-color: rgba(204, 252, 65, 0.35);
-  background: rgba(204, 252, 65, 0.06);
+  border-color: rgba(197, 255, 50, 0.35);
+  background: rgba(197, 255, 50, 0.06);
 }
 
 .sg-btn {
@@ -62,13 +62,13 @@
 }
 
 .sg-btn--outline:hover {
-  background: rgba(204, 252, 65, 0.1);
+  background: rgba(197, 255, 50, 0.1);
 }
 
 .sg-btn--solid {
   border: 1px solid var(--lime);
   background: var(--lime);
-  color: #0a0a0a;
+  color: #050604;
 }
 
 .sg-btn--solid:hover {
@@ -95,7 +95,7 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(204, 252, 65, 0.55);
+  border: 1px solid rgba(197, 255, 50, 0.55);
   color: var(--lime);
   font-size: 10px;
 }
@@ -106,7 +106,7 @@
   isolation: isolate;
   overflow: hidden;
   padding: 108px 0 56px;
-  background-color: #050505;
+  background-color: #050604;
 }
 
 .sg-hero::before {
@@ -115,7 +115,7 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-color: #050505;
+  background-color: #050604;
   background-image: url("/signal-hero-bg.jpg");
   background-position: 68% center;
   background-size: cover;
@@ -145,7 +145,7 @@
     ),
     radial-gradient(
       ellipse 55% 50% at 78% 42%,
-      rgba(204, 252, 65, 0.12),
+      rgba(197, 255, 50, 0.12),
       transparent 70%
     );
 }
@@ -253,9 +253,9 @@
 
 .sg-panel {
   padding: 28px 24px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface);
 }
 
 .sg-panel__title {
@@ -330,10 +330,10 @@
   border-radius: inherit;
   background: linear-gradient(
     90deg,
-    rgba(204, 252, 65, 0.35),
+    rgba(197, 255, 50, 0.35),
     var(--lime)
   );
-  box-shadow: 0 0 12px rgba(204, 252, 65, 0.45);
+  box-shadow: 0 0 12px rgba(197, 255, 50, 0.45);
 }
 
 .sg-panel--map {
@@ -431,11 +431,11 @@
   height: 48px;
   flex-shrink: 0;
   border-radius: 50%;
-  border: 1px solid rgba(204, 252, 65, 0.55);
-  background: #0a0a0a;
+  border: 1px solid rgba(197, 255, 50, 0.55);
+  background: #050604;
   color: var(--lime);
   font: 800 18px/1 var(--font-display), var(--font-ui), sans-serif;
-  box-shadow: 0 0 0 6px #050505;
+  box-shadow: 0 0 0 6px #050604;
 }
 
 .sg-protocol__line {
@@ -445,26 +445,24 @@
   margin-top: 8px;
   background: linear-gradient(
     180deg,
-    rgba(204, 252, 65, 0.55),
-    rgba(204, 252, 65, 0.12)
+    rgba(197, 255, 50, 0.55),
+    rgba(197, 255, 50, 0.12)
   );
 }
 
 .sg-protocol__card {
   margin-bottom: 16px;
   padding: 22px 22px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.025);
+  background: var(--surface);
   transition:
     border-color 0.2s ease,
-    background 0.2s ease,
     transform 0.2s ease;
 }
 
 .sg-protocol__card:hover {
-  border-color: rgba(204, 252, 65, 0.28);
-  background: rgba(204, 252, 65, 0.04);
+  border-color: var(--border-accent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -487,7 +485,7 @@
   font: 700 11px/1.2 var(--font-ui), sans-serif;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(204, 252, 65, 0.75);
+  color: rgba(197, 255, 50, 0.75);
 }
 
 .sg-protocol__name {
@@ -564,7 +562,7 @@
     width: 36px;
     height: 36px;
     font-size: 15px;
-    box-shadow: 0 0 0 4px #050505;
+    box-shadow: 0 0 0 4px #050604;
   }
 
   .sg-protocol__card {
@@ -632,11 +630,11 @@
   border-radius: 6px 14px 14px 6px;
   background:
     linear-gradient(105deg, rgba(255, 255, 255, 0.06), transparent 40%),
-    linear-gradient(180deg, #151515, #0a0a0a);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+    var(--surface);
+  border: 1px solid var(--border);
   box-shadow:
     10px 14px 30px rgba(0, 0, 0, 0.45),
-    inset 0 0 0 1px rgba(204, 252, 65, 0.08);
+    inset 0 0 0 1px rgba(197, 255, 50, 0.08);
   transform: rotateY(-12deg) rotateX(4deg);
 }
 
@@ -675,9 +673,9 @@
 
 .sg-table-wrap {
   overflow-x: auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface);
   padding: 18px 8px 8px;
 }
 
@@ -730,7 +728,7 @@
 
 .sg-pips__cell.is-on {
   background: var(--lime);
-  box-shadow: 0 0 8px rgba(204, 252, 65, 0.35);
+  box-shadow: 0 0 8px rgba(197, 255, 50, 0.35);
 }
 
 .sg-euros {
@@ -746,7 +744,7 @@
   height: 26px;
   border-radius: 50%;
   background: var(--lime);
-  color: #0a0a0a;
+  color: #050604;
   font: 800 12px/1 var(--font-ui), sans-serif;
 }
 
@@ -788,15 +786,15 @@
 }
 
 .sg-faq__item {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface);
   overflow: hidden;
   transition: border-color 0.15s ease;
 }
 
 .sg-faq__item[open] {
-  border-color: rgba(204, 252, 65, 0.35);
+  border-color: var(--border-accent);
 }
 
 .sg-faq__question {
@@ -804,7 +802,7 @@
   list-style: none;
   padding: 18px 20px;
   font: 700 15px/1.4 var(--font-ui), sans-serif;
-  color: #fff;
+  color: var(--text);
 }
 
 .sg-faq__question::-webkit-details-marker {
@@ -827,7 +825,7 @@
   margin: 0;
   padding: 0 20px 18px;
   font: 400 14px/1.65 var(--font-ui), sans-serif;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--text-muted);
 }
 
 /* Final CTA — same lime band as home `.ph-final` */
@@ -873,7 +871,7 @@
 .sg-final__cta:hover,
 .sg-final__cta:focus-visible {
   filter: none;
-  background: #111;
+  background: #10130c;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
 }
 

@@ -5,6 +5,10 @@ import { LEGACY_FR_HOSTS } from "./src/lib/redirects";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 
+// Dev-only allowance so impeccable live mode can load.
+const __impeccableLiveDev =
+  process.env.NODE_ENV === "development" ? " http://localhost:8400" : "";
+
 const frDomainRedirects = [...LEGACY_FR_HOSTS].flatMap((host) => [
   {
     source: "/:path*",
@@ -56,11 +60,11 @@ const nextConfig: NextConfig = {
               "base-uri 'self'",
               "object-src 'none'",
               "frame-ancestors 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
+              `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com${__impeccableLiveDev}`,
               "style-src 'self' 'unsafe-inline'",
               "font-src 'self' data:",
               "img-src 'self' data: blob: https:",
-              "connect-src 'self' https:",
+              `connect-src 'self' https:${__impeccableLiveDev}`,
               "media-src 'self' blob:",
               "worker-src 'self' blob:",
             ].join("; "),

@@ -121,7 +121,7 @@ function homeMd({ lang, locale }: MdOpts) {
       ),
     ),
     section(
-      t.model.title,
+      `${t.model.titleBefore}${t.model.titleAccent}`,
       t.model.steps
         .map(
           (s) =>
