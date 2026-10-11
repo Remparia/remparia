@@ -50,52 +50,6 @@ function ModeIcon({ id }: { id: SovModeId }) {
   }
 }
 
-function PerimeterPanel({
-  active,
-  mark,
-  status,
-  mission,
-  modes,
-  onSelect,
-}: {
-  active: SovModeId;
-  mark: string;
-  status: string;
-  mission: string;
-  modes: readonly { id: SovModeId; panel: string }[];
-  onSelect: (id: SovModeId) => void;
-}) {
-  return (
-    <div className="sv-panel">
-      <div className="sv-panel__bar">
-        <span className="sv-panel__mark">{mark}</span>
-        <span className="sv-panel__status">{status}</span>
-      </div>
-      <p className="sv-panel__mission">{mission}</p>
-      <ul className="sv-panel__nodes">
-        {modes.map((mode, index) => (
-          <li key={mode.id}>
-            <button
-              type="button"
-              className={`sv-panel__node${mode.id === active ? " is-on" : ""}`}
-              onClick={() => onSelect(mode.id)}
-              aria-pressed={mode.id === active}
-            >
-              <span className="sv-panel__index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="sv-panel__node-icon">
-                <ModeIcon id={mode.id} />
-              </span>
-              <span>{mode.panel}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export default function SovereigntyPage() {
   const { lang } = useLang();
   const t = sovereigntyPage(lang);
@@ -134,13 +88,16 @@ export default function SovereigntyPage() {
               </div>
             </div>
             <div className="ph-page-hero__media sv-hero__media">
-              <PerimeterPanel
-                active={active}
-                mark={t.panel.mark}
-                status={t.panel.status}
-                mission={t.panel.mission}
-                modes={t.modes.items}
-                onSelect={setActive}
+              <Image
+                src="/sovereignty-hero-visual.png"
+                alt=""
+                width={819}
+                height={819}
+                className="sv-hero__img"
+                priority
+                unoptimized
+                sizes="(max-width: 959px) 94vw, min(520px, 42vw)"
+                aria-hidden
               />
             </div>
           </div>

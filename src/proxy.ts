@@ -77,6 +77,20 @@ export function proxy(request: NextRequest) {
   }
 
   if (
+    pathname === "/services" ||
+    pathname.startsWith("/services/") ||
+    pathname === "/fr/services" ||
+    pathname.startsWith("/fr/services/") ||
+    pathname === "/en/services" ||
+    pathname.startsWith("/en/services/")
+  ) {
+    const locale = localeFromPath(pathname);
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}/demarrer`;
+    return NextResponse.redirect(url, 301);
+  }
+
+  if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/icon") ||

@@ -3,13 +3,10 @@ import type { Lang } from "@/lib/content";
 import {
   APROPOS,
   SECTEUR_SLUGS,
-  SERVICE_SLUGS,
   SOCIAL_LINKS,
   getSecteur,
   getSecteurDetail,
   getSecteurImage,
-  getService,
-  getServiceImage,
 } from "@/lib/content";
 import { DEFAULT_LOCALE, LOCALES, withLocale, type Locale } from "@/lib/i18n";
 import { homePremium } from "@/lib/home-premium";
@@ -17,7 +14,7 @@ import { osPage } from "@/lib/os-page";
 import { studioPage } from "@/lib/studio-page";
 import { governancePage } from "@/lib/governance-page";
 import { sovereigntyPage } from "@/lib/sovereignty-page";
-import { CAS_USAGE, DEMARRER, isHeartSecteur } from "@/lib/strategy";
+import { DEMARRER, isHeartSecteur } from "@/lib/strategy";
 
 import { CONTACT_EMAIL } from "./contact-email";
 import { LEGAL_ENTITY, isLegalPlaceholder } from "./legal-entity";
@@ -349,25 +346,6 @@ export function webPageJsonLd({
   };
 }
 
-export function servicesItemListJsonLd(lang: Lang | Locale = "fr") {
-  const locale = seoLang(lang);
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: locale === "en" ? "Remparia services" : "Services Remparia",
-    itemListElement: SERVICE_SLUGS.map((slug, index) => {
-      const item = getService(slug, locale);
-      return {
-        "@type": "ListItem",
-        position: index + 1,
-        name: item?.title ?? slug,
-        url: absoluteUrl(withLocale(locale, `/services/${slug}`)),
-        description: item?.desc,
-      };
-    }),
-  };
-}
-
 export function secteursItemListJsonLd(lang: Lang | Locale = "fr") {
   const locale = seoLang(lang);
   return {
@@ -384,23 +362,6 @@ export function secteursItemListJsonLd(lang: Lang | Locale = "fr") {
         description: item?.desc,
       };
     }),
-  };
-}
-
-export function casUsageItemListJsonLd(lang: Lang | Locale = "fr") {
-  const locale = seoLang(lang);
-  const copy = CAS_USAGE[locale];
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: copy.title,
-    description: copy.sub,
-    itemListElement: copy.items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.process,
-      description: item.withAgent,
-    })),
   };
 }
 
@@ -596,26 +557,6 @@ export function homeCrumb(lang: Lang | Locale = "fr") {
   };
 }
 
-export function serviceJsonLd(slug: string, lang: Lang | Locale = "fr") {
-  const locale = seoLang(lang);
-  const item = getService(slug, locale);
-  if (!item) return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: item.title,
-    description: item.desc,
-    provider: {
-      "@id": orgId(),
-      name: SITE.name,
-      url: getSiteUrl(),
-    },
-    areaServed: "FR",
-    url: absoluteUrl(withLocale(locale, `/services/${slug}`)),
-    inLanguage: inLanguage(locale),
-  };
-}
-
 export function secteurFaqJsonLd(slug: string, lang: Lang | Locale = "fr") {
   const locale = seoLang(lang);
   const detail = getSecteurDetail(slug, locale);
@@ -626,13 +567,13 @@ export function secteurFaqJsonLd(slug: string, lang: Lang | Locale = "fr") {
 export function getAllContentPaths() {
   const staticPaths = [
     "/",
-    "/services",
     "/solution",
     "/studio",
     "/governance",
     "/sovereignty",
     "/signal",
-    "/cas-d-usage",
+    "/formation",
+    "/supervision",
     "/pour-qui",
     "/demarrer",
     "/secteurs",
@@ -642,14 +583,18 @@ export function getAllContentPaths() {
     "/solutions/commerce",
     "/a-propos",
     "/carrieres",
+    "/blog",
+    "/partenariat",
+    "/support",
+    "/faq",
+    "/roi",
     "/contact",
     "/mentions-legales",
     "/confidentialite",
     "/cookies",
   ];
-  const servicePaths = SERVICE_SLUGS.map((slug) => `/services/${slug}`);
   const secteurPaths = SECTEUR_SLUGS.map((slug) => `/secteurs/${slug}`);
-  const bare = [...staticPaths, ...servicePaths, ...secteurPaths].filter(
+  const bare = [...staticPaths, ...secteurPaths].filter(
     (path) => !SITEMAP_EXCLUDED.has(path),
   );
   return LOCALES.flatMap((locale) =>
@@ -672,16 +617,13 @@ export function sitemapPriority(logical: string): number {
     return isHeartSecteur(slug) ? 0.8 : 0.6;
   }
   if (
-    logical === "/cas-d-usage" ||
     logical === "/pour-qui" ||
-    logical === "/services" ||
     logical === "/secteurs" ||
     logical === "/contact" ||
     logical === "/governance" ||
     logical === "/sovereignty" ||
     logical === "/a-propos" ||
-    logical.startsWith("/solutions/") ||
-    logical.startsWith("/services/")
+    logical.startsWith("/solutions/")
   ) {
     return 0.7;
   }
@@ -710,16 +652,3 @@ export function secteurMeta(slug: string, lang: Lang | Locale = "fr") {
   };
 }
 
-export function serviceMeta(slug: string, lang: Lang | Locale = "fr") {
-  const locale = seoLang(lang);
-  const item = getService(slug, locale);
-  const fallback =
-    locale === "en"
-      ? "Remparia service: from SIGNAL framing to production."
-      : "Service Remparia : du cadrage SIGNAL au déploiement en production.";
-  return {
-    title: item?.title ?? (locale === "en" ? "Service" : "Service"),
-    description: item?.desc ?? fallback,
-    image: getServiceImage(slug),
-  };
-}

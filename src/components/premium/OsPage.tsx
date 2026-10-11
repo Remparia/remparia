@@ -28,8 +28,8 @@ function HeroVisual({ alt }: { alt: string }) {
       <Image
         src="/remparia-os-hero-signal-day.png"
         alt=""
-        width={678}
-        height={575}
+        width={819}
+        height={819}
         className="os-hero__img os-hero__img--day"
         priority
         unoptimized

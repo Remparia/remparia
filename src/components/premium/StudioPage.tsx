@@ -5,7 +5,6 @@ import { useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
 import {
   PremiumCard,
-  PremiumCtaBand,
   PremiumPageShell,
   PremiumSection,
 } from "@/components/premium/PremiumShell";
@@ -76,52 +75,6 @@ function LayerIcon({ id }: { id: StudioLayerId }) {
   }
 }
 
-function BuilderCanvas({
-  active,
-  mark,
-  status,
-  mission,
-  layers,
-  onSelect,
-}: {
-  active: StudioLayerId;
-  mark: string;
-  status: string;
-  mission: string;
-  layers: readonly { id: StudioLayerId; canvas: string }[];
-  onSelect: (id: StudioLayerId) => void;
-}) {
-  return (
-    <div className="st-canvas">
-      <div className="st-canvas__bar">
-        <span className="st-canvas__mark">{mark}</span>
-        <span className="st-canvas__status">{status}</span>
-      </div>
-      <p className="st-canvas__mission">{mission}</p>
-      <ul className="st-canvas__nodes">
-        {layers.map((layer, index) => (
-          <li key={layer.id}>
-            <button
-              type="button"
-              className={`st-canvas__node${layer.id === active ? " is-on" : ""}`}
-              onClick={() => onSelect(layer.id)}
-              aria-pressed={layer.id === active}
-            >
-              <span className="st-canvas__index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="st-canvas__node-icon">
-                <LayerIcon id={layer.id} />
-              </span>
-              <span>{layer.canvas}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export default function StudioPage() {
   const { lang } = useLang();
   const t = studioPage(lang);
@@ -141,7 +94,6 @@ export default function StudioPage() {
           </nav>
           <div className="ph-page-hero__grid">
             <div className="ph-page-hero__copy">
-              <p className="ph-eyebrow">{t.eyebrow}</p>
               <h1 className="ph-hero__title st-hero__title">
                 <span>{t.titleLine1}</span>
                 <span className="ph-accent">{t.titleAccent}</span>
@@ -157,13 +109,16 @@ export default function StudioPage() {
               </div>
             </div>
             <div className="ph-page-hero__media st-hero__media">
-              <BuilderCanvas
-                active={active}
-                mark={t.canvas.mark}
-                status={t.canvas.status}
-                mission={t.canvas.mission}
-                layers={t.layers.items}
-                onSelect={setActive}
+              <Image
+                src="/studio-hero-visual.png"
+                alt=""
+                width={1024}
+                height={1024}
+                className="st-hero__img"
+                priority
+                unoptimized
+                sizes="(max-width: 959px) 94vw, min(520px, 42vw)"
+                aria-hidden
               />
             </div>
           </div>
@@ -374,14 +329,6 @@ export default function StudioPage() {
           ))}
         </div>
       </PremiumSection>
-
-      <PremiumCtaBand
-        tag={t.cta.tag}
-        title={t.cta.title}
-        text={t.cta.text}
-        href={t.cta.href}
-        ctaLabel={t.cta.label}
-      />
     </PremiumPageShell>
   );
 }

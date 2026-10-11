@@ -18,7 +18,7 @@ function hqImage(file: string) {
 export const SECTEUR_META: Record<string, SecteurMeta> = {
   "finance-assurance": {
     category: "industries",
-    image: hqImage("finance-assurance"),
+    image: "/secteurs/remparia-hq-finance-assurance.jpg",
   },
   sante: { category: "industries", image: hqImage("sante") },
   industrie: {

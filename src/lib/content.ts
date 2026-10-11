@@ -5,10 +5,9 @@ export type Lang = "fr" | "en";
 
 export const NAV = {
   fr: {
-    services: "Services",
     platform: "Plateforme",
-    methode: "Méthode",
-    method: "Méthode",
+    methode: "Méthodes",
+    method: "Méthodes",
     solutions: "Solutions",
     resources: "Ressources",
     company: "Entreprise",
@@ -29,11 +28,10 @@ export const NAV = {
     megaParcours: "Plateforme",
     solution: "Remparia OS",
     pourQui: "Pour qui",
-    casUsage: "Cas d'usage",
     demarrer: "Démarrer",
     parcoursMenu: "Sous-menu parcours",
-    methodMenu: "Sous-menu méthode",
-    megaMethod: "Méthode",
+    methodMenu: "Sous-menu méthodes",
+    megaMethod: "Méthodes",
     megaViewMethod: "Voir le protocole",
     megaBanner: {
       enabled: true,
@@ -48,10 +46,9 @@ export const NAV = {
     },
   },
   en: {
-    services: "Services",
     platform: "Platform",
-    methode: "Method",
-    method: "Method",
+    methode: "Methods",
+    method: "Methods",
     solutions: "Solutions",
     resources: "Resources",
     company: "Company",
@@ -72,11 +69,10 @@ export const NAV = {
     megaParcours: "Platform",
     solution: "Remparia OS",
     pourQui: "Who it is for",
-    casUsage: "Use cases",
     demarrer: "Get started",
     parcoursMenu: "Path submenu",
-    methodMenu: "Method submenu",
-    megaMethod: "Method",
+    methodMenu: "Methods submenu",
+    megaMethod: "Methods",
     megaViewMethod: "See the protocol",
     megaBanner: {
       enabled: true,
@@ -108,16 +104,16 @@ export const NAV_IA = {
       desc: "Construire agents, compétences, outils et workflows.",
     },
     {
-      href: "/governance",
-      tag: "GOUVERNANCE",
-      title: "Gouvernance",
-      desc: "Identité, audit, politiques et validations humaines.",
-    },
-    {
       href: "/sovereignty",
       tag: "SOUVERAINETÉ",
       title: "Souveraineté",
       desc: "Cloud, souverain, privé, on-premise.",
+    },
+    {
+      href: "/supervision",
+      tag: "AGENTOPS",
+      title: "Supervision en production",
+      desc: "Logs, qualité, coûts, escalades et amélioration continue.",
     },
   ],
   en: [
@@ -134,38 +130,162 @@ export const NAV_IA = {
       desc: "Build agents, skills, tools and workflows.",
     },
     {
-      href: "/governance",
-      tag: "GOVERNANCE",
-      title: "Governance",
-      desc: "Identity, audit, policies and human approvals.",
-    },
-    {
       href: "/sovereignty",
       tag: "SOVEREIGNTY",
       title: "Sovereignty",
       desc: "Cloud, sovereign, private, on-premise.",
     },
+    {
+      href: "/supervision",
+      tag: "AGENTOPS",
+      title: "Production supervision",
+      desc: "Logs, quality, costs, escalations and continuous improvement.",
+    },
   ],
 } as const;
 
-/** Liens Méthode (mega-menu + drawer mobile). */
+/** Liens Méthodes (mega-menu + drawer mobile). */
 export const NAV_METHOD = {
   fr: [
+    {
+      href: "/formation",
+      tag: "FORMATION",
+      title: "Formation et sensibilisation",
+      desc: "Faire adopter les agents : usages réels, risques et supervision.",
+    },
     {
       href: "/signal",
       tag: "SIGNAL",
       title: "Protocole SIGNAL",
       desc: "Trouver où l’IA crée de la valeur, avant de construire.",
     },
+    {
+      href: "/governance",
+      tag: "GOUVERNANCE",
+      title: "Gouvernance",
+      desc: "Identité, audit, politiques et validations humaines.",
+    },
   ],
   en: [
+    {
+      href: "/formation",
+      tag: "TRAINING",
+      title: "Training and awareness",
+      desc: "Drive adoption: real usage, risks and supervision.",
+    },
     {
       href: "/signal",
       tag: "SIGNAL",
       title: "SIGNAL protocol",
       desc: "Find where AI creates value, before you build.",
     },
+    {
+      href: "/governance",
+      tag: "GOVERNANCE",
+      title: "Governance",
+      desc: "Identity, audit, policies and human approvals.",
+    },
   ],
+} as const;
+
+/** Liens Ressources (mega-menu + drawer mobile). */
+export const NAV_RESOURCES = {
+  fr: {
+    megaKicker: "Ressources",
+    menuLabel: "Sous-menu ressources",
+    items: [
+      {
+        href: "/blog",
+        tag: "BLOG",
+        title: "Blog",
+        desc: "Notes produit, méthode SIGNAL et retours de terrain.",
+      },
+      {
+        href: "/carrieres",
+        tag: "CARRIÈRES",
+        title: "Carrières",
+        desc: "Rejoindre l’équipe Remparia.",
+      },
+      {
+        href: "/partenariat",
+        tag: "PARTENARIAT",
+        title: "Partenariat",
+        desc: "Intégrateurs, cabinets et réseaux qui déploient avec nous.",
+      },
+      {
+        href: "/a-propos",
+        tag: "ENTREPRISE",
+        title: "À propos",
+        desc: "Vision, équipe et comment Remparia travaille.",
+      },
+      {
+        href: "/support",
+        tag: "SUPPORT",
+        title: "Customer support",
+        desc: "Aide, incidents et suivi des environnements en production.",
+      },
+      {
+        href: "/faq",
+        tag: "FAQ",
+        title: "FAQ",
+        desc: "Réponses courtes avant le premier agent.",
+      },
+      {
+        href: "/roi",
+        tag: "ROI",
+        title: "ROI calculator",
+        desc: "Estimer charge récupérable et hypothèses d’investissement.",
+      },
+    ],
+  },
+  en: {
+    megaKicker: "Resources",
+    menuLabel: "Resources submenu",
+    items: [
+      {
+        href: "/blog",
+        tag: "BLOG",
+        title: "Blog",
+        desc: "Product notes, SIGNAL method and field write-ups.",
+      },
+      {
+        href: "/carrieres",
+        tag: "CAREERS",
+        title: "Careers",
+        desc: "Join the Remparia team.",
+      },
+      {
+        href: "/partenariat",
+        tag: "PARTNERS",
+        title: "Partnership",
+        desc: "Integrators, firms and networks that deploy with us.",
+      },
+      {
+        href: "/a-propos",
+        tag: "COMPANY",
+        title: "About",
+        desc: "Vision, team and how Remparia works.",
+      },
+      {
+        href: "/support",
+        tag: "SUPPORT",
+        title: "Customer support",
+        desc: "Help, incidents and production environment follow-up.",
+      },
+      {
+        href: "/faq",
+        tag: "FAQ",
+        title: "FAQ",
+        desc: "Short answers before the first agent.",
+      },
+      {
+        href: "/roi",
+        tag: "ROI",
+        title: "ROI calculator",
+        desc: "Estimate reclaimable load and investment assumptions.",
+      },
+    ],
+  },
 } as const;
 
 /** Liens Solutions (mega-menu + drawer mobile). */
@@ -600,7 +720,7 @@ export const SERVICES = {
         image: "/services/diagnostic-governance-hub.png",
         imageAlt:
           "Schéma isométrique : diagnostic, priorisation, gouvernance et pilotage autour d’un socle sécurisé.",
-        ctaHref: "/services/strategie-ia",
+        ctaHref: "/demarrer",
       },
       {
         tag: "02",
@@ -616,7 +736,7 @@ export const SERVICES = {
         image: "/services/agents-metier-hub.png",
         imageAlt:
           "Schéma isométrique : agents métier connectés aux outils, règles et supervision.",
-        ctaHref: "/services/agents-metier",
+        ctaHref: "/demarrer",
         flip: true,
       },
       {
@@ -633,7 +753,7 @@ export const SERVICES = {
         image: "/services/infra-souveraine-hub.png",
         imageAlt:
           "Schéma isométrique : hébergement souverain, index documentaire et routage des modèles.",
-        ctaHref: "/services/infra-souveraine",
+        ctaHref: "/demarrer",
       },
       {
         tag: "04",
@@ -649,7 +769,7 @@ export const SERVICES = {
         image: "/services/adoption-transfert-hub.png",
         imageAlt:
           "Schéma isométrique : formation, déploiement, documentation, transfert de compétences et pilotage des gains.",
-        ctaHref: "/services/equipes-embarquees",
+        ctaHref: "/demarrer",
         flip: true,
       },
     ],
@@ -788,7 +908,7 @@ export const SERVICES = {
         image: "/services/diagnostic-governance-hub.png",
         imageAlt:
           "Isometric diagram: diagnostic, prioritization, governance and steering around a secure core.",
-        ctaHref: "/services/strategie-ia",
+        ctaHref: "/demarrer",
       },
       {
         tag: "02",
@@ -804,7 +924,7 @@ export const SERVICES = {
         image: "/services/agents-metier-hub.png",
         imageAlt:
           "Isometric diagram: business agents connected to tools, rules and supervision.",
-        ctaHref: "/services/agents-metier",
+        ctaHref: "/demarrer",
         flip: true,
       },
       {
@@ -821,7 +941,7 @@ export const SERVICES = {
         image: "/services/infra-souveraine-hub.png",
         imageAlt:
           "Isometric diagram: sovereign hosting, document index and model routing.",
-        ctaHref: "/services/infra-souveraine",
+        ctaHref: "/demarrer",
       },
       {
         tag: "04",
@@ -837,7 +957,7 @@ export const SERVICES = {
         image: "/services/adoption-transfert-hub.png",
         imageAlt:
           "Isometric diagram: training, rollout, documentation, skills transfer and outcome steering.",
-        ctaHref: "/services/equipes-embarquees",
+        ctaHref: "/demarrer",
         flip: true,
       },
     ],
@@ -1152,7 +1272,7 @@ export const SECTEURS = {
     hubMoreTitle: "Pour aller plus loin",
     hubLinks: [
       { label: "Le protocole SIGNAL", href: "/signal" },
-      { label: "Nos services", href: "/services" },
+      { label: "Démarrer", href: "/demarrer" },
       { label: "Diagnostic SIGNAL", href: "/contact" },
     ],
     labels: {
@@ -1224,7 +1344,7 @@ export const SECTEURS = {
     hubMoreTitle: "Go further",
     hubLinks: [
       { label: "The SIGNAL protocol", href: "/signal" },
-      { label: "Our services", href: "/services" },
+      { label: "Get started", href: "/demarrer" },
       { label: "SIGNAL diagnostic", href: "/contact" },
     ],
     labels: {

@@ -19,26 +19,24 @@
 .team-card__name,
 .signal-card__title,
 .position-card__title {
-  font-family: var(--font-display), var(--font-ui), sans-serif !important;
+  font-family: var(--font-display) !important;
   font-stretch: normal !important;
   text-transform: none !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.02em !important;
+  font-weight: var(--font-display-weight) !important;
+  letter-spacing: var(--letter-display) !important;
+  line-height: var(--font-display-leading) !important;
 }
 
 .page-hero__title {
   font-size: var(--type-display-2) !important;
-  line-height: 1.08 !important;
 }
 
 .section__title {
   font-size: var(--type-h1) !important;
-  line-height: 1.12 !important;
 }
 
 .section__title--lg {
   font-size: var(--type-display-2) !important;
-  line-height: 1.08 !important;
 }
 
 .info-card h2,

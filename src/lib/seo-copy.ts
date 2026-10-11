@@ -78,18 +78,6 @@ const COPY = {
         "Same OS, same ALLOW / REVIEW / BLOCK policies, whatever the perimeter: Remparia Cloud, sovereign cloud or on-premise. Harden hosting without rewriting agents.",
     },
   },
-  "/services": {
-    fr: {
-      title: "Services : SIGNAL, Studio, déploiement, adoption",
-      description:
-        "Couche delivery de Remparia OS : cadrer avec SIGNAL, construire dans Studio, déployer en souveraineté, faire adopter. Forfait cadré avant signature, pas un produit parallèle.",
-    },
-    en: {
-      title: "Services: SIGNAL, Studio, deploy, adoption",
-      description:
-        "Remparia OS delivery layer: frame with SIGNAL, build in Studio, deploy under sovereignty, drive adoption. Fee framed before signature, not a parallel product.",
-    },
-  },
   "/secteurs": {
     fr: {
       title: "Métiers spécialisés : agents supervisés par profession",
@@ -100,18 +88,6 @@ const COPY = {
       title: "Specialized professions: supervised agents by trade",
       description:
         "Remparia agents for professions where data is sensitive, accountability is high and expert time is scarce. SIGNAL, Studio, OS, hosting in the chosen perimeter.",
-    },
-  },
-  "/cas-d-usage": {
-    fr: {
-      title: "Cas d’usage : ce que l’agent fait, ce qu’il ne fait jamais",
-      description:
-        "Fiches processus métier Remparia : collecte, complétude, instruction. Ce que l’agent fait, ce qu’il ne valide jamais, et ce qu’on mesure.",
-    },
-    en: {
-      title: "Use cases: what the agent does, and never does",
-      description:
-        "Remparia workflow sheets: collection, completeness, case prep. What the agent does, what it never signs off, and what we measure.",
     },
   },
   "/pour-qui": {
@@ -172,6 +148,92 @@ const COPY = {
       title: "Careers: supervised business-agent experts",
       description:
         "Join Remparia’s independent expert network for supervised business-agent deployments in specialized professions.",
+    },
+  },
+  "/blog": {
+    fr: {
+      title: "Blog Remparia",
+      description:
+        "Notes produit et méthode SIGNAL, Studio et Remparia OS – ce qu’on apprend sur le terrain.",
+    },
+    en: {
+      title: "Remparia blog",
+      description:
+        "Product notes and SIGNAL, Studio and Remparia OS method – what we learn in the field.",
+    },
+  },
+  "/partenariat": {
+    fr: {
+      title: "Partenariat Remparia",
+      description:
+        "Intégrateurs et cabinets : co-cadrage SIGNAL, Studio et exploitation sous politiques OS.",
+    },
+    en: {
+      title: "Remparia partnership",
+      description:
+        "Integrators and firms: SIGNAL scoping, Studio and operations under OS policies.",
+    },
+  },
+  "/support": {
+    fr: {
+      title: "Support clients Remparia",
+      description:
+        "Support production : incidents, connecteurs, seuils et suivi AgentOps.",
+    },
+    en: {
+      title: "Remparia customer support",
+      description:
+        "Production support: incidents, connectors, thresholds and AgentOps follow-up.",
+    },
+  },
+  "/faq": {
+    fr: {
+      title: "FAQ Remparia",
+      description:
+        "Questions fréquentes sur SIGNAL, Studio, Remparia OS et la gouvernance des agents.",
+    },
+    en: {
+      title: "Remparia FAQ",
+      description:
+        "Frequently asked questions about SIGNAL, Studio, Remparia OS and agent governance.",
+    },
+  },
+  "/formation": {
+    fr: {
+      title: "Formation et sensibilisation Remparia",
+      description:
+        "Faire adopter les agents : ateliers métier, risques ALLOW / REVIEW / BLOCK, Studio et AgentOps.",
+    },
+    en: {
+      title: "Remparia training and awareness",
+      description:
+        "Drive agent adoption: business workshops, ALLOW / REVIEW / BLOCK risks, Studio and AgentOps.",
+    },
+  },
+  "/supervision": {
+    fr: {
+      title: "Supervision en production Remparia",
+      description:
+        "AgentOps : journal OS, qualité, coûts, escalades ALLOW / REVIEW / BLOCK et amélioration continue.",
+    },
+    en: {
+      title: "Remparia production supervision",
+      description:
+        "AgentOps: OS journal, quality, costs, ALLOW / REVIEW / BLOCK escalations and continuous improvement.",
+    },
+  },
+
+
+  "/roi": {
+    fr: {
+      title: "Calculateur ROI Remparia",
+      description:
+        "Estimer la charge récupérable et les hypothèses d’investissement – indicative, sans promesse fixe.",
+    },
+    en: {
+      title: "Remparia ROI calculator",
+      description:
+        "Estimate reclaimable load and investment assumptions – indicative, no fixed promise.",
     },
   },
   "/solutions/legal": {

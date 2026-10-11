@@ -6,10 +6,8 @@ import {
   NAV,
   NAV_IA,
   SECTEURS,
-  SERVICES,
   getSecteur,
   getSecteurDetail,
-  getService,
   type Lang,
 } from "@/lib/content";
 import { homePremium } from "@/lib/home-premium";
@@ -22,7 +20,6 @@ import { sovereigntyPage } from "@/lib/sovereignty-page";
 import { getAgentsForSecteur } from "@/lib/agents";
 import { signalPage } from "@/lib/signal-page";
 import {
-  CAS_USAGE,
   DEMARRER,
   POUR_QUI,
 } from "@/lib/strategy";
@@ -134,22 +131,6 @@ function homeMd({ lang, locale }: MdOpts) {
             ),
         )
         .join("\n\n"),
-    ),
-    section(
-      `${t.org.titleBefore}${t.org.titleAccent}`,
-      lines(
-        t.org.body,
-        "",
-        "### Activity log",
-        "",
-        bullets(t.org.logs.map((l) => `${l.title} (${l.time})`)),
-        "",
-        `- **${t.org.human.title}**: ${t.org.human.desc}`,
-        `- **${t.org.orchestrator.title}**: ${t.org.orchestrator.desc}`,
-        ...t.org.agents.map((a) => `- **${a.title}**: ${a.desc}`),
-        "",
-        `Tools: ${t.org.tools.map((x) => x.label).join(", ")}`,
-      ),
     ),
     section(
       `${t.workforce.titleBefore}${t.workforce.titleAccent}`,
@@ -548,32 +529,8 @@ function pourQuiMd({ lang, locale }: MdOpts) {
     section(t.openTitle, t.openBody),
     section(t.notTitle, bullets(t.notItems)),
     `**CTA:** ${mdLink(t.ctaPrimary, locale, "/demarrer")}`,
-    `**Secondary:** ${mdLink(t.ctaSecondary, locale, "/cas-d-usage")}`,
+    `**Secondary:** ${mdLink(t.ctaSecondary, locale, "/secteurs")}`,
     "",
-  );
-}
-
-function casUsageMd({ lang, locale }: MdOpts) {
-  const t = CAS_USAGE[lang];
-  return lines(
-    `# ${t.title}`,
-    "",
-    `> ${t.eyebrow}`,
-    "",
-    t.sub,
-    "",
-    ...t.items.map((item) =>
-      lines(
-        `## ${item.process}`,
-        "",
-        `- **Today:** ${item.today}`,
-        `- **With agent:** ${item.withAgent}`,
-        `- **Never:** ${item.never}`,
-        `- **Measure:** ${item.measure}`,
-        "",
-      ),
-    ),
-    siteIndex({ lang, locale }),
   );
 }
 
@@ -641,58 +598,6 @@ function methodeMd({ lang, locale }: MdOpts) {
     ),
     section(t.governanceH, bullets(t.governanceItems)),
     section(t.differenceH, t.differenceP),
-    siteIndex({ lang, locale }),
-  );
-}
-
-function servicesMd({ lang, locale }: MdOpts) {
-  const t = SERVICES[lang];
-  return lines(
-    `# ${t.title}`,
-    "",
-    `> ${t.eyebrow}`,
-    "",
-    t.sub,
-    "",
-    t.intro,
-    "",
-    section(t.commitmentTitle, bullets(t.commitments)),
-    section(t.scopeTitle, t.scopeBody),
-    ...t.serviceSections.map((s) =>
-      lines(
-        `## ${s.tag} — ${s.title}`,
-        "",
-        s.desc,
-        "",
-        bullets(s.points.map((p) => p.label)),
-        "",
-        mdLink(lang === "fr" ? "Ouvrir" : "Open", locale, s.ctaHref),
-        "",
-      ),
-    ),
-    section(
-      lang === "fr" ? "Catalogue" : "Catalog",
-      bullets(
-        t.items.map((i) => mdLink(i.title, locale, `/services/${i.slug}`)),
-      ),
-    ),
-  );
-}
-
-function serviceDetailMd(slug: string, { lang, locale }: MdOpts) {
-  const s = getService(slug, lang);
-  if (!s) return fallbackMd({ lang, locale });
-  return lines(
-    `# ${s.title}`,
-    "",
-    s.desc,
-    "",
-    mdLink(
-      lang === "fr" ? "Tous les services" : "All services",
-      locale,
-      "/services",
-    ),
-    "",
     siteIndex({ lang, locale }),
   );
 }
@@ -836,10 +741,8 @@ function siteIndex({ lang, locale }: MdOpts) {
     "",
     `- ${mdLink(lang === "fr" ? "Accueil" : "Home", locale, "/")}`,
     `- ${mdLink("SIGNAL", locale, "/signal")}`,
-    `- ${mdLink(nav.services, locale, "/services")}`,
     `- ${mdLink(nav.secteurs, locale, "/secteurs")}`,
-    `- ${mdLink(nav.pourQui, locale, "/cas-d-usage")}`,
-    `- ${mdLink(nav.casUsage, locale, "/cas-d-usage")}`,
+    `- ${mdLink(nav.pourQui, locale, "/pour-qui")}`,
     `- ${mdLink(nav.demarrer, locale, "/demarrer")}`,
     `- ${mdLink(nav.aPropos, locale, "/a-propos")}`,
     `- ${mdLink(nav.carrieres, locale, "/carrieres")}`,
@@ -959,19 +862,14 @@ export function buildAgentMarkdown(
   if (path === "/governance") return governanceMd(opts);
   if (path === "/sovereignty") return sovereigntyMd(opts);
   if (path === "/pour-qui") return pourQuiMd(opts);
-  if (path === "/cas-d-usage") return casUsageMd(opts);
   if (path === "/demarrer") return demarrerMd(opts);
   if (path === "/methode") return methodeMd(opts); // legacy alias content
-  if (path === "/services") return servicesMd(opts);
   if (path === "/secteurs") return secteursMd(opts);
   if (path === "/a-propos") return aproposMd(opts);
   if (path === "/contact") return contactMd(opts);
 
   const premiumKey = PREMIUM_ROUTE[path];
   if (premiumKey) return fromPremium(premiumKey, opts);
-
-  const serviceMatch = path.match(/^\/services\/([^/]+)$/);
-  if (serviceMatch) return serviceDetailMd(serviceMatch[1], opts);
 
   const secteurMatch = path.match(/^\/secteurs\/([^/]+)$/);
   if (secteurMatch) return secteurDetailMd(secteurMatch[1], opts);

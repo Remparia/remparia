@@ -405,7 +405,7 @@ export const POUR_QUI = {
       "Les projets où la décision serait déléguée à la machine.",
     ],
     ctaPrimary: "Réserver l’heure de cadrage →",
-    ctaSecondary: "Voir les cas d’usage →",
+    ctaSecondary: "Voir les métiers →",
   },
   en: {
     eyebrow: "WHO IT IS FOR",
@@ -480,196 +480,7 @@ export const POUR_QUI = {
       "Projects where decisions would be delegated to the machine.",
     ],
     ctaPrimary: "Book the scoping hour →",
-    ctaSecondary: "See use cases →",
-  },
-} as const;
-
-export const CAS_USAGE = {
-  fr: {
-    eyebrow: "CAS D’USAGE",
-    title: "Le processus, dans le langage du métier",
-    sub: "Chaque fiche décrit un travail réel, jamais une technologie. Ce que l’agent fait, ce qu’il ne fait pas, et ce qu’on mesure.",
-    items: [
-      {
-        slug: "collecte-de-pieces",
-        process: "Collecte de pièces",
-        today: "Relances manuelles, dossiers incomplets, temps expert perdu sur le suivi.",
-        withAgent:
-          "L’agent sollicite les pièces manquantes, relance selon vos règles, trace chaque échange.",
-        never: "Il ne valide pas l’acte et ne décide pas de la complétude juridique.",
-        measure: "Délai de complétude et taux de pièces reçues sans relance humaine.",
-      },
-      {
-        slug: "controle-de-completude",
-        process: "Contrôle de complétude",
-        today: "Check-lists dispersées, oublis, reprise manuelle avant signature.",
-        withAgent:
-          "L’agent applique la check-list métier, signale les manques, prépare le dossier pour l’expert.",
-        never: "Il ne signe pas et ne lève pas une exception métier sans humain.",
-        measure: "Taux de dossiers complets au premier passage expert.",
-      },
-      {
-        slug: "preparation-de-revision",
-        process: "Préparation de révision",
-        today: "Heures d’expert sur l’assemblage et le tri avant l’analyse.",
-        withAgent:
-          "L’agent assemble les sources autorisées, prépare la liasse, signale les écarts.",
-        never: "Il ne rend pas l’opinion professionnelle.",
-        measure: "Temps expert avant première lecture utile.",
-      },
-      {
-        slug: "instruction-de-dossier",
-        process: "Instruction de dossier",
-        today: "Informations éparpillées, ressaisies, délais allongés.",
-        withAgent:
-          "L’agent structure le dossier, remplit les champs autorisés, alerte sur les incohérences.",
-        never: "Il ne tranche pas le fond du dossier.",
-        measure: "Délai d’instruction et nombre de ressaisies évitées.",
-      },
-      {
-        slug: "kyc-lcb-ft",
-        process: "KYC / LCB-FT",
-        today: "Collecte et contrôles chronophages, risque d’oubli.",
-        withAgent:
-          "L’agent orchestre la collecte, applique les contrôles définis, journalise chaque étape.",
-        never: "Il ne décide pas de l’acceptation du client.",
-        measure: "Délai KYC et exhaustivité des contrôles journalisés.",
-      },
-      {
-        slug: "reporting-client",
-        process: "Reporting client",
-        today: "Reporting manuel, formats hétérogènes, délais serrés.",
-        withAgent:
-          "L’agent produit le brouillon à partir des sources autorisées, selon votre modèle.",
-        never: "Il n’envoie pas sans validation humaine.",
-        measure: "Temps de préparation du reporting.",
-      },
-      {
-        slug: "comptes-rendus",
-        process: "Comptes rendus",
-        today: "Notes éparses, reformulation tardive, perte de contexte.",
-        withAgent:
-          "L’agent structure le compte rendu à partir des éléments validés, selon votre trame.",
-        never: "Il n’engage pas le cabinet auprès du client.",
-        measure: "Délai de mise à disposition du compte rendu.",
-      },
-      {
-        slug: "recherche-documentaire",
-        process: "Recherche documentaire",
-        today: "Recherche longue dans des fonds autorisés, résultats à vérifier.",
-        withAgent:
-          "L’agent interroge les sources autorisées, cite les origines, prépare une synthèse.",
-        never: "Il ne substitue pas le jugement sur la pertinence juridique ou fiscale.",
-        measure: "Temps de première synthèse sourcée.",
-      },
-      {
-        slug: "livrables-recurrents",
-        process: "Livrables récurrents",
-        today: "Production répétitive, formats fixes, charge en fin de période.",
-        withAgent:
-          "L’agent prépare les livrables récurrents selon le calendrier et les modèles du cabinet.",
-        never: "Il ne publie pas sans revue humaine.",
-        measure: "Charge absorbée sur les cycles récurrents.",
-      },
-    ],
-    osLine: "Sur quoi ça tourne",
-    osCta: "Voir Remparia OS →",
-    banner:
-      "Votre processus n’est probablement pas exactement dans cette liste. C’est l’objet de la première heure.",
-    ctaPrimary: "Réserver l’heure →",
-  },
-  en: {
-    eyebrow: "USE CASES",
-    title: "The workflow, in the profession’s language",
-    sub: "Each card describes real work, never technology. What the agent does, what it does not, and what we measure.",
-    items: [
-      {
-        slug: "collecte-de-pieces",
-        process: "Document collection",
-        today: "Manual chase-ups, incomplete files, expert time lost on follow-up.",
-        withAgent:
-          "The agent requests missing documents, follows up under your rules, logs every exchange.",
-        never: "It does not validate the deed or decide legal completeness.",
-        measure: "Time to completeness and share of documents received without human chase-up.",
-      },
-      {
-        slug: "controle-de-completude",
-        process: "Completeness checks",
-        today: "Scattered checklists, misses, manual catch-up before signing.",
-        withAgent:
-          "The agent applies the business checklist, flags gaps, prepares the file for the expert.",
-        never: "It does not sign or clear a business exception without a human.",
-        measure: "Share of files complete at first expert pass.",
-      },
-      {
-        slug: "preparation-de-revision",
-        process: "Review preparation",
-        today: "Expert hours on assembling and sorting before analysis.",
-        withAgent:
-          "The agent assembles approved sources, prepares the pack, flags gaps.",
-        never: "It does not issue the professional opinion.",
-        measure: "Expert time before a useful first read.",
-      },
-      {
-        slug: "instruction-de-dossier",
-        process: "Case instruction",
-        today: "Scattered information, rekeying, longer cycles.",
-        withAgent:
-          "The agent structures the file, fills allowed fields, flags inconsistencies.",
-        never: "It does not decide the substance of the case.",
-        measure: "Instruction lead time and rekeying avoided.",
-      },
-      {
-        slug: "kyc-lcb-ft",
-        process: "KYC / AML",
-        today: "Time-consuming collection and checks, risk of misses.",
-        withAgent:
-          "The agent orchestrates collection, applies defined checks, logs every step.",
-        never: "It does not decide client acceptance.",
-        measure: "KYC lead time and completeness of logged checks.",
-      },
-      {
-        slug: "reporting-client",
-        process: "Client reporting",
-        today: "Manual reporting, mixed formats, tight deadlines.",
-        withAgent:
-          "The agent drafts from approved sources, to your template.",
-        never: "It does not send without human validation.",
-        measure: "Time to prepare the report.",
-      },
-      {
-        slug: "comptes-rendus",
-        process: "Meeting notes",
-        today: "Scattered notes, late rewrite, lost context.",
-        withAgent:
-          "The agent structures the note from validated inputs, to your outline.",
-        never: "It does not commit the firm to the client.",
-        measure: "Time to deliver the note.",
-      },
-      {
-        slug: "recherche-documentaire",
-        process: "Document research",
-        today: "Long search across approved corpora, results to verify.",
-        withAgent:
-          "The agent queries approved sources, cites origins, prepares a synthesis.",
-        never: "It does not replace judgment on legal or tax relevance.",
-        measure: "Time to a first sourced synthesis.",
-      },
-      {
-        slug: "livrables-recurrents",
-        process: "Recurring deliverables",
-        today: "Repetitive production, fixed formats, period-end load.",
-        withAgent:
-          "The agent prepares recurring deliverables on the firm’s calendar and templates.",
-        never: "It does not publish without human review.",
-        measure: "Workload absorbed on recurring cycles.",
-      },
-    ],
-    osLine: "What it runs on",
-    osCta: "See Remparia OS →",
-    banner:
-      "Your workflow is probably not exactly on this list. That is what the first hour is for.",
-    ctaPrimary: "Book the hour →",
+    ctaSecondary: "See professions →",
   },
 } as const;
 
@@ -826,7 +637,6 @@ export function strategyCopy(lang: Lang) {
   return {
     solution: SOLUTION[lang],
     pourQui: POUR_QUI[lang],
-    casUsage: CAS_USAGE[lang],
     demarrer: DEMARRER[lang],
   };
 }

@@ -1,6 +1,8 @@
 .page {
   max-width: 100vw;
   overflow-x: hidden;
+  /* clip (not hidden) keeps the page from becoming a scroll container, so sticky pins work */
+  overflow-x: clip;
 }
 
 /* ??? NAV ??? */
@@ -36,58 +38,18 @@
   line-height: 0;
   min-width: 0;
   max-width: 100%;
-  --nav-logo-h: 28px;
-  --nav-logo-aspect: 5.553; /* 211 / 38 */
-  --nav-logo-gap: 8px;
 }
 
-.nav__logo-split {
-  display: none;
-  align-items: center;
-  min-width: 0;
-}
-
-html[data-theme="day"] .nav__logo--full {
+.nav__logo--day {
   display: none !important;
 }
 
-html[data-theme="day"] .nav__logo-split {
-  display: inline-flex;
+html[data-theme="day"] .nav__logo--night {
+  display: none !important;
 }
 
-.nav__logo-mark,
-.nav__logo-word {
-  overflow: hidden;
-  flex-shrink: 0;
-  height: var(--nav-logo-h);
-}
-
-.nav__logo-mark {
-  width: var(--nav-logo-h);
-}
-
-.nav__logo-word {
-  width: calc(
-    var(--nav-logo-h) * (var(--nav-logo-aspect) - 1) - var(--nav-logo-gap)
-  );
-  margin-left: var(--nav-logo-gap);
-}
-
-.nav__logo-split .nav__logo {
-  display: block;
-  height: var(--nav-logo-h) !important;
-  width: calc(var(--nav-logo-h) * var(--nav-logo-aspect)) !important;
-  max-width: none !important;
-  object-fit: cover;
-  object-position: left center;
-}
-
-.nav__logo-word .nav__logo {
-  margin-left: calc(-1 * var(--nav-logo-h));
-}
-
-html[data-theme="day"] .nav__logo-word .nav__logo {
-  filter: brightness(0);
+html[data-theme="day"] .nav__logo--day {
+  display: block !important;
 }
 
 .nav__logo {
@@ -1698,6 +1660,10 @@ html[data-theme="day"] .nav__logo-word .nav__logo {
   display: block;
 }
 
+.footer__logo--day {
+  display: none !important;
+}
+
 .footer__note {
   font: 400 10px var(--font-ui), sans-serif;
   color: rgba(255, 255, 255, 0.68);
@@ -1848,8 +1814,8 @@ html[data-theme="day"] .nav__logo-word .nav__logo {
     font-size: 15px;
     font-weight: 500;
     line-height: 1.6;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-transform: none;
   }
 
   .nav__links a {
@@ -2268,12 +2234,12 @@ html[data-theme="day"] .nav__logo-word .nav__logo {
 
 .page-hero__title {
   margin: 0;
-  font-family: var(--font-ui), sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  text-transform: none;
   font-size: var(--title-page);
-  line-height: 0.94;
-  letter-spacing: -0.02em;
+  line-height: var(--font-display-leading);
+  letter-spacing: var(--letter-display);
   max-width: 920px;
 }
 
@@ -4387,7 +4353,7 @@ a.info-card:focus-visible {
   }
 
   .site-footer__grid {
-    grid-template-columns: 1.3fr 0.9fr 1.2fr 0.9fr 0.9fr;
+    grid-template-columns: 1.15fr 0.85fr 0.95fr 1fr 0.95fr 0.85fr;
   }
 }
 
@@ -5221,9 +5187,9 @@ a.info-card:focus-visible {
   display: flex;
   align-items: center;
   gap: 14px;
-  font: 700 11px/1.35 var(--font-ui), sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font: 700 13px/1.35 var(--font-ui), sans-serif;
+  letter-spacing: -0.01em;
+  text-transform: none;
   color: rgba(255, 255, 255, 0.88);
 }
 

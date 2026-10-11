@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import AgentFicheGrid from "@/components/AgentFicheGrid";
 import LocaleLink from "@/components/LocaleLink";
 import PageFaq from "@/components/PageFaq";
@@ -38,16 +37,8 @@ export default function CommercePackPage() {
             </LocaleLink>
           </>
         }
-        media={
-          <Image
-            src={heroImage}
-            alt=""
-            fill
-            sizes="(max-width: 960px) 100vw, 48vw"
-            priority
-            quality={85}
-          />
-        }
+        bgDay={heroImage}
+        bgNight={heroImage}
       />
 
       <section className="ph-section ca-proof">

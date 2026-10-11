@@ -28,10 +28,10 @@ const COPY = {
         desc: "Le protocole pour cadrer un premier agent métier.",
       },
       {
-        href: "/services",
-        tag: "OFFRE",
-        title: "Services",
-        desc: "Diagnostic, construction, transfert — sans boîte noire.",
+        href: "/demarrer",
+        tag: "DÉMARRER",
+        title: "Démarrer",
+        desc: "Session SIGNAL, diagnostic ou premier agent supervisé.",
       },
       {
         href: "/secteurs",
@@ -65,10 +65,10 @@ const COPY = {
         desc: "The protocol to scope a first domain agent.",
       },
       {
-        href: "/services",
-        tag: "OFFER",
-        title: "Services",
-        desc: "Diagnose, build, transfer — no black box.",
+        href: "/demarrer",
+        tag: "START",
+        title: "Get started",
+        desc: "SIGNAL session, diagnostic or first supervised agent.",
       },
       {
         href: "/secteurs",

@@ -9,8 +9,8 @@ export const HOME_PREMIUM = {
       titleLine2Accent: "fonctionnement de votre entreprise.",
       sub: "De la stratégie à l’exécution, Remparia fait de l’IA un système d’exploitation gouverné pour votre activité.",
       cta: "Construire votre modèle d’exploitation IA",
-      ctaSecondary: "Voir Remparia en action",
-      ctaSecondaryHref: "#en-action",
+      ctaSecondary: "Voir le modèle",
+      ctaSecondaryHref: "#modele",
       proof: [
         "Prêt souveraineté",
         "Agnostique modèles",
@@ -105,40 +105,8 @@ export const HOME_PREMIUM = {
         },
       ],
     },
-    org: {
-      eyebrow: "03 / EN ACTION",
-      titleBefore: "Voir une organisation IA ",
-      titleAccent: "au travail.",
-      body: "Illustration : une mission entre, l’orchestrateur délègue, les agents exécutent, l’humain valide. Le tout est journalisé dans Remparia OS.",
-      cta: "Voir Remparia OS",
-      logTitle: "Activité (exemple)",
-      logs: [
-        { icon: "mission", title: "Nouvelle mission reçue", time: "10:23:54" },
-        { icon: "sales", title: "Agent Ventes démarré", time: "10:32:13" },
-        { icon: "document", title: "Agent Document appelé", time: "10:52:21" },
-        { icon: "crm", title: "Outil CRM utilisé", time: "10:57:27" },
-        { icon: "human", title: "Validation humaine", time: "11:03:02" },
-        { icon: "done", title: "Mission terminée", time: "11:06:14" },
-      ],
-      saved: "Exemple · 14 min économisées",
-      human: { title: "HUMAIN", desc: "Approuve / Valide" },
-      orchestrator: { title: "ORCHESTRATEUR", desc: "Planifie et délègue" },
-      agents: [
-        { icon: "salesai", title: "IA VENTES", desc: "Qualifier & engager" },
-        { icon: "docai", title: "IA DOCS", desc: "Lire & préparer" },
-        { icon: "finance", title: "IA FINANCE", desc: "Analyser & contrôler" },
-      ],
-      os: "REMPARIA OS",
-      tools: [
-        { icon: "crm", label: "CRM" },
-        { icon: "erp", label: "ERP" },
-        { icon: "email", label: "E-mail" },
-        { icon: "docs", label: "Docs" },
-        { icon: "apis", label: "APIs" },
-      ],
-    },
     workforce: {
-      eyebrow: "04 / FORCE DE TRAVAIL IA",
+      eyebrow: "03 / FORCE DE TRAVAIL IA",
       titleBefore: "Un chatbot répond. ",
       titleAccent: "Une force de travail IA exécute.",
       body: "Les agents travaillent dans des workflows Remparia OS. Les actions engagantes passent en REVIEW ; le reste est ALLOW ou BLOCK selon vos politiques.",
@@ -177,7 +145,7 @@ export const HOME_PREMIUM = {
       ],
     },
     sovereignty: {
-      eyebrow: "05 / SOUVERAINETÉ",
+      eyebrow: "04 / SOUVERAINETÉ",
       titleBefore: "Choisissez le périmètre. ",
       titleAccent: "Gardez le contrôle.",
       os: "REMPARIA OS",
@@ -332,7 +300,7 @@ export const HOME_PREMIUM = {
       },
     },
     industries: {
-      eyebrow: "06 / SOLUTIONS MÉTIERS",
+      eyebrow: "05 / SOLUTIONS MÉTIERS",
       titleBefore: "Conçu pour ",
       titleAccent: "votre industrie.",
       titleAfter: " Packs métier déjà cadrés.",
@@ -614,7 +582,7 @@ export const HOME_PREMIUM = {
       ],
     },
     roi: {
-      eyebrow: "07 / ROI",
+      eyebrow: "06 / ROI",
       titleBefore: "Estimez le temps ",
       titleAccent: "récupérable.",
       employees: "Employés",
@@ -629,7 +597,7 @@ export const HOME_PREMIUM = {
       roiPct: "ROI estimé (hypothèse)",
     },
     ops: {
-      eyebrow: "08 / OPÉRATIONS IA",
+      eyebrow: "07 / OPÉRATIONS IA",
       titleBefore: "Votre force de travail IA ne s’arrête pas au déploiement. ",
       titleAccent: "Nous non plus.",
       items: [
@@ -644,7 +612,7 @@ export const HOME_PREMIUM = {
       ],
     },
     faq: {
-      eyebrow: "09 / FAQ",
+      eyebrow: "08 / FAQ",
       title: "Questions fréquentes",
       sub: "Ce que Remparia est, concrètement, avant le premier agent.",
       items: [
@@ -681,8 +649,8 @@ export const HOME_PREMIUM = {
       titleLine2Accent: "how your company runs.",
       sub: "From strategy to execution, Remparia turns AI into a governed operating system for your business.",
       cta: "Build your AI operating model",
-      ctaSecondary: "See Remparia in action",
-      ctaSecondaryHref: "#en-action",
+      ctaSecondary: "See the model",
+      ctaSecondaryHref: "#modele",
       proof: [
         "Sovereignty-ready",
         "Model-agnostic",
@@ -777,40 +745,8 @@ export const HOME_PREMIUM = {
         },
       ],
     },
-    org: {
-      eyebrow: "03 / SEE IT IN ACTION",
-      titleBefore: "See an AI organization ",
-      titleAccent: "at work.",
-      body: "Illustration: a mission comes in, the orchestrator delegates, agents execute, humans approve. Everything is logged in Remparia OS.",
-      cta: "See Remparia OS",
-      logTitle: "Activity (sample)",
-      logs: [
-        { icon: "mission", title: "New mission received", time: "10:23:54" },
-        { icon: "sales", title: "Sales Agent started", time: "10:32:13" },
-        { icon: "document", title: "Document Agent called", time: "10:52:21" },
-        { icon: "crm", title: "CRM tool used", time: "10:57:27" },
-        { icon: "human", title: "Human approval", time: "11:03:02" },
-        { icon: "done", title: "Task completed", time: "11:06:14" },
-      ],
-      saved: "Sample · 14 min saved",
-      human: { title: "HUMAN", desc: "Approves / Validates" },
-      orchestrator: { title: "ORCHESTRATOR", desc: "Plans and delegates" },
-      agents: [
-        { icon: "salesai", title: "SALES AI", desc: "Qualify & engage" },
-        { icon: "docai", title: "DOC AI", desc: "Read & prepare" },
-        { icon: "finance", title: "FINANCE AI", desc: "Analyse & control" },
-      ],
-      os: "REMPARIA OS",
-      tools: [
-        { icon: "crm", label: "CRM" },
-        { icon: "erp", label: "ERP" },
-        { icon: "email", label: "Email" },
-        { icon: "docs", label: "Docs" },
-        { icon: "apis", label: "APIs" },
-      ],
-    },
     workforce: {
-      eyebrow: "04 / AI WORKFORCE",
+      eyebrow: "03 / AI WORKFORCE",
       titleBefore: "A chatbot answers. ",
       titleAccent: "An AI workforce executes.",
       body: "Agents run in Remparia OS workflows. High-stakes actions go to REVIEW; the rest is ALLOW or BLOCK per your policies.",
@@ -849,7 +785,7 @@ export const HOME_PREMIUM = {
       ],
     },
     sovereignty: {
-      eyebrow: "05 / SOVEREIGNTY",
+      eyebrow: "04 / SOVEREIGNTY",
       titleBefore: "Choose the perimeter. ",
       titleAccent: "Keep control.",
       os: "REMPARIA OS",
@@ -1004,7 +940,7 @@ export const HOME_PREMIUM = {
       },
     },
     industries: {
-      eyebrow: "06 / INDUSTRY SOLUTIONS",
+      eyebrow: "05 / INDUSTRY SOLUTIONS",
       titleBefore: "Built for ",
       titleAccent: "your industry.",
       titleAfter: " Packs already scoped.",
@@ -1286,7 +1222,7 @@ export const HOME_PREMIUM = {
       ],
     },
     roi: {
-      eyebrow: "07 / ROI",
+      eyebrow: "06 / ROI",
       titleBefore: "Estimate the time you can ",
       titleAccent: "reclaim.",
       employees: "Employees",
@@ -1301,7 +1237,7 @@ export const HOME_PREMIUM = {
       roiPct: "Estimated ROI (hypothesis)",
     },
     ops: {
-      eyebrow: "08 / AI OPERATIONS",
+      eyebrow: "07 / AI OPERATIONS",
       titleBefore: "Your AI workforce doesn't stop after deployment. ",
       titleAccent: "Neither do we.",
       items: [
@@ -1316,7 +1252,7 @@ export const HOME_PREMIUM = {
       ],
     },
     faq: {
-      eyebrow: "09 / FAQ",
+      eyebrow: "08 / FAQ",
       title: "Frequently asked questions",
       sub: "What Remparia is, in concrete terms, before the first agent.",
       items: [

@@ -72,52 +72,6 @@ function PillarIcon({ id }: { id: GovPillarId }) {
   }
 }
 
-function ControlPanel({
-  active,
-  mark,
-  status,
-  mission,
-  pillars,
-  onSelect,
-}: {
-  active: GovPillarId;
-  mark: string;
-  status: string;
-  mission: string;
-  pillars: readonly { id: GovPillarId; panel: string }[];
-  onSelect: (id: GovPillarId) => void;
-}) {
-  return (
-    <div className="gv-panel">
-      <div className="gv-panel__bar">
-        <span className="gv-panel__mark">{mark}</span>
-        <span className="gv-panel__status">{status}</span>
-      </div>
-      <p className="gv-panel__mission">{mission}</p>
-      <ul className="gv-panel__nodes">
-        {pillars.map((pillar, index) => (
-          <li key={pillar.id}>
-            <button
-              type="button"
-              className={`gv-panel__node${pillar.id === active ? " is-on" : ""}`}
-              onClick={() => onSelect(pillar.id)}
-              aria-pressed={pillar.id === active}
-            >
-              <span className="gv-panel__index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="gv-panel__node-icon">
-                <PillarIcon id={pillar.id} />
-              </span>
-              <span>{pillar.panel}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export default function GovernancePage() {
   const { lang } = useLang();
   const t = governancePage(lang);
@@ -156,13 +110,16 @@ export default function GovernancePage() {
               </div>
             </div>
             <div className="ph-page-hero__media gv-hero__media">
-              <ControlPanel
-                active={active}
-                mark={t.panel.mark}
-                status={t.panel.status}
-                mission={t.panel.mission}
-                pillars={t.pillars.items}
-                onSelect={setActive}
+              <Image
+                src="/governance-hero-visual.png"
+                alt=""
+                width={1024}
+                height={1024}
+                className="gv-hero__img"
+                priority
+                unoptimized
+                sizes="(max-width: 959px) 94vw, min(520px, 42vw)"
+                aria-hidden
               />
             </div>
           </div>

@@ -12,7 +12,7 @@ export function toLang(locale: string): Lang {
   return isLocale(locale) ? locale : DEFAULT_LOCALE;
 }
 
-/** Prefixe un chemin interne avec la locale. `/` → `/fr`, `/services` → `/fr/services` */
+/** Prefixe un chemin interne avec la locale. `/` → `/fr`, `/signal` → `/fr/signal` */
 export function withLocale(locale: Locale | Lang, path = "/"): string {
   const clean = path.startsWith("/") ? path : `/${path}`;
   if (clean === "/") return `/${locale}`;

@@ -110,7 +110,7 @@
 
   /* Typography families */
   --font-ui: var(--font-inter), "Inter", system-ui, sans-serif;
-  --font-display: var(--font-inter-tight), "Inter Tight", var(--font-ui);
+  --font-display: var(--font-inter-tight), "Inter Tight", "Inter", sans-serif;
   --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
   --font-prose: var(--font-urbanist), "Urbanist", Helvetica, Arial, sans-serif;
   --font-archivo: var(--font-ui);
@@ -128,7 +128,9 @@
   --letter-ui: 0;
   --letter-label: 0.12em;
   --letter-wide: 0.12em;
-  --letter-display: -0.01em;
+  --letter-display: -0.045em;
+  --font-display-weight: 500;
+  --font-display-leading: 1.06;
 
   /* Type scale (desktop / clamps toward mobile) */
   --type-display-1: clamp(40px, 6vw, 72px);
@@ -158,11 +160,11 @@
 /* Day theme — remaps semantic tokens; keep --black / --white / --lime raw */
 html[data-theme="day"] {
   color-scheme: light;
-  --background: #f7f9f1;
-  --background-soft: #eef3e5;
-  --surface: #ffffff;
-  --surface-2: #eef3e5;
-  --surface-raised: #fbfcf7;
+  --background: #eef4e0;
+  --background-soft: #eef4e0;
+  --surface: #eef4e0;
+  --surface-2: #eef4e0;
+  --surface-raised: #eef4e0;
   --ink: #10130c;
   --foreground: #10130c;
   --text: #10130c;
@@ -179,11 +181,11 @@ html[data-theme="day"] {
   --accent: var(--lime-day);
   --accent-deep: var(--lime-day-hover);
   --accent-soft: #e9ffc2;
-  --accent-ink: #7fba00;
-  --accent-blend: #7fba00;
-  --accent-gradient: linear-gradient(90deg, #a7e800 0%, #a7e800 100%);
-  --accent-gradient-soft: linear-gradient(90deg, rgba(167, 232, 0, 0.28) 0%, rgba(167, 232, 0, 0.28) 100%);
-  --chrome: #7fba00;
+  --accent-ink: #688d00;
+  --accent-blend: #688d00;
+  --accent-gradient: linear-gradient(90deg, #688d00 0%, #688d00 100%);
+  --accent-gradient-soft: linear-gradient(90deg, rgba(104, 141, 0, 0.28) 0%, rgba(104, 141, 0, 0.28) 100%);
+  --chrome: #688d00;
   --chrome-text: var(--white);
   --chrome-muted: rgba(255, 255, 255, 0.78);
   --success: #2f7d32;
@@ -523,5 +525,31 @@ input[type="reset"],
 [class*="-btn"],
 .os-btn {
   font-family: var(--font-prose) !important;
+}
+
+/* Display titles — Inter Tight 500 / -0.045em / 1.06 (day + night) */
+.ph-hero__title,
+.ph-hero__title--statement,
+.ph-title,
+.ph-page-hero .ph-hero__title,
+.ph-cta-band__title,
+.ph-final .ph-title,
+.os-hero__title,
+.os-section__title,
+.os-final__title,
+.sg-hero__title,
+.sg-final__title,
+.sv-hero__title,
+.st-hero__title,
+.gv-hero__title,
+.page-hero__title,
+.section__title,
+.section__title--lg,
+.hero__title,
+.page--solution .seo-faq__title {
+  font-family: var(--font-display) !important;
+  font-weight: var(--font-display-weight) !important;
+  letter-spacing: var(--letter-display) !important;
+  line-height: var(--font-display-leading) !important;
 }
 

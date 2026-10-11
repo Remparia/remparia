@@ -172,12 +172,12 @@
 .sg-hero__title {
   margin: 18px 0 18px;
   max-width: 16ch;
-  font-family: var(--font-display), var(--font-ui), sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
   font-size: clamp(2rem, 4.6vw, 3.35rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  line-height: var(--font-display-leading);
+  letter-spacing: var(--letter-display);
+  text-transform: none;
 }
 
 .sg-hero__sub {
@@ -852,11 +852,11 @@
   max-width: min(100%, 22em);
   text-align: center;
   text-wrap: balance;
-  font-family: var(--font-display), var(--font-ui), sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
   font-size: clamp(30px, 4.8vw, 52px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: var(--font-display-leading);
+  letter-spacing: var(--letter-display);
   text-transform: none;
   color: #000;
 }

@@ -198,6 +198,7 @@
   display: flex;
   flex-direction: column;
   max-width: 18ch;
+  font-size: clamp(28px, 4.5vw, 48px);
 }
 
 .studio-page .st-hero__title .ph-accent {
@@ -205,15 +206,28 @@
 }
 
 .studio-page .st-hero__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 0;
   padding: 0;
   background: transparent;
-  border: 1px solid rgba(197, 255, 50, 0.14);
-  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  overflow: visible;
 }
 
-.studio-page .st-canvas {
-  background: var(--surface);
+.studio-page .st-hero__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
 }
 
 .st-canvas {

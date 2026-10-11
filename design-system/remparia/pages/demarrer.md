@@ -1,6 +1,6 @@
 # Services & Démarrer
 
-> Overrides MASTER for `/services`, `/services/[slug]`, `/demarrer`.
+> Overrides MASTER for `/demarrer`.
 
 - Shell: `PremiumPageShell` + `PremiumHero` + `PremiumSection` + `PremiumCtaBand`
 - Demarrer paths: `PremiumCard` inside `ph-workforce` (no `info-card`)

@@ -35,9 +35,7 @@ Longer citeable digest: https://www.remparia.com/llms-full.txt
 - Studio: https://www.remparia.com/fr/studio
 - Governance: https://www.remparia.com/fr/governance
 - Sovereignty: https://www.remparia.com/fr/sovereignty
-- Services: https://www.remparia.com/fr/services
 - Who it is for: https://www.remparia.com/fr/pour-qui
-- Use cases: https://www.remparia.com/fr/cas-d-usage
 - Get started: https://www.remparia.com/fr/demarrer
 - Sectors: https://www.remparia.com/fr/secteurs
 - About / team: https://www.remparia.com/fr/a-propos
@@ -52,9 +50,7 @@ Longer citeable digest: https://www.remparia.com/llms-full.txt
 - Studio: https://www.remparia.com/en/studio
 - Governance: https://www.remparia.com/en/governance
 - Sovereignty: https://www.remparia.com/en/sovereignty
-- Services: https://www.remparia.com/en/services
 - Who it is for: https://www.remparia.com/en/pour-qui
-- Use cases: https://www.remparia.com/en/cas-d-usage
 - Get started: https://www.remparia.com/en/demarrer
 - Sectors: https://www.remparia.com/en/secteurs
 - About / team: https://www.remparia.com/en/a-propos

@@ -72,7 +72,7 @@ export default function PourQuiPage() {
           <LocaleLink href="/demarrer" className="btn-primary">
             {t.ctaPrimary}
           </LocaleLink>
-          <LocaleLink href="/cas-d-usage" className="btn-ghost">
+          <LocaleLink href="/secteurs" className="btn-ghost">
             {t.ctaSecondary}
           </LocaleLink>
         </div>

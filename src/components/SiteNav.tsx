@@ -4,7 +4,13 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import LocaleLink from "@/components/LocaleLink";
-import { NAV, NAV_IA, NAV_METHOD, NAV_SOLUTIONS } from "@/lib/content";
+import {
+  NAV,
+  NAV_IA,
+  NAV_METHOD,
+  NAV_RESOURCES,
+  NAV_SOLUTIONS,
+} from "@/lib/content";
 import { useColorTheme } from "@/lib/color-theme";
 import { stripLocale } from "@/lib/i18n";
 import { useLang } from "@/lib/lang";
@@ -15,11 +21,21 @@ const FOCUSABLE =
 const PLATFORM_PATHS = new Set([
   "/solution",
   "/studio",
-  "/governance",
   "/sovereignty",
+  "/supervision",
 ]);
 
-const METHOD_PATHS = new Set(["/signal"]);
+const METHOD_PATHS = new Set(["/formation", "/signal", "/governance"]);
+
+const RESOURCE_PATHS = new Set([
+  "/blog",
+  "/carrieres",
+  "/partenariat",
+  "/a-propos",
+  "/support",
+  "/faq",
+  "/roi",
+]);
 
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();
@@ -28,6 +44,7 @@ export default function SiteNav() {
   const parcours = NAV_IA[lang];
   const methodLinks = NAV_METHOD[lang];
   const solutionsNav = NAV_SOLUTIONS[lang];
+  const resourcesNav = NAV_RESOURCES[lang];
   const pathname = usePathname();
   const logical = stripLocale(pathname || "/");
   const [navBg, setNavBg] = useState("transparent");
@@ -36,24 +53,32 @@ export default function SiteNav() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [methodOpen, setMethodOpen] = useState(false);
   const [solutionsDrawerOpen, setSolutionsDrawerOpen] = useState(false);
+  const [resourcesDrawerOpen, setResourcesDrawerOpen] = useState(false);
   const [deskServicesOpen, setDeskServicesOpen] = useState(false);
   const [deskMethodOpen, setDeskMethodOpen] = useState(false);
   const [deskSolutionsOpen, setDeskSolutionsOpen] = useState(false);
+  const [deskResourcesOpen, setDeskResourcesOpen] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const deskItemRef = useRef<HTMLDivElement>(null);
   const deskMethodRef = useRef<HTMLDivElement>(null);
   const deskSolutionsRef = useRef<HTMLDivElement>(null);
+  const deskResourcesRef = useRef<HTMLDivElement>(null);
   const drawerId = useId();
   const deskMenuId = useId();
   const deskMethodMenuId = useId();
   const deskSolutionsMenuId = useId();
+  const deskResourcesMenuId = useId();
   const deskCloseTimer = useRef<number>(0);
   const deskMethodCloseTimer = useRef<number>(0);
   const deskSolutionsCloseTimer = useRef<number>(0);
+  const deskResourcesCloseTimer = useRef<number>(0);
   const banner = t.megaBanner.enabled ? t.megaBanner : null;
   const anyMegaOpen =
-    deskServicesOpen || deskMethodOpen || deskSolutionsOpen;
+    deskServicesOpen ||
+    deskMethodOpen ||
+    deskSolutionsOpen ||
+    deskResourcesOpen;
 
   useEffect(() => {
     const onScroll = () => {
@@ -69,7 +94,9 @@ export default function SiteNav() {
       setNavBg(
         opacity <= 0.01
           ? "transparent"
-          : `color-mix(in srgb, var(--surface) ${Math.round(opacity * 100)}%, transparent)`,
+          : theme === "day"
+            ? `color-mix(in srgb, #eef4e0 ${Math.round(opacity * 100)}%, transparent)`
+            : `color-mix(in srgb, var(--surface) ${Math.round(opacity * 100)}%, transparent)`,
       );
     };
     onScroll();
@@ -82,9 +109,11 @@ export default function SiteNav() {
     setServicesOpen(false);
     setMethodOpen(false);
     setSolutionsDrawerOpen(false);
+    setResourcesDrawerOpen(false);
     setDeskServicesOpen(false);
     setDeskMethodOpen(false);
     setDeskSolutionsOpen(false);
+    setDeskResourcesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -137,7 +166,9 @@ export default function SiteNav() {
     };
   }, []);
 
-  function closeAllDesk(except?: "platform" | "method" | "solutions") {
+  function closeAllDesk(
+    except?: "platform" | "method" | "solutions" | "resources",
+  ) {
     if (except !== "platform") {
       window.clearTimeout(deskCloseTimer.current);
       setDeskServicesOpen(false);
@@ -149,6 +180,10 @@ export default function SiteNav() {
     if (except !== "solutions") {
       window.clearTimeout(deskSolutionsCloseTimer.current);
       setDeskSolutionsOpen(false);
+    }
+    if (except !== "resources") {
+      window.clearTimeout(deskResourcesCloseTimer.current);
+      setDeskResourcesOpen(false);
     }
   }
 
@@ -190,6 +225,20 @@ export default function SiteNav() {
     window.clearTimeout(deskSolutionsCloseTimer.current);
     deskSolutionsCloseTimer.current = window.setTimeout(
       () => setDeskSolutionsOpen(false),
+      delay,
+    );
+  }
+
+  function openDeskResources() {
+    closeAllDesk("resources");
+    window.clearTimeout(deskResourcesCloseTimer.current);
+    setDeskResourcesOpen(true);
+  }
+
+  function closeDeskResources(delay = 140) {
+    window.clearTimeout(deskResourcesCloseTimer.current);
+    deskResourcesCloseTimer.current = window.setTimeout(
+      () => setDeskResourcesOpen(false),
       delay,
     );
   }
@@ -239,13 +288,30 @@ export default function SiteNav() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [deskSolutionsOpen]);
 
+  useEffect(() => {
+    if (!deskResourcesOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        window.clearTimeout(deskResourcesCloseTimer.current);
+        setDeskResourcesOpen(false);
+        deskResourcesRef.current
+          ?.querySelector<HTMLElement>("button.nav__menu-label")
+          ?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [deskResourcesOpen]);
+
   const isPlatform =
-    PLATFORM_PATHS.has(logical) || logical.startsWith("/services");
+    PLATFORM_PATHS.has(logical);
   const isMethod = METHOD_PATHS.has(logical);
   const isSolutions =
     logical === "/secteurs" ||
     logical.startsWith("/secteurs/") ||
     logical.startsWith("/solutions/");
+  const isResources =
+    RESOURCE_PATHS.has(logical) || logical.startsWith("/carrieres/");
   const navCurrent = (path: string) =>
     logical === path || (path !== "/" && logical.startsWith(path + "/"))
       ? ("page" as const)
@@ -265,34 +331,19 @@ export default function SiteNav() {
               alt=""
               width={211}
               height={38}
-              className="nav__logo nav__logo--full"
+              className="nav__logo nav__logo--night"
               priority
               sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
             />
-            <span className="nav__logo-split" aria-hidden>
-              <span className="nav__logo-mark">
-                <Image
-                  src="/logo-remparia-v3.png"
-                  alt=""
-                  width={211}
-                  height={38}
-                  className="nav__logo"
-                  priority
-                  sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
-                />
-              </span>
-              <span className="nav__logo-word">
-                <Image
-                  src="/logo-remparia-v3.png"
-                  alt=""
-                  width={211}
-                  height={38}
-                  className="nav__logo"
-                  priority
-                  sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
-                />
-              </span>
-            </span>
+            <Image
+              src="/logo-remparia-day.png"
+              alt=""
+              width={211}
+              height={38}
+              className="nav__logo nav__logo--day"
+              priority
+              sizes="(max-width: 639px) 142px, (max-width: 959px) 162px, 192px"
+            />
           </span>
         </LocaleLink>
 
@@ -517,31 +568,78 @@ export default function SiteNav() {
             </div>
           </div>
 
-          <LocaleLink
-            href="/services"
-            className={
-              logical === "/services" || logical.startsWith("/services/")
-                ? "is-active"
-                : undefined
-            }
-            aria-current={navCurrent("/services")}
+          <div
+            ref={deskResourcesRef}
+            className={`nav__item${deskResourcesOpen ? " is-open" : ""}`}
+            onMouseEnter={openDeskResources}
+            onMouseLeave={() => closeDeskResources()}
+            onFocus={openDeskResources}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                closeDeskResources(0);
+              }
+            }}
           >
-            {t.services}
-          </LocaleLink>
-          <LocaleLink
-            href="/cas-d-usage"
-            className={logical === "/cas-d-usage" ? "is-active" : undefined}
-            aria-current={navCurrent("/cas-d-usage")}
-          >
-            {t.resources}
-          </LocaleLink>
-          <LocaleLink
-            href="/a-propos"
-            className={logical === "/a-propos" ? "is-active" : undefined}
-            aria-current={navCurrent("/a-propos")}
-          >
-            {t.company}
-          </LocaleLink>
+            <button
+              type="button"
+              className={`nav__menu-label${isResources ? " is-active" : ""}`}
+              aria-expanded={deskResourcesOpen}
+              aria-controls={deskResourcesMenuId}
+              aria-haspopup="true"
+              onClick={() =>
+                deskResourcesOpen
+                  ? closeDeskResources(0)
+                  : openDeskResources()
+              }
+            >
+              {t.resources}
+              <span className="nav__caret" aria-hidden>
+                ▾
+              </span>
+            </button>
+            <div
+              id={deskResourcesMenuId}
+              className="nav__mega nav__mega--compact"
+              hidden={!deskResourcesOpen}
+            >
+              <div className="nav__mega-inner">
+                <div className="nav__mega-main">
+                  <div className="nav__mega-head">
+                    <span className="nav__mega-kicker">
+                      {resourcesNav.megaKicker}
+                    </span>
+                  </div>
+                  <div className="nav__mega-links nav__mega-links--method">
+                    {resourcesNav.items.map((item) => (
+                      <LocaleLink
+                        key={item.href}
+                        href={item.href}
+                        className={`nav__mega-link${
+                          logical === item.href ||
+                          (item.href === "/carrieres" &&
+                            logical.startsWith("/carrieres/"))
+                            ? " is-active"
+                            : ""
+                        }`}
+                        aria-current={
+                          logical === item.href ||
+                          (item.href === "/carrieres" &&
+                            logical.startsWith("/carrieres/"))
+                            ? "page"
+                            : undefined
+                        }
+                      >
+                        <span className="nav__mega-tag">{item.tag}</span>
+                        <span className="nav__mega-title">{item.title}</span>
+                        <span className="nav__mega-desc">{item.desc}</span>
+                      </LocaleLink>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div className="nav__actions">
@@ -704,9 +802,51 @@ export default function SiteNav() {
           ) : null}
         </div>
 
-        <LocaleLink href="/services">[ {t.services.toUpperCase()} ]</LocaleLink>
-        <LocaleLink href="/cas-d-usage">[ {t.resources.toUpperCase()} ]</LocaleLink>
-        <LocaleLink href="/a-propos">[ {t.company.toUpperCase()} ]</LocaleLink>
+        <div className="nav__drawer-group">
+          <div className="nav__drawer-services">
+            <span
+              className={`nav__drawer-label${isResources ? " is-active" : ""}`}
+            >
+              [ {t.resources.toUpperCase()} ]
+            </span>
+            <button
+              type="button"
+              className="nav__drawer-toggle"
+              aria-expanded={resourcesDrawerOpen}
+              aria-label={resourcesNav.menuLabel}
+              onClick={() => setResourcesDrawerOpen((o) => !o)}
+            >
+              <span aria-hidden>{resourcesDrawerOpen ? "−" : "+"}</span>
+            </button>
+          </div>
+          {resourcesDrawerOpen ? (
+            <div className="nav__drawer-sub">
+              {resourcesNav.items.map((item) => (
+                <LocaleLink
+                  key={item.href}
+                  href={item.href}
+                  className={
+                    logical === item.href ||
+                    (item.href === "/carrieres" &&
+                      logical.startsWith("/carrieres/"))
+                      ? "is-active"
+                      : undefined
+                  }
+                  aria-current={
+                    logical === item.href ||
+                    (item.href === "/carrieres" &&
+                      logical.startsWith("/carrieres/"))
+                      ? "page"
+                      : undefined
+                  }
+                >
+                  {item.title}
+                </LocaleLink>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
         <LocaleLink href="/carrieres" className="nav__drawer-hiring">
           [ {t.hiring.toUpperCase()} ]
         </LocaleLink>

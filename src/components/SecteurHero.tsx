@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
 import {
   PremiumCtaBand,
@@ -50,16 +49,8 @@ export function SecteurHero({
           </LocaleLink>
         </>
       }
-      media={
-        <Image
-          src={meta.image}
-          alt=""
-          fill
-          sizes="(max-width: 960px) 100vw, 48vw"
-          priority
-          quality={85}
-        />
-      }
+      bgDay={meta.image}
+      bgNight={meta.image}
     />
   );
 }

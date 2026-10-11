@@ -2,7 +2,15 @@
 
 import Image from "next/image";
 import LocaleLink from "@/components/LocaleLink";
-import { FOOTER, NAV, NAV_IA, NAV_SOLUTIONS, SOCIAL_LINKS } from "@/lib/content";
+import {
+  FOOTER,
+  NAV,
+  NAV_IA,
+  NAV_METHOD,
+  NAV_RESOURCES,
+  NAV_SOLUTIONS,
+  SOCIAL_LINKS,
+} from "@/lib/content";
 import { CONTACT_EMAIL } from "@/lib/contact-email";
 import { useLang } from "@/lib/lang";
 
@@ -56,7 +64,9 @@ export default function SiteFooter() {
   const f = FOOTER[lang];
   const n = NAV[lang];
   const platformLinks = NAV_IA[lang];
+  const methodLinks = NAV_METHOD[lang];
   const solutionsNav = NAV_SOLUTIONS[lang];
+  const resourcesNav = NAV_RESOURCES[lang];
 
   return (
     <footer className="site-footer" role="contentinfo">
@@ -67,21 +77,35 @@ export default function SiteFooter() {
             alt={f.logoAlt}
             width={178}
             height={32}
-            className="footer__logo"
+            className="footer__logo footer__logo--night"
+          />
+          <Image
+            src="/logo-remparia-day.png"
+            alt={f.logoAlt}
+            width={178}
+            height={32}
+            className="footer__logo footer__logo--day"
           />
           <p>{f.tagline}</p>
         </div>
-        <nav aria-label={f.servicesTitle}>
-          <div className="site-footer__title">{f.servicesTitle}</div>
+        <nav aria-label={n.platform}>
+          <div className="site-footer__title">{n.platform}</div>
           {platformLinks.map((item) => (
             <LocaleLink key={item.href} href={item.href}>
               {item.title}
             </LocaleLink>
           ))}
-          <LocaleLink href="/signal">SIGNAL</LocaleLink>
         </nav>
-        <nav aria-label={f.secteursTitle} className="site-footer__secteurs">
-          <div className="site-footer__title">{f.secteursTitle}</div>
+        <nav aria-label={n.methode}>
+          <div className="site-footer__title">{n.methode}</div>
+          {methodLinks.map((item) => (
+            <LocaleLink key={item.href} href={item.href}>
+              {item.title}
+            </LocaleLink>
+          ))}
+        </nav>
+        <nav aria-label={n.solutions} className="site-footer__secteurs">
+          <div className="site-footer__title">{n.solutions}</div>
           {solutionsNav.items.map((item) => (
             <LocaleLink key={item.href} href={item.href}>
               {item.title}
@@ -91,18 +115,18 @@ export default function SiteFooter() {
             {f.secteursAll} →
           </LocaleLink>
         </nav>
-        <nav aria-label={f.exploreTitle}>
-          <div className="site-footer__title">{f.exploreTitle}</div>
-          <LocaleLink href="/pour-qui">{n.pourQui}</LocaleLink>
-          <LocaleLink href="/cas-d-usage">{n.casUsage}</LocaleLink>
-          <LocaleLink href="/services">{n.services}</LocaleLink>
-          <LocaleLink href="/demarrer">{n.demarrer}</LocaleLink>
-          <LocaleLink href="/demarrer#agentops">AgentOps</LocaleLink>
-          <LocaleLink href="/a-propos">{n.aPropos}</LocaleLink>
+        <nav aria-label={n.resources}>
+          <div className="site-footer__title">{n.resources}</div>
+          {resourcesNav.items.map((item) => (
+            <LocaleLink key={item.href} href={item.href}>
+              {item.title}
+            </LocaleLink>
+          ))}
         </nav>
         <nav aria-label={f.contactTitle}>
           <div className="site-footer__title">{f.contactTitle}</div>
           <LocaleLink href="/contact">{n.contact}</LocaleLink>
+          <LocaleLink href="/demarrer">{n.demarrer}</LocaleLink>
           <LocaleLink href="/carrieres" className="site-footer__hiring">
             {n.hiring}
           </LocaleLink>

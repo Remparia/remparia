@@ -1301,77 +1301,6 @@ const pourQui = {
   },
 } as const satisfies Record<Lang, PremiumPageCopy>;
 
-const casUsage = {
-  fr: {
-    eyebrow: "RESOURCES / CAS D’USAGE",
-    title: "Des processus métier, ",
-    titleAccent: "jamais une techno.",
-    sub: "Chaque cas d’usage décrit ce que l’agent fait, ce qu’il ne fait jamais, et ce qu’on mesure.",
-    ctaPrimary: "Lancer SIGNAL",
-    ctaPrimaryHref: "/demarrer",
-    ctaSecondary: "Voir Remparia OS",
-    ctaSecondaryHref: "/solution",
-    sections: [
-      {
-        id: "examples",
-        eyebrow: "01 / EXEMPLES",
-        title: "Familles de processus",
-        blocks: [
-          { title: "Qualification & triage", desc: "Trier, scorer, router. Décision humaine sur les seuils." },
-          { title: "Documents & conformité", desc: "Collecte, contrôle, dossier prêt pour revue." },
-          { title: "Support L1 cadré", desc: "Réponses dans le périmètre, escalade hors règles." },
-          { title: "Reporting opérationnel", desc: "Préparation analytique, pas de décision engagée." },
-        ],
-      },
-      {
-        id: "measure",
-        eyebrow: "02 / MESURE",
-        title: "Ce qu’on mesure",
-        list: [
-          "Heures répétitives récupérées",
-          "Taux d’escalade humaine",
-          "Qualité des livrables",
-          "Coût et latence du système",
-        ],
-      },
-    ],
-  },
-  en: {
-    eyebrow: "RESOURCES / USE CASES",
-    title: "Business workflows, ",
-    titleAccent: "never technology.",
-    sub: "Each use case describes what the agent does, what it never does, and what we measure.",
-    ctaPrimary: "Start SIGNAL",
-    ctaPrimaryHref: "/demarrer",
-    ctaSecondary: "See Remparia OS",
-    ctaSecondaryHref: "/solution",
-    sections: [
-      {
-        id: "examples",
-        eyebrow: "01 / EXAMPLES",
-        title: "Process families",
-        blocks: [
-          { title: "Qualification & triage", desc: "Sort, score, route. Human decision on thresholds." },
-          { title: "Documents & compliance", desc: "Collect, check, file ready for review." },
-          { title: "Framed L1 support", desc: "Answers in scope, escalate outside rules." },
-          { title: "Operational reporting", desc: "Analytical prep, no binding decisions." },
-        ],
-      },
-      {
-        id: "measure",
-        eyebrow: "02 / MEASURE",
-        title: "What we measure",
-        list: [
-          "Repetitive hours recovered",
-          "Human escalation rate",
-          "Deliverable quality",
-          "System cost and latency",
-        ],
-      },
-    ],
-  },
-} as const satisfies Record<Lang, PremiumPageCopy>;
-
 export const PAGES_PREMIUM = {
   signal,
   studio,
@@ -1385,7 +1314,6 @@ export const PAGES_PREMIUM = {
   about,
   demarrer,
   pourQui,
-  casUsage,
 } as const;
 
 export function premiumPage(

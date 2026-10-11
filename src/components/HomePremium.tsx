@@ -5,6 +5,8 @@ import { Fragment, useCallback, useId, useState } from "react";
 import HeroIntro from "@/components/HeroIntro";
 import LocaleLink from "@/components/LocaleLink";
 import PageFaq from "@/components/PageFaq";
+import RoiCalculator from "@/components/RoiCalculator";
+import { useHeroScrub } from "@/hooks/useHeroScrub";
 import { useHomeParallax } from "@/hooks/useHomeParallax";
 import { homePremium } from "@/lib/home-premium";
 import { useLang } from "@/lib/lang";
@@ -425,56 +427,6 @@ function SovProductIcon({ name }: { name: string }) {
   return <PhIcon name={name} className="ph-sov-brick__icon-glyph" />;
 }
 
-const ORG_ICONS: Record<string, string> = {
-  mission: "/icon-email.png",
-  sales: "/icon-sales-log.png",
-  salesai: "/icon-sales-ai.png",
-  document: "/icon-doc-ai.png",
-  docai: "/icon-doc-ai.png",
-  crm: "/icon-crm.png",
-  human: "/icon-customer.png",
-  finance: "/icon-finance-agent.png",
-  email: "/icon-email.png",
-  docs: "/icon-docs.png",
-  apis: "/icon-apis.png",
-  erp: "/icon-database.png",
-  orchestrator: "/icon-orchestrator.png",
-};
-
-function OrgIcon({ icon, className = "ph-org__icon" }: { icon: string; className?: string }) {
-  if (icon === "done") {
-    return <PhIcon name="check" className={`${className} ph-org__icon-glyph`} />;
-  }
-  const src = ORG_ICONS[icon];
-  if (src) {
-    return (
-      <Image
-        className={className}
-        src={src}
-        alt=""
-        width={20}
-        height={20}
-        aria-hidden
-      />
-    );
-  }
-  return <IndustryGlyph icon={icon} className={`${className} ph-org__icon-glyph`} />;
-}
-
-function OrgBranch({ count }: { count: number }) {
-  return (
-    <div className="ph-org__branch" aria-hidden data-count={count}>
-      <span className="ph-org__branch-stem" />
-      <span className="ph-org__branch-rail" />
-      <span className="ph-org__branch-drops">
-        {Array.from({ length: count }, (_, i) => (
-          <i key={i} />
-        ))}
-      </span>
-    </div>
-  );
-}
-
 function OpsSupervisionIcon() {
   return (
     <svg className="ph-ops__icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -594,20 +546,49 @@ function ModelTagBox({ items }: { items: readonly string[] }) {
   );
 }
 
-function HeroVisual({ alt }: { alt: string }) {
+function HeroScrubMedia({
+  videoRef,
+  ready,
+  label,
+}: {
+  videoRef: React.RefObject<HTMLVideoElement | null>;
+  ready: boolean;
+  label: string;
+}) {
   return (
-    <div className="ph-hero-visual">
-      <span className="ph-hero-visual__glow" aria-hidden />
-      <Image
-        src="/remparia-os-orbit-v8.png"
-        alt={alt}
-        width={1400}
-        height={1400}
-        className="ph-hero-visual__img"
-        priority
-        quality={95}
-        sizes="(max-width: 959px) 580px, 883px"
+    <div
+      className={`ph-hero__media${ready ? " is-ready" : ""}`}
+      role="img"
+      aria-label={label}
+    >
+      <picture className="ph-hero__poster">
+        <source
+          media="(prefers-reduced-motion: reduce) and (max-width: 959px)"
+          srcSet="/hero/bulb-lit-portrait.jpg"
+        />
+        <source media="(prefers-reduced-motion: reduce)" srcSet="/hero/bulb-lit-1280.jpg" />
+        <source media="(max-width: 959px)" srcSet="/hero/bulb-poster-portrait.jpg" />
+        <img
+          src="/hero/bulb-poster-1280.jpg"
+          alt=""
+          width={1280}
+          height={720}
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
+      <video
+        ref={videoRef}
+        className="ph-hero__video"
+        muted
+        playsInline
+        preload="none"
+        disablePictureInPicture
+        disableRemotePlayback
+        tabIndex={-1}
+        aria-hidden
       />
+      <span className="ph-hero__media-veil" aria-hidden />
     </div>
   );
 }
@@ -651,114 +632,6 @@ function HeroChipIcon({ id }: { id: string }) {
   );
 }
 
-function RoiCalculator({
-  labels,
-}: {
-  labels: {
-    employees: string;
-    hours: string;
-    cost: string;
-    capacity: string;
-    fte: string;
-    annual: string;
-    note: string;
-    cta: string;
-    investment: string;
-    roiPct: string;
-  };
-}) {
-  const [employees, setEmployees] = useState(50);
-  const [hours, setHours] = useState(240);
-  const [cost, setCost] = useState(38);
-  const fte = Math.max(
-    0,
-    Math.min(employees * 0.2, (hours * 0.35) / 35),
-  );
-  const annual = Math.round(hours * 0.35 * cost * 48);
-  const investment = Math.round(employees * 2800 + 10000);
-  const roi = investment > 0 ? Math.round((annual / investment) * 100) : 0;
-
-  return (
-    <div className="ph-roi reveal">
-      <div className="ph-roi__inputs">
-        <label className="ph-roi__field">
-          <span>{labels.employees}</span>
-          <div className="ph-roi__stepper">
-            <button
-              type="button"
-              aria-label="−"
-              onClick={() => setEmployees((v) => Math.max(1, v - 1))}
-            >
-              −
-            </button>
-            <input
-              type="number"
-              min={1}
-              value={employees}
-              onChange={(e) => setEmployees(Number(e.target.value) || 1)}
-            />
-            <button
-              type="button"
-              aria-label="+"
-              onClick={() => setEmployees((v) => v + 1)}
-            >
-              +
-            </button>
-          </div>
-        </label>
-        <label className="ph-roi__field">
-          <span>{labels.hours}</span>
-          <input
-            type="number"
-            min={0}
-            value={hours}
-            onChange={(e) => setHours(Number(e.target.value) || 0)}
-          />
-        </label>
-        <label className="ph-roi__field">
-          <span>{labels.cost}</span>
-          <input
-            type="number"
-            min={0}
-            value={cost}
-            onChange={(e) => setCost(Number(e.target.value) || 0)}
-          />
-        </label>
-      </div>
-      <div className="ph-roi__results">
-        <div className="ph-roi__out ph-roi__out--primary">
-          <div>
-            <div className="ph-roi__out-label">{labels.capacity}</div>
-            <div className="ph-roi__out-value">
-              {fte.toFixed(1)} {labels.fte}
-            </div>
-          </div>
-          <div>
-            <div className="ph-roi__out-label">{labels.annual}</div>
-            <div className="ph-roi__out-value ph-roi__out-value--lg">
-              €{annual.toLocaleString("fr-FR")}
-            </div>
-          </div>
-        </div>
-        <div className="ph-roi__stats">
-          <div className="ph-roi__stat">
-            <span>{labels.investment}</span>
-            <strong>€{investment.toLocaleString("fr-FR")}</strong>
-          </div>
-          <div className="ph-roi__stat">
-            <span>{labels.roiPct}</span>
-            <strong>{roi}%</strong>
-          </div>
-        </div>
-        <p className="ph-roi__note">{labels.note}</p>
-        <LocaleLink href="/demarrer" className="btn-primary">
-          {labels.cta} →
-        </LocaleLink>
-      </div>
-    </div>
-  );
-}
-
 export default function HomePremium() {
   const { lang } = useLang();
   const t = homePremium(lang);
@@ -770,6 +643,8 @@ export default function HomePremium() {
   const onHoldStart = useCallback(() => setHolding(true), []);
   const onHoldComplete = useCallback(() => setHolding(false), []);
 
+  const { trackRef: heroTrackRef, videoRef: heroVideoRef, ready: heroReady } = useHeroScrub();
+
   useHomeParallax(false);
 
   return (
@@ -780,99 +655,94 @@ export default function HomePremium() {
         onComplete={onHoldComplete}
       />
       <header
-        className={`ph-hero ph-hero--orbit ph-parallax${holding ? " is-holding" : ""}`}
+        ref={heroTrackRef}
+        className={`ph-hero ph-hero--orbit ph-hero--scrub${holding ? " is-holding" : ""}`}
       >
-        <div className="ph-hero__bg" aria-hidden>
-          <Image
-            src="/home-bg-hero-energy.png"
-            alt=""
-            fill
-            priority
-            quality={100}
-            sizes="100vw"
-            unoptimized
-            className="ph-hero__bg-img ph-hero__bg-img--night"
+        <div className="ph-hero__pin">
+          <div className="ph-hero__bg" aria-hidden>
+            <Image
+              src="/home-bg-hero-day.jpg"
+              alt=""
+              fill
+              priority
+              quality={100}
+              sizes="100vw"
+              className="ph-hero__bg-img ph-hero__bg-img--day"
+            />
+          </div>
+          <HeroScrubMedia
+            videoRef={heroVideoRef}
+            ready={heroReady}
+            label={
+              lang === "fr"
+                ? "Une ampoule s’allume : un cerveau lumineux prend forme à l’intérieur."
+                : "A light bulb switches on as a glowing brain takes shape inside."
+            }
           />
-          <Image
-            src="/home-bg-hero-day.jpg"
-            alt=""
-            fill
-            priority
-            quality={100}
-            sizes="100vw"
-            className="ph-hero__bg-img ph-hero__bg-img--day"
-          />
-        </div>
-        <div className="ph-parallax__depth ph-parallax__depth--hero" aria-hidden />
-        <div className="ph-shell ph-section__layout">
-          <div className="ph-hero__stage">
-            <div className="ph-hero__intro ph-parallax__fore">
-              <h1 className="ph-hero__title ph-hero__title--statement ph-anim-hero" data-d="1">
-                <span className="ph-hero__title-row">
-                  {t.hero.titleBefore}
-                  <span className="ph-accent">{t.hero.titleAccent}</span>
-                </span>
-                <span className="ph-hero__title-row">
-                  {t.hero.titleLine2Before}
-                  <span className="ph-accent">{t.hero.titleLine2Accent}</span>
-                </span>
-              </h1>
-              <p className="ph-hero__sub ph-anim-hero" data-d="2">
-                {t.hero.sub}
-              </p>
-              <div className="ph-hero__actions ph-anim-hero" data-d="3">
-                <LocaleLink href="/demarrer" className="btn-primary ph-hero__cta">
-                  {t.hero.cta} <span aria-hidden>→</span>
-                </LocaleLink>
-                <a href={t.hero.ctaSecondaryHref} className="btn-ghost ph-hero__cta-secondary">
-                  {t.hero.ctaSecondary}
-                </a>
-              </div>
-            </div>
-
-            <div className="ph-hero__orbit ph-parallax__back">
-              <ul className="ph-hero__chips">
-                {t.hero.chips.map((chip) => (
-                  <li
-                    key={chip.id}
-                    className={`ph-hero__chip ph-hero__chip--${chip.id}`}
-                  >
-                    <LocaleLink
-                      href={chip.href}
-                      className="ph-hero__chip-link"
-                    >
-                      <span className="ph-hero__chip-icon" aria-hidden>
-                        <HeroChipIcon id={chip.id} />
-                      </span>
-                      <span className="ph-hero__chip-body">
-                        <span className="ph-hero__chip-tag">
-                          {chip.tag}
-                          <i />
-                        </span>
-                        <span className="ph-hero__chip-text">{chip.text}</span>
-                      </span>
-                    </LocaleLink>
-                  </li>
-                ))}
-              </ul>
-              <HeroVisual
-                alt={
-                  lang === "fr"
-                    ? "Remparia OS — noyau d’orchestration IA, énergie et orbites gouvernées."
-                    : "Remparia OS — AI orchestration core, governed energy and orbits."
-                }
-              />
-            </div>
-
-            <div className="ph-hero__foot ph-parallax__fore">
-              <p className="ph-hero__proof">
-                {t.hero.proof.map((item, i) => (
-                  <span key={item}>
-                    {i > 0 ? <span aria-hidden> › </span> : null}
-                    {item}
+          <div className="ph-shell ph-section__layout">
+            <div className="ph-hero__stage">
+              <div className="ph-hero__intro ph-parallax__fore">
+                <h1 className="ph-hero__title ph-hero__title--statement ph-anim-hero" data-d="1">
+                  <span className="ph-hero__title-row">
+                    {t.hero.titleBefore}
+                    <span className="ph-accent">{t.hero.titleAccent}</span>
                   </span>
-                ))}
-              </p>
+                  <span className="ph-hero__title-row">
+                    {t.hero.titleLine2Before}
+                    <span className="ph-accent">{t.hero.titleLine2Accent}</span>
+                  </span>
+                </h1>
+                <p className="ph-hero__sub ph-anim-hero" data-d="2">
+                  {t.hero.sub}
+                </p>
+                <div className="ph-hero__actions ph-anim-hero" data-d="3">
+                  <LocaleLink href="/demarrer" className="btn-primary ph-hero__cta">
+                    {t.hero.cta} <span aria-hidden>→</span>
+                  </LocaleLink>
+                  <a href={t.hero.ctaSecondaryHref} className="btn-ghost ph-hero__cta-secondary">
+                    {t.hero.ctaSecondary}
+                  </a>
+                </div>
+              </div>
+
+              <div className="ph-hero__orbit ph-parallax__back">
+                <ul className="ph-hero__chips">
+                  {t.hero.chips.map((chip, i) => (
+                    <li
+                      key={chip.id}
+                      className={`ph-hero__chip ph-hero__chip--${chip.id}`}
+                      style={{ "--chip-at": 0.4 + i * 0.08 } as React.CSSProperties}
+                    >
+                      <LocaleLink
+                        href={chip.href}
+                        className="ph-hero__chip-link"
+                      >
+                        <span className="ph-hero__chip-icon" aria-hidden>
+                          <HeroChipIcon id={chip.id} />
+                        </span>
+                        <span className="ph-hero__chip-body">
+                          <span className="ph-hero__chip-tag">
+                            {chip.tag}
+                            <i />
+                          </span>
+                          <span className="ph-hero__chip-text">{chip.text}</span>
+                        </span>
+                      </LocaleLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="ph-hero__foot ph-parallax__fore">
+                <p className="ph-hero__proof">
+                  {t.hero.proof.map((item, i) => (
+                    <span key={item}>
+                      {i > 0 ? <span aria-hidden> › </span> : null}
+                      {item}
+                    </span>
+                  ))}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -959,101 +829,6 @@ export default function HomePremium() {
               ) : null}
             </Fragment>
           ))}
-        </div>
-      </PhSection>
-
-      <PhSection id="en-action" eyebrow={t.org.eyebrow}>
-        <div className="ph-org">
-          <div className="ph-org__copy">
-            <AccentTitle
-              before={t.org.titleBefore}
-              accent={t.org.titleAccent}
-            />
-            <p className="ph-body reveal" data-d="1">{t.org.body}</p>
-            <LocaleLink href="/solution" className="btn-ghost reveal" data-d="2">
-              {t.org.cta} →
-            </LocaleLink>
-          </div>
-          <div className="ph-org__panel reveal" data-d="2">
-            <div className="ph-org__log">
-              <div className="ph-org__log-title">{t.org.logTitle}</div>
-              <ul>
-                {t.org.logs.map((line, i) => (
-                  <li key={line.title} className="reveal" data-d={String((i % 3) + 1)}>
-                    <span className="ph-org__log-check" aria-hidden />
-                    <span className="ph-org__log-icon">
-                      <OrgIcon icon={line.icon} />
-                    </span>
-                    <span className="ph-org__log-copy">
-                      <strong>{line.title}</strong>
-                      <time>{line.time}</time>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className="ph-org__saved">
-                <PhIcon name="zap" className="ph-org__saved-icon" />
-                {t.org.saved}
-              </div>
-            </div>
-
-            <div className="ph-org__flow">
-              <div className="ph-org__card ph-org__card--human">
-                <OrgIcon icon="human" className="ph-org__card-icon" />
-                <strong>{t.org.human.title}</strong>
-                <span>
-                  <i className="ph-org__status" aria-hidden />
-                  {t.org.human.desc}
-                </span>
-              </div>
-
-              <div className="ph-org__line" aria-hidden />
-
-              <div className="ph-org__card ph-org__card--orch">
-                <OrgIcon icon="orchestrator" className="ph-org__card-icon" />
-                <strong>{t.org.orchestrator.title}</strong>
-                <span>{t.org.orchestrator.desc}</span>
-              </div>
-
-              <OrgBranch count={3} />
-
-              <div className="ph-org__agents">
-                {t.org.agents.map((agent) => (
-                  <div key={agent.title} className="ph-org__card ph-org__card--agent">
-                    <OrgIcon icon={agent.icon} className="ph-org__card-icon" />
-                    <strong>{agent.title}</strong>
-                    <span>{agent.desc}</span>
-                    <i className="ph-org__pedestal" aria-hidden />
-                  </div>
-                ))}
-              </div>
-
-              <div className="ph-org__line ph-org__line--wide" aria-hidden />
-
-              <div className="ph-org__card ph-org__card--os">
-                <Image
-                  className="ph-org__os-icon"
-                  src="/icon-remparia-os.png"
-                  alt=""
-                  width={28}
-                  height={28}
-                  aria-hidden
-                />
-                <strong>{t.org.os}</strong>
-              </div>
-
-              <OrgBranch count={5} />
-
-              <div className="ph-org__tools">
-                {t.org.tools.map((tool) => (
-                  <div key={tool.label} className="ph-org__tool">
-                    <OrgIcon icon={tool.icon} className="ph-org__tool-icon" />
-                    <span>{tool.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </PhSection>
 
