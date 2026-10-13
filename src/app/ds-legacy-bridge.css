@@ -22,13 +22,29 @@
   font-family: var(--font-display) !important;
   font-stretch: normal !important;
   text-transform: none !important;
+}
+
+.section__title,
+.section__title--lg,
+.section__head .section__title,
+.info-card h2,
+.info-card h3,
+.diff-card h3,
+.service-diag__title,
+.legal-doc__title,
+.team-card__name,
+.signal-card__title,
+.position-card__title {
   font-weight: var(--font-display-weight) !important;
   letter-spacing: var(--letter-display) !important;
   line-height: var(--font-display-leading) !important;
 }
 
 .page-hero__title {
-  font-size: var(--type-display-2) !important;
+  font-size: clamp(58px, 6.05vw, 70px) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.058em !important;
+  line-height: 1.01 !important;
 }
 
 .section__title {
@@ -134,18 +150,32 @@
 .nav__hiring {
   text-transform: none !important;
   border-radius: var(--btn-radius) !important;
-  letter-spacing: 0 !important;
+  letter-spacing: var(--btn-letter) !important;
   font: var(--btn-font) !important;
-  color: var(--lime) !important;
-  background: transparent !important;
-  box-shadow: none !important;
 }
 
-.nav__hiring:hover,
-.nav__hiring.is-active {
+.nav__links > a.nav__offre,
+.nav__links > a.nav__offre.is-active,
+.nav__links > a.nav__offre:hover,
+.nav__links > a.nav__offre:focus-visible,
+.nav__links > .nav__item > .nav__menu-label.nav__offre,
+.nav__links > .nav__item > .nav__menu-label.nav__offre.is-active,
+.nav__links > .nav__item > .nav__menu-label.nav__offre:hover,
+.nav__links > .nav__item > .nav__menu-label.nav__offre:focus-visible,
+.nav__links > .nav__item.is-open > .nav__menu-label.nav__offre {
   color: var(--lime) !important;
-  background: var(--lime-20) !important;
-  border-color: var(--lime-40) !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: var(--lime) !important;
+  font-weight: 700;
+}
+
+.nav__drawer-offre,
+.nav__drawer-offre.is-active,
+.nav__drawer-label.nav__drawer-offre {
+  color: var(--lime) !important;
+  font-weight: 700;
 }
 
 .nav__mega-link {
@@ -474,18 +504,8 @@ a.info-card:focus-visible {
 }
 
 .cookie-banner__btn {
-  border-radius: var(--radius) !important;
+  border-radius: var(--btn-radius) !important;
   text-transform: none !important;
-}
-
-.cookie-banner__btn--primary {
-  background: var(--lime) !important;
-  color: var(--ink) !important;
-}
-
-.cookie-banner__btn--ghost:hover {
-  border-color: var(--lime-40) !important;
-  background: var(--lime-20) !important;
 }
 
 /* ——— Legal doc ——— */
@@ -586,12 +606,15 @@ a.info-card:focus-visible {
 
 .page--premium .ph-btn--ghost {
   border-radius: var(--btn-radius) !important;
-  border-color: var(--border-accent) !important;
+  color: #b7b7b7 !important;
+  border-color: #484f3b !important;
+  background: #10130c !important;
 }
 
 .page--premium .ph-btn--ghost:hover {
-  border-color: var(--lime) !important;
-  background: var(--lime-20) !important;
+  color: #d0d0d0 !important;
+  border-color: #5a6250 !important;
+  background: #161a12 !important;
 }
 
 /* ——— Inner page alias: treat page--inner like premium-inner ——— */

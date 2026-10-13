@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
-import ResourcesSimplePage from "@/components/pages/ResourcesSimplePage";
+import FormationPage from "@/components/premium/FormationPage";
 import { toLang } from "@/lib/i18n";
 import {
   breadcrumbJsonLd,
@@ -39,7 +39,7 @@ export default async function Page({ params }: Props) {
           ),
         ]}
       />
-      <ResourcesSimplePage id="formation" />
+      <FormationPage />
     </>
   );
 }

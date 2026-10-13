@@ -39,6 +39,10 @@ export const SIGNAL_PAGE = {
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "Voir comment ça marche",
     ctaSecondaryHref: "#protocol",
+    heroBar: {
+      left: "SIGNAL · 6 étapes, un livrable signé à chacune",
+      right: "Observer · Scorer · Décider",
+    },
     radar: {
       company: "Votre entreprise",
       processes: "Processus",
@@ -46,6 +50,49 @@ export const SIGNAL_PAGE = {
       people: "Personnes",
       systems: "Systèmes",
       core: "SIGNAL",
+    },
+    proof: {
+      eyebrow: "Pourquoi commencer par SIGNAL",
+      titleBefore: "Un projet IA ne manque pas d’idées. ",
+      titleAccent: "Il manque de priorités vérifiables.",
+      body: "SIGNAL part du travail réel, mesure la faisabilité et pose les portes humaines avant le premier agent.",
+      stats: [
+        {
+          value: "80 %",
+          label:
+            "des projets d’automatisation n’atteignent jamais la production",
+          source: "Benchmark interne Remparia, 2025",
+        },
+        {
+          value: "6",
+          label: "étapes avec un livrable signé avant la suivante",
+          source: "Protocole SIGNAL",
+        },
+        {
+          value: "10–12",
+          suffix: "semaines",
+          label: "pour aller du terrain au transfert sur le protocole complet",
+          source: "Cadence SIGNAL habituelle",
+        },
+      ],
+    },
+    compare: {
+      eyebrow: "Avant de construire",
+      titleBefore: "Sortir du catalogue d’idées. ",
+      titleAccent: "Entrer dans une décision.",
+      body: "La même opportunité change de priorité quand on regarde les données, les exceptions, les droits et la capacité des équipes à la superviser.",
+      beforeTitle: "Sans SIGNAL",
+      before: [
+        "Une idée choisie parce qu’elle se démontre bien",
+        "Un ROI annoncé avant d’avoir observé le processus",
+        "Les risques et les droits traités après la POC",
+      ],
+      afterTitle: "Avec SIGNAL",
+      after: [
+        "Le travail réel et ses exceptions sont cartographiés",
+        "Impact, faisabilité et risque sont scorés ensemble",
+        "ALLOW / REVIEW / BLOCK sont définis avant le build",
+      ],
     },
     results: {
       title: "Les résultats SIGNAL",
@@ -222,9 +269,11 @@ export const SIGNAL_PAGE = {
       ] satisfies SignalOpportunity[],
     },
     faq: {
-      eyebrow: "FAQ",
-      title: "Questions sur la méthodologie SIGNAL",
-      sub: "Les réponses aux questions les plus fréquentes avant de lancer votre scan.",
+      eyebrow: "Avant de lancer le scan",
+      titleBefore: "Les questions",
+      titleAccent: "SIGNAL.",
+      more: "Une autre question ?",
+      moreHref: "mailto:contact@remparia.com",
       items: [
         {
           q: "Qu’est-ce que SIGNAL, concrètement ?",
@@ -274,6 +323,10 @@ export const SIGNAL_PAGE = {
     ctaPrimaryHref: "/demarrer",
     ctaSecondary: "See how it works",
     ctaSecondaryHref: "#protocol",
+    heroBar: {
+      left: "SIGNAL · 6 stages, a signed deliverable at each one",
+      right: "Observe · Score · Decide",
+    },
     radar: {
       company: "Your company",
       processes: "Processes",
@@ -281,6 +334,48 @@ export const SIGNAL_PAGE = {
       people: "People",
       systems: "Systems",
       core: "SIGNAL",
+    },
+    proof: {
+      eyebrow: "Why start with SIGNAL",
+      titleBefore: "AI projects do not lack ideas. ",
+      titleAccent: "They lack verifiable priorities.",
+      body: "SIGNAL starts from real work, measures feasibility and defines human gates before the first agent.",
+      stats: [
+        {
+          value: "80%",
+          label: "of automation projects never reach production",
+          source: "Remparia internal benchmark, 2025",
+        },
+        {
+          value: "6",
+          label: "stages, each closed by a signed deliverable",
+          source: "SIGNAL protocol",
+        },
+        {
+          value: "10–12",
+          suffix: "weeks",
+          label: "from field observation to transfer for the full protocol",
+          source: "Typical SIGNAL cadence",
+        },
+      ],
+    },
+    compare: {
+      eyebrow: "Before building",
+      titleBefore: "Leave the idea catalogue. ",
+      titleAccent: "Make a decision.",
+      body: "The same opportunity changes priority when data, exceptions, permissions and the team’s ability to supervise it are examined.",
+      beforeTitle: "Without SIGNAL",
+      before: [
+        "An idea selected because it demos well",
+        "ROI announced before observing the process",
+        "Risks and permissions addressed after the PoC",
+      ],
+      afterTitle: "With SIGNAL",
+      after: [
+        "Real work and its exceptions are mapped",
+        "Impact, feasibility and risk are scored together",
+        "ALLOW / REVIEW / BLOCK are defined before the build",
+      ],
     },
     results: {
       title: "The SIGNAL results",
@@ -456,9 +551,11 @@ export const SIGNAL_PAGE = {
       ] satisfies SignalOpportunity[],
     },
     faq: {
-      eyebrow: "FAQ",
-      title: "Questions about the SIGNAL methodology",
-      sub: "Answers to the most common questions before you start your scan.",
+      eyebrow: "Before starting your scan",
+      titleBefore: "Questions about",
+      titleAccent: "SIGNAL.",
+      more: "Another question?",
+      moreHref: "mailto:contact@remparia.com",
       items: [
         {
           q: "What is SIGNAL, exactly?",

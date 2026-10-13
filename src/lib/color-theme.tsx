@@ -13,6 +13,7 @@ import {
   COLOR_THEME_DAY_BG,
   COLOR_THEME_NIGHT_BG,
   COLOR_THEME_STORAGE_KEY,
+  themeFromLocalHour,
 } from "@/lib/color-theme-boot";
 
 export type ColorTheme = "night" | "day";
@@ -22,6 +23,7 @@ export {
   COLOR_THEME_DAY_BG,
   COLOR_THEME_NIGHT_BG,
   COLOR_THEME_STORAGE_KEY,
+  themeFromLocalHour,
 } from "@/lib/color-theme-boot";
 
 type ColorThemeContextValue = {
@@ -34,7 +36,8 @@ type ColorThemeContextValue = {
 
 const ColorThemeContext = createContext<ColorThemeContextValue | null>(null);
 
-function readStoredTheme(): ColorTheme {
+/** Prefer explicit localStorage choice; otherwise follow local hour. */
+function resolveInitialTheme(): ColorTheme {
   if (typeof window === "undefined") return "night";
   try {
     const stored = localStorage.getItem(COLOR_THEME_STORAGE_KEY);
@@ -42,7 +45,7 @@ function readStoredTheme(): ColorTheme {
   } catch {
     /* ignore */
   }
-  return "night";
+  return themeFromLocalHour();
 }
 
 function applyThemeToDocument(theme: ColorTheme) {
@@ -66,7 +69,7 @@ export function ColorThemeProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const next = readStoredTheme();
+    const next = resolveInitialTheme();
     setThemeState(next);
     applyThemeToDocument(next);
     setReady(true);

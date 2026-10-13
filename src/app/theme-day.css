@@ -3,17 +3,61 @@
  * Remaps hardcoded night hexes. Agent view stays night (uses --black).
  */
 
-/* ——— Actions — day accent #A7E800, light secondary ——— */
-html[data-theme="day"] .btn-secondary {
-  color: var(--text) !important;
-  background: var(--surface);
-  border-color: var(--border);
+/* ——— Hero intro — day paper + logo day + accents projet ——— */
+html[data-theme="day"] .hero-intro {
+  background: var(--background);
+}
+
+html[data-theme="day"] .hero-intro__orbit {
+  background: conic-gradient(
+    from -90deg,
+    transparent 0 52%,
+    rgba(167, 232, 0, 0.16) 64%,
+    var(--accent) 78%,
+    rgba(167, 232, 0, 0.22) 88%,
+    transparent 100%
+  );
+}
+
+html[data-theme="day"] .hero-intro__slogan {
+  color: rgba(16, 19, 12, 0.58);
+}
+
+html[data-theme="day"] .hero-intro__skip {
+  color: var(--accent-ink) !important;
+}
+
+html[data-theme="day"] .hero-intro__skip:hover,
+html[data-theme="day"] .hero-intro__skip:focus-visible {
+  color: var(--accent) !important;
+}
+
+/* ——— Actions — secondary (Contact / On recrute / ghost) ——— */
+html[data-theme="day"] .btn-secondary,
+html[data-theme="day"] .btn-ghost,
+html[data-theme="day"] .ph-btn--ghost,
+html[data-theme="day"] .cookie-banner__btn--ghost,
+html[data-theme="day"] .os-btn--ghost {
+  color: #606859 !important;
+  border-color: #d9e0ce !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
 }
 
 html[data-theme="day"] .btn-secondary:hover,
-html[data-theme="day"] .btn-secondary:focus-visible {
-  border-color: var(--text);
-  background: var(--background);
+html[data-theme="day"] .btn-secondary:focus-visible,
+html[data-theme="day"] .btn-ghost:hover,
+html[data-theme="day"] .btn-ghost:focus-visible,
+html[data-theme="day"] .ph-btn--ghost:hover,
+html[data-theme="day"] .ph-btn--ghost:focus-visible,
+html[data-theme="day"] .cookie-banner__btn--ghost:hover,
+html[data-theme="day"] .cookie-banner__btn--ghost:focus-visible,
+html[data-theme="day"] .os-btn--ghost:hover,
+html[data-theme="day"] .os-btn--ghost:focus-visible {
+  color: #4a5240 !important;
+  border-color: #c5ceba !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
 }
 
 /* ——— Scrollbar ——— */
@@ -119,6 +163,38 @@ html[data-theme="day"] .nav.nav--solid .nav__menu-btn {
     color: #688d00 !important;
     -webkit-text-fill-color: #688d00 !important;
   }
+
+  html[data-theme="day"] .nav__links > a.nav__offre,
+  html[data-theme="day"] .nav__links > a.nav__offre.is-active,
+  html[data-theme="day"] .nav__links > a.nav__offre:hover,
+  html[data-theme="day"] .nav__links > a.nav__offre:focus-visible,
+  html[data-theme="day"] .nav__links > .nav__item > .nav__menu-label.nav__offre,
+  html[data-theme="day"]
+    .nav__links
+    > .nav__item
+    > .nav__menu-label.nav__offre.is-active,
+  html[data-theme="day"]
+    .nav__links
+    > .nav__item
+    > .nav__menu-label.nav__offre:hover,
+  html[data-theme="day"]
+    .nav__links
+    > .nav__item
+    > .nav__menu-label.nav__offre:focus-visible,
+  html[data-theme="day"]
+    .nav__links
+    > .nav__item.is-open
+    > .nav__menu-label.nav__offre {
+    color: #688d00 !important;
+    -webkit-text-fill-color: #688d00 !important;
+    font-weight: 700;
+  }
+}
+
+html[data-theme="day"] .nav__drawer-offre,
+html[data-theme="day"] .nav__drawer-offre.is-active,
+html[data-theme="day"] .nav__drawer-label.nav__drawer-offre {
+  color: #688d00 !important;
 }
 
 html[data-theme="day"] .nav.nav--solid {
@@ -126,25 +202,10 @@ html[data-theme="day"] .nav.nav--solid {
   color: var(--text);
 }
 
-html[data-theme="day"] .nav.nav--solid .nav__hiring,
-html[data-theme="day"] .nav:not(.nav--solid) .nav__hiring {
-  color: var(--accent-ink) !important;
-  border-color: var(--border-accent) !important;
-}
-
 html[data-theme="day"] .nav.nav--solid .nav__lang,
 html[data-theme="day"] .nav:not(.nav--solid) .nav__lang {
   color: #101010 !important;
   border-color: var(--border) !important;
-}
-
-html[data-theme="day"] .nav.nav--solid .nav__hiring:hover,
-html[data-theme="day"] .nav.nav--solid .nav__hiring.is-active,
-html[data-theme="day"] .nav:not(.nav--solid) .nav__hiring:hover,
-html[data-theme="day"] .nav:not(.nav--solid) .nav__hiring.is-active {
-  color: var(--text-on-lime) !important;
-  background: var(--accent) !important;
-  border-color: var(--accent-ink) !important;
 }
 
 html[data-theme="day"] .nav.nav--solid .nav__lang:hover,
@@ -928,19 +989,6 @@ html[data-theme="day"] .ph-section--light .ph-org__tool span {
   color: var(--text-muted) !important;
 }
 
-html[data-theme="day"] .ph-org .btn-ghost {
-  color: #101010 !important;
-  border-color: #5f6858 !important;
-  background: transparent !important;
-}
-
-html[data-theme="day"] .ph-org .btn-ghost:hover,
-html[data-theme="day"] .ph-org .btn-ghost:focus-visible {
-  color: #101010 !important;
-  border-color: #101010 !important;
-  background: rgba(0, 0, 0, 0.04) !important;
-  box-shadow: none !important;
-}
 
 html[data-theme="day"] .ph-industry-panel,
 html[data-theme="day"] .ph-section--light .ph-industry-panel {
@@ -1874,18 +1922,6 @@ html[data-theme="day"] .studio-page .ph-page-hero .ph-accent {
   color: var(--accent-ink);
 }
 
-html[data-theme="day"] .studio-page .ph-page-hero .btn-ghost {
-  color: #101010 !important;
-  border-color: var(--border) !important;
-  background: var(--surface) !important;
-}
-
-html[data-theme="day"] .studio-page .ph-page-hero .btn-ghost:hover,
-html[data-theme="day"] .studio-page .ph-page-hero .btn-ghost:focus-visible {
-  color: #101010 !important;
-  border-color: var(--border-accent) !important;
-  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%) !important;
-}
 
 html[data-theme="day"] .studio-page .st-hero__media {
   border: none;
@@ -2353,18 +2389,6 @@ html[data-theme="day"] .sovereignty-page .sv-hero__title .ph-accent {
   color: var(--accent-ink);
 }
 
-html[data-theme="day"] .sovereignty-page .ph-page-hero .btn-ghost {
-  color: #101010 !important;
-  border-color: var(--border) !important;
-  background: var(--surface) !important;
-}
-
-html[data-theme="day"] .sovereignty-page .ph-page-hero .btn-ghost:hover,
-html[data-theme="day"] .sovereignty-page .ph-page-hero .btn-ghost:focus-visible {
-  color: #101010 !important;
-  border-color: var(--border-accent) !important;
-  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%) !important;
-}
 
 html[data-theme="day"] .governance-page .ph-page-hero {
   background-color: #eef4e0;
@@ -2431,18 +2455,6 @@ html[data-theme="day"] .governance-page .ph-page-hero .btn-primary:focus-visible
   box-shadow: none;
 }
 
-html[data-theme="day"] .governance-page .ph-page-hero .btn-ghost {
-  color: #101010 !important;
-  border-color: var(--border) !important;
-  background: var(--surface) !important;
-}
-
-html[data-theme="day"] .governance-page .ph-page-hero .btn-ghost:hover,
-html[data-theme="day"] .governance-page .ph-page-hero .btn-ghost:focus-visible {
-  color: #101010 !important;
-  border-color: var(--border-accent) !important;
-  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%) !important;
-}
 
 /* Services hero — full-bleed day/night photos via <Image unoptimized> */
 html[data-theme="day"] .services-page .ph-page-hero {
@@ -2606,24 +2618,6 @@ html[data-theme="day"] .page--commerce-agent .ph-crumbs a:focus-visible {
   color: #101010;
 }
 
-html[data-theme="day"] .page--pack-rich .ph-page-hero .btn-ghost,
-html[data-theme="day"] .page--secteur .ph-page-hero .btn-ghost,
-html[data-theme="day"] .page--commerce-agent .ph-page-hero .btn-ghost {
-  color: #101010 !important;
-  border-color: var(--border) !important;
-  background: var(--surface) !important;
-}
-
-html[data-theme="day"] .page--pack-rich .ph-page-hero .btn-ghost:hover,
-html[data-theme="day"] .page--pack-rich .ph-page-hero .btn-ghost:focus-visible,
-html[data-theme="day"] .page--secteur .ph-page-hero .btn-ghost:hover,
-html[data-theme="day"] .page--secteur .ph-page-hero .btn-ghost:focus-visible,
-html[data-theme="day"] .page--commerce-agent .ph-page-hero .btn-ghost:hover,
-html[data-theme="day"] .page--commerce-agent .ph-page-hero .btn-ghost:focus-visible {
-  color: #101010 !important;
-  border-color: var(--border-accent) !important;
-  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%) !important;
-}
 
 html[data-theme="day"] .governance-page .gv-hero__media {
   border: none;
@@ -2874,12 +2868,12 @@ html[data-theme="day"] .sg-section--journey .sg-section__sub {
 }
 
 html[data-theme="day"] .sg-faq__question {
-  background: #ffffff;
+  background: transparent;
   color: var(--text);
 }
 
 html[data-theme="day"] .sg-faq__question::after {
-  color: var(--accent-ink);
+  color: var(--text);
 }
 
 html[data-theme="day"] .sg-faq__answer {
@@ -2923,17 +2917,7 @@ html[data-theme="day"] .sg-spider__label span {
   color: #101010;
 }
 
-html[data-theme="day"] .sg-protocol__index,
-html[data-theme="day"] .sg-protocol__letter {
-  color: var(--lime);
-}
-
-html[data-theme="day"] .sg-protocol__name {
-  color: var(--text);
-}
-
-html[data-theme="day"] .sg-protocol__desc,
-html[data-theme="day"] .sg-protocol__time {
+html[data-theme="day"] .sg-protocol__desc {
   color: var(--text-muted);
 }
 
@@ -3459,59 +3443,6 @@ html[data-theme="day"] textarea::placeholder {
   color: var(--text-faint);
 }
 
-/* Ghost buttons everywhere in day — Remparia dark green */
-html[data-theme="day"] .btn-ghost,
-html[data-theme="day"] .ph-btn--ghost,
-html[data-theme="day"] .cookie-banner__btn--ghost,
-html[data-theme="day"] .os-btn--ghost {
-  color: var(--accent-ink) !important;
-  border-color: color-mix(in srgb, var(--accent-ink) 45%, transparent) !important;
-  background: transparent !important;
-}
-
-html[data-theme="day"] .btn-ghost:hover,
-html[data-theme="day"] .btn-ghost:focus-visible,
-html[data-theme="day"] .ph-btn--ghost:hover,
-html[data-theme="day"] .ph-btn--ghost:focus-visible,
-html[data-theme="day"] .cookie-banner__btn--ghost:hover,
-html[data-theme="day"] .cookie-banner__btn--ghost:focus-visible,
-html[data-theme="day"] .os-btn--ghost:hover,
-html[data-theme="day"] .os-btn--ghost:focus-visible {
-  color: var(--lime-ink-deep) !important;
-  border-color: var(--accent-ink) !important;
-  background: var(--lime-20) !important;
-}
-
-html[data-theme="day"] .os-hero .os-btn--ghost {
-  color: #101010 !important;
-  background: #ffffff !important;
-  border-color: var(--border) !important;
-}
-
-html[data-theme="day"] .os-hero .os-btn--ghost:hover,
-html[data-theme="day"] .os-hero .os-btn--ghost:focus-visible {
-  color: #101010 !important;
-  border-color: #101010 !important;
-  background: var(--background) !important;
-}
-
-html[data-theme="day"] .ph-section--light .btn-ghost,
-html[data-theme="day"] .page--premium-inner .ph-section--light .btn-ghost {
-  color: #101010 !important;
-  border-color: #5f6858 !important;
-  background: transparent !important;
-}
-
-html[data-theme="day"] .ph-section--light .btn-ghost:hover,
-html[data-theme="day"] .ph-section--light .btn-ghost:focus-visible,
-html[data-theme="day"] .page--premium-inner .ph-section--light .btn-ghost:hover,
-html[data-theme="day"] .page--premium-inner .ph-section--light .btn-ghost:focus-visible {
-  color: #101010 !important;
-  border-color: #101010 !important;
-  background: rgba(0, 0, 0, 0.04) !important;
-  box-shadow: none !important;
-}
-
 /* Home hero — CTA primaire en accent électrique (#A7E800). */
 html[data-theme="day"] .ph-hero .btn-primary,
 html[data-theme="day"] .ph-hero .ph-hero__cta {
@@ -3532,34 +3463,6 @@ html[data-theme="day"] .ph-hero .ph-hero__cta:focus-visible {
   box-shadow: 0 0 0 1px var(--border-accent);
 }
 
-/* Home hero — light media plane in day: ghost en noir. */
-html[data-theme="day"] .ph-hero .btn-ghost {
-  color: #101010 !important;
-  border-color: var(--border) !important;
-  background: transparent !important;
-}
-
-html[data-theme="day"] .ph-hero .btn-ghost:hover,
-html[data-theme="day"] .ph-hero .btn-ghost:focus-visible {
-  color: #101010 !important;
-  border-color: var(--border-strong) !important;
-  background: rgba(0, 0, 0, 0.04) !important;
-  box-shadow: none !important;
-}
-
-/* Inner page heroes stay dark — light lime ghosts. */
-html[data-theme="day"] .ph-page-hero .btn-ghost {
-  color: var(--lime) !important;
-  border-color: var(--border-accent) !important;
-  background: transparent !important;
-}
-
-html[data-theme="day"] .ph-page-hero .btn-ghost:hover,
-html[data-theme="day"] .ph-page-hero .btn-ghost:focus-visible {
-  color: var(--lime) !important;
-  border-color: var(--lime) !important;
-  background: var(--lime-20) !important;
-}
 
 html[data-theme="day"] .gv-faq__item,
 html[data-theme="day"] .ph-section--light .gv-faq__item,

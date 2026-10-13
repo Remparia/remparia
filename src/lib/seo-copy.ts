@@ -198,6 +198,30 @@ const COPY = {
         "Frequently asked questions about SIGNAL, Studio, Remparia OS and agent governance.",
     },
   },
+  "/offres": {
+    fr: {
+      title: "Offres Remparia",
+      description:
+        "Catalogue des offres Remparia : Remparia GED et les parcours à venir.",
+    },
+    en: {
+      title: "Remparia offers",
+      description:
+        "Remparia offer catalog: Remparia GED and upcoming products.",
+    },
+  },
+  "/offres/ged": {
+    fr: {
+      title: "Remparia GED — documents en moins de 15 secondes",
+      description:
+        "GED pour TPE et PME : classer, compléter, conserver. Un agent IA répond à vos questions, sources à l’appui. Hébergé en France.",
+    },
+    en: {
+      title: "Remparia GED — find any document in under 15 seconds",
+      description:
+        "DMS for SMEs: file, complete, retain. An AI agent answers your questions with sources. Hosted in France.",
+    },
+  },
   "/formation": {
     fr: {
       title: "Formation et sensibilisation Remparia",

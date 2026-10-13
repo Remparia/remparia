@@ -551,10 +551,10 @@ html[data-theme="day"] .ph-hero__bg-img--day {
   gap: 0;
   margin: 0 0 26px;
   font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: clamp(34px, 5.2vw, 99px);
-  line-height: var(--font-display-leading);
-  letter-spacing: var(--letter-display);
+  font-weight: 600;
+  font-size: clamp(58px, 6.05vw, 70px);
+  line-height: 1.01;
+  letter-spacing: -0.058em;
   color: #fff;
 }
 
@@ -562,9 +562,9 @@ html[data-theme="day"] .ph-hero__bg-img--day {
   gap: 0.12em;
   margin-bottom: 18px;
   max-width: 22ch;
-  font-size: clamp(28px, 4.2vw, 56px);
-  line-height: var(--font-display-leading);
-  letter-spacing: var(--letter-display);
+  font-size: clamp(58px, 6.05vw, 70px);
+  line-height: 1.01;
+  letter-spacing: -0.058em;
 }
 
 .ph-hero__sub {
@@ -610,15 +610,6 @@ html[data-theme="day"] .ph-hero__bg-img--day {
 
 .ph-hero__cta-secondary {
   align-self: center;
-}
-
-.ph-hero .ph-hero__cta-secondary.btn-ghost {
-  border-color: var(--border);
-}
-
-.ph-hero .ph-hero__cta-secondary.btn-ghost:hover,
-.ph-hero .ph-hero__cta-secondary.btn-ghost:focus-visible {
-  border-color: var(--border-strong);
 }
 
 .ph-hero__sub {
@@ -3974,19 +3965,25 @@ html[data-theme="day"] .ph-hero__media-veil {
 }
 
 .ph-section--light .btn-ghost,
-.page--premium-inner .ph-section--light .btn-ghost {
-  border-color: #5f6858;
-  color: #101010 !important;
-  background: transparent;
+.page--premium-inner .ph-section--light .btn-ghost,
+.ph-section--light .btn-secondary,
+.page--premium-inner .ph-section--light .btn-secondary {
+  border-color: #d9e0ce;
+  color: #606859 !important;
+  background: #ffffff;
 }
 
 .ph-section--light .btn-ghost:hover,
 .ph-section--light .btn-ghost:focus-visible,
 .page--premium-inner .ph-section--light .btn-ghost:hover,
-.page--premium-inner .ph-section--light .btn-ghost:focus-visible {
-  border-color: #101010;
-  color: #101010 !important;
-  background: rgba(0, 0, 0, 0.04);
+.page--premium-inner .ph-section--light .btn-ghost:focus-visible,
+.ph-section--light .btn-secondary:hover,
+.ph-section--light .btn-secondary:focus-visible,
+.page--premium-inner .ph-section--light .btn-secondary:hover,
+.page--premium-inner .ph-section--light .btn-secondary:focus-visible {
+  border-color: #c5ceba;
+  color: #4a5240 !important;
+  background: #ffffff;
   box-shadow: none;
 }
 

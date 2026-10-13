@@ -29,6 +29,7 @@ function isInternalLabPath(pathname: string | null) {
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { isAgent } = useViewMode();
+
   const isolated =
     isCareersApplyPath(pathname) || isInternalLabPath(pathname);
 

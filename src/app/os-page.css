@@ -92,24 +92,27 @@
 }
 
 .os-btn--ghost {
-  border: 1px solid color-mix(in srgb, var(--white) 35%, transparent);
-  color: var(--chrome-text);
-  background: transparent;
+  border: 1px solid #484f3b;
+  color: #b7b7b7;
+  background: #10130c;
 }
 
 .os-btn--ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: #5a6250;
+  color: #d0d0d0;
+  background: #161a12;
 }
 
 .os-btn--ghost-dark {
-  border: 1px solid rgba(0, 0, 0, 0.45);
-  color: #000;
-  background: transparent;
+  border: 1px solid #d9e0ce;
+  color: #606859;
+  background: #ffffff;
 }
 
 .os-btn--ghost-dark:hover {
-  background: rgba(0, 0, 0, 0.08);
+  border-color: #c5ceba;
+  color: #4a5240;
+  background: #ffffff;
 }
 
 /* ——— Hero ——— */
@@ -187,10 +190,10 @@ html[data-theme="day"] .os-hero__bg-img--day {
   margin: 0 0 18px;
   max-width: 14ch;
   font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: clamp(2rem, 4.6vw, 3.35rem);
-  line-height: var(--font-display-leading);
-  letter-spacing: var(--letter-display);
+  font-weight: 600;
+  font-size: clamp(58px, 6.05vw, 70px);
+  line-height: 1.01;
+  letter-spacing: -0.058em;
   text-transform: none;
 }
 

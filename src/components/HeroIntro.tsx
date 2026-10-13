@@ -99,7 +99,16 @@ export default function HeroIntro({
                 alt=""
                 width={211}
                 height={38}
-                className="hero-intro__img"
+                className="hero-intro__img hero-intro__img--night"
+                priority
+                unoptimized
+              />
+              <Image
+                src="/logo-remparia-day.png"
+                alt=""
+                width={211}
+                height={38}
+                className="hero-intro__img hero-intro__img--day"
                 priority
                 unoptimized
               />
@@ -111,7 +120,16 @@ export default function HeroIntro({
               alt=""
               width={211}
               height={38}
-              className="hero-intro__img hero-intro__img--word"
+              className="hero-intro__img hero-intro__img--word hero-intro__img--night"
+              priority
+              unoptimized
+            />
+            <Image
+              src="/logo-remparia-day.png"
+              alt=""
+              width={211}
+              height={38}
+              className="hero-intro__img hero-intro__img--word hero-intro__img--day"
               priority
               unoptimized
             />

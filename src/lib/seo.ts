@@ -574,6 +574,7 @@ export function getAllContentPaths() {
     "/signal",
     "/formation",
     "/supervision",
+    "/offres/ged",
     "/pour-qui",
     "/demarrer",
     "/secteurs",

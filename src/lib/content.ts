@@ -5,6 +5,7 @@ export type Lang = "fr" | "en";
 
 export const NAV = {
   fr: {
+    offre: "Offres",
     platform: "Plateforme",
     methode: "Méthodes",
     method: "Méthodes",
@@ -31,7 +32,9 @@ export const NAV = {
     demarrer: "Démarrer",
     parcoursMenu: "Sous-menu parcours",
     methodMenu: "Sous-menu méthodes",
+    offreMenu: "Sous-menu offres",
     megaMethod: "Méthodes",
+    megaOffre: "Offres",
     megaViewMethod: "Voir le protocole",
     megaBanner: {
       enabled: true,
@@ -46,6 +49,7 @@ export const NAV = {
     },
   },
   en: {
+    offre: "Offers",
     platform: "Platform",
     methode: "Methods",
     method: "Methods",
@@ -72,7 +76,9 @@ export const NAV = {
     demarrer: "Get started",
     parcoursMenu: "Path submenu",
     methodMenu: "Methods submenu",
+    offreMenu: "Offers submenu",
     megaMethod: "Methods",
+    megaOffre: "Offers",
     megaViewMethod: "See the protocol",
     megaBanner: {
       enabled: true,
@@ -86,6 +92,50 @@ export const NAV = {
       cta: "Book →",
     },
   },
+} as const;
+
+/** Liens Offres (mega-menu + drawer mobile). Pages existantes, pas de doublon de route. */
+export const NAV_OFFRES = {
+  fr: [
+    {
+      href: "/offres/ged",
+      tag: "GED",
+      title: "Remparia GED",
+      desc: "Retrouvez n’importe quel document en moins de 15 secondes.",
+    },
+    {
+      href: "/signal",
+      tag: "SIGNAL",
+      title: "Protocole SIGNAL",
+      desc: "Trouver où l’IA crée de la valeur, avant de construire.",
+    },
+    {
+      href: "/formation",
+      tag: "FORMATION",
+      title: "Formation et sensibilisation",
+      desc: "Faire adopter les agents : usages réels, risques et supervision.",
+    },
+  ],
+  en: [
+    {
+      href: "/offres/ged",
+      tag: "GED",
+      title: "Remparia GED",
+      desc: "Find any document in under 15 seconds.",
+    },
+    {
+      href: "/signal",
+      tag: "SIGNAL",
+      title: "SIGNAL protocol",
+      desc: "Find where AI creates value, before you build.",
+    },
+    {
+      href: "/formation",
+      tag: "TRAINING",
+      title: "Training and awareness",
+      desc: "Drive adoption: real usage, risks and supervision.",
+    },
+  ],
 } as const;
 
 /** Liens Platform (mega-menu + drawer mobile). */

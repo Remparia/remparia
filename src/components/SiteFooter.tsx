@@ -7,6 +7,7 @@ import {
   NAV,
   NAV_IA,
   NAV_METHOD,
+  NAV_OFFRES,
   NAV_RESOURCES,
   NAV_SOLUTIONS,
   SOCIAL_LINKS,
@@ -65,6 +66,7 @@ export default function SiteFooter() {
   const n = NAV[lang];
   const platformLinks = NAV_IA[lang];
   const methodLinks = NAV_METHOD[lang];
+  const offreLinks = NAV_OFFRES[lang];
   const solutionsNav = NAV_SOLUTIONS[lang];
   const resourcesNav = NAV_RESOURCES[lang];
 
@@ -88,6 +90,14 @@ export default function SiteFooter() {
           />
           <p>{f.tagline}</p>
         </div>
+        <nav aria-label={n.offre}>
+          <div className="site-footer__title">{n.offre}</div>
+          {offreLinks.map((item) => (
+            <LocaleLink key={item.href} href={item.href}>
+              {item.title}
+            </LocaleLink>
+          ))}
+        </nav>
         <nav aria-label={n.platform}>
           <div className="site-footer__title">{n.platform}</div>
           {platformLinks.map((item) => (

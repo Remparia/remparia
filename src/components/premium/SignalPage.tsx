@@ -95,12 +95,12 @@ function HeroRadar({
     <div className="sg-radar">
       <Image
         className="sg-radar__img"
-        src="/signal-hero-radar.png"
+        src="/signal-hero-loupe.png"
         alt={alt}
         width={1024}
-        height={1024}
+        height={443}
         priority
-        sizes="(max-width: 959px) 94vw, min(748px, 56vw)"
+        sizes="(max-width: 959px) 94vw, min(860px, 62vw)"
       />
     </div>
   );
@@ -208,20 +208,99 @@ export default function SignalPage() {
             </h1>
             <p className="sg-hero__sub">{t.sub}</p>
             <div className="sg-hero__actions">
-              <LocaleLink href={t.ctaPrimaryHref} className="sg-btn sg-btn--outline">
-                {t.ctaPrimary} →
+              <LocaleLink href={t.ctaPrimaryHref} className="offer-btn offer-btn--dark">
+                {t.ctaPrimary} <span aria-hidden="true">↗</span>
               </LocaleLink>
-              <a href={t.ctaSecondaryHref} className="sg-link-play">
-                <span className="sg-link-play__icon" aria-hidden>
-                  ▶
-                </span>
-                {t.ctaSecondary}
+              <a href={t.ctaSecondaryHref} className="offer-text-link">
+                {t.ctaSecondary} <span aria-hidden="true">↓</span>
               </a>
             </div>
           </div>
           <HeroRadar {...t.radar} />
         </div>
       </header>
+
+      <div className="offer-hero-bar sg-shell">
+        <span>{t.heroBar.left}</span>
+        <span>
+          {t.heroBar.right} <span aria-hidden="true">↓</span>
+        </span>
+      </div>
+
+      <ul className="offer-pillars sg-shell" aria-hidden="true">
+        {t.journey.steps.map((step, i) => (
+          <li key={step.id}>
+            <small>
+              {String(i + 1).padStart(2, "0")} / {step.letter}
+            </small>
+            <span>{step.title}</span>
+          </li>
+        ))}
+      </ul>
+
+      <section className="sg-proof" aria-labelledby="sg-proof-title">
+        <div className="sg-shell">
+          <div className="sg-proof__intro">
+            <p className="sg-kicker">{t.proof.eyebrow}</p>
+            <h2 id="sg-proof-title">
+              {t.proof.titleBefore}
+              <span>{t.proof.titleAccent}</span>
+            </h2>
+            <p>{t.proof.body}</p>
+          </div>
+          <div className="sg-proof__stats">
+            {t.proof.stats.map((stat) => (
+              <article className="sg-proof__stat" key={stat.value}>
+                <p className="sg-proof__value">
+                  {stat.value}
+                  {"suffix" in stat && stat.suffix ? (
+                    <small>{stat.suffix}</small>
+                  ) : null}
+                </p>
+                <p className="sg-proof__label">{stat.label}</p>
+                <p className="sg-proof__source">{stat.source}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sg-compare" aria-labelledby="sg-compare-title">
+        <div className="sg-shell">
+          <div className="sg-compare__intro">
+            <p className="sg-kicker">{t.compare.eyebrow}</p>
+            <h2 id="sg-compare-title">
+              {t.compare.titleBefore}
+              <span>{t.compare.titleAccent}</span>
+            </h2>
+            <p>{t.compare.body}</p>
+          </div>
+          <div className="sg-compare__grid">
+            <article className="sg-compare__side sg-compare__side--before">
+              <p className="sg-compare__label">{t.compare.beforeTitle}</p>
+              <ul>
+                {t.compare.before.map((item) => (
+                  <li key={item}>
+                    <span aria-hidden="true">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article className="sg-compare__side sg-compare__side--after">
+              <p className="sg-compare__label">{t.compare.afterTitle}</p>
+              <ul>
+                {t.compare.after.map((item) => (
+                  <li key={item}>
+                    <span aria-hidden="true">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <section className="sg-section" aria-labelledby="sg-results-title">
         <div className="sg-shell sg-split">
@@ -375,32 +454,55 @@ export default function SignalPage() {
       <section className="sg-section sg-faq" aria-labelledby="sg-faq-title">
         <div className="sg-shell sg-faq__inner">
           <header className="sg-faq__head">
-            <span className="sg-badge sg-badge--soft">{t.faq.eyebrow}</span>
+            <p className="sg-kicker">{t.faq.eyebrow}</p>
             <h2 id="sg-faq-title" className="sg-faq__title">
-              {t.faq.title}
+              {t.faq.titleBefore}
+              <br />
+              <span>{t.faq.titleAccent}</span>
             </h2>
-            <p className="sg-faq__sub">{t.faq.sub}</p>
           </header>
-          <div className="sg-faq__list">
-            {t.faq.items.map((faq) => (
-              <details key={faq.q} className="sg-faq__item">
-                <summary className="sg-faq__question">{faq.q}</summary>
-                <p className="sg-faq__answer">{faq.a}</p>
-              </details>
-            ))}
+          <div className="sg-faq__panel">
+            <div className="sg-faq__list">
+              {t.faq.items.map((faq) => (
+                <details key={faq.q} className="sg-faq__item">
+                  <summary className="sg-faq__question">{faq.q}</summary>
+                  <p className="sg-faq__answer">{faq.a}</p>
+                </details>
+              ))}
+            </div>
+            <a className="offer-text-link sg-faq__more" href={t.faq.moreHref}>
+              {t.faq.more} <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </section>
 
       <section className="sg-final" aria-labelledby="sg-final-title">
-        <div className="sg-shell sg-final__inner">
-          <h2 id="sg-final-title" className="sg-final__title">
-            {t.final.title}
-          </h2>
-          <LocaleLink href={t.final.href} className="btn-primary sg-final__cta">
-            {t.final.cta} →
-          </LocaleLink>
-          <p className="sg-final__tagline">{t.final.body}</p>
+        <div className="sg-shell sg-final__grid">
+          <div className="sg-final__copy">
+            <h2 id="sg-final-title" className="sg-final__title">
+              {t.final.title}
+            </h2>
+            <LocaleLink href={t.final.href} className="btn-primary sg-final__cta">
+              {t.final.cta} →
+            </LocaleLink>
+            <p className="sg-final__tagline">{t.final.body}</p>
+          </div>
+          <figure className="sg-final__media">
+            <video
+              className="sg-final__video"
+              src="/assets/ged/faq-questions.mp4"
+              playsInline
+              muted
+              loop
+              autoPlay
+              preload="auto"
+              disablePictureInPicture
+              disableRemotePlayback
+              aria-hidden="true"
+              tabIndex={-1}
+            />
+          </figure>
         </div>
       </section>
     </div>

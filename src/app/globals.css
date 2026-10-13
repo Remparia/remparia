@@ -6,6 +6,7 @@
 @import "./governance-page.css";
 @import "./sovereignty-page.css";
 @import "./signal-page.css";
+@import "./formation-page.css";
 @import "./os-page.css";
 @import "./commerce-page.css";
 @import "./agents-page.css";
@@ -13,6 +14,7 @@
 @import "./ds-lab.css";
 @import "./ds-legacy-bridge.css";
 @import "./theme-day.css";
+@import "./offer-ged-skin.css";
 
 :root {
   /* Neutrals — Remparia visual system */
@@ -135,6 +137,7 @@
   /* Type scale (desktop / clamps toward mobile) */
   --type-display-1: clamp(40px, 6vw, 72px);
   --type-display-2: clamp(32px, 5vw, 56px);
+  --type-hero-h1: clamp(58px, 6.05vw, 70px);
   --type-h1: clamp(28px, 4vw, 40px);
   --type-h2: clamp(22px, 3vw, 32px);
   --type-h3: clamp(18px, 2.5vw, 24px);
@@ -527,7 +530,7 @@ input[type="reset"],
   font-family: var(--font-prose) !important;
 }
 
-/* Display titles — Inter Tight 500 / -0.045em / 1.06 (day + night) */
+/* Display titles — Inter Tight. H1 metrics live on `html h1`; H2s keep 500 / -0.045em / 1.06. */
 .ph-hero__title,
 .ph-hero__title--statement,
 .ph-title,
@@ -548,8 +551,27 @@ input[type="reset"],
 .hero__title,
 .page--solution .seo-faq__title {
   font-family: var(--font-display) !important;
+}
+
+.ph-title,
+.ph-cta-band__title,
+.ph-final .ph-title,
+.os-section__title,
+.os-final__title,
+.sg-final__title,
+.section__title,
+.section__title--lg,
+.page--solution .seo-faq__title {
   font-weight: var(--font-display-weight) !important;
   letter-spacing: var(--letter-display) !important;
   line-height: var(--font-display-leading) !important;
+}
+
+html h1,
+html[data-theme] h1 {
+  font-size: var(--type-hero-h1) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.058em !important;
+  line-height: 1.01 !important;
 }
 

@@ -117,14 +117,14 @@ export default function CookieBanner() {
         <div className="cookie-banner__actions">
           <button
             type="button"
-            className="cookie-banner__btn cookie-banner__btn--ghost"
+            className="btn-secondary cookie-banner__btn cookie-banner__btn--ghost"
             onClick={() => choose("refused")}
           >
             {t.refuse}
           </button>
           <button
             type="button"
-            className="cookie-banner__btn cookie-banner__btn--primary"
+            className="btn-primary cookie-banner__btn cookie-banner__btn--primary"
             onClick={() => choose("accepted")}
           >
             {t.accept}
