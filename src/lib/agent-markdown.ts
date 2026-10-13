@@ -847,11 +847,11 @@ export function buildAgentMarkdown(
         ),
       ),
       section(
-        s.faq.title,
+        `${s.faq.titleBefore} ${s.faq.titleAccent}`,
         lines(
-          s.faq.sub,
-          "",
           s.faq.items.map((item) => `**${item.q}** ${item.a}`).join("\n\n"),
+          "",
+          `[${s.faq.more}](${s.faq.moreHref})`,
         ),
       ),
       siteIndex({ lang, locale }),
