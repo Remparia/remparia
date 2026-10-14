@@ -292,8 +292,8 @@ const pages: Record<ResourcePageId, { fr: PremiumPageCopy; en: PremiumPageCopy }
         sub: "SIGNAL, Studio, Remparia OS : ce qu’on apprend en cadrant, en assemblant et en opérant des agents métier.",
         ctaPrimary: "Lire bientôt",
         ctaPrimaryHref: "/contact",
-        ctaSecondary: "Voir la FAQ",
-        ctaSecondaryHref: "/faq",
+        ctaSecondary: "Voir SIGNAL",
+        ctaSecondaryHref: "/signal",
         sections: [
           {
             id: "coming",
@@ -310,8 +310,8 @@ const pages: Record<ResourcePageId, { fr: PremiumPageCopy; en: PremiumPageCopy }
         sub: "SIGNAL, Studio, Remparia OS: what we learn while scoping, assembling and running business agents.",
         ctaPrimary: "Coming soon",
         ctaPrimaryHref: "/contact",
-        ctaSecondary: "See the FAQ",
-        ctaSecondaryHref: "/faq",
+        ctaSecondary: "See SIGNAL",
+        ctaSecondaryHref: "/signal",
         sections: [
           {
             id: "coming",

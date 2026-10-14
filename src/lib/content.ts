@@ -245,46 +245,16 @@ export const NAV_RESOURCES = {
     menuLabel: "Sous-menu ressources",
     items: [
       {
-        href: "/blog",
-        tag: "BLOG",
-        title: "Blog",
-        desc: "Notes produit, méthode SIGNAL et retours de terrain.",
-      },
-      {
         href: "/carrieres",
         tag: "CARRIÈRES",
         title: "Carrières",
         desc: "Rejoindre l’équipe Remparia.",
       },
       {
-        href: "/partenariat",
-        tag: "PARTENARIAT",
-        title: "Partenariat",
-        desc: "Intégrateurs, cabinets et réseaux qui déploient avec nous.",
-      },
-      {
         href: "/a-propos",
         tag: "ENTREPRISE",
         title: "À propos",
         desc: "Vision, équipe et comment Remparia travaille.",
-      },
-      {
-        href: "/support",
-        tag: "SUPPORT",
-        title: "Customer support",
-        desc: "Aide, incidents et suivi des environnements en production.",
-      },
-      {
-        href: "/faq",
-        tag: "FAQ",
-        title: "FAQ",
-        desc: "Réponses courtes avant le premier agent.",
-      },
-      {
-        href: "/roi",
-        tag: "ROI",
-        title: "ROI calculator",
-        desc: "Estimer charge récupérable et hypothèses d’investissement.",
       },
     ],
   },
@@ -293,46 +263,16 @@ export const NAV_RESOURCES = {
     menuLabel: "Resources submenu",
     items: [
       {
-        href: "/blog",
-        tag: "BLOG",
-        title: "Blog",
-        desc: "Product notes, SIGNAL method and field write-ups.",
-      },
-      {
         href: "/carrieres",
         tag: "CAREERS",
         title: "Careers",
         desc: "Join the Remparia team.",
       },
       {
-        href: "/partenariat",
-        tag: "PARTNERS",
-        title: "Partnership",
-        desc: "Integrators, firms and networks that deploy with us.",
-      },
-      {
         href: "/a-propos",
         tag: "COMPANY",
         title: "About",
         desc: "Vision, team and how Remparia works.",
-      },
-      {
-        href: "/support",
-        tag: "SUPPORT",
-        title: "Customer support",
-        desc: "Help, incidents and production environment follow-up.",
-      },
-      {
-        href: "/faq",
-        tag: "FAQ",
-        title: "FAQ",
-        desc: "Short answers before the first agent.",
-      },
-      {
-        href: "/roi",
-        tag: "ROI",
-        title: "ROI calculator",
-        desc: "Estimate reclaimable load and investment assumptions.",
       },
     ],
   },

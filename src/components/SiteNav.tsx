@@ -30,15 +30,7 @@ const METHOD_PATHS = new Set(["/formation", "/signal", "/governance"]);
 
 const OFFRE_PATHS = new Set(["/offres/ged"]);
 
-const RESOURCE_PATHS = new Set([
-  "/blog",
-  "/carrieres",
-  "/partenariat",
-  "/a-propos",
-  "/support",
-  "/faq",
-  "/roi",
-]);
+const RESOURCE_PATHS = new Set(["/carrieres", "/a-propos"]);
 
 export default function SiteNav() {
   const { lang, toggleLang } = useLang();

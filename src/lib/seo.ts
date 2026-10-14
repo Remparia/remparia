@@ -109,6 +109,11 @@ const SITEMAP_EXCLUDED = new Set([
   "/carrieres/candidature/2",
   "/carrieres/candidature/3",
   "/design-system",
+  "/blog",
+  "/partenariat",
+  "/support",
+  "/faq",
+  "/roi",
 ]);
 
 export function createPageMetadata({
@@ -584,11 +589,6 @@ export function getAllContentPaths() {
     "/solutions/commerce",
     "/a-propos",
     "/carrieres",
-    "/blog",
-    "/partenariat",
-    "/support",
-    "/faq",
-    "/roi",
     "/contact",
     "/mentions-legales",
     "/confidentialite",
